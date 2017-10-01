@@ -1,1 +1,13 @@
-{}
+{
+    "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+    "project": {
+        "name": "meepo"
+    },
+    "apps": [{
+        "name": "core-demo",
+        "root": "src/core/demo",
+        "outDir": "dist/core/demo",
+        "index": "index.html",
+        "tsconfig": "tsconfig.app.json"
+    }]
+}
