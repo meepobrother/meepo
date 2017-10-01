@@ -1,0 +1,26 @@
+{
+  "name": "meepo",
+  "version": "1.0.0",
+  "description": "meepo framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meepobrother/meepo.git"
+  },
+  "keywords": [
+    "meepo",
+    "framework",
+    "angular",
+    "exporess",
+    "socket.io"
+  ],
+  "author": "imeepos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/meepobrother/meepo/issues"
+  },
+  "homepage": "https://github.com/meepobrother/meepo#readme"
+}
