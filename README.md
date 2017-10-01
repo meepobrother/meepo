@@ -1,3 +1,3 @@
-# meepo
+# ng.meepo
 
-meepo ui framework
+meepo angular ui framework
