@@ -1,6 +1,7 @@
 
-import { OnInit, Inject } from '@angular/core';
+import { OnInit, Inject, Optional } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
+import { Title } from '@angular/platform-browser';
 /**
  * 页面基类
  */
@@ -23,14 +24,17 @@ export abstract class PageBase implements OnInit {
     url: string;
 
     constructor(
-        @Inject(DOCUMENT) public document: any
-    ){}
+        @Optional() @Inject(DOCUMENT) public _document$: any,
+    ) {
+        this._document$ = this._document$ || {};
+    }
 
-    ngOnInit() { 
+    ngOnInit() {
         this.setTitle(this.title);
     }
 
     setTitle(val: string) {
-        this.document.setTitle(this.title);
+        this._document$.title = this.title;
     }
+
 }

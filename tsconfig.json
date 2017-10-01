@@ -1,5 +1,29 @@
 {
     "compilerOptions": {
-        "experimentalDecorators": true
-    }
+        "target": "es5",
+        "module": "commonjs",
+        "experimentalDecorators": true,
+        "typeRoots": [
+            "./node_modules/@types",
+            "./node_modules"
+        ],
+        "types": [
+            "node"
+        ],
+        "lib": [
+            "es2015",
+            "dom"
+        ],
+        "rootDir": ".",
+        "baseUrl": ".",
+        "paths": {
+            "@meepo/core": ["src/core/public_api"]
+        }
+    },
+    "exclude": [
+        "node_modules",
+        "dist",
+        "tmp",
+        "**/*.spec.ts"
+    ]
 }
