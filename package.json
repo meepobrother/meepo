@@ -1,26 +1,38 @@
 {
-  "name": "meepo",
-  "version": "1.0.0",
-  "description": "meepo framework",
-  "main": "index.js",
-  "scripts": {
-    "test": "test"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/meepobrother/meepo.git"
-  },
-  "keywords": [
-    "meepo",
-    "framework",
-    "angular",
-    "exporess",
-    "socket.io"
-  ],
-  "author": "imeepos",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/meepobrother/meepo/issues"
-  },
-  "homepage": "https://github.com/meepobrother/meepo#readme"
+    "name": "meepo",
+    "version": "1.0.0",
+    "description": "meepo framework",
+    "main": "index.js",
+    "scripts": {
+        "test": "test"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/meepobrother/meepo.git"
+    },
+    "keywords": [
+        "meepo",
+        "framework",
+        "angular",
+        "exporess",
+        "socket.io"
+    ],
+    "author": "imeepos",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/meepobrother/meepo/issues"
+    },
+    "homepage": "https://github.com/meepobrother/meepo#readme",
+    "dependencies": {
+        "@angular/common": "^4.4.4",
+        "@angular/core": "^4.4.4",
+        "@angular/forms": "^4.4.4",
+        "@angular/platform-browser": "^4.4.4",
+        "@angular/router": "^4.4.4",
+        "rxjs": "^5.4.3",
+        "zone.js": "^0.8.18"
+    },
+    "devDependencies": {
+        "@angular/cli": "^1.4.4"
+    }
 }
