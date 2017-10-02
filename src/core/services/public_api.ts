@@ -1,0 +1,2 @@
+export * from './weixin.service';
+

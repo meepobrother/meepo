@@ -1,16 +1,20 @@
-import { Component, OnInit, Optional, SkipSelf } from '@angular/core';
-import { Title } from '@angular/platform-browser';
+import { Component, OnInit, Optional, SkipSelf, Inject } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { PageBase } from '@meepo/core';
 @Component({
     selector: 'demo-app',
     template: `
-        <test-core-base></test-core-base>
         <router-outlet></router-outlet>
     `
 })
-export class AppComponent implements OnInit {
+export class AppComponent extends PageBase {
+    title: string = '欢迎使用';
     constructor(
-    ) { }
-
-    ngOnInit() { 
+        @Inject(DOCUMENT) public _doc: any
+    ) {
+        super();
+    }
+    ngOnInit() {
+        this.setDoc(this._doc).setTitle(this.title);
     }
 }
