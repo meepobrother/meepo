@@ -6,7 +6,8 @@
     "scripts": {
         "test": "test",
         "runner.start": "ng server --app runner-demo",
-        "core.start": "ng server --app core-demo"
+        "core.start": "ng ftp:runner && ng server --app core-demo",
+        "ftp:runner": "gulp runner"
     },
     "repository": {
         "type": "git",
