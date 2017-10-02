@@ -1,0 +1,33 @@
+<nz-layout>
+    <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzCollapsedWidth]="0" [nzBreakpoint]="'lg'">
+        <div class="logo">米波同城</div>
+        <ul nz-menu [nzTheme]="'dark'" [nzMode]="isCollapsed? 'vertical': 'inline'">
+            <li nz-menu-item [routerLink]="['/','welcome']">
+                <span>
+                    <i class="anticon anticon-user"></i>
+                    <span class="nav-text">概述</span>
+                </span>
+            </li>
+            <li nz-menu-item [routerLink]="['/','setting']">
+                <span>
+                    <i class="anticon anticon-user"></i>
+                    <span class="nav-text">页面装修</span>
+                </span>
+            </li>
+        </ul>
+    </nz-sider>
+    <nz-layout>
+        <nz-header style="background: #fff; padding:0;">
+            <i class="anticon trigger" [class.anticon-menu-fold]="!isCollapsed" [class.anticon-menu-unfold]="isCollapsed" (click)="isCollapsed=!isCollapsed"></i>
+        </nz-header>
+        <nz-content>
+            <nz-breadcrumb style="margin:12px 0;">
+                <nz-breadcrumb-item>User</nz-breadcrumb-item>
+                <nz-breadcrumb-item>Bill</nz-breadcrumb-item>
+            </nz-breadcrumb>
+            <router-outlet></router-outlet>
+            <nz-back-top></nz-back-top>
+        </nz-content>
+        <nz-footer style="text-align: center;">meepo ©2017 Design By http://meepo.com.cn</nz-footer>
+    </nz-layout>
+</nz-layout>

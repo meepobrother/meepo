@@ -5,7 +5,10 @@
 
 html,
 body,
-runner-root {
+admin-root,
+routers-page,
+nz-layout {
     height: 100%;
     width: 100%;
+    display: block;
 }
