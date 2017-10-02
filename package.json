@@ -4,7 +4,9 @@
     "description": "meepo framework",
     "main": "index.js",
     "scripts": {
-        "test": "test"
+        "test": "test",
+        "runner.start": "ng server --app runner-demo",
+        "core.start": "ng server --app core-demo"
     },
     "repository": {
         "type": "git",

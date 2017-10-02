@@ -4,23 +4,44 @@
         "name": "meepo"
     },
     "apps": [{
-        "name": "core-demo",
-        "root": "src/core/demo",
-        "outDir": "dist/core/demo",
-        "assets": [
-            "assets"
-        ],
-        "index": "index.html",
-        "tsconfig": "tsconfig.app.json",
-        "main": "main.ts",
-        "polyfills": "polyfills.ts",
-        "styles": [
-            "style.scss"
-        ],
-        "environmentSource": "environments/environment.ts",
-        "environments": {
-            "dev": "environments/environment.ts",
-            "prod": "environments/environment.prod.ts"
+            "name": "core-demo",
+            "root": "src/core/demo",
+            "outDir": "dist/core/demo",
+            "assets": [
+                "assets"
+            ],
+            "index": "index.html",
+            "tsconfig": "tsconfig.app.json",
+            "main": "main.ts",
+            "polyfills": "polyfills.ts",
+            "styles": [
+                "style.scss"
+            ],
+            "environmentSource": "environments/environment.ts",
+            "environments": {
+                "dev": "environments/environment.ts",
+                "prod": "environments/environment.prod.ts"
+            }
+        },
+        {
+            "name": "runner-demo",
+            "root": "src/runner/demo",
+            "outDir": "dist/runner/demo",
+            "assets": [
+                "assets"
+            ],
+            "index": "index.html",
+            "tsconfig": "tsconfig.app.json",
+            "main": "main.ts",
+            "polyfills": "polyfills.ts",
+            "styles": [
+                "style.scss"
+            ],
+            "environmentSource": "environments/environment.ts",
+            "environments": {
+                "dev": "environments/environment.ts",
+                "prod": "environments/environment.prod.ts"
+            }
         }
-    }]
+    ]
 }
