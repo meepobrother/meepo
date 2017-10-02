@@ -3,8 +3,8 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
     selector: 'number',
-    templateUrl: 'number.html',
-    styleUrls: ['number.css'],
+    templateUrl: './number.html',
+    styleUrls: ['./number.scss'],
     providers: [
         {
             provide: NG_VALUE_ACCESSOR,

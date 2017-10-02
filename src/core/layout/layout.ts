@@ -10,8 +10,8 @@ import { ComponentPortal } from '@angular/cdk/portal';
 
 @Component({
     selector: 'layout',
-    templateUrl: 'layout.html',
-    styleUrls: ['layout.css'],
+    templateUrl: './layout.html',
+    styleUrls: ['./layout.scss'],
     exportAs: 'layout',
     encapsulation: ViewEncapsulation.None
 })
