@@ -18,6 +18,7 @@
         "baseUrl": ".",
         "paths": {
             "@meepo/core": ["./src/core/public_api"],
+            "@meepo/mobile": ["./src/mobile/public_api"],
             "@meepo/runner": ["./src/runner/public_api"],
             "@meepo/repair": ["./src/repair/public_api"]
         }
