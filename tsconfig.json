@@ -17,7 +17,7 @@
         "rootDir": ".",
         "baseUrl": ".",
         "paths": {
-            "@meepo/core": ["src/core/public_api"]
+            "@meepo/core": ["./src/core/public_api"]
         }
     },
     "exclude": [
