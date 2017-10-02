@@ -6,7 +6,7 @@ interface IndexSetting {
 }
 
 @Component({
-    selector: 'page-index',
+    selector: 'page-runner-index',
     templateUrl: './index.page.html'
 })
 export class IndexPage implements OnInit {

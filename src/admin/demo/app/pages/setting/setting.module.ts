@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 import { SettingPage } from './setting.page';
 import { Routes, RouterModule } from '@angular/router';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
-import { Index} from '@meepo/runner/demo';
+import { IndexPageSettingModule } from '@meepo/runner/demo';
+import { ReactiveFormsModule } from '@angular/forms';
 const routes: Routes = [
     {
         path: '',
@@ -17,7 +18,9 @@ const routes: Routes = [
     imports: [ 
         CommonModule,
         RouterModule.forChild(routes),
-        NgZorroAntdModule
+        NgZorroAntdModule,
+        IndexPageSettingModule,
+        ReactiveFormsModule
      ],
     exports: [
         SettingPage

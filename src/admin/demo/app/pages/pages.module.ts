@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { RoutersPage } from './routers';
+import { ShareModule } from '../share/share.module';
 const routes: Routes = [
     {
         path: '',
@@ -30,7 +31,8 @@ import { NzLayoutModule,NzMenuModule,NzBackTopModule,NzBreadCrumbModule } from '
         NzMenuModule,
         NzBackTopModule,
         NzBreadCrumbModule,
-        RouterModule.forChild(routes)
+        RouterModule.forChild(routes),
+        ShareModule
     ],
     exports: [],
     providers: [],
