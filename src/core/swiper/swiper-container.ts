@@ -33,17 +33,16 @@ export function isTrueProperty(val: any): boolean {
 
 
 import { startWith } from 'rxjs/operator/startWith';
-
-
 import { SwiperWrapper } from './swiper-wrapper';
 import { SwiperSlide } from './swiper-slide';
-
 import { SwiperPage } from './swiper-page';
 
 import { SwiperPagination } from './swiper-pagination';
 import { SwiperButtonNext } from './swiper-button-next';
 import { SwiperButtonPrev } from './swiper-button-prev';
 import { SwiperScrollbar } from './swiper-scrollbar';
+
+import { SwiperService } from './swiper.service';
 
 @Component({
     selector: 'swiper-container',
@@ -53,7 +52,7 @@ import { SwiperScrollbar } from './swiper-scrollbar';
     preserveWhitespaces: false
 })
 export class SwiperContainer implements OnInit, AfterContentInit {
-
+    @Input() name: string = 'swiper';
     @HostBinding('class.swiper-container') hasSwiperContainer: boolean = true;
 
     options: any = {};
@@ -236,7 +235,7 @@ export class SwiperContainer implements OnInit, AfterContentInit {
     _swiper: any;
     constructor(
         public ele: ElementRef,
-        @Inject(forwardRef(() => SwiperPage)) public _page: SwiperPage
+        public _swiper$: SwiperService
     ) { }
 
     ngOnInit() {
@@ -289,11 +288,9 @@ export class SwiperContainer implements OnInit, AfterContentInit {
             initialSlide: this.initialSlide,
             mousewheelControl: this.mousewheelControl
         };
-        if (this._page) {
-            this._page.laodSuccess.subscribe(swiper => {
-                this.init(swiper);
-            });
-        }
+        this._swiper$.loadJScript().laodSuccess.subscribe(swiper => {
+            this.init(swiper);
+        });
     }
     // 更新容器
     update() { }
@@ -301,8 +298,9 @@ export class SwiperContainer implements OnInit, AfterContentInit {
     init(swiper: any) {
         setTimeout(() => {
             this._swiper = new swiper(this.ele.nativeElement, this.options);
+            this._swiper$.addSwiper(this.name,this._swiper);
         }, 0);
     }
-    ngAfterContentInit() {}
+    ngAfterContentInit() { }
 }
 

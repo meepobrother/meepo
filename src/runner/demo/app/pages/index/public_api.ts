@@ -1,1 +1,2 @@
-export * from './public_api';
+export * from './index.page';
+export * from './index.module';

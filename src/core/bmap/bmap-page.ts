@@ -21,7 +21,7 @@ export const BmapToken = new InjectionToken('BmapToken');
     template: `
         <ng-content></ng-content>
     `,
-    styleUrls: ['bmap-page.css'],
+    styleUrls: ['./bmap-page.scss'],
     encapsulation: ViewEncapsulation.None
 })
 export class BmapPage implements OnInit, AfterContentInit {

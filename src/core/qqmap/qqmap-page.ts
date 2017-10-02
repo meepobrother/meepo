@@ -16,8 +16,8 @@ import { DOCUMENT } from '@angular/common';
 
 @Component({
     selector: 'qqmap-page',
-    templateUrl: 'qqmap-page.html',
-    styleUrls: ['qqmap-page.css'],
+    templateUrl: './qqmap-page.html',
+    styleUrls: ['./qqmap-page.scss'],
     encapsulation: ViewEncapsulation.None
 })
 export class QqmapPage implements OnInit, AfterContentInit {

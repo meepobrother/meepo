@@ -1,9 +1,3 @@
 {
-    "extends": "../tsconfig",
-    "compilerOptions": {
-        "baseUrl": ".",
-        "paths": {
-            "@meepo/core": ["../public_api"]
-        }
-    }
+    "extends": "../tsconfig"
 }
