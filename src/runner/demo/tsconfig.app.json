@@ -6,6 +6,7 @@
         "baseUrl": ".",
         "paths": {
             "@meepo/core": ["../../core/public_api"],
+            "@meepo/mobile": ["../../mobile/public_api"],
             "@meepo/runner": ["../../runner/public_api"],
             "@meepo/repair": ["../../repair/public_api"]
         }

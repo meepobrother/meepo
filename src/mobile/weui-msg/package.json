@@ -1,0 +1,17 @@
+{
+    "name": "meepo-weui-msg",
+    "version": "0.0.0-PLACEHOLDER",
+    "description": "meepo msg",
+    "main": "./bundles/weui-msg.umd.js",
+    "module": "./esm5/weui-msg.es5.js",
+    "es2015": "./esm2015/weui-msg.js",
+    "typings": "./weui-msg.d.ts",
+    "license": "MIT",
+    "peerDependencies": {
+        "@angular/core": "^4.4.3",
+        "@angular/common": "^4.4.3"
+    },
+    "dependencies": {
+        "tslib": "^1.7.1"
+    }
+}

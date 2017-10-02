@@ -1,0 +1,17 @@
+{
+    "name": "meepo-weui-media-box",
+    "version": "0.0.0-PLACEHOLDER",
+    "description": "meepo media-box",
+    "main": "./bundles/weui-media-box.umd.js",
+    "module": "./esm5/weui-media-box.es5.js",
+    "es2015": "./esm2015/weui-media-box.js",
+    "typings": "./weui-media-box.d.ts",
+    "license": "MIT",
+    "peerDependencies": {
+        "@angular/core": "^4.4.3",
+        "@angular/common": "^4.4.3"
+    },
+    "dependencies": {
+        "tslib": "^1.7.1"
+    }
+}

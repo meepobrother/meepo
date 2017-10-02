@@ -1,0 +1,17 @@
+{
+    "name": "meepo-weui-dialog",
+    "version": "0.0.0-PLACEHOLDER",
+    "description": "meepo addons",
+    "main": "./bundles/weui-dialog.umd.js",
+    "module": "./esm5/weui-dialog.es5.js",
+    "es2015": "./esm2015/weui-dialog.js",
+    "typings": "./weui-dialog.d.ts",
+    "license": "MIT",
+    "peerDependencies": {
+        "@angular/core": "^4.4.3",
+        "@angular/common": "^4.4.3"
+    },
+    "dependencies": {
+        "tslib": "^1.7.1"
+    }
+}

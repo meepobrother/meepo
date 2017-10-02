@@ -1,0 +1,70 @@
+quick-menu {
+    .quick-menu-contatiner {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 99999999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .quick-menu {
+            border-radius: 5%;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            overflow: scroll;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            ul {
+                overflow: hidden;
+                display: flex;
+                flex-direction: row;
+                list-style: none;
+                li {
+                    align-items: center;
+                    justify-content: center;
+                    flex: 1;
+                    list-style: none;
+                    padding: 5px;
+                    margin: 5px;
+                    display: flex;
+                    flex-direction: column;
+                    div {
+                        align-items: center;
+                        justify-content: center;
+                        flex: 1;
+                        list-style: none;
+                        display: flex;
+                        flex-direction: column;
+                    }
+                    img {
+                        width: 2em;
+                        height: 2em;
+                    }
+                    i {
+                        width: 2em;
+                        height: 2em;
+                        display: inline-block;
+                        background-size: 100%;
+                        background-repeat: no-repeat;
+                    }
+                    a,
+                    span {
+                        color: #fff;
+                        margin: 5px;
+                        display: block;
+                        img {
+                            width: 3em;
+                            height: 3em;
+                        }
+                        p {
+                            font-size: .8em;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
