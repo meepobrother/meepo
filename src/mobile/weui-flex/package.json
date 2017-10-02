@@ -1,0 +1,17 @@
+{
+    "name": "meepo-weui-flex",
+    "version": "0.0.0-PLACEHOLDER",
+    "description": "meepo addons",
+    "main": "./bundles/weui-flex.umd.js",
+    "module": "./esm5/weui-flex.es5.js",
+    "es2015": "./esm2015/weui-flex.js",
+    "typings": "./weui-flex.d.ts",
+    "license": "MIT",
+    "peerDependencies": {
+        "@angular/core": "^4.4.3",
+        "@angular/common": "^4.4.3"
+    },
+    "dependencies": {
+        "tslib": "^1.7.1"
+    }
+}

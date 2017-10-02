@@ -1,0 +1,17 @@
+{
+    "name": "meepo-layout",
+    "version": "0.0.0-PLACEHOLDER",
+    "description": "meepo layout",
+    "main": "./bundles/layout.umd.js",
+    "module": "./esm5/layout.es5.js",
+    "es2015": "./esm2015/layout.js",
+    "typings": "./layout.d.ts",
+    "license": "MIT",
+    "peerDependencies": {
+        "@angular/core": "^4.4.3",
+        "@angular/common": "^4.4.3"
+    },
+    "dependencies": {
+        "tslib": "^1.7.1"
+    }
+}

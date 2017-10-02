@@ -1,0 +1,18 @@
+{
+    "extends": "../tsconfig-build",
+    "compilerOptions": {
+        "sourceMap": true,
+        "inlineSources": true
+    },
+    "files": [
+        "public_api.ts",
+        "../typings.d.ts"
+    ],
+    "angularCompilerOptions": {
+        "annotateForClosureCompiler": true,
+        "strictMetadataEmit": true,
+        "flatModuleOutFile": "index.js",
+        "flatModuleId": "meepo-bmap/map-overlay",
+        "skipTemplateCodegen": true
+    }
+}

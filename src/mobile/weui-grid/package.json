@@ -1,0 +1,17 @@
+{
+    "name": "meepo-weui-grid",
+    "version": "0.0.0-PLACEHOLDER",
+    "description": "meepo grid",
+    "main": "./bundles/weui-grid.umd.js",
+    "module": "./esm5/weui-grid.es5.js",
+    "es2015": "./esm2015/weui-grid.js",
+    "typings": "./weui-grid.d.ts",
+    "license": "MIT",
+    "peerDependencies": {
+        "@angular/core": "^4.4.3",
+        "@angular/common": "^4.4.3"
+    },
+    "dependencies": {
+        "tslib": "^1.7.1"
+    }
+}

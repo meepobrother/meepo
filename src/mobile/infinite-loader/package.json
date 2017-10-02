@@ -1,0 +1,17 @@
+{
+    "name": "meepo-infinite-loader",
+    "version": "0.0.0-PLACEHOLDER",
+    "description": "meepo infinite-loader",
+    "main": "./bundles/infinite-loader.umd.js",
+    "module": "./esm5/infinite-loader.es5.js",
+    "es2015": "./esm2015/infinite-loader.js",
+    "typings": "./infinite-loader.d.ts",
+    "license": "MIT",
+    "peerDependencies": {
+        "@angular/core": "^4.4.3",
+        "@angular/common": "^4.4.3"
+    },
+    "dependencies": {
+        "tslib": "^1.7.1"
+    }
+}
