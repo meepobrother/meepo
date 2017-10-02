@@ -3,17 +3,21 @@ import { PageBase } from '@meepo/core';
 import { DOCUMENT } from '@angular/common';
 
 @Component({
-    selector: 'test-core-base',
+    selector: 'test-page',
     template: `
         <h2>test core base</h2>
     `
 })
-export class TestCoreBase extends PageBase {
+export class TestPage extends PageBase {
     title: string = '小明跑腿';
     constructor(
-        @Inject(DOCUMENT) _document$: any
+        @Inject(DOCUMENT) public _doc: any
     ) {
-        super(_document$);
+        super();
+    }
+
+    ngOnInit() {
+        this.setDoc(this._doc).setTitle(this.title);
     }
 }
 

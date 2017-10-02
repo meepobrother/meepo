@@ -2,16 +2,19 @@ import { NgModule, Injector } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { BrowserModule, Title, DOCUMENT } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
-import { TestCoreBase } from './tests/test-base';
 
 @NgModule({
     declarations: [
-        AppComponent,
-        TestCoreBase
+        AppComponent
     ],
     imports: [
         BrowserModule,
-        RouterModule.forRoot([], { useHash: true })
+        RouterModule.forRoot([
+            {
+                path: '',
+                loadChildren: './tests/tests.module#TestModule'
+            }
+        ], { useHash: true })
     ],
     exports: [],
     providers: [
