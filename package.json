@@ -37,6 +37,7 @@
         "@angular/platform-browser": "^4.2.4",
         "@angular/platform-browser-dynamic": "^4.2.4",
         "@angular/router": "^4.2.4",
+        "@types/gulp": "^4.0.4",
         "core-js": "^2.5.1",
         "js-base64": "^2.3.2",
         "rxjs": "^5.4.3",
