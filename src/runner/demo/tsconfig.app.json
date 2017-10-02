@@ -1,0 +1,13 @@
+{
+    "extends": "./tsconfig",
+    "compilerOptions": {
+        "outDir": "../../../dist/runner/demo",
+        "rootDir": ".",
+        "baseUrl": ".",
+        "paths": {
+            "@meepo/core": ["../../core/public_api"],
+            "@meepo/runner": ["../../runner/public_api"],
+            "@meepo/repair": ["../../repair/public_api"]
+        }
+    }
+}
