@@ -1,4 +1,3 @@
-export * from './version';
 import { Observable } from 'rxjs/Observable';
 
 import { NoopInterceptor } from './NoopInterceptor';
