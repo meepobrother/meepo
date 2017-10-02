@@ -4,11 +4,17 @@ import { AdminComponent } from './admin.component';
 import { PagesModule } from './pages';
 import { RouterModule } from '@angular/router';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
+
+import { AdminHeaderModule } from '@meepo/admin';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
 @NgModule({
     declarations: [AdminComponent],
     imports: [
         BrowserModule,
+        BrowserAnimationsModule,
         PagesModule,
+        AdminHeaderModule,
         RouterModule.forRoot([], { useHash: true }),
         NgZorroAntdModule.forRoot({ extraFontName: 'anticon', extraFontUrl: './assets/fonts/iconfont' })
     ],

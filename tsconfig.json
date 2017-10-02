@@ -22,6 +22,7 @@
         "baseUrl": ".",
         "paths": {
             "@meepo/core": ["./src/core/public_api"],
+            "@meepo/admin": ["./src/admin/public_api"],
             "@meepo/mobile": ["./src/mobile/public_api"],
             "@meepo/runner": ["./src/runner/public_api"],
             "@meepo/runner/demo": ["./src/runner/demo/public_api"],

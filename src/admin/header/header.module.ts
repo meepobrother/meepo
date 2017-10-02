@@ -1,7 +1,10 @@
 import { NgModule } from '@angular/core';
 import { AdminHeader } from './header';
+import { MdToolbarModule } from '@angular/material';
 @NgModule({
-    imports: [],
+    imports: [
+        MdToolbarModule
+    ],
     exports: [
         AdminHeader
     ],
