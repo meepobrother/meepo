@@ -2,14 +2,10 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
     selector: 'admin-root',
-    template: `
-        <admin-header></admin-header>
-        <router-outlet></router-outlet>
-    `
+    templateUrl: './admin.component.html'
 })
 export class AdminComponent implements OnInit {
     constructor() { }
-
     ngOnInit() { }
 }
 

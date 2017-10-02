@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { AdminHeader } from './header';
-import { MdToolbarModule } from '@angular/material';
+import { ShareModule } from '../share/share.module';
 @NgModule({
     imports: [
-        MdToolbarModule
+        ShareModule
     ],
     exports: [
         AdminHeader
