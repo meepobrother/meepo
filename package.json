@@ -5,7 +5,8 @@
     "main": "index.js",
     "scripts": {
         "test": "test",
-        "runner.start": "ng server --app runner-demo",
+        "runner.start": "ng server --app runner-demo --port 4201",
+        "admin.start": "ng server --app admin-demo --port 4202",
         "core.start": "ng ftp:runner && ng server --app core-demo",
         "ftp:runner": "gulp runner"
     },
@@ -49,7 +50,9 @@
         "@angular/compiler-cli": "^4.2.4",
         "@types/node": "~6.0.60",
         "gulp": "^3.9.1",
+        "gulp-connect": "^5.0.0",
         "gulp-sftp": "^0.1.5",
+        "gulp-ssh": "^0.6.0",
         "ts-node": "^3.3.0",
         "tslint": "^5.7.0",
         "typescript": "~2.3.0"

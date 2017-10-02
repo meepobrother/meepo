@@ -1,0 +1,32 @@
+{
+    "extends": "./tsconfig",
+    "compilerOptions": {
+        "outDir": "../../../dist/admin/demo",
+        "target": "es5",
+        "module": "es2015",
+        "sourceMap": true,
+        "declaration": false,
+        "moduleResolution": "node",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "typeRoots": [
+            "./node_modules/@types",
+            "./node_modules"
+        ],
+        "types": [
+            "node"
+        ],
+        "lib": [
+            "es2015",
+            "dom"
+        ],
+        "rootDir": ".",
+        "baseUrl": ".",
+        "paths": {
+            "@meepo/core": ["../../core/public_api"],
+            "@meepo/mobile": ["../../mobile/public_api"],
+            "@meepo/runner": ["../../runner/public_api"],
+            "@meepo/repair": ["../../repair/public_api"]
+        }
+    }
+}
