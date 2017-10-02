@@ -18,7 +18,6 @@ import {
 import { SwiperContainer } from './swiper-container';
 
 import { DOCUMENT } from '@angular/common';
-import { SwiperPageBase } from './interfaces';
 import { SwiperService } from './swiper.service';
 @Injectable()
 @Component({

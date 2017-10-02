@@ -35,7 +35,6 @@ export function isTrueProperty(val: any): boolean {
 import { startWith } from 'rxjs/operator/startWith';
 import { SwiperWrapper } from './swiper-wrapper';
 import { SwiperSlide } from './swiper-slide';
-import { SwiperPage } from './swiper-page';
 
 import { SwiperPagination } from './swiper-pagination';
 import { SwiperButtonNext } from './swiper-button-next';
@@ -288,9 +287,7 @@ export class SwiperContainer implements OnInit, AfterContentInit {
             initialSlide: this.initialSlide,
             mousewheelControl: this.mousewheelControl
         };
-        this._swiper$.loadJScript().laodSuccess.subscribe(swiper => {
-            this.init(swiper);
-        });
+
     }
     // 更新容器
     update() { }
@@ -298,9 +295,13 @@ export class SwiperContainer implements OnInit, AfterContentInit {
     init(swiper: any) {
         setTimeout(() => {
             this._swiper = new swiper(this.ele.nativeElement, this.options);
-            this._swiper$.addSwiper(this.name,this._swiper);
+            this._swiper$.addSwiper(this.name, this._swiper);
         }, 0);
     }
-    ngAfterContentInit() { }
+    ngAfterContentInit() {
+        this._swiper$.loadJScript().laodSuccess.subscribe(swiper => {
+            this.init(swiper);
+        });
+    }
 }
 
