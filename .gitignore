@@ -8,3 +8,7 @@ desktop/*
 /**/assets/**/*
 /src/admin/app/styles/css/*
 /src/admin/app/styles/fonts/*
+yarn.lock
+yarn-error.log
+tslint.json
+tsconfig.json
