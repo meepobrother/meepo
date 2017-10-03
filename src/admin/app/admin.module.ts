@@ -4,11 +4,14 @@ import { AdminComponent } from './admin.component';
 import { RouterModule } from '@angular/router';
 import { CoreModule } from './core/core.module';
 
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
-
+import { StylesComponent } from './styles/styles';
 @NgModule({
-    declarations: [AdminComponent],
+    declarations: [
+        AdminComponent,
+        StylesComponent
+    ],
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
