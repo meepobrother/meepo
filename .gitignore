@@ -6,4 +6,4 @@ dist/**/desktop
 dist/admin/node_modules/*
 dist/*
 desktop/*
-
+/**/assets/**/*
