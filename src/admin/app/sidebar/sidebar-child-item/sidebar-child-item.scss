@@ -1,22 +1,32 @@
+// 主题及激活状态
 :host {
     display: block;
     color: #a7b1c2;
     font-weight: 600;
-    padding: 10px 5px 3px 8px;
+    padding: 14px 15px 14px 15px;
     position: relative;
     cursor: pointer;
     &.active {
-        background: #263441;
+        background: #293846;
+        transition: all 0.5s;
+    }
+    &:hover {
+        background: #293846;
         transition: all 0.5s;
     }
 }
 
-i {
+.title {
     margin-right: 6px;
+    font-size: 1.2em;
+}
+
+.sidebar-label-title {
+    margin-right: 6px;
+    font-size: 1.2em;
 }
 
 .arrow {
-    float: right;
     margin-top: 2px;
     box-sizing: border-box;
     &:before {
@@ -33,4 +43,12 @@ i {
     background-color: #293846;
     color: white;
     transition: all 0.5s;
+}
+
+.inline-box {
+    display: inline-block;
+}
+
+.right {
+    float: right;
 }

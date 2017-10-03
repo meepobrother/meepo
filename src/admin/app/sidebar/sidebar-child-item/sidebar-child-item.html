@@ -1,12 +1,12 @@
 <div fxLayout="column">
     <div fxLayout="row">
-        <div [class.active]="_active">
+        <div class="title" [class.active]="_active">
             <ng-content select="[icon],[item-icon],[sidebar-item-icon]"></ng-content>
         </div>
-        <div fxFlex fxHide.xs [class.active]="_active">
+        <div fxFlex [fxHide.xs]="!_open" [style.min-width.em]="2" class="sidebar-label-title" [class.active]="_active">
             <ng-content></ng-content>
         </div>
-        <div fxHide.xs [class.active]="_active">
+        <div class="sidebar-label-title" [fxHide.xs]="!_open" style="margin-left: 20px;" [class.active]="_active">
             <span *ngIf="_list && !_right" class="fa arrow"></span>
             <ng-content select="[sidebar-item-right]"></ng-content>
         </div>
