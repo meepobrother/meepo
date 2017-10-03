@@ -6,35 +6,35 @@ import { RouterModule, Routes } from '@angular/router';
 const routes:Routes = [
     {
         path: 'dates',
-        loadChildren: 'app/pages/dates#DatesPageModule'
+        loadChildren: 'app/pages/dates/dates-page.module#DatesPageModule'
     },
     {
         path: 'goods',
-        loadChildren: 'app/pages/goods#GoodsPageModule'
+        loadChildren: 'app/pages/goods/goods-page.module#GoodsPageModule'
     },
     {
         path: 'moneys',
-        loadChildren: 'app/pages/moneys#MoneysPageModule'
+        loadChildren: 'app/pages/moneys/moneys-page.module#MoneysPageModule'
     },
     {
         path: 'members',
-        loadChildren: 'app/pages/members#MembersPageModule'
+        loadChildren: 'app/pages/members/members-page.module#MembersPageModule'
     },
     {
         path: 'orders',
-        loadChildren: 'app/pages/orders#OrdersPageModule'
+        loadChildren: 'app/pages/orders/orders-page.module#OrdersPageModule'
     },
     {
         path: 'plugins',
-        loadChildren: 'app/pages/plugins#PluginsPageModule'
+        loadChildren: 'app/pages/plugins/plugins-page.module#PluginsPageModule'
     },
     {
         path: 'settings',
-        loadChildren: 'app/pages/settings#SettingsPageModule'
+        loadChildren: 'app/pages/settings/settings-page.module#SettingsPageModule'
     },
     {
         path: 'shops',
-        loadChildren: 'app/pages/shops#ShopsPageModule'
+        loadChildren: 'app/pages/shops/shops-page.module#ShopsPageModule'
     }
 ];
 @NgModule({
