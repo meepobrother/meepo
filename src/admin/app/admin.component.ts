@@ -7,7 +7,7 @@ import { SidebarContainerService } from './sidebar/sidebar-container.service';
 })
 export class AdminComponent implements OnInit {
     constructor(
-        public service$: SidebarContainerService
+        public sidebar$: SidebarContainerService
     ) { }
     ngOnInit() { }
 
@@ -16,7 +16,7 @@ export class AdminComponent implements OnInit {
     }
 
     openSidebar() {
-        this.service$.fxHide = !this.service$.fxHide;
+        this.sidebar$.toogle();
     }
 }
 

@@ -1,19 +1,23 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
-
+// 负责总开关的开闭
 @Injectable()
 export class SidebarContainerService {
-    _open: boolean = true;
-    onOpen: Subject<string> = new Subject();
-    fxHide: boolean = false;
+    _open: boolean = false;
+    onOpen: Subject<boolean> = new Subject();
     
     open(){
-        this.onOpen.next('2');
+        this.onOpen.next(true);
         this._open = true;
     }
 
     close(){
-        this.onOpen.next('1');
+        this.onOpen.next(false);
         this._open = false;
+    }
+
+    toogle(){
+        this._open = !this._open;
+        this.onOpen.next(this._open);
     }
 }

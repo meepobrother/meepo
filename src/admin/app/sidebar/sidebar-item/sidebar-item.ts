@@ -5,6 +5,7 @@ import {
     ContentChild
 } from '@angular/core';
 import { SidebarService } from '../sidebar.service';
+import { SidebarContainerService } from '../sidebar-container.service';
 import uuid from 'uuid';
 
 import { Directive } from '@angular/core';
@@ -30,7 +31,7 @@ export class SidebarItem implements OnInit {
     @ContentChild(SidebarList) _list: SidebarList;
     @ContentChild(SidebarItemRight) _right: SidebarItemRight;
 
-    fxHide: boolean = false;
+    _open: boolean = false;
 
     @HostListener('click', ['$event'])
     click(evt: any) {
@@ -44,12 +45,18 @@ export class SidebarItem implements OnInit {
     }
 
     constructor(
-        public service$: SidebarService
+        public service$: SidebarService,
+        public container$: SidebarContainerService
     ) { }
     // 添加组项目
     ngOnInit() {
         this.id = this.id || uuid();
         this.service$.sidebars.set(this.id, this);
+
+        this.container$.onOpen.subscribe(res=>{
+            console.log('sidebar item is ', res);
+            this._open = res;
+        });
     }
     // 激活项目
     setActive() {

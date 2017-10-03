@@ -14,3 +14,13 @@ setting-page {
     display: flex;
     flex-direction: row;
 }
+
+.sidebar-label-title {
+    display: block;
+}
+
+.sidebar-container-close {
+    .sidebar-label-title {
+        display: none;
+    }
+}
