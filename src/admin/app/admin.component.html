@@ -26,5 +26,55 @@
             </sidebar-item>
         </sidebar-list>
     </sidebar-container>
-    <sidebar-content fxFlexFill></sidebar-content>
+    <sidebar-content fxLayout="column">
+        <topnav>
+            <topnav-left>
+                <a (click)="openSidebar()" class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="javascript:;">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </topnav-left>
+            <topnav-right>
+                <dropdown>
+                    <dropdown-toggle>
+                        <i class="fa fa-envelope"></i>
+                        <span label>16</span>
+                    </dropdown-toggle>
+                    <dropdown-menu class="right">
+                        <dropdown-item>item</dropdown-item>
+                    </dropdown-menu>
+                </dropdown>
+                <dropdown>
+                    <dropdown-toggle>
+                        <i class="fa fa-envelope"></i>
+                        <span label>16</span>
+                    </dropdown-toggle>
+                    <dropdown-menu class="right">
+                        <dropdown-item>item</dropdown-item>
+                    </dropdown-menu>
+                </dropdown>
+                <dropdown>
+                    <dropdown-toggle>
+                        <i class="fa fa-envelope"></i>
+                        <span label>16</span>
+                    </dropdown-toggle>
+                    <dropdown-menu class="right">
+                        <dropdown-item>item</dropdown-item>
+                    </dropdown-menu>
+                </dropdown>
+                <dropdown>
+                    <dropdown-toggle>
+                        <i class="fa fa-envelope"></i>
+                        <span label>16</span>
+                    </dropdown-toggle>
+                    <dropdown-menu class="right">
+                        <dropdown-item>item</dropdown-item>
+                    </dropdown-menu>
+                </dropdown>
+            </topnav-right>
+        </topnav>
+
+        <div>导航</div>
+        <div style="flex: 1;overflow-y: scroll;">正文</div>
+        <div>底部</div>
+    </sidebar-content>
 </div>

@@ -1,0 +1,38 @@
+:host {
+    color: #999c9e;
+    font-size: 14px;
+    padding: 20px 10px;
+    display: block;
+    font-weight: 600;
+    position: relative;
+    cursor: pointer;
+    &:hover {
+        text-decoration: none;
+        background-color: #eee;
+    }
+    &.active {
+        text-decoration: none;
+        background-color: #fff;
+        ;
+    }
+}
+
+i {
+    margin-right: 6px;
+}
+
+.label {
+    line-height: 12px;
+    padding: 1px 5px;
+    position: absolute;
+    right: 6px;
+    top: 12px;
+    font-size: 10px;
+    text-shadow: none;
+    display: inline;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+    font-weight: 600;
+}

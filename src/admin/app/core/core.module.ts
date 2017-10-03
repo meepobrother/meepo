@@ -4,8 +4,15 @@ import {
     SidebarModule
 } from '../sidebar/sidebar.module';
 
+import { DropdownModule } from '../dropdown/dropdown.module';
+import { TopnavModule } from '../topnav/topnav.module';
+
+
+
 const modules = [
-    SidebarModule
+    SidebarModule,
+    DropdownModule,
+    TopnavModule
 ];
 
 @NgModule({

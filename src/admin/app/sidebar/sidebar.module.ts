@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-
 import { SidebarItem, SidebarItemRight } from './sidebar-item/sidebar-item';
 import { SidebarChildItem } from './sidebar-child-item/sidebar-child-item';
 import { SidebarList } from './sidebar-list/sidebar-list';
 import { SidebarContainer } from './sidebar-container/sidebar-container';
-import { SidebarContainerService } from './sidebar-container/sidebar-container.service';
+
+import { SidebarContainerService } from './sidebar-container.service';
 import { SidebarService } from './sidebar.service';
 import { SidebarHeader } from './sidebar-header/sidebar-header';
 import { SidebarContent } from './sidebar-content/sidebar-content';

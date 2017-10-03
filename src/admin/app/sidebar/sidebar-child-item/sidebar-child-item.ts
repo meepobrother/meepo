@@ -14,10 +14,7 @@ import { SidebarList } from '../sidebar-list/sidebar-list';
 export class SidebarChildItem implements OnInit {
     @HostBinding('class.active') _active: boolean = false;
     @Input() id: string;
-
     @ContentChild(SidebarList) _list: SidebarList;
-
-
     @HostListener('click', ['$event'])
     click(evt: any) {
         this.service$.childSidebars.forEach(sidebar => {
@@ -29,21 +26,20 @@ export class SidebarChildItem implements OnInit {
         this.onItem.emit(this._active);
         evt.stopPropagation();
     }
-
     @Output() onItem: EventEmitter<boolean> = new EventEmitter();
     constructor(
         public service$: SidebarService
     ) { }
-
+    // 添加子菜单项目
     ngOnInit() {
         this.id = this.id || uuid();
         this.service$.childSidebars.set(this.id, this);
     }
-
+    // 激活项目
     setActive() {
         this._active = true;
     }
-
+    // 取消项目
     setUnActive() {
         this._active = false;
     }

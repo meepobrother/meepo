@@ -3,7 +3,7 @@
         <div class="title" [class.active]="_active">
             <ng-content select="[icon],[item-icon],[sidebar-item-icon]"></ng-content>
         </div>
-        <div fxFlexFill fxFlex fxHide.xs [style.min-width.em]="2.4" class="title" [class.active]="_active">
+        <div fxFlex [fxHide]="service$.fxHide" fxHide.xs [style.min-width.em]="2" class="title" [class.active]="_active">
             <ng-content></ng-content>
         </div>
         <div style="margin-left: 20px;" fxHide.xs [class.active]="_active">
