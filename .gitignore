@@ -1,1 +1,6 @@
 node_modules/*
+.cordova/*
+desktop/*
+dist/*
+gulpfile.ts
+/**/.DS_Store
