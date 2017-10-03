@@ -4,6 +4,8 @@ import { AdminComponent } from './admin.component';
 import { RouterModule } from '@angular/router';
 
 import { CoreModule } from './core/core.module';
+import { PagesModule } from './pages';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
     declarations: [
@@ -13,7 +15,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
         BrowserModule,
         BrowserAnimationsModule,
         CoreModule,
-        RouterModule.forRoot([], { useHash: true })
+        RouterModule.forRoot([], { useHash: true }),
+        PagesModule
     ],
     providers: [],
     bootstrap: [AdminComponent]

@@ -9,15 +9,18 @@ import { TopnavModule } from '../topnav/topnav.module';
 
 import { MainLayoutComponent } from './main-layout/main-layout';
 import { StylesComponent } from '../styles/styles';
-
 import { FlexLayoutModule } from '@angular/flex-layout';
+
+import { ErrorModule } from './error';
 
 
 const modules = [
+    CommonModule,
     SidebarModule,
     DropdownModule,
     TopnavModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    ErrorModule
 ];
 
 @NgModule({
