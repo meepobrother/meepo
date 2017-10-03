@@ -43,6 +43,8 @@
         "animate.css": "^3.5.2",
         "bootstrap": "^3.3.7",
         "core-js": "^2.5.1",
+        "gulp-atom-electron": "^1.14.0",
+        "gulp-symdest": "^1.1.0",
         "hammerjs": "^2.0.8",
         "js-base64": "^2.3.2",
         "ng-zorro-antd": "^0.5.3",
