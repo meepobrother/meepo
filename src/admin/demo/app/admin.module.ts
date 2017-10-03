@@ -5,7 +5,6 @@ import { RouterModule } from '@angular/router';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { CoreModule } from './core/core.module';
 
-import { AdminHeaderModule } from '@meepo/admin';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
@@ -13,7 +12,6 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
-        AdminHeaderModule,
         CoreModule,
         RouterModule.forRoot([], { useHash: true }),
         NgZorroAntdModule.forRoot({ extraFontName: 'anticon', extraFontUrl: './assets/fonts/iconfont' })
