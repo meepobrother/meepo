@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AdminComponent } from './admin.component';
-import { PagesModule } from './pages';
 import { RouterModule } from '@angular/router';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { CoreModule } from './core/core.module';
@@ -14,7 +13,6 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
-        PagesModule,
         AdminHeaderModule,
         CoreModule,
         RouterModule.forRoot([], { useHash: true }),
