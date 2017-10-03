@@ -13,6 +13,6 @@ out
 # Gradle builds
 /build
 .cordova
-
-
+gulp-desktop.ts
+gulp*
 
