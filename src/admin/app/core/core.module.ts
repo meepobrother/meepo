@@ -7,21 +7,30 @@ import {
 import { DropdownModule } from '../dropdown/dropdown.module';
 import { TopnavModule } from '../topnav/topnav.module';
 
+import { MainLayoutComponent } from './main-layout/main-layout';
+import { StylesComponent } from '../styles/styles';
+
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 const modules = [
     SidebarModule,
     DropdownModule,
-    TopnavModule
+    TopnavModule,
+    FlexLayoutModule
 ];
 
 @NgModule({
-    declarations: [],
+    declarations: [
+        MainLayoutComponent,
+        StylesComponent
+    ],
     imports: [
         ...modules
     ],
     exports: [
-        ...modules
+        ...modules,
+        MainLayoutComponent
     ],
     providers: [],
 })
