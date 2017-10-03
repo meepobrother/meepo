@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SidebarContainerService } from './sidebar/sidebar-container.service';
+import { DropdownsService } from './dropdown/dropdowns.service';
 @Component({
     selector: 'admin-root',
     templateUrl: './admin.component.html',
@@ -7,7 +8,8 @@ import { SidebarContainerService } from './sidebar/sidebar-container.service';
 })
 export class AdminComponent implements OnInit {
     constructor(
-        public sidebar$: SidebarContainerService
+        public sidebar$: SidebarContainerService,
+        public dropdowns$: DropdownsService
     ) { }
     ngOnInit() { }
 
@@ -17,6 +19,12 @@ export class AdminComponent implements OnInit {
 
     openSidebar() {
         this.sidebar$.toogle();
+    }
+
+    onContentClick(){
+        this.dropdowns$.dropdowns.forEach(res=>{
+            res.close();
+        })
     }
 }
 
