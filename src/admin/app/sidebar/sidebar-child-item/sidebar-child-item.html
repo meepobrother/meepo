@@ -1,11 +1,17 @@
-<span [class.active]="_active" style="margin-right: 6px;">
-        <ng-content select="[icon]"></ng-content>
-    </span>
-<span [class.active]="_active">
-        <ng-content></ng-content>
-    </span>
-<span *ngIf="_list" [class.active]="_active" class="fa arrow"></span>
-<!-- 下级 -->
-<div *ngIf="_active">
-    <ng-content select="sidebar-list"></ng-content>
+<div fxLayout="column">
+    <div fxLayout="row">
+        <div [class.active]="_active">
+            <ng-content select="[icon],[item-icon],[sidebar-item-icon]"></ng-content>
+        </div>
+        <div fxFlex fxHide.xs [class.active]="_active">
+            <ng-content></ng-content>
+        </div>
+        <div fxHide.xs [class.active]="_active">
+            <span *ngIf="_list && !_right" class="fa arrow"></span>
+            <ng-content select="[sidebar-item-right]"></ng-content>
+        </div>
+    </div>
+    <div flexLayout="column" *ngIf="_active">
+        <ng-content select="sidebar-list"></ng-content>
+    </div>
 </div>
