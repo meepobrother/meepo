@@ -11,9 +11,19 @@
         background: #293846;
         transition: all 0.5s;
     }
+    &:hover {
+        border-left: 4px solid #19aa8d;
+        background: #293846;
+        transition: all 0.5s;
+    }
 }
 
 .title {
+    margin-right: 6px;
+    font-size: 1.2em;
+}
+
+.sidebar-label-title {
     margin-right: 6px;
     font-size: 1.2em;
 }
