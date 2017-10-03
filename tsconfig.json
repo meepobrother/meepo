@@ -34,5 +34,8 @@
         "dist",
         "tmp",
         "**/*.spec.ts"
-    ]
+    ],
+    "angularCompilerOptions": {
+        "skipMetadataEmit": true
+    }
 }

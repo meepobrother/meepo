@@ -1,14 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
-    BootstrapModule, AnimateCssModule,
-    FontAwesomeModule, AdminPageModule,
-    HWrapperModule, SidebarModule
+    FontAwesomeModule, SidebarModule
 } from '@meepo/admin';
 
 const modules = [
-    BootstrapModule, AnimateCssModule, FontAwesomeModule,
-    AdminPageModule, HWrapperModule, SidebarModule
+    FontAwesomeModule, SidebarModule
 ];
 
 @NgModule({
