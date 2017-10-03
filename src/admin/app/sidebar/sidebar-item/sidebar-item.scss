@@ -1,0 +1,46 @@
+// 主题及激活状态
+:host {
+    display: block;
+    color: #a7b1c2;
+    font-weight: 600;
+    padding: 14px 15px 14px 15px;
+    position: relative;
+    cursor: pointer;
+    &.active {
+        border-left: 4px solid #19aa8d;
+        background: #293846;
+        transition: all 0.5s;
+    }
+}
+
+.title {
+    margin-right: 6px;
+    font-size: 1.2em;
+}
+
+.arrow {
+    margin-top: 2px;
+    box-sizing: border-box;
+    &:before {
+        content: "\f104";
+    }
+    &.active {
+        &:before {
+            content: "\f107";
+        }
+    }
+}
+
+.active {
+    background-color: #293846;
+    color: white;
+    transition: all 0.5s;
+}
+
+.inline-box {
+    display: inline-block;
+}
+
+.right {
+    float: right;
+}

@@ -1,0 +1,36 @@
+:host {
+    display: block;
+    color: #a7b1c2;
+    font-weight: 600;
+    padding: 10px 5px 3px 8px;
+    position: relative;
+    cursor: pointer;
+    &.active {
+        background: #263441;
+        transition: all 0.5s;
+    }
+}
+
+i {
+    margin-right: 6px;
+}
+
+.arrow {
+    float: right;
+    margin-top: 2px;
+    box-sizing: border-box;
+    &:before {
+        content: "\f104";
+    }
+    &.active {
+        &:before {
+            content: "\f107";
+        }
+    }
+}
+
+.active {
+    background-color: #293846;
+    color: white;
+    transition: all 0.5s;
+}

@@ -1,0 +1,12 @@
+<layout>
+    <layout-header></layout-header>
+    <layout-body>
+        <swiper-page>
+            <swiper-container name="mainSwiper" autoplay="3000">
+                <swiper-slide *ngFor="let item of advs">{{item.title}}</swiper-slide>
+                <div swiperPagination></div>
+            </swiper-container>
+        </swiper-page>
+    </layout-body>
+    <layout-footer></layout-footer>
+</layout>

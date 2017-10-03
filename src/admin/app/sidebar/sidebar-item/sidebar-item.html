@@ -1,0 +1,17 @@
+<div fxLayout="column">
+    <div fxLayout="row">
+        <div class="title" [class.active]="_active">
+            <ng-content select="[icon],[item-icon],[sidebar-item-icon]"></ng-content>
+        </div>
+        <div fxFlex fxHide.xs class="title" [class.active]="_active">
+            <ng-content></ng-content>
+        </div>
+        <div fxHide.xs [class.active]="_active">
+            <span *ngIf="_list && !_right" class="fa arrow"></span>
+            <ng-content select="[sidebar-item-right]"></ng-content>
+        </div>
+    </div>
+    <div flexLayout="column" *ngIf="_active">
+        <ng-content select="sidebar-list"></ng-content>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+{
+    "name": "meepo-quick",
+    "version": "0.0.0-PLACEHOLDER",
+    "description": "meepo quick",
+    "main": "./bundles/quick.umd.js",
+    "module": "./esm5/quick.es5.js",
+    "es2015": "./esm2015/quick.js",
+    "typings": "./quick.d.ts",
+    "license": "MIT",
+    "peerDependencies": {
+        "@angular/core": "^4.4.3",
+        "@angular/common": "^4.4.3"
+    },
+    "dependencies": {
+        "tslib": "^1.7.1"
+    }
+}

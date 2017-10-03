@@ -1,0 +1,10 @@
+:host {
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    display: block;
+    &:before {
+        display: table;
+        content: " ";
+    }
+}
