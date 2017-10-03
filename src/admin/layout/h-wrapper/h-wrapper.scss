@@ -1,0 +1,17 @@
+#wrapper {
+    display: block;
+    .navbar-static-side {
+        position: fixed;
+        width: 220px;
+        z-index: 2001;
+        height: 100%;
+    }
+}
+
+#page-wrapper {
+    height: 100%;
+    padding: 0 15px;
+    position: inherit;
+    margin: 0 0 0 220px;
+    min-height: auto;
+}

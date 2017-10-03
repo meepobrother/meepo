@@ -1,0 +1,12 @@
+<span [class.active]="_active" style="margin-right: 6px;font-size: 1.2em;">
+    <ng-content select="[icon],[item-icon],[sidebar-item-icon]"></ng-content>
+</span>
+<div class="inline-box" [class.active]="_active">
+    <ng-content></ng-content>
+</div>
+<span *ngIf="_list && !_right" [class.active]="_active" class="fa arrow"></span>
+<ng-content select="[sidebar-item-right]"></ng-content>
+<!-- 下级 -->
+<div *ngIf="_active">
+    <ng-content select="sidebar-list"></ng-content>
+</div>
