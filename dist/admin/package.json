@@ -18,5 +18,10 @@
     "license": "CC0-1.0",
     "devDependencies": {
         "electron": "~1.7.8"
+    },
+    "dependencies": {
+        "gulp": "^3.9.1",
+        "gulp-atom-electron": "^1.14.0",
+        "gulp-symdest": "^1.1.0"
     }
 }

@@ -1,5 +1,5 @@
 {
-    "name": "meepo admin",
+    "name": "meepo-admin",
     "version": "1.0.0",
     "description": "米波后台管理",
     "main": "app.js",

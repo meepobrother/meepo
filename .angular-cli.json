@@ -52,7 +52,8 @@
             "assets": [
                 "assets",
                 "package.json",
-                "app.js"
+                "app.js",
+                "gulpfile.ts"
             ],
             "index": "index.html",
             "tsconfig": "tsconfig.app.json",
