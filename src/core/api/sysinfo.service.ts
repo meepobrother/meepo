@@ -8,7 +8,7 @@ const Base64 = require('js-base64').Base64;
 export class SysinfoService {
     uniacid: string = '2';
     acid: string = '2';
-    siteroot: string = 'http://meepo.com.cn';
+    siteroot: string = 'http://meepo.com.cn/';
     getUniacid() {
         return this.uniacid;
     }

@@ -8,7 +8,8 @@
             "root": "src/core/demo",
             "outDir": "dist/core/demo",
             "assets": [
-                "assets"
+                "assets",
+                "package.json"
             ],
             "index": "index.html",
             "tsconfig": "tsconfig.app.json",
@@ -28,7 +29,31 @@
             "root": "src/runner/demo",
             "outDir": "dist/runner/demo",
             "assets": [
-                "assets"
+                "assets",
+                "package.json"
+            ],
+            "index": "index.html",
+            "tsconfig": "tsconfig.app.json",
+            "main": "main.ts",
+            "polyfills": "polyfills.ts",
+            "styles": [
+                "style.scss"
+            ],
+            "environmentSource": "environments/environment.ts",
+            "environments": {
+                "dev": "environments/environment.ts",
+                "prod": "environments/environment.prod.ts"
+            }
+        },
+        {
+            "name": "admin-demo",
+            "root": "src/admin",
+            "outDir": "dist/admin",
+            "assets": [
+                "assets",
+                "package.json",
+                "app.js",
+                "gulpfile.ts"
             ],
             "index": "index.html",
             "tsconfig": "tsconfig.app.json",
@@ -43,5 +68,9 @@
                 "prod": "environments/environment.prod.ts"
             }
         }
-    ]
+    ],
+    "lint": [{
+        "project": "src/tsconfig.json",
+        "exclude": "**/node_modules/**"
+    }]
 }

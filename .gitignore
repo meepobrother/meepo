@@ -1,6 +1,9 @@
 node_modules/*
-.cordova/*
-desktop/*
-dist/*
 gulpfile.ts
-/**/.DS_Store
+.DS_Store
+config/*
+dist/**/desktop
+dist/admin/node_modules/*
+dist/*
+desktop/*
+/**/assets/**/*

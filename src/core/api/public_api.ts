@@ -4,6 +4,7 @@ import { NoopInterceptor } from './NoopInterceptor';
 import { TimingInterceptor } from './TimingInterceptor';
 
 import { HTTP_INTERCEPTORS, HttpClientModule, HttpClient } from '@angular/common/http';
+
 import { NgModule } from '@angular/core';
 import { ApiService } from './api.service';
 import { SysinfoService } from './sysinfo.service';
