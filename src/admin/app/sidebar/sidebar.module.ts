@@ -11,7 +11,6 @@ import { SidebarService } from './sidebar.service';
 import { SidebarHeader } from './sidebar-header/sidebar-header';
 import { SidebarContent } from './sidebar-content/sidebar-content';
 
-
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 const components = [
@@ -45,6 +44,6 @@ export { SidebarItem, SidebarItemRight } from './sidebar-item/sidebar-item';
 export { SidebarChildItem } from './sidebar-child-item/sidebar-child-item';
 export { SidebarList } from './sidebar-list/sidebar-list';
 export { SidebarContainer } from './sidebar-container/sidebar-container';
-export { SidebarContainerService } from './sidebar-container/sidebar-container.service';
+export { SidebarContainerService } from './sidebar-container.service';
 export { SidebarService } from './sidebar.service';
 export { SidebarHeader } from './sidebar-header/sidebar-header';
