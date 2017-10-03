@@ -1,7 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NavTabsModule } from '../components';
 
-const materials = [];
+const materials = [
+    NavTabsModule
+];
 
 @NgModule({
     imports: [
