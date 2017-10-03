@@ -1,11 +1,0 @@
-Last login: Mon Oct  2 14:56:52 2017 from 115.205.205.178
-
-Welcome to aliyun Elastic Compute Service!
-
-rm -rf /data/wwwroot/default/addons/imeepos_runner/core/model/pages/
-rm -f /data/wwwroot/default/addons/imeepos_runner/core/model/pages/
-exit
-[37;40m[[32;40mroot[37;40m@iZ23pwymye0Z [35;40m~[0m]# rm -rf /data/wwwroot/default/addons/imeepos_runner/core/m odel/pages/
-[37;40m[[32;40mroot[37;40m@iZ23pwymye0Z [35;40m~[0m]# rm -f /data/wwwroot/default/addons/imeepos_runner/core/mo del/pages/
-[37;40m[[32;40mroot[37;40m@iZ23pwymye0Z [35;40m~[0m]# exit
-logout
