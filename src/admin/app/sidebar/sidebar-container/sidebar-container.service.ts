@@ -6,10 +6,10 @@ export class SidebarContainerService {
     onOpen: Subject<string> = new Subject();
 
     open(){
-        this.onOpen.next('220px');
+        this.onOpen.next('2');
     }
 
     close(){
-        this.onOpen.next('70px');
+        this.onOpen.next('1');
     }
 }

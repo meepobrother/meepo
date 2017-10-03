@@ -9,7 +9,8 @@
         "admin.start": "ng server --app admin-demo --port 4202",
         "admin.build": "ng build --app admin-demo --prod",
         "core.start": "ng ftp:runner && ng server --app core-demo",
-        "ftp:runner": "gulp runner"
+        "ftp:runner": "gulp runner",
+        "desktop": "gulp window && gulp mac && gulp linux"
     },
     "repository": {
         "type": "git",
@@ -60,6 +61,8 @@
         "@types/node": "~6.0.60",
         "gulp": "^3.9.1",
         "gulp-connect": "^5.0.0",
+        "gulp-cordova-create": "^1.3.1",
+        "gulp-cordova-plugin": "^2.0.1",
         "gulp-sftp": "^0.1.5",
         "gulp-ssh": "^0.6.0",
         "ts-node": "^3.3.0",
