@@ -10,6 +10,8 @@ import { SidebarContainerService } from './sidebar-container/sidebar-container.s
 import { SidebarService } from './sidebar.service';
 import { SidebarHeader } from './sidebar-header/sidebar-header';
 
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 const components = [
     SidebarItem,
     SidebarList,
@@ -23,7 +25,7 @@ const components = [
     declarations: [
         ...components
     ],
-    imports: [ CommonModule ],
+    imports: [ CommonModule, FlexLayoutModule ],
     exports: [
         ...components
     ],

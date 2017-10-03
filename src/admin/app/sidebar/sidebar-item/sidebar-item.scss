@@ -1,8 +1,9 @@
+// 主题及激活状态
 :host {
     display: block;
     color: #a7b1c2;
     font-weight: 600;
-    padding: 14px 20px 14px 25px;
+    padding: 14px 15px 14px 15px;
     position: relative;
     cursor: pointer;
     &.active {
@@ -12,13 +13,12 @@
     }
 }
 
-.inline-box {
+.title {
     margin-right: 6px;
     font-size: 1.2em;
 }
 
 .arrow {
-    float: right;
     margin-top: 2px;
     box-sizing: border-box;
     &:before {
@@ -39,4 +39,8 @@
 
 .inline-box {
     display: inline-block;
+}
+
+.right {
+    float: right;
 }

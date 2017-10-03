@@ -5,13 +5,14 @@ import { RouterModule } from '@angular/router';
 import { CoreModule } from './core/core.module';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-
+import { FlexLayoutModule } from '@angular/flex-layout';
 @NgModule({
     declarations: [AdminComponent],
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
         CoreModule,
+        FlexLayoutModule,
         RouterModule.forRoot([], { useHash: true })
     ],
     providers: [],
