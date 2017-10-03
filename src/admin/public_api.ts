@@ -1,3 +1,2 @@
-export * from './styles';
-export * from './sidebar/sidebar.module';
+export * from './app/sidebar/sidebar.module';
 

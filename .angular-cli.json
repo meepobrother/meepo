@@ -8,7 +8,8 @@
             "root": "src/core/demo",
             "outDir": "dist/core/demo",
             "assets": [
-                "assets"
+                "assets",
+                "package.json"
             ],
             "index": "index.html",
             "tsconfig": "tsconfig.app.json",
@@ -28,7 +29,8 @@
             "root": "src/runner/demo",
             "outDir": "dist/runner/demo",
             "assets": [
-                "assets"
+                "assets",
+                "package.json"
             ],
             "index": "index.html",
             "tsconfig": "tsconfig.app.json",
@@ -45,10 +47,12 @@
         },
         {
             "name": "admin-demo",
-            "root": "src/admin/demo",
-            "outDir": "dist/admin/demo",
+            "root": "src/admin",
+            "outDir": "dist/admin",
             "assets": [
-                "assets"
+                "assets",
+                "package.json",
+                "app.js"
             ],
             "index": "index.html",
             "tsconfig": "tsconfig.app.json",
