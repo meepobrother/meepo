@@ -479,7 +479,7 @@ export class WeixinService implements WeixinServiceInterface {
     openAddress(): Observable<WeixinAddress> {
         return Observable.create(observer => {
             this.wx.openAddress({
-                success: function (res) {
+                success: (res) => {
                     observer.next(res);
                     observer.complete();
                 }

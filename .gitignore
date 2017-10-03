@@ -5,5 +5,4 @@ config/*
 dist/*
 desktop/*
 .cordova/*
-
-
+/**/assets/**/*
