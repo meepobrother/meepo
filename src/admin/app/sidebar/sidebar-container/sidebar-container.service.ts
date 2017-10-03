@@ -6,7 +6,7 @@ export class SidebarContainerService {
     onOpen: Subject<string> = new Subject();
 
     open(){
-        this.onOpen.next('2');
+        this.onOpen.next('3');
     }
 
     close(){

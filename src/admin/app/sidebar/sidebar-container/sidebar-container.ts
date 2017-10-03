@@ -6,7 +6,7 @@ import { SidebarContainerService } from './sidebar-container.service';
     styleUrls: ['./sidebar-container.scss']
 })
 export class SidebarContainer implements OnInit {
-    @HostBinding('style.flex') _flex: string = '2';
+    @HostBinding('style.flex') _flex: string = 'auto';
 
     constructor(
         public service$: SidebarContainerService

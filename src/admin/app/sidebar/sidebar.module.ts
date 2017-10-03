@@ -9,6 +9,8 @@ import { SidebarContainer } from './sidebar-container/sidebar-container';
 import { SidebarContainerService } from './sidebar-container/sidebar-container.service';
 import { SidebarService } from './sidebar.service';
 import { SidebarHeader } from './sidebar-header/sidebar-header';
+import { SidebarContent } from './sidebar-content/sidebar-content';
+
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 
@@ -18,7 +20,8 @@ const components = [
     SidebarContainer,
     SidebarChildItem,
     SidebarItemRight,
-    SidebarHeader
+    SidebarHeader,
+    SidebarContent
 ];
 
 @NgModule({
