@@ -8,7 +8,8 @@ body,
 admin-root,
 routers-page,
 nz-layout,
-setting-page {
+setting-page,
+main-layout {
     height: 100%;
     width: 100%;
     display: flex;
@@ -21,6 +22,9 @@ setting-page {
 
 .sidebar-container-close {
     .sidebar-label-title {
-        display: none;
+        display: none !important;
+    }
+    .sidebar-header-avatar {
+        max-width: 2em !important;
     }
 }

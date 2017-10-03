@@ -1,0 +1,26 @@
+.container {
+    flex: 10;
+}
+
+.flex-container {
+    display: inline-flex;
+    flex-direction: row;
+    max-height: 100%;
+    .left {}
+    .center {
+        flex: 1;
+    }
+    .right {}
+}
+
+.minimalize-styl-2 {
+    padding: 4px 10px;
+    margin: 0px 0px 0px 5px;
+    font-size: 14px;
+    float: left;
+}
+
+.sidebar-header-avatar {
+    max-width: 4em;
+    border-radius: 50%;
+}

@@ -1,0 +1,12 @@
+<ul class="nav nav-tabs">
+    <span class="pull-right small text-muted">{{title}}</span>
+    <li [class.active]="item.active" (click)="onClick(item)" *ngFor="let item of panes">
+        <a href="javascript:;">
+            <i class="{{item.icon}}"></i> {{item.title}}
+        </a>
+    </li>
+</ul>
+
+<div class="tab-content">
+    <ng-container *ngTemplateOutlet="activePane.paneRef?.templateRef"></ng-container>
+</div>

@@ -1,0 +1,37 @@
+<styles></styles>
+<div fxFlexFill fxLayout="row">
+    <sidebar-container>
+        <sidebar-list>
+            <sidebar-header>
+                <img class="sidebar-header-avatar" src="assets/img/a1.jpg" alt="">
+            </sidebar-header>
+            <sidebar-item *ngFor="let item of menus" (onItem)="onItem(item)" class="active">
+                <i icon [class]="item.icon"></i> {{item.title}}
+                <span *ngIf="item.total>0" sidebar-item-right class="label label-warning pull-right">{{item.total}}</span>
+            </sidebar-item>
+        </sidebar-list>
+    </sidebar-container>
+    <sidebar-content fxLayout="column">
+        <topnav>
+            <topnav-left>
+                <a (click)="openSidebar()" class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="javascript:;">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </topnav-left>
+            <topnav-right>
+                <dropdown>
+                    <dropdown-toggle>
+                        <i class="fa fa-envelope"></i>
+                        <span label>16</span>
+                    </dropdown-toggle>
+                    <dropdown-menu class="right">
+                        <dropdown-item>item</dropdown-item>
+                    </dropdown-menu>
+                </dropdown>
+            </topnav-right>
+        </topnav>
+        <div (click)="onContentClick()" style="flex: 1;overflow-y: scroll;">
+            <ng-content></ng-content>
+        </div>
+    </sidebar-content>
+</div>

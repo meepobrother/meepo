@@ -1,0 +1,69 @@
+<div class="row">
+    <div class="col-sm-6">
+        <div class="ibox">
+            <div class="ibox-content">
+                <h2>客户管理</h2>
+                <div class="input-group">
+                    <input type="text" placeholder="查找客户电话" class="input form-control">
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn btn-primary"> 
+                            <i class="fa fa-search"></i> 搜索
+                        </button>
+                    </span>
+                </div>
+                <div class="clients-list">
+                    <nav-tabs>
+                        <nav-tab-pane active="true" title="会员" icon="fa fa-user">
+                            <ng-template navTabPaneRef>
+                                会员
+                            </ng-template>
+                        </nav-tab-pane>
+                        <nav-tab-pane title="角色" icon="fa fa-group">
+                            <ng-template navTabPaneRef>
+                                角色
+                            </ng-template>
+                        </nav-tab-pane>
+                        <nav-tab-pane title="权限" icon="fa fa-cogs">
+                            <ng-template navTabPaneRef>
+                                权限
+                            </ng-template>
+                        </nav-tab-pane>
+                    </nav-tabs>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="ibox">
+            <div class="ibox-content">
+                <nav-tabs>
+                    <nav-tab-pane active="true" title="详情" icon="fa fa-laptop">
+                        <ng-template navTabPaneRef>
+                            详情
+                        </ng-template>
+                    </nav-tab-pane>
+                    <nav-tab-pane title="余额" icon="fa fa-credit-card">
+                        <ng-template navTabPaneRef>
+                            余额
+                        </ng-template>
+                    </nav-tab-pane>
+                    <nav-tab-pane title="积分" icon="fa fa-credit-card">
+                        <ng-template navTabPaneRef>
+                            积分
+                        </ng-template>
+                    </nav-tab-pane>
+                    <nav-tab-pane title="发单" icon="fa fa-paper-plane-o">
+                        <ng-template navTabPaneRef>
+                            发单
+                        </ng-template>
+                    </nav-tab-pane>
+                    <nav-tab-pane title="接单" icon="fa fa-graduation-cap">
+                        <ng-template navTabPaneRef>
+                            接单
+                        </ng-template>
+                    </nav-tab-pane>
+                </nav-tabs>
+            </div>
+        </div>
+    </div>
+</div>
