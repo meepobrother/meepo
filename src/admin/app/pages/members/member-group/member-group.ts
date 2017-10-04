@@ -12,7 +12,7 @@ export class MemberGroup implements OnInit {
     ) { }
 
     ngOnInit() { 
-        this.api.wget('member.group').subscribe(res=>{
+        this.api.mget('member.group').subscribe(res=>{
             console.log(res);
         });
     }
