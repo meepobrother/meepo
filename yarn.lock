@@ -356,6 +356,10 @@ amdefine@>=0.0.4:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/amdefine/-/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
 
+android@^0.0.8:
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/android/-/android-0.0.8.tgz#a5b03de920d7437a34ccecee5ee127ef1e4495a9"
+
 animate.css@^3.5.2:
   version "3.5.2"
   resolved "https://registry.yarnpkg.com/animate.css/-/animate.css-3.5.2.tgz#91e668dc069a808e5e499514867b97aae0166c36"
@@ -3728,7 +3732,7 @@ gulp-symdest@^1.0.0, gulp-symdest@^1.1.0:
     queue "^3.1.0"
     vinyl-fs "^2.4.3"
 
-gulp-util@^3.0.0, gulp-util@^3.0.4, gulp-util@^3.0.6, gulp-util@^3.0.7, gulp-util@~3.0.0:
+gulp-util@^3.0.0, gulp-util@^3.0.4, gulp-util@^3.0.6, gulp-util@^3.0.7, gulp-util@^3.0.8, gulp-util@~3.0.0:
   version "3.0.8"
   resolved "https://registry.yarnpkg.com/gulp-util/-/gulp-util-3.0.8.tgz#0054e1e744502e27c04c187c3ecc505dd54bbb4f"
   dependencies:
@@ -7352,6 +7356,13 @@ rndm@1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/rndm/-/rndm-1.2.0.tgz#f33fe9cfb52bbfd520aa18323bc65db110a1b76c"
 
+run-sequence@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/run-sequence/-/run-sequence-2.2.0.tgz#b3f8d42836db89d08b2fe704eaf0c93dfd8335e2"
+  dependencies:
+    chalk "^1.1.3"
+    gulp-util "^3.0.8"
+
 rxjs@^5.4.2, rxjs@^5.4.3:
   version "5.4.3"
   resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-5.4.3.tgz#0758cddee6033d68e0fd53676f0f3596ce3d483f"
@@ -8640,6 +8651,10 @@ vary@~1.0.1:
 vary@~1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
+
+vconsole@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/vconsole/-/vconsole-3.0.0.tgz#54ca3872677e8faf6e42fdfb6111109242e3f09b"
 
 vendors@^1.0.0:
   version "1.0.1"
