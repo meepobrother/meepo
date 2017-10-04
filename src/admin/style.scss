@@ -28,3 +28,10 @@ main-layout {
         max-width: 2em !important;
     }
 }
+
+@import "overlay.scss";
+.mat-dialog-container {
+    background: #fff;
+    padding: 0px !important;
+    margin: 0px;
+}

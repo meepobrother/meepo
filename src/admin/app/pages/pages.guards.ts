@@ -3,6 +3,7 @@ import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angul
 import { Observable } from 'rxjs/Observable';
 import { LoginService } from '../core';
 import { Router } from '@angular/router';
+import * as store from 'store';
 @Injectable()
 export class IsLoginGuard implements CanActivate {
     constructor(
@@ -13,10 +14,12 @@ export class IsLoginGuard implements CanActivate {
         route: ActivatedRouteSnapshot,
         state: RouterStateSnapshot
     ): Observable<boolean> | Promise<boolean> | boolean {
-        if(this.login.isLogin){
+        const isLogin = store.get('isLogin');
+        if(this.login.isLogin || isLogin){
             return true;
         }else{
-            this.router.navigate(['/login'])
+            this.router.navigate(['/login']);
+            // return true;
         }
     }
 }

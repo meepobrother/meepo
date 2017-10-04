@@ -15,10 +15,8 @@ export class MemberList implements OnInit {
     ) { }
 
     ngOnInit() { 
-        this.api.mget('member.list').subscribe(res=>{
-            const info = res['info'];
-            const list = info['list'];
-            this.list = list;
+        this.api.mget('member.getSystem').subscribe(res=>{
+            this.list = res['info'];
             console.log(this.list);
         });
     }

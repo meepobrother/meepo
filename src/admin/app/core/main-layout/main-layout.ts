@@ -3,6 +3,7 @@ import { SidebarContainerService } from '../../sidebar/sidebar-container.service
 import { DropdownsService } from '../../dropdown/dropdowns.service';
 import { Router } from '@angular/router';
 import { LoginService } from '../login.service';
+import * as store from 'store';
 @Component({
     selector: 'main-layout',
     templateUrl: './main-layout.html',
@@ -60,18 +61,22 @@ export class MainLayoutComponent implements OnInit {
         public router: Router,
         public login$: LoginService
     ) { }
-    ngOnInit() { 
-        this.login$.onLogin.subscribe(res=>{
-            if(res){
+    ngOnInit() {
+        const isLogin = store.get('isLogin');
+        if (isLogin) {
+            this.showMenu = true;
+        }
+        this.login$.onLogin.subscribe(res => {
+            if (res) {
                 this.showMenu = true;
-            }else{
+            } else {
                 this.showMenu = false;
             }
-        })
+        });
     }
 
     onItem(item: any) {
-        if(item.link){
+        if (item.link) {
             this.router.navigate(item.link);
         }
     }
@@ -80,8 +85,8 @@ export class MainLayoutComponent implements OnInit {
         this.sidebar$.toogle();
     }
 
-    onContentClick(){
-        this.dropdowns$.dropdowns.forEach(res=>{
+    onContentClick() {
+        this.dropdowns$.dropdowns.forEach(res => {
             res.close();
         })
     }

@@ -4,7 +4,7 @@ import { Routes, RouterModule} from '@angular/router';
 import { MembersPage } from './members-page';
 
 import { MemberList } from './member-list/member-list';
-import { MemberGroup } from './member-group/member-group';
+import { MemberGroup, AddGroup } from './member-group';
 import { MemberRights } from './member-rights/member-rights';
 
 import { ShareModule } from '../../share';
@@ -16,7 +16,8 @@ const component = [
     MembersPage,
     MemberList,
     MemberGroup,
-    MemberRights
+    MemberRights,
+    AddGroup
 ];
 const routes: Routes = [
     {
@@ -35,5 +36,8 @@ const routes: Routes = [
     ],
     exports: [],
     providers: [],
+    entryComponents: [
+        AddGroup
+    ]
 })
 export class MembersPageModule {}

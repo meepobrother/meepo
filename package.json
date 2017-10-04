@@ -10,7 +10,7 @@
         "admin.build": "ng build --app admin-demo --prod",
         "core.start": "ng ftp:runner && ng server --app core-demo",
         "ftp:runner": "gulp model.pages",
-        "ftp:inc": "gulp inc",
+        "ftp:inc": "gulp member",
         "desktop": "gulp window && gulp mac && gulp linux",
         "android": "rm -rf .cordova/ && yarn admin.build && gulp admin:android:build && cd .cordova/ && cordova platform add android && cordova build"
     },
@@ -55,6 +55,7 @@
         "ng-zorro-antd": "^0.5.3",
         "normalize.css": "^7.0.0",
         "rxjs": "^5.4.3",
+        "store": "^2.0.12",
         "zone.js": "^0.8.18"
     },
     "devDependencies": {
