@@ -1,0 +1,8 @@
+<label *ngIf="_control.focused && _formGroup" [attr.for]="_control?.id">{{_control?.placeholder}}</label>
+<span class="input-group-btn">
+    <ng-content select="[start]"></ng-content>
+</span>
+<ng-content></ng-content>
+<span class="input-group-btn">
+    <ng-content select="[end]"></ng-content>
+</span>

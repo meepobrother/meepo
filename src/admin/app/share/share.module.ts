@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NavTabsModule } from '../components';
+import { NavTabsModule, MeepoFormFieldModule } from '../components';
 
 const materials = [
-    NavTabsModule
+    NavTabsModule,
+    MeepoFormFieldModule
 ];
 
 @NgModule({

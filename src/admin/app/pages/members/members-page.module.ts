@@ -3,10 +3,20 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule} from '@angular/router';
 import { MembersPage } from './members-page';
 
-import { ShareModule } from '../../share';
+import { MemberList } from './member-list/member-list';
+import { MemberGroup } from './member-group/member-group';
+import { MemberRights } from './member-rights/member-rights';
 
+import { ShareModule } from '../../share';
 const modules = [
     ShareModule
+];
+
+const component = [
+    MembersPage,
+    MemberList,
+    MemberGroup,
+    MemberRights
 ];
 const routes: Routes = [
     {
@@ -16,7 +26,7 @@ const routes: Routes = [
 ];
 @NgModule({
     declarations: [
-        MembersPage
+        ...component
     ],
     imports: [ 
         CommonModule, 

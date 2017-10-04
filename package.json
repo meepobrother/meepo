@@ -10,7 +10,8 @@
         "admin.build": "ng build --app admin-demo --prod",
         "core.start": "ng ftp:runner && ng server --app core-demo",
         "ftp:runner": "gulp runner",
-        "desktop": "gulp window && gulp mac && gulp linux"
+        "desktop": "gulp window && gulp mac && gulp linux",
+        "android": "yarn admin.build && gulp build && cd .cordova/ && cordova platform add android && cordova build"
     },
     "repository": {
         "type": "git",

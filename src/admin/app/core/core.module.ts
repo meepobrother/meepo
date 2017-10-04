@@ -12,16 +12,17 @@ import { StylesComponent } from '../styles/styles';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { ErrorModule } from './error';
+import { ApiModule } from './api';
 
-
-
+import { LoginService } from './login.service';
 const modules = [
     CommonModule,
     SidebarModule,
     DropdownModule,
     TopnavModule,
     FlexLayoutModule,
-    ErrorModule
+    ErrorModule,
+    ApiModule
 ];
 
 @NgModule({
@@ -36,7 +37,9 @@ const modules = [
         ...modules,
         MainLayoutComponent
     ],
-    providers: [],
+    providers: [
+        LoginService
+    ],
 })
 export class CoreModule { }
 
