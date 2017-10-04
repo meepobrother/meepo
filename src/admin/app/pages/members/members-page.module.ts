@@ -4,9 +4,26 @@ import { Routes, RouterModule} from '@angular/router';
 import { MembersPage } from './members-page';
 
 import { ShareModule } from '../../share';
+import { MemberList } from './member-list/member-list';
+import { MemberGroup } from './member-group/member-group';
+
+import { CdkTableModule } from '@angular/cdk/table';
+import { MdTableModule, MatSortModule, MdFormFieldModule,MdInputModule } from '@angular/material';
+
 
 const modules = [
-    ShareModule
+    ShareModule,
+    CdkTableModule,
+    MdTableModule,
+    MatSortModule,
+    MdFormFieldModule,
+    MdInputModule
+];
+
+const component = [
+    MembersPage,
+    MemberList,
+    MemberGroup
 ];
 const routes: Routes = [
     {
@@ -16,7 +33,7 @@ const routes: Routes = [
 ];
 @NgModule({
     declarations: [
-        MembersPage
+        ...component
     ],
     imports: [ 
         CommonModule, 
