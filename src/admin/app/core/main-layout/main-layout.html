@@ -1,6 +1,6 @@
 <styles></styles>
 <div fxFlexFill fxLayout="row">
-    <sidebar-container>
+    <sidebar-container *ngIf="showMenu">
         <sidebar-list>
             <sidebar-header>
                 <img ngStyle.xs="max-width: 2em" class="sidebar-header-avatar" src="assets/img/a1.jpg" alt="">
@@ -12,7 +12,7 @@
         </sidebar-list>
     </sidebar-container>
     <sidebar-content fxLayout="column">
-        <topnav>
+        <topnav *ngIf="showMenu">
             <topnav-left>
                 <a (click)="openSidebar()" class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="javascript:;">
                     <i class="fa fa-bars"></i>

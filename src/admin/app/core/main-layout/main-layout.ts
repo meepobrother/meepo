@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SidebarContainerService } from '../../sidebar/sidebar-container.service';
 import { DropdownsService } from '../../dropdown/dropdowns.service';
 import { Router } from '@angular/router';
+import { LoginService } from '../login.service';
 @Component({
     selector: 'main-layout',
     templateUrl: './main-layout.html',
@@ -52,12 +53,22 @@ export class MainLayoutComponent implements OnInit {
             link: ['/settings']
         }
     ];
+    showMenu: boolean = false;
     constructor(
         public sidebar$: SidebarContainerService,
         public dropdowns$: DropdownsService,
-        public router: Router
+        public router: Router,
+        public login$: LoginService
     ) { }
-    ngOnInit() { }
+    ngOnInit() { 
+        this.login$.onLogin.subscribe(res=>{
+            if(res){
+                this.showMenu = true;
+            }else{
+                this.showMenu = false;
+            }
+        })
+    }
 
     onItem(item: any) {
         if(item.link){

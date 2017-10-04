@@ -14,7 +14,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { ErrorModule } from './error';
 import { ApiModule } from './api';
 
-
+import { LoginService } from './login.service';
 const modules = [
     CommonModule,
     SidebarModule,
@@ -37,7 +37,9 @@ const modules = [
         ...modules,
         MainLayoutComponent
     ],
-    providers: [],
+    providers: [
+        LoginService
+    ],
 })
 export class CoreModule { }
 
