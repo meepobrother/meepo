@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../../../core';
 
 @Component({
     selector: 'member-group',
@@ -6,7 +7,13 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./member-group.scss']
 })
 export class MemberGroup implements OnInit {
-    constructor() { }
+    constructor(
+        public api: ApiService
+    ) { }
 
-    ngOnInit() { }
+    ngOnInit() { 
+        this.api.wget('member.group').subscribe(res=>{
+            console.log(res);
+        });
+    }
 }
