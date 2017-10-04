@@ -8,6 +8,8 @@ import { HTTP_INTERCEPTORS, HttpClientModule, HttpClient } from '@angular/common
 import { NgModule } from '@angular/core';
 import { ApiService } from './api.service';
 import { SysinfoService } from './sysinfo.service';
+import { SiteService } from './site.service';
+
 
 @NgModule({
     imports: [
@@ -16,6 +18,7 @@ import { SysinfoService } from './sysinfo.service';
     providers: [
         SysinfoService,
         ApiService,
+        SiteService,
         {
             provide: HTTP_INTERCEPTORS,
             useClass: NoopInterceptor,
@@ -37,4 +40,5 @@ export class ApiModule { }
 
 export * from './api.service';
 export * from './sysinfo.service';
+export { SiteService } from './site.service';
 

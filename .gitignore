@@ -12,3 +12,4 @@ yarn.lock
 yarn-error.log
 tslint.json
 tsconfig.json
+src/inc/*

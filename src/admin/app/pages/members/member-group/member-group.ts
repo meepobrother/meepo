@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../../../core';
+import { MemberGroupServiceService } from './member-group.service';
+import { AddGroup } from './add-group';
+import { MdDialog } from '@angular/material';
+import { Group, AddGroupOpt } from './add-grop-opt';
 
 @Component({
     selector: 'member-group',
@@ -8,12 +11,38 @@ import { ApiService } from '../../../core';
 })
 export class MemberGroup implements OnInit {
     constructor(
-        public api: ApiService
+        public api: MemberGroupServiceService,
+        public dialog: MdDialog
     ) { }
 
-    ngOnInit() { 
-        this.api.mget('member.group').subscribe(res=>{
-            console.log(res);
+    ngOnInit() {
+        this.api.getList();
+    }
+
+    edit(item: any) {
+        const dialogRef = this.dialog.open(AddGroup, { data: item });
+        dialogRef.afterClosed().subscribe((result: AddGroupOpt) => {
+            if (result) {
+                this.api.edit(result.item);
+            }
         });
+    }
+
+    addGroup() {
+        const dialogRef = this.dialog.open(AddGroup);
+        dialogRef.afterClosed().subscribe(result => {
+            if (result) {
+                this.api.add(result.item);
+            }
+        });
+    }
+
+    updateStatus(item: Group) {
+        this.api.updateStatus(item);
+        if(item.status == 1){
+            item.status = 0;
+        }else{
+            item.status = 1;
+        }
     }
 }

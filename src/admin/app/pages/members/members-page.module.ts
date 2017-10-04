@@ -1,21 +1,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Routes, RouterModule} from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 import { MembersPage } from './members-page';
 
 import { MemberList } from './member-list/member-list';
-import { MemberGroup } from './member-group/member-group';
 import { MemberRights } from './member-rights/member-rights';
-
 import { ShareModule } from '../../share';
+import { MemberGroupModule } from './member-group';
+
+
 const modules = [
-    ShareModule
+    ShareModule,
+    MemberGroupModule
 ];
 
 const component = [
     MembersPage,
     MemberList,
-    MemberGroup,
     MemberRights
 ];
 const routes: Routes = [
@@ -28,12 +29,13 @@ const routes: Routes = [
     declarations: [
         ...component
     ],
-    imports: [ 
-        CommonModule, 
+    imports: [
+        CommonModule,
         RouterModule.forChild(routes),
         ...modules
     ],
     exports: [],
     providers: [],
+    entryComponents: []
 })
-export class MembersPageModule {}
+export class MembersPageModule { }
