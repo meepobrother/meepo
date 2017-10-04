@@ -6,8 +6,8 @@ const Base64 = require('js-base64').Base64;
 
 @Injectable()
 export class SysinfoService {
-    uniacid: string = '2';
-    acid: string = '2';
+    uniacid: string = '41';
+    acid: string = '41';
     siteroot: string = 'http://meepo.com.cn/';
     getUniacid() {
         return this.uniacid;

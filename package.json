@@ -9,7 +9,8 @@
         "admin.start": "ng server --app admin-demo --port 4202",
         "admin.build": "ng build --app admin-demo --prod",
         "core.start": "ng ftp:runner && ng server --app core-demo",
-        "ftp:runner": "gulp runner",
+        "ftp:runner": "gulp model.pages",
+        "ftp:inc": "gulp inc",
         "desktop": "gulp window && gulp mac && gulp linux",
         "android": "rm -rf .cordova/ && yarn admin.build && gulp admin:android:build && cd .cordova/ && cordova platform add android && cordova build"
     },
