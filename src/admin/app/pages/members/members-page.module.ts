@@ -3,23 +3,13 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule} from '@angular/router';
 import { MembersPage } from './members-page';
 
-import { ShareModule } from '../../share';
 import { MemberList } from './member-list/member-list';
 import { MemberGroup } from './member-group/member-group';
 import { MemberRights } from './member-rights/member-rights';
 
-
-import { CdkTableModule } from '@angular/cdk/table';
-import { MdTableModule, MatSortModule, MdFormFieldModule,MdInputModule } from '@angular/material';
-
-
+import { ShareModule } from '../../share';
 const modules = [
-    ShareModule,
-    CdkTableModule,
-    MdTableModule,
-    MatSortModule,
-    MdFormFieldModule,
-    MdInputModule
+    ShareModule
 ];
 
 const component = [

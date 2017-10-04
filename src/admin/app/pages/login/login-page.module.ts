@@ -9,11 +9,20 @@ const routes: Routes = [
     }
 ];
 
+import { ShareModule } from '../../share';
+const modules = [
+    ShareModule
+];
+
 @NgModule({
     declarations: [
         LoginPage
     ],
-    imports: [ CommonModule, RouterModule.forChild(routes) ],
+    imports: [ 
+        CommonModule, 
+        RouterModule.forChild(routes),
+        ...modules
+    ],
     exports: [],
     providers: [],
 })

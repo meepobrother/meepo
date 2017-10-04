@@ -6,8 +6,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { IsLoginGuard } from './pages.guards';
 const routes:Routes = [
     {
+        path: '',
+        redirectTo: 'members',
+        pathMatch: 'full'
+    },
+    {
         path: 'login',
-        loadChildren: 'app/pages/login/login-login.module#LoginPageModule'
+        loadChildren: 'app/pages/login/login-page.module#LoginPageModule'
     },
     {
         path: 'dates',
@@ -56,6 +61,8 @@ const routes:Routes = [
     exports: [
         RouterModule
     ],
-    providers: [],
+    providers: [
+        IsLoginGuard
+    ],
 })
 export class PagesModule {}
