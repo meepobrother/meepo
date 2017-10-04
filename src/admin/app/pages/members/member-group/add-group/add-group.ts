@@ -31,7 +31,7 @@ export class AddGroup implements OnInit {
         if (this.data) {
             this.form.get('title').setValue(this.data.title);
             this.form.get('desc').setValue(this.data.desc);
-            this.form.get('status').setValue(this.data.status);
+            this.form.get('status').setValue(this.data.status+'');
             this.form.get('id').setValue(this.data.id);
             this.form.get('uniacid').setValue(this.data.uniacid);
         }
