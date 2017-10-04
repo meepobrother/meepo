@@ -1,3 +1,27 @@
-扫码登陆页面
+<div class="ibox login-box">
+    <div class="ibox-content">
+        <h2 class="title">请登陆</h2>
 
-<img src="" alt="">
+        <form-field>
+            <input type="text" class="form-control" meepoInput placeholder="请输入你的域名">
+        </form-field>
+
+        <form-field>
+            <input type="text" class="form-control" meepoInput placeholder="请输入你的账号">
+        </form-field>
+
+        <form-field>
+            <input type="text" class="form-control" meepoInput placeholder="请输入你的密码">
+        </form-field>
+
+        <div style="margin-top: 10px;">
+            <button type="button" (click)="login()" class="btn btn btn-primary"> 
+                登陆
+            </button>
+            <button type="button" (click)="cancel()" class="btn btn btn-default"> 
+                 取消
+            </button>
+        </div>
+
+    </div>
+</div>

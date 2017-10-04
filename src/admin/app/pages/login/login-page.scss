@@ -1,0 +1,13 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.login-box {
+    box-shadow: 0 0 10px 0 hsla(0, 6%, 58%, .6);
+    min-width: 300px;
+    margin: 0 auto;
+}
