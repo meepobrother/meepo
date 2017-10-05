@@ -1,0 +1,1 @@
+<button type="button" [class.btn-default]="!selects.get(item.id)" [class.btn-primary]="selects.get(item.id)" (click)="select(item)" *ngFor="let item of api.dates" class="btn btn-xs">{{item.title || '标题'}}</button>
