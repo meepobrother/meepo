@@ -1,14 +1,11 @@
-<panel primary>
-    <panel-header>
-        模板消息设置
-    </panel-header>
-    <panel-body [formGroup]="form">
+<div class="ibox">
+    <div class="ibox-title">
+        <h2>模板消息设置</h2>
+    </div>
+    <div class="ibox-content" [formGroup]="form">
         <form-field>
             <input type="text" meepoInput class="form-control" placeholder="通用模板消息编号">
             <p class="help-block text-danger">标题：订单消息通知 行业：IT科技 - 互联网|电子商务 编号：OPENTM204650588</p>
         </form-field>
-    </panel-body>
-    <panel-footer>
-        <a class="btn btn-primary" (click)="save()">保存</a>
-    </panel-footer>
-</panel>
+    </div>
+</div>
