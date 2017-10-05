@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { OrderClass } from './order-class';
 import { ShareModule } from '../../../share';
 import { OrderClassAdd } from './order-class-add';
-
+import { OrderClassAddService } from './order-class-add.service';
 @NgModule({
     declarations: [
         OrderClass,
@@ -13,7 +13,9 @@ import { OrderClassAdd } from './order-class-add';
     exports: [
         OrderClass
     ],
-    providers: [],
+    providers: [
+        OrderClassAddService
+    ],
     entryComponents: [
         OrderClassAdd
     ]
