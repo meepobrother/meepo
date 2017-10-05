@@ -1,19 +1,16 @@
-<panel primary>
-    <panel-header>
-        版权设置
-    </panel-header>
-    <panel-body [formGroup]="form">
+<div class="ibox">
+    <div class="ibox-title">
+        <h2>版权设置</h2>
+    </div>
+    <div class="ibox-content" [formGroup]="form">
         <form-field>
-            <input type="text" placeholder="应用标题" meepoInput class="form-control">
+            <input type="text" formControlName="title" placeholder="应用标题" meepoInput class="form-control">
         </form-field>
         <form-field>
-            <input type="text" placeholder="分享标题" meepoInput class="form-control">
+            <input type="text" formControlName="share_title" placeholder="分享标题" meepoInput class="form-control">
         </form-field>
         <form-field>
-            <textarea rows="5" placeholder="分享简介" meepoInput class="form-control"></textarea>
+            <textarea rows="5" formControlName="share_desc" placeholder="分享简介" meepoInput class="form-control"></textarea>
         </form-field>
-    </panel-body>
-    <panel-footer>
-        <a class="btn btn-primary" (click)="save()">保存</a>
-    </panel-footer>
-</panel>
+    </div>
+</div>

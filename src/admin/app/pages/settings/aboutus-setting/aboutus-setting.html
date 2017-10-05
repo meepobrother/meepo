@@ -1,9 +1,9 @@
-<alert close info>请认真填写公司信息！</alert>
-<panel primary>
-    <panel-header>
-        公司信息
-    </panel-header>
-    <panel-body [formGroup]="form">
+<!-- <alert close info>请认真填写公司信息！</alert> -->
+<div class="ibox">
+    <div class="ibox-title">
+        <h2>公司信息</h2>
+    </div>
+    <div class="ibox-content" [formGroup]="form">
         <form-field>
             <input type="text" formControlName="title" placeholder="公司名称" class="form-control" meepoInput>
         </form-field>
@@ -21,5 +21,5 @@
                 </form-field>
             </panel-body>
         </panel>
-    </panel-body>
-</panel>
+    </div>
+</div>

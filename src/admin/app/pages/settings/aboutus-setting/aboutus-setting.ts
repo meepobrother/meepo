@@ -33,7 +33,7 @@ export class AboutUsSetting implements OnInit {
                 kefus.map(res => {
                     const kefu = this.fb.control(res);
                     (this.form.get('kefus') as FormArray).push(kefu)
-                })
+                });
             }
         });
 
