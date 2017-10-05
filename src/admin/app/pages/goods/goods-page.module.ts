@@ -8,11 +8,21 @@ const routes: Routes = [
         component: GoodsPage
     }
 ];
+
+import { ShareModule } from '../../share';
+
+const modules = [
+    ShareModule
+];
 @NgModule({
     declarations: [
         GoodsPage
     ],
-    imports: [ CommonModule, RouterModule.forChild(routes) ],
+    imports: [ 
+        CommonModule, 
+        RouterModule.forChild(routes),
+        ...modules
+    ],
     exports: [],
     providers: [],
 })
