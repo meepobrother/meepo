@@ -17,4 +17,6 @@ export class PaymentSetting implements OnInit {
     }
 
     ngOnInit() { }
+
+    save(){}
 }

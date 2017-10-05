@@ -17,4 +17,6 @@ export class VersionSetting implements OnInit {
     }
 
     ngOnInit() { }
+
+    save(){}
 }

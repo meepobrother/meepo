@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder,FormArray } from '@angular/forms';
+import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
+import { SettingService, SettingDate } from '../setting.service';
+import 'rxjs/add/operator/debounceTime';
 @Component({
     selector: 'aboutus-setting',
     templateUrl: './aboutus-setting.html',
@@ -8,26 +10,49 @@ import { FormGroup, FormBuilder,FormArray } from '@angular/forms';
 export class AboutUsSetting implements OnInit {
     code: string = 'setting.aboutus';
     form: FormGroup;
-    kefus: FormArray;
     constructor(
-        public fb: FormBuilder
-    ) { 
+        public fb: FormBuilder,
+        public setting: SettingService
+    ) {
         this.form = this.fb.group({
             title: [''],
             desc: [''],
-            kefus: this.fb.array([
-                this.fb.control('')
-            ])
+            kefus: this.fb.array([])
         });
-        this.kefus = this.form.get('kefus') as FormArray;
+
+        console.log(this.form);
+        console.log(this.form.get('kefus').value)
     }
 
-    ngOnInit() { }
+    ngOnInit() {
+        this.setting.get({ code: this.code }).subscribe((date: any) => {
+            if (date) {
+                const { title, desc, kefus } = date;
+                this.form.get('title').setValue(title);
+                this.form.get('desc').setValue(desc);
+                kefus.map(res => {
+                    const kefu = this.fb.control(res);
+                    (this.form.get('kefus') as FormArray).push(kefu)
+                })
+            }
+        });
 
-    add(){
+        this.form.valueChanges.debounceTime(300).subscribe(res => {
+            this.save();
+        });
+    }
+
+    add() {
         const kefu = this.fb.control('');
-        this.kefus.push(kefu);
+        (this.form.get('kefus') as FormArray).push(kefu);
+        console.log(this.form.get('kefus').value)
     }
 
-    save(){}
+    save() {
+        this.setting.save({ code: this.code, data: this.form.value }).subscribe(res => { })
+    }
+
+    onChange(index: number, evt: any) {
+        this.form.get('kefus').get([index]).setValue(evt.target.value);
+    }
 }

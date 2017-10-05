@@ -17,4 +17,6 @@ export class RightsSetting implements OnInit {
     }
 
     ngOnInit() { }
+
+    save(){}
 }

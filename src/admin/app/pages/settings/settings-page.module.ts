@@ -30,6 +30,8 @@ const routes: Routes = [
         component: SettingsPage
     }
 ];
+
+import { SettingService } from './setting.service';
 @NgModule({
     declarations: [
         ...components
@@ -40,6 +42,8 @@ const routes: Routes = [
         ...modules
     ],
     exports: [],
-    providers: [],
+    providers: [
+        SettingService
+    ],
 })
 export class SettingsPageModule { }

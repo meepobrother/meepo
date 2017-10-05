@@ -17,4 +17,6 @@ export class SmsSetting implements OnInit {
     }
 
     ngOnInit() { }
+
+    save(){}
 }

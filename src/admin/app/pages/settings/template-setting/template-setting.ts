@@ -17,4 +17,6 @@ export class TemplateSetting implements OnInit {
     }
 
     ngOnInit() { }
+
+    save(){}
 }

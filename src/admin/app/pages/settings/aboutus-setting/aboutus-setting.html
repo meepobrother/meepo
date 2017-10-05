@@ -5,10 +5,10 @@
     </panel-header>
     <panel-body [formGroup]="form">
         <form-field>
-            <input type="text" placeholder="公司名称" class="form-control" meepoInput>
+            <input type="text" formControlName="title" placeholder="公司名称" class="form-control" meepoInput>
         </form-field>
         <form-field>
-            <textarea placeholder="公司简介" rows="6" class="form-control" meepoInput></textarea>
+            <textarea placeholder="公司简介" formControlName="desc" rows="6" class="form-control" meepoInput></textarea>
         </form-field>
         <panel default>
             <panel-header>
@@ -16,13 +16,10 @@
                 <a class="btn btn-primary btn-xs" (click)="add()">添加</a>
             </panel-header>
             <panel-body formArrayName="kefus">
-                <form-field *ngFor="let item of form.get('kefus').controls">
-                    <input type="text" placeholder="客服电话" class="form-control" meepoInput/>
+                <form-field *ngFor="let item of form.get('kefus').value;index as i;">
+                    <input type="text" [attr.value]="item" (change)="onChange(i,$event)" placeholder="客服电话" class="form-control" meepoInput/>
                 </form-field>
             </panel-body>
         </panel>
     </panel-body>
-    <panel-footer>
-        <a class="btn btn-primary" (click)="save()">保存</a>
-    </panel-footer>
 </panel>
