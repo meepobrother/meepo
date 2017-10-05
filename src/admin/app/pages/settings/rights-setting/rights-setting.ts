@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
     selector: 'rights-setting',
@@ -6,7 +7,14 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./rights-setting.scss']
 })
 export class RightsSetting implements OnInit {
-    constructor() { }
+    form: FormGroup;
+    constructor(
+        public fb: FormBuilder
+    ) { 
+        this.form = this.fb.group({
+            comment_tpl_id: ['']
+        });
+    }
 
     ngOnInit() { }
 }

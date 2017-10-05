@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
     selector: 'template-setting',
@@ -6,7 +7,14 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./template-setting.scss']
 })
 export class TemplateSetting implements OnInit {
-    constructor() { }
+    form: FormGroup;
+    constructor(
+        public fb: FormBuilder
+    ) { 
+        this.form = this.fb.group({
+            comment_tpl_id: ['']
+        });
+    }
 
     ngOnInit() { }
 }
