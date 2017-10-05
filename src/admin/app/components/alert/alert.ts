@@ -21,10 +21,12 @@ export class Alert {
     _open: boolean = true;
     @Input()
     set close(val: boolean) {
+        console.log(val);
         this._close = isTrueProperty(val);
     }
     onClose() {
         this._open = false;
+        this._alert = false;
     }
 }
 
