@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { OrderClassAdd } from './order-class-add';
 @Component({
     selector: 'order-class',
     templateUrl: './order-class.html',
