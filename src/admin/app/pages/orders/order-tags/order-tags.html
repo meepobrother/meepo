@@ -1,0 +1,20 @@
+<div class="ibox">
+    <div class="ibox-title">
+        <h5>工单标签</h5>
+        <div class="ibox-tools">
+            <a href="javascript:;" class="btn btn-primary btn-xs" (click)="add()">添加</a>
+        </div>
+    </div>
+    <alert info>
+        标签是为了方便搜索查找归类
+    </alert>
+    <div class="ibox-content">
+        <div *ngIf="tags.list.size>0">
+            <span (click)="edit(item)" class="label label-primary" style="margin: 5px;" *ngFor="let item of tags.dates">{{item.title}}</span>
+        </div>
+        <blank *ngIf="tags.list.size<=0" title="还没有标签">
+            立即添加标签
+            <a href="javascript:;" class="btn btn-primary" (click)="add()">添加</a>
+        </blank>
+    </div>
+</div>

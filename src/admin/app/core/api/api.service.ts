@@ -34,9 +34,9 @@ export class ApiService {
                 .set('j', this.sysinfo.getAcid() || '2')
                 .set('__do', __do)
                 .set('m', __module);
-         const d = JSON.stringify(__body);
-         const encrypted = Base64.encode(d);
-        return this.http.post<T>('app', {encrypted: encrypted}, { params: params });
+        const d = JSON.stringify(__body);
+        const encrypted = Base64.encode(d);
+        return this.http.post<T>('app', { encrypted: encrypted }, { params: params });
     }
 
     wget<T>(__do: string = 'index', __module: string = 'imeepos_runner'): Observable<T> {
@@ -64,7 +64,16 @@ export class ApiService {
                 .set('m', __module);
         const d = JSON.stringify(__body);
         const encrypted = Base64.encode(d);
-        return this.http.post<T>('web', {encrypted: encrypted}, { params: params });
+        return this.http.post<T>('web', { encrypted: encrypted }, { params: params });
+    }
+
+    isSqlError(val: string) {
+        if (typeof val === 'string') {
+            val = val.toLowerCase().trim();
+            return val.indexOf('sql:') >= 0;
+        } else {
+            return false;
+        }
     }
 }
 

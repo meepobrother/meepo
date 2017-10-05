@@ -9,10 +9,17 @@ const routes: Routes = [
     }
 ];
 import { ShareModule } from '../../share';
+import { OrderClassModule } from './order-class';
+import { OrderListModule } from './order-list';
+import { OrderTagsModule } from './order-tags';
 
 const modules = [
-    ShareModule
+    ShareModule,
+    OrderClassModule,
+    OrderListModule,
+    OrderTagsModule
 ];
+
 @NgModule({
     declarations: [
         OrdersPage
