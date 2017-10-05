@@ -65,7 +65,6 @@ export class MeepoFormField implements AfterViewInit, AfterContentInit, AfterCon
     @ContentChild(MeepoInput) _control: MeepoInput;
     ngAfterViewInit() { }
     ngAfterContentInit() {
-        console.log(this._control);
         this._validateControlChild();
     }
     ngAfterContentChecked() { }

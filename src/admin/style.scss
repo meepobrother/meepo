@@ -39,3 +39,9 @@ main-layout {
 .row {
     width: 100%;
 }
+
+.panel-body,
+.panel-footer,
+.panel-heading {
+    display: block;
+}

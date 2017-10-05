@@ -4,14 +4,25 @@ import { Routes, RouterModule } from '@angular/router';
 import { SettingsPage } from './settings-page';
 import { ShareModule } from '../../share';
 
-
 const modules = [
     ShareModule
 ];
 
-import {} from './aboutus-setting';
-const components = [
+import { AboutUsSetting } from './aboutus-setting';
+import { PaymentSetting } from './payment-setting';
+import { RightsSetting } from './rights-setting';
+import { SmsSetting } from './sms-setting';
+import { TemplateSetting } from './template-setting';
+import { VersionSetting } from './version-setting';
 
+const components = [
+    AboutUsSetting,
+    PaymentSetting,
+    RightsSetting,
+    SmsSetting,
+    TemplateSetting,
+    VersionSetting,
+    SettingsPage
 ];
 const routes: Routes = [
     {
@@ -21,7 +32,7 @@ const routes: Routes = [
 ];
 @NgModule({
     declarations: [
-        SettingsPage
+        ...components
     ],
     imports: [
         CommonModule,

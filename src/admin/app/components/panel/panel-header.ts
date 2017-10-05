@@ -1,7 +1,7 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
 
 @Component({
-    selector: 'panel-body',
+    selector: 'panel-header',
     template: `
         <ng-content></ng-content>
     `
