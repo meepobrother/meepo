@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NavTabsModule, MeepoFormFieldModule, PanelModule, AlertModule } from '../components';
+import {
+    NavTabsModule, MeepoFormFieldModule,
+    PanelModule, AlertModule, BlankModule
+} from '../components';
 
 import { MdDialogModule } from '@angular/material';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
@@ -12,7 +15,8 @@ const materials = [
     ReactiveFormsModule,
     PanelModule,
     AlertModule,
-    FormsModule
+    FormsModule,
+    BlankModule
 ];
 
 @NgModule({

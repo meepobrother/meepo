@@ -4,9 +4,21 @@
     </div>
     <div class="ibox-content">
         <nav-tabs>
-            <nav-tab-pane title="工单"></nav-tab-pane>
-            <nav-tab-pane title="工单分类"></nav-tab-pane>
-            <nav-tab-pane title="工单标签"></nav-tab-pane>
+            <nav-tab-pane title="工单">
+                <ng-template navTabPaneRef>
+                    <order-list></order-list>
+                </ng-template>
+            </nav-tab-pane>
+            <nav-tab-pane title="工单分类">
+                <ng-template navTabPaneRef>
+                    <order-class></order-class>
+                </ng-template>
+            </nav-tab-pane>
+            <nav-tab-pane title="工单标签">
+                <ng-template navTabPaneRef>
+                    <order-tags></order-tags>
+                </ng-template>
+            </nav-tab-pane>
         </nav-tabs>
     </div>
 </div>
