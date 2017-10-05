@@ -1,7 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Routes, RouterModule} from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 import { SettingsPage } from './settings-page';
+import { ShareModule } from '../../share';
+
+
+const modules = [
+    ShareModule
+];
 const routes: Routes = [
     {
         path: '',
@@ -12,8 +18,12 @@ const routes: Routes = [
     declarations: [
         SettingsPage
     ],
-    imports: [ CommonModule, RouterModule.forChild(routes) ],
+    imports: [
+        CommonModule,
+        RouterModule.forChild(routes),
+        ...modules
+    ],
     exports: [],
     providers: [],
 })
-export class SettingsPageModule {}
+export class SettingsPageModule { }
