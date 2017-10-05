@@ -23,7 +23,6 @@ export class NavTabs implements OnInit, AfterContentInit {
             res.unActive();
         })
         item.doActive();
-
         this.activePane = item;
     }
 }

@@ -11,7 +11,7 @@
         "core.start": "ng ftp:runner && ng server --app core-demo",
         "ftp:runner": "gulp model.pages",
         "ftp:inc": "gulp member",
-        "desktop": "gulp window && gulp mac && gulp linux",
+        "desktop": "gulp admin:window:build && gulp admin:mac:build",
         "android": "rm -rf .cordova/ && yarn admin.build && gulp admin:android:build && cd .cordova/ && cordova platform add android && cordova build"
     },
     "repository": {
