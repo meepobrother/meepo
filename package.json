@@ -54,6 +54,8 @@
         "js-base64": "^2.3.2",
         "ng-zorro-antd": "^0.5.3",
         "normalize.css": "^7.0.0",
+        "pdf.js": "^0.1.0",
+        "pdfjs-dist": "^1.9.622",
         "rxjs": "^5.4.3",
         "store": "^2.0.12",
         "zone.js": "^0.8.18"
