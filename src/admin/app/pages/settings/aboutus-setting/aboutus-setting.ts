@@ -20,8 +20,9 @@ export class AboutUsSetting implements OnInit {
             kefus: this.fb.array([])
         });
 
-        console.log(this.form);
-        console.log(this.form.get('kefus').value)
+        this.form.valueChanges.debounceTime(300).subscribe(res => {
+            this.save();
+        });
     }
 
     ngOnInit() {
@@ -35,10 +36,6 @@ export class AboutUsSetting implements OnInit {
                     (this.form.get('kefus') as FormArray).push(kefu)
                 });
             }
-        });
-
-        this.form.valueChanges.debounceTime(300).subscribe(res => {
-            this.save();
         });
     }
 
