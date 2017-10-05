@@ -35,3 +35,13 @@ main-layout {
     padding: 0px !important;
     margin: 0px;
 }
+
+.row {
+    width: 100%;
+}
+
+.panel-body,
+.panel-footer,
+.panel-heading {
+    display: block;
+}
