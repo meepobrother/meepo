@@ -8,6 +8,11 @@ import { ShareModule } from '../../share';
 const modules = [
     ShareModule
 ];
+
+import {} from './aboutus-setting';
+const components = [
+
+];
 const routes: Routes = [
     {
         path: '',
