@@ -3,7 +3,15 @@
         版权设置
     </panel-header>
     <panel-body [formGroup]="form">
-
+        <form-field>
+            <input type="text" placeholder="应用标题" meepoInput class="form-control">
+        </form-field>
+        <form-field>
+            <input type="text" placeholder="分享标题" meepoInput class="form-control">
+        </form-field>
+        <form-field>
+            <textarea rows="5" placeholder="分享简介" meepoInput class="form-control"></textarea>
+        </form-field>
     </panel-body>
     <panel-footer>
         <a class="btn btn-primary" (click)="save()">保存</a>

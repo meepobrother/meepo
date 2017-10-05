@@ -1,4 +1,4 @@
-import { Directive, Component, ContentChild, Input } from '@angular/core';
+import { Directive, Component, ContentChild, Input, HostBinding } from '@angular/core';
 import { isTrueProperty } from '../util';
 @Component({
     selector: 'alert',
@@ -7,41 +7,53 @@ import { isTrueProperty } from '../util';
             <button *ngIf="_close" class="close" (click)="onClose()" type="button">×</button>
             <ng-content></ng-content>
         </ng-container>
-    `
+    `,
+    styles: [
+        `:host{
+            display:block;
+        }`
+    ]
 })
 export class Alert {
-    _close: boolean = false;
+    @HostBinding('class.alert') _alert: boolean = true;
+    @HostBinding('class.alert-dismissable') _close: boolean = false;
+    
     _open: boolean = true;
     @Input()
     set close(val: boolean) {
+        console.log(val);
         this._close = isTrueProperty(val);
     }
-    onClose(){
+    onClose() {
         this._open = false;
+        this._alert = false;
     }
 }
 
 @Directive({
     selector: 'alert[success]',
 })
-export class AlertSuccess { }
+export class AlertSuccess { 
+    @HostBinding('class.alert-success') _alert: boolean = true;
+}
 
 @Directive({
     selector: 'alert[info]',
 })
-export class AlertInfo { }
+export class AlertInfo { 
+    @HostBinding('class.alert-info') _alert: boolean = true;
+}
 
 @Directive({
     selector: 'alert[warning]',
 })
-export class AlertWarning { }
+export class AlertWarning { 
+    @HostBinding('class.alert-warning') _alert: boolean = true;
+}
 
 @Directive({
     selector: 'alert[danger]',
 })
-export class AlertDanger { }
-
-@Directive({
-    selector: 'alert[close]',
-})
-export class AlertClose { }
+export class AlertDanger { 
+    @HostBinding('class.alert-danger') _alert: boolean = true;
+}

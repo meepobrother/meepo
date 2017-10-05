@@ -20,8 +20,6 @@ export class AboutUsSetting implements OnInit {
             ])
         });
         this.kefus = this.form.get('kefus') as FormArray;
-
-        console.log(this.kefus);
     }
 
     ngOnInit() { }
