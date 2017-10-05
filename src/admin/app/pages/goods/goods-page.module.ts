@@ -10,10 +10,19 @@ const routes: Routes = [
 ];
 
 import { ShareModule } from '../../share';
+import { GoodsGroupModule } from './goods-group';
+import { GoodsListModule } from './goods-list';
+import { GoodsTagsModule } from './goods-tags';
+
 
 const modules = [
-    ShareModule
+    ShareModule,
+    GoodsGroupModule,
+    GoodsListModule,
+    GoodsTagsModule
 ];
+
+
 @NgModule({
     declarations: [
         GoodsPage

@@ -13,6 +13,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { ErrorModule } from './error';
 import { ApiModule } from './api';
+import { UpdateModule } from './update';
+
 
 import { LoginService } from './login.service';
 const modules = [
