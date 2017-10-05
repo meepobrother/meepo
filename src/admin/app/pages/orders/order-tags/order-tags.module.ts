@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { OrderTags } from './order-tags';
-import { OrderTagsAdd } from './order-tags-add';
+import { OrderTagsService } from './order-tags.service';
 
+import { OrderTagsAdd } from './order-tags-add';
 import { ShareModule } from '../../../share';
 
 @NgModule({
@@ -14,7 +15,9 @@ import { ShareModule } from '../../../share';
     exports: [
         OrderTags
     ],
-    providers: [],
+    providers: [
+        OrderTagsService
+    ],
     entryComponents: [
         OrderTagsAdd
     ]
