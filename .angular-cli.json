@@ -26,8 +26,8 @@
         },
         {
             "name": "runner-demo",
-            "root": "src/runner/demo",
-            "outDir": "dist/runner/demo",
+            "root": "src/runner",
+            "outDir": "dist/runner",
             "assets": [
                 "assets",
                 "package.json"

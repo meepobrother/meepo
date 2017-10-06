@@ -1,2 +1,2 @@
-### ng.meepo.runner
+### ng.meepo.runner.demo
 
