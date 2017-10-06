@@ -14,6 +14,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { ErrorModule } from './error';
 import { ApiModule } from './api';
 import { UpdateModule } from './update';
+import { MemberSelectModule } from './member-select';
+
 
 
 import { LoginService } from './login.service';
@@ -25,7 +27,8 @@ const modules = [
     FlexLayoutModule,
     ErrorModule,
     ApiModule,
-    StylesModule
+    StylesModule,
+    MemberSelectModule
 ];
 
 @NgModule({

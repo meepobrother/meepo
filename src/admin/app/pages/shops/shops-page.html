@@ -4,9 +4,21 @@
     </div>
     <div class="ibox-content">
         <nav-tabs>
-            <nav-tab-pane title="门店"></nav-tab-pane>
-            <nav-tab-pane title="门店分组"></nav-tab-pane>
-            <nav-tab-pane title="门店标签"></nav-tab-pane>
+            <nav-tab-pane title="门店">
+                <ng-template navTabPaneRef>
+                    <shops-group></shops-group>
+                </ng-template>
+            </nav-tab-pane>
+            <nav-tab-pane title="门店分组">
+                <ng-template navTabPaneRef>
+                    <shops-list></shops-list>
+                </ng-template>
+            </nav-tab-pane>
+            <nav-tab-pane title="门店标签">
+                <ng-template navTabPaneRef>
+                    <shops-tags></shops-tags>
+                </ng-template>
+            </nav-tab-pane>
         </nav-tabs>
     </div>
 </div>

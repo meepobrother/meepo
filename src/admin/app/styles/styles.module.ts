@@ -2,20 +2,25 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StylesComponent } from './styles';
 import { IconfontSelect } from './iconfont-select';
+import { FontAwesomeSelect } from './font-awesome-select';
+
 
 @NgModule({
     declarations: [
         StylesComponent,
-        IconfontSelect
+        IconfontSelect,
+        FontAwesomeSelect
     ],
-    imports: [ CommonModule ],
+    imports: [CommonModule],
     exports: [
         StylesComponent,
-        IconfontSelect
+        IconfontSelect,
+        FontAwesomeSelect
     ],
     providers: [],
     entryComponents: [
-        IconfontSelect
+        IconfontSelect,
+        FontAwesomeSelect
     ]
 })
-export class StylesModule {}
+export class StylesModule { }

@@ -1,14 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ShopsGroup } from './shops-group';
+import { MemberSelect } from './member-select';
 @NgModule({
     declarations: [
-        ShopsGroup
+        MemberSelect
     ],
     imports: [ CommonModule ],
     exports: [
-        ShopsGroup
+        MemberSelect
     ],
     providers: [],
+    entryComponents: [
+        MemberSelect
+    ]
 })
-export class ShopsGroupModule {}
+export class MemberSelectModule {}

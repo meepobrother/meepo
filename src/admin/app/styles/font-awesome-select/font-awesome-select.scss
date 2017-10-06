@@ -1,0 +1,23 @@
+:host {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.active {
+    color: #1ab394;
+    background: #ccc;
+}
+
+.fa {
+    padding: 3px;
+    border-radius: 10px;
+    margin: 3px;
+    font-size: 32px;
+    line-height: 44px;
+    color: #919191;
+    &:hover {
+        background: #ccc;
+    }
+}
