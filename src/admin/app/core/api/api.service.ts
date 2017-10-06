@@ -68,6 +68,7 @@ export class ApiService {
     }
 
     isSqlError(val: string) {
+        console.log(val);
         if (typeof val === 'string') {
             val = val.toLowerCase().trim();
             return val.indexOf('sql:') >= 0;

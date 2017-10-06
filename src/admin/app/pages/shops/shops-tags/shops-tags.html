@@ -10,7 +10,7 @@
     </alert>
     <div class="ibox-content">
         <div *ngIf="api.list.size>0">
-            <span (click)="edit(item)" class="label label-primary" style="margin: 5px;" *ngFor="let item of tags.dates">{{item.title || '标题'}}</span>
+            <span (click)="edit(item)" class="label label-danger" style="margin: 5px;" *ngFor="let item of api.dates">{{item.title || '标题'}}</span>
         </div>
         <blank *ngIf="api.list.size<=0" title="还没有标签">
             立即添加标签

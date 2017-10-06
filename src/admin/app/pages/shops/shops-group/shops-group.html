@@ -30,9 +30,9 @@
                         <a (click)="edit(item)" class="client-link">{{item.desc || '简介'}}</a>
                     </td>
                     <td class="client-status">
-                        <span (click)="updateStatus(item)" [class.label-primary]="item.status != 0" class="label">
-                                {{item.status == 0 ? '关闭' : '开启'}}
-                            </span>
+                        <span (click)="updateStatus(item)" [class.label-primary]="item.status+'' != '0'" class="label">
+                            {{item.status+'' == '0' ? '关闭' : '开启'}}
+                        </span>
                     </td>
                     <td class="tags">
                         <span style="margin: 1px;" [class.label-danger]="item.status != 0" *ngFor="let tag of item.tags" class="label">
