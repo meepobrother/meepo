@@ -1,0 +1,20 @@
+:host {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.active {
+    color: #1ab394;
+    background: #ccc;
+}
+
+.ui-icon {
+    padding: 3px;
+    border-radius: 10px;
+    margin: 3px;
+    &:hover {
+        background: #ccc;
+    }
+}
