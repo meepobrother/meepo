@@ -6,7 +6,7 @@ import { FontAwesomeSelect } from './font-awesome-select';
 import { IconSelect } from './icon-select';
 
 import { NavTabsModule } from '../components';
-
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -17,7 +17,7 @@ import { NavTabsModule } from '../components';
         FontAwesomeSelect,
         IconSelect
     ],
-    imports: [CommonModule,NavTabsModule],
+    imports: [CommonModule, NavTabsModule, ReactiveFormsModule],
     exports: [
         StylesComponent,
         IconfontSelect,
