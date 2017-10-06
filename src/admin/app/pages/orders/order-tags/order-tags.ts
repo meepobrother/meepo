@@ -1,6 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
-import { MdDialog } from '@angular/material';
+import { MatDialog } from '@angular/material';
 import { OrderTagsAdd } from './order-tags-add';
 import { OrderTagsService } from './order-tags.service';
 
@@ -11,7 +11,7 @@ import { OrderTagsService } from './order-tags.service';
 })
 export class OrderTags implements OnInit {
     constructor(
-        public dialog: MdDialog,
+        public dialog: MatDialog,
         public tags: OrderTagsService
     ) { }
 

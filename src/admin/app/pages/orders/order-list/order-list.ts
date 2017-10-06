@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OrderListAdd } from './order-list-add';
-import { MdDialog } from '@angular/material';
+import { MatDialog } from '@angular/material';
 
 @Component({
     selector: 'order-list',
@@ -10,7 +10,7 @@ import { MdDialog } from '@angular/material';
 export class OrderList implements OnInit {
     list: any[] = [];
     constructor(
-        public dialog: MdDialog
+        public dialog: MatDialog
     ) { }
 
     ngOnInit() { }

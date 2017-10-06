@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OrderClassAdd } from './order-class-add';
-import { MdDialog } from '@angular/material';
+import { MatDialog } from '@angular/material';
 import { OrderClassAddService } from './order-class-add.service';
 
 @Component({
@@ -11,7 +11,7 @@ import { OrderClassAddService } from './order-class-add.service';
 export class OrderClass implements OnInit {
     list: OrderClassItem[] = [];
     constructor(
-        public dialog: MdDialog,
+        public dialog: MatDialog,
         public api: OrderClassAddService
     ) { }
 

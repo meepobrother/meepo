@@ -1,0 +1,39 @@
+:host {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.overlay {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    overflow: hidden;
+    vertical-align: middle;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+}
+
+.overlay-panel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 20px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+}
+
+.overlay-background {
+    background: rgba(0, 0, 0, .5);
+}
+
+.overlay-center {
+    justify-content: center;
+    align-content: center;
+}

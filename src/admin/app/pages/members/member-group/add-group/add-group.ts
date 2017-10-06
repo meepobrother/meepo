@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MdDialogRef, MD_DIALOG_DATA } from '@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { MemberGroupServiceService } from '../member-group.service';
 import { Group, AddGroupOpt } from '../add-grop-opt';
@@ -13,9 +13,9 @@ import { Group, AddGroupOpt } from '../add-grop-opt';
 export class AddGroup implements OnInit {
     form: FormGroup;
     constructor(
-        public dialogRef: MdDialogRef<any>,
+        public dialogRef: MatDialogRef<any>,
         public fb: FormBuilder,
-        @Inject(MD_DIALOG_DATA) public data: any,
+        @Inject(MAT_DIALOG_DATA) public data: any,
         public api: MemberGroupServiceService
     ) {
         this.form = this.fb.group({
