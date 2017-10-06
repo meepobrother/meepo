@@ -1,4 +1,4 @@
-import { Component, OnInit, HostBinding, HostListener } from '@angular/core';
+import { Component, OnInit, HostBinding, HostListener, Input } from '@angular/core';
 import { DropdownService } from '../dropdown.service';
 import { DropdownsService } from '../dropdowns.service';
 
@@ -16,6 +16,7 @@ export class DropdownToggle implements OnInit {
         this.services$.toggle(this.service$.id);
     }
 
+    @Input() title: string;
     constructor(
         public service$: DropdownService,
         public services$: DropdownsService,

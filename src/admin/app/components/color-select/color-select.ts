@@ -29,7 +29,7 @@ export class ColorSelect implements OnInit, ControlValueAccessor {
         const target = e.target;
         const color = this.getStyle(target).backgroundColor;
         this.onSelect.emit(color);
-        this.onChangeFn(color);
+        this.onChangeFn && this.onChangeFn(color);
     }
 
     getStyle(ele) {
