@@ -7,6 +7,8 @@ export * from './text-adv';
 export * from './price-list';
 export * from './overlay';
 export * from './cover';
+export * from './dnd';
+
 
 
 

@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import {
     NavTabsModule, MeepoFormFieldModule,
     PanelModule, AlertModule, BlankModule,
-    TextAdvModule, PriceListModule, OverlayModule, CoverModule
+    TextAdvModule, PriceListModule, OverlayModule, CoverModule, DndModule
 } from '../components';
 
 import { MatDialogModule } from '@angular/material';
@@ -21,15 +21,17 @@ const materials = [
     TextAdvModule,
     PriceListModule,
     OverlayModule,
-    CoverModule
+    CoverModule,
 ];
 
 @NgModule({
     imports: [
-        ...materials
+        ...materials,
+        DndModule.forRoot()
     ],
     exports: [
-        ...materials
+        ...materials,
+        DndModule
     ]
 })
 export class ShareModule { }
