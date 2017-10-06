@@ -1,9 +1,9 @@
 import { Component, OnInit, forwardRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 @Component({
-    selector: 'iconfont-select',
-    templateUrl: './iconfont-select.html',
-    styleUrls: ['./iconfont-select.scss'],
+    selector: 'font-awesome-select',
+    templateUrl: './font-awesome-select.html',
+    styleUrls: ['./font-awesome-select.scss'],
     providers: [
         {
             provide: NG_VALUE_ACCESSOR,
