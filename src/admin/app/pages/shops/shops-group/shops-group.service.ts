@@ -18,8 +18,8 @@ export class ShopsGroupService {
     ) { }
 
     getList(page: number = 1, psize: number = 30) {
-        this.api.mpost('orders.getListOrderClass', { page: page, psize: psize }).subscribe((res: ShopsGroupListResult) => {
-            if(this.api.isSqlError(res.msg)){
+        this.api.mpost('shops.getListShopsGroup', { page: page, psize: psize }).subscribe((res: ShopsGroupListResult) => {
+            if(this.api.isSqlError(res.message)){
                 this.handelError();
             }
             if (res.code === 1) {
@@ -34,12 +34,12 @@ export class ShopsGroupService {
     }
 
     handelError() {
-        this.api.mget('orders.update').subscribe(res => { })
+        this.api.mget('shops.update').subscribe(res => { })
     }
 
     add(item: any) {
         console.log(item);        
-        this.api.mpost('orders.addOrderClass', item).subscribe((res: ShopsGroupItemResult) => {
+        this.api.mpost('shops.addShopsGroup', item).subscribe((res: ShopsGroupItemResult) => {
             if(this.api.isSqlError(res.message)){
                 this.handelError();
             }
@@ -52,7 +52,7 @@ export class ShopsGroupService {
     }
 
     edit(item: any) {
-        this.api.mpost('orders.updateOrderClass', item).subscribe((res: ShopsGroupItemResult) => {
+        this.api.mpost('shops.updateShopsGroup', item).subscribe((res: ShopsGroupItemResult) => {
             if(this.api.isSqlError(res.message)){
                 this.handelError();
             }
@@ -65,7 +65,7 @@ export class ShopsGroupService {
     }
 
     delete(item: any) {
-        this.api.mpost('orders.deleteOrderClass', item).subscribe((res: ShopsGroupItemResult) => {
+        this.api.mpost('shops.deleteShopsGroup', item).subscribe((res: ShopsGroupItemResult) => {
             if(this.api.isSqlError(res.message)){
                 this.handelError();
             }
@@ -78,7 +78,8 @@ export class ShopsGroupService {
     }
 
     updateStatus(item: any) {
-        this.api.mpost('orders.updateStatusOrderClass', item).subscribe((res: ShopsGroupItemResult) => {
+        this.api.mpost('shops.updateStatusShopsGroup', item).subscribe((res: ShopsGroupItemResult) => {
+            
             if(this.api.isSqlError(res.message)){
                 this.handelError();
             }

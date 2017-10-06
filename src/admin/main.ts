@@ -5,9 +5,9 @@ import { AdminModule } from './app/admin.module';
 import { environment } from './environments/environment';
 
 import 'hammerjs';
-import * as VConsole from 'vconsole';
-new VConsole();
-console.log('Hello world');
+// import * as VConsole from 'vconsole';
+// new VConsole();
+// console.log('Hello world');
 
 
 if (environment.production) {

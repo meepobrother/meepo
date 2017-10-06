@@ -14,7 +14,9 @@ export class ShopsGroup implements OnInit {
         public dialog: MdDialog
     ) { }
 
-    ngOnInit() { }
+    ngOnInit() { 
+        this.api.getList();
+    }
 
     add() { 
         let dialogRef = this.dialog.open(ShopsGroupAdd);
@@ -29,8 +31,13 @@ export class ShopsGroup implements OnInit {
         let dialogRef = this.dialog.open(ShopsGroupAdd, { data: item });
         dialogRef.afterClosed().subscribe(res=>{
             if(res){
+                console.log(res);
                 this.api.edit(res);
             }
         });
+    }
+
+    updateStatus(item: any){
+        this.api.updateStatus(item);
     }
 }

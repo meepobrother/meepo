@@ -24,7 +24,8 @@ export class ShopsGroupAdd implements OnInit {
             uniacid: [''],
             id: [''],
             desc: [''],
-            tags: [[]]
+            tags: [[]],
+            status: ['']
         });
 
         this.dialogRef.afterOpen().subscribe(()=>{
@@ -33,6 +34,7 @@ export class ShopsGroupAdd implements OnInit {
             this.form.get('id').setValue(this.data.id);  
             this.form.get('desc').setValue(this.data.desc);
             this.form.get('tags').setValue(this.data.tags);  
+            this.form.get('status').setValue(this.data.status);  
         });
     }
 
