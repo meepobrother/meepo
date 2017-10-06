@@ -3,10 +3,13 @@
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
+    max-height: 300px;
+    min-height: 300px;
+    overflow-y: scroll;
 }
 
 .active {
-    color: #1ab394;
+    color: #1ab394 !important;
     background: #ccc;
 }
 
@@ -14,8 +17,8 @@
     padding: 3px;
     border-radius: 10px;
     margin: 3px;
-    font-size: 32px;
-    line-height: 44px;
+    font-size: 24px;
+    line-height: 32px;
     color: #919191;
     &:hover {
         background: #ccc;

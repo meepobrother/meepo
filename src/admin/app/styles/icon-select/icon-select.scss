@@ -1,0 +1,11 @@
+:host {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    min-width: 100%;
+}
+
+.active {
+    color: #1ab394;
+    background: #ccc;
+}
