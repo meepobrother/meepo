@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ShopsTagsService } from './shops-tags.service';
 
 @Component({
     selector: 'shops-tags',
@@ -6,7 +7,9 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./shops-tags.scss']
 })
 export class ShopsTags implements OnInit {
-    constructor() { }
+    constructor(
+        public api: ShopsTagsService
+    ) { }
 
     ngOnInit() { }
 }
