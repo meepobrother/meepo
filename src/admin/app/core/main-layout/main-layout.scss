@@ -24,3 +24,12 @@
     max-width: 4em;
     border-radius: 50%;
 }
+
+.ui-icon {
+    font-size: 22px;
+    line-height: 22px;
+    color: #a7b1c2;
+    &.ui-icon-dressup {
+        color: #18a689;
+    }
+}

@@ -14,7 +14,7 @@ export class MainLayoutComponent implements OnInit {
         {
             title: '门店',
             total: 0,
-            icon: 'fa fa-home',
+            icon: 'ui-icon ui-icon-hall',
             link: ['/shops']
         },
         {
@@ -26,7 +26,7 @@ export class MainLayoutComponent implements OnInit {
         {
             title: '会员',
             total: 0,
-            icon: 'fa fa-group',
+            icon: 'ui-icon ui-icon-personal',
             link: ['/members']
         },
         {
@@ -34,6 +34,12 @@ export class MainLayoutComponent implements OnInit {
             total: 0,
             icon: 'fa fa-book',
             link: ['/orders']
+        },
+        {
+            title: '预约',
+            total: 0,
+            icon: 'ui-icon ui-icon-history',
+            link: ['/coachs']
         },
         {
             title: '任务',
@@ -58,6 +64,18 @@ export class MainLayoutComponent implements OnInit {
             total: 0,
             icon: 'fa fa-signal',
             link: ['/dates']
+        },
+        {
+            title: '皮肤',
+            total: 0,
+            icon: 'ui-icon ui-icon-dressup',
+            link: ['/themes']
+        },
+        {
+            title: '插件',
+            total: 0,
+            icon: 'ui-icon ui-icon-collected',
+            link: ['/plugins']
         },
         {
             title: '设置',
