@@ -1,4 +1,4 @@
-import { Component, OnInit, forwardRef } from '@angular/core';
+import { Component, OnInit, forwardRef, Output, EventEmitter } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, FormGroup, FormBuilder } from '@angular/forms';
 @Component({
     selector: 'icon-select',
@@ -7,6 +7,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR, FormGroup, FormBuilder } from 
 })
 export class IconSelect implements OnInit, ControlValueAccessor {
     form: FormGroup;
+    @Output() onChange: EventEmitter<any> = new EventEmitter();
     onChangeFn: (_: any) => {};
     constructor(
         public fb: FormBuilder
@@ -15,7 +16,8 @@ export class IconSelect implements OnInit, ControlValueAccessor {
             icon: ['']
         });
         this.form.get('icon').valueChanges.subscribe(res => {
-            this.onChangeFn(res);
+            this.onChangeFn && this.onChangeFn(res);
+            this.onChange.emit(res);
         });
     }
 

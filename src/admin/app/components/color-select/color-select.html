@@ -1,0 +1,3 @@
+<div class="color-container" *ngFor="let color of colors">
+    <div (click)="onClick($event)" [class]="'color bg-' + color + '-' + grid" *ngFor="let grid of grids"></div>
+</div>

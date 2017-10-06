@@ -9,6 +9,9 @@
     &:hover {
         text-decoration: none;
         background-color: #eee;
+        .title {
+            display: block;
+        }
     }
     &.active {
         text-decoration: none;
