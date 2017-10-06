@@ -3,22 +3,25 @@ import { CommonModule } from '@angular/common';
 import {
     NavTabsModule, MeepoFormFieldModule,
     PanelModule, AlertModule, BlankModule,
-    TextAdvModule
+    TextAdvModule, PriceListModule, OverlayModule, CoverModule
 } from '../components';
 
-import { MdDialogModule } from '@angular/material';
+import { MatDialogModule } from '@angular/material';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 const materials = [
     NavTabsModule,
     MeepoFormFieldModule,
-    MdDialogModule,
+    MatDialogModule,
     ReactiveFormsModule,
     PanelModule,
     AlertModule,
     FormsModule,
     BlankModule,
-    TextAdvModule
+    TextAdvModule,
+    PriceListModule,
+    OverlayModule,
+    CoverModule
 ];
 
 @NgModule({

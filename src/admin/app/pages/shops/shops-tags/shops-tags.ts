@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ShopsTagsService } from './shops-tags.service';
-import { MdDialog } from '@angular/material';
+import { MatDialog } from '@angular/material';
 import { ShopsTagsAdd } from './shops-tags-add';
 @Component({
     selector: 'shops-tags',
@@ -10,7 +10,7 @@ import { ShopsTagsAdd } from './shops-tags-add';
 export class ShopsTags implements OnInit {
     constructor(
         public api: ShopsTagsService,
-        public dialog: MdDialog
+        public dialog: MatDialog
     ) { }
 
     ngOnInit() { 

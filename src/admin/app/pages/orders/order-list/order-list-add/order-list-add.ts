@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { MdDialogRef, MD_DIALOG_DATA } from '@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 @Component({
     selector: 'order-list-add',
@@ -10,9 +10,9 @@ import { MdDialogRef, MD_DIALOG_DATA } from '@angular/material';
 export class OrderListAdd implements OnInit {
     form: FormGroup;
     constructor(
-        public dialogRef: MdDialogRef<any>,
+        public dialogRef: MatDialogRef<any>,
         public fb: FormBuilder,
-        @Inject(MD_DIALOG_DATA) public data: any,
+        @Inject(MAT_DIALOG_DATA) public data: any,
     ) { 
         this.form = this.fb.group({
             title: [''],

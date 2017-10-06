@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CoachsPage } from './coachs-page';
 import { Routes, RouterModule } from '@angular/router';
+import { ShareModule } from '../../share';
 const routes: Routes = [
     {
         path: '',
@@ -12,7 +13,7 @@ const routes: Routes = [
     declarations: [
         CoachsPage
     ],
-    imports: [CommonModule, RouterModule.forChild(routes)],
+    imports: [CommonModule, RouterModule.forChild(routes), ShareModule],
     exports: [
         CoachsPage
     ],

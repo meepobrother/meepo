@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { MdDialogRef, MD_DIALOG_DATA, MdDialog } from '@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material';
 import { ShopsTagsService, ShopsTagsAdd } from '../../shops-tags';
 import { ShopsGroupService } from '../shops-group.service';
 
@@ -12,11 +12,11 @@ import { ShopsGroupService } from '../shops-group.service';
 export class ShopsGroupAdd implements OnInit {
     form: FormGroup;
     constructor(
-        public dialogRef: MdDialogRef<any>,
+        public dialogRef: MatDialogRef<any>,
         public fb: FormBuilder,
-        @Inject(MD_DIALOG_DATA) public data: any,
+        @Inject(MAT_DIALOG_DATA) public data: any,
         public api: ShopsGroupService,
-        public dialog: MdDialog,
+        public dialog: MatDialog,
         public tagApi: ShopsTagsService
     ) { 
         this.form = this.fb.group({

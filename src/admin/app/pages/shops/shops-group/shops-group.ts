@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ShopsGroupService } from './shops-group.service';
 import { ShopsGroupAdd } from './shops-group-add';
 
-import { MdDialog } from '@angular/material';
+import { MatDialog } from '@angular/material';
 @Component({
     selector: 'shops-group',
     templateUrl: './shops-group.html',
@@ -11,7 +11,7 @@ import { MdDialog } from '@angular/material';
 export class ShopsGroup implements OnInit {
     constructor(
         public api: ShopsGroupService,
-        public dialog: MdDialog
+        public dialog: MatDialog
     ) { }
 
     ngOnInit() { 

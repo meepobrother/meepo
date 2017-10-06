@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MemberGroupServiceService } from './member-group.service';
 import { AddGroup } from './add-group';
-import { MdDialog } from '@angular/material';
+import { MatDialog } from '@angular/material';
 import { Group, AddGroupOpt } from './add-grop-opt';
 
 @Component({
@@ -12,7 +12,7 @@ import { Group, AddGroupOpt } from './add-grop-opt';
 export class MemberGroup implements OnInit {
     constructor(
         public api: MemberGroupServiceService,
-        public dialog: MdDialog
+        public dialog: MatDialog
     ) { }
 
     ngOnInit() {

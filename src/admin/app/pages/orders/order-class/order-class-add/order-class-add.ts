@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { MdDialogRef, MD_DIALOG_DATA, MdDialog } from '@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material';
 import { OrderClassAddService } from '../order-class-add.service';
 import { OrderTagsService, OrderTagsAdd } from '../../order-tags';
 
@@ -12,11 +12,11 @@ import { OrderTagsService, OrderTagsAdd } from '../../order-tags';
 export class OrderClassAdd implements OnInit {
     form: FormGroup;
     constructor(
-        public dialogRef: MdDialogRef<any>,
+        public dialogRef: MatDialogRef<any>,
         public fb: FormBuilder,
-        @Inject(MD_DIALOG_DATA) public data: any,
+        @Inject(MAT_DIALOG_DATA) public data: any,
         public api: OrderClassAddService,
-        public dialog: MdDialog,
+        public dialog: MatDialog,
         public tagApi: OrderTagsService
     ) { 
         this.form = this.fb.group({
