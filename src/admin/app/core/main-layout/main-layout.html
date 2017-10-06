@@ -1,5 +1,4 @@
 <styles></styles>
-
 <div fxFlexFill fxLayout="row">
     <sidebar-container *ngIf="showMenu">
         <sidebar-list>
@@ -32,6 +31,7 @@
             </topnav-right>
         </topnav>
         <div (click)="onContentClick()" style="flex: 1;overflow-y: scroll;">
+            <iconfont-select></iconfont-select>
             <ng-content></ng-content>
         </div>
     </sidebar-content>
