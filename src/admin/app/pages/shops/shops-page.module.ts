@@ -2,6 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule} from '@angular/router';
 import { ShopsPage } from './shops-page';
+import { ShopsGroupModule } from './shops-group';
+import { ShopsListModule } from './shops-list';
+import { ShopsTagsModule } from './shops-tags';
+
 const routes: Routes = [
     {
         path: '',
@@ -11,8 +15,12 @@ const routes: Routes = [
 import { ShareModule } from '../../share';
 
 const modules = [
-    ShareModule
+    ShareModule,
+    ShopsTagsModule,
+    ShopsListModule,
+    ShopsGroupModule
 ];
+
 @NgModule({
     declarations: [
         ShopsPage

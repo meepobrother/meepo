@@ -68,6 +68,11 @@ const routes:Routes = [
         path: 'themes',
         loadChildren: 'app/pages/themes/themes-page.module#ThemesPageModule',
         canActivate: [IsLoginGuard]
+    },
+    {
+        path: 'coachs',
+        loadChildren: 'app/pages/coachs/coachs-page.module#CoachsPageModule',
+        canActivate: [IsLoginGuard]
     }
 ];
 @NgModule({

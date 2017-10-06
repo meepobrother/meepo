@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ShopsGroup } from './shops-group';
+import { ShopsList } from './shops-list';
 @NgModule({
     declarations: [
-        ShopsGroup
+        ShopsList
     ],
     imports: [ CommonModule ],
     exports: [
-        ShopsGroup
+        ShopsList
     ],
     providers: [],
 })
-export class ShopsGroupModule {}
+export class ShopsListModule {}
