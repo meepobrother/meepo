@@ -8,7 +8,7 @@ import { DropdownModule } from '../dropdown/dropdown.module';
 import { TopnavModule } from '../topnav/topnav.module';
 
 import { MainLayoutComponent } from './main-layout/main-layout';
-import { StylesComponent } from '../styles/styles';
+import { StylesModule } from '../styles';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { ErrorModule } from './error';
@@ -24,13 +24,13 @@ const modules = [
     TopnavModule,
     FlexLayoutModule,
     ErrorModule,
-    ApiModule
+    ApiModule,
+    StylesModule
 ];
 
 @NgModule({
     declarations: [
-        MainLayoutComponent,
-        StylesComponent
+        MainLayoutComponent
     ],
     imports: [
         ...modules
