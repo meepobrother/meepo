@@ -1,12 +1,25 @@
 <div class="ibox">
     <div class="ibox-title">
-        <h2>主题管理</h2>
+        <h5>主题管理</h5>
+        <div class="ibox-tools">
+            <a href="javascript:;" (click)="createThemes()" class="btn btn-primary btn-xs">添加主题</a>
+        </div>
     </div>
     <div class="ibox-content">
         <nav-tabs>
             <nav-tab-pane title="免费主题">
                 <ng-template navTabPaneRef>
                     <themes-list-free></themes-list-free>
+                </ng-template>
+            </nav-tab-pane>
+            <nav-tab-pane title="主题市场">
+                <ng-template navTabPaneRef>
+                    <themes-shops></themes-shops>
+                </ng-template>
+            </nav-tab-pane>
+            <nav-tab-pane title="我的主题">
+                <ng-template navTabPaneRef>
+                    <themes-mine></themes-mine>
                 </ng-template>
             </nav-tab-pane>
         </nav-tabs>
