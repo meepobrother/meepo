@@ -1,0 +1,19 @@
+:host {
+    width: 100%;
+    display: block;
+}
+
+.plugin-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    .plugin-item {
+        min-width: 15em;
+        padding: 10px;
+        border-radius: 5px;
+        &:hover {
+            background: #DFDEDE;
+        }
+    }
+}
