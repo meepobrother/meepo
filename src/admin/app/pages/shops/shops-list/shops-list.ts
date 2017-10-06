@@ -12,4 +12,6 @@ export class ShopsList implements OnInit {
     ) { }
 
     ngOnInit() { }
+
+    add() { }
 }
