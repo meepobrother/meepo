@@ -1,0 +1,11 @@
+<marquee behavior="scroll" contenteditable="true" onstart="this.firstChild.innerHTML+=this.firstChild.innerHTML;" scrollamount="3" width="100" onmouseover="this.stop();" onmouseout="this.start();">
+    <div class="ui-newstips">
+        <span class="ui-avatar-tiled">
+            <span style="background-image:url(./assets/img/a1.jpg)"></span>
+        </span>
+        <div style="padding: 0 3px;">
+            <ng-content></ng-content>
+        </div>
+        <span class="ui-reddot ui-reddot-static"></span>
+    </div>
+</marquee>

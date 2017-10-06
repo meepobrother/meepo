@@ -53,6 +53,16 @@ const routes:Routes = [
         path: 'shops',
         loadChildren: 'app/pages/shops/shops-page.module#ShopsPageModule',
         canActivate: [IsLoginGuard]
+    },
+    {
+        path: 'tasks',
+        loadChildren: 'app/pages/tasks/tasks-page.module#TasksPageModule',
+        canActivate: [IsLoginGuard]
+    },
+    {
+        path: 'skills',
+        loadChildren: 'app/pages/skills/skills-page.module#SkillsPageModule',
+        canActivate: [IsLoginGuard]
     }
 ];
 @NgModule({

@@ -36,6 +36,18 @@ export class MainLayoutComponent implements OnInit {
             link: ['/orders']
         },
         {
+            title: '任务',
+            total: 0,
+            icon: 'fa fa-calendar-o',
+            link: ['/tasks']
+        },
+        {
+            title: '技能',
+            total: 0,
+            icon: 'fa fa-graduation-cap',
+            link: ['/skills']
+        },
+        {
             title: '财务',
             total: 0,
             icon: 'fa fa-credit-card',
