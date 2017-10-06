@@ -9,4 +9,6 @@ export class ThemesPage implements OnInit {
     constructor() { }
 
     ngOnInit() { }
+
+    createThemes(){}
 }
