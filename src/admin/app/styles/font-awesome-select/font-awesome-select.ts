@@ -1,11 +1,18 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, forwardRef } from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 @Component({
-    selector: 'font-awesome-select',
-    templateUrl: './font-awesome-select.html',
-    styleUrls: ['./font-awesome-select.scss']
+    selector: 'iconfont-select',
+    templateUrl: './iconfont-select.html',
+    styleUrls: ['./iconfont-select.scss'],
+    providers: [
+        {
+            provide: NG_VALUE_ACCESSOR,
+            useExisting: forwardRef(() => FontAwesomeSelect),
+            multi: true
+        }
+    ]
 })
-export class FontAwesomeSelect implements OnInit {
+export class FontAwesomeSelect implements OnInit, ControlValueAccessor {
     icons: any[] = [
         { icon: 'fa fa-glass', active: false },
         { icon: 'fa fa-music', active: false },
@@ -687,11 +694,35 @@ export class FontAwesomeSelect implements OnInit {
         { icon: 'fa fa-vimeo', active: false },
         { icon: 'fa fa-black-tie', active: false },
         { icon: 'fa fa-fonticons', active: false },
-        
-        
-        
     ];
+    onChangeFn: (_: any) => {};
     constructor() { }
 
     ngOnInit() { }
+
+    onClick(item: any) {
+        this.icons.map(res => {
+            if (res.icon == item.icon) {
+
+            } else {
+                res.active = false;
+            }
+        })
+        item.active = !item.active;
+        this.onChangeFn(item.icon);
+    }
+
+    writeValue(obj: any): void {
+        this.icons.map(res => {
+            if (res.icon === obj) {
+                res.active = true;
+            }
+        })
+    }
+    registerOnChange(fn: any): void {
+        this.onChangeFn = fn;
+    }
+    registerOnTouched(): void {
+
+    }
 }
