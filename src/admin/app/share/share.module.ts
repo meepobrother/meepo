@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 import {
     NavTabsModule, MeepoFormFieldModule,
     PanelModule, AlertModule, BlankModule,
-    TextAdvModule, PriceListModule, OverlayModule, CoverModule, DndModule
+    TextAdvModule, PriceListModule, OverlayModule,
+    CoverModule, DndModule, ColorSelectModule
 } from '../components';
 
 import { MatDialogModule } from '@angular/material';
@@ -22,6 +23,7 @@ const materials = [
     PriceListModule,
     OverlayModule,
     CoverModule,
+    ColorSelectModule
 ];
 
 @NgModule({

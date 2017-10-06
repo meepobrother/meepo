@@ -54,6 +54,7 @@
         "js-base64": "^2.3.2",
         "ng-zorro-antd": "^0.5.3",
         "normalize.css": "^7.0.0",
+        "open-color": "^1.5.1",
         "pdf.js": "^0.1.0",
         "pdfjs-dist": "^1.9.622",
         "rxjs": "^5.4.3",

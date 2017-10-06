@@ -16,9 +16,10 @@ import { ApiModule } from './api';
 import { UpdateModule } from './update';
 import { MemberSelectModule } from './member-select';
 
-
+import { ShareModule } from '../share';
 
 import { LoginService } from './login.service';
+
 const modules = [
     CommonModule,
     SidebarModule,
@@ -28,7 +29,8 @@ const modules = [
     ErrorModule,
     ApiModule,
     StylesModule,
-    MemberSelectModule
+    MemberSelectModule,
+    ShareModule
 ];
 
 @NgModule({
