@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ThemesMineService } from '../themes/themes-mine.service';
+import { Button } from '../../design';
+
 @Component({
     selector: 'themes-design',
     templateUrl: './themes-design.html',
@@ -14,6 +16,8 @@ export class ThemesDesign implements OnInit {
             title: '首页'
         }
     ];
+    widget: Button = new Button();
+    
     constructor(
         public route: ActivatedRoute,
         public mine: ThemesMineService

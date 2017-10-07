@@ -5,11 +5,13 @@ import {
     PanelModule, AlertModule, BlankModule,
     TextAdvModule, PriceListModule, OverlayModule,
     CoverModule, DndModule, ColorSelectModule, Iphone6Module,
-    WeuiGridModule, MenuModule
+    WeuiGridModule, MenuModule, EditorModule, LocationPickerModule
 } from '../components';
 
 import { MatDialogModule } from '@angular/material';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+
+import { DesignModule } from '../design';
 
 const materials = [
     NavTabsModule,
@@ -27,7 +29,9 @@ const materials = [
     ColorSelectModule,
     Iphone6Module,
     WeuiGridModule,
-    MenuModule
+    MenuModule,
+    EditorModule, LocationPickerModule,
+    DesignModule
 ];
 
 @NgModule({

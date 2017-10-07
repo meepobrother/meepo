@@ -15,7 +15,9 @@ export class ThemesMine implements OnInit {
         public router: Router
     ) { }
 
-    ngOnInit() { }
+    ngOnInit() { 
+        this.api.getList();
+    }
 
     edit(item: any) { 
         const dialogRef = this.dialog.open(ThemesAdd,{data: item});

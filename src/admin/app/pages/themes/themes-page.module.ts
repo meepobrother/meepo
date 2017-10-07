@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ThemesPage } from './themes-page';
 
-import { ThemesListFree } from './themes-list-free';
+import { ThemesListFreeModule } from './themes-list-free';
 import { ThemesMine } from './themes-mine';
 import { ThemesShops } from './themes-shops';
 
@@ -17,14 +17,14 @@ const routes: Routes = [
 import { ShareModule } from '../../share';
 import { ThemesAdd } from './themes-add';
 const modules = [
-    ShareModule
+    ShareModule,
+    ThemesListFreeModule
 ];
 
 import { ThemesMineService } from './themes-mine.service';
 @NgModule({
     declarations: [
         ThemesPage,
-        ThemesListFree,
         ThemesMine,
         ThemesShops,
         ThemesAdd
@@ -32,7 +32,6 @@ import { ThemesMineService } from './themes-mine.service';
     imports: [CommonModule, RouterModule.forChild(routes), ...modules],
     exports: [
         ThemesPage,
-        ThemesListFree,
         ThemesMine,
         ThemesShops,
         ThemesAdd
