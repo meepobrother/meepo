@@ -1,33 +1,65 @@
 <div class="row">
-    <div class="col-md-6">
-        <div class="ibox-content" [formGroup]="form">
-            <form-field>
-                <input type="text" formControlName="title" meepoInput placeholder="门店名称" class="form-control">
-            </form-field>
-            <form-field>
-                <input type="text" formControlName="mobile" meepoInput placeholder="联系电话" class="form-control">
-            </form-field>
-            <form-field>
-                <textarea rows="5" formControlName="desc" meepoInput placeholder="门店简介" class="form-control"></textarea>
-            </form-field>
-            <div formGroupName="location">
-                <form-field>
-                    <input type="text" formControlName="lat" meepoInput placeholder="经度" class="form-control">
-                </form-field>
-                <form-field>
-                    <input type="text" formControlName="lng" meepoInput placeholder="维度" class="form-control">
-                </form-field>
-                <form-field>
-                    <input type="text" formControlName="address" meepoInput placeholder="街道地址" class="form-control">
-                </form-field>
-                <form-field>
-                    <input type="text" formControlName="detail" meepoInput placeholder="详细地址" class="form-control">
-                </form-field>
+    <div class="col-md-4">
+        <div class="ibox">
+            <div class="ibox-title">
+                基本信息
             </div>
-            <div>
-                <a href="javascript:;" (click)="add()" class="btn btn-primary">添加</a>
-                <a href="javascript:;" (click)="delete()" class="btn btn-danger">删除</a>
-                <a href="javascript:;" (click)="cancel()" class="btn btn-default">取消</a>
+            <div class="ibox-content" [formGroup]="form">
+                <form-field>
+                    <input type="text" formControlName="title" meepoInput placeholder="门店名称" class="form-control">
+                </form-field>
+                <form-field>
+                    <input type="text" formControlName="mobile" meepoInput placeholder="联系电话" class="form-control">
+                </form-field>
+                <form-field>
+                    <textarea rows="5" formControlName="desc" meepoInput placeholder="门店简介" class="form-control"></textarea>
+                </form-field>
+                <form-field>
+                    <editro formControlName="content"></editro>
+                </form-field>
+                <div>
+                    <a href="javascript:;" (click)="add()" class="btn btn-primary">添加</a>
+                    <a href="javascript:;" (click)="delete()" class="btn btn-danger">删除</a>
+                    <a href="javascript:;" (click)="cancel()" class="btn btn-default">取消</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="ibox">
+            <div class="ibox-title">
+                店铺店长
+            </div>
+            <div class="ibox-content">
+
+            </div>
+        </div>
+        <div class="ibox">
+            <div class="ibox-title">
+                店铺员工
+            </div>
+            <div class="ibox-content">
+
+            </div>
+        </div>
+        <div class="ibox">
+            <div class="ibox-title">
+                前台接待
+            </div>
+            <div class="ibox-content">
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="ibox">
+            <div class="ibox-title">
+                其他设置
+            </div>
+            <div class="ibox-content">
+                <location-picker></location-picker>
             </div>
         </div>
     </div>

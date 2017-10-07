@@ -12,6 +12,9 @@ export * from './color-select';
 export * from './iphone6';
 export * from './menu';
 export * from './weui-grid';
+export * from './editor';
+export * from './location-picker';
+
 
 
 
