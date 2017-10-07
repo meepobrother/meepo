@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="container-left">
+        <div class="aside-title">
+            页面装修
+        </div>
+        <div class="aside">
+            <menu-container (click)="setCurrentPage(page)" [class.active]="page.active" (onEdit)="editPage(page)" (onDelete)="deletePage(page)" *ngFor="let page of page$.dates">
+                {{page.title}}
+            </menu-container>
+        </div>
+        <div>
+            <a href="javascript:;" (click)="addPage()" class="btn btn-default">+添加页面</a>
+        </div>
+    </div>
+    <div class="container-center">
+        <div class="line">
+            <h5>前台预览</h5>
+        </div>
+        <iphone6>
+            <button-view [widget]="widget"></button-view>
+        </iphone6>
+    </div>
+    <div class="container-right">
+        <div class="line">
+            <h2 class="title">参数设置</h2>
+        </div>
+        <div class="line" style="padding: 10px;">
+            <button-setting [widget]="widget"></button-setting>
+        </div>
+    </div>
+</div>

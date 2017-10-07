@@ -5,6 +5,7 @@ import { SERVICES } from './services';
 
 import { NavTabsModule } from '../components';
 import { FormsModule } from '@angular/forms';
+
 @NgModule({
     declarations: [
         ...COMPONENTS
