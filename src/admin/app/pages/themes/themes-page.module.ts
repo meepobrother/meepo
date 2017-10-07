@@ -32,7 +32,6 @@ import { ThemesMineService } from './themes-mine.service';
     imports: [CommonModule, RouterModule.forChild(routes), ...modules],
     exports: [
         ThemesPage,
-        ThemesListFree,
         ThemesMine,
         ThemesShops,
         ThemesAdd
