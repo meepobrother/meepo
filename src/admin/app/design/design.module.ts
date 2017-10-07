@@ -1,19 +1,23 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { VIEWS } from './view';
+import { COMPONENTS } from './components';
+import { SERVICES } from './services';
+
 import { NavTabsModule } from '../components';
 import { FormsModule } from '@angular/forms';
 @NgModule({
     declarations: [
-        ...VIEWS
+        ...COMPONENTS
     ],
     imports: [CommonModule, NavTabsModule, FormsModule],
     exports: [
-        ...VIEWS
+        ...COMPONENTS
     ],
-    providers: [],
+    providers: [
+        ...SERVICES
+    ],
     entryComponents: [
-        ...VIEWS
+        ...COMPONENTS
     ]
 })
 export class DesignModule { }

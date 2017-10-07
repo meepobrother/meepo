@@ -2,7 +2,7 @@ import { ButtonView } from './button-view';
 import { ButtonSetting } from './button-setting';
 
 
-export const VIEWS = [
+export const COMPONENTS = [
     ButtonView,
     ButtonSetting
 ];
