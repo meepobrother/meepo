@@ -1,9 +1,44 @@
-<div class="ibox-content" [formGroup]="form">
-    <form-field>
-        <input type="text" formControlName="title" placeholder="页面标题" meepoInput class="form-control">
-    </form-field>
+<meepo-dialog>
+    <meepo-dialog-content>
+        <div class="ibox-content">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="ibox">
+                        <div class="ibox-title">基本配置</div>
+                        <div class="ibox-content" [formGroup]="form">
+                            <form-field>
+                                <input type="text" formControlName="title" placeholder="页面标题" meepoInput class="form-control">
+                            </form-field>
+                            <form-field>
+                                <input type="text" formControlName="keyword" placeholder="触发关键字" meepoInput class="form-control">
+                            </form-field>
+                            <form-field>
+                                <textarea rows="4" formControlName="desc" placeholder="分享简介" meepoInput class="form-control"></textarea>
+                            </form-field>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-8">
+                    <div class="ibox">
+                        <div class="ibox-title">基础模板</div>
+                        <div class="ibox-content" [formGroup]="form">
+                            <a href="javascript:;" class="btn btn-primary">首页模板</a>
+                            <a href="javascript:;" class="btn btn-primary">发布模板</a>
+                            <a href="javascript:;" class="btn btn-primary">个人中心</a>
+                            <a href="javascript:;" class="btn btn-primary">列表模板</a>
+                            <a href="javascript:;" class="btn btn-primary">详情模板</a>
+                        </div>
+                    </div>
 
-    <div>
-        <a href="javascript:;" class="btn btn-primary" (click)="save()">提交</a>
-    </div>
-</div>
+                    <div class="ibox">
+                        <div class="ibox-title">模板市场</div>
+                        <div class="ibox-content">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </meepo-dialog-content>
+    <a href="javascript:;" style="width: 100%;" class="btn btn-primary" (click)="save()">提交</a>
+</meepo-dialog>

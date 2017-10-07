@@ -13,6 +13,7 @@ export * from '../design/iphone6';
 export * from './menu';
 export * from './weui-grid';
 export * from './editor';
+export * from './dialog';
 export * from './location-picker';
 
 

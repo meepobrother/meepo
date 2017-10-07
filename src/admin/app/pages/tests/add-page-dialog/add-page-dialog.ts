@@ -18,13 +18,17 @@ export class AddPageDialog implements OnInit {
     ) {
         this.form = this.fb.group({
             title: [''],
-            code: [uuid()]
+            code: [uuid()],
+            keyword: [''],
+            desc: ['']
         });
 
         this.dialog.afterOpen().subscribe(()=>{
-            const { title, code } = this.data;
+            const { title, code, keyword, desc } = this.data;
             this.form.get('title').setValue(title);
             this.form.get('code').setValue(code);
+            this.form.get('keyword').setValue(keyword);
+            this.form.get('desc').setValue(desc);            
         });
      }
 
