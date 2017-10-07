@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { Button } from '../../classes';
+import { Button } from '../button';
 @Component({
     selector: 'button-view',
     templateUrl: './button-view.html',

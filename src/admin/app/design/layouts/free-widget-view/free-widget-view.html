@@ -1,4 +1,1 @@
-<div class="control-wrap">
-    <span (click)="removeWidget($event)" class="ele-delete-icon" title="删除">×</span>
-</div>
 <ng-container (click)="onClick(item)" *ngFor="let item of widget.dates" [cdkPortalHost]="item"></ng-container>

@@ -1,5 +1,4 @@
-import { ButtonView } from './button-view';
-import { ButtonSetting } from './button-setting';
+import { ButtonSetting, ButtonView } from './button';
 
 
 export const COMPONENTS = [
@@ -7,5 +6,4 @@ export const COMPONENTS = [
     ButtonSetting
 ];
 
-export * from './button-view';
-export * from './button-setting';
+export * from './button';
