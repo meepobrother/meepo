@@ -11,6 +11,8 @@ import {
 import { MatDialogModule } from '@angular/material';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
+import { DesignModule } from '../design';
+
 const materials = [
     NavTabsModule,
     MeepoFormFieldModule,
@@ -28,7 +30,8 @@ const materials = [
     Iphone6Module,
     WeuiGridModule,
     MenuModule,
-    EditorModule, LocationPickerModule
+    EditorModule, LocationPickerModule,
+    DesignModule
 ];
 
 @NgModule({
