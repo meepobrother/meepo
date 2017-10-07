@@ -1,0 +1,10 @@
+.ibox {
+    &:after {
+        position: relative;
+        display: block;
+        margin: 11px;
+        content: "";
+        border-bottom: 1px solid #e4eaec;
+        clear: both;
+    }
+}
