@@ -18,8 +18,6 @@ export class AppService {
     showDateResDialogStream: Subject<any> = new Subject();
     // 地址选择
     showLocationResDialogStream: Subject<any> = new Subject();
-    
-    
 
     // 任务库
     showTasksResDialogStream: Subject<any> = new Subject();

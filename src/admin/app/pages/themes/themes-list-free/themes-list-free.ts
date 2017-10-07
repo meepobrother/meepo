@@ -11,4 +11,6 @@ export class ThemesListFree implements OnInit {
     ) { }
 
     ngOnInit() { }
+
+    add() { }
 }

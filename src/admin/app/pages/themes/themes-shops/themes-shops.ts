@@ -9,4 +9,5 @@ export class ThemesShops implements OnInit {
     constructor() { }
 
     ngOnInit() { }
+    add() { }
 }

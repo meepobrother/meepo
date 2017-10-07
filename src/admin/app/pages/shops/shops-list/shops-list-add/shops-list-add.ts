@@ -33,7 +33,7 @@ export class ShopsListAdd implements OnInit {
 
     cancel() { }
 
-    save() { }
+    add() { }
 
     delete() { }
 }
