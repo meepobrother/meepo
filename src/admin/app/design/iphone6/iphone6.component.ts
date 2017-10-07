@@ -13,11 +13,21 @@ export class Iphone6Component implements OnInit {
     public app: ApplicationService
   ) { 
     this.app.openStream.subscribe(res=>{
-      this._open = res;
+      this.applyChange(res);
     });
   }
 
   ngOnInit() { }
+
+
+  applyChange(res: boolean){
+    this._open = res;
+    if (this._open) {
+      this._background = 'white';
+    } else {
+      this._background = 'black';
+    }
+  }
 
   open() {
     this._open = !this._open;

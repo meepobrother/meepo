@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PageService } from '../../design';
+import { PageService, ApplicationService } from '../../design';
 import { MatDialog } from '@angular/material';
 import { AddPageDialog } from './add-page-dialog';
 import { Button } from '../../design';
@@ -12,6 +12,7 @@ export class TestsPage implements OnInit {
     widget: Button = new Button();
     constructor(
         public page$: PageService,
+        public application$: ApplicationService,
         public dialog: MatDialog
     ) { }
 
@@ -48,6 +49,7 @@ export class TestsPage implements OnInit {
             page.active = false;
         });
         page.active = !page.active;
+        this.application$.open();
     }
 }
 
