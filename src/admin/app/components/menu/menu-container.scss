@@ -4,7 +4,7 @@
     line-height: 32px;
     cursor: pointer;
     z-index: 0;
-    padding: 13px 20px;
+    padding: 5px 20px;
     margin-bottom: 1px;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -23,9 +23,14 @@
     &:hover {
         .list-content {
             background: #ccc;
+            color: #fff;
+        }
+        .icon {
+            color: #fff !important;
         }
         .item-actions {
             display: block;
+            color: #fff;
         }
     }
 }
@@ -36,7 +41,7 @@
 
 .item-actions {
     position: absolute;
-    top: 12px;
+    top: 4px;
     right: 20px;
     display: none;
     .btn-icon {
