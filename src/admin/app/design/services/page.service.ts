@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import * as store from 'store';
 import { WidgetService } from './widget.service';
+
 @Injectable()
 export class PageService {
     // 页面列表

@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { PageService, ApplicationService } from '../../design';
+import { PageService, ApplicationService, WidgetService } from '../../design';
 import { MatDialog } from '@angular/material';
 import { AddPageDialog } from './add-page-dialog';
 import { Button } from '../../design';
+
+import { ButtonView } from '../../design/components';
+
+import uuid from 'uuid';
 @Component({
     selector: 'tests-page',
     templateUrl: './tests-page.html',
@@ -13,8 +17,15 @@ export class TestsPage implements OnInit {
     constructor(
         public page$: PageService,
         public application$: ApplicationService,
-        public dialog: MatDialog
-    ) { }
+        public dialog: MatDialog,
+        public widget$: WidgetService
+    ) {
+        this.widget$.addWidget(uuid(), ButtonView);
+    }
+
+    addButton(){
+        this.widget$.addWidget(uuid(), ButtonView);        
+    }
 
     ngOnInit() {
         this.page$.getList();
@@ -44,8 +55,8 @@ export class TestsPage implements OnInit {
         });
     }
 
-    setCurrentPage(page: any){
-        this.page$.list.forEach(page=>{
+    setCurrentPage(page: any) {
+        this.page$.list.forEach(page => {
             page.active = false;
         });
         page.active = !page.active;

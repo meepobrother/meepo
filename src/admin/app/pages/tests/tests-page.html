@@ -17,7 +17,7 @@
             <h5>前台预览</h5>
         </div>
         <iphone6>
-            <button-view [widget]="widget"></button-view>
+            <free-widget-view></free-widget-view>
         </iphone6>
     </div>
     <div class="container-right">
@@ -25,7 +25,11 @@
             <h2 class="title">参数设置</h2>
         </div>
         <div class="line" style="padding: 10px;">
-            <button-setting [widget]="widget"></button-setting>
+            <button-setting [widget]="widget$.currentWidget"></button-setting>
+        </div>
+
+        <div class="ibox-content">
+            <a href="javascript:;" (click)="addButton()" class="btn btn-primary">按钮</a>
         </div>
     </div>
 </div>
