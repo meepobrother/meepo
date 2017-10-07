@@ -1,0 +1,168 @@
+.cd-watch{
+  width: map-get($watch, width);
+  height: map-get($watch, height);
+  .cd-bracket{
+    height: map-get($watch, screen-height) + 5.4em;
+    width: map-get($watch, screen-width);
+    left: 50%;
+    margin-left: -1 * map-get($watch, screen-width)/2;
+    border: .5em solid $watch-silver-body;
+    border-radius: .8em;
+    top: 4.3em;
+  }
+  [class$='-band']{
+    width: 9em;
+    height: 7.05em;
+    background: $blue-band;
+    left: 50%;
+    margin-left: -4.5em;
+  }
+  .cd-top-band{
+    border-radius: .5em .5em 0 0;
+    top: -1.2em;
+    transform: perspective( 30em ) rotateX( 45deg );
+    -webkit-transform: perspective( 30em ) rotateX( 45deg );
+    -ms-transform: perspective( 30em ) rotateX( 45deg );
+  }
+  .cd-bottom-band{
+    border-radius: 0 0 .5em .5em;
+    bottom: -1.2em;
+    transform: perspective( 30em ) rotateX( -45deg );
+    -webkit-transform: perspective( 30em ) rotateX( -45deg );
+    -ms-transform: perspective( 30em ) rotateX( -45deg );
+  }
+  .cd-crown{
+    width: .8em;
+    height: 3.4em;
+    right: 0;
+    top: 50%;
+    margin-top: -5em;
+    background: $watch-silver-body;
+    border-radius: 0 .4em .4em 0;
+  }
+  .cd-button{
+    width: .4em;
+    height: 5em;
+    right: .4em;
+    top: 50%;
+    background: $watch-silver-body;
+    border-radius: 0 .3em .3em 0;
+  }
+  .cd-body{
+    height: map-get($watch, screen-height) + 4;
+    width: map-get($watch, screen-width) + 4;
+    top: 50%;
+    left: 50%;
+    margin-top: -1 * (map-get($watch, screen-height) + 4)/2;
+    margin-left: -1 * (map-get($watch, screen-width) + 4)/2;
+    border: .7em solid $watch-silver-body;
+    border-radius: 3em;
+    background: black;
+  }
+
+  .cd-screen{
+    background: black;
+    overflow: hidden;
+    width: map-get($watch, screen-width);
+    height: map-get($watch, screen-height);
+    top: 50%;
+    left: 50%;
+    margin-top: -1 * map-get($watch, screen-height)/2;
+    margin-left: -1 * map-get($watch, screen-width)/2;
+    border-radius: .5em;
+    & > *{
+      border-radius: .5em;
+    }
+  }
+  &.cd-no-bracket{
+    .cd-bracket{
+      display: none;
+    }
+  }
+  //////////Bodies//////////
+  &.cd-black{
+    .cd-crown,
+    .cd-button{
+      background: $watch-black-body;
+    }
+    .cd-bracket,
+    .cd-body{
+      border-color: $watch-black-body;
+    }
+  }
+  &.cd-gold{
+    .cd-crown,
+    .cd-button{
+      background: $watch-gold-body;
+    }
+    .cd-bracket,
+    .cd-body{
+      border-color: $watch-gold-body;
+    }
+  }
+  &.cd-rosegold{
+    .cd-crown,
+    .cd-button{
+      background: $watch-rosegold-body;
+    }
+    .cd-bracket,
+    .cd-body{
+      border-color: $watch-rosegold-body;
+    }
+  }
+}
+
+//////////Bands//////////
+[class$='-band']{
+  .cd-watch.cd-white-band &{
+    background: $white-band;
+  }
+  .cd-watch.cd-blue-band &{
+    background: $blue-band;
+  }
+  .cd-watch.cd-green-band &{
+    background: $green-band;
+  }
+  .cd-watch.cd-pink-band &{
+    background: $pink-band;
+  }
+  .cd-watch.cd-black-band &{
+    background: $black-band;
+  }
+  .cd-watch.cd-brown-band &{
+    background: $brown-band;
+  }
+  .cd-watch.cd-tan-band &{
+    background: $tan-band;
+  }
+  .cd-watch.cd-navy-band &{
+    background: $navy-band;
+  }
+  .cd-watch.cd-red-band &{
+    background: $red-band;
+  }
+  .cd-watch.cd-linked-band &{
+    background: linear-gradient(
+      to bottom,
+      #595959,
+      #595959 10%,
+      #B6B6B6 10%,
+      #B6B6B6
+    );
+    background-size: 100% 2em;
+  }
+}
+
+.cd-watch.cd-blueprint{
+  .cd-bracket{
+    top: 4.6em;
+    height: map-get($watch, screen-height) + 4.9em;
+  }
+  .cd-crown,
+  .cd-button{
+    border-left: none !important;
+  }
+  .cd-screen{
+    border: none !important;
+  }
+}

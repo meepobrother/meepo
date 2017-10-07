@@ -1,0 +1,361 @@
+.cd-iphone-5s,
+.cd-iphone-5c,
+.cd-iphone-5s > .cd-body,
+.cd-iphone-5c > .cd-body{
+  width: map-get($iphone5, width);
+  height: map-get($iphone5, height);
+}
+
+.cd-iphone-6,
+.cd-iphone-6 > .cd-body{
+  width: map-get($iphone6, width);
+  height: map-get($iphone6, height);
+}
+
+.cd-iphone-6-plus,
+.cd-iphone-6-plus > .cd-body{
+  width: map-get($iphone6-plus, width);
+  height: map-get($iphone6-plus, height);
+}
+
+/*---------  iPhone Parts --------*/
+[class^='cd-iphone']{
+  .cd-body{
+    position: relative;
+    border-style: solid;
+    background: $device-black;
+  }
+}
+
+/*---------  iPhone5s & iPhone5c Parts --------*/
+[class^='cd-iphone-5']{
+  .cd-body{
+    border-radius: 2.5em;
+    border-width: .25em;
+  }
+
+  .cd-camera{
+    background: $camera;
+    top: 1.7em;
+    left: 50%;
+    margin-left: -.25em;
+    width: .5em;
+    height: .5em;
+    border-radius: .25em;
+  }
+
+  .cd-ear{
+    background: $ear;
+    top: 3em;
+    left: 50%;
+    margin-left: -1.75em;
+    width: 3.5em;
+    height: .6em;
+    border-radius: .3em;
+  }
+
+  .cd-screen{
+    background: black;
+    top: 5em;
+    left: 50%;
+    margin-left: -8.9em;
+    width: map-get($iphone5, screen-width);
+    height: map-get($iphone5, screen-height);
+    border: solid .2em black;
+    border-radius: .1em;
+  }
+
+  .cd-home{
+    bottom: 1em;
+    left: 50%;
+    margin-left: -1.75em;
+    width: 3.5em;
+    height: 3.5em;
+    border-radius: 1.75em;
+    border: .2em solid black;
+  }
+
+  .cd-sound{
+    top: 5.1em;
+    left: -.35em;
+    height: 1.8em;
+    width: .2em;
+  }
+
+  .cd-sound::before{
+    content: "";
+    top: 4em;
+    height: 1.4em;
+    width: .2em;
+  }
+
+  .cd-sound::after{
+    content: "";
+    top: 7.2em;
+    height: 1.4em;
+    width: .2em;
+  }
+
+  .cd-sleep{
+    top: -.35em;
+    left: 13.2em;
+    height: .2em;
+    width: 3em;
+  }
+}
+
+.cd-iphone-5c{
+
+  .cd-home{
+    background: $home-btn;
+    border-width: 0 !important;
+  }
+
+  .cd-home::after{
+    content: "";
+    display:block;
+    width: 1.2em;
+    height: 1.2em;
+    top: 1.1em;
+    left: 50%;
+    margin-left: -.6em;
+    border-radius: .3em;
+    border: 1px solid $home-btn-inner-square;
+  }
+
+  .cd-body{
+    border-color: $blue-bezel;
+  }
+
+  &.cd-green .cd-body{
+    border-color: $green-bezel;
+  }
+
+  &.cd-red .cd-body{
+    border-color: $red-bezel;
+  }
+
+  &.cd-yellow .cd-body{
+    border-color: $yellow-bezel;
+  }
+
+  &.cd-white .cd-body{
+    border-color: $white-bezel;
+  }
+
+  .cd-sound,
+  .cd-sound::before,
+  .cd-sound::after,
+  .cd-sleep{
+    background: $blue-bezel;
+  }
+
+  &.cd-green .cd-sound,
+  &.cd-green .cd-sound::before,
+  &.cd-green .cd-sound::after,
+  &.cd-green .cd-sleep{
+    background: $green-bezel;
+  }
+
+  &.cd-red .cd-sound,
+  &.cd-red .cd-sound::before,
+  &.cd-red .cd-sound::after,
+  &.cd-red .cd-sleep{
+    background: $red-bezel;
+  }
+
+  &.cd-yellow .cd-sound,
+  &.cd-yellow .cd-sound::before,
+  &.cd-yellow .cd-sound::after,
+  &.cd-yellow .cd-sleep{
+    background: $yellow-bezel;
+  }
+
+  &.cd-white .cd-sound,
+  &.cd-white .cd-sound::before,
+  &.cd-white .cd-sound::after,
+  &.cd-white .cd-sleep{
+    background: $white-bezel;
+  }
+}
+
+/*---------  iPhone5s & iPhone6 & iPhone6 Plus Coloring --------*/
+.cd-iphone-5s,
+.cd-iphone-6,
+.cd-iphone-6-plus{
+  .cd-body{
+    border-color: $black-bezel;
+  }
+
+  &.cd-gold .cd-body,
+  &.cd-gold .cd-body .cd-home{
+    background-color: $device-white;
+    border-color: $gold-bezel;
+  }
+
+  &.cd-rosegold .cd-body,
+  &.cd-rosegold .cd-body .cd-home{
+    background-color: $device-white;
+    border-color: $rosegold-bezel;
+  }
+
+  &.cd-silver .cd-body,
+  &.cd-silver .cd-body .cd-home{
+    background-color: $device-white;
+    border-color: $silver-bezel;
+  }
+
+  .cd-body .cd-home{
+    border-color: $black-home-btn;
+  }
+
+  .cd-sound,
+  .cd-sound::before,
+  .cd-sound::after,
+  .cd-sleep{
+    background: $black-bezel;
+  }
+
+  &.cd-gold .cd-sound,
+  &.cd-gold .cd-sound::before,
+  &.cd-gold .cd-sound::after,
+  &.cd-gold .cd-sleep{
+    background: $gold-bezel;
+  }
+
+  &.cd-rosegold .cd-sound,
+  &.cd-rosegold .cd-sound::before,
+  &.cd-rosegold .cd-sound::after,
+  &.cd-rosegold .cd-sleep{
+    background: $rosegold-bezel;
+  }
+
+  &.cd-silver .cd-sound,
+  &.cd-silver .cd-sound::before,
+  &.cd-silver .cd-sound::after,
+  &.cd-silver .cd-sleep{
+    background: $silver-bezel;
+  }
+}
+
+/*---------  iPhone6 & iPhone6 Plus Parts --------*/
+[class^='cd-iphone-6']{
+  .cd-body{
+    border-radius: 3em;
+    border-width: .4em;
+  }
+
+  .cd-camera{
+    background: $camera;
+    top: 2.4em;
+    left: 50%;
+    margin-left: -4em;
+    width: .7em;
+    height: .7em;
+    border-radius: .35em;
+  }
+
+  &.cd-gold .cd-camera::after,
+  &.cd-rosegold .cd-camera::after,
+  &.cd-silver .cd-camera::after{
+    content: "";
+    background: $camera;
+    top: -1.4em;
+    right: -3.5em;
+    width: .5em;
+    height: .5em;
+    border-radius: .25em;
+  }
+
+  .cd-ear{
+    background: $ear;
+    top: 2.5em;
+    left: 50%;
+    margin-left: -2em;
+    width: 4em;
+    height: .5em;
+    border-radius: .3em;
+  }
+
+  .cd-screen{
+    background: black;
+    top: 5em;
+    left: 50%;
+    margin-left: -10.5em;
+    width: map-get($iphone6, screen-width);
+    height: map-get($iphone6, screen-height);
+    border: solid .2em black;
+    border-radius: .1em;
+  }
+
+  .cd-home{
+    bottom: .9em;
+    left: 50%;
+    margin-left: -1.75em;
+    width: 3.5em;
+    height: 3.5em;
+    border-radius: 1.75em;
+    border: .2em solid black;
+  }
+
+  .cd-sound{
+    top: 5em;
+    left: -.5em;
+    height: 1.8em;
+    width: .2em;
+  }
+
+  .cd-sound::before{
+    content: "";
+    top: 4.4em;
+    height: 3.4em;
+    width: .2em;
+  }
+
+  .cd-sound::after{
+    content: "";
+    top: 8.8em;
+    height: 3.4em;
+    width: .2em;
+  }
+  .cd-sleep{
+    top: 9.3em;
+    right: -.5em;
+    height: 3.4em;
+    width: .2em;
+  }
+}
+
+.cd-iphone-6-plus{
+  .cd-body .cd-screen{
+    top: 5em;
+    margin-left: -11.8em;
+    width: map-get($iphone6-plus, screen-width);
+    height: map-get($iphone6-plus, screen-height);
+    border: solid .2em black;
+    border-radius: .1em;
+  }
+}
+
+//////// Blueprint ///////
+.cd-blueprint{
+  .cd-sound{
+    left: -2px !important;
+  }
+  &[class^='cd-iphone-6']{
+    .cd-sleep{
+      background: $blueprint !important;
+      width: 1px !important;
+      border: none !important;
+      right: -2px;
+    }
+  }
+  &[class^='cd-iphone-5']{
+    .cd-sleep{
+      background: $blueprint !important;
+      height: 1px !important;
+      border: none !important;
+      top: -2px;
+    }
+  }
+}
