@@ -19,6 +19,8 @@ import { ThemesAdd } from './themes-add';
 const modules = [
     ShareModule
 ];
+
+import { ThemesMineService } from './themes-mine.service';
 @NgModule({
     declarations: [
         ThemesPage,
@@ -35,7 +37,9 @@ const modules = [
         ThemesShops,
         ThemesAdd
     ],
-    providers: [],
+    providers: [
+        ThemesMineService
+    ],
     entryComponents: [
         ThemesAdd
     ]
