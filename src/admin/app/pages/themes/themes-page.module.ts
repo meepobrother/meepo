@@ -7,7 +7,6 @@ import { ThemesMine } from './themes-mine';
 import { ThemesShops } from './themes-shops';
 
 
-import { ShareModule } from '../../share';
 import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
     {
@@ -15,20 +14,30 @@ const routes: Routes = [
         component: ThemesPage
     }
 ];
+import { ShareModule } from '../../share';
+import { ThemesAdd } from './themes-add';
+const modules = [
+    ShareModule
+];
 @NgModule({
     declarations: [
         ThemesPage,
         ThemesListFree,
         ThemesMine,
-        ThemesShops
+        ThemesShops,
+        ThemesAdd
     ],
-    imports: [CommonModule, RouterModule.forChild(routes), ShareModule],
+    imports: [CommonModule, RouterModule.forChild(routes), ...modules],
     exports: [
         ThemesPage,
         ThemesListFree,
         ThemesMine,
-        ThemesShops
+        ThemesShops,
+        ThemesAdd
     ],
     providers: [],
+    entryComponents: [
+        ThemesAdd
+    ]
 })
 export class ThemesPageModule { }
