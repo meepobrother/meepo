@@ -26,18 +26,18 @@
     </div>
     <div class="container-center">
         <div class="line">
-            <h5 class="title">前台预览</h5>
+            <h5>前台预览</h5>
         </div>
-        <iphone6></iphone6>
+        <iphone6>
+            <button-view [widget]="widget"></button-view>
+        </iphone6>
     </div>
     <div class="container-right">
         <div class="line">
             <h2 class="title">参数设置</h2>
         </div>
         <div class="line" style="padding: 10px;">
-            <form-field>
-                <input type="text" meepoInput class="form-control" placeholder="页面标题">
-            </form-field>
+            <button-setting [widget]="widget"></button-setting>
         </div>
     </div>
 </div>
