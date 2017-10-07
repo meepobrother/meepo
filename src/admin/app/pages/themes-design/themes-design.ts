@@ -9,6 +9,11 @@ import { ThemesMineService } from '../themes/themes-mine.service';
 export class ThemesDesign implements OnInit {
     code: string;
     theme: any;
+    menus: any[] = [
+        {
+            title: '首页'
+        }
+    ];
     constructor(
         public route: ActivatedRoute,
         public mine: ThemesMineService

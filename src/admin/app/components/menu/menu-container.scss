@@ -1,0 +1,53 @@
+:host {
+    padding-top: 6px;
+    padding-bottom: 6px;
+    line-height: 32px;
+    cursor: pointer;
+    z-index: 0;
+    padding: 13px 20px;
+    margin-bottom: 1px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    border: none;
+    border-radius: 0;
+    position: relative;
+    display: block;
+    &.active {
+        color: #62a8ea;
+        background-color: transparent;
+    }
+    .list-content {
+        padding-left: 10px;
+    }
+    &:hover {
+        .list-content {
+            background: #ccc;
+        }
+        .item-actions {
+            display: block;
+        }
+    }
+}
+
+.icon {
+    color: #a3afb7;
+}
+
+.item-actions {
+    position: absolute;
+    top: 12px;
+    right: 20px;
+    display: none;
+    .btn-icon {
+        padding-right: 2px;
+        padding-left: 2px;
+        background-color: transparent;
+        border-color: transparent;
+        padding: 2px;
+        line-height: 1em;
+        font-size: 14px;
+        border-radius: 3px;
+        transition: border .2s linear, color .2s linear, width .2s linear, background-color .2s linear;
+    }
+}

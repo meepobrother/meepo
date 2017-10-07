@@ -9,10 +9,10 @@
         border-right: 1px solid #e4eaec;
     }
     .container-center {
-        flex: 1;
+        padding: 10px;
     }
     .container-right {
-        width: 150px;
+        flex: 1;
         padding-top: 10px;
         border-left: 1px solid #e4eaec;
     }
@@ -42,4 +42,19 @@
             background: #e4eaec;
         }
     }
+}
+
+.line {
+    &:after {
+        position: relative;
+        display: block;
+        margin: 11px;
+        content: "";
+        border-bottom: 1px solid #e4eaec;
+        clear: both;
+    }
+}
+
+.title {
+    text-align: center;
 }

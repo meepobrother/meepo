@@ -9,6 +9,11 @@ export * from './overlay';
 export * from './cover';
 export * from './dnd';
 export * from './color-select';
+export * from './iphone6';
+export * from './menu';
+export * from './weui-grid';
+
+
 
 
 
