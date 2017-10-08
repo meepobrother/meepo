@@ -11,7 +11,26 @@ export class NavbarSelect implements OnInit {
     constructor(
         public dialog: MatDialogRef<any>
     ) { 
-        this.widgets.push(new Navbar());
+        const newNavbar = new Navbar();
+        newNavbar.content = [
+            {
+                title: '待接单',
+                active: false
+            },
+            {
+                title: '待收货',
+                active: false
+            },
+            {
+                title: '待确认',
+                active: false
+            },
+            {
+                title: '已完成',
+                active: false
+            }
+        ];
+        this.widgets.push(newNavbar);
     }
 
     ngOnInit() { }
