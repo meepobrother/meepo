@@ -5,6 +5,8 @@ export class LayoutFooter extends LayoutWidget{
         this.type = 'layout-footer';
         this.name = '布局-底部';
         this.children = [];
+
+        this.setContainerClass();
     }
 
     setContainerClass(){

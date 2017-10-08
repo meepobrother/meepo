@@ -38,12 +38,10 @@
             </div>
             <div class="ibox-content">
                 <nav-tabs>
-                    <nav-tab-pane title="容器组件">
+                    <nav-tab-pane title="布局组件">
                         <ng-template navTabPaneRef>
                             <div class="widget-container">
-                                <a href="javascript:;" (click)="addWidget('row')" class="btn btn-primary">行容器(button)</a>
-                                <a href="javascript:;" (click)="addWidget('column')" class="btn btn-primary">列容器(list)</a>
-                                <a href="javascript:;" (click)="addWidget('row-column')" class="btn btn-primary">混合容器(input)</a>
+                                <layout-select></layout-select>
                             </div>
                         </ng-template>
                     </nav-tab-pane>

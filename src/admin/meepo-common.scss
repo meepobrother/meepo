@@ -9,18 +9,21 @@
 // 布局
 .layout {
     width: 100%;
-    height: 100%;
-    display: block;
+    height: 100% !important;
+    display: flex;
+    flex-direction: column;
     .layout-container {
+        flex: 1;
         display: flex;
         flex-direction: column;
+        height: 100% !important;
         .layout-menu {
             position: absolute;
             top: 0px;
             bottom: 0px;
             display: flex;
             flex-direction: column;
-            width: 300px;
+            width: 60%;
             &.left {
                 left: 0px;
             }
@@ -45,6 +48,8 @@
         .layout-body {
             flex: 1;
             overflow-y: auto;
+            height: 100% !important;
+            width: 100%;
         }
     }
 }

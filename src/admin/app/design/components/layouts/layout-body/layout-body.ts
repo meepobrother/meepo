@@ -6,7 +6,7 @@ export class LayoutBody extends LayoutWidget{
         this.name = '布局-主体';
         this.children = [];
 
-        
+        this.setContainerClass();
     }
 
     setContainerClass(){

@@ -5,6 +5,8 @@ export class LayoutHeader extends LayoutWidget{
         this.type = 'layout-header';
         this.name = '布局-头部';
         this.children = [];
+
+        this.setContainerClass();
     }
 
     setContainerClass(){

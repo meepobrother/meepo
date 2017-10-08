@@ -5,6 +5,8 @@ export class LayoutContainer extends LayoutWidget{
         this.type = 'layout-container';
         this.name = '布局-容器';
         this.children = [];
+
+        this.setContainerClass();
     }
 
     setContainerClass(){

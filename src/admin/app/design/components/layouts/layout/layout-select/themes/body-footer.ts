@@ -25,17 +25,16 @@ _layoutFooter.containerStyle = footerStyle;
 
 const _layoutMenu = new LayoutMenu();
 
-export const _headerBodyFooterLayout = new Layout();
-_headerBodyFooterLayout.name = '上中下-布局';
+export const _bodyFooterLayout = new Layout();
+_bodyFooterLayout.name = '中下-布局';
 const _layoutContainer = new LayoutContainer();
 
 _layoutContainer.children = [
-    _layoutHeader,
     _layoutBody,
     _layoutFooter
 ];
 
-_headerBodyFooterLayout.children = [
+_bodyFooterLayout.children = [
     _layoutContainer
 ];
 
