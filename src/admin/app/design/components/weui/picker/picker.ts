@@ -6,10 +6,8 @@ export class Picker extends WeuiWidget {
         super();
         this.type = 'picker';
         this.name = '选择器';
-
+        this.content = [];
         this.setContainerClass();
-
-        console.log(this);
     }
 
     setContainerClass() {

@@ -13,7 +13,24 @@ export class PickerSelect implements OnInit {
     ) { 
         const picker1 = new Picker();
         picker1.colomn = 1;
-        console.log(picker1);
+        picker1.content = [
+            [
+                {
+                    title: '测试1'
+                },
+                {
+                    title: '测试2'
+                },
+            ],
+            [
+                {
+                    title: '测试3'
+                },
+                {
+                    title: '测试4'
+                },
+            ]
+        ]
         this.widgets.push(picker1);
     }
 
