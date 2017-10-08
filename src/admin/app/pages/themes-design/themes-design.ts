@@ -82,10 +82,17 @@ export class ThemesDesign implements OnInit {
     savePage(){
         
     }
-
+    // 保存页面
     saveCurrentPage(){
-        this.currentPage['children'] = this.widgets;
-        this.page$.edit(this.currentPage);
+        if(this.currentPage){
+            this.currentPage['children'] = this.widgets;
+            this.page$.edit(this.currentPage);
+        }else{
+            console.log('请选择页面');
+        }
+    }
+    productCurrentPage(){
+        console.log(this.page$);
     }
     // 设置当前页面
     setCurrentPage(page: any) {

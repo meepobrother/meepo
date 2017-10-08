@@ -72,4 +72,11 @@
     bottom: 10px;
     left: 200px;
     right: 200px;
+    display: flex;
+    flex-direction: row;
+    .btn {
+        flex: 1;
+        margin-left: 5px;
+        margin-right: 5px;
+    }
 }
