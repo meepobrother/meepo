@@ -9,7 +9,3 @@ export * from './tabbar';
 export * from './navbar';
 export * from './picker';
 
-
-
-
-

@@ -37,14 +37,23 @@ export class ThemesDesign implements OnInit {
         this.components$.selectComponent(name);
         const onSelectStream = this.components$.onSelectStream.subscribe(widget=>{
             console.log(widget);
-            const newWidget = this.cloneJSON(widget);
+            const newWidget = this.cloneObj(widget);
             this.widgets.push(newWidget);
             onSelectStream.unsubscribe();
         });
     }
 
-    cloneJSON(e: any) {
-        return "object" != typeof e || null == e ? e : JSON.parse(JSON.stringify(e))
+    cloneObj(obj: any) {
+        var newObj = {};  
+        if (obj instanceof Array) {  
+            newObj = [];  
+        }  
+        for (var key in obj) {  
+            var val = obj[key];  
+            //newObj[key] = typeof val === 'object' ? arguments.callee(val) : val; //arguments.callee 在哪一个函数中运行，它就代表哪个函数, 一般用在匿名函数中。  
+            newObj[key] = typeof val === 'object' ? this.cloneObj(val): val;  
+        }  
+        return newObj;
     }
 
     ngOnInit() {
