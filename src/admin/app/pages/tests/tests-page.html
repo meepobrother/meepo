@@ -17,7 +17,7 @@
             <h5>前台预览</h5>
         </div>
         <iphone6>
-            <free-widget-view></free-widget-view>
+            <free-widget-view *ngFor="let widget of widgets" [widget]="widget"></free-widget-view>
         </iphone6>
     </div>
     <div class="container-right">
@@ -41,6 +41,15 @@
             </div>
             <div class="ibox-content">
                 <nav-tabs>
+                    <nav-tab-pane title="容器组件">
+                        <ng-template navTabPaneRef>
+                            <div class="widget-container">
+                                <a href="javascript:;" (click)="addButton()" class="btn btn-primary">行容器(button)</a>
+                                <a href="javascript:;" (click)="addList()" class="btn btn-primary">列容器(list)</a>
+                                <a href="javascript:;" (click)="addInput()" class="btn btn-primary">混合容器(input)</a>
+                            </div>
+                        </ng-template>
+                    </nav-tab-pane>
                     <nav-tab-pane title="表单">
                         <ng-template navTabPaneRef>
                             <div class="widget-container">
@@ -102,5 +111,6 @@
 
             </div>
         </div>
+
     </div>
 </div>

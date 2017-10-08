@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PageService, ApplicationService, WidgetService } from '../../design';
+import { PageService, ApplicationService, WidgetService, ComponentsService } from '../../design';
 import { MatDialog } from '@angular/material';
 import { AddPageDialog } from './add-page-dialog';
 import { Button } from '../../design';
@@ -19,33 +19,38 @@ import uuid from 'uuid';
     styleUrls: ['./tests-page.scss']
 })
 export class TestsPage implements OnInit {
-    widget: Button = new Button();
+    widgets: any[] = [];
     constructor(
         public page$: PageService,
         public application$: ApplicationService,
         public dialog: MatDialog,
-        public widget$: WidgetService
+        public widget$: WidgetService,
+        public components$: ComponentsService
     ) {
     }
 
     addButton() {
-        this.widget$.addWidget(uuid(), ButtonView);
+        this.components$.selectComponent('button');
+        const onSelectStream = this.components$.onSelectStream.subscribe(widget=>{
+            this.widgets.push(widget);
+            onSelectStream.unsubscribe();
+        });
     }
 
     addList() {
-        this.widget$.addWidget(uuid(), WeuiCellsView);
+        // this.widget$.addWidget(uuid(), WeuiCellsView);
     }
 
     addInput() {
-        this.widget$.addWidget(uuid(), InputView);
+        // this.widget$.addWidget(uuid(), InputView);
     }
 
     addSlider() {
-        this.widget$.addWidget(uuid(), SliderView);
+        // this.widget$.addWidget(uuid(), SliderView);
     }
 
     addUploader() {
-        this.widget$.addWidget(uuid(), UploaderView);
+        // this.widget$.addWidget(uuid(), UploaderView);
     }
 
     ngOnInit() {

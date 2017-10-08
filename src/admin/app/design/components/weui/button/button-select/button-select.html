@@ -1,0 +1,14 @@
+<div class="page button js_show">
+    <div class="page__hd">
+        <h1 class="page__title">Button</h1>
+        <p class="page__desc">按钮</p>
+    </div>
+    <div class="page__bd page__bd_spacing">
+        <a href="javascript:;" *ngFor="let item of widgets" (click)="select(item)" [class]="item.className">
+            <i *ngIf="item.icon" [class]="item.icon"></i>{{item.content}}
+        </a>
+    </div>
+    <div class="page__ft">
+        <a href="javascript:home()"><img src="assets/images/icon_footer_link.png"></a>
+    </div>
+</div>
