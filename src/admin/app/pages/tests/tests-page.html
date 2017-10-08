@@ -29,9 +29,20 @@
         </div>
 
         <div class="ibox-content">
-            <a href="javascript:;" (click)="addButton()" class="btn btn-primary">按钮</a>
-            <a href="javascript:;" (click)="addList()" class="btn btn-primary">列表</a>
-            <a href="javascript:;" (click)="addInput()" class="btn btn-primary">输入框</a>
+            <nav-tabs>
+                <nav-tab-pane title="表单">
+                    <ng-template navTabPaneRef>
+                        <div class="widget-container">
+                            <a href="javascript:;" (click)="addButton()" class="btn btn-primary">按钮(button)</a>
+                            <a href="javascript:;" (click)="addList()" class="btn btn-primary">列表(list)</a>
+                            <a href="javascript:;" (click)="addInput()" class="btn btn-primary">输入框(input)</a>
+                            <a href="javascript:;" (click)="addSlider()" class="btn btn-primary">滑动条(slider)</a>
+                            <a href="javascript:;" (click)="addUploader()" class="btn btn-primary">上传附件(uploader)</a>
+                        </div>
+                    </ng-template>
+                </nav-tab-pane>
+            </nav-tabs>
+
         </div>
     </div>
 </div>

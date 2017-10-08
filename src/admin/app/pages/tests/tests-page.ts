@@ -7,7 +7,9 @@ import { Button } from '../../design';
 import {
     ButtonView,
     WeuiCellsView, 
-    InputView
+    InputView,
+    SliderView,
+    UploaderView
 } from '../../design/components';
 
 import uuid from 'uuid';
@@ -36,6 +38,14 @@ export class TestsPage implements OnInit {
 
     addInput() {
         this.widget$.addWidget(uuid(), InputView);
+    }
+
+    addSlider() {
+        this.widget$.addWidget(uuid(), SliderView);
+    }
+
+    addUploader() {
+        this.widget$.addWidget(uuid(), UploaderView);
     }
 
     ngOnInit() {

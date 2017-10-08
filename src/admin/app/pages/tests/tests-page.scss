@@ -58,3 +58,11 @@
 .title {
     text-align: center;
 }
+
+.widget-container {
+    margin: 5px;
+    padding: 5px;
+    .btn {
+        margin: 3px;
+    }
+}
