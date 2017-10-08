@@ -16,3 +16,7 @@ src/inc/*
 help-docs/_book/*
 src/runner-old/app/active/
 src/runner-old/app/admin/
+dist/*
+desktop/*
+release/*
+meepo-admin-1.0.0-full.nupkg
