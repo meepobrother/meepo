@@ -65,6 +65,7 @@
         "store": "^2.0.12",
         "systemjs": "^0.20.19",
         "weui": "^1.1.2",
+        "weui.js": "^1.1.2",
         "zone.js": "^0.8.18"
     },
     "devDependencies": {

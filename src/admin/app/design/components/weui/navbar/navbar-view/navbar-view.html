@@ -1,0 +1,5 @@
+<div class="weui-navbar">
+    <div *ngFor="let item of widget.content" (click)="onCLick(item)" [class.weui-bar__item_on]="item.active" class="weui-navbar__item ">
+        {{item.title}}
+    </div>
+</div>

@@ -6,7 +6,7 @@ import {
     TextAdvModule, PriceListModule, OverlayModule,
     CoverModule, DndModule, ColorSelectModule, Iphone6Module,
     WeuiGridModule, MenuModule, EditorModule, LocationPickerModule,
-    MeepoDialogModule
+    MeepoDialogModule, WeuiPickerModule
 } from '../components';
 
 import { MatDialogModule } from '@angular/material';
@@ -32,7 +32,8 @@ const materials = [
     WeuiGridModule,
     MenuModule,
     EditorModule, LocationPickerModule,
-    DesignModule, MeepoDialogModule
+    DesignModule, MeepoDialogModule,
+    WeuiPickerModule
 ];
 
 @NgModule({
