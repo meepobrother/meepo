@@ -6,4 +6,10 @@ export class LayoutContainer extends LayoutWidget{
         this.name = '布局-容器';
         this.children = [];
     }
+
+    setContainerClass(){
+        const containerClass: Map<string,boolean> = new Map();
+        containerClass.set('layout-container',true);
+        this.containerClass = containerClass;
+    }
 }

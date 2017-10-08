@@ -6,4 +6,10 @@ export class LayoutHeader extends LayoutWidget{
         this.name = '布局-头部';
         this.children = [];
     }
+
+    setContainerClass(){
+        const containerClass: Map<string,boolean> = new Map();
+        containerClass.set('layout-header',true);
+        this.containerClass = containerClass;
+    }
 }

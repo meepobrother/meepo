@@ -6,4 +6,10 @@ export class LayoutFooter extends LayoutWidget{
         this.name = '布局-底部';
         this.children = [];
     }
+
+    setContainerClass(){
+        const containerClass: Map<string,boolean> = new Map();
+        containerClass.set('layout-footer',true);
+        this.containerClass = containerClass;
+    }
 }
