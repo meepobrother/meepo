@@ -728,9 +728,9 @@ body {
     display: block;
 }
 
-[class^='cd-'] *,
-[class^='cd-'] *::after,
-[class^='cd-'] *::before {
+[class^='cd-']>*,
+[class^='cd-']>*::after,
+[class^='cd-']>*::before {
     position: absolute;
 }
 
@@ -739,7 +739,7 @@ body {
 }
 
 .cd-screen>* {
-    display: none;
+    /* display: none;
     position: absolute;
     top: 0;
     left: 0;
@@ -755,7 +755,7 @@ body {
     user-select: none;
     -webkit-user-drag: none;
     -moz-user-drag: none;
-    user-drag: none;
+    user-drag: none; */
 }
 
 .cd-screen>*:first-child {

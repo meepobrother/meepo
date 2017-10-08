@@ -11,4 +11,8 @@
 @import "./css/style.css";
 @import "./toastr.scss";
 @import "./themify.scss";
-@import "./weui.css";
+:host {
+    width: 100%;
+    height: 100%;
+    display: block;
+}

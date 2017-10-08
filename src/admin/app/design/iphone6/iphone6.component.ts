@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2, ViewEncapsulation } from '@angular/core';
 import { ApplicationService } from '../services';
 
 @Component({
