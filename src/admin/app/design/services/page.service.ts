@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import * as store from 'store';
 import { WidgetService } from './widget.service';
-
+import { WeuiPage } from '../components';
 @Injectable()
 export class PageService {
     // 页面列表
-    list: Map<string, any> = new Map();
+    list: Map<string, WeuiPage> = new Map();
 
     get dates() {
         const results = [];
@@ -28,17 +28,17 @@ export class PageService {
         store.set('design.page.list',dates);
     }
 
-    add(item: any) {
+    add(item: WeuiPage) {
         this.list.set(item.code, item);
         this.saveToCache();
     }
 
-    edit(item: any) {
+    edit(item: WeuiPage) {
         this.list.set(item.code, item);
         this.saveToCache();
     }
 
-    delete(item: any) {
+    delete(item: WeuiPage) {
         this.list.delete(item.code);
         this.saveToCache();
     }

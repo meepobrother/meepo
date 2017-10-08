@@ -8,6 +8,7 @@ export class WeuiPage extends WeuiWidget {
     keyword: string;
     desc: string;
     icon: string;
+    active: boolean = false;
     constructor(){
         super();
     }
