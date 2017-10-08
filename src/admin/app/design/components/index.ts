@@ -1,12 +1,10 @@
-import { ButtonSetting, ButtonView } from './button';
-import { WeuiCellsSetting, WeuiCellsView } from './weui-cells';
-import { InputSetting, InputView } from './input';
-import { SliderSetting, SliderView } from './slider';
-import { UploaderSetting, UploaderView } from './uploader';
-
-
-
-
+import {
+    ButtonSetting, ButtonView,
+    WeuiCellsSetting, WeuiCellsView,
+    InputSetting, InputView,
+    SliderSetting, SliderView,
+    UploaderSetting, UploaderView
+} from './weui';
 
 
 export const COMPONENTS = [
@@ -17,9 +15,4 @@ export const COMPONENTS = [
     UploaderSetting, UploaderView
 ];
 
-export * from './button';
-export * from './input';
-export * from './slider';
-export * from './uploader';
-export * from './weui-cells';
-
+export * from './weui';
