@@ -41,7 +41,10 @@
                     <nav-tab-pane title="布局组件">
                         <ng-template navTabPaneRef>
                             <div class="widget-container">
-                                <layout-select></layout-select>
+                                <a href="javascript:;" (click)="addWidget('layout-header')" class="btn btn-primary">头部(layout-header)</a>
+                                <a href="javascript:;" (click)="addWidget('layout-body')" class="btn btn-primary">主体(layout-body)</a>
+                                <a href="javascript:;" (click)="addWidget('layout-footer')" class="btn btn-primary">尾部(layout-footer)</a>
+                                <a href="javascript:;" (click)="addWidget('layout-menu')" class="btn btn-primary">菜单(layout-menu)</a>
                             </div>
                         </ng-template>
                     </nav-tab-pane>

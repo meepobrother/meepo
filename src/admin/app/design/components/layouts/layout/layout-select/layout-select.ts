@@ -4,7 +4,7 @@ import {
     _headerBodyFooterLayout, _bodyFooterLayout,
     _bodyFooterMenuLeftLayout, _bodyFooterMenuRightLayout,
     _headerBodyFooterMenuLeftLayout, _headerBodyFooterMenuRightLayout,
-    _bodyLayout
+    _bodyLayout, _headerBodyLayout
 } from './themes';
 @Component({
     selector: 'layout-select',
@@ -13,9 +13,10 @@ import {
 })
 export class LayoutSelect implements OnInit {
     widgets: Layout[] = [
-        _bodyLayout,        
-        _headerBodyFooterLayout,
+        _bodyLayout,
+        _headerBodyLayout,
         _bodyFooterLayout,
+        _headerBodyFooterLayout,
         _bodyFooterMenuLeftLayout,
         _bodyFooterMenuRightLayout,
         _headerBodyFooterMenuLeftLayout,

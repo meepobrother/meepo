@@ -42,7 +42,11 @@ export const COMPONENTS_SELECT = {
     'button': ButtonSelect,
     'tabbar': TabbarSelect,
     'navbar': NavbarSelect,
-    'picker': PickerSelect
+    'picker': PickerSelect,
+    'layout-container': LayoutContainerSelect,
+    'layout-body': LayoutBodySelect,
+    'layout-footer': LayoutFooterSelect,
+    'layout-header': LayoutHeaderSelect
 };
 
 export const COMPONENTS_VIEW = {
@@ -62,7 +66,11 @@ export const COMPONENTS_SETTING = {
     'page': PageSetting,
     'tabbar': TabbarSetting,
     'navbar': NavbarSetting,
-    'picker': PickerSetting
+    'picker': PickerSetting,
+    'layout-container': LayoutContainerSetting,
+    'layout-body': LayoutBodySetting,
+    'layout-footer': LayoutFooterSetting,
+    'layout-header': LayoutHeaderSetting
 };
 
 import { Injectable } from '@angular/core';
