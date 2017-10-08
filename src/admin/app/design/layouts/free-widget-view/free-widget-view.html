@@ -1,3 +1,1 @@
-<div dnd-sortable>
-    <ng-container (click)="onClick(item)" *ngFor="let item of widget.dates" [cdkPortalHost]="item"></ng-container>
-</div>
+<ng-container (click)="onClick(item)" *ngFor="let item of widget.dates" [cdkPortalHost]="item"></ng-container>

@@ -1,9 +1,18 @@
-import { ButtonSetting, ButtonView } from './button';
+import {
+    ButtonSetting, ButtonView,
+    WeuiCellsSetting, WeuiCellsView,
+    InputSetting, InputView,
+    SliderSetting, SliderView,
+    UploaderSetting, UploaderView
+} from './weui';
 
 
 export const COMPONENTS = [
-    ButtonView,
-    ButtonSetting
+    ButtonView, ButtonSetting,
+    WeuiCellsSetting, WeuiCellsView,
+    InputSetting, InputView,
+    SliderSetting, SliderView,
+    UploaderSetting, UploaderView
 ];
 
-export * from './button';
+export * from './weui';

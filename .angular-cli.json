@@ -61,7 +61,8 @@
             "main": "main.ts",
             "polyfills": "polyfills.ts",
             "styles": [
-                "style.scss"
+                "style.scss",
+                "../../node_modules/weui/dist/style/weui.css"
             ],
             "environmentSource": "environments/environment.ts",
             "environments": {

@@ -4,7 +4,13 @@ import { MatDialog } from '@angular/material';
 import { AddPageDialog } from './add-page-dialog';
 import { Button } from '../../design';
 
-import { ButtonView } from '../../design/components';
+import {
+    ButtonView,
+    WeuiCellsView, 
+    InputView,
+    SliderView,
+    UploaderView
+} from '../../design/components';
 
 import uuid from 'uuid';
 @Component({
@@ -20,11 +26,26 @@ export class TestsPage implements OnInit {
         public dialog: MatDialog,
         public widget$: WidgetService
     ) {
+    }
+
+    addButton() {
         this.widget$.addWidget(uuid(), ButtonView);
     }
 
-    addButton(){
-        this.widget$.addWidget(uuid(), ButtonView);        
+    addList() {
+        this.widget$.addWidget(uuid(), WeuiCellsView);
+    }
+
+    addInput() {
+        this.widget$.addWidget(uuid(), InputView);
+    }
+
+    addSlider() {
+        this.widget$.addWidget(uuid(), SliderView);
+    }
+
+    addUploader() {
+        this.widget$.addWidget(uuid(), UploaderView);
     }
 
     ngOnInit() {

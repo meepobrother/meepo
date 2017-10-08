@@ -1,7 +1,8 @@
 import {
     Component, OnInit, Input,
     ViewChild, ViewContainerRef,
-    ComponentFactoryResolver, ElementRef
+    ComponentFactoryResolver, ElementRef,
+    ViewEncapsulation
 } from '@angular/core';
 import { WidgetService } from '../../services';
 import { ComponentPortal } from '@angular/cdk/portal';
