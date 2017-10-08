@@ -20,7 +20,8 @@ export class AddPageDialog implements OnInit {
             title: [''],
             code: [uuid()],
             keyword: [''],
-            desc: ['']
+            desc: [''],
+            type: ['page']
         });
 
         this.dialog.afterOpen().subscribe(()=>{
@@ -28,7 +29,8 @@ export class AddPageDialog implements OnInit {
             this.form.get('title').setValue(title);
             this.form.get('code').setValue(code);
             this.form.get('keyword').setValue(keyword);
-            this.form.get('desc').setValue(desc);            
+            this.form.get('desc').setValue(desc);
+            
         });
      }
 

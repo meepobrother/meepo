@@ -3,7 +3,8 @@ import {
     WeuiCellsSetting, WeuiCellsView,
     InputSetting, InputView,
     SliderSetting, SliderView,
-    UploaderSetting, UploaderView
+    UploaderSetting, UploaderView,
+    PageSetting
 } from './weui';
 
 
@@ -12,7 +13,8 @@ export const COMPONENTS = [
     WeuiCellsSetting, WeuiCellsView,
     InputSetting, InputView,
     SliderSetting, SliderView,
-    UploaderSetting, UploaderView
+    UploaderSetting, UploaderView,
+    PageSetting
 ];
 
 export const COMPONENTS_SELECT = {
@@ -24,7 +26,8 @@ export const COMPONENTS_VIEW = {
 };
 
 export const COMPONENTS_SETTING = {
-    'button': ButtonSetting
+    'button': ButtonSetting,
+    'page': PageSetting
 };
 
 import { Injectable } from '@angular/core';
@@ -46,3 +49,4 @@ export class ComponentsService {
 }
 
 export * from './weui';
+

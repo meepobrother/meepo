@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { COMPONENTS, ComponentsService } from './components';
 import { SERVICES } from './services';
 
-import { NavTabsModule } from '../components';
-import { FormsModule } from '@angular/forms';
+import { NavTabsModule, MeepoFormFieldModule } from '../components';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material';
 import { DesignLayoutsModule } from './layouts';
 
@@ -13,11 +13,13 @@ import { DesignLayoutsModule } from './layouts';
         ...COMPONENTS
     ],
     imports: [
-        CommonModule, 
-        NavTabsModule, 
-        FormsModule, 
+        CommonModule,
+        NavTabsModule,
+        FormsModule,
         DesignLayoutsModule,
-        MatDialogModule
+        MatDialogModule,
+        MeepoFormFieldModule,
+        ReactiveFormsModule
     ],
     exports: [
         ...COMPONENTS,

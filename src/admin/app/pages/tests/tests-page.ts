@@ -45,22 +45,6 @@ export class TestsPage implements OnInit {
         return "object" != typeof e || null == e ? e : JSON.parse(JSON.stringify(e))
     }
 
-    addList() {
-        // this.widget$.addWidget(uuid(), WeuiCellsView);
-    }
-
-    addInput() {
-        // this.widget$.addWidget(uuid(), InputView);
-    }
-
-    addSlider() {
-        // this.widget$.addWidget(uuid(), SliderView);
-    }
-
-    addUploader() {
-        // this.widget$.addWidget(uuid(), UploaderView);
-    }
-
     ngOnInit() {
         this.page$.getList();
     }
@@ -99,6 +83,9 @@ export class TestsPage implements OnInit {
         });
         page.active = !page.active;
         this.application$.open();
+
+        console.log(page);
+        this.currentWidget = page;
     }
 }
 
