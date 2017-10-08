@@ -1,6 +1,6 @@
-import { Widget } from '../widget';
+import { WeuiWidget } from '../widget';
 // 按钮
-export class MeepoInput extends Widget {
+export class MeepoInput extends WeuiWidget {
     type: string = 'input';
     name: string = '输入框';
     content: string = '内容';

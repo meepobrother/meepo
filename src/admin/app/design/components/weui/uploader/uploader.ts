@@ -1,6 +1,6 @@
-import { Widget } from '../widget';
+import { WeuiWidget } from '../widget';
 // 按钮
-export class MeepoUploader extends Widget {
+export class MeepoUploader extends WeuiWidget {
     type: string = 'weui-cells';
     name: string = 'cells';
     content: any;

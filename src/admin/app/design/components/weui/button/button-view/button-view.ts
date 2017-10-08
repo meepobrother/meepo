@@ -1,4 +1,9 @@
-import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
+import {
+    Component, OnInit, Input,
+    OnChanges, SimpleChanges, 
+    ElementRef, Renderer2,
+    HostBinding
+} from '@angular/core';
 import { Button } from '../button';
 @Component({
     selector: 'button-view',
@@ -7,17 +12,15 @@ import { Button } from '../button';
 })
 export class ButtonView implements OnInit, OnChanges {
     @Input() widget: Button = new Button();
-    innerStyle: any;
-    constructor() { }
+    constructor(
+        public ele: ElementRef,
+        public render: Renderer2
+    ) { }
+    ngOnInit() { }
+    ngOnChanges() { }
 
-    ngOnInit() { 
-        this.innerStyle = this.widget.style;
-    }
-
-    ngOnChanges(changes: SimpleChanges){
-        if('widget' in changes){
-            this.innerStyle = this.widget.style;
-        }
+    getElement() {
+        return this.ele.nativeElement;
     }
 }
 

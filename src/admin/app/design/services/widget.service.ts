@@ -6,8 +6,10 @@ import { Widget } from '../classes';
 export class WidgetService {
     list: Map<string, any> = new Map();
     currentWidget: any = new Widget();
-
     onChange: Subject<any> = new Subject();
+    addFreeWidgetStream: Subject<any> = new Subject();
+    setCurrentWidgetStream: Subject<any> = new Subject();
+
     get dates() {
         const results = [];
         this.list.forEach(res => {
@@ -20,12 +22,12 @@ export class WidgetService {
         this.list.delete(id);
     }
 
-    addWidget(id: string,res) {
-        this.list.set(id, new ComponentPortal(res));
+    addWidget(id: string, res: any, widget: any) {
+        this.list.set(id, { componentPortal: new ComponentPortal(res), widget: widget });
     }
 
-    setCurrentWidget(item: any){
-        console.log('setCurrentWidget',item);
+    setCurrentWidget(item: any) {
+        console.log('setCurrentWidget', item);
         this.currentWidget = item;
         console.log(item);
         this.onChange.next(this.currentWidget);
