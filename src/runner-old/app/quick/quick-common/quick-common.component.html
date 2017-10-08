@@ -1,0 +1,17 @@
+<div class="bg" *ngIf="open$|async" (click)="open2()"></div>
+<div class="quick-menu-contatiner" *ngIf="open$|async">
+    <ul>
+        <li *ngFor="let item of pomission$|async">
+            <a href="javascript:;" (click)="go(item)">
+                <i [class]="item.icon"></i>
+                <p>{{item.title}}</p>
+            </a>
+        </li>
+        <li>
+            <a href="javascript:;" *ngIf="role == 'admin'" (click)="add()">
+                <i class="add-icon"></i>
+                <p>插件</p>
+            </a>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,103 @@
+
+.van-actionsheet {
+  position: fixed;
+  width: 100%;
+  top: auto;
+  bottom: 0;
+  right: auto;
+  left: 50%;
+  -webkit-transform: translate3d(-50%, 0, 0);
+  transform: translate3d(-50%, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transition: .2s ease-out;
+  background-color: #e0e0e0;
+}
+
+.van-actionsheet--withtitle {
+  background-color: #fff;
+}
+
+.van-actionsheet__item {
+  line-height: 50px;
+  height: 50px;
+  text-align: center;
+  color: #333;
+  font-size: 16px;
+  position: relative;
+  background-color: #fff;
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    width: 200%;
+    height: 200%;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+    -webkit-transform-origin: left top;
+    transform-origin: left top;
+    -webkit-perspective: 1000;
+    -webkit-backface-visibility: hidden;
+    pointer-events: none;
+    border-top: 1px solid #e5e5e5;
+  }
+}
+
+.van-actionsheet__subname {
+  color: #666;
+  font-size: 12px;
+}
+
+.van-actionsheet__loading {
+  margin: 0 auto;
+  display: inline-block;
+}
+
+.van-actionsheet__button {
+  display: block;
+  margin-top: 5px;
+  line-height: 50px;
+  color: #333;
+  font-size: 16px;
+  text-align: center;
+  background-color: #fff;
+}
+
+.van-actionsheet__header {
+  line-height: 44px;
+  color: #333;
+  text-align: center;
+  position: relative;
+  .van-icon-close {
+    position: absolute;
+    font-size: 22px;
+    line-height: 22px;
+    top: 11px;
+    right: 15px;
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    width: 200%;
+    height: 200%;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+    -webkit-transform-origin: left top;
+    transform-origin: left top;
+    -webkit-perspective: 1000;
+    -webkit-backface-visibility: hidden;
+    pointer-events: none;
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+  }
+}
+
+.actionsheet-float-enter, .actionsheet-float-leave-active {
+  -webkit-transform: translate3d(-50%, 100%, 0);
+  transform: translate3d(-50%, 100%, 0);
+}

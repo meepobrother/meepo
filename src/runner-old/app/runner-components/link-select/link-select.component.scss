@@ -1,0 +1,20 @@
+ul{
+  overflow: hidden;
+  background: #fff;
+  margin-top: 10px;
+  padding: 10px;
+  li{
+    width: auto;
+    float: left;
+    margin: 5px;
+    padding: 0px 5px;
+    text-align:center;
+    line-height: 28px;
+    border-radius: 3px;
+    background-color: #e2e2e2;
+    &.on{
+      background-color: #cc5200;
+      color:#fff;
+    }
+  }
+}

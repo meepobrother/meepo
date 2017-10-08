@@ -8233,6 +8233,10 @@ syntax-error@^1.1.1:
   dependencies:
     acorn "^4.0.3"
 
+systemjs@^0.20.19:
+  version "0.20.19"
+  resolved "https://registry.yarnpkg.com/systemjs/-/systemjs-0.20.19.tgz#c2b9e79c19f4bea53a19b1ed3f974ffb463be949"
+
 tapable@^0.2.7:
   version "0.2.8"
   resolved "https://registry.yarnpkg.com/tapable/-/tapable-0.2.8.tgz#99372a5c999bf2df160afc0d74bed4f47948cd22"

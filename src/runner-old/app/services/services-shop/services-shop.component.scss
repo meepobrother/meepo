@@ -1,0 +1,81 @@
+.shop-integrity-con {
+  width: 100%;
+  margin-top: 5px;
+  background: #f8fffb;
+  display: -webkit-box;
+  -webkit-box-align: center;
+  .integrity-icon img {
+    width: 25px;
+    height: 25px;
+    padding: 15px 10px;
+    vertical-align: middle;
+  }
+  .integrity-text {
+    -webkit-box-flex: 1;
+    padding: 5px 0;
+    .text-dec {
+      font-size: 11px;
+      color: #0ead51;
+      span {
+        font-size: 12px;
+        font-weight: 600;
+      }
+    }
+    .text-icon {
+      height: 14px;
+      line-height: 12px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      .dot {
+        width: 4px;
+        height: 4px;
+        color: #666;
+        margin-right: 2px;
+      }
+      span {
+        font-size: 10px;
+        color: #6b6b6b;
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+  .next-icon {
+    width: 22px;
+    height: 11px;
+    text-align: center;
+    img {
+      width: 6px;
+      height: 11px;
+      vertical-align: top;
+    }
+  }
+}
+
+
+.haopinlv {
+  height: 40px;
+  line-height: 40px;
+  padding-left: 10px;
+  border-bottom: 1px solid #eee;
+  color: #666;
+  font-size: 14px;
+  background: #fff;
+  .rate {
+    color: #ff6900;
+  }
+  .employer-evaluation {
+    color: #b0b0b0;
+    float: right;
+    margin-right: 10px;
+    font-size: 12px;
+    i {
+      font-size: 12px;
+      display: block;
+      float: right;
+      margin-right: -5px;
+    }
+  }
+}

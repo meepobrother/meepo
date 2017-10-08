@@ -1,0 +1,4 @@
+<nx-tabbar [showMore]="showMore" [code]="_code" [items]="items" (onSelect)="onTabbarSelect($event)">
+    <core-forms [code]="activeItem['code']" [end]="this._end" [type]="activeItem['type']"></core-forms>
+    <ng-content></ng-content>
+</nx-tabbar>

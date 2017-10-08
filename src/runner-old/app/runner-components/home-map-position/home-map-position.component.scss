@@ -1,0 +1,210 @@
+p {
+    margin: 0px;
+    padding: 0px;
+}
+
+i {
+    font-style: normal;
+    margin-top: -1px;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.home_map_position {
+    width: 77.2222%;
+    padding: 10px 2.7777%;
+    border: 1px solid #e6e6e6;
+    box-shadow: 2px 2px 2px #e2e2e2;
+    background-color: #FFFFFF;
+    position: absolute;
+    bottom: 50%;
+    left: 8.6112%;
+    z-index: 999;
+    border-radius: 5px;
+}
+
+.home_map_positioning {
+    width: 47.2222% !important;
+    left: 23.6112% !important;
+    padding: 0px;
+}
+
+.home_map_position_box {
+    width: 100%;
+    position: relative;
+}
+
+.home_map_position_top {
+    padding-bottom: 0px;
+    padding-top: 0px;
+    display: -webkit-box;
+    display: -moz-box;
+}
+
+.home_map_position_add {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    text-align: left;
+    overflow: hidden;
+    span {
+        font-size: 12px;
+        color: #999999;
+    }
+    b {
+        font-size: 12px;
+        color: #fe7223;
+    }
+    .spinner {
+        text-align: center;
+        display: inline-block;
+        position: relative;
+        top: 2px;
+        width: 32px;
+        line-height: 14px;
+        height: 14px;
+        margin-right: 4px;
+        font-size: 10px;
+        .rect1 {
+            -webkit-animation-delay: -.3s;
+            animation-delay: -.3s;
+        }
+        .rect2 {
+            -webkit-animation-delay: -.2s;
+            animation-delay: -.2s;
+        }
+        .rect3 {
+            -webkit-animation-delay: -.1s;
+            animation-delay: -.1s;
+        }
+        >div {
+            display: inline-block;
+            background-color: #01CD88;
+            height: 100%;
+            width: 3px;
+            -webkit-animation: stretchdelay 1.2s infinite ease-in-out;
+            animation: stretchdelay 1.2s infinite ease-in-out;
+        }
+    }
+}
+
+.home_map_position_bottom {
+    padding-top: 0px;
+    background-image: -webkit-linear-gradient(0, #e5e5e5, #e5e5e5 50%, transparent 50%);
+    background-image: -moz-linear-gradient(0, #e5e5e5, #e5e5e5 50%, transparent 50%);
+    background-image: -ms-linear-gradient(0, #e5e5e5, #e5e5e5 50%, transparent 50%);
+    background-image: -o-linear-gradient(0, #e5e5e5, #e5e5e5 50%, transparent 50%);
+    background-image: linear-gradient(0, #e5e5e5, #e5e5e5 50%, transparent 50%);
+    background-size: 100% 1px;
+    background-repeat: no-repeat;
+    background-position: top;
+    p {
+        font-size: 12px;
+        color: #999999;
+    }
+}
+
+.loadloadd {
+    font-size: 15px;
+    text-align: center;
+}
+
+.home_map_position_set {
+    width: 14px;
+    height: 8px;
+    margin-left: -7px;
+    background-image: url(map_position_set.png);
+    display: block;
+    position: absolute;
+    bottom: -18px;
+    left: 50%;
+}
+
+.maplocation_icon {
+    position: absolute;
+    bottom: -54px;
+    left: 50%;
+    margin-left: -9px;
+    width: 18px;
+    height: 35px;
+    img {
+        width: 18px;
+        height: 35px;
+    }
+    &::before {
+        content: ' ';
+        width: 18px;
+        height: 35px;
+        display: block;
+        background-image: url('ghpsb_icon_location.png');
+        background-size: cover;
+    }
+}
+
+.ghpab_loaction_icon {
+    background: url(ghpab_loaction_icon.png) center no-repeat;
+    cursor: pointer;
+    width: 35px;
+    height: 35px;
+    background-size: 35px 35px;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    z-index: 997;
+}
+
+.home_map_position_city {
+    width: 23%;
+    float: left;
+    margin-top: 10px;
+    .shuline {
+        width: 1px;
+        height: 56px;
+        background: #ccc;
+        position: absolute;
+        top: 0px;
+        left: 20%;
+    }
+    .cityname {
+        width: 100%;
+        text-align: left;
+        color: #444444;
+        font-weight: bolder;
+        height: 25px;
+        line-height: 35px;
+        font-size: 15px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        outline: 0 !important;
+    }
+    .cityChange {
+        width: 100%;
+        text-align: left;
+        height: 25px;
+        line-height: 30px;
+        font-size: 14px;
+    }
+}
+
+.home_map_position_Cont {
+    width: 77%;
+    float: left;
+}
+
+.home_map_position_angle {
+    text-align: right;
+    i {
+        font-size: 16px;
+        color: #999999;
+    }
+}
+
+.changedetAddress_position_top {
+    padding: 0px !important;
+    height: 15px !important;
+    line-height: 15px !important;
+    margin: -9px 0px 5px 0px !important;
+}

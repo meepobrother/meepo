@@ -1,0 +1,103 @@
+<div *ngIf="!item['type'] || item['type'] == 'text'">
+    {{item.content || ' '}}
+</div>
+
+<div class="location" *ngIf="item['type'] == 'location'">
+    <img [src]="img" (click)="openLocation(item['data'])">
+    <p>{{item.content}}</p>
+</div>
+
+<div class="" *ngIf="item['type'] == 'shouqian'">
+    <a class="weui-cell weui-cell_access" href="javascript:;" (click)="onShouqian(item)">
+        <div class="weui-cell__hd"><img [src]="shouqianIcon"></div>
+        <div class="weui-cell__bd">
+            <p>{{item['data']['desc']}}</p>
+        </div>
+        <div class="weui-cell__ft">{{item['data']['money']}}元</div>
+    </a>
+    <p *ngIf="item.content">{{item.content}}</p>
+</div>
+
+<div class="" *ngIf="item['type'] == 'money'">
+    <a class="weui-cell weui-cell_access" href="javascript:;">
+        <div class="weui-cell__hd"><img [src]="item.avatar"></div>
+        <div class="weui-cell__bd">
+            <p>收到来自{{item.nickname}}的{{item.money}}元,已到账余额</p>
+        </div>
+        <div class="weui-cell__ft" style="color: red;">{{item['money']}}元</div>
+    </a>
+    <p *ngIf="item.content">{{item.content}}</p>
+</div>
+
+<div class="" *ngIf="item['type'] == 'redpack'">
+    <img class="redpack" [src]="redpackIcon" alt="">
+    <p *ngIf="item.content">{{item.content}}</p>
+</div>
+
+<div class="" *ngIf="item['type'] == 'video'">
+    <div class="layui-layim-video">
+        <iframe height="100%" width="100%" src='http://player.youku.com/embed/XMjkwMDE4NDQyNA==' frameborder=0 allowfullscreen></iframe>
+    </div>
+    <p *ngIf="item.content">{{item.content}}</p>
+</div>
+
+<div class="" *ngIf="item['type'] == 'voice'">
+    <suyun-wechat-audio [isDefault]="isDefault" [serverId]="item['data']['serverId']" [timeLen]="item['data']['time']"></suyun-wechat-audio>
+    <p *ngIf="item.content">{{item.content}}</p>
+</div>
+
+<div class="" *ngIf="item['type'] == 'image'">
+    <suyun-swiper [images]="item['data']['images']"></suyun-swiper>
+    <p *ngIf="item.content">{{item.content}}</p>
+</div>
+
+<div class="" *ngIf="item['type'] == 'task'">
+    <div class="detail">
+        <core-forms-view [type]="detail.type" [detail]="detail"></core-forms-view>
+    </div>
+    <p *ngIf="item.content">{{item.content}}</p>
+</div>
+
+<div class="" *ngIf="item['type'] == 'card'">
+    <div class="weui-cell weui-cell_access" (click)="_onClick(item['data'])">
+        <div class="weui-cell__hd"><img [src]="item['data']['avatar']"></div>
+        <div class="weui-cell__bd">
+            <span>{{item['data']['nickname']}}</span>
+            <p>{{item['data']['realname']}} {{item['data']['mobile']}}</p>
+        </div>
+        <div class="weui-cell__ft"></div>
+    </div>
+    <p *ngIf="item.content">{{item.content}}</p>
+</div>
+
+<div class="js_dialog" *ngIf="showMap">
+    <div class="weui-mask" (click)="hideMap()"></div>
+    <div class="weui-dialog">
+        <iframe class="map" [src]="mapUrl" width="100%" height="100%" frameborder="0"></iframe>
+    </div>
+</div>
+
+<div class="js_dialog" *ngIf="showShouqian">
+    <div class="weui-mask" (click)="hideShouqian()"></div>
+    <div class="weui-dialog" style="height: auto;">
+        <div class="weui-form-preview">
+            <div class="weui-form-preview__hd">
+                <div class="weui-form-preview__item">
+                    <label class="weui-form-preview__label">收款金额</label>
+                    <em class="weui-form-preview__value">¥{{shouqianItem['money']}}</em>
+                </div>
+            </div>
+            <div class="weui-form-preview__bd">
+                <div class="weui-form-preview__item">
+                    <label class="weui-form-preview__label">备注</label>
+                    <span class="weui-form-preview__value">{{shouqianItem['desc']}}</span>
+                </div>
+            </div>
+            <div class="weui-form-preview__ft">
+                <a class="weui-form-preview__btn weui-form-preview__btn_primary" href="javascript:" (click)="pay()">立即支付</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<suyun-order-create *ngIf="showOrder" (onSuccess)="onSuccess($event)" [post]="post"></suyun-order-create>

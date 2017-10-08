@@ -1,0 +1,25 @@
+<div class="pzJuan_outside">
+  <div id="pzJuan" class="pay_n">
+    <p class="ticket_tittle"><span>的收货凭证<span><b></b></span></span></p>
+    <p class="ticket_numMa">收获码：<span>{{detail?.code}}</span></p>
+    <p class="ticket_img"><span><img [src]="qrcode"><span></span></span></p>
+    <p class="ticket_tit"><span class="fee_num">待接单</span></p>
+    <suyun-list [items]="detailLists"></suyun-list>
+    <p style="background-color: #fff;padding: 10px;">{{detail.desc}}</p>
+    <div class="hdb_lg" style="width: 100%;">
+      <span style="width: 100%;">电子凭证已自动保存至租房买房小助手</span>
+    </div>
+  </div>
+</div>
+
+
+<div class="h10"></div>
+<div class="pz_cz">
+  <a href="javascript:;" (click)="showSaveImage()">保存收货凭证</a>
+  <a href="javascript:;" (click)="doDetail()">查看任务</a>
+</div>
+<opt-other></opt-other>
+
+<suyun-save-image *ngIf="show.saveImage" (onClose)="clsoeSaveImage()"></suyun-save-image>
+<div class="h45"></div>
+<div class="h10"></div>

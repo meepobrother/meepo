@@ -1,0 +1,15 @@
+<div class="">
+  <swiper-default hasWater="true">
+    <div class="swiper-slide" *ngFor="let item of advs">
+      <img [src]="item['image']" alt="">
+    </div>
+  </swiper-default>
+</div>
+
+<feed-tab [items]="items">
+  <goods-list (onAdd)="onAdd($event)"></goods-list>
+</feed-tab>
+
+<sku *ngIf="showSku" (onClose)="onClose()" [good]="skuItem" (onAdd)="addToCart($event)" (onBuy)="buyNow($event)"></sku>
+
+<pay-order [price]="price"></pay-order>

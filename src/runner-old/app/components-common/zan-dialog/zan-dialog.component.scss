@@ -1,0 +1,110 @@
+
+.van-dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate3d(-50%, -50%, 0);
+  transform: translate3d(-50%, -50%, 0);
+  background-color: #fff;
+  width: 85%;
+  border-radius: 4px;
+  font-size: 16px;
+  overflow: hidden;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transition: .2s;
+}
+
+.van-dialog__header {
+  padding: 15px 0 0;
+}
+
+.van-dialog__content {
+  padding: 15px 20px;
+  position: relative;
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    width: 200%;
+    height: 200%;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+    -webkit-transform-origin: left top;
+    transform-origin: left top;
+    -webkit-perspective: 1000;
+    -webkit-backface-visibility: hidden;
+    pointer-events: none;
+    border-bottom: 1px solid #e5e5e5;
+  }
+}
+
+.van-dialog__title {
+  text-align: center;
+  padding-left: 0;
+  margin-bottom: 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.van-dialog__message {
+  color: #999;
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.van-dialog__message--notitle {
+  color: #333;
+  font-size: 16px;
+}
+
+.van-dialog__footer {
+  font-size: 14px;
+  overflow: hidden;
+  &.is-twobtn {
+    .van-dialog__btn {
+      width: 50%;
+    }
+    .van-dialog__cancel:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      box-sizing: border-box;
+      width: 200%;
+      height: 200%;
+      -webkit-transform: scale(0.5);
+      transform: scale(0.5);
+      -webkit-transform-origin: left top;
+      transform-origin: left top;
+      -webkit-perspective: 1000;
+      -webkit-backface-visibility: hidden;
+      pointer-events: none;
+      border-right: 1px solid #e5e5e5;
+    }
+  }
+}
+
+.van-dialog__btn {
+  font-size: 16px;
+  line-height: 52px;
+  border: 0;
+  padding: 0;
+  background-color: #fff;
+  float: left;
+  box-sizing: border-box;
+  text-align: center;
+  position: relative;
+}
+
+.van-dialog__cancel {
+  color: #333;
+}
+
+.van-dialog__confirm {
+  color: #00c000;
+  width: 100%;
+}

@@ -1,0 +1,1 @@
+(function(){var normal = weight / 1000;let a = 12.5;let qujian = tiji / 7.75;if(normal < qujian){normal = tiji / 7.75;};return normal * (2 * (0.5787 + 0.6*a) * distance + 3*a );}()); 

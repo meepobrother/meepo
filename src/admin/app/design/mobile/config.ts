@@ -1,0 +1,2 @@
+const System = require('systemjs');
+

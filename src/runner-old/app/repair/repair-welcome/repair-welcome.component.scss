@@ -1,0 +1,40 @@
+.main{
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  background: url(1.png);
+  background-size: cover;
+  background-position: 0px -20px;
+  background-repeat: no-repeat;
+  background-color: #5cbecd;
+  z-index: 9999;
+  text-align: center;
+  .circle-outside{
+    margin-top: 65px;
+    line-height: 200px;
+    font-size: 35px;
+    background: rgb(84, 176, 193);
+    width: 200px;
+    height: 200px;
+    margin: 102px auto 95px;
+    border-radius: 50%;
+    color: #fff;
+  }
+  p{
+    font-size:20px;
+    background: #5cbecd;
+    color: #fff;
+  }
+  .footer{
+    position: absolute;
+    bottom: 80px;
+    text-align: center;
+    left: 0px;
+    right: 0px;
+    font-size: 20px;
+    background: #5cbecd;
+    color: #fff;
+  }
+}

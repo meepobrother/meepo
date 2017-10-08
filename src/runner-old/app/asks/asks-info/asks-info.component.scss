@@ -1,0 +1,32 @@
+.main{
+  padding: 10px 10px;
+  background: #fff;
+}
+.h10{
+  height: 10px;
+}
+.title {
+  margin-top: 1rem;
+  font-size: .75rem;
+}
+.introduction {
+  margin-top: .075rem;
+  font-size: .75rem;
+}
+
+.tags {
+  margin: .5rem 0 0;
+  a {
+    padding: 0 .25rem;
+    display: inline-block;
+    height: .9rem;
+    line-height: .9rem;
+    text-align: center;
+    font-size: .6rem;
+    color: #b2b2b2;
+    margin-right: .525rem;
+    border: 1px solid #b2b2b2;
+    border-radius: .15rem;
+    text-decoration: none;
+  }
+}

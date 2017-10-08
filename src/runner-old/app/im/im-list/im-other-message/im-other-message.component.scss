@@ -1,0 +1,70 @@
+.layim-chat-li{
+  text-align: left;
+  padding-left: 60px;
+  padding-right: 0px;
+  position: relative;
+  font-size: 0;
+  margin-bottom: 10px;
+  min-height: 68px;
+  overflow: hidden;
+  &:after{
+    clear: both;
+  }
+  .layim-chat-user{
+    position: absolute;
+    right: auto;
+    left: 3px;
+    img {
+      width: 40px;
+      height: 40px;
+      border-radius: 100%;
+      -webkit-box-sizing: content-box;
+      -moz-box-sizing: content-box;
+      box-sizing: content-box;
+    }
+    cite {
+      right: auto;
+      left: 60px;
+      text-align: left;
+      position: absolute;
+      top: -2px;
+      width: 500px;
+      line-height: 24px;
+      font-size: 12px;
+      white-space: nowrap;
+      color: #999;
+      font-style: normal;
+      -webkit-box-sizing: content-box;
+      -moz-box-sizing: content-box;
+      box-sizing: content-box;
+    }
+  }
+  .layim-chat-text {
+    margin-left: 0;
+    text-align: left;
+    background-color: #fff;
+    color: #000;
+    position: relative;
+    min-height: 22px;
+    line-height: 22px;
+    margin-top: 25px;
+    padding: 8px 15px;
+    border-radius: 3px;
+    word-break: break-all;
+    display: inline-block;
+    vertical-align: top;
+    font-size: 15px;
+    &:after {
+      content: '';
+      position: absolute;
+      left: -10px;
+      top: 13px;
+      width: 0;
+      height: 0;
+      border-style: solid dashed dashed;
+      border-color: #fff transparent transparent;
+      overflow: hidden;
+      border-width: 10px;
+    }
+  }
+}

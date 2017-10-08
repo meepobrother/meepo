@@ -1,0 +1,23 @@
+@import "../scss/util/layout";
+@import "../scss/component/btn";
+@import "../scss/base/icon";
+
+.ui-header{
+  position: relative;
+  background-color: #da2f27;
+  color: #fff;
+  .ui-icon-return{
+    color:#fff;
+  }
+  alion{
+    position: absolute;
+    right: 0;
+    top: 0px;
+    display: block;
+    padding: 0 10px;
+    color: #fff;
+  }
+  h1{
+    margin: 0px;
+  }
+}

@@ -1,0 +1,51 @@
+<div style="position: relative;" *ngIf="!isScroll">
+  <suyun-edit-btn (onEditer)="open()"></suyun-edit-btn>
+  <div class="w_tag bor-b marbot10">
+    <a href="javascript:;" class="tab_btn marbot20" [class.on]="item.active" *ngFor="let item of items" (click)="select(item)">{{item.title}}</a>
+  </div>
+</div>
+
+<div class="" style="position: relative;" *ngIf="isScroll">
+  <suyun-edit-btn (onEditer)="open()"></suyun-edit-btn>
+  <feed-tab [items]="items" (onItem)="select($event)">
+    <ng-content></ng-content>
+  </feed-tab>
+</div>
+
+
+<div class="js_dialog" *ngIf="showDialog">
+  <div class="weui-mask"></div>
+  <div class="weui-dialog" *ngIf="!showEdit">
+    <div class="weui-cells">
+      <a class="weui-cell weui-cell_access" (click)="more(item,i)" href="javascript:;" *ngFor="let item of items;index as i;">
+        <div class="weui-cell__bd">
+          <p>{{item.title}}</p>
+        </div>
+        <div class="weui-cell__ft">
+        </div>
+      </a>
+    </div>
+    <div class="weui-dialog__ft">
+      <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_default" (click)="cancel()">取消</a>
+      <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_default" (click)="add()">添加</a>
+      <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary" (click)="save()">保存</a>
+    </div>
+  </div>
+
+  <div class="weui-dialog" *ngIf="showEdit">
+    <div class="weui-cells">
+      <div class="weui-cell">
+        <div class="weui-cell__hd"><label class="weui-label">名字</label></div>
+        <div class="weui-cell__bd">
+          <input class="weui-input" type="text" [(ngModel)]="editItem['title']" placeholder="请输入标签名字">
+        </div>
+      </div>
+    </div>
+    <div class="weui-dialog__ft">
+      <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_default" (click)="cancelEdit()">取消</a>
+      <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_default" (click)="delete()">删除</a>
+      <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_default" (click)="default()">默认</a>
+      <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary" (click)="saveEdit()">确定</a>
+    </div>
+  </div>
+</div>

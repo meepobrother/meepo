@@ -1,0 +1,12 @@
+<coach-advs code="coach.setting.teacher.advs"></coach-advs>
+
+<coach-teacher-tag (onSelect)="onSelectTeacher($event)" [isScroll]="isScroll" code="coach.setting.teacher.tags">
+  <suyun-services-list *ngIf="teachers.length>0">
+    <suyun-services-item (onItem)="onItem($event)" [detail]="teacher" *ngFor="let teacher of teachers"></suyun-services-item>
+  </suyun-services-list>
+  <div class="empty" *ngIf="teachers.length<=0">
+    暂无数据
+  </div>
+</coach-teacher-tag>
+
+<div class="h45"></div>

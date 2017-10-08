@@ -1,0 +1,23 @@
+p.desc{
+  font-size: .9em;
+  color: gray;
+}
+.weui-cells{
+  margin-top: 0px;
+  height: calc( 100% - 44px );
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.fixed{
+  position: fixed;
+  top:0px;
+  left:0px;
+  right: 0px;
+  bottom:0px;
+  background: #f3f3f3;
+}
+
+.empty{
+  padding: 10px;
+  text-align: center;
+}

@@ -1,0 +1,52 @@
+
+.cap-deep-select {
+  -webkit-user-select: none;
+  user-select: none;
+  position: relative;
+}
+
+.cap-deep-select__nav {
+  width: 143px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  overflow: scroll;
+  background-color: #fff;
+  -webkit-overflow-scrolling: touch;
+}
+
+.cap-deep-select__nitem {
+  line-height: 44px;
+  padding: 0 15px;
+  background-color: #fff;
+}
+
+.cap-deep-select__nitem--active {
+  background-color: #f8f8f8;
+}
+
+.cap-deep-select__content {
+  padding: 0 15px;
+  margin-left: 143px;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+.cap-deep-select__item {
+  position: relative;
+  line-height: 44px;
+  padding-left: 5px;
+  padding-right: 18px;
+}
+
+.cap-deep-select__item--active {
+  color: #f44;
+}
+
+.cap-deep-select__selected {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}

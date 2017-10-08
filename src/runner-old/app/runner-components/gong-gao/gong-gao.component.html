@@ -1,0 +1,34 @@
+<div style="position: relative;" [class.minEdit]="util.edit">
+  <suyun-edit-btn (onEditer)="onEdit()"></suyun-edit-btn>
+  <ul class="gonggao-ul">
+    <li class="gonggao rel d-flex d-flex-center bg-fff" *ngFor="let item of items;index as i;" style="padding-left:12px;">
+      <i class="gonggao-icon00"></i>
+      <p class="flex wzsl">
+        <span [style.color]="item.color">{{item.title}}</span>
+      </p>
+    </li>
+  </ul>
+</div>
+
+<div class="js_dialog" *ngIf="showEdit">
+  <div class="weui-mask"></div>
+  <div class="weui-dialog">
+    <div class="weui-cells">
+      <div class="weui-cell" *ngFor="let item of items;index as i;">
+        <div class="weui-cell__bd">
+          <p [style.color]="item.color">
+            <input type="text" class="weui-input" [(ngModel)]="item.title">
+          </p>
+        </div>
+        <div class="weui-cell__ft" (click)="delete(i)">删除</div>
+      </div>
+    </div>
+    <div class="weui-dialog__ft">
+      <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_default" (click)="cancel()">取消</a>
+      <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_default" (click)="add()">添加</a>
+      <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary" (click)="save()">保存</a>
+    </div>
+  </div>
+</div>
+
+

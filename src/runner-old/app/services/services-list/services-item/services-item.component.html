@@ -1,0 +1,37 @@
+<li class="shop-ser-item">
+  <div class="shop-info">
+    <a href="javascript:;" (click)="_onItem()">
+      <img [src]="detail['avatar']" class="shop-ser-photo">
+      <div class="shop-vacancy">
+        <div>
+          <span class="certify-name txt-over-ell-one">{{detail['realname']}}</span>
+        </div>
+        <div class="certify-vacancy">
+          <span class="certify">{{detail['tag'] || '高级教练'}}</span>
+        </div>
+      </div>
+      <div class="attention-distance">
+        <span style="margin-top: 2px;">{{detail['attend_num'] || 0}}粉丝</span>
+      </div>
+    </a>
+    <a href="javascript:;" class="attention-btn J-attention">+ 关注</a>
+  </div>
+  <a href="javascript:;" >
+    <suyun-swiper [images]="detail['images']"></suyun-swiper>
+    <div class="ser-info" (click)="_onItem()">
+      <h3 class="service-name f-box f-main-justify">
+        <span class="flex-item txt-over-ell-one ">{{detail['title']}}</span>
+        <span class="service-price">¥{{detail['price']}}/次</span>
+      </h3>
+      <p class="service-des txt-over-ell-three">{{detail['desc']}}</p>
+    </div>
+    <div class="shop-sales f-box f-main-justify">
+      <div>预约
+        <span class="sales-num">{{detail['post_num'] || 0}}</span>
+      </div>
+      <div class="rated">查看
+        <span class="rated-num">{{detail['read_num'] || 0}}</span>
+      </div>
+    </div>
+  </a>
+</li>

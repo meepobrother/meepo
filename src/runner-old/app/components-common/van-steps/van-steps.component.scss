@@ -1,0 +1,44 @@
+.van-icon {
+  font-size: 40px;
+  line-height: 1;
+  display: inline-block;
+}
+.van-steps--vertical {
+  padding: 0 0 0 35px;
+  &:first-child:before {
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 20px;
+    background-color: #fff;
+    top: 0;
+    left: -15px;
+    z-index: 1;
+  }
+  .van-step__circle-container>i {
+    position: absolute;
+    z-index: 2;
+  }
+  .van-icon-checked {
+    top: 12px;
+    left: -20px;
+    line-height: 1;
+    font-size: 12px;
+  }
+}
+.van-steps {
+  overflow: hidden;
+  background-color: #fff;
+}
+.van-step {
+  font-size: 14px;
+  position: relative;
+  color: #999;
+}
+.van-step--vertical {
+  float: none;
+  display: block;
+  font-size: 14px;
+  line-height: 18px;
+  padding: 10px 10px 10px 0;
+}

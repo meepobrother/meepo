@@ -1,0 +1,82 @@
+.weui-cell__bd{
+  min-width: 5em;
+}
+.weui-cell__ft{
+  color: green;
+}
+
+.weui-cells,weui-cells_form{
+  margin-top: 0px;
+}
+
+.title{
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  color: #666;
+  padding: 0px 15px;
+  background: #eee;
+  font-weight: normal;
+}
+
+.jijia{
+  position: relative;
+  padding-bottom: 0px;
+}
+
+p.jijia{
+  text-align: center;
+  color: #EC8B89;
+  a{
+    color: #EC8B89;
+    padding: 0 10px;
+  }
+}
+
+.design-icon{
+  position: fixed;
+  right: 5px;
+  bottom: 200px;
+  width: 3em;
+  height: 3em;
+  background: red;
+  z-index: 99999;
+  text-align: center;
+  border-radius: 1em;
+  color: #fff;
+  line-height: 3em;
+}
+.show{
+  display: block !important;
+}
+.time-select{
+  display: none;
+}
+
+
+.table-container{
+  padding: 0 10px;
+  .table{
+    width: 100%;
+    max-width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    margin-top: 10px;
+    th{
+      color:green;
+    }
+    tr{
+      td{
+        text-align: center;
+      }
+    }
+  }
+}
+
+.weui-mask{
+  z-index: 99999 !important;
+}
+.weui-dialog{
+  z-index: 999999 !important;
+}

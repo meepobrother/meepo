@@ -1,0 +1,22 @@
+ul{
+  overflow: hidden;
+  background: #fff;
+  li{
+    display: inline-block;
+    width: 33.3333%;
+    float: left;
+    text-align: center;
+    line-height: 44px;
+    height: 44px;
+    &.on{
+      color:#fff !important;
+      background:green;
+      a{
+        color:#fff;
+      }
+    }
+    a{
+      color:#000;
+    }
+  }
+}

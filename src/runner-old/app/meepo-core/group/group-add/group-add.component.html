@@ -1,0 +1,14 @@
+<div class="weui-cells weui-cells_form">
+  <div class="weui-cell">
+    <div class="weui-cell__hd"><label class="weui-label">用户组名</label></div>
+    <div class="weui-cell__bd">
+      <input class="weui-input" type="text" placeholder="请输入用户组名">
+    </div>
+  </div>
+</div>
+
+<div class="weui-btn-area">
+  <a class="weui-btn weui-btn_primary" href="javascript:" (click)="save()">保存</a>
+</div>
+
+<module-tags (onSelect)="onSelect($event)"></module-tags>

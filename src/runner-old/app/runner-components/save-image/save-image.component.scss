@@ -1,0 +1,44 @@
+.tc_pz {
+  width: 260px;
+  background-color: #FFF;
+  border-radius: 8px;
+  display: block;
+  overflow: hidden;
+  margin: 0 auto;
+  .close {
+    height: 23px;
+    padding: 5px 0;
+    width: 100%;
+    a {
+      display: block;
+      width: 23px;
+      height: 23px;
+      float: right;
+      margin-right: 10px;
+      background: url(./icon_close_05.png) no-repeat 0 0 / 23px 46px;
+      &:active {
+        background: url(./icon_close_05.png) no-repeat 0 -23px / 23px 46px;
+      }
+    }
+  }
+  .title {
+    height: 30px;
+    font-size: 18px;
+    color: #000;
+    text-align: center;
+  }
+  .pic_pz {
+    text-align: center;
+    min-height: 240px;
+    img {
+      width: 200px;
+    }
+  }
+  .ts_pz {
+    padding-bottom: 10px;
+    line-height: 18px;
+    font-size: 12px;
+    color: #000;
+    text-align: center;
+  }
+}

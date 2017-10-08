@@ -1,0 +1,3 @@
+<div class="am-steps am-steps-small am-steps-vertical">
+  <step *ngFor="let child of children;index as i;" [props]="child.props" [index]="i" [len]="children.length" [items]="children"></step>
+</div>

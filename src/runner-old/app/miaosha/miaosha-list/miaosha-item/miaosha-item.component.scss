@@ -1,0 +1,143 @@
+.miaosha-item{
+  padding: 15px 0;
+  min-height: 132px;
+  height: 120px;
+  position: relative;
+  -webkit-border-image: none;
+  background-image: none;
+  border-width: 0 0 1px 0;
+  &:after{
+    background-color: #e3e5e9;
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    -webkit-transform: scale(0.5,0.5);
+    transform: scale(0.5,0.5);
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    width: 200%;
+    height: 1px;
+    content: '';
+  }
+  a{
+    display: block;
+    text-decoration: none;
+    overflow: hidden;
+    color: #232326;
+    font-size: 14px;
+    .g-title{
+      color: #232326;
+      height: 32px;
+      overflow: hidden;
+      font-size: 14px;
+      line-height: 16px;
+      margin-bottom: 5px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+    .g-price{
+      margin: 0px 0 7px;
+      color: #f23030;
+      font-size: 20px;
+      .doller {
+        font-size: 11px;
+      }
+      .f-s-12{
+        font-size: 12px;
+      }
+    }
+    .g-price-odd{
+      font-size: 12px;
+      color: #848689;
+    }
+    .skill-lod{
+      font-size: 0;
+      bottom: 16px;
+      osition: absolute;
+      right: 0;
+      .sale-count {
+        font-size: 10px;
+        color: #848689;
+        display: inline-block;
+      }
+      .kill-progress {
+        width: 72px;
+        margin-left: 4px;
+        height: 8px;
+        overflow: hidden;
+        display: inline-block;
+        .skill-pro-bg {
+          position: relative;
+          left: auto;
+          bottom: auto;
+          padding: 0;
+          height: 7px;
+          background: rgba(255,255,255,0.8);
+          box-sizing: border-box;
+        }
+        .skill-iteam-progress {
+          top: 0;
+          height: 15px;
+          position: relative;
+          eft: 0;
+          width: 200%;
+          transform: scale(.5,.5);
+          transform-origin: 0 0;
+          border: solid 1px #f36262;
+          .skill-pro-insetbg {
+            width: 100%;
+            height: 100%;
+            display: inline-block;
+            border: solid 1px rgba(255,255,255,0.2);
+            .skill-iteam-pro {
+              background-image: linear-gradient(to right,#f23434,#f67373);
+              background-image: -webkit-linear-gradient(right,#f23434,#f67373);
+              background: -webkit-gradient(linear,left center,right center,from(#f23434),to(#f67373));
+              background: -moz-linear-gradient(right,#f23434,#f67373);
+              background: -o-linear-gradient(right,#f23434,#f67373);
+              height: 100%;
+              display: block;
+              width: 0;
+              -webkit-transition: width 1.8s;
+              transition: width 1.8s;
+            }
+          }
+        }
+      }
+    }
+    .skill-count {
+      width: 62px;
+      height: 27px;
+      line-height: 27px;
+      background-color: #f23030;
+      font-size: 14px;
+      bottom: 32px;
+      -webkit-border-radius: 2px;
+      border-radius: 2px;
+      position: absolute;
+      right: 0;
+      color: #FFF;
+      text-align: center;
+      vertical-align: middle;
+    }
+    .skill-pic {
+      position: relative;
+      .img{
+        width: 102px;
+        height: 102px;
+        margin-right: 4px;
+        border-radius: 0;
+        float: left;
+        vertical-align: middle;
+        text-align: center;
+        img{
+          width: 102px;
+          height: 102px;
+          max-width: 100%;
+          max-height: 100%;
+        }
+      }
+    }
+  }
+}

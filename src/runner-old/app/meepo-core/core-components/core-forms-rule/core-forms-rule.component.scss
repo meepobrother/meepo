@@ -1,0 +1,36 @@
+.fixed {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background: #f3f3f3;
+    overflow: scroll;
+}
+
+.weui-cells {
+    margin-top: 0px;
+}
+
+.weui-input {
+    color: green;
+}
+
+.title {
+    height: 40px;
+    line-height: 38px;
+    font-size: 14px;
+    color: #666;
+    padding: 0px 15px;
+    background: #eee;
+    font-weight: normal;
+}
+
+.page__desc {
+    margin-top: 5px;
+    color: #888;
+    text-align: left;
+    font-size: 14px;
+    padding-left: 10px;
+    padding-right: 10px;
+}

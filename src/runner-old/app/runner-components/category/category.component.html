@@ -1,0 +1,18 @@
+<div class="category-viewport">
+  <div class="jd-category-tab">
+    <div class="" style="overflow: hidden;">
+      <ul style="transform: translateY(0px);">
+        <li [class.cur]="item.active" (click)="_onItem(item)" *ngFor="let item of items">
+          <a class="J_ping" href="javascript:void(0);">{{item.title}}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="jd-category-content">
+    <div class="jd-category-content-wrapper" style="overflow: hidden; ">
+      <div class="branchList">
+        <ng-content></ng-content>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,82 @@
+.main{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: 9999;
+  background-color: #595959;
+  .title{
+    margin-top: 72px;
+    text-align: center;
+    color: #fff;
+    background: #595959;
+  }
+  .desc{
+    text-align: center;
+    color: #fff;
+    background: #595959;
+  }
+  .tags{
+    margin: 28px auto;
+    padding: 0px 20px;
+    .item{
+      float: left;
+      width: 33.33333%;
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+      margin-bottom: 10px;
+      color: #fff;
+      padding-right: 13px;
+      padding-left: 0px;
+      &.active{
+        p{
+          background:#fff;
+          color:#000;
+        }
+      }
+      p{
+        background: #5dbccc;
+        border-radius: 5px;
+      }
+    }
+  }
+  .input{
+    margin: 23px auto;
+    padding: 0px 21px;
+    background: #595959;
+    height: 44px;
+    input{
+      height: 40px;
+      width: 100%;
+      line-height: 40px;
+      padding: 0 20px;
+      border-radius: 10px;
+    }
+  }
+
+  .ok{
+    background: url('ok.png');
+    width: 50px;
+    height: 50px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    bottom: 105px;
+    left: 50%;
+    margin-left: -25px;
+  }
+
+  .cancel{
+    background: url('cancel.png');
+    width: 48px;
+    height: 48px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    bottom: 35px;
+    left: 50%;
+    margin-left: -24px;
+  }
+}

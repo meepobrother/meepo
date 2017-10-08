@@ -1,0 +1,30 @@
+
+.van-progress__bar {
+  height: 4px;
+  border-radius: 4.5px;
+  width: 100%;
+  background: #e5e5e5;
+  position: relative;
+}
+
+.van-progress__bar__finished-portion {
+  border-radius: 4.5px;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  display: inline-block;
+}
+
+.van-progress__bar__pivot {
+  padding: 2px 0;
+  font-size: 8px;
+  position: absolute;
+  border-radius: 6px;
+  width: 28px;
+  background-color: #e5e5e5;
+  line-height: 8px;
+  text-align: center;
+  top: 50%;
+  -webkit-transform: translate3d(0, -50%, 0);
+  transform: translate3d(0, -50%, 0);
+}

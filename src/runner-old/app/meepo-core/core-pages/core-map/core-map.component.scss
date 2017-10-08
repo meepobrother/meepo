@@ -1,0 +1,32 @@
+.map{
+  position: absolute;
+  top: 0px;
+  bottom:0px;
+  left:0px;
+  right:0px;
+  z-index: 1;
+}
+
+.ani{
+  background-image: url('./ani.png');
+}
+
+.fixed-middle{
+  position: fixed;
+  right: 6px;
+  width: 3em;
+  height: 4em;
+  margin-top: -2em;
+  top: 50%;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  z-index: 9;
+}
+
+.weui-btn-area{
+  position: absolute;
+  bottom: 5px;
+  left:0px;
+  right: 0px;
+  z-index: 9938;
+}

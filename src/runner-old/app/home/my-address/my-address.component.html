@@ -1,0 +1,11 @@
+
+
+<div class="card" *ngFor="let item of items;index as i;" (click)="op(item,i)">
+  <p>{{item.realname}}{{item.mobile}}</p>
+  <p>{{item.poiaddress}}</p>
+</div>
+
+<div class="h45"></div>
+<div class="h10"></div>
+
+<a href="javascript:;" class="weui-btn weui-btn_primary" (click)="add()">添加新地址</a>

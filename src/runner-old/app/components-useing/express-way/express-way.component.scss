@@ -1,0 +1,52 @@
+
+.cap-express-way {
+  padding: 0;
+  .van-actionsheet__content {
+    max-height: 290px;
+    overflow-y: auto;
+  }
+}
+
+.cap-express-way__fee, .cap-express-way__type {
+  color: #666;
+  line-height: 1.5;
+}
+
+.cap-express-way__fee {
+  font-size: 14px;
+}
+
+.cap-express-way__type {
+  font-size: 12px;
+}
+
+.cap-express-way-option {
+  position: relative;
+  padding: 14px 15px 14px 0;
+  .van-radio {
+    top: 50%;
+    left: 0;
+    margin-top: -11px;
+    position: absolute;
+  }
+}
+
+.cap-express-way-option__content {
+  padding-left: 30px;
+  p {
+    color: #999;
+    font-size: 12px;
+    line-height: 16px;
+  }
+}
+
+.cap-express-way-option__title span {
+  vertical-align: middle;
+  &:first-child {
+    margin-right: 5px;
+  }
+}
+
+.cap-express-way-option__warn {
+  color: #f09000;
+}

@@ -1,0 +1,109 @@
+.album {
+  background: #fff;
+  margin-bottom: .5rem;
+  .title {
+    height: 2.25rem;
+    line-height: 2.25rem;
+    color: green;
+    font-size: .7rem;
+    text-align: center;
+    padding: 0;
+  }
+  .more {
+    height: 2.5rem;
+    line-height: 2.5rem;
+    font-size: .7rem;
+    padding: 0 0 0 .75rem;
+    background-image: url(https://medias.zaih.com/Fg4L5o46cE8hfflLP6y4_pJj23g7);
+    background-size: .325rem .655rem;
+    background-position: right .75rem center;
+    background-repeat: no-repeat;
+    a {
+      color: #f85f48;
+    }
+  }
+  li {
+    position: relative;
+    box-sizing: border-box;
+    height: 4.15rem;
+    border-top: 1px solid #e5e5e5;
+    padding: 1rem 2.75rem 0 4.15rem;
+    background-size: 2.65rem 2.65rem;
+    background-position: left .75rem center;
+    background-repeat: no-repeat;
+    .description {
+      font-size: .65rem;
+      line-height: .9rem;
+      color: #999;
+    }
+    .avatar {
+      position: absolute !important;
+      top: .555rem;
+      left: .75rem;
+    }
+    .follow {
+      position: absolute;
+      top: .025rem;
+      right: .75rem;
+      color: #f85f48;
+      font-size: .65rem;
+      text-align: right;
+      padding-top: 1.08rem;
+      .btn-follow {
+        width: .7rem;
+        height: .7rem;
+        display: block;
+        margin: 0 0 .25rem .3rem;
+      }
+    }
+    .followed, .free {
+      position: absolute;
+      top: .025rem;
+      right: .75rem;
+      line-height: 3.36rem;
+      color: #999;
+      font-size: .65rem;
+    }
+    p {
+      color: #3f3f3f;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: .8rem;
+      line-height: 1.2rem;
+    }
+    .highlight {
+      color: #f85f48;
+    }
+  }
+}
+.album-leader li {
+  height: auto;
+  padding: .7rem 2.75rem .7rem 4.15rem;
+  .avatar {
+    top: .9rem;
+    width: 2.65rem;
+    height: 2.65rem;
+  }
+  .follow {
+    padding-top: 1.4rem;
+    .btn-follow {
+      width: .7rem;
+      height: .7rem;
+      display: block;
+      margin: 0 0 .25rem .3rem;
+    }
+  }
+  .followed {
+    line-height: 4.4rem;
+  }
+  .probability {
+    font-size: .65rem;
+    color: #999;
+    vertical-align: middle;
+    margin-left: .3rem;
+  }
+  .highlight {
+    color: #f85f48;
+  }
+}

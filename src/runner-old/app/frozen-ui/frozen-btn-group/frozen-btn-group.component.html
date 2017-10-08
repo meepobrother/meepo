@@ -1,0 +1,5 @@
+<div class="ui-btn-group">
+  <button class="ui-btn-lg" [ngClass]="item.classname" (click)="_onItem(item)" *ngFor="let item of items">
+    {{item.title}}
+  </button>
+</div>

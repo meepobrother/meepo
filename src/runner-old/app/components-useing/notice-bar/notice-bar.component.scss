@@ -1,0 +1,40 @@
+
+.cap-notice-bar {
+  background: #fff7cc;
+  color: #f60;
+  padding: 9px 10px;
+  font-size: 12px;
+  line-height: 1.5;
+  height: 36px;
+  box-sizing: border-box;
+}
+
+.cap-notice-bar--withicon {
+  padding-right: 30px;
+  position: relative;
+}
+
+.cap-notice-bar__icon {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.cap-notice-bar__content-wrap {
+  overflow: hidden;
+  position: relative;
+  height: 18px;
+}
+
+.cap-notice-bar__content {
+  position: absolute;
+  overflow: hidden;
+  white-space: nowrap;
+  -webkit-transition-property: left;
+  transition-property: left;
+  -webkit-transition-timing-function: linear;
+  transition-timing-function: linear;
+}

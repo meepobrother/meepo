@@ -1,0 +1,8 @@
+<div class="swiper-container" [ngClass]="'swiper-container-'+randClass" [style.background-color]="backgroundColor" [style.height]="height">
+  <div class="swiper-wrapper">
+    <ng-content></ng-content>
+  </div>
+  <div class="swiper-pagination"></div>
+  <div class="swiper-scrollbar" [class.hide]="!option['scrollbar']"></div>
+  <meepo-slides-water [class.hide]="!hasWater"></meepo-slides-water>
+</div>

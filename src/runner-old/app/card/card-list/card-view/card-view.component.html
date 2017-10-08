@@ -1,0 +1,83 @@
+<div class="card_preview_area member_card">
+  <div class="card_body">
+    <div class="js_preview msg_card_section shop">
+      <div class="shop_panel" [style.background-color]="base_info.color.value">
+        <div class="mask"></div>
+        <div class="logo_area">
+          <span class="logo">
+            <img [src]="base_info.logo_url">
+          </span>
+          <span>{{base_info.brand_name}}</span>
+          <p class="card_name">{{base_info.title}}</p>
+          <p class="tick_sub_title">{{base_info.sub_title}}</p>
+          <span class="qrcode"></span>
+        </div>
+        <div class="msg_area">
+          <span class="member_number">{{member_number}}</span>
+          <span class="icon_info"></span>
+        </div>
+      </div>
+    </div>
+    <div class="msg_card_cell member_extend_area">
+      <div class="member_extend_item">
+        <div class="member_extend_title">余额</div>
+        <div class="member_extend_des" style="color:#55BD47">0</div>
+      </div>
+      <div class="member_extend_item">
+        <div class="member_extend_title">积分</div>
+        <div class="member_extend_des" style="color:#55BD47">0</div>
+      </div>
+    </div>
+    <div class="msg_card_cell promotion">
+      <p>{{base_info.notice}}</p>
+    </div>
+    <div class="msg_card_cell quick_pay">
+      <a [routerLink]="base_info['center_url']" class="btn_card_preview" style="color:#55BD47">{{base_info.center_title}}</a>
+      <p class="quick_pay_wording">{{base_info.center_sub_title}}</p>
+    </div>
+    <div class="msg_card_cell shop_detail last_cell">
+      <ul class="list">
+        <li class="msg_card_section" style="">
+          <div class="li_panel" [routerLink]="base_info.custom_url">
+            <div class="li_content">
+              <p>
+                {{base_info.custom_url_name}}
+                <span class="supply_area">{{base_info.custom_url_sub_title}}</span>
+              </p>
+            </div>
+            <span class="ic ic_go"></span>
+          </div>
+        </li>
+        <li class="msg_card_section last_li">
+          <div class="li_panel" [routerLink]="base_info.promotion_url">
+            <div class="li_content">
+              <p>
+                {{base_info.promotion_url_name}}
+                <span class="supply_area">{{base_info.promotion_url_sub_title}}</span>
+              </p>
+            </div>
+            <span class="ic ic_go"></span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="msg_card_cell custom_detail">
+      <ul class="list" id="js_custom_url_preview">
+        <li class="msg_card_section" [routerLink]="['/card/profiles']">
+          <div class="li_panel">
+            <div class="li_content">
+              <p>
+                <span class="supply_area">
+                  <span class="js_custom_url_tips_pre"></span>
+                  <span class="ic ic_go"></span>
+                </span>
+                <span class="js_custom_url_name_pre">我的资料</span>
+              </p>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

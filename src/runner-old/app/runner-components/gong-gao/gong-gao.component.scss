@@ -1,0 +1,67 @@
+.gonggao-ul{
+  margin-bottom: 0px;
+  background: #fff;
+  padding: 5px 0;
+  .bg-fff {
+    background: #fff;
+  }
+  .gonggao, .gonggao-text {
+    height: 30px;
+    line-height: 30px;
+    padding: 0 12px;
+  }
+  .rel {
+    position: relative;
+  }
+  i {
+    margin-right: 5px;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    margin-top: 2px;
+    background: url(./gonggao.png) no-repeat;
+  }
+  .gonggao-icon00{
+    background-size: 100%;
+    background-position: 0px -40px;
+  }
+  .gonggao-icon01{
+    background-position: 0px -20px;
+    background-size: 100%;
+  }
+  .gonggao-icon02{
+    background-position: 0px 0px;
+    background-size: 100%;
+  }
+  .wzsl {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .flex {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+  }
+  .d-flex {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+
+.weui-cell__ft{
+  color:green;
+}
+
+.minEdit{
+  position: relative;
+  display: block;
+  min-height: 80px;
+}
+.weui-cells{
+  margin-top: 0px;
+}

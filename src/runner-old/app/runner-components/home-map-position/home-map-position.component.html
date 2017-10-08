@@ -1,0 +1,56 @@
+<div class="home_map_position" *ngIf="city">
+  <div class="home_map_position_box">
+    <div class="home_map_position_city" id="changeCity">
+      <div class="cityname">{{city}}</div>
+      <div class="shuline"></div>
+    </div>
+    <div class="home_map_position_Cont">
+      <div>
+        <div class="home_map_position_top">
+          <div class="home_map_position_add">
+            <span>我在</span>
+            <b>{{district}}</b>
+          </div>
+          <div class="home_map_position_angle">
+            <i class="fa fa-angle-right"></i>
+          </div>
+        </div>
+        <div style="display:none;" class="home_map_position_top changedetAddress_position_top">
+          <div class="home_map_position_add">
+            <span></span>
+          </div>
+        </div>
+        <div class="home_map_position_bottom">
+          <p>{{address}}</p>
+        </div>
+      </div>
+    </div>
+    <div style="clear:both;"></div>
+    <i class="home_map_position_set"></i>
+    <div class="maplocation_icon"></div>
+  </div>
+</div>
+
+<div class="home_map_position home_map_positioning" *ngIf="!city">
+  <div class="home_map_position_box">
+    <div class="home_map_position_top" style="padding-bottom:0px;">
+      <div class="home_map_position_add" style="text-align: center;">
+        <div class="spinner">
+          <div class="rect1"></div>
+          <div class="rect2"></div>
+          <div class="rect3"></div>
+        </div>
+      </div>
+    </div>
+    <div class="home_map_position_bottom" style="background:none;">
+      <p class="loadloadd">正在获取当前位置</p>
+    </div>
+    <div style="clear:both;"></div>
+    <i class="home_map_position_set"></i>
+    <div class="maplocation_icon"></div>
+  </div>
+</div>
+
+
+<div class="ghpab_loaction_icon"></div>
+<div style="clear:both;"></div>

@@ -1,0 +1,41 @@
+<div class="" style="position: relative;">
+  <suyun-edit-btn (onEditer)="onEditer()"></suyun-edit-btn>
+  <swiper-default autoplay="3000" hasWater="true" height="150px" hasPage="true">
+    <div class="swiper-slide" *ngFor="let adv of advs">
+      <img [src]="adv.image" alt="">
+    </div>
+  </swiper-default>
+</div>
+
+<div class="js_dialog" *ngIf="showEditer">
+  <div class="weui-mask"></div>
+  <div class="weui-dialog" *ngIf="showList">
+    <div class="weui-grids">
+      <a href="javascript:;" class="weui-grid" (click)="editAdv(adv,i)" style="width: 50%;" *ngFor="let adv of advs;index as i;">
+        <div class="weui-grid__icon">
+          <img [src]="adv.image" alt="">
+        </div>
+        <p class="weui-grid__label">{{adv.title}}</p>
+      </a>
+    </div>
+    <div class="weui-dialog__ft">
+      <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_default" (click)="cancel()">取消</a>
+      <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_default" (click)="add()">添加</a>
+      <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary" (click)="save()">保存</a>
+    </div>
+  </div>
+  <div class="weui-dialog" *ngIf="!showList">
+    <div class="weui-cell">
+      <div class="weui-cell__hd"><label class="weui-label">标题</label></div>
+      <div class="weui-cell__bd">
+        <input class="weui-input" [(ngModel)]="editItem['title']" type="text" placeholder="请输入标题">
+      </div>
+    </div>
+    <suyun-uploader [images]="editItem['image']" (onUpload)="onUpload($event)"></suyun-uploader>
+    <div class="weui-dialog__ft">
+      <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_default" (click)="cancelEdit()">取消</a>
+      <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_default" (click)="deleteEdit()">删除</a>
+      <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary" (click)="saveEdit()">保存</a>
+    </div>
+  </div>
+</div>

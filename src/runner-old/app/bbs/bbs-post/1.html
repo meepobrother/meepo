@@ -1,0 +1,672 @@
+
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>发布动态--本地圈</title>
+  <base href="http://demo.heimaoq.com">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" />
+  <link href="/themes/default/css/global.css" rel="stylesheet"/>
+  <link href="/themes/default/css/fabu.css?v=071211" rel="stylesheet" type="text/css">
+  <script src="/themes/default/js/global.js"></script>
+  <script src="/themes/default/js/jquery-2.1.3.min.js"></script>
+  <script src="/themes/js/swipe.js"></script>
+  <script src="/themes/default/js/jweixin-1.0.0.js"></script>
+  <script src="/themes/js/upload/jquery.bcat.uploadifive.min.js?v=071411"></script><script src="/themes/default/js/bendiquan.js?v=0712"></script>
+  <script charset="utf-8" src="http://map.qq.com/api/js?v=2.exp&key=QW7BZ-4I4KW-CH3RC-OJJXO-QBWQF-YVFDG&libraries=convertor,place"></script>
+  <script>
+
+    var rcmd_url = "http://demo.heimaoq.com/bendiquanindex.html?i=1&ma=",
+      title = "还不赶紧看下小伙伴在圈子里发了啥~", desc = "小伙伴都在这里分享自己的趣事，还不赶紧来参与讨论~",
+      img_url = "http://img.chwlsq.com/1/config/1701181538390051064.jpg",
+      callback_url = "/tool/share?i=1";
+    wx.config({
+      debug: false,
+      appId: 'wx77c288f7f0ee90ce',
+      timestamp: 1500090777,
+      nonceStr: '6907294626954946',
+      signature: '0160F987E74FE4C22B796A8CC4A13D338440A96B',
+      jsApiList: [
+        'getLocation',
+        'onMenuShareAppMessage',
+        'onMenuShareTimeline',
+        'showOptionMenu',
+        'chooseImage',
+        'uploadImage',
+        'translateVoice',
+        'startRecord',
+        'stopRecord',
+        'onVoiceRecordEnd',
+        'playVoice',
+        'onVoicePlayEnd',
+        'pauseVoice',
+        'stopVoice',
+        'uploadVoice',
+        'downloadVoice'
+      ]
+    });
+    wx.ready(function () {
+      wx.showOptionMenu();
+      // “分享到朋友圈”
+      wx.onMenuShareTimeline({
+        title: title,
+        link: rcmd_url,
+        imgUrl: img_url,
+        success: function (res) {
+          $('#share-box').hide();
+          $.post(callback_url, {}, function () { }, "json");
+        },
+        cancel: function (res) {
+          return;
+        },
+        fail: function (res) {
+
+        }
+      });
+
+      // “分享给朋友”
+      wx.onMenuShareAppMessage({
+        title: title,
+        desc: desc,
+        link: rcmd_url,
+        imgUrl: img_url,
+        success: function () {
+          $('#share-box').hide();
+          $.post(callback_url, {}, function () { }, "json");
+        },
+        cancel: function () {
+          return;
+        },
+        fail: function (res) {
+
+        }
+      });
+
+    });
+    function getlocation()
+    {
+      wx.getLocation({
+        type: 'gcj02', // 默认为wgs84的gps坐标，如果要返回直接给openLocation用的火星坐标，可传入'gcj02'
+        success: function (res) {
+          var latitude = res.latitude; // 纬度，浮点数，范围为90 ~ -90
+          var longitude = res.longitude; // 经度，浮点数，范围为180 ~ -180。
+          var speed = res.speed; // 速度，以米/每秒计
+          var accuracy = res.accuracy; // 位置精度
+          translatemap(latitude,longitude);
+        }
+      });
+    }
+    function translatemap(lat,lng)
+    {
+      var locationy = lng;
+      var locationx = lat;
+      $.ajax({
+        url: "http://apis.map.qq.com/ws/geocoder/v1/",
+        type:"get",
+        dataType:'jsonp',
+        data:{"location":locationx+","+locationy,"key":"QW7BZ-4I4KW-CH3RC-OJJXO-QBWQF-YVFDG","coord_type":5,"get_poi":1,"poi_options":"page_size=20;page_index=1","output":"jsonp"},
+        jsonp:"callback",
+        jsonpCallback:"QQmap",
+        success: function(d) {
+          if (d.status == 0) {
+            var str="";
+            $.each(d.result.pois, function(i, item) {
+              str+='<a class="weui_cell position weui_cell_border" href="javascript:;" data-lat="'+item.location.lat+'" data-lng="'+item.location.lng+'" data-name="'+item.title+'">';
+              str+='<div class="weui_cell_bd weui_cell_primary">';
+              str+='  <p>'+item.title+'</p>';
+              str+='</div>';
+              str+='<span class="weui_cell_ft"></span></a>';
+            })
+            $("#nearlist").html(str);
+            $("#nearlist a").click(function(){
+              var o=$(this);
+              $("#chosedaddr").html(o.data("name"));
+              $("#lat").val(o.data("lat"));
+              $("#lng").val(o.data("lng"));
+              $("#conentdiv").show();
+              $(".page-footer").show();
+              $("#searchmap").hide();
+            });
+          }
+          else
+          {
+            $("#nearlist").html("");
+          }
+        },
+        error: function() {
+          $("#nearlist").html("");
+        }
+      });
+    }
+
+    $(function(){
+      $("#chooseaddress").click(function(){
+        getlocation();
+        $("#conentdiv").hide();
+        $("#searchmap").show();
+      });
+      $("#choosetopic").click(function(){
+        $("#conentdiv").hide();
+        $("#CategoryDialog").show();
+      });
+      $(".topliclist a").click(function(){
+        $("#CategoryDialog").hide();
+        $("#conentdiv").show();
+        $("#categoryid").val($(this).data("id"));
+        $("#choosetopic").html($(this).data("name"));
+      });
+      $(".addback").click(function(){
+        $("#conentdiv").show();
+        $("#searchmap").hide();
+        $("#CategoryDialog").hide();
+      });
+      $("#emptyaddress").click(function(){
+        $("#conentdiv").show();
+        $("#searchmap").hide();
+        $("#lat").val("0");
+        $("#lng").val("0");
+        $("#chosedaddr").html("");
+      });
+      $("#postbtn").click(function(){
+        var s=0; //$('#visiable').is(':checked')
+        var addr=$("#chosedaddr").html();
+        var content=$("#content").val();
+        var self = $(this);
+        if (content <5) {
+          wptAlert("对不起，请说点您现在的想法吧~");
+          return false;
+        }
+        var text=self.text();
+        self.addClass("doing").text('正在发布中...');
+        wptLoading("正在发布中...");
+        var d="";
+        $("#imagelist .weui_uploader_file").each(function(i, j) {
+          var k = $(this).data("url");
+          if(d.length>0)
+          {
+            d+=",";
+          }
+          d+=k;
+        });
+        $.ajax({
+          type: "post",
+          dataType: "json",
+          data: {"self": s, "addr": addr, "content": content,"d":d,"c":$("#categoryid").val(), "lat": $("#lat").val(), "lng": $("#lng").val(),
+            voice:$("#hidrecordId").val(),
+            timer:$("#hidrecordTime").val(),
+            fengmianurl:$("#fengmianurl").val(),
+            videotime:$("#videotime").val(),
+            videourl:$("#videourl").val()
+          },
+          url: "/tool/addquan/?i=1&version="+new Date(),
+          cache:false,
+          success: function(d){
+            if (d.state == "success") {
+              $(document.body).trigger('wptLoading_view:hide');
+              webToast(d.msg,"middle",1000);
+              if(d.quankill=="0")
+              {
+                wptRedirect('/bendiquanindex.html?i=1',1000)
+              }
+              else
+              {
+                wptRedirect('/bendiquan/qdetails?i=1&id='+d.id,1000)
+              }
+            }
+            else
+            {
+              $(document.body).trigger('wptLoading_view:hide');
+              wptAlert(d.msg, function(){
+                self.removeClass("doing").text(text);
+              });
+            }
+          }
+        })
+        return false;
+      });
+      var index = 0,
+        localIds = [],
+        serverIds = [];
+      $(".dropz").click(function(){
+        if($("#hidrecordTime").val()!="0" || $("#videolist").html()!="" )
+        {
+          wptAlert("对不起，不能同时发布图片、语音和视频！");
+          return false;
+        }
+        if($(".weui_uploader_file").length>=9)
+        {
+          wptAlert("对不起，一次只能上传9张图片哦！");
+          return false;
+        }
+        o=$(this);
+        wx.chooseImage({
+          count: 9, // 默认9
+          sizeType: ['compressed'], // 可以指定是原图还是压缩图，默认二者都有
+          sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+          success: function (res) {
+            var localIds = res.localIds;
+            syncUpload(localIds);
+          },
+          cancel: function() {
+            self.removeClass("doing");
+          },
+          fail: function(){
+            self.removeClass("doing");
+          }
+        });
+      });
+      //上传图片
+      var syncUpload = function(localIds){
+        var localId = localIds.pop();
+        wptLoading("正在保存中...");
+        wx.uploadImage({
+          localId: localId,
+          isShowProgressTips: 1,
+          success: function (res) {
+            $.ajax({
+              type: "post",
+              dataType: "json",
+              data: {"serverId":res.serverId,"u":o.attr("url")},
+              url: "/tool/wxquanupload/?i=1&t="+new Date(),
+              cache:false,
+              success: function(rept){
+                if (rept.state == 1) {
+                  var str='<li class="weui_uploader_file" data-url="'+rept.fileimage+'" style="background-image:url('+rept.filepath+')">';
+                  str+='<span class="del" ><a href="javascript:;" ><img src="/themes/default/images/quan/del.png"></a></span>';
+                  str+='</li>';
+                  $("#imagelist").html($("#imagelist").html()+str);
+                  $(document.body).trigger('wptLoading_view:hide');
+                  $(".weui_uploader_file a").click(function(){
+                    var o=$(this);
+                    var n=o.parent().parent().data("url");
+                    $.ajax({
+                      type: "post",
+                      dataType: "json",
+                      data: {"name":n},
+                      url: "/tool/deletequanwx/?i=1&t="+new Date(),
+                      cache:false,
+                      success: function(rept){
+                        o.parent().parent().remove();
+                      }
+                    })
+                  });
+                } else {
+                  $(document.body).trigger('wptLoading_view:hide');
+                  wptAlert(rept.msg);
+                }
+              }
+            })
+            if(localIds.length > 0){
+              syncUpload(localIds);
+            }
+          },
+          fail: function (res) {
+            $(document.body).trigger('wptLoading_view:hide');
+            wptAlert("目前微信上传图片系统故障<br/>腾讯方面正在积极排查解决，请稍后再试");
+          }
+        });
+      }
+    })
+  </script>
+</head>
+<body>
+<div id="conentdiv" style="margin-bottom:60px;">
+  <header class="page-header zindex3"> <a class="arrow-wrap" href="/bendiquanindex.html?i=1"> <span class="arrow-left"></span><i class="fanhuib">返回</i> </a>
+    <div class="page-headertext">发布动态</div>
+    <a class="page-headerxiaoxi" href="/xiaoxi?i=1"></a>
+  </header>
+  <div class="weui_cells weui_cells_form" style="margin-bottom:50px;">
+    <div class="feed-publish-tag " id="choosetopic"> #添加话题# </div>
+    <div class="weui_cell weui_cell_border">
+      <div class="weui_cell_bd weui_cell_primary">
+        <textarea id="content" class="weui_textarea" placeholder="这一刻的想法..." rows="4" name="content"></textarea>
+      </div>
+    </div>
+    <div class="weui_cell weui_py_upload">
+      <div class="weui_cell_bd weui_cell_primary">
+        <div class="weui_uploader">
+          <div class="weui_uploader_bd">
+            <ul class="weui_uploader_files" id="imagelist"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="weui_cell weui_py_upload">
+      <div class="weui_cell_bd weui_cell_primary">
+        <div class="weui_uploader">
+          <div class="weui_uploader_bd">
+            <ul class="weui_uploader_files" id="videolist"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <input type="hidden" id="videourl" name="videourl" value=""/>
+    <input type="hidden" id="fengmianurl" name="fengmianurl" value=""/>
+    <input type="hidden" id="videotime" name="videotime" value=""/>
+    <input type="hidden" id="hidideourl" name="hidideourl" value=""/>
+    <input type="hidden" id="hidrecordId" name="hidrecordId" value="" />
+    <input type="hidden" id="hidrecordTime" name="hidrecordTime" value="0" />
+    <div style="margin:0px 0px 0px 15px;height:50px;display:none;" id="reclist"></div>
+    <div class="btnlist clearfix">
+      <div class="facebtn"><img class="pic_default0" src="/themes/default/images/materials/icon_emotion_switch.2x278965.png" alt=""></div>
+      <div class="imagebtn dropz"><img class="pic_default" src="/themes/default/images/global/img000.png" alt=""></div>
+      <div class="mp3btn" id="mp3btn"><img class="pic_default" src="/themes/default/images/global/mic000.png" alt=""></div>
+      <div class="videobtn"><div id="queue" style="display:none;"></div><img class="pic_default" src="/themes/default/images/global/cam000.png" alt="" id="videobtn"></div>
+    </div>
+    <div class="emotion_panel" id="js_emotion_panel"> <span class="emotion_panel_arrow_wrp" id="js_emotion_panel_arrow_wrp"> <i class="emotion_panel_arrow arrow_out"></i> <i class="emotion_panel_arrow arrow_in"></i> </span>
+      <div class="emotion_list_wrp" id="js_slide_wrapper"> </div>
+      <div id="slider" class="swipe" style="visibility: visible;">
+        <div class="swipe-wrap">
+          <figure data-index="0">
+            <ul class="emotion_navs">
+              <li class="emotions_item"> <i class="js_emotion_i" data-title="微笑" style="background-position:0px 0;"> </i> </li>
+              <li class="emotions_item"> <i class="js_emotion_i" data-title="撇嘴" style="background-position:-24px 0;"> </i> </li>
+              <li class="emotions_item"> <i class="js_emotion_i" data-title="色" style="background-position:-48px 0;"> </i> </li>
+              <li class="emotions_item"> <i class="js_emotion_i" data-title="发呆" style="background-position:-72px 0;"> </i> </li>
+              <li class="emotions_item"> <i class="js_emotion_i" data-title="得意" style="background-position:-96px 0;"> </i> </li>
+              <li class="emotions_item"> <i class="js_emotion_i" data-title="流泪" style="background-position:-120px 0;"> </i> </li>
+              <li class="emotions_item"> <i class="js_emotion_i" data-title="害羞" style="background-position:-144px 0;"> </i> </li>
+              <li class="emotions_item"> <i class="js_emotion_i" data-title="闭嘴" style="background-position:-168px 0;"> </i> </li>
+              <li class="emotions_item"> <i class="js_emotion_i" data-title="睡" style="background-position:-192px 0;"> </i> </li>
+              <li class="emotions_item"> <i class="js_emotion_i" data-title="大哭" style="background-position:-216px 0;"> </i> </li>
+              <li class="emotions_item"> <i class="js_emotion_i" data-title="尴尬" style="background-position:-240px 0;"> </i> </li>
+              <li class="emotions_item"> <i class="js_emotion_i" data-title="发怒" style="background-position:-264px 0;"> </i> </li>
+              <li class="emotions_item"> <i class="js_emotion_i" data-title="调皮" style="background-position:-288px 0;"> </i> </li>
+              <li class="emotions_item"> <i class="js_emotion_i" data-title="呲牙" style="background-position:-312px 0;"> </i> </li>
+              <li class="emotions_item"> <i class="js_emotion_i" data-title="惊讶" style="background-position:-336px 0;"> </i> </li>
+              <li class="emotions_item"> <i class="js_emotion_i" data-title="难过" style="background-position:-360px 0;"> </i> </li>
+              <li class="emotions_item"> <i class="js_emotion_i" data-title="酷" style="background-position:-384px 0;"> </i> </li>
+              <li class="emotions_item"> <i class="js_emotion_i" data-title="冷汗" style="background-position:-408px 0;"> </i> </li>
+              <li class="emotions_item"> <i class="js_emotion_i" data-title="抓狂" style="background-position:-432px 0;"> </i> </li>
+              <li class="emotions_item"> <i class="js_emotion_i" data-title="吐" style="background-position:-456px 0;"> </i> </li>
+              <li class="emotions_item"> <i class="js_emotion_i" data-title="偷笑" style="background-position:-480px 0;"> </i> </li>
+              <li class="emotions_item"> <i class="js_emotion_i" data-title="可爱" style="background-position:-504px 0;"> </i> </li>
+              <li class="emotions_item"> <i class="js_emotion_i" data-title="白眼" style="background-position:-528px 0;"> </i> </li>
+              <li class="emotions_item"> <i class="js_emotion_i" data-title="傲慢" style="background-position:-552px 0;"> </i> </li>
+              <li class="emotions_item"> <i class="js_emotion_i" data-title="饥饿" style="background-position:-576px 0;"> </i> </li>
+              <li class="emotions_item"> <i class="js_emotion_i" data-title="困" style="background-position:-600px 0;"> </i> </li>
+              <li class="emotions_item"> <i class="icon_emotion del" data-title="删除"> </i> </li>
+            </ul></figure>
+          <figure data-index="1"> <ul class="emotion_navs">
+            <li class="emotions_item"> <i class="js_emotion_i" data-title="惊恐" style="background-position:-624px 0;"> </i> </li>
+            <li class="emotions_item"> <i class="js_emotion_i" data-title="流汗" style="background-position:-648px 0;"> </i> </li>
+            <li class="emotions_item"> <i class="js_emotion_i" data-title="憨笑" style="background-position:-672px 0;"> </i> </li>
+            <li class="emotions_item"> <i class="js_emotion_i" data-title="大兵" style="background-position:-696px 0;"> </i> </li>
+            <li class="emotions_item"> <i class="js_emotion_i" data-title="奋斗" style="background-position:-720px 0;"> </i> </li>
+            <li class="emotions_item"> <i class="js_emotion_i" data-title="咒骂" style="background-position:-744px 0;"> </i> </li>
+            <li class="emotions_item"> <i class="js_emotion_i" data-title="疑问" style="background-position:-768px 0;"> </i> </li>
+            <li class="emotions_item"> <i class="js_emotion_i" data-title="嘘" style="background-position:-792px 0;"> </i> </li>
+            <li class="emotions_item"> <i class="js_emotion_i" data-title="晕" style="background-position:-816px 0;"> </i> </li>
+            <li class="emotions_item"> <i class="js_emotion_i" data-title="折磨" style="background-position:-840px 0;"> </i> </li>
+            <li class="emotions_item"> <i class="js_emotion_i" data-title="衰" style="background-position:-864px 0;"> </i> </li>
+            <li class="emotions_item"> <i class="js_emotion_i" data-title="骷髅" style="background-position:-888px 0;"> </i> </li>
+            <li class="emotions_item"> <i class="js_emotion_i" data-title="敲打" style="background-position:-912px 0;"> </i> </li>
+            <li class="emotions_item"> <i class="js_emotion_i" data-title="再见" style="background-position:-936px 0;"> </i> </li>
+            <li class="emotions_item"> <i class="js_emotion_i" data-title="擦汗" style="background-position:-960px 0;"> </i> </li>
+            <li class="emotions_item"> <i class="js_emotion_i" data-title="抠鼻" style="background-position:-984px 0;"> </i> </li>
+            <li class="emotions_item"> <i class="js_emotion_i" data-title="鼓掌" style="background-position:-1008px 0;"> </i> </li>
+            <li class="emotions_item"> <i class="js_emotion_i" data-title="糗大了" style="background-position:-1032px 0;"> </i> </li>
+            <li class="emotions_item"> <i class="js_emotion_i" data-title="坏笑" style="background-position:-1056px 0;"> </i> </li>
+            <li class="emotions_item"> <i class="js_emotion_i" data-title="左哼哼" style="background-position:-1080px 0;"> </i> </li>
+            <li class="emotions_item"> <i class="js_emotion_i" data-title="右哼哼" style="background-position:-1104px 0;"> </i> </li>
+            <li class="emotions_item"> <i class="js_emotion_i" data-title="哈欠" style="background-position:-1128px 0;"> </i> </li>
+            <li class="emotions_item"> <i class="js_emotion_i" data-title="鄙视" style="background-position:-1152px 0;"> </i> </li>
+            <li class="emotions_item"> <i class="js_emotion_i" data-title="委屈" style="background-position:-1176px 0;"> </i> </li>
+            <li class="emotions_item"> <i class="js_emotion_i" data-title="快哭了" style="background-position:-1200px 0;"> </i> </li>
+            <li class="emotions_item"> <i class="js_emotion_i" data-title="阴险" style="background-position:-1224px 0;"> </i> </li>
+            <li class="emotions_item"> <i class="icon_emotion del" data-title="删除"> </i> </li>
+          </ul></figure><figure data-index="3">
+          <ul class="emotion_navs">
+            <li class="emotions_item"> <i class="js_emotion_i" data-title="亲亲" style="background-position:-1248px 0;"> </i> </li>
+            <li class="emotions_item"> <i class="js_emotion_i" data-title="吓" style="background-position:-1272px 0;"> </i> </li>
+            <li class="emotions_item"> <i class="js_emotion_i" data-title="可怜" style="background-position:-1296px 0;"> </i> </li>
+            <li class="emotions_item"> <i class="js_emotion_i" data-title="菜刀" style="background-position:-1320px 0;"> </i> </li>
+            <li class="emotions_item"> <i class="js_emotion_i" data-title="西瓜" style="background-position:-1344px 0;"> </i> </li>
+            <li class="emotions_item"> <i class="js_emotion_i" data-title="啤酒" style="background-position:-1368px 0;"> </i> </li>
+            <li class="emotions_item"> <i class="js_emotion_i" data-title="篮球" style="background-position:-1392px 0;"> </i> </li>
+            <li class="emotions_item"> <i class="js_emotion_i" data-title="乒乓" style="background-position:-1416px 0;"> </i> </li>
+            <li class="emotions_item"> <i class="js_emotion_i" data-title="咖啡" style="background-position:-1440px 0;"> </i> </li>
+            <li class="emotions_item"> <i class="js_emotion_i" data-title="饭" style="background-position:-1464px 0;"> </i> </li>
+            <li class="emotions_item"> <i class="js_emotion_i" data-title="猪头" style="background-position:-1488px 0;"> </i> </li>
+            <li class="emotions_item"> <i class="js_emotion_i" data-title="玫瑰" style="background-position:-1512px 0;"> </i> </li>
+            <li class="emotions_item"> <i class="js_emotion_i" data-title="凋谢" style="background-position:-1536px 0;"> </i> </li>
+            <li class="emotions_item"> <i class="js_emotion_i" data-title="示爱" style="background-position:-1560px 0;"> </i> </li>
+            <li class="emotions_item"> <i class="js_emotion_i" data-title="爱心" style="background-position:-1584px 0;"> </i> </li>
+            <li class="emotions_item"> <i class="js_emotion_i" data-title="心碎" style="background-position:-1608px 0;"> </i> </li>
+            <li class="emotions_item"> <i class="js_emotion_i" data-title="蛋糕" style="background-position:-1632px 0;"> </i> </li>
+            <li class="emotions_item"> <i class="js_emotion_i" data-title="闪电" style="background-position:-1656px 0;"> </i> </li>
+            <li class="emotions_item"> <i class="js_emotion_i" data-title="炸弹" style="background-position:-1680px 0;"> </i> </li>
+            <li class="emotions_item"> <i class="js_emotion_i" data-title="刀" style="background-position:-1704px 0;"> </i> </li>
+            <li class="emotions_item"> <i class="js_emotion_i" data-title="足球" style="background-position:-1728px 0;"> </i> </li>
+            <li class="emotions_item"> <i class="js_emotion_i" data-title="瓢虫" style="background-position:-1752px 0;"> </i> </li>
+            <li class="emotions_item"> <i class="js_emotion_i" data-title="便便" style="background-position:-1776px 0;"> </i> </li>
+            <li class="emotions_item"> <i class="js_emotion_i" data-title="月亮" style="background-position:-1800px 0;"> </i> </li>
+            <li class="emotions_item"> <i class="js_emotion_i" data-title="太阳" style="background-position:-1824px 0;"> </i> </li>
+            <li class="emotions_item"> <i class="js_emotion_i" data-title="礼物" style="background-position:-1848px 0;"> </i> </li>
+            <li class="emotions_item"> <i class="icon_emotion del" data-title="删除"> </i> </li>
+          </ul>
+        </figure>
+          <figure data-index="4">
+            <ul class="emotion_navs">
+              <li class="emotions_item"> <i class="js_emotion_i" data-title="拥抱" style="background-position:-1872px 0;"> </i> </li>
+              <li class="emotions_item"> <i class="js_emotion_i" data-title="强" style="background-position:-1896px 0;"> </i> </li>
+              <li class="emotions_item"> <i class="js_emotion_i" data-title="弱" style="background-position:-1920px 0;"> </i> </li>
+              <li class="emotions_item"> <i class="js_emotion_i" data-title="握手" style="background-position:-1944px 0;"> </i> </li>
+              <li class="emotions_item"> <i class="js_emotion_i" data-title="胜利" style="background-position:-1968px 0;"> </i> </li>
+              <li class="emotions_item"> <i class="js_emotion_i" data-title="抱拳" style="background-position:-1992px 0;"> </i> </li>
+              <li class="emotions_item"> <i class="js_emotion_i" data-title="勾引" style="background-position:-2016px 0;"> </i> </li>
+              <li class="emotions_item"> <i class="js_emotion_i" data-title="拳头" style="background-position:-2040px 0;"> </i> </li>
+              <li class="emotions_item"> <i class="js_emotion_i" data-title="差劲" style="background-position:-2064px 0;"> </i> </li>
+              <li class="emotions_item"> <i class="js_emotion_i" data-title="爱你" style="background-position:-2088px 0;"> </i> </li>
+              <li class="emotions_item"> <i class="js_emotion_i" data-title="NO" style="background-position:-2112px 0;"> </i> </li>
+              <li class="emotions_item"> <i class="js_emotion_i" data-title="OK" style="background-position:-2136px 0;"> </i> </li>
+              <li class="emotions_item"> <i class="js_emotion_i" data-title="爱情" style="background-position:-2160px 0;"> </i> </li>
+              <li class="emotions_item"> <i class="js_emotion_i" data-title="飞吻" style="background-position:-2184px 0;"> </i> </li>
+              <li class="emotions_item"> <i class="js_emotion_i" data-title="跳跳" style="background-position:-2208px 0;"> </i> </li>
+              <li class="emotions_item"> <i class="js_emotion_i" data-title="发抖" style="background-position:-2232px 0;"> </i> </li>
+              <li class="emotions_item"> <i class="js_emotion_i" data-title="怄火" style="background-position:-2256px 0;"> </i> </li>
+              <li class="emotions_item"> <i class="js_emotion_i" data-title="转圈" style="background-position:-2280px 0;"> </i> </li>
+              <li class="emotions_item"> <i class="js_emotion_i" data-title="磕头" style="background-position:-2304px 0;"> </i> </li>
+              <li class="emotions_item"> <i class="js_emotion_i" data-title="回头" style="background-position:-2328px 0;"> </i> </li>
+              <li class="emotions_item"> <i class="js_emotion_i" data-title="跳绳" style="background-position:-2352px 0;"> </i> </li>
+              <li class="emotions_item"> <i class="js_emotion_i" data-title="挥手" style="background-position:-2376px 0;"> </i> </li>
+              <li class="emotions_item"> <i class="js_emotion_i" data-title="激动" style="background-position:-2400px 0;"> </i> </li>
+              <li class="emotions_item"> <i class="js_emotion_i" data-title="街舞" style="background-position:-2424px 0;"> </i> </li>
+              <li class="emotions_item"> <i class="js_emotion_i" data-title="献吻" style="background-position:-2448px 0;"> </i> </li>
+              <li class="emotions_item"> <i class="js_emotion_i" data-title="左太极" style="background-position:-2472px 0;"> </i> </li>
+              <li class="emotions_item" style="display:none;"> <i class="js_emotion_i" data-title="右太极" style="background-position:-2496px 0;"> </i> </li>
+              <li class="emotions_item"> <i class="icon_emotion del" data-title="删除"> </i> </li>
+            </ul>
+          </figure>
+        </div>
+      </div>
+      <nav>
+        <ul id="position">
+          <li class="on"></li>
+          <li class=""></li> <li class=""></li><li class=""></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="weui_cells weui_cells_access" id="choseadd"> <a class="weui_cell" href="javascript:;" id="chooseaddress">
+      <div class="weui_cell_bd weui_cell_primary">
+        <p><img src="/themes/default/images/quan/map.png" style="width:16px;" /> 显示位置</p>
+      </div>
+      <span id="chosedaddr"></span>
+      <div class="weui_cell_ft"> </div>
+    </a> </div>
+  </div>
+  <div class="weui_btn_area">
+    <input type="hidden" id="lat" value="0" /><input type="hidden" id="lng" value="0" /><input type="hidden" id="categoryid" value="0" />
+    <button class="weui_btn weui_btn_primary" id="postbtn">确认发布</button>
+  </div>
+</div>
+<div id="CategoryDialog" style="display:none;">
+  <header class="page-header zindex3"> <a class="arrow-wrap addback" href="javascript:;"> <span class="arrow-left"></span><i class="fanhuib">返回</i> </a>
+    <div class="page-headertext">选择话题</div>
+  </header>
+  <div id="topicitems">
+    <div class="weui_panel">
+      <div class="weui_panel_bd">
+        <div class="weui_media_box weui_media_small_appmsg">
+          <div class="weui_cells weui_cells_access topliclist">
+            <a class="weui_cell position weui_cell_border" href="javascript:;" data-id="5" data-name="#交友#">
+              <div class="weui_cell_bd weui_cell_primary">
+                <p>#交友#</p>
+              </div>
+              <span class="weui_cell_ft"></span></a>
+            <a class="weui_cell position weui_cell_border" href="javascript:;" data-id="4" data-name="#健身#">
+              <div class="weui_cell_bd weui_cell_primary">
+                <p>#健身#</p>
+              </div>
+              <span class="weui_cell_ft"></span></a>
+            <a class="weui_cell position weui_cell_border" href="javascript:;" data-id="3" data-name="#出行#">
+              <div class="weui_cell_bd weui_cell_primary">
+                <p>#出行#</p>
+              </div>
+              <span class="weui_cell_ft"></span></a>
+            <a class="weui_cell position weui_cell_border" href="javascript:;" data-id="2" data-name="#美食#">
+              <div class="weui_cell_bd weui_cell_primary">
+                <p>#美食#</p>
+              </div>
+              <span class="weui_cell_ft"></span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="searchmap" style="display:none;">
+  <header class="page-header zindex3"> <a class="arrow-wrap addback" href="javascript:;"> <span class="arrow-left"></span><i class="fanhuib">返回</i> </a>
+    <div class="page-headertext">选择位置</div>
+  </header>
+  <div id="additems">
+    <div class="weui_panel">
+      <div class="weui_panel_hd" id="emptyaddress">不显示位置</div>
+      <div class="weui_panel_bd">
+        <div class="weui_media_box weui_media_small_appmsg">
+          <div class="weui_cells weui_cells_access" id="nearlist"> </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<link rel="stylesheet" href="/themes/default/css/voice.css">
+<link rel="stylesheet" href="/themes/js/layer.css">
+<script src="/themes/js/layer.min.js"></script>
+<script src="/themes/default/js/voicespost.min.js?v=0630"></script>
+<input type="hidden" id="hidrecordText" name="hidrecordText" value="" />
+<input type="hidden" id="hidrecordSerId" name="hidrecordSerId" value="" />
+<script id="VoicePostOne_Tmp" type="text/html">
+  <div>
+    <div class="post-voice-box-rp rel" data-localid="{LOCALID}">
+      <div class="post-voice-box-pause"><img src="/themes/default/images/voice/liebiao_yy_bf.png" style="display: block; position: absolute; height:18px; left: 12px;"></div>
+      <span class="abs post-voice-close temp-voice-close" data-voicetype="{TYPE}"></span>
+    </div>
+    <div class="post-rp-voice-time rel">{TIME}</div>
+    <audio id="myvoice"><source src="{MP3PATH}" type="audio/mpeg"></audio>
+  </div>
+</script>
+<script id="VoiceTemplatePost" type="text/html">
+  <!--录音弹窗 开始-->
+  <div class="voice-record-bg bz pressnone">
+    <div class="press-model-tips" id="press-model-tips"><div>如遇到不能录音,切换点击模式试试</div></div>
+    <div id="slide-btn-group" class="slide-btn-group">
+      <div id="slide-to-click">切换点击模式</div>
+      <div id="slide-to-press" style="display:none;">切换长按模式</div>
+    </div>
+    <p class="bz clearfix">
+      <span id="actionsheet_cancel" class="fr">取消</span>
+
+    </p>
+    <!--长按模式录音 start-->
+    <div id="voice-press-box" style="display:block;">
+      <div class="abs voice-record-volume-bg">
+        <p class="bz"><span class="voice-record-volume-bg-p-span"></span></p>
+      </div>
+      <div class="voice-record-bt-position clearfix">
+        <div class="voice-record-bt bz rel">
+          <div class="voice-record-bt-white bz" id="voice-start-button" style="cursor:pointer;"><i class="voice-record-bt-white-i"></i></div>
+          <span class="abs voice-record-re c333 bz voice-record-button-local" style="font-size: 13px;line-height: 14px;padding-top: 9px;">本地<br>音频</span>
+        </div>
+        <p class="f14" style="margin-top:6px;" id="press-msg-tips">按住录音</p>
+      </div>
+    </div>
+    <!--长按模式录音 end-->
+    <!--长按模式录音 start-->
+    <div id="voice-click-box" style="display:none;">
+      <div class="abs voice-record-volume-bg">
+        <p class="bz"><span class="voice-record-volume-bg-p-span"></span></p>
+      </div>
+      <div class="voice-record-bt-position clearfix">
+        <div class="voice-record-bt bz rel">
+          <div class="voice-record-bt-white bz" id="voice-start-button-click" style="cursor:pointer;"><i class="voice-record-bt-white-i"></i></div>
+          <span class="abs voice-record-re c333 bz voice-record-button-local" style="font-size: 13px;line-height: 14px;padding-top: 9px;">本地<br>音频</span>
+        </div>
+        <p class="f14" style="margin-top:6px;" id="click-msg-tips">点一下录音</p>
+      </div>
+    </div>
+    <!--长按模式录音 end-->
+    <!--录音ing start-->
+
+    <!--录音ing end-->
+    <!--录音结束 start-->
+
+    <!--录音结束 end-->
+  </div>
+  <!--录音弹窗 结束-->
+</script>
+<div class="wptConfirm">
+  <div class="wptMask"></div>
+  <div class="dialog">
+    <div class="tip">
+      <div class="msg"></div>
+    </div>
+    <div class="btns">
+      <div class="btn-confirm sure btn-green">确定</div>
+      <div class="btn-cancel">取消</div>
+    </div>
+  </div>
+</div>
+<div class="wptLoading">
+  <div class="wptMask"></div>
+  <div class="weui_toast">
+    <div class="weui_loading">
+      <img src="/themes/mobile/images/loading.gif" />
+    </div>
+    <p class="weui_toast_content">数据加载中</p>
+  </div>
+</div>
+<div class="wptMultiConfirm">
+  <div class="wptMask"></div>
+  <div class="dialog">
+    <div class="tip">
+      <div class="msg"></div>
+    </div>
+    <div class="btns">
+      <div class="btn-cancel">取消</div>
+    </div>
+  </div>
+</div>
+<div class="wptAlert">
+  <div class="wptMask"></div>
+  <div class="dialog">
+    <div class="tip">
+      <div class="msg"></div>
+    </div>
+    <div class="btns">
+      <div class="btn-confirm">朕知道了</div>
+    </div>
+  </div>
+</div>
+<div style="display:none;"></div>
+<input type="hidden" id="webstationid" value="1" />
+<div style="display:none;">
+  总共执行时间 0.091791</div>
+<script>
+  $(document).ready(function () {
+    $(".page-footer ul li").eq(1).addClass("active");
+  })
+</script>
+</body>
+</html>
