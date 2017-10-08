@@ -1,0 +1,19 @@
+<div class="list">
+    <div class="item" *ngFor="let item of widget.content">
+        <div class="img">
+            <img [src]="item.icon">
+        </div>
+        <div class="content">
+            <div class="content-item">
+                <input type="text" [(ngModel)]="item.title" class="form-control" placeholder="请输入标题">
+                <i class="fa fa-wrench icon"></i>
+                <i class="fa fa-trash-o icon" (click)="delete(i)"></i>
+                <i class="fa fa-hand-stop-o icon move"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="opts">
+    <a class="btn btn-primary" (click)="addItem()">添加</a>
+</div>

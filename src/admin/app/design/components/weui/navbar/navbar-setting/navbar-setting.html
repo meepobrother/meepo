@@ -1,0 +1,10 @@
+<div class="list">
+    <div class="item" *ngFor="let item of widget.content;index as i;">
+        <i class="fa fa-hand-stop-o icon move"></i>
+        <input type="text" [(ngModel)]="item.title" class="form-control" placeholder="请输入名字">
+        <i class="fa fa-link icon"></i>
+        <i class="fa fa-trash-o icon" (click)="delete(i)"></i>
+    </div>
+</div>
+
+<a class="btn btn-primary" (click)="addItem()" style="width: 100%;margin-top: 10px;">添加</a>

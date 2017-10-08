@@ -92,13 +92,36 @@ export class ThemesDesign implements OnInit {
         
     }
     // 保存页面
+    saveBtn: any = {
+        loading: false,
+        title: '立即保存'
+    };
+
+    setSaveBtnLoading(){
+        this.saveBtn = {
+            loading: true,
+            title: '保存中...'
+        }
+    }
+
+    setSaveBtnSuccess(){
+        this.saveBtn = {
+            loading: false,
+            title: '立即保存'
+        }
+    }
+
     saveCurrentPage(){
+        this.setSaveBtnLoading();
         if(this.currentPage){
             this.currentPage['children'] = this.widgets;
             this.page$.edit(this.currentPage);
         }else{
             console.log('请选择页面');
         }
+        setTimeout(()=>{
+            this.setSaveBtnSuccess();
+        },800);
     }
     productCurrentPage(){
         console.log(this.page$);

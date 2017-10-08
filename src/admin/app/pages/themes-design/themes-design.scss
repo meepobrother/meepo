@@ -80,3 +80,10 @@
         margin-right: 5px;
     }
 }
+
+.btn-disable {
+    cursor: not-allowed;
+    filter: alpha(opacity=65);
+    box-shadow: none;
+    opacity: .65;
+}
