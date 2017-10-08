@@ -4,7 +4,8 @@ import {
     InputSetting, InputView,
     SliderSetting, SliderView,
     UploaderSetting, UploaderView,
-    PageSetting, IconView
+    PageSetting, IconView, 
+    TabbarSelect, TabbarSetting, TabbarView
 } from './weui';
 
 
@@ -14,20 +15,24 @@ export const COMPONENTS = [
     InputSetting, InputView,
     SliderSetting, SliderView,
     UploaderSetting, UploaderView,
-    PageSetting, IconView
+    PageSetting, IconView,
+    TabbarSelect, TabbarSetting, TabbarView
 ];
 
 export const COMPONENTS_SELECT = {
-    'button': ButtonSelect
+    'button': ButtonSelect,
+    'tabbar': TabbarSelect
 };
 
 export const COMPONENTS_VIEW = {
-    'button': ButtonView
+    'button': ButtonView,
+    'tabbar': TabbarView
 };
 
 export const COMPONENTS_SETTING = {
     'button': ButtonSetting,
-    'page': PageSetting
+    'page': PageSetting,
+    'tabbar': TabbarSetting
 };
 
 import { Injectable } from '@angular/core';

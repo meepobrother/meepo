@@ -33,11 +33,11 @@ export class ThemesDesign implements OnInit {
         this.widget$.setCurrentWidget
     }
 
-    addButton() {
-        this.components$.selectComponent('button');
+    addWidget(name: string) {
+        this.components$.selectComponent(name);
         const onSelectStream = this.components$.onSelectStream.subscribe(widget=>{
+            console.log(widget);
             const newWidget = this.cloneJSON(widget);
-            console.log(newWidget);
             this.widgets.push(newWidget);
             onSelectStream.unsubscribe();
         });

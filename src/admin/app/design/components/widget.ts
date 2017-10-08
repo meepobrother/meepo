@@ -11,8 +11,6 @@ export class Widget {
     // 面板样式
     styleObj: Map<string,string> = new Map();
     classObj: Map<string,boolean> = new Map();
-
     constructor() { }
-
     getWidgetData() { }
 }
