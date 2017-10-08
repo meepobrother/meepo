@@ -10,5 +10,13 @@ export class TabbarView implements OnInit {
     constructor() { }
 
     ngOnInit() { }
+
+    onClick(item: any){
+        this.widget.content.map(res=>{
+            res.active = false;
+        });
+        item.active = true;
+        console.log(item);
+    }
 }
 
