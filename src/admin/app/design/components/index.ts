@@ -4,7 +4,7 @@ import {
     InputSetting, InputView,
     SliderSetting, SliderView,
     UploaderSetting, UploaderView,
-    PageSetting
+    PageSetting, IconView
 } from './weui';
 
 
@@ -14,7 +14,7 @@ export const COMPONENTS = [
     InputSetting, InputView,
     SliderSetting, SliderView,
     UploaderSetting, UploaderView,
-    PageSetting
+    PageSetting, IconView
 ];
 
 export const COMPONENTS_SELECT = {
