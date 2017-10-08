@@ -10,8 +10,7 @@ import { ComponentPortal } from '@angular/cdk/portal';
 @Component({
     selector: 'free-widget-view',
     templateUrl: './free-widget-view.html',
-    styleUrls: ['./free-widget-view.scss','./weui.css'],
-    encapsulation: ViewEncapsulation.Native
+    styleUrls: ['./free-widget-view.scss']
 })
 export class FreeWidgetView implements OnInit {
     // 组件列表

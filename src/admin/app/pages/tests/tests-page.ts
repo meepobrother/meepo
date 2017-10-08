@@ -4,7 +4,11 @@ import { MatDialog } from '@angular/material';
 import { AddPageDialog } from './add-page-dialog';
 import { Button } from '../../design';
 
-import { ButtonView, WeuiCellsView } from '../../design/components';
+import {
+    ButtonView,
+    WeuiCellsView, 
+    InputView
+} from '../../design/components';
 
 import uuid from 'uuid';
 @Component({
@@ -20,11 +24,18 @@ export class TestsPage implements OnInit {
         public dialog: MatDialog,
         public widget$: WidgetService
     ) {
+    }
+
+    addButton() {
         this.widget$.addWidget(uuid(), ButtonView);
     }
 
-    addButton(){
-        this.widget$.addWidget(uuid(), WeuiCellsView);        
+    addList() {
+        this.widget$.addWidget(uuid(), WeuiCellsView);
+    }
+
+    addInput() {
+        this.widget$.addWidget(uuid(), InputView);
     }
 
     ngOnInit() {
