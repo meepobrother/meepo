@@ -1,0 +1,23 @@
+@import '../../core-scss/themes/default';
+
+.am-whitespace {
+  &.am-whitespace-xs {
+    height: $v-spacing-xs;
+  }
+
+  &.am-whitespace-sm {
+    height: $v-spacing-sm;
+  }
+
+  &.am-whitespace-md {
+    height: $v-spacing-md;
+  }
+
+  &.am-whitespace-lg {
+    height: $v-spacing-lg;
+  }
+
+  &.am-whitespace-xl {
+    height: $v-spacing-xl;
+  }
+}

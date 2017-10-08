@@ -50,6 +50,7 @@
         "android": "^0.0.8",
         "animate.css": "^3.5.2",
         "bootstrap": "^3.3.7",
+        "classnames": "^2.2.5",
         "core-js": "^2.5.1",
         "gulp-atom-electron": "^1.14.0",
         "gulp-symdest": "^1.1.0",
