@@ -1,0 +1,15 @@
+<div class="statushead">
+  <div class="statuscircle">
+    <img class="circleimage" [src]="avatar">
+  </div>
+  <h1 class="statustext">
+    {{title}}
+  </h1>
+  <p class="helptext">{{desc}}</p>
+  <div class="buttons">
+    <a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_primary" (click)="getPoint()">{{btnTitle}}</a>
+  </div>
+  <div class="map-container" [class.hide]="isEmpty">
+    <div class="map" id="map" ></div>
+  </div>
+</div>

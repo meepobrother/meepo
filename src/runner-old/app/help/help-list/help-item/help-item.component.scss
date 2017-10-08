@@ -1,0 +1,64 @@
+.a-feed {
+  padding: 0 20px 20px;
+  margin: 6px 0;
+  background-color: #fff;
+  text-decoration: none;
+  .container{
+    padding: 12px 0;
+    .avatar-link{
+      display: inline-block;
+      vertical-align: top;
+      .avatar{
+        position: relative;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        display: inline-block;
+        img{
+          position: relative;
+          width: 28px;
+          height: 28px;
+          border-radius: 50%;
+          display: inline-block;
+          vertical-align: top;
+        }
+      }
+    }
+    .feed-desc{
+      margin-left: 7px;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      line-height: 28px;
+      display: inline-block;
+      font-size: 13px;
+      color: #999;
+    }
+  }
+  .feed-body{
+    .text-question-content {
+      color: #191919;
+      font-size: 16px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 100%;
+      white-space: nowrap;
+      margin-bottom: 3px;
+    }
+    .answer {
+      font-size: 14px;
+      color: #999;
+      line-height: 22px;
+      max-height: 44px;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      -webkit-line-clamp: 2;
+    }
+  }
+}
+
+.opts{
+  text-align: right;
+}

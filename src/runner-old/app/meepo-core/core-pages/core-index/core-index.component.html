@@ -1,0 +1,11 @@
+<core-scroll (onMore)="onLoadMore()" [offset]="offset">
+    <coach-advs code="index.advs"></coach-advs>
+    <div style="position: relative;">
+        <search-filter [classes]="tabs" (onItem)="onTab($event)" (onNearby)="onNearby($event)" (onPrice)="onPrice($event)"></search-filter>
+        <div class="main">
+            <div *ngFor="let task of tasks">
+                <core-forms-view [type]="task.type" [detail]="task"></core-forms-view>
+            </div>
+        </div>
+    </div>
+</core-scroll>

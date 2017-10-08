@@ -1,0 +1,24 @@
+.bg-fff {
+  background: #fff;
+}
+.rel {
+  position: relative;
+}
+
+.f-14rem {
+  font-size: 1.4rem;
+}
+
+.clearfix:after {
+  display: block;
+  overflow: hidden;
+  clear: both;
+  height: 0;
+  visibility: hidden;
+  content: ".";
+}
+
+.index-poster-kind {
+  overflow: hidden;
+  height: 16px;
+}

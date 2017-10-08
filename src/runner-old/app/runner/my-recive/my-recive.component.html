@@ -1,0 +1,7 @@
+<feed-tab (onItem)="onTab($event)" [items]="tabs">
+    <div class="main">
+        <div *ngFor="let task of tasks">
+            <core-forms-view [type]="task.type" [detail]="task"></core-forms-view>
+        </div>
+    </div>
+</feed-tab>

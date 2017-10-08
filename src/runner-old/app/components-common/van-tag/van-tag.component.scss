@@ -1,0 +1,70 @@
+
+.van-tag {
+  position: relative;
+  display: inline-block;
+  line-height: 14px;
+  padding: 1px 5px;
+  border-radius: 2px;
+  font-size: 10px;
+  background: #c9c9c9;
+  color: #fff;
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    width: 200%;
+    height: 200%;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+    -webkit-transform-origin: left top;
+    transform-origin: left top;
+    -webkit-perspective: 1000;
+    -webkit-backface-visibility: hidden;
+    pointer-events: none;
+    border: 1px solid #c9c9c9;
+    border-radius: 4px;
+  }
+  &.is-mark {
+    border-radius: 0 8px 8px 0;
+    &:after {
+      border-radius: 0 16px 16px 0;
+    }
+  }
+  &.is-plain {
+    background: #fff;
+    color: #c9c9c9;
+  }
+}
+
+.van-tag--success {
+  background: #06bf04;
+  &:after {
+    border-color: #06bf04;
+  }
+  &.is-plain {
+    color: #06bf04;
+  }
+}
+
+.van-tag--danger {
+  background: #f44;
+  &:after {
+    border-color: #f44;
+  }
+  &.is-plain {
+    color: #f44;
+  }
+}
+
+.van-tag--primary {
+  background: #38f;
+  &:after {
+    border-color: #38f;
+  }
+  &.is-plain {
+    color: #38f;
+  }
+}
+

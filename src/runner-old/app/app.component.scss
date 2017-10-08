@@ -1,0 +1,22 @@
+.app {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    .main {
+        flex: 1;
+        overflow-x: hidden;
+    }
+    .setting {
+        position: absolute;
+        background: rgba(160, 160, 160, 0.69);
+        bottom: 0px;
+        z-index: 999;
+        top: 0px;
+        right: -9000px;
+        width: 90%;
+        border-left: 1px solid #ccc;
+        &.slider-open {
+            right: 0px;
+        }
+    }
+}

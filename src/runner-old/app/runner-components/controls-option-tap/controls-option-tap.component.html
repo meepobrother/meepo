@@ -1,0 +1,95 @@
+<div class="" style="position: relative;">
+  <suyun-edit-btn *ngIf="util.edit && code" (onEditer)="onEditer()"></suyun-edit-btn>
+  <div class="row">
+    <h2 class="tit">{{title}}</h2>
+    <ul class="controls-option-tap cf">
+      <li [class.current]="item.active" *ngFor="let item of items" (click)="_onClick(item)">
+        <div class="label" style="display: block;" >
+          <span class="label-main">{{item.title}}</span>
+          <span>{{item.desc}}</span>
+        </div>
+        <div *ngIf="item.tag" class="tag">{{item.tag}}</div>
+      </li>
+      <li *ngIf="hasInput" [class.current]="showInput" (click)="_onInput()">
+        <div class="label" *ngIf="!showInput">
+          <div class="other">
+            <span class="label-main">自定义</span>
+            <span>请输入金额</span>
+          </div>
+        </div>
+        <input type="text" placeholder="金额" (change)="_onChange($event)" *ngIf="showInput">
+      </li>
+    </ul>
+  </div>
+</div>
+
+
+<div class="js_dialog" *ngIf="showList">
+  <div class="weui-mask"></div>
+  <div class="weui-dialog" *ngIf="!showEditor">
+    <div class="weui-cell weui-cell_access" (click)="edit(item,i)" *ngFor="let item of items;index as i;">
+      <div class="weui-cell__bd">
+        <p>{{item['title']}}<span>{{item.desc}}</span></p>
+      </div>
+      <div class="weui-cell__ft">{{item.value}}元</div>
+    </div>
+    <div class="weui-dialog__ft">
+      <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_default" (click)="cancel()">取消</a>
+      <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_default" (click)="add()">添加</a>
+      <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary" (click)="save()">保存</a>
+    </div>
+  </div>
+
+  <div class="weui-dialog" *ngIf="showEditor">
+    <div class="weui-cells weui-cells_form">
+      <div class="weui-cell" *ngIf="showTitle">
+        <div class="weui-cell__hd"><label class="weui-label">标题</label></div>
+        <div class="weui-cell__bd">
+          <input class="weui-input" type="text" [(ngModel)]="showItem['title']" pattern="[0-9]*" placeholder="请输入标题">
+        </div>
+      </div>
+      <div class="weui-cell">
+        <div class="weui-cell__hd" *ngIf="showDesc">
+          <label class="weui-label">简介</label>
+        </div>
+        <div class="weui-cell__bd">
+          <input class="weui-input" type="text" [(ngModel)]="showItem['desc']" placeholder="请输入简介">
+        </div>
+      </div>
+      <div class="weui-cell" *ngIf="showTag">
+        <div class="weui-cell__hd">
+          <label class="weui-label">标签</label>
+        </div>
+        <div class="weui-cell__bd">
+          <input class="weui-input" type="text" [(ngModel)]="showItem['tag']" placeholder="请输入标签">
+        </div>
+      </div>
+      <div class="weui-cell" *ngIf="showXinyu">
+        <div class="weui-cell__hd">
+          <label class="weui-label">赠送</label>
+        </div>
+        <div class="weui-cell__bd">
+          <input class="weui-input" [(ngModel)]="showItem['value']" type="number" placeholder="请输入赠送信誉">
+        </div>
+      </div>
+      <div class="weui-cell" *ngIf="showMoney">
+        <div class="weui-cell__hd">
+          <label class="weui-label">金额</label>
+        </div>
+        <div class="weui-cell__bd">
+          <input class="weui-input" [(ngModel)]="showItem['money']" type="number" placeholder="请输入费用">
+        </div>
+      </div>
+    </div>
+    <div class="weui-dialog__ft">
+      <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_default" (click)="editCancel()">取消</a>
+      <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_default" (click)="delete()">删除</a>
+      <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_default" (click)="default()">默认</a>
+      <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary" (click)="editSave()">保存</a>
+    </div>
+  </div>
+</div>
+
+<div class="editer" *ngIf="showEditor">
+
+</div>

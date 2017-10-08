@@ -1,0 +1,4 @@
+@mixin scroll{
+  overflow:auto;/* winphone8和android4+ */
+  -webkit-overflow-scrolling: touch; /* ios5+ */
+}

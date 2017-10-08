@@ -1,0 +1,65 @@
+<router-outlet></router-outlet>
+
+
+<runner-footer [items]="items" *ngIf="util.showMainFooter">
+    <suyun-edit-btn *ngIf="util.edit" (onEditer)="onEditer()"></suyun-edit-btn>
+</runner-footer>
+
+<div class="js_dialog" *ngIf="showEditer">
+    <div class="weui-mask"></div>
+    <div class="weui-dialog" *ngIf="!showDetail">
+        <div class="weui-grids">
+            <a href="javascript:;" (click)="edit(item,i)" class="weui-grid" *ngFor="let item of items;index as i;">
+                <div class="weui-grid__icon">
+                    <alion [name]="item.icon"></alion>
+                </div>
+                <p class="weui-grid__label">{{item.title}}</p>
+            </a>
+        </div>
+        <div class="weui-dialog__ft">
+            <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_default" (click)="cancel()">取消</a>
+            <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_default" (click)="add()">添加</a>
+            <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary" (click)="save()">保存</a>
+        </div>
+    </div>
+
+    <div class="weui-dialog" *ngIf="showDetail">
+        <div class="main">
+            <div class="main-scroll">
+                <div class="weui-cell">
+                    <div class="weui-cell__hd"><label class="weui-label">标题</label></div>
+                    <div class="weui-cell__bd">
+                        <input class="weui-input" type="text" [(ngModel)]="editItem.title" placeholder="请输入标题">
+                    </div>
+                </div>
+                <a class="weui-cell weui-cell_access" href="javascript:;" (click)="openModuleSelect()">
+                    <div class="weui-cell__bd">
+                        <p>链接</p>
+                    </div>
+                    <div class="weui-cell__ft">
+                        {{editItem.link}}
+                    </div>
+                </a>
+                <div style="padding: 0 10px;">
+                    <module-tags *ngIf="showModuleSelect" [props]="props" (onSelect)="onLinkSelect($event)"></module-tags>
+                </div>
+                <a class="weui-cell weui-cell_access" href="javascript:;" (click)="openIconSelect()">
+                    <div class="weui-cell__bd">
+                        <p>图标</p>
+                    </div>
+                    <div class="weui-cell__ft">
+                        <alion [name]="editItem.icon"></alion>
+                    </div>
+                </a>
+                <div style="padding: 0 10px;">
+                    <suyun-icon-select *ngIf="showIconSelect" (onSelect)="onIconSelect($event)"></suyun-icon-select>
+                </div>
+            </div>
+        </div>
+        <div class="weui-dialog__ft">
+            <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_default" (click)="cancelEdit()">取消</a>
+            <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_default" (click)="delEdit()">删除</a>
+            <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary" (click)="saveEdit()">保存</a>
+        </div>
+    </div>
+</div>

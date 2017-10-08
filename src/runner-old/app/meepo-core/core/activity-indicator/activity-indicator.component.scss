@@ -1,0 +1,108 @@
+@import "../../core-scss/themes/default";
+.am-activity-indicator {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    z-index: 99;
+}
+
+.am-activity-indicator-spinner {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='59.75' height='60.25' viewBox='0 -2 59.75 60.25'%3E%3Cpath fill='%23ccc' d='M29.691-.527c-15.648 0-28.333 12.685-28.333 28.333s12.685 28.333 28.333 28.333c15.648 0 28.333-12.685 28.333-28.333S45.339-.527 29.691-.527zm.184 53.75c-14.037 0-25.417-11.379-25.417-25.417S15.838 2.39 29.875 2.39s25.417 11.379 25.417 25.417-11.38 25.416-25.417 25.416z'/%3E%3Cpath fill='none' stroke='%23108ee9' stroke-width='3' stroke-linecap='round' stroke-miterlimit='10' d='M56.587 29.766c.369-7.438-1.658-14.699-6.393-19.552'/%3E%3C/svg%3E");
+    background-position: 50%;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    -webkit-animation: spinner-anime 1s linear infinite;
+    animation: spinner-anime 1s linear infinite;
+}
+
+.am-activity-indicator-tip {
+    font-size: $font-size-base;
+    margin-left: $h-spacing-md;
+    color: $color-text-base;
+    opacity: .4;
+}
+
+.am-activity-indicator.am-activity-indicator-toast {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    text-align: center;
+    z-index: 1999;
+    .am-activity-indicator-spinner {
+        margin: 0;
+    }
+    .am-activity-indicator-toast {
+        display: inline-block;
+        position: relative;
+        top: .08rem;
+        font-size: 12px;
+    }
+}
+
+.am-activity-indicator-content {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: $h-spacing-md;
+    border-radius: $radius-lg;
+    background-clip: padding-box;
+    color: $color-text-base-inverse;
+    background-color: $toast-fill;
+    font-size: $font-size-subhead;
+    line-height: 40px;
+}
+
+.am-activity-indicator-spinner-lg {
+    width: 64px;
+    height: 64px;
+}
+
+@-webkit-keyframes spinner-anime {
+    to {
+        -webkit-transform: rotate(1turn);
+        transform: rotate(1turn);
+    }
+}
+
+@keyframes spinner-anime {
+    to {
+        -webkit-transform: rotate(1turn);
+        transform: rotate(1turn);
+    }
+}

@@ -1,0 +1,122 @@
+<div class="fixed">
+    <suyun-top-nav (onItem)="onTopNav($event)" [items]="topNavs"></suyun-top-nav>
+</div>
+<div *ngIf="topCode == 'status' || topCode == 'detail' || topCode == 'map'">
+    <white-space size="lg"></white-space>
+    <white-space size="lg"></white-space>
+    <white-space size="lg"></white-space>
+    <div class="tab2" *ngIf="topCode == 'status'">
+        <div class="map" id="map">
+            <img [src]="routerUrl" alt="">
+        </div>
+        <suyun-buy-status [id]="id"></suyun-buy-status>
+        <div class="">
+            <div class="orderregion-title">接单人</div>
+            <div class="weui-cells" *ngIf="reciver">
+                <div class="weui-cell">
+                    <div class="weui-cell__hd"><img [src]="reciver?.avatar" alt="" style="width:20px;margin-right:5px;display:block"></div>
+                    <div class="weui-cell__bd">
+                        <p>{{reciver?.realname || reciver.nickname}}</p>
+                    </div>
+                    <div class="weui-cell__ft">{{reciver?.mobile}}</div>
+                </div>
+            </div>
+            <div class="orderregion-title" *ngIf="sender">发单人</div>
+            <div class="weui-cells" *ngIf="sender">
+                <div class="weui-cell">
+                    <div class="weui-cell__hd"><img [src]="sender?.avatar" alt="" style="width:20px;margin-right:5px;display:block"></div>
+                    <div class="weui-cell__bd">
+                        <p>{{sender?.realname || sender.nickname}}</p>
+                    </div>
+                    <div class="weui-cell__ft">{{sender?.mobile}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tab1" *ngIf="topCode == 'detail'">
+        <div *ngIf="props.msg.show">
+            <div class="orderregion-title">{{props.msg.title}}</div>
+            <p style="word-wrap:break-word;word-break:break-all;">
+                {{detail.message}}
+            </p>
+        </div>
+
+        <div *ngIf="props.voice.show">
+            <div class="orderregion-title">{{props.voice.title}}</div>
+            <suyun-wechat-audio *ngIf="detail['hasMedia']" [serverId]="detail.media_id" [isDefault]="isDefault"></suyun-wechat-audio>
+        </div>
+
+        <div *ngIf="props?.image.show">
+            <div class="orderregion-title">{{props.image.title}}</div>
+            <suyun-swiper [images]="detail['images']"></suyun-swiper>
+        </div>
+
+        <div class="orderregion-title">订单信息</div>
+        <p>
+            状态: {{detail.status_title}}
+        </p>
+        <p>
+            赏金: {{detail.total}}元
+        </p>
+        <p>
+            需要时间: {{detail['duration']}}
+        </p>
+
+        <a *ngIf="props?.start.show" [href]="'tel:'+detail.sendmobile">
+      {{props.start.title}} : {{detail?.sendaddress || '未填写'}}
+      {{props.start.detail.title}} : {{detail?.senddetail || ''}} {{detail?.sendmobile || ''}}
+    </a>
+
+        <a *ngIf="props?.end.show" [href]="'tel:'+detail.receivemobile">
+      {{props.end.title}} : {{detail?.receiveaddress || '未填写'}}
+      {{props.end.detail.title}} : {{detail?.receivedetail || ''}} {{detail?.receivemobile || ''}}
+    </a>
+
+        <p *ngIf="props?.time.show">
+            {{props.time.title}} : {{detail?.pickupdate || '尽快开始'}}
+        </p>
+
+        <p *ngIf="props?.money.show">
+            {{props.money.title}} : {{detail?.small_fee || '无加价'}}元
+        </p>
+
+        <p *ngIf="props?.price.show">
+            {{props.price.title}} : {{detail?.goodscost || '未填写'}}
+        </p>
+
+        <p *ngIf="props?.baojia.show">
+            {{props.baojia.title}} : {{detail?.base_fee || '未填写'}}元
+        </p>
+
+        <div class="orderregion-title">支付记录</div>
+        <ul class="ticket_xq">
+            <li *ngFor="let item of paylogs">
+                <span *ngIf="item.type == 'credit'">余额支付:</span>
+                <span *ngIf="item.type == 'wechat'">微信支付:</span>
+                <span>{{item.fee}}</span>
+            </li>
+        </ul>
+    </div>
+
+    <div class="tab3" *ngIf="topCode == 'map'">
+        <iframe *ngIf="mapUrl2" [src]="mapUrl2" frameborder="0" width="100%" height="100%"></iframe>
+        <div style="text-align:center;">
+            <activity-indicator [props]="{toast: true}" *ngIf="!mapUrl2"></activity-indicator>
+        </div>
+    </div>
+
+    <white-space size="lg"></white-space>
+    <white-space size="lg"></white-space>
+    <white-space size="lg"></white-space>
+    <white-space size="lg"></white-space>
+    <white-space size="lg"></white-space>
+</div>
+
+<div class="tab3" *ngIf="topCode == 'router'">
+    <suyun-im-task [id]="id"></suyun-im-task>
+</div>
+
+
+<suyun-buy-footer *ngIf="showFooter" [id]="id"></suyun-buy-footer>
+<suyun-geolocation (onLocation)="onLocation($event)"></suyun-geolocation>

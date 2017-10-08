@@ -1,0 +1,30 @@
+
+.am-carousel {
+  position: relative;
+}
+
+.am-carousel-wrap {
+  font-size: .36rem;
+  color: #000;
+  background: none;
+  text-align: center;
+  zoom: 1;
+  width: 100%;
+}
+
+.am-carousel-wrap-dot {
+  display: inline-block;
+  zoom: 1;
+  > span {
+    display: block;
+    width: .16rem;
+    height: .16rem;
+    margin: 0 .06rem;
+    border-radius: 50%;
+    background: #ccc;
+  }
+}
+
+.am-carousel-wrap-dot-active > span {
+  background: #888;
+}

@@ -1,0 +1,72 @@
+<suyun-top-nav (onItem)="onTopNav($event)" [items]="topNavs"></suyun-top-nav>
+
+<div class="weui-cells mt10">
+  <a class="weui-cell weui-cell_access" href="javascript:;">
+    <div class="weui-cell__bd">
+      <p>上车点</p>
+    </div>
+    <div class="weui-cell__ft">请选择</div>
+  </a>
+</div>
+
+<div class="weui-cells mt10">
+  <a class="weui-cell weui-cell_access" href="javascript:;">
+    <div class="weui-cell__bd">
+      <p>目的地</p>
+    </div>
+    <div class="weui-cell__ft">请选择</div>
+  </a>
+</div>
+
+
+<div class="weui-cells mt10">
+  <a class="weui-cell weui-cell_access" href="javascript:;">
+    <div class="weui-cell__bd">
+      <p>联系人</p>
+    </div>
+    <div class="weui-cell__ft">请选择</div>
+  </a>
+</div>
+
+
+<div class="weui-cells mt10">
+  <a class="weui-cell weui-cell_access" href="javascript:;">
+    <div class="weui-cell__bd">
+      <p>拼车人数</p>
+    </div>
+    <div class="weui-cell__ft">请选择(默认不限)</div>
+  </a>
+</div>
+
+<div class="weui-cells mt10">
+  <div class="weui-cell">
+    <div class="weui-cell__hd"><label class="weui-label">总费用</label></div>
+    <div class="weui-cell__bd">
+      <input class="weui-input" type="number" pattern="[0-9]*" placeholder="拼车人数平摊">
+    </div>
+  </div>
+</div>
+
+<div class="weui-cells weui-cells_form mt10">
+  <div class="weui-cell">
+    <div class="weui-cell__bd">
+      <textarea class="weui-textarea" placeholder="请填写备注信息" rows="3"></textarea>
+      <div class="weui-textarea-counter"><span>0</span>/200</div>
+    </div>
+  </div>
+</div>
+
+
+<div class="weui-cells mt10">
+  <a class="weui-cell weui-cell_access" href="javascript:;">
+    <div class="weui-cell__bd">
+      <p>出发时间</p>
+    </div>
+    <div class="weui-cell__ft">请选择(默认人满出发)</div>
+  </a>
+</div>
+
+
+<div class="footer">
+  <a href="javascript:;">{{ btnTitle }}</a>
+</div>

@@ -1,0 +1,6 @@
+<div class="pull" #pull>
+  <canvas [width]="width" [height]="height" [id]="dripCanvasId"></canvas>
+</div>
+<alloy-load-more (loadMore)="doLoadMore()" [hasMore]="hasMore" (onTouchStart)="onTouchStart($event)">
+	<ng-content></ng-content>
+</alloy-load-more>

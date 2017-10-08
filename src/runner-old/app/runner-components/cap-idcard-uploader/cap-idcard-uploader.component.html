@@ -1,0 +1,23 @@
+
+<div class="weui-flex uploader">
+  <div class="weui-flex__item">
+    <div class="placeholder">
+      <div class="des-upload-title">身份证正面</div>
+      <div class="des-upload-pic">
+        <img [src]="post['card_image1']" (click)="upload('card_image1')">
+        <div class="des-uploader-info" (click)="upload('card_image1')">点击上传</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="weui-flex__item">
+    <div class="placeholder">
+      <div class="des-upload-title">身份证反面</div>
+      <div class="des-upload-pic">
+        <img [src]="post['card_image2']" (click)="upload('card_image2')">
+        <div class="des-uploader-info" (click)="upload('card_image2')">点击上传</div>
+      </div>
+    </div>
+  </div>
+
+</div>

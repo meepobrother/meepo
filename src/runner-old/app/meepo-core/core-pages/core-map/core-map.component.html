@@ -1,0 +1,12 @@
+<div class="map" id="map"></div>
+<div [animate]="animate" class="icon ani fixed-middle" (click)="postRedpack()"></div>
+
+<paotuibao-home-map-position *ngIf="showMap" [city]="mineCity" [address]="mineAddress" [district]="mineDistrict"></paotuibao-home-map-position>
+
+
+<div class="weui-btn-area">
+    <suyun-edit-btn [text]="btnTitle" [str]="btnTitle" (onSuccess)="onEditSuccess($event)"></suyun-edit-btn>
+    <a class="weui-btn weui-btn_primary" [class.weui-btn_disabled]="!showMap" href="javascript:" (click)="doPost()">{{btnTitle}}</a>
+</div>
+
+<suyun-geolocation *ngIf="showLoaction" (onLocation)="onLocation($event)"></suyun-geolocation>

@@ -1,0 +1,9 @@
+<router-outlet></router-outlet>
+
+<!--<div class="themes" (click)="openThemes()"></div>-->
+<!--<template-select [@rightIn]="''" (onClose)="openThemes()" *ngIf="showTemplate"></template-select>-->
+<suyun-geolocation *ngIf="updateLocation" (onLocation)="onLocation($event)"></suyun-geolocation>
+
+<runner-footer [items]="footer$|async" *ngIf="util.showMainFooter">
+    <suyun-edit-btn [fixed]="'true'" [link]="['/','admin','setting','footer-bar']"></suyun-edit-btn>
+</runner-footer>

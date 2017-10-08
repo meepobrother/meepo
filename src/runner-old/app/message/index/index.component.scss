@@ -1,0 +1,21 @@
+ul{
+  padding:0 10px;
+  li{
+    display: block;
+    padding: 0px;
+    background: #fff;
+    margin-bottom: 10px;
+    .title{
+      height: 30px;
+      line-height: 30px;
+      padding-left: 10px;
+      alion{
+        float:right;
+        color:#000;
+      }
+    }
+    .content{
+      padding: 5px 10px;
+    }
+  }
+}

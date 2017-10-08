@@ -1,0 +1,15 @@
+<div class="cd-iphone-6 cd-rosegold">
+    <div class="cd-body">
+        <div class="cd-sound"></div>
+        <div class="cd-sleep"></div>
+        <div class="cd-camera"></div>
+        <div class="cd-ear"></div>
+        <div class="cd-home" (click)="open()"></div>
+        <div dnd-sortable-container style="border: solid .1em black;" [style.background-color]="_background" class="cd-screen cd-transition-slider cd-smart-loader">
+            <img *ngIf="!_open" style="display:block;" src="assets/screenshot.jpg" alt="">
+            <div style="position:relative;display:block;" *ngIf="_open">
+                <ng-content></ng-content>
+            </div>
+        </div>
+    </div>
+</div>

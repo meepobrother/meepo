@@ -60,6 +60,7 @@
         "pdfjs-dist": "^1.9.622",
         "rxjs": "^5.4.3",
         "store": "^2.0.12",
+        "systemjs": "^0.20.19",
         "zone.js": "^0.8.18"
     },
     "devDependencies": {

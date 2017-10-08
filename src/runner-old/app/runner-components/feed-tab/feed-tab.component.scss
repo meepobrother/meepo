@@ -1,0 +1,123 @@
+
+
+.ch-scroll-tab-wrapper {
+  position: relative;
+}
+
+ch-tab-border-bottom {
+  border-bottom: 1px solid #d6d6d6;
+}
+
+.ch-scroller {
+  -webkit-overflow-scrolling: touch;
+  overflow: auto;
+  &.variant-no-scrollbar-x::-webkit-scrollbar, &.variant-no-scrollbar-y::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.ch-scroll-tab {
+  white-space: nowrap;
+  box-sizing: border-box;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  height: 44px;
+  -webkit-user-select: none;
+  user-select: none;
+  position: relative;
+  .ch-tab-item {
+    height: 40px;
+    line-height: 40px;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
+    text-align: center;
+  }
+  .ch-tab-item {
+    display: inline-block;
+    box-sizing: border-box;
+    height: 44px;
+    line-height: 44px;
+    overflow: visible;
+    color: #666;
+    font-size: 15px;
+    &:first-child {
+      margin-left: 15px;
+    }
+    &:last-child {
+      margin-right: 15px;
+    }
+    &:not(:first-child){
+      margin-left:10px;
+      margin-right:10px;
+    }
+    &.state-selected {
+      color: #c2a067;
+      font-weight: 700;
+      position: relative;
+      &:after {
+        display: block;
+        content: "";
+        height: 2px;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        margin-left: -50%;
+        background-color: #c2a067;
+        z-index: 11;
+      }
+    }
+  }
+}
+
+
+.feed-view {
+  position: relative;
+  z-index: 5;
+  .feed-tab {
+    background-color: #fff;
+  }
+  .feed-content {
+    overflow-y: auto;
+  }
+  .feed-sticky {
+    top: 0px;
+    z-index: 31;
+  }
+  .none-sticky {
+    width: 100%;
+    position: absolute;
+    top: 0;
+  }
+  .feed-tab-fixed {
+    position: fixed;
+    top: 44px;
+  }
+  .ch-scroller-out {
+    background-color: #fff;
+  }
+  .tab-frame-wrapper {
+    height: 40px;
+    padding: 0 17px;
+  }
+  .tab-frame-item {
+    background-color: #f7f7f7;
+    height: 25px;
+    margin: 0 10px;
+  }
+}
+
+
+
+
+.ch-root-scroller {
+  overflow: auto;
+}
+
+.ch-scroller-out {
+  background-color: #efefef;
+}
+
+.ch-sticky {
+  position: -webkit-sticky;
+  position: sticky;
+}

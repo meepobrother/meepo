@@ -83,6 +83,12 @@ export class MainLayoutComponent implements OnInit {
             total: 0,
             icon: 'fa fa-cogs',
             link: ['/settings']
+        },
+        {
+            title: '测试',
+            total: 0,
+            icon: 'fa fa-cogs',
+            link: ['/tests']
         }
     ];
     showMenu: boolean = false;

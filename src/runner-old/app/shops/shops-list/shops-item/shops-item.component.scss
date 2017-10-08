@@ -1,0 +1,204 @@
+.field{
+  position: relative;
+  margin-left: 10px;
+  padding: 16px 0 24px;
+  background: #fff;
+  .avatar {
+    width: 92px;
+    height: 65px;
+    text-align: center;
+    position: absolute;
+    overflow: hidden;
+    border: 1px solid #E4E4E4;
+    .avatar-brand{
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 30px;
+      line-height: 15px;
+      height: 15px;
+      font-size: 12px;
+      color: #fff;
+      text-align: center;
+      background-color: #FFA627;
+    }
+    .avatar-img {
+      vertical-align: middle;
+      width: 100%;
+      border: none;
+    }
+  }
+
+  .content {
+    margin-left: 102px;
+    position: relative;
+    overflow: hidden;
+    .shop-title {
+      overflow: hidden;
+      .shop-na {
+        font-size: 17px;
+        color: #333;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-weight: 500;
+        margin-right: 15px;
+      }
+    }
+    .shop-mid-line {
+      height: 23px;
+      font-size: 20px;
+      .appr-status {
+        float: left;
+        width: 76px;
+        height: 12px;
+        margin: 8px 0 0 0;
+        .appr-score {
+          background: url(http://xs01.meituan.net/waimai_i/img/sprite/newstars.ae33dbae.png) no-repeat;
+          background-size: cover;
+          width: 10px;
+          height: 10px;
+          float: left;
+          margin-right: 4px;
+          background-position: 0 0;
+        }
+      }
+      .shop-sold {
+        float: left;
+        margin-top: 5px;
+        font-size: 11px;
+        color: #656565;
+      }
+      .shop-right {
+        float: right;
+        margin-right: 15px;
+        font-size: 13px;
+        padding-top: 5.2px;
+        color: #656565;
+        text-align: right;
+      }
+      .shop-dvd-line {
+        float: right;
+        margin: 10px 5px 0;
+        width: 0;
+        height: 6.6px;
+        font-size: 0;
+        border-right: 1px solid #ccc;
+      }
+      .shop-delivery-time {
+        float: right;
+        font-size: 13px;
+        margin-top: 5.5px;
+        color: #656565;
+        text-align: right;
+      }
+    }
+    .shop-line {
+      margin-top: 3px;
+      clear: both;
+      font-size: 13px;
+      color: #656565;
+      .shop-line-item {
+        margin-right: 2px;
+        em {
+          font-style: normal;
+        }
+        .shop-line-item-line {
+          margin-right: 5px;
+          color: #dcdcdc;
+        }
+      }
+      .allocation-icon {
+        float: right;
+        margin-right: 15px;
+        margin-top: 0;
+        span {
+          position: relative;
+          background-color: #FFD161;
+          display: inline-block;
+          height: 15px;
+          line-height: 15px;
+          padding: 0 6px;
+          font-size: 10px;
+          color: #333;
+          font-weight: normal;
+          vertical-align: baseline;
+          &:before {
+            left: 0;
+            top: 0;
+            border-color: #fff #FFD161 #FFD161 #fff;
+          }
+          &:after {
+            right: 0;
+            bottom: 0;
+            border-color: #FFD161 #fff #fff #FFD161;
+          }
+          &:before,&:after{
+            content: '';
+            position: absolute;
+            border: 2px solid #fff;
+            width: 0;
+            height: 0;
+            font-size: 0;
+          }
+        }
+      }
+    }
+    .shop-discount-entries {
+      font-size: 11px;
+      color: #898989;
+      padding-top: 8px;
+      position: relative;
+      margin-top: 8px;
+
+      .shop-discount-entry-wrap-overflow {
+        width: 70%;
+        .shop-discount-overflow {
+          text-overflow: ellipsis;
+          overflow: hidden;
+          white-space: nowrap;
+        }
+        .shop-discount-entry-desc {
+          margin-left: 17px;
+          line-height: 17px;
+        }
+        .shop-discount-entry {
+          margin-bottom: 4px;
+          position: relative;
+          i {
+            vertical-align: -2px;
+            float: left;
+          }
+        }
+        .i-x12 {
+          height:15px;
+          display: block;
+          position: absolute;
+          top: 1px;
+        }
+      }
+    }
+  }
+}
+
+
+.clearfix {
+  zoom: 1;
+  &:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+  }
+}
+
+i{
+  font-style: normal;
+}
+
+
+.clear {
+  clear: both;
+}

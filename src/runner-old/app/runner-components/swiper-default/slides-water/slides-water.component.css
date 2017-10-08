@@ -1,0 +1,52 @@
+.water {
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  height: 30px;
+  width: 100%;
+  z-index: 1
+}
+
+.water-c {
+  position: relative
+}
+
+.water-1 {
+  background: url(water-1.svg) repeat-x;
+  background-size: 600px;
+  -webkit-animation: wave-animation-1 3.5s infinite linear;
+  animation: wave-animation-1 3.5s infinite linear
+}
+
+.water-2 {
+  top: 5px;
+  background: url(water-2.svg) repeat-x;
+  background-size: 600px;
+  -webkit-animation: wave-animation-2 6s infinite linear;
+  animation: wave-animation-2 6s infinite linear
+}
+
+.water-1,
+.water-2 {
+  position: absolute;
+  width: 100%;
+  height: 30px
+}
+
+@keyframes wave-animation-1 {
+  0% {
+    background-position: 0 top
+  }
+  100% {
+    background-position: 600px top
+  }
+}
+
+@keyframes wave-animation-2 {
+  0% {
+    background-position: 0 top
+  }
+  100% {
+    background-position: 600px top
+  }
+}

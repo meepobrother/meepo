@@ -1,0 +1,261 @@
+////////// Default Styling //////////
+body{
+  font-size: 14px;
+}
+
+[class^='cd-'],
+[class^='cd-']::after,
+[class^='cd-']::before{
+  margin: 0;
+  padding: 0;
+  display: block;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.cd-iphone-5s,
+.cd-iphone-5c,
+.cd-iphone-6,
+.cd-iphone-6-plus,
+.cd-ipad,
+.cd-mac{
+  border: 0;
+  position: relative;
+  z-index: 50;
+  font-size: 14px;
+  display: block;
+}
+
+[class^='cd-'] *,
+[class^='cd-'] *::after,
+[class^='cd-'] *::before{
+  position: absolute;
+}
+
+.cd-screen{
+  overflow: hidden;
+}
+
+.cd-screen > *{
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  color: white;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  -moz-user-drag: none;
+  user-drag: none;
+}
+
+.cd-screen > *:first-child{
+  display: block;
+}
+
+.cd-screen.cd-screen-scrolling{
+  overflow-y: scroll;
+  & > *{
+    bottom: none;
+    height: auto;
+  }
+}
+
+////////// Scaling Classes //////////
+.cd-scale-10{
+  font-size: 10% !important;
+}
+.cd-scale-20{
+  font-size: 20% !important;
+}
+.cd-scale-30{
+  font-size: 30% !important;
+}
+.cd-scale-40{
+  font-size: 40% !important;
+}
+.cd-scale-50{
+  font-size: 50% !important;
+}
+.cd-scale-60{
+  font-size: 60% !important;
+}
+.cd-scale-70{
+  font-size: 70% !important;
+}
+.cd-scale-80{
+  font-size: 80% !important;
+}
+.cd-scale-90{
+  font-size: 90% !important;
+}
+
+////////// Padding Device (using margin) //////////
+.cd-padded-device{
+  margin: 20px;
+}
+
+////////// Device Fade In //////////
+.cd-fill-parent,
+.cd-device-loader{
+  visibility: hidden;
+}
+
+////////// Centering Device //////////
+.cd-center{
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+////////// Blueprint Theme //////////
+[class^='cd-'].cd-blueprint *,
+[class^='cd-'].cd-blueprint *::after,
+[class^='cd-'].cd-blueprint *::before{
+  background: white !important;
+  border: 1px solid $blueprint !important;
+}
+
+.cd-blueprint .cd-sound,
+.cd-blueprint .cd-sound::before,
+.cd-blueprint .cd-sound::after{
+  background: $blueprint !important;
+  width: 1px !important;
+  border: none !important;
+}
+
+.cd-blueprint .cd-screen *{
+  border: none !important;
+}
+
+
+////////// Javascript Helpers //////////
+.cd-slideshow > *:nth-child(n+2){
+  display: none;
+}
+
+.cd-smart-loader > :first-child{
+  display: none;
+}
+
+////////// Rotation //////////
+.cd-landscape-left.cd-iphone-5s,
+.cd-landscape-left.cd-iphone-5c,
+.cd-landscape-right.cd-iphone-5s,
+.cd-landscape-right.cd-iphone-5c{
+  height: map-get($iphone5, width);
+  width: map-get($iphone5, height);
+}
+
+.cd-landscape-left.cd-iphone-6,
+.cd-landscape-right.cd-iphone-6{
+  height: map-get($iphone6, width);
+  width: map-get($iphone6, height);
+}
+
+.cd-landscape-left.cd-iphone-6-plus,
+.cd-landscape-right.cd-iphone-6-plus{
+  height: map-get($iphone6-plus, width);
+  width: map-get($iphone6-plus, height);
+}
+
+.cd-landscape-left.cd-ipad,
+.cd-landscape-right.cd-ipad{
+  height: map-get($ipad, width);
+  width: map-get($ipad, height);
+}
+
+.cd-landscape-left{
+  & > .cd-body,
+  & > .cd-body > .cd-screen{
+    transform-origin:0 0;
+    -webkit-transform-origin:0 0;
+    -ms-transform-origin:0 0;
+  }
+  & > .cd-body{
+    transform: rotate(-90deg) translate(-100%,0);
+    -webkit-transform: rotate(-90deg) translate(-100%,0);
+    -ms-transform: rotate(-90deg) translate(-100%,0);
+    & > .cd-screen{
+      transform: rotate(90deg) translate(0,-100%);
+      -webkit-transform: rotate(90deg) translate(0,-100%);
+      -ms-transform: rotate(90deg) translate(0,-100%);
+    }
+  }
+  &:not(.cd-landscape-fixed-screen){
+    &.cd-iphone-5s > .cd-body > .cd-screen,
+    &.cd-iphone-5c > .cd-body > .cd-screen{
+      height: map-get($iphone5, screen-width);
+      width: map-get($iphone5, screen-height);
+    }
+    &.cd-iphone-6 > .cd-body > .cd-screen{
+      height: map-get($iphone6, screen-width);
+      width: map-get($iphone6, screen-height);
+    }
+    &.cd-iphone-6-plus > .cd-body > .cd-screen{
+      height: map-get($iphone6-plus, screen-width);
+      width: map-get($iphone6-plus, screen-height);
+    }
+    &.cd-ipad > .cd-body > .cd-screen{
+      height: map-get($ipad, screen-width);
+      width: map-get($ipad, screen-height);
+    }
+  }
+}
+
+.cd-landscape-right{
+  & > .cd-body,
+  & > .cd-body > .cd-screen{
+    transform-origin:0 0;
+    -webkit-transform-origin:0 0;
+    -ms-transform-origin:0 0;
+  }
+  & > .cd-body{
+    transform: rotate(90deg) translate(0, -100%);
+    -webkit-transform: rotate(90deg) translate(0, -100%);
+    -ms-transform: rotate(90deg) translate(0, -100%);
+    & > .cd-screen{
+      transform: rotate(-90deg) translate(-100%, 0);
+      -webkit-transform: rotate(-90deg) translate(-100%, 0);
+      -ms-transform: rotate(-90deg) translate(-100%, 0);
+    }
+  }
+  &:not(.cd-landscape-fixed-screen){
+    &.cd-iphone-5s > .cd-body > .cd-screen,
+    &.cd-iphone-5c > .cd-body > .cd-screen{
+      height: map-get($iphone5, screen-width);
+      width: map-get($iphone5, screen-height);
+    }
+    &.cd-iphone-6 > .cd-body > .cd-screen{
+      height: map-get($iphone6, screen-width);
+      width: map-get($iphone6, screen-height);
+    }
+    &.cd-iphone-6-plus > .cd-body > .cd-screen{
+      height: map-get($iphone6-plus, screen-width);
+      width: map-get($iphone6-plus, screen-height);
+    }
+    &.cd-ipad > .cd-body > .cd-screen{
+      height: map-get($ipad, screen-width);
+      width: map-get($ipad, screen-height);
+    }
+  }
+}
+
+.cd-landscape-fixed-screen > .cd-body > .cd-screen{
+  transform: none;
+  -webkit-transform: none;
+  -ms-transform: none;
+  transform-origin: none;
+  -webkit-transform-origin: none;
+  -ms-transform-origin: none;
+}

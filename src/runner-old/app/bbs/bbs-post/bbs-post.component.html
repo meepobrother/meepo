@@ -1,0 +1,119 @@
+<div class="main">
+  <suyun-bbs-tag (onSelect)="selectGoods($event)"></suyun-bbs-tag>
+  <div class="title-box rel">
+    <textarea maxlength="30" [(ngModel)]="post['title']" class="bz post-wrap-textarea-box" placeholder="标题,可以不填…"></textarea>
+  </div>
+  <div class="rel">
+    <textarea rows="5" [(ngModel)]="post['content']" class="bz post-wrap-textarea-box" placeholder="这一刻的想法…"></textarea>
+    <div class="rel post-wrap-function-line-top">
+      <ul class="post-wrap-function-bt bz rel clearfix">
+        <li class="fl" [ngClass]="nav.icon" *ngFor="let nav of navs" (click)="onNav(nav)">
+          <i></i>
+          <span>{{nav.title}}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="container" *ngIf="activeNav.code == 'images'">
+    <suyun-uploader [total]="post['total']" [images]="post['images']"></suyun-uploader>
+  </div>
+  <div class="container" *ngIf="activeNav.code == 'voice'">
+    <suyun-wechat-audio></suyun-wechat-audio>
+  </div>
+  <div class="container" *ngIf="activeNav.code == 'link'">
+    <suyun-link-select></suyun-link-select>
+  </div>
+  <div class="container" *ngIf="activeNav.code == 'video'">
+    <div class="weui-cells weui-cells_form">
+      <div class="weui-cell">
+        <div class="weui-cell__bd">
+          <textarea class="weui-textarea" [(ngModel)]="post['video']" placeholder="请输入视频链接" rows="3"></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container" *ngIf="activeNav.code == 'reward'">
+    <div class="weui-cells weui-cells_form">
+      <div class="weui-cell">
+        <div class="weui-cell__bd">
+          <input class="weui-input" [(ngModel)]="post['reward']" type="number" pattern="[0-9]*" placeholder="请输入悬赏金额,1~999">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container" *ngIf="activeNav.code == 'goods'">
+    <div class="weui-grids" >
+      <a href="javascript:;" class="weui-grid" (click)="more(good,i)" *ngFor="let good of post['goods'];index as i;">
+        <div class="weui-grid__icon">
+          <img [src]="good['image']" alt="">
+        </div>
+        <p class="weui-grid__label">{{good['title']}}</p>
+        <p class="weui-grid__label">{{good['price']}}元</p>
+      </a>
+
+      <a href="javascript:;" class="weui-grid" (click)="addGoods()">
+        <div class="weui-grid__icon">
+          <img src="../addons/imeepos_runner/template/mobile/assets/add.png" alt="">
+        </div>
+        <p class="weui-grid__label">添加</p>
+        <p class="weui-grid__label">添加商品</p>
+      </a>
+
+    </div>
+  </div>
+  <div class="container" *ngIf="activeNav.code == 'emoji'">
+    <swiper-default height="auto" hasPage="true">
+      <div class="swiper-slide" *ngFor="let emoji of emojis">
+        <ul class="emotion_navs">
+          <li class="emotions_item" *ngFor="let em of emoji" (click)="onEmoji(em)">
+            <i class="js_emotion_i" [style.background-position]=" em['position'] + 'px 0'"></i>
+          </li>
+        </ul>
+      </div>
+    </swiper-default>
+  </div>
+  <div class="h45"></div>
+  <a href="javascript:;" class="weui-btn weui-btn_primary" (click)="add()">发表</a>
+</div>
+
+
+<div class="js_dialog" *ngIf="showGoodEdit">
+  <div class="weui-mask"></div>
+  <div class="weui-dialog">
+    <div class="weui-cell">
+      <div class="weui-cell__hd"><label class="weui-label">商品标题</label></div>
+      <div class="weui-cell__bd">
+        <input class="weui-input" [(ngModel)]="showGoodItem['title']" type="text" placeholder="请输入商品标题">
+      </div>
+    </div>
+    <div class="weui-cell">
+      <div class="weui-cell__hd"><label class="weui-label">商品简介</label></div>
+      <div class="weui-cell__bd">
+        <input class="weui-input" [(ngModel)]="showGoodItem['desc']" type="text" placeholder="请输入商品简介">
+      </div>
+    </div>
+    <div class="weui-cell">
+      <div class="weui-cell__hd"><label class="weui-label">单位</label></div>
+      <div class="weui-cell__bd">
+        <input class="weui-input" [(ngModel)]="showGoodItem['tag']" type="text" placeholder="请输入商品单位">
+      </div>
+    </div>
+    <div class="weui-cell">
+      <div class="weui-cell__hd"><label class="weui-label">库存</label></div>
+      <div class="weui-cell__bd">
+        <input class="weui-input" [(ngModel)]="showGoodItem['total']" type="number" placeholder="请输入商品库存">
+      </div>
+    </div>
+    <div class="weui-cell">
+      <div class="weui-cell__hd"><label class="weui-label">商品价格</label></div>
+      <div class="weui-cell__bd">
+        <input class="weui-input" [(ngModel)]="showGoodItem['price']" type="number" placeholder="请输入商品价格">
+      </div>
+    </div>
+    <suyun-uploader title="商品图片" [total]="total" [images]="showGoodItem['image']"></suyun-uploader>
+    <div class="weui-dialog__ft">
+      <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_default">取消</a>
+      <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary">保存</a>
+    </div>
+  </div>
+</div>

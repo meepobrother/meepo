@@ -1,0 +1,570 @@
+<div class="fixed">
+    <suyun-top-nav [items]="topNavs" (onItem)="onTopItem($event)"></suyun-top-nav>
+    <!-- 公式计费 -->
+    <div *ngIf="topNavCode == 'xcode'">
+        <div class="weui-cell weui-cell_switch">
+            <div class="weui-cell__bd">开关</div>
+            <div class="weui-cell__ft">
+                <input class="weui-switch" [(ngModel)]="_props.setting.xcode.show" type="checkbox">
+            </div>
+        </div>
+        <div class="weui-cell">
+            <div class="weui-cell__bd">
+                <textarea class="weui-textarea" [(ngModel)]="_props.setting.xcode.setting" placeholder="请输入公式" rows="3"></textarea>
+            </div>
+        </div>
+        <p class="page__desc">
+            [distance]: 表示距离 <br> [weight]: 表示重量 <br> [tiji]: 表示体积
+        </p>
+        <p class="page__desc">
+            如: 运费 = X*[2(0.5787+0.06*α)*s+3α] α = 10 s = 12
+            <br> 填写: x * ( 2 * (0.5787 + 0.06 * 10) * 12 + 3 * 10)
+        </p>
+    </div>
+    <!-- 基础设置 -->
+    <div *ngIf="topNavCode == 'baseRule'">
+        <div class="weui-cells">
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label">提交按钮</label></div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" [(ngModel)]="_props.btnTitle" type="text" [placeholder]="_props.btnTitle">
+                </div>
+            </div>
+        </div>
+        <white-space size="xs"></white-space>
+        <div class="weui-cells">
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label">订单提醒</label></div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" [(ngModel)]="_props.priceStr" type="text" [placeholder]="_props.priceStr">
+                </div>
+            </div>
+        </div>
+        <white-space size="xs"></white-space>
+        <div class="weui-cells">
+            <div class="weui-cell weui-cell_switch">
+                <div class="weui-cell__bd" (click)="switchOpen(_props.adv)">广告</div>
+                <div class="weui-cell__ft">
+                    <input class="weui-switch" [(ngModel)]="_props.adv.show" type="checkbox">
+                </div>
+            </div>
+        </div>
+        <white-space size="xs"></white-space>
+        <div class="weui-cells">
+            <div class="weui-cell weui-cell_switch">
+                <div class="weui-cell__bd" (click)="switchOpen(_props.gonggao)">公告</div>
+                <div class="weui-cell__ft">
+                    <input class="weui-switch" [(ngModel)]="_props.gonggao.show" type="checkbox">
+                </div>
+            </div>
+        </div>
+        <white-space size="xs"></white-space>
+    </div>
+    <!-- 基础设置 -->
+
+    <!-- 表单设置 -->
+    <div *ngIf="topNavCode == 'formRule'">
+        <white-space size="xs"></white-space>
+        <div class="weui-cells">
+            <div class="weui-cell weui-cell_switch">
+                <div class="weui-cell__bd" (click)="switchOpen(_props.start)">起始地址</div>
+                <div class="weui-cell__ft">
+                    <input class="weui-switch" [(ngModel)]="_props.start.show" type="checkbox">
+                </div>
+            </div>
+            <div *ngIf="_props.start.show && _props.start['open']">
+                <div class="weui-cell weui-cell_switch">
+                    <div class="weui-cell__bd">必填</div>
+                    <div class="weui-cell__ft">
+                        <input class="weui-switch" [(ngModel)]="_props.start.required" type="checkbox">
+                    </div>
+                </div>
+                <div class="weui-cell">
+                    <div class="weui-cell__hd"><label class="weui-label">标题</label></div>
+                    <div class="weui-cell__bd">
+                        <input class="weui-input" [(ngModel)]="_props.start.title" type="text" [placeholder]="_props.start.title">
+                    </div>
+                </div>
+                <div class="weui-cell">
+                    <div class="weui-cell__hd"><label class="weui-label">默认</label></div>
+                    <div class="weui-cell__bd">
+                        <input class="weui-input" [(ngModel)]="_props.start.default" type="text" placeholder="有默认值时可以不填">
+                    </div>
+                </div>
+                <div class="weui-cell">
+                    <div class="weui-cell__hd"><label class="weui-label">输入提示</label></div>
+                    <div class="weui-cell__bd">
+                        <input class="weui-input" [(ngModel)]="_props.start.placeholder" type="text" [placeholder]="_props.start.placeholder">
+                    </div>
+                </div>
+
+                <white-space size="xs"></white-space>
+                <div class="weui-cell">
+                    <div class="weui-cell__hd"><label class="weui-label">详细地址</label></div>
+                    <div class="weui-cell__bd">
+                        <input class="weui-input" [(ngModel)]="_props.start.detail.title" type="text" [placeholder]="_props.start.detail.title">
+                    </div>
+                </div>
+                <div class="weui-cell weui-cell_switch">
+                    <div class="weui-cell__bd">必填</div>
+                    <div class="weui-cell__ft">
+                        <input class="weui-switch" [(ngModel)]="_props.start.detail.required" type="checkbox">
+                    </div>
+                </div>
+                <div class="weui-cell">
+                    <div class="weui-cell__hd"><label class="weui-label">输入提示</label></div>
+                    <div class="weui-cell__bd">
+                        <input class="weui-input" [(ngModel)]="_props.start.detail.placeholder" type="text" [placeholder]="_props.start.detail.placeholder">
+                    </div>
+                </div>
+
+                <white-space size="xs"></white-space>
+                <div class="weui-cell">
+                    <div class="weui-cell__hd"><label class="weui-label">电话</label></div>
+                    <div class="weui-cell__bd">
+                        <input class="weui-input" [(ngModel)]="_props.start.mobile.title" type="text" [placeholder]="_props.start.mobile.title">
+                    </div>
+                </div>
+
+                <div class="weui-cell weui-cell_switch">
+                    <div class="weui-cell__bd">必填</div>
+                    <div class="weui-cell__ft">
+                        <input class="weui-switch" [(ngModel)]="_props.start.mobile.required" type="checkbox">
+                    </div>
+                </div>
+                <div class="weui-cell">
+                    <div class="weui-cell__hd"><label class="weui-label">提示</label></div>
+                    <div class="weui-cell__bd">
+                        <input class="weui-input" [(ngModel)]="_props.start.mobile.placeholder" type="text" [placeholder]="_props.start.mobile.placeholder">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <white-space size="xs"></white-space>
+        <div class="weui-cells">
+            <div class="weui-cell weui-cell_switch">
+                <div class="weui-cell__bd" (click)="switchOpen(_props.end)">目的地</div>
+                <div class="weui-cell__ft">
+                    <input class="weui-switch" [(ngModel)]="_props.end.show" type="checkbox">
+                </div>
+            </div>
+            <div *ngIf="_props.end.show && _props.end['open']">
+
+                <div class="weui-cell weui-cell_switch">
+                    <div class="weui-cell__bd">必填</div>
+                    <div class="weui-cell__ft">
+                        <input class="weui-switch" [(ngModel)]="_props.end.required" type="checkbox">
+                    </div>
+                </div>
+                <div class="weui-cell">
+                    <div class="weui-cell__hd"><label class="weui-label">标题</label></div>
+                    <div class="weui-cell__bd">
+                        <input class="weui-input" [(ngModel)]="_props.end.title" type="text" [placeholder]="_props.end.title">
+                    </div>
+                </div>
+                <div class="weui-cell">
+                    <div class="weui-cell__hd"><label class="weui-label">默认</label></div>
+                    <div class="weui-cell__bd">
+                        <input class="weui-input" [(ngModel)]="_props.end.default" type="text" placeholder="有默认值时可以不填">
+                    </div>
+                </div>
+                <div class="weui-cell">
+                    <div class="weui-cell__hd"><label class="weui-label">输入提示</label></div>
+                    <div class="weui-cell__bd">
+                        <input class="weui-input" [(ngModel)]="_props.end.placeholder" type="text" [placeholder]="_props.end.placeholder">
+                    </div>
+                </div>
+
+                <white-space size="xs"></white-space>
+                <div class="weui-cell">
+                    <div class="weui-cell__hd"><label class="weui-label">详细地址</label></div>
+                    <div class="weui-cell__bd">
+                        <input class="weui-input" [(ngModel)]="_props.end.detail.title" type="text" [placeholder]="_props.end.detail.title">
+                    </div>
+                </div>
+
+                <div class="weui-cell weui-cell_switch">
+                    <div class="weui-cell__bd">必填</div>
+                    <div class="weui-cell__ft">
+                        <input class="weui-switch" [(ngModel)]="_props.end.detail.required" type="checkbox">
+                    </div>
+                </div>
+                <div class="weui-cell">
+                    <div class="weui-cell__hd"><label class="weui-label">输入提示</label></div>
+                    <div class="weui-cell__bd">
+                        <input class="weui-input" [(ngModel)]="_props.end.detail.placeholder" type="text" [placeholder]="_props.end.detail.placeholder">
+                    </div>
+                </div>
+
+                <white-space size="xs"></white-space>
+                <div class="weui-cell">
+                    <div class="weui-cell__hd"><label class="weui-label">电话</label></div>
+                    <div class="weui-cell__bd">
+                        <input class="weui-input" [(ngModel)]="_props.end.mobile.title" type="text" [placeholder]="_props.end.mobile.title">
+                    </div>
+                </div>
+
+                <div class="weui-cell weui-cell_switch">
+                    <div class="weui-cell__bd">必填</div>
+                    <div class="weui-cell__ft">
+                        <input class="weui-switch" [(ngModel)]="_props.end.mobile.required" type="checkbox">
+                    </div>
+                </div>
+                <div class="weui-cell">
+                    <div class="weui-cell__hd"><label class="weui-label">提示</label></div>
+                    <div class="weui-cell__bd">
+                        <input class="weui-input" [(ngModel)]="_props.end.mobile.placeholder" type="text" [placeholder]="_props.end.mobile.placeholder">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <white-space size="xs"></white-space>
+        <div class="weui-cells">
+            <div class="weui-cell weui-cell_switch">
+                <div class="weui-cell__bd" (click)="switchOpen(_props.time)">预约时间</div>
+                <div class="weui-cell__ft">
+                    <input class="weui-switch" [(ngModel)]="_props.time.show" type="checkbox">
+                </div>
+            </div>
+            <div *ngIf="_props.time.show && _props.time['open']">
+                <div class="weui-cell weui-cell_switch">
+                    <div class="weui-cell__bd">必填</div>
+                    <div class="weui-cell__ft">
+                        <input class="weui-switch" [(ngModel)]="_props.time.required" type="checkbox">
+                    </div>
+                </div>
+                <div class="weui-cell">
+                    <div class="weui-cell__hd"><label class="weui-label">标题</label></div>
+                    <div class="weui-cell__bd">
+                        <input class="weui-input" [(ngModel)]="_props.time.title" type="text" [placeholder]="_props.time.title">
+                    </div>
+                </div>
+                <div class="weui-cell">
+                    <div class="weui-cell__hd"><label class="weui-label">提示</label></div>
+                    <div class="weui-cell__bd">
+                        <input class="weui-input" [(ngModel)]="_props.time.placeholder" type="text" [placeholder]="_props.time.placeholder">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <white-space size="xs"></white-space>
+        <div class="weui-cells">
+            <div class="weui-cell weui-cell_switch">
+                <div class="weui-cell__bd" (click)="switchOpen(_props.msg)">文本留言</div>
+                <div class="weui-cell__ft">
+                    <input class="weui-switch" [(ngModel)]="_props.msg.show" type="checkbox">
+                </div>
+            </div>
+            <div *ngIf="_props.msg.show && _props.msg['open']">
+                <div class="weui-cell weui-cell_switch">
+                    <div class="weui-cell__bd">必填</div>
+                    <div class="weui-cell__ft">
+                        <input class="weui-switch" [(ngModel)]="_props.msg.required" type="checkbox">
+                    </div>
+                </div>
+                <div class="weui-cell">
+                    <div class="weui-cell__hd"><label class="weui-label">标题</label></div>
+                    <div class="weui-cell__bd">
+                        <input class="weui-input" [(ngModel)]="_props.msg.title" type="text" [placeholder]="_props.msg.title">
+                    </div>
+                </div>
+                <div class="weui-cell">
+                    <div class="weui-cell__hd"><label class="weui-label">提示</label></div>
+                    <div class="weui-cell__bd">
+                        <input class="weui-input" [(ngModel)]="_props.msg.placeholder" type="text" [placeholder]="_props.msg.placeholder">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <white-space size="xs"></white-space>
+        <div class="weui-cells">
+            <div class="weui-cell weui-cell_switch">
+                <div class="weui-cell__bd" (click)="switchOpen(_props.voice)">语音留言</div>
+                <div class="weui-cell__ft">
+                    <input class="weui-switch" [(ngModel)]="_props.voice.show" type="checkbox">
+                </div>
+            </div>
+            <div *ngIf="_props.voice.show && _props.voice['open']">
+                <div class="weui-cell">
+                    <div class="weui-cell__hd"><label class="weui-label">标题</label></div>
+                    <div class="weui-cell__bd">
+                        <input class="weui-input" [(ngModel)]="_props.voice.title" type="text" [placeholder]="_props.voice.title">
+                    </div>
+                </div>
+                <div class="weui-cell">
+                    <div class="weui-cell__hd"><label class="weui-label">提示</label></div>
+                    <div class="weui-cell__bd">
+                        <input class="weui-input" [(ngModel)]="_props.voice.placeholder" type="text" [placeholder]="_props.voice.placeholder">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <white-space size="xs"></white-space>
+        <div class="weui-cells">
+            <div class="weui-cell weui-cell_switch">
+                <div class="weui-cell__bd" (click)="switchOpen(_props.image)">图片附件</div>
+                <div class="weui-cell__ft">
+                    <input class="weui-switch" [(ngModel)]="_props.image.show" type="checkbox">
+                </div>
+            </div>
+            <div *ngIf="_props.image.show && _props.image['open']">
+                <div class="weui-cell">
+                    <div class="weui-cell__hd"><label class="weui-label">标题</label></div>
+                    <div class="weui-cell__bd">
+                        <input class="weui-input" [(ngModel)]="_props.image.title" type="text" [placeholder]="_props.image.title">
+                    </div>
+                </div>
+                <div class="weui-cell">
+                    <div class="weui-cell__hd"><label class="weui-label">提示</label></div>
+                    <div class="weui-cell__bd">
+                        <input class="weui-input" [(ngModel)]="_props.image.placeholder" type="text" [placeholder]="_props.image.placeholder">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <white-space size="xs"></white-space>
+        <div class="weui-cells">
+            <div class="weui-cell weui-cell_switch">
+                <div class="weui-cell__bd" (click)="switchOpen(_props.price)">物品价格</div>
+                <div class="weui-cell__ft">
+                    <input class="weui-switch" [(ngModel)]="_props.price.show" type="checkbox">
+                </div>
+            </div>
+            <div *ngIf="_props.price.show && _props.price['open']">
+                <div class="weui-cell weui-cell_switch">
+                    <div class="weui-cell__bd">必填</div>
+                    <div class="weui-cell__ft">
+                        <input class="weui-switch" [(ngModel)]="_props.price.required" type="checkbox">
+                    </div>
+                </div>
+                <div class="weui-cell">
+                    <div class="weui-cell__hd"><label class="weui-label">标题</label></div>
+                    <div class="weui-cell__bd">
+                        <input class="weui-input" [(ngModel)]="_props.price.title" type="text" [placeholder]="_props.price.title">
+                    </div>
+                </div>
+                <div class="weui-cell">
+                    <div class="weui-cell__hd"><label class="weui-label">提示</label></div>
+                    <div class="weui-cell__bd">
+                        <input class="weui-input" [(ngModel)]="_props.price.placeholder" type="text" [placeholder]="_props.price.placeholder">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <white-space size="xs"></white-space>
+        <div class="weui-cells">
+            <div class="weui-cell weui-cell_switch">
+                <div class="weui-cell__bd" (click)="switchOpen(_props.baojia)">物品保价</div>
+                <div class="weui-cell__ft">
+                    <input class="weui-switch" [(ngModel)]="_props.baojia.show" type="checkbox">
+                </div>
+            </div>
+            <div *ngIf="_props.baojia.show && _props.baojia['open']">
+                <div class="weui-cell">
+                    <div class="weui-cell__hd"><label class="weui-label">标题</label></div>
+                    <div class="weui-cell__bd">
+                        <input class="weui-input" [(ngModel)]="_props.baojia.title" type="text" [placeholder]="_props.baojia.title">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <white-space size="xs"></white-space>
+        <div class="weui-cells">
+            <div class="weui-cell weui-cell_switch">
+                <div class="weui-cell__bd" (click)="switchOpen(_props.weight)">物品重量</div>
+                <div class="weui-cell__ft">
+                    <input class="weui-switch" [(ngModel)]="_props.weight.show" type="checkbox">
+                </div>
+            </div>
+
+            <div *ngIf="_props.weight.show && _props.weight['open']">
+                <div class="weui-cell weui-cell_switch">
+                    <div class="weui-cell__bd">必填</div>
+                    <div class="weui-cell__ft">
+                        <input class="weui-switch" [(ngModel)]="_props.weight.required" type="checkbox">
+                    </div>
+                </div>
+                <div class="weui-cell">
+                    <div class="weui-cell__hd"><label class="weui-label">标题</label></div>
+                    <div class="weui-cell__bd">
+                        <input class="weui-input" [(ngModel)]="_props.weight.title" type="text" [placeholder]="_props.weight.title">
+                    </div>
+                </div>
+                <div class="weui-cell">
+                    <div class="weui-cell__hd"><label class="weui-label">提示</label></div>
+                    <div class="weui-cell__bd">
+                        <input class="weui-input" [(ngModel)]="_props.weight.placeholder" type="text" [placeholder]="_props.weight.placeholder">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <white-space size="xs"></white-space>
+        <div class="weui-cells">
+            <div class="weui-cell weui-cell_switch">
+                <div class="weui-cell__bd" (click)="switchOpen(_props.tiji)">体积</div>
+                <div class="weui-cell__ft">
+                    <input class="weui-switch" [(ngModel)]="_props.tiji.show" type="checkbox">
+                </div>
+            </div>
+
+            <div *ngIf="_props.tiji.show && _props.tiji['open']">
+                <div class="weui-cell weui-cell_switch">
+                    <div class="weui-cell__bd">必填</div>
+                    <div class="weui-cell__ft">
+                        <input class="weui-switch" [(ngModel)]="_props.tiji.required" type="checkbox">
+                    </div>
+                </div>
+                <div class="weui-cell">
+                    <div class="weui-cell__hd"><label class="weui-label">标题</label></div>
+                    <div class="weui-cell__bd">
+                        <input class="weui-input" [(ngModel)]="_props.tiji.title" type="text" [placeholder]="_props.tiji.title">
+                    </div>
+                </div>
+                <div class="weui-cell">
+                    <div class="weui-cell__hd"><label class="weui-label">提示</label></div>
+                    <div class="weui-cell__bd">
+                        <input class="weui-input" [(ngModel)]="_props.tiji.placeholder" type="text" [placeholder]="_props.tiji.placeholder">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <white-space size="xs"></white-space>
+        <div class="weui-cells">
+            <div class="weui-cell weui-cell_switch">
+                <div class="weui-cell__bd" (click)="switchOpen(_props.money)">赏金</div>
+                <div class="weui-cell__ft">
+                    <input class="weui-switch" [(ngModel)]="_props.money.show" type="checkbox">
+                </div>
+            </div>
+
+            <div *ngIf="_props.money.show && _props.money['open']">
+                <div class="weui-cell weui-cell_switch">
+                    <div class="weui-cell__bd">必填</div>
+                    <div class="weui-cell__ft">
+                        <input class="weui-switch" [(ngModel)]="_props.money.required" type="checkbox">
+                    </div>
+                </div>
+                <div class="weui-cell">
+                    <div class="weui-cell__hd"><label class="weui-label">标题</label></div>
+                    <div class="weui-cell__bd">
+                        <input class="weui-input" [(ngModel)]="_props.money.title" type="text" [placeholder]="_props.money.title">
+                    </div>
+                </div>
+                <div class="weui-cell">
+                    <div class="weui-cell__hd"><label class="weui-label">提示</label></div>
+                    <div class="weui-cell__bd">
+                        <input class="weui-input" [(ngModel)]="_props.money.placeholder" type="text" [placeholder]="_props.money.placeholder">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <white-space size="xs"></white-space>
+        <div class="weui-cells">
+            <div class="weui-cell weui-cell_switch">
+                <div class="weui-cell__bd" (click)="switchOpen(_props.rule)">发单协议</div>
+                <div class="weui-cell__ft">
+                    <input class="weui-switch" [(ngModel)]="_props.rule.show" type="checkbox">
+                </div>
+            </div>
+
+            <div *ngIf="_props.rule.show && _props.rule['open']">
+                <div class="weui-cell">
+                    <div class="weui-cell__hd"><label class="weui-label">标题</label></div>
+                    <div class="weui-cell__bd">
+                        <input class="weui-input" [(ngModel)]="_props.rule.title" type="text" [placeholder]="_props.rule.title">
+                    </div>
+                </div>
+                <div class="weui-cell">
+                    <div class="weui-cell__hd"><label class="weui-label">提示</label></div>
+                    <div class="weui-cell__bd">
+                        <input class="weui-input" [(ngModel)]="_props.rule.placeholder" type="text" [placeholder]="_props.rule.placeholder">
+                    </div>
+                </div>
+                <div class="weui-cell">
+                    <div class="weui-cell__bd">
+                        <textarea class="weui-textarea" [(ngModel)]="_props.rule.content" placeholder="请输入发布协议" rows="5"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 表单设置 -->
+
+    <!-- 价格设置 -->
+    <div *ngIf="topNavCode == 'priceRule'">
+        <div class="title">
+            价格设置
+        </div>
+        <div class="weui-cells">
+            <div class="weui-cell">
+                <div class="weui-cell__hd">
+                    <label class="weui-label">起步价</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" [(ngModel)]="_props.setting.start" type="number" pattern="[0-9]*" placeholder="请输入起步价">
+                </div>
+            </div>
+
+            <div class="weui-cell">
+                <div class="weui-cell__hd">
+                    <label class="weui-label">起步距离</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" [(ngModel)]="_props.setting.len" type="number" pattern="[0-9]*" placeholder="请输入起步距离">
+                </div>
+            </div>
+
+            <div class="weui-cell">
+                <div class="weui-cell__hd">
+                    <label class="weui-label">预计送达</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" [(ngModel)]="_props.setting.duration" type="number" pattern="[0-9]*" placeholder="请输入起步距离">
+                </div>
+            </div>
+            <div *ngIf="_props.setting.jieti.show">
+                <div class="weui-cell weui-cell_switch">
+                    <div class="weui-cell__bd">距离阶梯计费</div>
+                    <div class="weui-cell__ft">
+                        <input [(ngModel)]="_props.setting.jieti.juli_jieti" class="weui-switch" type="checkbox">
+                    </div>
+                </div>
+
+                <div class="weui-cell weui-cell_switch">
+                    <div class="weui-cell__bd">重量阶梯计费</div>
+                    <div class="weui-cell__ft">
+                        <input [(ngModel)]="_props.setting.jieti.weight_jieti" class="weui-switch" type="checkbox">
+                    </div>
+                </div>
+
+                <div class="weui-cell weui-cell_switch">
+                    <div class="weui-cell__bd">每公里计费/区间计费</div>
+                    <div class="weui-cell__ft">
+                        <input [(ngModel)]="_props.setting.jieti.qujian_jifei" class="weui-switch" type="checkbox">
+                    </div>
+                </div>
+
+                <suyun-setting-tianqi [post]="_props.setting" (onSave)="onSaveSetting($event)"></suyun-setting-tianqi>
+                <suyun-setting-juli [post]="_props.setting" (onSave)="onSaveSetting($event)"></suyun-setting-juli>
+                <suyun-setting-weight [post]="_props.setting" (onSave)="onSaveSetting($event)"></suyun-setting-weight>
+                <suyun-setting-time [post]="_props.setting" (onSave)="onSaveSetting($event)"></suyun-setting-time>
+            </div>
+
+        </div>
+    </div>
+    <!-- 价格设置 -->
+    <div class="weui-btn-area">
+        <a class="weui-btn weui-btn_primary" (click)="save()" href="javascript:">保存</a>
+    </div>
+</div>

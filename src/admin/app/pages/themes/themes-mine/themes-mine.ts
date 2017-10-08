@@ -27,4 +27,13 @@ export class ThemesMine implements OnInit {
         console.log(item);
         this.router.navigate(['/themes/design',item.code])
     }
+
+    add(){
+        const dialogRef = this.dialog.open(ThemesAdd);
+        dialogRef.afterClosed().subscribe(res => {
+            if (res) {
+                this.api.add(res);
+            }
+        });
+    }
 }

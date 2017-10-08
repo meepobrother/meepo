@@ -1,0 +1,120 @@
+.am-switch {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  -ms-grid-row-align: center;
+  align-self: center;
+  box-sizing: border-box;
+  position: relative;
+  cursor: pointer;
+  .checkbox {
+    box-sizing: border-box;
+    position: relative;
+    cursor: pointer;
+    width: 1.02rem;
+    height: .62rem;
+    border-radius: .62rem;
+    background: #e5e5e5;
+    z-index: 0;
+    margin: 0;
+    padding: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: 0;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    &:before {
+      width: .96rem;
+      box-sizing: border-box;
+      z-index: 1;
+      -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+      transform: scale(1);
+    }
+    &:after, &:before {
+      content: " ";
+      position: absolute;
+      left: .03rem;
+      top: .03rem;
+      height: .56rem;
+      border-radius: .56rem;
+      background: #fff;
+      -webkit-transition: all .2s;
+      transition: all .2s;
+    }
+    &:after {
+      width: .56rem;
+      z-index: 2;
+      -webkit-transform: translateX(0);
+      -ms-transform: translateX(0);
+      transform: translateX(0);
+      box-shadow: 0.04rem 0.04rem 0.08rem rgba(0, 0, 0, 0.21);
+    }
+    &.checkbox-disabled {
+      z-index: 3;
+    }
+  }
+  input[type=checkbox] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    border: 0 none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    &:checked + .checkbox {
+      background: #4dd865;
+      &:before {
+        -webkit-transform: scale(0);
+        -ms-transform: scale(0);
+        transform: scale(0);
+      }
+      &:after {
+        -webkit-transform: translateX(0.4rem);
+        -ms-transform: translateX(0.4rem);
+        transform: translateX(0.4rem);
+      }
+    }
+    &:disabled + .checkbox {
+      opacity: .3;
+    }
+  }
+  &.am-switch-android {
+    .checkbox {
+      width: 1.44rem;
+      height: .46rem;
+      border-radius: .06rem;
+      background: #a7aaa6;
+      &:before {
+        display: none;
+      }
+      &:after {
+        width: .7rem;
+        height: .42rem;
+        border-radius: .04rem;
+        box-shadow: none;
+        left: .02rem;
+        top: .02rem;
+      }
+    }
+    input[type=checkbox]:checked + .checkbox {
+      background: #108ee9;
+      &:before {
+        -webkit-transform: scale(0);
+        -ms-transform: scale(0);
+        transform: scale(0);
+      }
+      &:after {
+        -webkit-transform: translateX(0.7rem);
+        -ms-transform: translateX(0.7rem);
+        transform: translateX(0.7rem);
+      }
+    }
+  }
+}

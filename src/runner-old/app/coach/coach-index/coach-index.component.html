@@ -1,0 +1,17 @@
+<div>
+  <div class="" style="position: relative;">
+    <suyun-edit-btn [link]="['/','admin','setting','coach-index-advs']"></suyun-edit-btn>
+    <swiper-default hasWater="true" height="150px" hasPage="true">
+      <div class="swiper-slide" *ngFor="let adv of advs">
+        <img [src]="adv.image" alt="">
+      </div>
+    </swiper-default>
+  </div>
+</div>
+
+
+<div class="shop-list">
+  <suyun-shops-list>
+    <suyun-shops-item [detail]="shop" *ngFor="let shop of shops"></suyun-shops-item>
+  </suyun-shops-list>
+</div>

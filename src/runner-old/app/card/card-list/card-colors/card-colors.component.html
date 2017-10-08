@@ -1,0 +1,13 @@
+<div class="weui-cell weui-cell_select">
+  <div class="weui-cell__hd">
+    <span [style.background]="color"></span>
+  </div>
+  <div class="weui-cell__bd">
+    <select class="weui-select" (change)="onChange()" [(ngModel)]="color">
+      <option [value]="c.value" *ngFor="let c of colors">
+        {{c.name}}
+      </option>
+    </select>
+  </div>
+  <div class="weui-cell__ft"></div>
+</div>

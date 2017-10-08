@@ -1,0 +1,10 @@
+@import "./src/sass/devices.scss";
+.cd-home {
+    &:hover {
+        background-color: #f3f3f3 !important;
+    }
+}
+
+.cd-screen {
+    overflow-y: auto;
+}

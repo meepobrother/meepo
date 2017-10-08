@@ -4,7 +4,7 @@
         <ng-content></ng-content>
     </span>
     <div class="item-actions">
-        <span class="btn btn-pure btn-icon" data-tag="list-editable" data-toggle="modal" data-target="#addMenu"><i class="icon wb-edit" aria-hidden="true"></i></span>
-        <span class="btn btn-pure btn-icon" data-tag="list-delete"><i class="icon wb-close" aria-hidden="true"></i></span>
+        <span class="btn btn-pure btn-icon" (click)="edit()"><i class="icon wb-edit"></i></span>
+        <span class="btn btn-pure btn-icon" (click)="delete()"><i class="icon wb-close"></i></span>
     </div>
 </div>

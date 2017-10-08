@@ -1,0 +1,29 @@
+.h10{
+  height: 10px;
+}
+.minEdit{
+  position: relative;
+  min-height:80px;
+}
+bbs-gong-gao{
+  position: relative;
+  display: block;
+}
+
+.swiper-slide{
+  img{
+    width: 100%;
+  }
+}
+
+.weui-cells{
+  margin-top: 0px;
+  .weui-cell{
+    text-align: left;
+  }
+}
+
+.weui-dialog{
+  max-height: 500px;
+  overflow: scroll;
+}

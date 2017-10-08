@@ -1,0 +1,29 @@
+<coach-advs code="coach.setting.lesson.advs"></coach-advs>
+
+<coach-lesson-tag (onSelect)="selectLessonTag($event)" code="tag" [isScroll]="isScroll">
+    <div>
+        <days-navs (onSelect)="onDaySelect($event)">
+            <div class="weui-panel weui-panel_access" *ngIf="lessons.length>0">
+                <a href="javascript:void(0);" *ngFor="let lesson of lessons;index as i;" class="weui-media-box weui-media-box_appmsg">
+                    <div class="weui-media-box__hd" (click)="detail(lesson)">
+                        <img class="weui-media-box__thumb" [src]="lesson['image']" alt="">
+                    </div>
+                    <div class="weui-media-box__bd" (click)="detail(lesson)">
+                        <h4 class="weui-media-box__title">{{lesson['title']}}</h4>
+                        <p class="desc">{{lesson['week']}}{{lesson['start']}}-{{lesson['end']}}</p>
+                        <p class="weui-media-box__desc">{{lesson['desc']}}</p>
+                    </div>
+                    <div>
+                        <a href="javascript:;" *ngIf="util.isManager || util.isAdmin" class="weui-btn weui-btn_mini weui-btn_warn" (click)="delete(lesson,i)">删除课程</a>
+                    </div>
+                </a>
+            </div>
+            <div class="weui-panel weui-panel_access" *ngIf="lessons.length<=0">
+                <p class="empty">本日暂无课程</p>
+            </div>
+        </days-navs>
+    </div>
+
+</coach-lesson-tag>
+
+<div class="h45"></div>

@@ -1,0 +1,78 @@
+<ol class="FL_detail">
+    <li class="FL_detailnow">
+      <ul class="Tz_box">
+        <li class='Tz' *ngFor="let detail of items">
+          <div class='Tzs'>
+            <div class='Tzs01'>
+              <span class='Tzs011'>
+                <img [src]="detail['avatar']"/>
+              </span>
+              <div class='Tzs012'>
+                <div class='Tzs0121'>
+                  <h4 class='Tzs01211'>{{detail['nickname']}}</h4>
+                </div>
+                <div class='Tzs0122'>
+                  <span>{{detail['tab']}}</span>
+                  <span class='Tzs0311'>{{detail['tags']}}</span>
+                  <div class='Tzs05' *ngIf="detail['invisible'] == '1'">
+                    <span class="icon timg2"></span>
+                    <font color='#ddd'>{{detail['status_title']}}</font>
+                  </div>
+                </div>
+                <div class='Tzs014' *ngIf="detail['mobile']">
+                  <a [href]="'tel:'+detail['mobile']">
+                    <span class='Tzs0141'>
+                      <i class="icon phonegb"></i>
+                      <span>拨打电话</span>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <a href='javascript:;'>
+              <h3 class='Tzs02'></h3>
+              <div class='Tzs03'>
+                <p class='Tzs032 textload' [innerHtml]="detail['content']"></p>
+              </div>
+            </a>
+            <i class='hmdetailtog' data-rel='0'>全文</i>
+            <a href='javascript:; '>
+              <ol class='Tzs04'>
+                <li *ngFor="let img of detail['thumbs']">
+                  <img class='wxuploadimage' [src]="img"/>
+                </li>
+              </ol>
+            </a>
+            <div class='hmfenleit'>{{detail['create_time']}}发布
+              <a href='javascript:;' class='hmfldetail'>
+                <span>查看详情</span>
+                <em class='youarrow mgr3'></em>
+                <em class='youarrow'></em>
+              </a>
+            </div>
+            <div class='liuyan_huifus'>
+              <div class='triangles'></div>
+              <div class='hmfeninf'>
+                <div class='hmfenpro'>
+                  <em>
+                    <img src='../addons/imeepos_runner/template/mobile/assets/images/bbs/liulan.png' />
+                  </em>
+                  <i class='yanse'>{{detail['look_num'] || 0}}</i>人浏览</div>
+                <div class='hmfenpro hmfenzan'>
+                  <em>
+                    <img src='../addons/imeepos_runner/template/mobile/assets/images/bbs/zan1.png' />
+                  </em>
+                  <i class='yanse'>{{detail['good_num'] || 0}}</i>人点赞</div>
+                <div class='hmfenpro'>
+                  <em>
+                    <img src='../addons/imeepos_runner/template/mobile/assets/images/bbs/zhuan.png' />
+                  </em>
+                  <i class='yanse'>{{detail['share_num'] || 0}}</i>人分享
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </li>
+</ol>

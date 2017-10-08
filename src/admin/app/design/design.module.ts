@@ -5,13 +5,21 @@ import { SERVICES } from './services';
 
 import { NavTabsModule } from '../components';
 import { FormsModule } from '@angular/forms';
+import { DesignLayoutsModule } from './layouts';
+
 @NgModule({
     declarations: [
         ...COMPONENTS
     ],
-    imports: [CommonModule, NavTabsModule, FormsModule],
+    imports: [
+        CommonModule, 
+        NavTabsModule, 
+        FormsModule, 
+        DesignLayoutsModule
+    ],
     exports: [
-        ...COMPONENTS
+        ...COMPONENTS,
+        DesignLayoutsModule
     ],
     providers: [
         ...SERVICES

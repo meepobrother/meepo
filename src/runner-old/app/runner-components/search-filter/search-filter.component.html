@@ -1,0 +1,37 @@
+<ul class="new-search-tab bdr-bom">
+    <li class="new-change-eleven" (click)="_onItem(item)" [ngClass]="item.classname" [class.active]="item.active" *ngFor="let item of items">
+        <span [ngClass]="item.spanclass">
+      {{item.title}}
+      <span [ngClass]="item.icon" *ngIf="item.icon"></span>
+        </span>
+    </li>
+</ul>
+
+<div class="integrative-box show-position" *ngIf="showClassList">
+    <ul class="integrative-list">
+        <li class="sidebar-iteam" (click)="selectClass(c)" [class.checked]="c.active" *ngFor="let c of _classes">
+            <span>
+        <i class="tick"></i>
+        <span class="sort-of-brand">{{c.title}}</span>
+            </span>
+        </li>
+    </ul>
+</div>
+
+<div class="weui-mask" (click)="hideBg()" *ngIf="showMark"></div>
+
+<div *ngIf="showFilter" style="left: 10%;" class="mjd-popCover new-filtrate">
+    <div class="filtrate-block">
+        <div style="transition: 0.2s ease 0s; transform: translateX(0%);" class="two-block">
+            <div class="filtrate-index">
+                <div class="index-ofyauto" style="height: calc( 100% - 44px )">
+                    <ng-content></ng-content>
+                </div>
+                <div class="index-bnts">
+                    <div class="left J_ping" (click)="reset()">重置</div>
+                    <div class="right J_ping" (click)="sure()">确定</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

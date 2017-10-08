@@ -1,0 +1,102 @@
+<div class="container" style="position: relative;height: 100%;min-height: 300px;overflow-y: scroll;overflow-x: hidden;">
+    <div class="nx-tabbar">
+        <div class="nx-tabbar-itemlist">
+            <div class="nx-scrollview" [style.width.em]="totalWidth" #scroller>
+                <div class="nx-tabbar-item" [style.width.em]="item.title.length + 2 " (click)="_onItem2(item,i)" *ngFor="let item of _items;index as i;">
+                    <div class="nx-view">
+                        <span class="nx-text">{{item.title}}</span>
+                    </div>
+                </div>
+                <div class="nx-tabbar-itemlist-whitespace"></div>
+                <div class="nx-tabbar-bottomline" [style.width.em]="lineWidth" [style.transform]="'translate3d('+width+'em, 0px, 0px)'"></div>
+            </div>
+        </div>
+        <div class="nx-rightbutton">
+            <div class="nx-rightbutton-content">
+                <div class="nx-rightbutton-sep">
+                    <img class="nx-image" alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAABYCAYAAAAuqH04AAAAAXNSR0IArs4c6QAAAfVJREFUWAm9VItywyAMa9f9/y93kRf5ZGMIsHS9y2yM9cBheT6uf8/c8pULM+stUCN9KFW1YGBL6TtQ1ItG+Valhv00YXW1N2xU0K32OBKoq4PGHhs1EsBoe3omFHSzlz8yiCoAEJRjF0Qwo5KUIDIDoM1vMvTscZ9RiR6j90SVAAALlZoNShyRe4xDJeC8UUhcSWtsBgCHR9Tn70pqRXMqe8zT6zU7AEkGoXb548hzoyoi59riihKBQ3velG307GkfwYiWr9hzIoDI5MWrZEbJbZFsBsRej71BkF2ts9a95c6aEiPpKWmvKxxF+07MgDLB8EZoc8ir6cEObPgnKyCORQXKPc26B9LDE2STw6IHYmMZV0BbSj6Y25ScsTzQfwzCHaycyd2uXFhXWgFByd7VKsjUts40AwI7z3Ovkl9Mn/Fv4moz9hJ28/+pGrkevFFB4eP2OIipzzKbMVXLP2aPSpgB8vfHlKiAaL/qPXEPVvRKuc2ePW8gg8bXuQAjH+6rCmsWe0qhKS8yiLYQmQOjebh7YeNk1xpye0bTO3HWiPM5QbbHRkQya83yWaUArEBQ4LjdkqJG9tiXbQ4vbG4midtAgZY0R03r2AvvyQozfxqWA1Sxh76wOFVYY2zEZ6bXgCq2qhaAW0qBobNQZeTPLaUt0A+kDTETKYolVAAAAABJRU5ErkJgggo=">
+                </div>
+                <img (click)="onMore()" class="nx-image nx-rightbutton-icon" alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACtWK6eAAAIqUlEQVR4Xu2d7dXbRBBGJxWEDggVECoAOoAKAh2ECkgqIFQA6QAqSKgAqIDQAXTAGbCJ4/hDM/uh3X2uznn/zUia++y1bMuv/cDYIACBqwQewAYCELhOAEFYHRC4QQBBWB4QQBDWAARyBLiC5LjRJUIAQUSCZswcAQTJcaNLhACCiATNmDkCCJLjRpcIAQQRCZoxcwQQJMeNLhECCCISNGPmCCBIjhtdIgQQRCRoxswRQJAcN7pECCCISNCMmSOAIDludIkQQBCRoBkzRwBBctzoEiGAICJBM2aOAILkuNElQgBBRIJmzBwBBMlxo0uEAIKIBM2YOQIIkuNGlwgBBBEJmjFzBBAkx40uEQIIIhI0Y+YIIEiOG10iBBBEJGjGzBFAkBw3ukQIIIhI0IyZI4AgOW50iRBAEJGgGTNHAEFy3OgSIYAgIkEzZo4AguS40SVCAEFEgmbMHAEEyXGjS4QAgogEzZg5AgiS40aXCAEEEQmaMXMEECTHjS4RAggiEjRj5gggSI4bXSIEEEQkaMbMEUCQHDe6RAggiEjQjJkjgCA5bnSJEEAQkaAZM0cAQXLc6BIhgCAiQTNmjgCC5LjRJUIAQUSCZswcAQTJcaNLhACCiATNmDkCCJLjRpcIAQQRCZoxcwQQJMeNLhECCCISNGPmCCBIjhtdIgQQRCToycf81Mx+2WOGPQT5wMyemNkXJwP/Zmbfm9mbPSBwzCEJ+Bp5amaPz9bJCzN72euMewviw74yM5fk0ubDf9NreI4zJAFfGz+cPYCen+hPZvZlj7PvKcg9OY7z/mhmX/cYnmMMR8Dl8AfQ06vGtZP0Zxx+hWm69RTkDzN7tHEaJNkIaqGyiBzHsT9q/bS8lyCfHR4ZInkiSYTW3LUZOXzi52b2rOXovQTxIb5NDIIkCWgTtvhrjq8S5+3vbPmDb7NtdEF8cCRpFv8QO87K4Se/jCD+Yuq7gjiQpADewK0lcvhYzV+o97qC+LsSvxYGhSSFAAdrL5XDx/nEzPweWrOtlyA+wGsz8zuiJRuSlNAbp7eGHD/fuVdSZdqegvg7FW77h4VnjiSFAHduryHH74cX53+1nqWnID6LP9XyK8nDwsGQpBDgTu1TyeGMegtSUxL/uIHfcW/+KLLTYlrtsNPJsZcgNSXxp2yfI8nwLk0px56C+LH9Yyd+Ffi4MF4kKQTYuH1aOfYWxI/vL9z9NQmSNF6lO+1+ajlGEARJdlq5HQ47vRyjCIIkHVZr50MsIcdIgiBJ5xXc8HDLyDGaIEjScNV22vVScowoCJJ0WskNDrOcHKMKgiQNVm/jXS4px8iCIEnjFV1x9zXk+PvwMaThvtVmj4+aRLLhPkmEVv/aWnL4fwU2/dh6Fs3ognAlySbbvm95OUZ/inUaMVeS9gs+cgQJOWYShCtJZPm2rZWRYzZBkKTtwt+ydyk5ZhQESbYs4zY1cnLMKgiStBHg1l4l5ZhZECTpJ4msHLMLgiTtJZGWYwVBkKSdJNmviz09I79DPuxNwC3oZrhRuGUO7pNsobS9xr8n168eJdv0cqxyBTmGiCQly/ltL3KccFzlCoIkyFGHwNleVhOE1yT5ZcKV4wK7FQVBkrgkyHGF2aqCIMl2SZDjBquVBUGS+5Igxx1GqwtSUxL/bzf/6eEh/7HnvgvvVSDHBmgKghwl8a85Lf19Ev+ibP8u4NklQY4Ncqx2H2TLyP6zCU+2FN6omV0S5AgsAJUryCkSZUmQIyCH4hXkiEdREuQIyqEsiM+uJAlyJORQF0RFEuRIyoEg/4Fb+UqCHAVyIMhbeCtKghyFciDIuwBXkqSGHE7H7/n4L4DJbopv894KewVJasnhvyDsPKQ3BHk//pklQY7KOiPIZaAzSoIcleXgNchtoDNJghwN5ECQ+1BnkAQ57ueYruAp1n10I0uCHPfzK6pAkG34RpQEObZlV1SFINvxjSQJcmzPragSQWL4RpAEOWKZFVUjSBzfnpIgRzyvog4EyeHbQ5LHZvbKzPwbJEs27pAH6CFIANZZaU9JkCOfU1EnghTh6/JReeQoy6ioG0GK8P3b3PJKghzl+RTtAUGK8P3f3EIS5KiTTdFeEKQI3zvNNSXxHfOCvF426T0hSBrdxcZakvjOebeqbjapvSFICtvNphqSlJ4Vb+WWEjz0I0glkA3eAs6eGXJkyV3oQ5CKMM92Veuud+QMkSNCa0MtgmyAVFDSUxLkKAjqWiuCNIC6w5UEORrliCCNwHaUBDkaZoggDeF2kAQ5GueHII0BN5QEOTpkhyAdIDeQBDk65YYgnUBXlAQ5OmaGIB1hV5DkpZn5W8dsnQggSCfQVw4TuU+CHDtkhSA7QL9wJXlhZg9vnMpzM3u2/6nqnQGCjJG5/++HS3L+M9V/mtlTM/OfsGbbgQCC7AD9xiEfmZn/+fbm8DfWGYqdDYKIBc64MQIIEuNFtRgBBBELnHFjBBAkxotqMQIIIhY448YIIEiMF9ViBBBELHDGjRFAkBgvqsUIIIhY4IwbI4AgMV5UixFAELHAGTdGAEFivKgWI4AgYoEzbowAgsR4US1GAEHEAmfcGAEEifGiWowAgogFzrgxAggS40W1GAEEEQuccWMEECTGi2oxAggiFjjjxgggSIwX1WIEEEQscMaNEUCQGC+qxQggiFjgjBsjgCAxXlSLEUAQscAZN0YAQWK8qBYjgCBigTNujACCxHhRLUYAQcQCZ9wYAQSJ8aJajACCiAXOuDECCBLjRbUYAQQRC5xxYwQQJMaLajECCCIWOOPGCCBIjBfVYgQQRCxwxo0RQJAYL6rFCCCIWOCMGyOAIDFeVIsRQBCxwBk3RgBBYryoFiOAIGKBM26MAILEeFEtRgBBxAJn3BgBBInxolqMAIKIBc64MQIIEuNFtRgBBBELnHFjBBAkxotqMQIIIhY448YIIEiMF9ViBBBELHDGjRH4B2BQidhRefhrAAAAAElFTkSuQmCC">
+            </div>
+        </div>
+    </div>
+
+    <div class="nx-tabview-tabpanels">
+        <ng-content></ng-content>
+    </div>
+
+    <div class="nx-tabpop" *ngIf="showMore">
+        <div class="nx-mask"></div>
+        <div class="nx-tabpop-content">
+            <div class="nx-tabpop-header">
+                <span class="nx-tabpop-headertitle">全部分类</span>
+            </div>
+            <div class="nx-tabpop-itemlist">
+                <div class="nx-list-hackwrapper">
+                    <div style="position: relative;">
+                        <div class="w_tag bor-b marbot10" *ngIf="!util.edit">
+                            <a href="javascript:;" class="tab_btn marbot20" [class.on]="item.active" *ngFor="let item of _items;index as i;" (click)="_onItem2(item,i)">{{item.title}}</a>
+                        </div>
+                        <div class="w_tag bor-b marbot10" *ngIf="util.edit">
+                            <a href="javascript:;" class="tab_btn marbot20" [class.on]="item.active" *ngFor="let item of _items;index as i;" (click)="onEdit(item,i)">{{item.title}}</a>
+                        </div>
+                    </div>
+                    <div style="position: relative;" *ngIf="util.edit">
+                        <div class="w_tag bor-b marbot10">
+                            <a href="javascript:;" class="tab_btn marbot20" (click)="add()">添加项目</a>
+                            <a href="javascript:;" class="tab_btn marbot20" (click)="restart()">还原</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nx-rightbutton">
+                <div class="nx-rightbutton-content">
+                    <div class="nx-rightbutton-sep">
+                        <img class="nx-image" alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAABYCAYAAAAuqH04AAAAAXNSR0IArs4c6QAAAfVJREFUWAm9VItywyAMa9f9/y93kRf5ZGMIsHS9y2yM9cBheT6uf8/c8pULM+stUCN9KFW1YGBL6TtQ1ItG+Valhv00YXW1N2xU0K32OBKoq4PGHhs1EsBoe3omFHSzlz8yiCoAEJRjF0Qwo5KUIDIDoM1vMvTscZ9RiR6j90SVAAALlZoNShyRe4xDJeC8UUhcSWtsBgCHR9Tn70pqRXMqe8zT6zU7AEkGoXb548hzoyoi59riihKBQ3velG307GkfwYiWr9hzIoDI5MWrZEbJbZFsBsRej71BkF2ts9a95c6aEiPpKWmvKxxF+07MgDLB8EZoc8ir6cEObPgnKyCORQXKPc26B9LDE2STw6IHYmMZV0BbSj6Y25ScsTzQfwzCHaycyd2uXFhXWgFByd7VKsjUts40AwI7z3Ovkl9Mn/Fv4moz9hJ28/+pGrkevFFB4eP2OIipzzKbMVXLP2aPSpgB8vfHlKiAaL/qPXEPVvRKuc2ePW8gg8bXuQAjH+6rCmsWe0qhKS8yiLYQmQOjebh7YeNk1xpye0bTO3HWiPM5QbbHRkQya83yWaUArEBQ4LjdkqJG9tiXbQ4vbG4midtAgZY0R03r2AvvyQozfxqWA1Sxh76wOFVYY2zEZ6bXgCq2qhaAW0qBobNQZeTPLaUt0A+kDTETKYolVAAAAABJRU5ErkJgggo=">
+                    </div>
+                    <img (click)="onMore()" class="nx-image nx-rightbutton-icon" alt="" src="data:image/png;base64,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">
+                </div>
+            </div>
+        </div>
+        <div class="nx-touchablehighlight"></div>
+    </div>
+
+</div>
+
+<div class="js_dialog" *ngIf="showEditer">
+    <div class="weui-mask"></div>
+    <div class="weui-dialog">
+        <div class="weui-cell">
+            <div class="weui-cell__hd"><label class="weui-label">标题</label></div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" [(ngModel)]="editItem['title']" type="text" placeholder="请输入标题">
+            </div>
+        </div>
+        <div class="weui-cell">
+            <div class="weui-cell__hd"><label class="weui-label">英文字母</label></div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" [(ngModel)]="editItem['code']" type="text" placeholder="请输入代号">
+            </div>
+        </div>
+        <div class="weui-cell">
+            <div class="weui-cell__hd"><label class="weui-label">类型编号</label></div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" [(ngModel)]="editItem['type']" type="number" pattern="[0-9]*" placeholder="请输入qq号">
+            </div>
+        </div>
+        <div style="color:red;font-size:.9em;padding: 10px;">
+            类型编号及代号不能重复,<br> 已使用
+            <ul>
+                <li>[帮我买-buy-2,3]</li>
+                <li>[帮我送-song-0,1]</li>
+                <li>[帮帮忙-help-4,5]</li>
+                <li>[虚拟任务-other-6,7]</li>
+            </ul>
+        </div>
+        <div class="weui-dialog__ft">
+            <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_default" (click)="closeEditer()">取消</a>
+            <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_default" (click)="deleteEdit()">删除</a>
+            <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary" (click)="saveEditer()">确定</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+<bonus-tag [items]="items" (onSelect)="onSelect($event)"></bonus-tag>
+
+<div class="" *ngIf="showCredit">
+  <div class="weui-cell">
+    <div class="weui-cell__hd"><label class="weui-label">每消费1元</label></div>
+    <div class="weui-cell__bd">
+      <input class="weui-input" type="number" pattern="[0-9]*" placeholder="请输入积分">
+      <p class="desc-help">每消费赠送多少积分</p>
+    </div>
+  </div>
+  <div class="weui-cell">
+    <div class="weui-cell__hd"><label class="weui-label">单次上限</label></div>
+    <div class="weui-cell__bd">
+      <input class="weui-input" type="number" pattern="[0-9]*" placeholder="请输入积分">
+    </div>
+  </div>
+  <div class="weui-cell">
+    <div class="weui-cell__hd"><label class="weui-label">开卡赠送</label></div>
+    <div class="weui-cell__bd">
+      <input class="weui-input" type="number" pattern="[0-9]*" placeholder="请输入积分">
+    </div>
+  </div>
+  <div class="weui-cell">
+    <div class="weui-cell__hd"><label class="weui-label">积分抵扣</label></div>
+    <div class="weui-cell__bd">
+      <input class="weui-input" type="number" pattern="[0-9]*" placeholder="请输入积分">
+      <p class="desc-help">多少积分抵扣1元</p>
+    </div>
+  </div>
+  <div class="title">
+    抵扣条件
+  </div>
+  <div class="weui-cell">
+    <div class="weui-cell__hd"><label class="weui-label">订单满</label></div>
+    <div class="weui-cell__bd">
+      <input class="weui-input" type="number" pattern="[0-9]*" placeholder="订单满多少钱可用">
+    </div>
+  </div>
+  <div class="weui-cell">
+    <div class="weui-cell__hd"><label class="weui-label">单笔上限</label></div>
+    <div class="weui-cell__bd">
+      <input class="weui-input" type="number" pattern="[0-9]*" placeholder="单笔上限多少积分">
+    </div>
+  </div>
+</div>
+
+<div class="" *ngIf="showDiscount">
+  <div class="weui-cell">
+    <div class="weui-cell__hd"><label class="weui-label">抵扣条件</label></div>
+    <div class="weui-cell__bd">
+      <input class="weui-input" type="number" pattern="[0-9]*" placeholder="请输入积分">
+      <p class="desc-help">多少积分抵扣1元</p>
+    </div>
+  </div>
+</div>

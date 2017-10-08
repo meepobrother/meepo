@@ -1,0 +1,31 @@
+<coach-teacher-tag [title]="post['tag']" code="coach.setting.teacher.tags" (onSelect)="onTagSelect($event)"></coach-teacher-tag>
+
+<suyun-mobile-verity [post]="post" (onSuccess)="onSuccess($event)"></suyun-mobile-verity>
+
+<div class="mt10"></div>
+<div class="weui-cells weui-cells_form">
+  <div class="weui-cell">
+    <div class="weui-cell__hd"><label class="weui-label">姓名</label></div>
+    <div class="weui-cell__bd">
+      <input class="weui-input" [(ngModel)]="post['realname']" type="text" placeholder="请输入姓名">
+    </div>
+  </div>
+  <div class="weui-cell">
+    <div class="weui-cell__hd"><label class="weui-label">预约价格</label></div>
+    <div class="weui-cell__bd">
+      <input class="weui-input" [(ngModel)]="post['price']" type="number" placeholder="请输入预约价格">
+    </div>
+  </div>
+  <div class="weui-cell">
+    <div class="weui-cell__bd">
+      <textarea class="weui-textarea" [(ngModel)]="post['desc']" placeholder="请输入个人简介" rows="3"></textarea>
+    </div>
+  </div>
+</div>
+
+<div class="mt10"></div>
+<suyun-uploader [images]="post['images']" [total]="post['total']"></suyun-uploader>
+
+<div class="weui-btn-area">
+  <a class="weui-btn weui-btn_primary" href="javascript:" (click)="save()">保存</a>
+</div>

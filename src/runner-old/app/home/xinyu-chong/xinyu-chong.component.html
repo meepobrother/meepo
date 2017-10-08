@@ -1,0 +1,26 @@
+
+<div class="main">
+  <div class="weui-cells">
+
+    <a class="weui-cell weui-cell_access" href="javascript:;">
+      <div class="weui-cell__hd"><img [src]="info.avatar" alt="" style="width:20px;margin-right:5px;display:block"></div>
+      <div class="weui-cell__bd">
+        <p>{{info.nickname}}[{{info.realname}}{{info.mobile}}]</p>
+      </div>
+      <div class="weui-cell__ft">{{info.xinyu}}</div>
+    </a>
+  </div>
+
+  <div class="weui-cells main mt10">
+    <suyun-controls-option-tap code="setting.home.xinyu.chong" title="请选择充值套餐" [items]="itemsTap" (onItem)="onItem($event)"></suyun-controls-option-tap>
+    <p style="color:green;font-size:.8em;padding-bottom:10px;margin-top: 10px;">
+      信誉可用来接单抵押,如:账户信誉额度为200元,则可接200元以下订任务(包含200元)
+    </p>
+  </div>
+
+</div>
+
+<pay-order [price]="post['money']" (onPay)="pay()"></pay-order>
+
+<suyun-order-create *ngIf="createOrder" [post]="post" (onSuccess)="onPaySuccess($event)"></suyun-order-create>
+

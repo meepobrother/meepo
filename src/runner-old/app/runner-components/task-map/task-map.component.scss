@@ -1,0 +1,52 @@
+.main{
+  background: url('222.png');
+  position: fixed;
+  top: 0px;
+  left:0px;
+  right:0px;
+  bottom:0px;
+  z-index: 9999;
+  background-size: cover;
+
+  .map{
+    position: relative;
+    min-height: 500px;
+    height: 500px;
+    background: #fff;
+  }
+
+  .detail{
+    position: relative;
+    height: calc( 100% - 500px);
+    background: rgb(38, 41, 56);
+    .btn{
+      position: absolute;
+      top: -22px;
+      height: 44px;
+      left: 0px;
+      right: 0px;
+      text-align: center;
+      a{
+        display: inline-block;
+        height: 44px;
+        line-height: 44px;
+        background: #fe345a;
+        padding: 0 50px;
+        border-radius: 10px;
+        color: #fff;
+      }
+    }
+  }
+}
+
+.mapInfo{
+  position: absolute;
+  z-index: 999;
+  width: 200px;
+  background: #fff;
+  border-radius: 3px;
+  font-size: .8em;
+  height: 60px;
+  overflow: hidden;
+  box-shadow: 1px 1px 1px #ccc;
+}

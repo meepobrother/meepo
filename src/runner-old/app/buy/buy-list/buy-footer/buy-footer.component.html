@@ -1,0 +1,175 @@
+<runner-footer *ngIf="showFooter" [items]="opts" (onItem)="onItem($event)"></runner-footer>
+
+<div class="rule" *ngIf="showRule">
+  <div class="weui-mask"></div>
+  <div class="weui-dialog">
+    <div class="weui-dialog__bd">
+      <div class="weui-form-preview">
+        <div class="weui-form-preview__hd">
+          <label class="weui-form-preview__label">信誉要求</label>
+          <em class="weui-form-preview__value">大于{{detail.total}}</em>
+        </div>
+        <div class="weui-form-preview__bd">
+          <div class="weui-form-preview__item">
+            <label class="weui-form-preview__label">时间限制</label>
+            <span class="weui-form-preview__value" style="color:green;">
+              {{detail.duration}}内完成
+            </span>
+          </div>
+          <div class="weui-form-preview__item">
+            <ul class="weui-form-preview__value" style="text-align: left;">
+              <li>1.信誉扣除(相应金额*超时/要求时间)的信誉</li>
+              <li>2.抢单后无辜放弃扣除相应金额*0.8的信誉,48小时内禁止再次接单!</li>
+              <li>3.抢单后超过规定时间2天,拉入黑名单!</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="weui-dialog__ft">
+      <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_default" (click)="onCancel()">取消</a>
+      <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary" (click)="onHideRule()">知道了</a>
+    </div>
+  </div>
+</div>
+
+<div class="rule" *ngIf="showCuiCui">
+  <div class="weui-mask"></div>
+  <div class="weui-dialog">
+    <textarea class="weui-textarea" [(ngModel)]="msg" placeholder="请输入留言信息" rows="3"></textarea>
+    <div class="weui-dialog__ft">
+      <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_default" (click)="onCancel()">取消</a>
+      <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary" (click)="onHideRule()">提交</a>
+    </div>
+  </div>
+</div>
+
+<div class="rule" *ngIf="showService">
+  <div class="weui-mask"></div>
+  <div class="weui-dialog">
+    <textarea class="weui-textarea" [(ngModel)]="msg" placeholder="请输入反馈信息" rows="3"></textarea>
+    <div class="weui-dialog__ft">
+      <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_default" (click)="onCancel()">取消</a>
+      <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary" (click)="onHideRule()">提交</a>
+    </div>
+  </div>
+</div>
+
+<div class="rule" *ngIf="showDelete">
+  <div class="weui-mask"></div>
+  <div class="weui-dialog">
+    <textarea class="weui-textarea" [(ngModel)]="msg" placeholder="请输入取消原因" rows="3"></textarea>
+    <div class="weui-dialog__ft">
+      <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_default" (click)="onCancel()">取消</a>
+      <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary" (click)="onHideRule()">确定</a>
+    </div>
+  </div>
+</div>
+
+<div class="rule" *ngIf="showGiveup">
+  <div class="weui-mask"></div>
+  <div class="weui-dialog">
+    <div class="weui-form-preview">
+      <div class="weui-form-preview__hd">
+        <label class="weui-form-preview__label">任务赏金</label>
+        <em class="weui-form-preview__value">{{detail.total}}元</em>
+      </div>
+      <div class="weui-form-preview__bd">
+        <div class="weui-form-preview__item">
+          <label class="weui-form-preview__label">扣除信誉</label>
+          <span class="weui-form-preview__value" style="color:green;">
+              {{detail.total * 0.5}}
+            </span>
+        </div>
+        <div class="weui-form-preview__item">
+          <label class="weui-form-preview__label">惩罚</label>
+          <span class="weui-form-preview__value" style="color:green;">
+              48小时内不能接单
+            </span>
+        </div>
+      </div>
+    </div>
+    <div class="weui-dialog__ft">
+      <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_default" (click)="onCancel()">取消</a>
+      <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary" (click)="onHideRule()">确定</a>
+    </div>
+  </div>
+</div>
+
+
+<div class="rule" *ngIf="showConfirm">
+  <div class="weui-mask"></div>
+  <div class="weui-dialog">
+    <div class="weui-dialog__bd">
+      <div class="weui-form-preview">
+        <div class="weui-form-preview__hd">
+          <label class="weui-form-preview__label">任务赏金</label>
+          <em class="weui-form-preview__value">{{detail.total}}元</em>
+        </div>
+        <div class="weui-form-preview__bd">
+          <div class="weui-form-preview__item">
+            <label class="weui-form-preview__label">送达时间</label>
+            <span class="weui-form-preview__value" style="color:green;">
+              {{recive.finish_time || '0'}}分钟/{{detail.duration}}
+            </span>
+          </div>
+        </div>
+        <div class="weui-form-preview__bd">
+          <div class="weui-form-preview__item">
+            <label class="weui-form-preview__label">配送人</label>
+            <span class="weui-form-preview__value" style="color:green;">
+              {{recive.realname || '未填写姓名'}}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="weui-dialog__ft">
+      <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_default" (click)="onCancel()">取消</a>
+      <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary" (click)="onHideRule()">确认送达</a>
+    </div>
+  </div>
+</div>
+
+
+<div class="rule" *ngIf="showFinishTip">
+  <div class="weui-mask" (click)="onCancel()"></div>
+  <div class="weui-dialog">
+    <div class="weui-dialog__bd">
+      <div class="weui-form-preview">
+        <div class="weui-form-preview__hd">
+          <label class="weui-form-preview__label">任务赏金</label>
+          <em class="weui-form-preview__value">{{detail.total}}元</em>
+        </div>
+        <div class="weui-form-preview__bd">
+          <div class="weui-form-preview__item">
+            <label class="weui-form-preview__label">送达时间</label>
+            <span class="weui-form-preview__value" style="color:green;">
+              {{recive.finish_time || '0'}}分钟/{{detail.duration}}分钟
+            </span>
+          </div>
+          <div class="weui-form-preview__item">
+            <label class="weui-form-preview__label">应收款</label>
+            <span class="weui-form-preview__value" style="color:green;">
+              {{recive.noPayMoney || '0'}}元
+            </span>
+          </div>
+          <div class="weui-form-preview__item" *ngIf="recive.rewardTime < 0">
+            <label class="weui-form-preview__label">信誉</label>
+            <span class="weui-form-preview__value" style="color:green;">
+              <span>迟到{{recive.rewardTime}}分钟,惩罚{{ recive.rewardXinyu || '0'}}</span>
+            </span>
+          </div>
+          <div class="weui-form-preview__item">
+            <p style="text-align: center">收款二维码</p>
+            <div class="qrcode" #qrcode id="qrcode"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="weui-dialog__ft">
+      <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_default" (click)="onPay()">代付</a>
+      <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary" (click)="onHideRule()">确认收款</a>
+    </div>
+  </div>
+</div>
