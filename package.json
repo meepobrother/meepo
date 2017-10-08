@@ -12,7 +12,10 @@
         "ftp:runner": "gulp model.pages",
         "ftp:inc": "gulp member",
         "desktop": "gulp admin:window:build && gulp admin:mac:build",
-        "android": "rm -rf .cordova/ && yarn admin.build && gulp admin:android:build && cd .cordova/ && cordova platform add android && cordova build"
+        "android": "rm -rf .cordova/ && yarn admin.build && gulp admin:android:build && cd .cordova/ && cordova platform add android && cordova build",
+        "window": "electron-packager ./dist/admin/ runner --platform=win32 --arch=all",
+        "mac": "electron-packager ./dist/admin/ runner --platform=darwin --arch=all ",
+        "mac:install": "electron-installer-dmg ./desktop/runner-darwin-x64/runner.app runner"
     },
     "repository": {
         "type": "git",
@@ -70,6 +73,10 @@
         "@angular/compiler-cli": "^4.2.4",
         "@types/hammerjs": "^2.0.35",
         "@types/node": "~6.0.60",
+        "appdmg": "^0.4.5",
+        "electron-installer-dmg": "^0.2.1",
+        "electron-packager": "^9.1.0",
+        "electron-winstaller": "^2.6.3",
         "grunt-electron-installer": "^2.1.0",
         "gulp": "^3.9.1",
         "gulp-connect": "^5.0.0",
@@ -86,6 +93,7 @@
         "gulp-cordova-xml": "^1.0.1",
         "gulp-sftp": "^0.1.5",
         "gulp-ssh": "^0.6.0",
+        "macos-alias": "^0.2.11",
         "run-sequence": "^2.2.0",
         "ts-node": "^3.3.0",
         "tslint": "^5.7.0",
