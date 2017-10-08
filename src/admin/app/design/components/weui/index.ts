@@ -6,6 +6,8 @@ export * from './weui-cells';
 export * from './page';
 export * from './icon';
 export * from './tabbar';
+export * from './navbar';
+
 
 
 

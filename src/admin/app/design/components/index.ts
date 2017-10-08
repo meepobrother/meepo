@@ -5,7 +5,8 @@ import {
     SliderSetting, SliderView,
     UploaderSetting, UploaderView,
     PageSetting, IconView, 
-    TabbarSelect, TabbarSetting, TabbarView
+    TabbarSelect, TabbarSetting, TabbarView,
+    NavbarSelect, NavbarView, NavbarSetting
 } from './weui';
 
 
@@ -16,23 +17,27 @@ export const COMPONENTS = [
     SliderSetting, SliderView,
     UploaderSetting, UploaderView,
     PageSetting, IconView,
-    TabbarSelect, TabbarSetting, TabbarView
+    TabbarSelect, TabbarSetting, TabbarView,
+    NavbarSelect, NavbarView, NavbarSetting
 ];
 
 export const COMPONENTS_SELECT = {
     'button': ButtonSelect,
-    'tabbar': TabbarSelect
+    'tabbar': TabbarSelect,
+    'navbar': NavbarSelect
 };
 
 export const COMPONENTS_VIEW = {
     'button': ButtonView,
-    'tabbar': TabbarView
+    'tabbar': TabbarView,
+    'navbar': NavbarView
 };
 
 export const COMPONENTS_SETTING = {
     'button': ButtonSetting,
     'page': PageSetting,
-    'tabbar': TabbarSetting
+    'tabbar': TabbarSetting,
+    'navbar': NavbarSetting
 };
 
 import { Injectable } from '@angular/core';
