@@ -5,14 +5,12 @@ export class Widget {
     // 面板内容
     content: any;
     // 面板动画
-    animations: any;
+    animations: any = {};
     // 包含内容
-    children: any;
-
+    children: Widget[] = [];
     // 面板样式
-    style: any = {};
-    classObj: any = {};
-    className: string = '';
+    styleObj: Map<string,string> = new Map();
+    classObj: Map<string,boolean> = new Map();
 
     constructor() { }
 

@@ -4,9 +4,7 @@
         <p class="page__desc">按钮</p>
     </div>
     <div class="page__bd page__bd_spacing">
-        <a href="javascript:;" *ngFor="let item of widgets" (click)="select(item)" [class]="item.className">
-            <i *ngIf="item.icon" [class]="item.icon"></i>{{item.content}}
-        </a>
+        <free-widget-view (click)="select(item)" [widget]="item" *ngFor="let item of widgets"></free-widget-view>
     </div>
     <div class="page__ft">
         <a href="javascript:home()"><img src="assets/images/icon_footer_link.png"></a>

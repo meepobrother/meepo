@@ -8,7 +8,7 @@ export class WidgetService {
     currentWidget: any = new Widget();
     onChange: Subject<any> = new Subject();
     addFreeWidgetStream: Subject<any> = new Subject();
-    
+    setCurrentWidgetStream: Subject<any> = new Subject();
 
     get dates() {
         const results = [];

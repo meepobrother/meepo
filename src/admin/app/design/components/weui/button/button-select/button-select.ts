@@ -8,6 +8,7 @@ import { MatDialogRef } from '@angular/material';
     styleUrls: ['./button-select.scss']
 })
 export class ButtonSelect {
+    // 预设样式组合
     widgets: any[] = [
         btn1,
         btn2,
@@ -18,7 +19,7 @@ export class ButtonSelect {
         btn7,
         btn8,
         btn9,
-        new Button('weui-btn weui-btn_plain-default'),
+        new Button({'weui-btn_plain-default': true}),
         new Button('weui-btn weui-btn_plain-default weui-btn_plain-disabled'),
         new Button('weui-btn weui-btn_plain-primary'),
         new Button('weui-btn weui-btn_plain-primary weui-btn_plain-disabled'),
@@ -34,14 +35,14 @@ export class ButtonSelect {
     }
 }
 
-const btn1 = new Button('weui-btn weui-btn_primary');
-const btn2 = new Button('weui-btn weui-btn_primary weui-btn_loading','weui-loading');
+const btn1 = new Button({ 'weui-btn_primary': true });
+const btn2 = new Button({ 'weui-btn_primary': true, 'weui-btn_loading': true }, 'weui-loading');
 const btn3 = new Button('weui-btn weui-btn_disabled weui-btn_primary');
 const btn4 = new Button('weui-btn weui-btn_default');
-const btn5 = new Button('weui-btn weui-btn_default weui-btn_loading','weui-loading');
+const btn5 = new Button('weui-btn weui-btn_default weui-btn_loading', 'weui-loading');
 const btn6 = new Button('weui-btn weui-btn_disabled weui-btn_default');
 const btn7 = new Button('weui-btn weui-btn_warn');
-const btn8 = new Button('weui-btn weui-btn_warn weui-btn_loading','weui-loading');
+const btn8 = new Button('weui-btn weui-btn_warn weui-btn_loading', 'weui-loading');
 const btn9 = new Button('weui-btn weui-btn_disabled weui-btn_warn');
 
 

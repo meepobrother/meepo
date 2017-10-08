@@ -17,7 +17,7 @@
             <h5>前台预览</h5>
         </div>
         <iphone6>
-            <free-widget-view *ngFor="let widget of widgets" [widget]="widget"></free-widget-view>
+            <free-widget-view (click)="setCurrentView(widget)" *ngFor="let widget of widgets" [widget]="widget"></free-widget-view>
         </iphone6>
     </div>
     <div class="container-right">
@@ -26,13 +26,7 @@
                 <h5>参数设置</h5>
             </div>
             <div class="ibox-content">
-                <nav-tabs>
-                    <nav-tab-pane title="基础设置"></nav-tab-pane>
-                    <nav-tab-pane title="样式设置"></nav-tab-pane>
-                    <nav-tab-pane title="动画设置"></nav-tab-pane>
-                    <nav-tab-pane title="事件设置"></nav-tab-pane>
-                    <nav-tab-pane title="数据绑定"></nav-tab-pane>
-                </nav-tabs>
+                <free-widget-setting [widget]="currentWidget"></free-widget-setting>
             </div>
         </div>
         <div class="ibox">

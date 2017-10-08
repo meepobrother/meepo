@@ -20,6 +20,7 @@ import uuid from 'uuid';
 })
 export class TestsPage implements OnInit {
     widgets: any[] = [];
+    currentWidget: any;
     constructor(
         public page$: PageService,
         public application$: ApplicationService,
@@ -27,14 +28,21 @@ export class TestsPage implements OnInit {
         public widget$: WidgetService,
         public components$: ComponentsService
     ) {
+        this.widget$.setCurrentWidget
     }
 
     addButton() {
         this.components$.selectComponent('button');
         const onSelectStream = this.components$.onSelectStream.subscribe(widget=>{
-            this.widgets.push(widget);
+            const newWidget = this.cloneJSON(widget);
+            console.log(newWidget);
+            this.widgets.push(newWidget);
             onSelectStream.unsubscribe();
         });
+    }
+
+    cloneJSON(e: any) {
+        return "object" != typeof e || null == e ? e : JSON.parse(JSON.stringify(e))
     }
 
     addList() {
@@ -55,6 +63,10 @@ export class TestsPage implements OnInit {
 
     ngOnInit() {
         this.page$.getList();
+    }
+
+    setCurrentView(view: any){
+        this.currentWidget = view;
     }
 
     addPage() {

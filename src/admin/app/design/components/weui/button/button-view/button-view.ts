@@ -12,16 +12,11 @@ import { Button } from '../button';
 })
 export class ButtonView implements OnInit, OnChanges {
     @Input() widget: Button = new Button();
-    @HostBinding('class') _class: any;
-    @HostBinding('style') _style: any;
     constructor(
         public ele: ElementRef,
         public render: Renderer2
     ) { }
-    ngOnInit() { 
-        this._class = this.widget.className;
-        this._style = this.widget.style;
-    }
+    ngOnInit() { }
     ngOnChanges() { }
 
     getElement() {
