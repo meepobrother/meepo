@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { TestsPage } from './tests-page';
 import { Routes, RouterModule } from '@angular/router';
 import { ShareModule } from '../../share';
-import { AddPageDialogModule } from './add-page-dialog';
 const routes = [
     {
         path: '',
@@ -18,8 +17,7 @@ const routes = [
     imports: [
         CommonModule,
         RouterModule.forChild(routes),
-        ShareModule,
-        AddPageDialogModule
+        ShareModule
     ],
     exports: [
         TestsPage

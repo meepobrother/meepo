@@ -58,3 +58,18 @@
 .title {
     text-align: center;
 }
+
+.widget-container {
+    margin: 5px;
+    padding: 5px;
+    .btn {
+        margin: 3px;
+    }
+}
+
+.footer-save {
+    position: fixed;
+    bottom: 10px;
+    left: 200px;
+    right: 200px;
+}
