@@ -30,7 +30,10 @@ export class ThemesDesign implements OnInit {
         public widget$: WidgetService,
         public components$: ComponentsService
     ) {
-        this.widget$.setCurrentWidget
+        this.widget$.setCurrentWidgetStream.subscribe(res=>{
+            console.log('激活',res);
+            this.currentWidget = res;
+        });
     }
 
     addWidget(name: string) {
@@ -58,12 +61,6 @@ export class ThemesDesign implements OnInit {
 
     ngOnInit() {
         this.page$.getList();
-    }
-
-    setCurrentView(evt: any, view: any) {
-        console.log(view);
-        this.currentWidget = view;
-        evt.stopPropagation();
     }
 
     addPage() {

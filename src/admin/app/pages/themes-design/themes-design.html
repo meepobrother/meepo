@@ -17,7 +17,7 @@
             <div class="ibox-title"></div>
             <div class="ibox-content">
                 <iphone6>
-                    <free-widget-view [ngStyle]="widget.containerStyle" [ngClass]="widget.containerClass" (click)="setCurrentView($event,widget)" *ngFor="let widget of widgets" [widget]="widget"></free-widget-view>
+                    <free-widget-view [ngStyle]="widget.containerStyle" [ngClass]="widget.containerClass" *ngFor="let widget of widgets" [widget]="widget"></free-widget-view>
                 </iphone6>
             </div>
         </div>

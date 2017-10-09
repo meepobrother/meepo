@@ -5,7 +5,7 @@ import { Widget } from '../classes';
 @Injectable()
 export class WidgetService {
     
-    currentWidget: any = new Widget();    
+    private currentWidget: any = new Widget();    
     setCurrentWidgetStream: Subject<any> = new Subject();
 
     setCurrentWidget(item: any) {

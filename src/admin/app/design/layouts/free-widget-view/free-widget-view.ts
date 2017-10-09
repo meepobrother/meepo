@@ -7,7 +7,7 @@ import {
 } from '@angular/core';
 import { ComponentPortal } from '@angular/cdk/portal';
 import { COMPONENTS_VIEW } from '../../components';
-
+import { WidgetService } from '../../services';
 @Component({
     selector: 'free-widget-view',
     templateUrl: './free-widget-view.html',
@@ -19,6 +19,7 @@ export class FreeWidgetView implements OnInit, AfterViewInit, OnDestroy, OnChang
     mouseover(evt: any) {
         // 鼠标移动到改元素时 改变设置
         this._active = true;
+        this.service.setCurrentWidget(this._widget);
         evt.stopPropagation();
     }
 
@@ -43,7 +44,8 @@ export class FreeWidgetView implements OnInit, AfterViewInit, OnDestroy, OnChang
         private compFactoryResolver: ComponentFactoryResolver,
         private render: Renderer2,
         private ele: ElementRef,
-        private viewContainerRef: ViewContainerRef
+        private viewContainerRef: ViewContainerRef,
+        private service: WidgetService
     ) { }
 
     ngOnInit() { }
