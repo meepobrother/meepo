@@ -45,8 +45,4 @@ export class AppService {
         public date: DateService
     ){}
 
-    savePage(){
-        this.date.saveDate();
-    }
-
 }

@@ -24,13 +24,6 @@ export class PageService {
             this.dates = this._mapToArray(this.list);
             this.saveToCache();
         });
-        // 当widget激活状态改变时 更新列表
-        // this.widgetService.setCurrentWidgetStream.subscribe(res=>{
-        //     // 当前current
-        //     if(res.isContainer){
-                
-        //     }
-        // });
     }
 
     setCurrentWidget(widget: any){
