@@ -1,0 +1,105 @@
+.modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 200;
+    display: none;
+    overflow: hidden;
+    outline: 0;
+}
+
+.fade {
+    opacity: 0;
+    -webkit-transition: opacity .15s linear;
+    -o-transition: opacity .15s linear;
+    transition: opacity .15s linear;
+}
+
+.modal-dialog {
+    position: relative;
+    width: auto;
+    margin: 150px 10% 0;
+}
+
+.modal.fade .modal-dialog {
+    -webkit-transition: -webkit-transform .3s ease-out;
+    -o-transition: -o-transform .3s ease-out;
+    transition: transform .3s ease-out;
+    -webkit-transform: translate(0, -25%);
+    -ms-transform: translate(0, -25%);
+    -o-transform: translate(0, -25%);
+    transform: translate(0, -25%);
+}
+
+.modal.in .modal-dialog {
+    -webkit-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    -o-transform: translate(0, 0);
+    transform: translate(0, 0);
+}
+
+.modal-body {
+    position: relative;
+    padding: 20px 15px;
+    line-height: 22px;
+}
+
+.modal-content {
+    position: relative;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid #999;
+    border: 1px solid rgba(0, 0, 0, .2);
+    border-radius: 6px;
+    outline: 0;
+    color: #4d4e53;
+    text-align: left;
+    -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+    box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+}
+
+.modal-footer {
+    padding: 10px 15px 15px;
+    text-align: right;
+}
+
+.modal-footer>span {
+    padding: 5px 10px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 3px;
+    color: #333;
+    background-color: #fff;
+    display: inline-block;
+    margin: 0 6px;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    background-image: none;
+}
+
+.modal-footer .confirm-btn {
+    color: #fff;
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+}
+
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 199;
+    background-color: #000;
+}
+
+.modal-backdrop.in {
+    opacity: .5;
+}
