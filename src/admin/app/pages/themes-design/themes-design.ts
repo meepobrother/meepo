@@ -4,6 +4,9 @@ import { MatDialog } from '@angular/material';
 import { AddPageDialog } from './add-page-dialog';
 import { Button } from '../../design';
 
+import * as Sortable from 'sortablejs';
+console.log(Sortable);
+
 import {
     ButtonView,
     WeuiCellsView, 
