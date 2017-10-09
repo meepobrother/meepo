@@ -1,3 +1,4 @@
+// 页面
 import { Injectable } from '@angular/core';
 import * as store from 'store';
 import { WidgetService } from './widget.service';
@@ -6,7 +7,7 @@ import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class PageService {
-    // 页面列表
+    // 页面元素列表
     list: Map<string, WeuiPage> = new Map();
     // 列表变化
     onChange: Subject<any> = new Subject();

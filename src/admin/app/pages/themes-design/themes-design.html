@@ -4,7 +4,7 @@
             页面装修
         </div>
         <div class="aside">
-            <menu-container (click)="setCurrentPage(page)" [class.active]="page.active" (onEdit)="editPage(page)" (onDelete)="deletePage(page)" *ngFor="let page of page$.dates">
+            <menu-container (click)="setCurrentPage($event,page)" [class.active]="page.active" (onEdit)="editPage(page)" (onDelete)="deletePage(page)" *ngFor="let page of page$.dates">
                 {{page.title}}
             </menu-container>
         </div>
@@ -17,7 +17,7 @@
             <div class="ibox-title"></div>
             <div class="ibox-content">
                 <iphone6>
-                    <free-widget-view [ngStyle]="widget.containerStyle" [ngClass]="widget.containerClass" (click)="setCurrentView(widget)" *ngFor="let widget of widgets" [widget]="widget"></free-widget-view>
+                    <free-widget-view [ngStyle]="widget.containerStyle" [ngClass]="widget.containerClass" (click)="setCurrentView($event,widget)" *ngFor="let widget of widgets" [widget]="widget"></free-widget-view>
                 </iphone6>
             </div>
         </div>
@@ -26,7 +26,7 @@
     <div class="container-right">
         <div class="ibox">
             <div class="ibox-title">
-                <h5>参数设置</h5>
+                <h5>{{currentWidget?.name}}参数设置</h5>
             </div>
             <div class="ibox-content">
                 <free-widget-setting [widget]="currentWidget"></free-widget-setting>

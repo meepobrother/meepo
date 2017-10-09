@@ -6,7 +6,7 @@ import { Button } from '../../design';
 
 import {
     ButtonView,
-    WeuiCellsView, 
+    WeuiCellsView,
     InputView,
     SliderView,
     UploaderView
@@ -35,7 +35,7 @@ export class ThemesDesign implements OnInit {
 
     addWidget(name: string) {
         this.components$.selectComponent(name);
-        const onSelectStream = this.components$.onSelectStream.subscribe(widget=>{
+        const onSelectStream = this.components$.onSelectStream.subscribe(widget => {
             const newWidget = this.cloneObj(widget);
             console.log(newWidget);
             this.widgets.push(newWidget);
@@ -44,15 +44,15 @@ export class ThemesDesign implements OnInit {
     }
 
     cloneObj(obj: any) {
-        var newObj = {};  
-        if (obj instanceof Array) {  
-            newObj = [];  
-        }  
-        for (var key in obj) {  
-            var val = obj[key];  
+        var newObj = {};
+        if (obj instanceof Array) {
+            newObj = [];
+        }
+        for (var key in obj) {
+            var val = obj[key];
             //newObj[key] = typeof val === 'object' ? arguments.callee(val) : val; //arguments.callee 在哪一个函数中运行，它就代表哪个函数, 一般用在匿名函数中。  
-            newObj[key] = typeof val === 'object' ? this.cloneObj(val): val;  
-        }  
+            newObj[key] = typeof val === 'object' ? this.cloneObj(val) : val;
+        }
         return newObj;
     }
 
@@ -60,8 +60,10 @@ export class ThemesDesign implements OnInit {
         this.page$.getList();
     }
 
-    setCurrentView(view: any){
+    setCurrentView(evt: any, view: any) {
+        console.log(view);
         this.currentWidget = view;
+        evt.stopPropagation();
     }
 
     addPage() {
@@ -88,8 +90,8 @@ export class ThemesDesign implements OnInit {
         });
     }
 
-    savePage(){
-        
+    savePage() {
+
     }
     // 保存页面
     saveBtn: any = {
@@ -97,37 +99,37 @@ export class ThemesDesign implements OnInit {
         title: '立即保存'
     };
 
-    setSaveBtnLoading(){
+    setSaveBtnLoading() {
         this.saveBtn = {
             loading: true,
             title: '保存中...'
         }
     }
 
-    setSaveBtnSuccess(){
+    setSaveBtnSuccess() {
         this.saveBtn = {
             loading: false,
             title: '立即保存'
         }
     }
 
-    saveCurrentPage(){
+    saveCurrentPage() {
         this.setSaveBtnLoading();
-        if(this.currentPage){
+        if (this.currentPage) {
             this.currentPage['children'] = this.widgets;
             this.page$.edit(this.currentPage);
-        }else{
+        } else {
             console.log('请选择页面');
         }
-        setTimeout(()=>{
+        setTimeout(() => {
             this.setSaveBtnSuccess();
-        },800);
+        }, 800);
     }
-    productCurrentPage(){
+    productCurrentPage() {
         console.log(this.page$);
     }
     // 设置当前页面
-    setCurrentPage(page: any) {
+    setCurrentPage(evt: any, page: any) {
         // 设置激活
         this.page$.list.forEach(page => {
             page.active = false;
@@ -138,5 +140,8 @@ export class ThemesDesign implements OnInit {
         this.currentPage = page;
         this.currentWidget = page;
         this.widgets = page.children || [];
+
+
+        evt.stopPropagation();
     }
 }
