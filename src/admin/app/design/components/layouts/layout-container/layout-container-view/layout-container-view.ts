@@ -9,7 +9,5 @@ export class LayoutContainerView implements OnInit {
     @Input() widget: LayoutContainer = new LayoutContainer();
     constructor() { }
 
-    ngOnInit() { 
-        console.log(this.widget);
-    }
+    ngOnInit() { }
 }

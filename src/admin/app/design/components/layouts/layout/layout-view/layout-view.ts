@@ -10,7 +10,5 @@ export class LayoutView implements OnInit {
     @HostBinding('class.layout') _layout: boolean = true;
     constructor() { }
 
-    ngOnInit() { 
-        console.log(this.widget);
-    }
+    ngOnInit() { }
 }

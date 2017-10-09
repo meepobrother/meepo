@@ -36,8 +36,8 @@ export class ThemesDesign implements OnInit {
     addWidget(name: string) {
         this.components$.selectComponent(name);
         const onSelectStream = this.components$.onSelectStream.subscribe(widget=>{
-            console.log(widget);
             const newWidget = this.cloneObj(widget);
+            console.log(newWidget);
             this.widgets.push(newWidget);
             onSelectStream.unsubscribe();
         });
@@ -79,9 +79,9 @@ export class ThemesDesign implements OnInit {
     }
 
     editPage(page: any) {
+        console.log(page);
         const dialogRef = this.dialog.open(AddPageDialog, { data: page });
         dialogRef.afterClosed().subscribe(res => {
-            console.log(res);
             if (res) {
                 this.page$.edit(res);
             }

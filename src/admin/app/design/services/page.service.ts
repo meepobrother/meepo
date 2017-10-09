@@ -6,7 +6,7 @@ import { WeuiPage } from '../components';
 export class PageService {
     // 页面列表
     list: Map<string, WeuiPage> = new Map();
-
+    // 获取页面列表
     get dates() {
         const results = [];
         this.list.forEach(res => {
@@ -25,7 +25,10 @@ export class PageService {
 
     saveToCache(){
         const dates = this.dates;
+        console.log(dates);
         store.set('design.page.list',dates);
+
+        console.log('design.page.list',store.get('design.page.list'));
     }
 
     add(item: WeuiPage) {

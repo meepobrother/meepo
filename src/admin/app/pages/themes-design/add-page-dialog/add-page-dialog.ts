@@ -27,6 +27,7 @@ export class AddPageDialog implements OnInit {
         });
 
         this.dialog.afterOpen().subscribe(() => {
+            this.data = this.data || new WeuiPage();
             const { title, code, keyword, desc, children, type } = this.data;
             this.form.get('title').setValue(title);
             this.form.get('code').setValue(code);
