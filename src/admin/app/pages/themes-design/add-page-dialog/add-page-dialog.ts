@@ -3,7 +3,7 @@ import { PageService } from '../../../design';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import uuid from 'uuid';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { WeuiPage } from '../../../design';
+import { WeuiPage, LayoutContainer } from '../../../design';
 @Component({
     selector: 'add-page-dialog',
     templateUrl: './add-page-dialog.html',
@@ -23,17 +23,24 @@ export class AddPageDialog implements OnInit {
             keyword: [''],
             desc: [''],
             type: ['page'],
-            children: [[]]
+            header: [{}],
+            footer: [{}],
+            body: [{}],
+            menu: [{}]
         });
 
         this.dialog.afterOpen().subscribe(() => {
-            const { title, code, keyword, desc, children, type } = this.data;
+            this.data = this.data || new LayoutContainer();
+            const { title, code, keyword, desc, children, type, header, body, footer, menu } = this.data;
             this.form.get('title').setValue(title);
             this.form.get('code').setValue(code);
             this.form.get('keyword').setValue(keyword);
             this.form.get('desc').setValue(desc);
-            this.form.get('desc').setValue(type);
-            this.form.get('children').setValue(children);
+            this.form.get('type').setValue(type);
+            this.form.get('header').setValue(header);
+            this.form.get('body').setValue(body);
+            this.form.get('footer').setValue(footer);
+            this.form.get('menu').setValue(menu);
         });
     }
 
@@ -43,5 +50,9 @@ export class AddPageDialog implements OnInit {
 
     save() {
         this.dialog.close(this.form.value as WeuiPage);
+    }
+
+    onSelectTheme(e: any){
+        this.form.get('children').setValue([e]);
     }
 }

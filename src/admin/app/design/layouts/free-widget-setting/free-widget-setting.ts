@@ -5,7 +5,6 @@ import {
     ViewEncapsulation, AfterViewInit, OnDestroy,
     OnChanges, Renderer2, HostListener
 } from '@angular/core';
-import { WidgetService } from '../../services';
 import { ComponentPortal } from '@angular/cdk/portal';
 
 import { COMPONENTS_SETTING } from '../../components';
@@ -32,7 +31,6 @@ export class FreeWidgetSetting implements OnInit, AfterViewInit, OnDestroy, OnCh
 
     constructor(
         private compFactoryResolver: ComponentFactoryResolver,
-        private widgetService: WidgetService,
         private render: Renderer2,
         private ele: ElementRef,
         private viewContainerRef: ViewContainerRef
@@ -51,7 +49,6 @@ export class FreeWidgetSetting implements OnInit, AfterViewInit, OnDestroy, OnCh
                 this.compRef = this.placeholder.createComponent(compFactory);
                 this.widget.parentForm = this.parentForm;
                 this.compRef.instance.widget = this.widget;
-                this.widgetService.addFreeWidgetStream.next(this.widget);
             }
         }
     }

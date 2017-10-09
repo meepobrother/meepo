@@ -1,7 +1,15 @@
 :host {
     display: flex;
+    width: 100%;
     min-height: 44px;
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    &.active {
+        background-color: #ccc;
+    }
+    &:hover {
+        border: 2px dashed #00a0e9;
+        cursor: move;
+    }
 }

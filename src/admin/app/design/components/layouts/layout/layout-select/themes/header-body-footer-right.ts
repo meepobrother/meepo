@@ -7,40 +7,26 @@ import { Layout } from '../../layout';
 
 
 const _layoutHeader = new LayoutHeader();
-const headerStyle: Map<string, string> = new Map();
-headerStyle.set('background', 'red');
-_layoutHeader.containerStyle = headerStyle;
+_layoutHeader.containerStyle = { 'background': 'red' };
 
 const _layoutBody = new LayoutBody();
-const bodyStyle: Map<string, string> = new Map();
-bodyStyle.set('background', 'green');
-_layoutBody.containerStyle = bodyStyle;
+_layoutBody.containerStyle = { 'background': 'green' };
 
 const _layoutFooter = new LayoutFooter();
-const footerStyle: Map<string, string> = new Map();
-footerStyle.set('background', 'red');
-_layoutFooter.containerStyle = footerStyle;
+_layoutFooter.containerStyle = { 'background': 'red' };
 
 
 // 左
 const _layoutMenu = new LayoutMenu();
-const menuLeftStyle: Map<string, string> = new Map();
-menuLeftStyle.set('background', 'rgba(0, 0, 0, 0.38)');
-_layoutMenu.containerStyle = menuLeftStyle;
+_layoutMenu.containerStyle = { 'background': 'rgba(0, 0, 0, 0.38)' };
 _layoutMenu.setRight();
 
-export const _headerBodyFooterMenuRightLayout = new Layout();
-_headerBodyFooterMenuRightLayout.name = '中下-布局';
 
-const _layoutContainer = new LayoutContainer();
+export const headerBodyFooterMenuRight = new LayoutContainer();
 
-_layoutContainer.children = [
+headerBodyFooterMenuRight.children = [
     _layoutHeader,
     _layoutBody,
     _layoutFooter,
     _layoutMenu
-];
-
-_headerBodyFooterMenuRightLayout.children = [
-    _layoutContainer
 ];

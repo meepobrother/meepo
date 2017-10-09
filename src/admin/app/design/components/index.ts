@@ -11,10 +11,12 @@ import {
 } from './weui';
 
 import {
+    LayoutService,
     LayoutHeaderSelect, LayoutHeaderSetting, LayoutHeaderView,
     LayoutBodySelect, LayoutBodySetting, LayoutBodyView,
     LayoutContainerSelect, LayoutContainerSetting, LayoutContainerView,
     LayoutFooterSelect, LayoutFooterSetting, LayoutFooterView,
+    LayoutMenuSelect, LayoutMenuSetting, LayoutMenuView,
     LayoutSelect, LayoutView, LayoutSetting
 } from './layouts';
 
@@ -35,7 +37,8 @@ export const COMPONENTS = [
     LayoutHeaderSelect, LayoutHeaderSetting, LayoutHeaderView,
     LayoutBodySelect, LayoutBodySetting, LayoutBodyView,
     LayoutContainerSelect, LayoutContainerSetting, LayoutContainerView,
-    LayoutFooterSelect, LayoutFooterSetting, LayoutFooterView
+    LayoutFooterSelect, LayoutFooterSetting, LayoutFooterView,
+    LayoutMenuSelect, LayoutMenuSetting, LayoutMenuView,
 ];
 
 export const COMPONENTS_SELECT = {
@@ -46,7 +49,8 @@ export const COMPONENTS_SELECT = {
     'layout-container': LayoutContainerSelect,
     'layout-body': LayoutBodySelect,
     'layout-footer': LayoutFooterSelect,
-    'layout-header': LayoutHeaderSelect
+    'layout-header': LayoutHeaderSelect,
+    'layout-menu': LayoutMenuSelect
 };
 
 export const COMPONENTS_VIEW = {
@@ -58,7 +62,8 @@ export const COMPONENTS_VIEW = {
     'layout-container': LayoutContainerView,
     'layout-body': LayoutBodyView,
     'layout-footer': LayoutFooterView,
-    'layout-header': LayoutHeaderView
+    'layout-header': LayoutHeaderView,
+    'layout-menu': LayoutMenuView
 };
 
 export const COMPONENTS_SETTING = {
@@ -70,7 +75,8 @@ export const COMPONENTS_SETTING = {
     'layout-container': LayoutContainerSetting,
     'layout-body': LayoutBodySetting,
     'layout-footer': LayoutFooterSetting,
-    'layout-header': LayoutHeaderSetting
+    'layout-header': LayoutHeaderSetting,
+    'layout-menu': LayoutMenuSetting
 };
 
 import { Injectable } from '@angular/core';

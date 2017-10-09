@@ -11,6 +11,14 @@ export class Widget {
     // 包含内容
     children: any;
 
+    code: string;
+
+    styleObj: any;
+    classObj: any;
+
+    containerStyle: any;
+    containerClass: any;
+
     constructor() { }
 
     getWidgetData() { }

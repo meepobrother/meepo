@@ -3,22 +3,31 @@ import {
     ViewChild, ViewContainerRef,
     ComponentFactoryResolver, ElementRef,
     ViewEncapsulation, AfterViewInit, OnDestroy,
-    OnChanges, Renderer2, HostListener
+    OnChanges, Renderer2, HostListener, HostBinding
 } from '@angular/core';
-import { WidgetService } from '../../services';
 import { ComponentPortal } from '@angular/cdk/portal';
-
 import { COMPONENTS_VIEW } from '../../components';
-
+import { WidgetService } from '../../services';
 @Component({
     selector: 'free-widget-view',
     templateUrl: './free-widget-view.html',
     styleUrls: ['./free-widget-view.scss']
 })
 export class FreeWidgetView implements OnInit, AfterViewInit, OnDestroy, OnChanges {
+    @HostBinding('class.active') _active: boolean = false;
     @HostListener('mouseover', ['$event'])
-    mouseover() {
+    mouseover(evt: any) {
         // 鼠标移动到改元素时 改变设置
+        this._active = true;
+        this.service.setCurrentWidget(this._widget);
+        evt.stopPropagation();
+    }
+
+    @HostListener('mouseout', ['$event'])
+    mouseout(evt: any) {
+        // 鼠标移动到改元素时 改变设置
+        this._active = false;
+        evt.stopPropagation();
     }
     // 组件列表
     _widget: any;
@@ -33,10 +42,10 @@ export class FreeWidgetView implements OnInit, AfterViewInit, OnDestroy, OnChang
 
     constructor(
         private compFactoryResolver: ComponentFactoryResolver,
-        private widgetService: WidgetService,
         private render: Renderer2,
         private ele: ElementRef,
-        private viewContainerRef: ViewContainerRef
+        private viewContainerRef: ViewContainerRef,
+        private service: WidgetService
     ) { }
 
     ngOnInit() { }
@@ -54,7 +63,6 @@ export class FreeWidgetView implements OnInit, AfterViewInit, OnDestroy, OnChang
                 this.compRef = this.placeholder.createComponent(compFactory);
                 this._widget.parentForm = this.parentForm;
                 this.compRef.instance.widget = this._widget;
-                this.widgetService.addFreeWidgetStream.next(this._widget);
             }
         }
     }
@@ -65,10 +73,6 @@ export class FreeWidgetView implements OnInit, AfterViewInit, OnDestroy, OnChang
 
     ngOnChanges() {
         this.renderWidgetContainer();
-    }
-
-    removeWidget(e) {
-        this.widgetService.removeWidget(e)
     }
 }
 

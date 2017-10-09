@@ -33,7 +33,14 @@
         "node_modules",
         "dist",
         "tmp",
-        "**/*.spec.ts"
+        "**/*.spec.ts",
+        "src/core",
+        "src/mob",
+        "src/mobile",
+        "src/reapir",
+        "src/runner",
+        "src/runner-old",
+        "src/server"
     ],
     "angularCompilerOptions": {
         "skipMetadataEmit": true

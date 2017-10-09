@@ -3,7 +3,7 @@
     height: auto;
     width: 100%;
     position: relative;
-    &:hover {
+    &.active {
         border: 2px dashed #00a0e9;
         cursor: move;
     }

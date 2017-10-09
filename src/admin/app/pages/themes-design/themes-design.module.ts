@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ThemesDesign } from './themes-design';
+
 import { RouterModule, Routes } from '@angular/router';
 import { ThemesMineService } from '../themes/themes-mine.service';
 import { ShareModule } from '../../share';
