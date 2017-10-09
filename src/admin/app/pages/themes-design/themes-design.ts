@@ -51,6 +51,26 @@ export class ThemesDesign implements OnInit, AfterViewInit {
         });
     }
 
+    // 页面导航
+
+    onHeader(){
+        this.layout$.onHeader(this.currentPage.header);
+    }
+
+    onFooter(){
+        this.layout$.onFooter(this.currentPage.footer);
+    }
+
+    onBody(){
+        this.layout$.onBody(this.currentPage.body);
+    }
+
+    onMenu(){
+        this.layout$.onMenu(this.currentPage.menu);
+    }
+    // 页面导航
+
+
     ngAfterViewInit() {
         console.log('ngAfterViewInit', this._view);
     }

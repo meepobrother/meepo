@@ -4,4 +4,11 @@
     width: 100%;
     height: 100%;
     overflow-y: auto;
+    &.active {
+        background-color: #ccc;
+    }
+    &:hover {
+        border: 2px dashed #00a0e9;
+        cursor: move;
+    }
 }

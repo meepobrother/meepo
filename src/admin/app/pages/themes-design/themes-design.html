@@ -14,11 +14,15 @@
     </div>
     <div class="container-center">
         <div class="ibox">
-            <div class="ibox-title"></div>
+            <div class="ibox-title" style="text-align:center;">
+                <a class="btn btn-primary" (click)="onHeader()">头部</a>
+                <a class="btn btn-primary" (click)="onBody()">主体</a>
+                <a class="btn btn-primary" (click)="onFooter()">尾部</a>
+                <a class="btn btn-primary" (click)="onMenu()">菜单</a>
+            </div>
             <div class="ibox-content">
                 <iphone6>
-                    <layout-view *ngIf="currentPage" [widget]="currentPage"></layout-view>
-                    <!-- <free-widget-view [ngStyle]="widget.containerStyle" [ngClass]="widget.containerClass" *ngFor="let widget of widgets" [widget]="widget"></free-widget-view> -->
+                    <layout-view [widget]="currentPage"></layout-view>
                 </iphone6>
             </div>
         </div>
