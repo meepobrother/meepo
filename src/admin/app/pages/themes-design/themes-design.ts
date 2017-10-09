@@ -71,7 +71,7 @@ export class ThemesDesign implements OnInit, AfterViewInit {
     // 页面导航
 
 
-    // 添加item
+    // 添加组件
     addWidget(name: string) {
         this.components$.selectComponent(name);
         // 选择后 添加
@@ -102,9 +102,8 @@ export class ThemesDesign implements OnInit, AfterViewInit {
                 this.currentPage.body.children.push(widget);
                 break;
         }
-        console.log(this.currentPage);
     }
-
+    // 添加组件
 
     ngAfterViewInit() {
         console.log('ngAfterViewInit', this._view);
@@ -125,9 +124,10 @@ export class ThemesDesign implements OnInit, AfterViewInit {
 
     ngOnInit() {
         this.page$.getList();
-        console.log(this.page$);
     }
 
+
+    // 添加页面
     addPage() {
         const dialogRef = this.dialog.open(AddPageDialog);
         dialogRef.afterClosed().subscribe(res => {

@@ -14,6 +14,11 @@ export class LayoutMenuView implements OnInit, OnChanges {
     @Input() widget: LayoutMenu = new LayoutMenu();
     @HostBinding('class.layout-menu') _menu: boolean = true;
     @HostBinding('class.active') _active: boolean = false;
+    @HostBinding('class.left') _left: boolean = true;
+    
+    @HostBinding('class.layout-menu-close') _close: boolean = true;
+    @HostBinding('class.layout-menu-open') _open: boolean = false;
+    
     
     @HostListener('click', ['$event'])
     onClick(evt: any) {
@@ -26,8 +31,10 @@ export class LayoutMenuView implements OnInit, OnChanges {
         this.layout.onChange.debounceTime(300).subscribe(res=>{
             if(res === this.widget){
                 this._active = true;
+                this._close = false;
             }else{
                 this._active = false;
+                this._close = true;
             }
         });
     }

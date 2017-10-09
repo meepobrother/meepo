@@ -54,3 +54,17 @@
         }
     }
 }
+
+.left {
+    &.layout-menu-close {
+        left: -100% !important;
+        transition: .5s ease;
+    }
+}
+
+.right {
+    &.layout-menu-close {
+        right: -100% !important;
+        transition: .5s ease;
+    }
+}
