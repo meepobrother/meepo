@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { PageService, ApplicationService, WidgetService, ComponentsService } from '../../design';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import {
+    PageService, ApplicationService, WidgetService,
+    ComponentsService, LayoutView, WeuiPage
+} from '../../design';
 import { MatDialog } from '@angular/material';
 import { AddPageDialog } from './add-page-dialog';
 import { Button } from '../../design';
@@ -19,10 +22,14 @@ import uuid from 'uuid';
     templateUrl: './themes-design.html',
     styleUrls: ['./themes-design.scss']
 })
-export class ThemesDesign implements OnInit {
+export class ThemesDesign implements OnInit, AfterViewInit {
+
+    @ViewChild(LayoutView) _view: LayoutView;
+
+
     widgets: any[] = [];
     currentWidget: any;
-    currentPage: any;
+    currentPage: any = new WeuiPage();
     constructor(
         public page$: PageService,
         public application$: ApplicationService,
@@ -30,20 +37,26 @@ export class ThemesDesign implements OnInit {
         public widget$: WidgetService,
         public components$: ComponentsService
     ) {
-        this.widget$.setCurrentWidgetStream.subscribe(res=>{
-            console.log('激活',res);
+        // 设置当前
+        this.widget$.setCurrentWidgetStream.subscribe(res => {
             this.currentWidget = res;
+        });
+        // 选择后 添加
+        const onSelectStream = this.components$.onSelectStream.subscribe(widget => {
+            const newWidget = this.cloneObj(widget);
+            this.widget$.addItem(newWidget);
+            onSelectStream.unsubscribe();
         });
     }
 
+    ngAfterViewInit() {
+        console.log('ngAfterViewInit', this._view);
+    }
+
+
+    // 添加item
     addWidget(name: string) {
         this.components$.selectComponent(name);
-        const onSelectStream = this.components$.onSelectStream.subscribe(widget => {
-            const newWidget = this.cloneObj(widget);
-            console.log(newWidget);
-            this.widgets.push(newWidget);
-            onSelectStream.unsubscribe();
-        });
     }
 
     cloneObj(obj: any) {
@@ -72,13 +85,12 @@ export class ThemesDesign implements OnInit {
             }
         });
     }
-
+    // 删除页面
     deletePage(item: any) {
         this.page$.delete(item);
     }
-
+    // 编辑页面
     editPage(page: any) {
-        console.log(page);
         const dialogRef = this.dialog.open(AddPageDialog, { data: page });
         dialogRef.afterClosed().subscribe(res => {
             if (res) {
@@ -86,7 +98,7 @@ export class ThemesDesign implements OnInit {
             }
         });
     }
-
+    // 保存页面
     savePage() {
 
     }
@@ -95,21 +107,21 @@ export class ThemesDesign implements OnInit {
         loading: false,
         title: '立即保存'
     };
-
+    // 保存中
     setSaveBtnLoading() {
         this.saveBtn = {
             loading: true,
             title: '保存中...'
         }
     }
-
+    // 保存成功
     setSaveBtnSuccess() {
         this.saveBtn = {
             loading: false,
             title: '立即保存'
         }
     }
-
+    // 保存当前页面
     saveCurrentPage() {
         this.setSaveBtnLoading();
         if (this.currentPage) {
@@ -122,6 +134,7 @@ export class ThemesDesign implements OnInit {
             this.setSaveBtnSuccess();
         }, 800);
     }
+
     productCurrentPage() {
         console.log(this.page$);
     }

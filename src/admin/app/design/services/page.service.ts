@@ -12,14 +12,30 @@ export class PageService {
     // 列表变化
     onChange: Subject<any> = new Subject();
 
+    currentWidget: any;
+    setCurrentWidgetStream: Subject<any> = new Subject();
     // 页面数据
     dates: any[] = [];
-    constructor() {
+    constructor(
+        public widgetService: WidgetService
+    ) {
         this.onChange.subscribe(() => {
             // 转化成数组
             this.dates = this._mapToArray(this.list);
             this.saveToCache();
         });
+        // 当widget激活状态改变时 更新列表
+        // this.widgetService.setCurrentWidgetStream.subscribe(res=>{
+        //     // 当前current
+        //     if(res.isContainer){
+                
+        //     }
+        // });
+    }
+
+    setCurrentWidget(widget: any){
+        this.currentWidget = widget;
+        this.setCurrentWidgetStream.next(this.currentWidget);
     }
 
     _mapToArray(map: Map<any, any>) {

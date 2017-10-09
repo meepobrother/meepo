@@ -1,5 +1,7 @@
+import uuid from 'uuid';
 // 面板
 export class Widget {
+    code: string = uuid();
     type: string = 'widget';
     name: string = '基础面板';
     // 面板内容
