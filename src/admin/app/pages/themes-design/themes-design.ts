@@ -42,7 +42,7 @@ export class ThemesDesign implements OnInit, AfterViewInit {
         public components$: ComponentsService,
         public layout$: LayoutService
     ) {
-        this.layout$.onChange.subscribe(container=>{
+        this.layout$.onChange.subscribe(container => {
             this._container = container;
         });
         // 设置当前
@@ -53,27 +53,22 @@ export class ThemesDesign implements OnInit, AfterViewInit {
 
     // 页面导航
 
-    onHeader(){
+    onHeader() {
         this.layout$.onHeader(this.currentPage.header);
     }
 
-    onFooter(){
+    onFooter() {
         this.layout$.onFooter(this.currentPage.footer);
     }
 
-    onBody(){
+    onBody() {
         this.layout$.onBody(this.currentPage.body);
     }
 
-    onMenu(){
+    onMenu() {
         this.layout$.onMenu(this.currentPage.menu);
     }
     // 页面导航
-
-
-    ngAfterViewInit() {
-        console.log('ngAfterViewInit', this._view);
-    }
 
 
     // 添加item
@@ -84,12 +79,35 @@ export class ThemesDesign implements OnInit, AfterViewInit {
             const newWidget = this.cloneObj(widget) as Widget;
             this.widget$.addItem(newWidget);
             // 判断容器类型
-            if(this._container.type == 'layout-body'){
-                console.log(this._view);
-                this._view._container._body.widget.children.push(newWidget);
-            }
+            this.addToContainer(widget);
             onSelectStream.unsubscribe();
         });
+    }
+
+    addToContainer(widget: any) {
+        switch (this._container.type) {
+            case 'layout-body':
+                this.currentPage.body.children.push(widget);
+                break;
+            case 'layout-header':
+                this.currentPage.header.children.push(widget);
+                break;
+            case 'layout-footer':
+                this.currentPage.footer.children.push(widget);
+                break;
+            case 'layout-menu':
+                this.currentPage.menu.children.push(widget);
+                break;
+            default:
+                this.currentPage.body.children.push(widget);
+                break;
+        }
+        console.log(this.currentPage);
+    }
+
+
+    ngAfterViewInit() {
+        console.log('ngAfterViewInit', this._view);
     }
 
     cloneObj(obj: any) {
