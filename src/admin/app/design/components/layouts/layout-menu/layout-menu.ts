@@ -1,6 +1,7 @@
 import { LayoutWidget } from '../widget';
 export class LayoutMenu extends LayoutWidget {
     direction: string = 'left';
+    open: boolean = false;
     constructor() {
         super();
         this.type = 'layout-menu';
@@ -11,19 +12,20 @@ export class LayoutMenu extends LayoutWidget {
     }
 
     setContainerClass() {
-        const containerClass: Map<string, boolean> = new Map();
-        containerClass.set('layout-menu', true);
+        this.containerClass = { 'layout-menu': true, left: true, right: false };
+    }
 
-        this.containerClass = containerClass;
+    setContainerStyle() {
+        this.containerStyle = { 'left': '100%'}
     }
 
     setLeft() {
-        this.containerClass.set('left', true);
-        this.containerClass.set('right', false);
+        this.containerClass['left'] = true;
+        this.containerClass['right'] = false;
     }
 
     setRight() {
-        this.containerClass.set('left', false);
-        this.containerClass.set('right', true);
+        this.containerClass['left'] = false;
+        this.containerClass['right'] = true;
     }
 }

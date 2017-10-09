@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { Layout } from '../layout';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { LayoutContainer } from '../../layout-container';
 import {
-    _headerBodyFooterLayout, _bodyFooterLayout,
-    _bodyFooterMenuLeftLayout, _bodyFooterMenuRightLayout,
-    _headerBodyFooterMenuLeftLayout, _headerBodyFooterMenuRightLayout,
-    _bodyLayout, _headerBodyLayout
+    headerBodyFooter, bodyFooter,
+    bodyFooterMenuLeft, bodyFooterMenuRight,
+    headerBodyFooterMenuLeft, headerBodyFooterMenuRight,
+    body, headerBody
 } from './themes';
 @Component({
     selector: 'layout-select',
@@ -12,15 +12,17 @@ import {
     styleUrls: ['./layout-select.scss']
 })
 export class LayoutSelect implements OnInit {
-    widgets: Layout[] = [
-        _bodyLayout,
-        _headerBodyLayout,
-        _bodyFooterLayout,
-        _headerBodyFooterLayout,
-        _bodyFooterMenuLeftLayout,
-        _bodyFooterMenuRightLayout,
-        _headerBodyFooterMenuLeftLayout,
-        _headerBodyFooterMenuRightLayout
+    @Output() onSelect: EventEmitter<any> = new EventEmitter();
+    
+    widgets: LayoutContainer[] = [
+        body,
+        bodyFooter,
+        bodyFooterMenuRight,
+        bodyFooterMenuLeft,
+        headerBody,
+        headerBodyFooter,
+        headerBodyFooterMenuLeft,
+        headerBodyFooterMenuRight,
     ];
     constructor() { }
 
@@ -31,5 +33,7 @@ export class LayoutSelect implements OnInit {
             res.active = false;
         });
         item.active = true;
+        console.log(item);
+        this.onSelect.emit(item);
     }
 }

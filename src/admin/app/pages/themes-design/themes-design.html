@@ -1,5 +1,6 @@
 <div class="container">
     <div class="container-left">
+<<<<<<< HEAD
         <div class="ibox-content">
             <nav-tabs>
                 <nav-tab-pane title="页面管理">
@@ -24,16 +25,36 @@
                     </ng-template>
                 </nav-tab-pane>
             </nav-tabs>
+=======
+        <div class="aside-title">
+            页面装修
+        </div>
+        <div class="aside">
+            <menu-container (click)="setCurrentPage($event,page)" [class.active]="page.active" (onEdit)="editPage(page)" (onDelete)="deletePage(page)" *ngFor="let page of page$.dates">
+                {{page.title}}
+            </menu-container>
+        </div>
+        <div>
+            <a href="javascript:;" (click)="addPage()" class="btn btn-default">+添加页面</a>
+>>>>>>> meepo-runner
         </div>
 
     </div>
     <div class="container-center">
         <div class="ibox">
-            <div class="ibox-title"></div>
+            <div class="ibox-title" style="text-align:center;">
+                <a class="btn btn-primary" (click)="onHeader()">头部</a>
+                <a class="btn btn-primary" (click)="onBody()">主体</a>
+                <a class="btn btn-primary" (click)="onFooter()">尾部</a>
+                <a class="btn btn-primary" (click)="onMenu()">菜单</a>
+            </div>
             <div class="ibox-content">
                 <iphone6>
-                    <free-widget-view [ngStyle]="widget.widgetContaiernStyle" [ngClass]="widget.widgetContaiernClass" (click)="setCurrentView(widget)" *ngFor="let widget of widgets" [widget]="widget"></free-widget-view>
+                    <layout-view [widget]="currentPage"></layout-view>
                 </iphone6>
+            </div>
+            <div class="ibox-content">
+                <a href="javascript:;" class="btn btn-primary" (click)="switchMenu()">菜单切换</a>
             </div>
         </div>
     </div>
@@ -41,7 +62,7 @@
     <div class="container-right">
         <div class="ibox">
             <div class="ibox-title">
-                <h5>参数设置</h5>
+                <h5>{{currentWidget?.name}}参数设置</h5>
             </div>
             <div class="ibox-content">
                 <free-widget-setting [widget]="currentWidget"></free-widget-setting>

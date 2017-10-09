@@ -1,6 +1,6 @@
 import { LayoutWidget } from '../widget';
-export class LayoutHeader extends LayoutWidget{
-    constructor(){
+export class LayoutHeader extends LayoutWidget {
+    constructor() {
         super();
         this.type = 'layout-header';
         this.name = '布局-头部';
@@ -9,9 +9,7 @@ export class LayoutHeader extends LayoutWidget{
         this.setContainerClass();
     }
 
-    setContainerClass(){
-        const containerClass: Map<string,boolean> = new Map();
-        containerClass.set('layout-header',true);
-        this.containerClass = containerClass;
+    setContainerClass() {
+        this.containerClass = { 'layout-header': true };
     }
 }

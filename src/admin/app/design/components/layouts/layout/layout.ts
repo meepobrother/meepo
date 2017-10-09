@@ -1,7 +1,7 @@
 import { LayoutWidget } from '../widget';
 export class Layout extends LayoutWidget {
     active: boolean = false;
-    constructor(){
+    constructor() {
         super();
         this.children = [];
         this.type = 'layout';
@@ -10,9 +10,7 @@ export class Layout extends LayoutWidget {
         this.setContainerClass();
     }
 
-    setContainerClass(){
-        const containerClass: Map<string,boolean> = new Map();
-        containerClass.set('layout',true);
-        this.containerClass = containerClass;
+    setContainerClass() {
+        this.containerClass = { 'layout': true };
     }
 }

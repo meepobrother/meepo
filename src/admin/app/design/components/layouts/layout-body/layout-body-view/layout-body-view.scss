@@ -1,4 +1,14 @@
 :host {
     flex: 1;
     height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    &.active {
+        background-color: #ccc;
+    }
+    &:hover {
+        border: 2px dashed #00a0e9;
+        cursor: move;
+    }
 }
