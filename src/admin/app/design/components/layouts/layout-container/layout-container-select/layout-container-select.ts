@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
 import { LayoutContainer } from '../layout-container';
 @Component({
@@ -7,6 +7,7 @@ import { LayoutContainer } from '../layout-container';
     styleUrls: ['./layout-container-select.scss']
 })
 export class LayoutContainerSelect implements OnInit {
+    @Output() onSelect: EventEmitter<any> = new EventEmitter();
     constructor(
         public dialog: MatDialogRef<any>
     ) { }
@@ -15,6 +16,7 @@ export class LayoutContainerSelect implements OnInit {
 
     select(){
         const footer = new LayoutContainer();
+        this.onSelect.emit(footer);
         this.dialog.close(footer);
     }
 }

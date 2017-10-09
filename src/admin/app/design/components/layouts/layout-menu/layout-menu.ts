@@ -11,19 +11,16 @@ export class LayoutMenu extends LayoutWidget {
     }
 
     setContainerClass() {
-        const containerClass: Map<string, boolean> = new Map();
-        containerClass.set('layout-menu', true);
-
-        this.containerClass = containerClass;
+        this.containerClass = { 'layout-menu': true, left: true, right: false };
     }
 
     setLeft() {
-        this.containerClass.set('left', true);
-        this.containerClass.set('right', false);
+        this.containerClass['left'] = true;
+        this.containerClass['right'] = false;        
     }
 
     setRight() {
-        this.containerClass.set('left', false);
-        this.containerClass.set('right', true);
+        this.containerClass['left'] = false;
+        this.containerClass['right'] = true;
     }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Layout } from '../layout';
 import {
     _headerBodyFooterLayout, _bodyFooterLayout,
@@ -12,6 +12,8 @@ import {
     styleUrls: ['./layout-select.scss']
 })
 export class LayoutSelect implements OnInit {
+    @Output() onSelect: EventEmitter<any> = new EventEmitter();
+    
     widgets: Layout[] = [
         _bodyLayout,
         _headerBodyLayout,
@@ -31,5 +33,7 @@ export class LayoutSelect implements OnInit {
             res.active = false;
         });
         item.active = true;
+        console.log(item);
+        this.onSelect.emit(item);
     }
 }

@@ -6,27 +6,22 @@ import { LayoutMenu } from '../../../layout-menu';
 import { Layout } from '../../layout';
 
 
-const _layoutHeader = new LayoutHeader();
-const headerStyle: Map<string, string> = new Map();
-headerStyle.set('background', 'red');
-_layoutHeader.containerStyle = headerStyle;
-const _layoutBody = new LayoutBody();
 
-const bodyStyle: Map<string, string> = new Map();
-bodyStyle.set('background', 'green');
-_layoutBody.containerStyle = bodyStyle;
+const _layoutHeader = new LayoutHeader();
+_layoutHeader.containerStyle = { 'background': 'red' };
+
+const _layoutBody = new LayoutBody();
+_layoutBody.containerStyle = { 'background': 'green' };
 
 const _layoutFooter = new LayoutFooter();
-
-const footerStyle: Map<string, string> = new Map();
-footerStyle.set('background', 'red');
-_layoutFooter.containerStyle = footerStyle;
+_layoutFooter.containerStyle = { 'background': 'red' };
 
 
 const _layoutMenu = new LayoutMenu();
+_layoutMenu.containerStyle = { 'background': 'rgba(0, 0, 0, 0.38)' };
+
 
 export const _bodyFooterLayout = new Layout();
-_bodyFooterLayout.name = '中下-布局';
 const _layoutContainer = new LayoutContainer();
 
 _layoutContainer.children = [

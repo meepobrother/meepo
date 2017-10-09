@@ -3,7 +3,7 @@ import {
     ViewChild, ViewContainerRef,
     ComponentFactoryResolver, ElementRef,
     ViewEncapsulation, AfterViewInit, OnDestroy,
-    OnChanges, Renderer2, HostListener
+    OnChanges, Renderer2, HostListener, HostBinding
 } from '@angular/core';
 import { WidgetService } from '../../services';
 import { ComponentPortal } from '@angular/cdk/portal';
@@ -16,9 +16,19 @@ import { COMPONENTS_VIEW } from '../../components';
     styleUrls: ['./free-widget-view.scss']
 })
 export class FreeWidgetView implements OnInit, AfterViewInit, OnDestroy, OnChanges {
+    @HostBinding('class.active') _active: boolean = false;
     @HostListener('mouseover', ['$event'])
-    mouseover() {
+    mouseover(evt: any) {
         // 鼠标移动到改元素时 改变设置
+        this._active = true;
+        evt.stopPropagation();
+    }
+
+    @HostListener('mouseout', ['$event'])
+    mouseout(evt: any) {
+        // 鼠标移动到改元素时 改变设置
+        this._active = false;
+        evt.stopPropagation();
     }
     // 组件列表
     _widget: any;

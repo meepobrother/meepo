@@ -1,6 +1,6 @@
 import { LayoutWidget } from '../widget';
-export class LayoutBody extends LayoutWidget{
-    constructor(){
+export class LayoutBody extends LayoutWidget {
+    constructor() {
         super();
         this.type = 'layout-body';
         this.name = '布局-主体';
@@ -9,9 +9,7 @@ export class LayoutBody extends LayoutWidget{
         this.setContainerClass();
     }
 
-    setContainerClass(){
-        const containerClass: Map<string,boolean> = new Map();
-        containerClass.set('layout-body',true);
-        this.containerClass = containerClass;
+    setContainerClass() {
+        this.containerClass = { 'layout-body': true };
     }
 }

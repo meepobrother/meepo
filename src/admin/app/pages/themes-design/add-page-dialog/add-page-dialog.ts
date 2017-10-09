@@ -45,4 +45,8 @@ export class AddPageDialog implements OnInit {
     save() {
         this.dialog.close(this.form.value as WeuiPage);
     }
+
+    onSelectTheme(e: any){
+        this.form.get('children').setValue([e]);
+    }
 }
