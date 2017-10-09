@@ -21,17 +21,12 @@ const _layoutMenu = new LayoutMenu();
 _layoutMenu.containerStyle = { 'background': 'rgba(0, 0, 0, 0.38)' };
 _layoutMenu.setRight();
 
-export const _headerBodyFooterMenuRightLayout = new Layout();
 
-const _layoutContainer = new LayoutContainer();
+export const headerBodyFooterMenuRight = new LayoutContainer();
 
-_layoutContainer.children = [
+headerBodyFooterMenuRight.children = [
     _layoutHeader,
     _layoutBody,
     _layoutFooter,
     _layoutMenu
-];
-
-_headerBodyFooterMenuRightLayout.children = [
-    _layoutContainer
 ];

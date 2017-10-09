@@ -4,25 +4,22 @@ import { LayoutBody } from './layout-body';
 import { LayoutFooter } from './layout-footer';
 import { LayoutHeader } from './layout-header';
 import { LayoutMenu } from './layout-menu';
-
+import { LayoutWidget } from './widget';
 @Injectable()
 export class LayoutService {
 
-    onBodyStream: Subject<LayoutBody> = new Subject();
-    onFooterStream: Subject<LayoutFooter> = new Subject();
-    onHeaderStream: Subject<LayoutHeader> = new Subject();
-    onMenuStream: Subject<LayoutMenu> = new Subject();    
+    onChange: Subject<LayoutWidget> = new Subject();
     
     onBody(body: LayoutBody){
-        this.onBodyStream.next(body);
+        this.onChange.next(body);
     }
     onFooter(footer: LayoutFooter ){
-        this.onFooterStream.next(footer);
+        this.onChange.next(footer);
     }
     onHeader(header: LayoutHeader ){
-        this.onHeaderStream.next(header);
+        this.onChange.next(header);
     }
     onMenu(menu: LayoutMenu ){
-        this.onMenuStream.next(menu);
+        this.onChange.next(menu);
     }
 }

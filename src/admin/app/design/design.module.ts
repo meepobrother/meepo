@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { COMPONENTS, ComponentsService } from './components';
+import { COMPONENTS, ComponentsService, LayoutService} from './components';
 import { SERVICES } from './services';
 
 import { NavTabsModule, MeepoFormFieldModule, WeuiPickerModule, PriceListModule } from '../components';
@@ -29,7 +29,8 @@ import { DesignLayoutsModule } from './layouts';
     ],
     providers: [
         ...SERVICES,
-        ComponentsService
+        ComponentsService,
+        LayoutService
     ],
     entryComponents: [
         ...COMPONENTS

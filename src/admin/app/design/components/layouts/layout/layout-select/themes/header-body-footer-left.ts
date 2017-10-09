@@ -21,17 +21,13 @@ const _layoutLeftMenu = new LayoutMenu();
 _layoutLeftMenu.containerStyle = { 'background': 'rgba(0, 0, 0, 0.38)' };
 _layoutLeftMenu.setLeft();
 
-export const _headerBodyFooterMenuLeftLayout = new Layout();
 
-const _layoutContainer = new LayoutContainer();
+export const headerBodyFooterMenuLeft = new LayoutContainer();
 
-_layoutContainer.children = [
+headerBodyFooterMenuLeft.children = [
     _layoutHeader,
     _layoutBody,
     _layoutFooter,
     _layoutLeftMenu
 ];
 
-_headerBodyFooterMenuLeftLayout.children = [
-    _layoutContainer
-];

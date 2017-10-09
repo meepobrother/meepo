@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import {
     PageService, ApplicationService, WidgetService,
-    ComponentsService, LayoutView, WeuiPage
+    ComponentsService, LayoutView, WeuiPage, LayoutService,
+    Widget, LayoutContainer
 } from '../../design';
 import { MatDialog } from '@angular/material';
 import { AddPageDialog } from './add-page-dialog';
@@ -29,23 +30,24 @@ export class ThemesDesign implements OnInit, AfterViewInit {
 
     widgets: any[] = [];
     currentWidget: any;
-    currentPage: any = new WeuiPage();
+    currentPage: any = new LayoutContainer();
+
+    // 当前容器
+    _container: any;
     constructor(
         public page$: PageService,
         public application$: ApplicationService,
         public dialog: MatDialog,
         public widget$: WidgetService,
-        public components$: ComponentsService
+        public components$: ComponentsService,
+        public layout$: LayoutService
     ) {
+        this.layout$.onChange.subscribe(container=>{
+            this._container = container;
+        });
         // 设置当前
         this.widget$.setCurrentWidgetStream.subscribe(res => {
             this.currentWidget = res;
-        });
-        // 选择后 添加
-        const onSelectStream = this.components$.onSelectStream.subscribe(widget => {
-            const newWidget = this.cloneObj(widget);
-            this.widget$.addItem(newWidget);
-            onSelectStream.unsubscribe();
         });
     }
 
@@ -57,6 +59,17 @@ export class ThemesDesign implements OnInit, AfterViewInit {
     // 添加item
     addWidget(name: string) {
         this.components$.selectComponent(name);
+        // 选择后 添加
+        const onSelectStream = this.components$.onSelectStream.subscribe(widget => {
+            const newWidget = this.cloneObj(widget) as Widget;
+            this.widget$.addItem(newWidget);
+            // 判断容器类型
+            if(this._container.type == 'layout-body'){
+                console.log(this._view);
+                this._view._container._body.widget.children.push(newWidget);
+            }
+            onSelectStream.unsubscribe();
+        });
     }
 
     cloneObj(obj: any) {
@@ -74,6 +87,7 @@ export class ThemesDesign implements OnInit, AfterViewInit {
 
     ngOnInit() {
         this.page$.getList();
+        console.log(this.page$);
     }
 
     addPage() {

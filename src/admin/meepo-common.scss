@@ -10,6 +10,7 @@
 .layout {
     width: 100%;
     height: 100% !important;
+    position: relative;
     display: flex;
     flex-direction: column;
     .layout-container {

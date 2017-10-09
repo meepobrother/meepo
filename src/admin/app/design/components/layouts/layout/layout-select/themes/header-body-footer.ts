@@ -19,18 +19,14 @@ _layoutFooter.containerStyle = { 'background': 'red' };
 const _layoutMenu = new LayoutMenu();
 _layoutMenu.containerStyle = { 'background': 'rgba(0, 0, 0, 0.38)' };
 
-export const _headerBodyFooterLayout = new Layout();
-const _layoutContainer = new LayoutContainer();
+export const headerBodyFooter = new LayoutContainer();
 
-_layoutContainer.children = [
+headerBodyFooter.children = [
     _layoutHeader,
     _layoutBody,
     _layoutFooter
 ];
 
-_headerBodyFooterLayout.children = [
-    _layoutContainer
-];
 
 
 

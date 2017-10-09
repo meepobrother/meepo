@@ -15,7 +15,6 @@ _layoutBody.containerStyle = { 'background': 'green' };
 const _layoutFooter = new LayoutFooter();
 _layoutFooter.containerStyle = { 'background': 'red' };
 
-
 // 左
 const _layoutLeftMenu = new LayoutMenu();
 _layoutLeftMenu.containerStyle = { 'background': 'rgba(0, 0, 0, 0.38)' };
@@ -23,15 +22,10 @@ _layoutLeftMenu.setLeft();
 
 
 
-export const _bodyFooterMenuLeftLayout = new Layout();
-const _layoutContainer = new LayoutContainer();
+export const bodyFooterMenuLeft = new LayoutContainer();
 
-_layoutContainer.children = [
+bodyFooterMenuLeft.children = [
     _layoutBody,
     _layoutFooter,
     _layoutLeftMenu
-];
-
-_bodyFooterMenuLeftLayout.children = [
-    _layoutContainer
 ];

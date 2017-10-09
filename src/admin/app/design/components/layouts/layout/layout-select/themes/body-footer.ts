@@ -21,16 +21,11 @@ const _layoutMenu = new LayoutMenu();
 _layoutMenu.containerStyle = { 'background': 'rgba(0, 0, 0, 0.38)' };
 
 
-export const _bodyFooterLayout = new Layout();
-const _layoutContainer = new LayoutContainer();
+export const bodyFooter = new LayoutContainer();
 
-_layoutContainer.children = [
+bodyFooter.children = [
     _layoutBody,
     _layoutFooter
-];
-
-_bodyFooterLayout.children = [
-    _layoutContainer
 ];
 
 
