@@ -4,22 +4,21 @@
     bottom: 0px;
     right: 0px;
     top: 0px;
-    li {
+    .group-nav {
         line-height: 44px;
         height: 44px;
     }
+    li {}
     .group-nav {
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: flex-start;
         padding: 0 20px;
-        &.active {
-            background: #ccc;
-        }
         &:hover {
-            background: rgb(0, 88, 126);
-            color: #fff;
+            .right_opts {
+                display: flex;
+            }
         }
         span {
             i {
@@ -45,7 +44,7 @@
 }
 
 .right_opts {
-    display: flex;
+    display: none;
     flex-direction: row;
     flex: 1;
     justify-content: flex-end;
@@ -61,5 +60,15 @@
     }
     span {
         float: right;
+    }
+}
+
+.page-navs {
+    display: block;
+    min-height: 15px;
+    .active {
+        border: 1px solid #efbf1f;
+        background: #fff;
+        z-index: 2;
     }
 }

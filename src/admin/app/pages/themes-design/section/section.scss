@@ -961,14 +961,6 @@ textarea {
     cursor: pointer;
 }
 
-.page-navs li {
-    &:hover .icon-container,
-    &.active .icon-container {
-        display: inline-block;
-        cursor: pointer;
-    }
-}
-
 .group-nav-placeholder {
     height: 42px;
     background-color: #efbf1f;

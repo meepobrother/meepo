@@ -52,12 +52,12 @@ export class CatalogSection implements OnInit {
         const dialogRef = this.dialog.open(AddPageDialog, { data: { cata_id: group.id } });
         dialogRef.afterClosed().subscribe((res) => {
             if (res) {
-                this.catalogService.addPage(res);
+                this.catalogService.addPage(group, res);
             }
         });
     }
 
-    removeGroup(group: any){
+    removeGroup(group: any) {
         this.catalogService.removeGroup(group);
     }
 

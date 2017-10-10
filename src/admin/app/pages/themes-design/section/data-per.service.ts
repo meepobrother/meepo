@@ -12,11 +12,20 @@ export class DataPerService {
     addCatalogGroup(catalogGroup: CatalogGroup) {
         this.cataGroups.push(catalogGroup);
         // 保存缓存
-        store.set('cataData.data', this.cataGroups);
+        this.saveData();
     }
 
     removeCatalogGroup(group: any) {
         const index = this.cataGroups.indexOf(group);
         this.cataGroups.splice(index, 1);
+        this.saveData();
+    }
+
+    saveData(){
+        store.set('cataData.data', this.cataGroups);
+    }
+
+    autoSaveData(){
+
     }
 }

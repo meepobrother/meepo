@@ -20,9 +20,9 @@ export class CatalogService {
         public dataPerService: DataPerService
     ) {
         this.catalogGroupsData = this.dataPerService.cataGroups,
-        this.pageTempDeleteStream.subscribe(() => {
-            // 
-        });
+            this.pageTempDeleteStream.subscribe(() => {
+                // 
+            });
         this.groupTempDeleteStream.subscribe(() => {
             // 
         });
@@ -52,21 +52,32 @@ export class CatalogService {
 
     getPageData() { }
 
-    savePage() { }
+    savePage(group: CatalogGroup, page: any) { 
+        const index = group.pages.indexOf(page);
+        group.pages[index] = page;
+        this.dataPerService.saveData();
+    }
 
     reorderCatalogGroup() { }
 
     reorderCatalogPage() { }
 
-    addPage(page: any) { }
+    addPage(group: CatalogGroup, page: any) { 
+        group.pages.push(page);
+        this.dataPerService.saveData();
+    }
 
     copyPage() { }
 
     canAddPage() { }
 
-    removePage() { }
+    removePage(group: CatalogGroup, page: any) { 
+        const index = group.pages.indexOf(page);
+        group.pages.splice(index,1);
+        this.dataPerService.saveData();
+    }
 
-    removeGroup(group: any) { 
+    removeGroup(group: CatalogGroup) {
         this.dataPerService.removeCatalogGroup(group);
     }
 
