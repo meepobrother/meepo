@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-    selector: 'app-name',
+    selector: 'meepo-tasks-view',
     templateUrl: './name.component.html',
     styleUrls: ['./name.component.scss']
 })
-export class NameComponent implements OnInit {
+export class MeepoTasksView implements OnInit {
     constructor() { }
 
     ngOnInit() { }

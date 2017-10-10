@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-    selector: 'app-name',
-    templateUrl: './name.component.html',
-    styleUrls: ['./name.component.scss']
+    selector: 'meepo-filter-setting',
+    templateUrl: './meepo-filter-setting.html',
+    styleUrls: ['./meepo-filter-setting.scss']
 })
-export class NameComponent implements OnInit {
+export class MeepoFilterSetting implements OnInit {
     constructor() { }
 
     ngOnInit() { }
