@@ -15,10 +15,16 @@ export class AddPageDialog implements OnInit {
         @Inject(MAT_DIALOG_DATA) public data: any,
         public fb: FormBuilder,
         public catalogService: CatalogService
-    ) { 
+    ) {
         this.form = this.fb.group({
             title: [''],
             cata_id: ['']
+        });
+
+        this.dialog.afterOpen().subscribe(() => {
+            const { title, cata_id } = this.data;
+            this.form.get('title').setValue(title);
+            this.form.get('cata_id').setValue(cata_id);            
         });
     }
 

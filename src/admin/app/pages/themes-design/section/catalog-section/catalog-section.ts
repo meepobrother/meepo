@@ -28,7 +28,7 @@ export class CatalogSection implements OnInit {
     clickCata(evt: any) {
 
     }
-
+    // 添加应用
     showAddGroupDialog() {
         const dialogRef = this.dialog.open(AddGroupDialog);
         dialogRef.afterClosed().subscribe((res) => {
@@ -38,7 +38,7 @@ export class CatalogSection implements OnInit {
             }
         });
     }
-
+    // 编辑应用
     showEditGroupDialog(group: any) {
         const dialogRef = this.dialog.open(AddGroupDialog, { data: group });
         dialogRef.afterClosed().subscribe((res) => {
@@ -47,14 +47,18 @@ export class CatalogSection implements OnInit {
             }
         });
     }
-
-    showAddGroupPageDialog(cata_id: string) {
-        const dialogRef = this.dialog.open(AddGroupDialog, { data: { cata_id: cata_id } });
+    // 添加应用页面
+    showAddGroupPageDialog(group: any) {
+        const dialogRef = this.dialog.open(AddPageDialog, { data: { cata_id: group.id } });
         dialogRef.afterClosed().subscribe((res) => {
             if (res) {
-                this.catalogService.addCatalogGroup(res);
+                this.catalogService.addPage(res);
             }
         });
+    }
+
+    removeGroup(group: any){
+        this.catalogService.removeGroup(group);
     }
 
     showAddPageDialog() {

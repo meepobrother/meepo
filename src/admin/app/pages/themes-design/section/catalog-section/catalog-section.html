@@ -5,7 +5,7 @@
                 <i class="icomoon-folder icon-container"></i> {{group.title || '分组名称'}}
             </span>
             <div class="right_opts">
-                <span class="fa fa-remove icon-container" (click)="remove()"></span>
+                <span class="fa fa-remove icon-container" (click)="removeGroup(group)"></span>
                 <span class="fa fa-edit icon-container" (click)="showEditGroupDialog(group)"></span>
                 <span class="fa fa-plus icon-container" (click)="showAddGroupPageDialog(group)"></span>
             </div>

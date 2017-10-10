@@ -4,7 +4,7 @@
     </form-field>
     <form-field>
         <select class="form-control" meepoInput formControlName="cata_id">
-            <option *ngFor="let item of catalogService.getGroupsData()">{{item.title}}</option>
+            <option [attr.value]="cata.id" *ngFor="let cata of catalogService.getGroupsData()">{{cata.title}}</option>
         </select>
     </form-field>
     <div style="text-align: center; margin: 12px;">

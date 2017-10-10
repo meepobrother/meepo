@@ -1,8 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import {
-    DataPerService, CatalogGroup
+    DataPerService
 } from './data-per.service';
+import {
+    CatalogGroup
+} from './model';
 @Injectable()
 export class CatalogService {
     showAddPageDialogStream: Subject<any> = new Subject();
@@ -12,11 +15,11 @@ export class CatalogService {
     pageTempDeleteStream: Subject<any> = new Subject();
     groupTempDeleteStream: Subject<any> = new Subject();
 
-    catalogGroupsData: any[] = [];
+    catalogGroupsData: CatalogGroup[] = [];
     constructor(
         public dataPerService: DataPerService
     ) {
-        this.catalogGroupsData = this.dataPerService.cataData.data,
+        this.catalogGroupsData = this.dataPerService.cataGroups,
         this.pageTempDeleteStream.subscribe(() => {
             // 
         });
@@ -55,7 +58,7 @@ export class CatalogService {
 
     reorderCatalogPage() { }
 
-    addPage() { }
+    addPage(page: any) { }
 
     copyPage() { }
 
@@ -63,7 +66,9 @@ export class CatalogService {
 
     removePage() { }
 
-    removeGroup() { }
+    removeGroup(group: any) { 
+        this.dataPerService.removeCatalogGroup(group);
+    }
 
     detailPage() { }
 

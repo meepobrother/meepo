@@ -1,5 +1,7 @@
 export * from './catalog-page-navs';
 export * from './catalog-section';
+export * from './model';
+
 
 import { CatalogPageNavs } from './catalog-page-navs';
 import { CatalogSection } from './catalog-section';
