@@ -15,6 +15,9 @@
         align-items: center;
         justify-content: flex-start;
         padding: 0 20px;
+        &.active {
+            border-bottom: 1px solid #19b394;
+        }
         &:hover {
             .right_opts {
                 display: flex;
@@ -72,3 +75,5 @@
         z-index: 2;
     }
 }
+
+.group-page-nav {}

@@ -10,7 +10,7 @@
                 <span class="fa fa-plus icon-container" (click)="showAddGroupPageDialog(group)"></span>
             </div>
         </div>
-        <catalog-page-navs [group]="group" (onClickCata)="clickCata($event)"></catalog-page-navs>
+        <catalog-page-navs *ngIf="currentGroupIndex == i" [group]="group" (onClickCata)="clickCata($event)"></catalog-page-navs>
     </li>
 </ul>
 <div class="new-page-wrap">

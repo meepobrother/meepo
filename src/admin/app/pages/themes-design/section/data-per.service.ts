@@ -7,7 +7,9 @@ import { CatalogGroup } from './model';
 @Injectable()
 export class DataPerService {
 
-    cataGroups: CatalogGroup[] = store.get('cataData.data',[]);
+    constructor() { }
+
+    cataGroups: CatalogGroup[] = store.get('cataData.data', []);
 
     addCatalogGroup(catalogGroup: CatalogGroup) {
         this.cataGroups.push(catalogGroup);
@@ -21,11 +23,11 @@ export class DataPerService {
         this.saveData();
     }
 
-    saveData(){
+    saveData() {
         store.set('cataData.data', this.cataGroups);
     }
 
-    autoSaveData(){
+    autoSaveData() {
 
     }
 }

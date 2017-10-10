@@ -10,14 +10,19 @@ import { CatalogGroup } from '../model';
 })
 export class CatalogPageNavs implements OnInit {
     @Input() group: CatalogGroup = new CatalogGroup();
-    @Output() onClickCata: EventEmitter<any> = new EventEmitter();
-
+    @Output() onClickPage: EventEmitter<any> = new EventEmitter();
+    currentIndex: number;
     constructor(
         public dialog: MatDialog,
         public service: CatalogService
     ) { }
 
     ngOnInit() { }
+
+    onClick(page: any, index: number){
+        this.currentIndex = index;
+        this.onClickPage.emit(page);
+    }
 
     removePage(page: any) {
         this.service.removePage(this.group,page)
