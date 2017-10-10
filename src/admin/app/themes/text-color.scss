@@ -1,0 +1,7 @@
+@import "./variables/color";
+@each $key,
+$value in $colorMap {
+    .text-#{$key} {
+        color: $value;
+    }
+}

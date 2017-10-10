@@ -17,6 +17,8 @@ export class AddGroupDialog implements OnInit {
             title: [''],
             pages: [[]]
         });
+
+        // this.dialog.
     }
 
     ngOnInit() { }

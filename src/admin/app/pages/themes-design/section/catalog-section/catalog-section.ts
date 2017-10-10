@@ -9,13 +9,17 @@ import { AddGroupDialog, AddPageDialog } from '../../dialog';
     styleUrls: ['./catalog-section.scss']
 })
 export class CatalogSection implements OnInit {
-
+    currentGroupIndex: number;
     constructor(
         public catalogService: CatalogService,
         public dialog: MatDialog
     ) { }
 
     ngOnInit() { }
+
+    onGroup(index: number) {
+        this.currentGroupIndex = index;
+    }
 
     clearEvent(evt: any) {
         evt.stopPropagation();
@@ -31,6 +35,24 @@ export class CatalogSection implements OnInit {
             if (res) {
                 this.catalogService.addCatalogGroup(res);
                 console.log(this.catalogService.getGroupsData());
+            }
+        });
+    }
+
+    showEditGroupDialog(group: any) {
+        const dialogRef = this.dialog.open(AddGroupDialog, { data: group });
+        dialogRef.afterClosed().subscribe((res) => {
+            if (res) {
+                this.catalogService.addCatalogGroup(res);
+            }
+        });
+    }
+
+    showAddGroupPageDialog(cata_id: string) {
+        const dialogRef = this.dialog.open(AddGroupDialog, { data: { cata_id: cata_id } });
+        dialogRef.afterClosed().subscribe((res) => {
+            if (res) {
+                this.catalogService.addCatalogGroup(res);
             }
         });
     }
