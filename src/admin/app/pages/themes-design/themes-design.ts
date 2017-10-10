@@ -4,12 +4,11 @@ import {
     ComponentsService, LayoutView, WeuiPage, LayoutService,
     Widget, LayoutContainer
 } from '../../design';
+
 import { MatDialog } from '@angular/material';
 import { AddPageDialog } from './add-page-dialog';
 import { Button } from '../../design';
 
-import * as Sortable from 'sortablejs';
-console.log(Sortable);
 
 import {
     ButtonView,
@@ -197,7 +196,7 @@ export class ThemesDesign implements OnInit, AfterViewInit {
     setCurrentPage(evt: any, page: any) {
         // 设置激活
         this.page$.list.forEach(page => {
-            page.active = false;
+            page['active'] = false;
         });
         page.active = !page.active;
         this.application$.open();

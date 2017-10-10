@@ -14,9 +14,12 @@ const routes: Routes = [
 ];
 import { ThemesDesignService } from './themes-design.service';
 import { AddPageDialogModule } from './add-page-dialog';
+
+import { SECTIONS, SECTIONS_SERVICES } from './section';
 @NgModule({
     declarations: [
-        ThemesDesign
+        ThemesDesign,
+        ...SECTIONS
     ],
     imports: [
         CommonModule, 
@@ -30,7 +33,8 @@ import { AddPageDialogModule } from './add-page-dialog';
     ],
     providers: [
         ThemesMineService,
-        ThemesDesignService
+        ThemesDesignService,
+        ...SECTIONS_SERVICES
     ]
 })
 export class ThemesDesignModule { }
