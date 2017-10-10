@@ -6,7 +6,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
     styleUrls: ['./catalog-page-navs.scss']
 })
 export class CatalogPageNavs implements OnInit {
-    @Input() group: any[] = [];
+    @Input() group: { pages: any[], title: string } = { pages: [], title: '' };
     @Output() onClickCata: EventEmitter<any> = new EventEmitter();
     constructor() { }
 

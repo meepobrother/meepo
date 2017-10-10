@@ -138,3 +138,30 @@
         }
     }
 }
+
+.edit-group {
+    input {
+        width: 145px;
+        margin-right: 5px;
+        height: 30px;
+        line-height: 30px;
+        border-style: none;
+        border-bottom: 1px dashed #666;
+    }
+    input:focus {
+        outline: none;
+    }
+    button {
+        height: 30px;
+        width: 40px;
+        display: inline-block;
+        line-height: 30px;
+        vertical-align: middle;
+        border-style: none;
+        border-radius: 5px;
+    }
+    .confirm {
+        background: #efbf1f;
+        color: #fff;
+    }
+}

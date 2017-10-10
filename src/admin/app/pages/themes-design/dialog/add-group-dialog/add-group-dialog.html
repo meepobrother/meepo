@@ -1,0 +1,9 @@
+<div class="ibox-content" [formGroup]="form">
+    <form-field>
+        <input type="text" formControlName="title" placeholder="请输入分组名称" meepoInput class="form-control">
+    </form-field>
+    <div style="text-align: center; margin: 12px;">
+        <span class="btn btn-default" (click)="cancelGroupDialog()">取消</span>
+        <span class="btn btn-primary" (click)="clickAddGroupConfirm()">确定</span>
+    </div>
+</div>

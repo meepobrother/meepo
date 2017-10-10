@@ -3,7 +3,7 @@
         <div class="group-nav">
             <span>
                 <i class="icon-folder icon-container"></i>
-                {{group.title}}
+                {{group.title || '分组名称'}}
             </span>
             <div>
                 <span class="icon-delete icon-container"></span>
@@ -18,30 +18,3 @@
     <span (click)="showAddPageDialog()"><i class="icon-container icon-addpage"></i> 添加页面</span>
     <span (click)="showAddGroupDialog()"><i class="icon-container icon-addfolder"></i> 添加分组</span>
 </div>
-<!-- 
-<ul id="group-page-container" class="group-page-container">
-    <li *ngFor="let group of catalogService.getGroupsData(); let i=index" [class.active]="i === 0" class="group-page-nav" [attr.data-index]="i">
-        <div class="group-nav" (click)="clickCataGroup($event)">
-            <span *ngIf="!(isEdit === i)">
-                <i class="icon-folder icon-container"></i> {{group.group}}        
-            </span>
-            <span class="edit-group" *ngIf="isEdit === i"> 
-                <i class="icon-folder icon-container"></i>
-                <input #cateName class="cate-name" (click)="clearEvent()" autofocus="autofocus" onfocus="this.select()" [value]="group.group"/>           
-                <button class="confirm" (click)="confirmEdit(cateName.value,i)">确定</button>
-                <button class="cancel" (click)="cancelEdit(i)">取消</button>
-            </span>
-            <div *ngIf="!(isEdit === i)" style="display: inline;">
-                <span class="icon-delete icon-container" type="group" title="删除" (click)="removeGroup(i)"></span>
-                <span (click)="setEdit(i)" class="icon-edit icon-container" title="编辑组名"></span>
-                <span (click)="addNewPage($event)" class="icon-addpage icon-container" title="添加页面"></span>
-            </div>
-        </div>
-        <catalog-page-navs [group]="group" (onClickCata)="clickCata($event)"></catalog-page-navs>
-    </li>
-</ul>
-</div>
-</div>
-<catalog-page-navs [group]="group" (onClickCata)="clickCata($event)"></catalog-page-navs>
-</li>
-</ul> -->

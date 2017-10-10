@@ -16,10 +16,12 @@ import { ThemesDesignService } from './themes-design.service';
 import { AddPageDialogModule } from './add-page-dialog';
 
 import { SECTIONS, SECTIONS_SERVICES } from './section';
+import { DIALOGS } from './dialog';
 @NgModule({
     declarations: [
         ThemesDesign,
-        ...SECTIONS
+        ...SECTIONS,
+        ...DIALOGS
     ],
     imports: [
         CommonModule, 
@@ -35,6 +37,9 @@ import { SECTIONS, SECTIONS_SERVICES } from './section';
         ThemesMineService,
         ThemesDesignService,
         ...SECTIONS_SERVICES
+    ],
+    entryComponents: [
+        ...DIALOGS
     ]
 })
 export class ThemesDesignModule { }
