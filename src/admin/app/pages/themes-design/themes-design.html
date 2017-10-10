@@ -1,16 +1,17 @@
 <div class="container">
     <div class="container-left">
-        <div class="aside-title">
-            页面装修
-        </div>
-        <div class="aside">
-            <menu-container (click)="setCurrentPage($event,page)" [class.active]="page.active" (onEdit)="editPage(page)" (onDelete)="deletePage(page)" *ngFor="let page of page$.dates">
-                {{page.title}}
-            </menu-container>
-        </div>
-        <div>
-            <a href="javascript:;" (click)="addPage()" class="btn btn-default">+添加页面</a>
-        </div>
+        <nav-tabs>
+            <nav-tab-pane title="应用管理">
+                <ng-template navTabPaneRef>
+                    <catalog-section></catalog-section>
+                </ng-template>
+            </nav-tab-pane>
+            <nav-tab-pane title="组件库">
+                <ng-template navTabPaneRef>
+                    <widget-section></widget-section>
+                </ng-template>
+            </nav-tab-pane>
+        </nav-tabs>
     </div>
     <div class="container-center">
         <div class="ibox">
@@ -26,7 +27,12 @@
                 </iphone6>
             </div>
             <div class="ibox-content">
-                <a href="javascript:;" class="btn btn-primary" (click)="switchMenu()">菜单切换</a>
+                <div class="footer-save">
+                    <a href="javascript:;" (click)="saveCurrentPage()" [class.btn-disable]="saveBtn.loading" class="btn btn-primary ">
+                        <i class="weui-loading" *ngIf="saveBtn.loading"></i>{{saveBtn.title}}
+                    </a>
+                    <a href="javascript:;" (click)="productCurrentPage()" class="btn btn-danger">生成</a>
+                </div>
             </div>
         </div>
     </div>
@@ -120,10 +126,4 @@
 
     </div>
 
-</div>
-<div class="footer-save">
-    <a href="javascript:;" (click)="saveCurrentPage()" [class.btn-disable]="saveBtn.loading" class="btn btn-primary ">
-        <i class="weui-loading" *ngIf="saveBtn.loading"></i>{{saveBtn.title}}
-    </a>
-    <a href="javascript:;" (click)="productCurrentPage()" class="btn btn-danger">生成</a>
 </div>

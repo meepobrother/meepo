@@ -22,6 +22,12 @@ export class NavTabs implements OnInit, AfterContentInit {
 
     @HostBinding('class') _class: string = 'tabs-container';
 
+    _isTabs: boolean = true;
+    @Input() 
+    set isTabs(val: boolean){
+        this._isTabs = isTrueProperty(val);
+    }
+
     @Input()
     set left(val: boolean) {
         if (isTrueProperty(val)) {

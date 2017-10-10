@@ -246,8 +246,8 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-8.0.31.tgz#d9af61093cf4bfc9f066ca34de0175012cfb0ce9"
 
 "@types/node@~6.0.60":
-  version "6.0.88"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-6.0.88.tgz#f618f11a944f6a18d92b5c472028728a3e3d4b66"
+  version "6.0.89"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-6.0.89.tgz#154be0e6a823760cd6083aa8c48f952e2e63e0b0"
 
 "@types/undertaker-registry@*":
   version "1.0.0"
@@ -6840,8 +6840,8 @@ pdf.js@^0.1.0:
     coffee-script latest
 
 pdfjs-dist@^1.9.622:
-  version "1.9.628"
-  resolved "https://registry.yarnpkg.com/pdfjs-dist/-/pdfjs-dist-1.9.628.tgz#d81777f7fbdad98a12e97fa23dfed5c3582e6be3"
+  version "1.9.638"
+  resolved "https://registry.yarnpkg.com/pdfjs-dist/-/pdfjs-dist-1.9.638.tgz#a84075eda03b4f365d26957752a287b17af01b92"
   dependencies:
     node-ensure "^0.0.0"
     worker-loader "^1.0.0"
@@ -8386,6 +8386,10 @@ sort-keys@^1.0.0:
   resolved "https://registry.yarnpkg.com/sort-keys/-/sort-keys-1.1.2.tgz#441b6d4d346798f1b4e49e8920adfba0e543f9ad"
   dependencies:
     is-plain-obj "^1.0.0"
+
+sortablejs@^1.6.1:
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/sortablejs/-/sortablejs-1.6.1.tgz#d120d103fbb9f60c7db27814a1384072e6c6e083"
 
 sorted-object@~2.0.0, sorted-object@~2.0.1:
   version "2.0.1"
