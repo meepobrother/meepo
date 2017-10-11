@@ -9,4 +9,6 @@ export class WidgetView implements OnInit {
     constructor() { }
 
     ngOnInit() { }
+
+    removeWidget(evt: any){}
 }

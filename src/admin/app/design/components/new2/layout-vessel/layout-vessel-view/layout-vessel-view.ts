@@ -5,7 +5,7 @@ import {
 
 @Component({
     selector: 'layout-vessel-view',
-    templateUrl: './layout-vessel-view',
+    templateUrl: './layout-vessel-view.html',
     styleUrls: ['./layout-vessel-view.scss']
 })
 export class LayoutVesselView implements OnInit {
