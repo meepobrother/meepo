@@ -19,7 +19,6 @@ export class Iphone6Component implements OnInit {
 
   ngOnInit() { }
 
-
   applyChange(res: boolean){
     this._open = res;
     if (this._open) {
