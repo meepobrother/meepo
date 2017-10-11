@@ -19,13 +19,14 @@ export class CatalogPageNavs implements OnInit {
 
     ngOnInit() { }
 
-    onClick(page: any, index: number){
+    onClick(page: any, index: number) {
         this.currentIndex = index;
-        this.onClickPage.emit(page);
+        this.service.clickCataPage(this.group, page);
+        this.onClickPage.emit({ page: page, group: this.group, index: index });
     }
 
     removePage(page: any) {
-        this.service.removePage(this.group,page)
+        this.service.removePage(this.group, page)
     }
 
     edigePage(page: any) {

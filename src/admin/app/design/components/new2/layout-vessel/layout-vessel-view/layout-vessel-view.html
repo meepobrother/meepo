@@ -1,0 +1,55 @@
+<div class="control-wrap">
+    <span class="move-handle">
+      <i></i>
+      <i></i>
+      <i></i>
+    </span>
+    <span (click)="removeWidget($event)" class="ele-delete-icon" title="删除">×</span>
+</div>
+<ng-template #placeholder></ng-template>
+    <div class="ele-content js-empty-layout inner-content clearfix {{widget?.type}}" [class.isAuto]="widget.children.leftEles.length!=0||widget.children.rightEles.length!=0" [ngStyle]="widget.style">      
+        <div class="cell js-sort-container js-tip-container ui-sortable componentVessel" 
+        [ngStyle]="{'-webkit-box-flex': widget.customFeature.cellWidth/(100-widget.customFeature.cellWidth),'-moz-box-flex': widget.customFeature.cellWidth/(100-widget.customFeature.cellWidth), '-webkit-flex': widget.customFeature.cellWidth/(100-widget.customFeature.cellWidth),        \'-ms-flex\': widget.customFeature.cellWidth/(100-widget.customFeature.cellWidth),        flex: widget.customFeature.cellWidth/(100-widget.customFeature.cellWidth)      }">        
+        <widget-view *ngFor="let leftChildWidget of widgetService.getWidgetExclude(widget.children.leftEles, 'hotspot')" [widget]="leftChildWidget" [parentForm]="widget.parentForm" id="{{leftChildWidget.id}}" [class.curchange]="leftChildWidget === widgetService.getCurrentWidget()" 
+        (click)="clickWidget(leftChildWidget)"></widget-view>        
+        <free-widget-view 
+            *ngFor="let leftChildWidget of widgetService.getWidgetOnly(widget.children.leftEles, 'hotspot')" 
+            [widget]="leftChildWidget" 
+            [parentForm]="widget.parentForm" 
+            id="{{leftChildWidget.id}}" 
+            [class.curchange]="leftChildWidget === widgetService.getCurrentWidget()" 
+            class="ele-container element {{leftChildWidget?.type}}" 
+            (click)="clickWidget(leftChildWidget)" 
+            [ngStyle]="{position: 'absolute',top: leftChildWidget.style.top,left: leftChildWidget.style.left,width: leftChildWidget.style.width,height: leftChildWidget.style.height}"
+        >
+        </free-widget-view>      
+    </div>
+    <div class="cell js-sort-container js-tip-container border-cell ui-sortable componentVessel" 
+        [ngStyle]="{'border-left-width':widget.customFeature.CellBorderWidth,'border-left-color':widget.customFeature.CellBorderColor,'border-left-style':widget.customFeature.CellBorderStyle}">        
+        <widget-view 
+            *ngFor="let rightChildWidget of widgetService.getWidgetExclude(widget.children.rightEles, \'hotspot\')" 
+            [widget]="rightChildWidget" 
+            [parentForm]="widget.parentForm" 
+            id="{{rightChildWidget.id}}" 
+            [class.curchange]="rightChildWidget === widgetService.getCurrentWidget()" 
+            (click)="clickWidget(rightChildWidget)"
+        >
+        </widget-view>        
+        <free-widget-view *ngFor="let rightChildWidget of widgetService.getWidgetOnly(widget.children.rightEles, \'hotspot\')" 
+            [widget]="rightChildWidget" 
+            [parentForm]="widget.parentForm" 
+            id="{{rightChildWidget.id}}" 
+            [class.curchange]="rightChildWidget === widgetService.getCurrentWidget()" 
+            class="ele-container element {{rightChildWidget?.type}}" 
+            (click)="clickWidget(rightChildWidget)" 
+            [ngStyle]="{            position: \'absolute\',            top: rightChildWidget.style.top,            left: rightChildWidget.style.left,            width: rightChildWidget.style.width,            height: rightChildWidget.style.height        }"
+        >
+        </free-widget-view>      
+    </div>
+    <div class="cell-drag" 
+        [style.opacity]="widget.customFeature.CellBorderStyle !== \'none\'?\'0\':\'1\'" 
+        [ngStyle]="{left:widget.customFeature.cellWidth+\'%\'}"
+    >
+            <span></span>
+    </div>
+</div>

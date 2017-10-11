@@ -16,6 +16,9 @@ export class CatalogService {
     groupTempDeleteStream: Subject<any> = new Subject();
 
     catalogGroupsData: CatalogGroup[] = [];
+
+    currentPage: any;
+    currentGroup: any;
     constructor(
         public dataPerService: DataPerService
     ) {
@@ -28,7 +31,10 @@ export class CatalogService {
         });
     }
 
-    clickCataPage() { }
+    clickCataPage(catalogGroup: CatalogGroup, page: any) { 
+        this.currentPage = page;
+        this.currentGroup = catalogGroup;
+    }
 
     getGroupsData() {
         return this.catalogGroupsData;
@@ -38,7 +44,9 @@ export class CatalogService {
         this.dataPerService.addCatalogGroup(catalogGroup);
     }
 
-    getCatalogGroup() { }
+    getCatalogGroup() { 
+        return this.currentGroup;
+    }
 
     getCurrentPageRouter() { }
 

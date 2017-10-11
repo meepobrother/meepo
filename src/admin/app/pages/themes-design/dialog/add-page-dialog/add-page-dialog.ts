@@ -18,6 +18,8 @@ export class AddPageDialog implements OnInit {
     ) {
         this.form = this.fb.group({
             title: [''],
+            keyword: [''],
+            desc: [''],
             cata_id: ['']
         });
 

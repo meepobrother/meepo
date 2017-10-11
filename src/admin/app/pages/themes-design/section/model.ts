@@ -27,5 +27,12 @@ export class CatalogGroup {
 export class CatalogPage {
     title: string = '';
     id: string = uuid();
+    type: string = 'page';
+
+    // 头部
+    header: any[] = [];
+    body: any[] = [];
+    footer: any[] = [];
+    menu: any[] = [];
 }
 
