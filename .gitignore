@@ -20,3 +20,10 @@ dist/*
 desktop/*
 release/*
 meepo-admin-1.0.0-full.nupkg
+.angular-cli.json
+gulpfile.ts
+meepo.sh
+tsconfig.json
+tslint.json
+yarn.lock
+yarn-error.log
