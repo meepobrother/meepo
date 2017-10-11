@@ -44,6 +44,5 @@ export class LayoutMenuView implements OnInit, OnChanges {
     }
 
     ngOnChanges(changes: SimpleChanges) {
-        console.log('LayoutMenuView', changes);
     }
 }

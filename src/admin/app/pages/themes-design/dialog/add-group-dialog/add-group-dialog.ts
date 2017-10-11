@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, Optional, Input } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import uuid from 'uuid';
@@ -9,10 +9,11 @@ import { CatalogGroup } from '../../section/model';
     styleUrls: ['./add-group-dialog.scss']
 })
 export class AddGroupDialog implements OnInit {
+    // @Input() data: any;
     form: FormGroup;
     constructor(
         public dialog: MatDialogRef<any>,
-        @Inject(MAT_DIALOG_DATA) public data: any,
+        @Optional() @Inject(MAT_DIALOG_DATA) public data: any,
         public fb: FormBuilder
     ) {
         this.form = this.fb.group({
@@ -30,7 +31,12 @@ export class AddGroupDialog implements OnInit {
         });
     }
 
-    ngOnInit() { }
+    ngOnInit() { 
+        const { id,title, pages } = this.data || new CatalogGroup();
+        this.form.get('title').setValue(title);
+        this.form.get('pages').setValue(pages);
+        this.form.get('id').setValue(id);
+    }
 
     cancelGroupDialog() {
         this.dialog.close();
@@ -41,7 +47,6 @@ export class AddGroupDialog implements OnInit {
     }
 
     clickAddGroupConfirm() {
-        console.log(this.form.value);
         this.dialog.close(this.form.value);
     }
 

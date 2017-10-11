@@ -10,7 +10,10 @@ import { CatalogGroup } from '../model';
 })
 export class CatalogPageNavs implements OnInit {
     @Input() group: CatalogGroup = new CatalogGroup();
+    @Input() list: any[] = [];
     @Output() onClickPage: EventEmitter<any> = new EventEmitter();
+    @Output() onChange: EventEmitter<any> = new EventEmitter();
+
     currentIndex: number;
     constructor(
         public dialog: MatDialog,
@@ -22,18 +25,26 @@ export class CatalogPageNavs implements OnInit {
     onClick(page: any, index: number) {
         this.currentIndex = index;
         this.service.clickCataPage(this.group, page);
-        this.onClickPage.emit({ page: page, group: this.group, index: index });
+        this.onChange.emit();
     }
 
     removePage(page: any) {
-        this.service.removePage(this.group, page)
+        const index = this.group.pages.indexOf(page);
+        this.group.pages.splice(index, 1);
+        this.onChange.emit();
     }
 
-    edigePage(page: any) {
+    edigePage(page: any, evt: Event) {
         const dialogRef = this.dialog.open(AddPageDialog, { data: page });
         dialogRef.afterClosed().subscribe((res) => {
-            page = res;
+            for (let i; i < this.group.pages.length; i++) {
+                if (this.group.pages[i].code = res.code) {
+                    this.group.pages[i] = res;
+                }
+            }
+            this.onChange.emit();
         });
+        evt.preventDefault();
     }
 
 }

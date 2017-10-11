@@ -26,12 +26,11 @@ import uuid from 'uuid';
     templateUrl: './themes-design.html',
     styleUrls: ['./themes-design.scss']
 })
-export class ThemesDesign implements OnInit, AfterViewInit {
+export class ThemesDesign {
 
     @ViewChild(LayoutView) _view: LayoutView;
 
-
-    widgets: any[] = [];
+    // 分组列表
     currentWidget: any;
     currentPage: any = new LayoutContainer();
 
@@ -52,6 +51,13 @@ export class ThemesDesign implements OnInit, AfterViewInit {
         // 设置当前
         this.widget$.setCurrentWidgetStream.subscribe(res => {
             this.currentWidget = res;
+        });
+        // 页面激活状态变化时
+        this.catalogService.setCurrentPageStream.subscribe((page)=>{
+            this.application$.open();
+            // 保存当前页面
+            this.currentWidget = page;
+            this.currentPage = page;
         });
     }
 
@@ -80,8 +86,6 @@ export class ThemesDesign implements OnInit, AfterViewInit {
         this.components$.selectComponent(name);
         // 选择后 添加
         const onSelectStream = this.components$.onSelectStream.subscribe(widget => {
-            const newWidget = this.cloneObj(widget) as Widget;
-            this.widget$.addItem(newWidget);
             // 判断容器类型
             this.addToContainer(widget);
             onSelectStream.unsubscribe();
@@ -108,28 +112,7 @@ export class ThemesDesign implements OnInit, AfterViewInit {
         }
     }
     // 添加组件
-
-    ngAfterViewInit() {
-        console.log('ngAfterViewInit', this._view);
-    }
-
-    cloneObj(obj: any) {
-        var newObj = {};
-        if (obj instanceof Array) {
-            newObj = [];
-        }
-        for (var key in obj) {
-            var val = obj[key];
-            //newObj[key] = typeof val === 'object' ? arguments.callee(val) : val; //arguments.callee 在哪一个函数中运行，它就代表哪个函数, 一般用在匿名函数中。  
-            newObj[key] = typeof val === 'object' ? this.cloneObj(val) : val;
-        }
-        return newObj;
-    }
-
-    ngOnInit() {
-        this.page$.getList();
-    }
-
+    
     // 保存页面
     saveBtn: any = {
         loading: false,
@@ -153,7 +136,6 @@ export class ThemesDesign implements OnInit, AfterViewInit {
     saveCurrentPage() {
         this.setSaveBtnLoading();
         if (this.currentPage) {
-            this.currentPage['children'] = this.widgets;
             this.page$.edit(this.currentPage);
         } else {
             console.log('请选择页面');
@@ -163,23 +145,4 @@ export class ThemesDesign implements OnInit, AfterViewInit {
         }, 800);
     }
 
-    productCurrentPage() {
-        console.log(this.page$);
-    }
-    // 设置当前页面
-    setCurrentPage(evt: any, page: any) {
-        // 设置激活
-        this.page$.list.forEach(page => {
-            page['active'] = false;
-        });
-        page.active = !page.active;
-        this.application$.open();
-        // 保存当前页面
-        this.currentPage = page;
-        this.currentWidget = page;
-        this.widgets = page.children || [];
-
-
-        evt.stopPropagation();
-    }
 }
