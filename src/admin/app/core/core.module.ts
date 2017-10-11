@@ -20,6 +20,9 @@ import { ShareModule } from '../share';
 
 import { LoginService } from './login.service';
 
+import { MatDialogModule } from '@angular/material';
+
+
 const modules = [
     CommonModule,
     SidebarModule,
@@ -30,7 +33,8 @@ const modules = [
     ApiModule,
     StylesModule,
     MemberSelectModule,
-    ShareModule
+    ShareModule,
+    MatDialogModule
 ];
 
 @NgModule({

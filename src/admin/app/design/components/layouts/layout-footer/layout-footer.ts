@@ -1,5 +1,6 @@
 import { LayoutWidget } from '../widget';
 export class LayoutFooter extends LayoutWidget {
+    show: boolean = false;
     constructor() {
         super();
         this.type = 'layout-footer';

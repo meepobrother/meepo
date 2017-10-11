@@ -1,0 +1,52 @@
+<div class="row">
+    <div class="col-sm-5">
+        <div class="ibox">
+            <div class="ibox-title">基本配置</div>
+            <div class="ibox-content" [formGroup]="form">
+                <form-field>
+                    <input type="text" formControlName="title" placeholder="请输入页面名称" meepoInput class="form-control">
+                </form-field>
+                <form-field>
+                    <select class="form-control" meepoInput formControlName="cata_id">
+                        <option [attr.value]="cata.id" *ngFor="let cata of catalogService.getGroupsData()">{{cata.title}}</option>
+                    </select>
+                </form-field>
+                <form-field>
+                    <input type="text" formControlName="keyword" placeholder="触发关键字" meepoInput class="form-control">
+                </form-field>
+                <form-field>
+                    <textarea rows="4" formControlName="desc" placeholder="分享简介" meepoInput class="form-control"></textarea>
+                </form-field>
+                <div style="text-align: center; margin: 12px;">
+                    <span class="btn btn-default" (click)="cancelPageDialog()">取消</span>
+                    <span class="btn btn-primary" (click)="clickAddPageConfirm()">确定</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-7">
+        <div class="ibox">
+            <div class="ibox-title">基础模板</div>
+            <div class="ibox-content" [formGroup]="form">
+                <a href="javascript:;" class="btn btn-primary m10">首页模板</a>
+                <a href="javascript:;" class="btn btn-primary m10">发布模板</a>
+                <a href="javascript:;" class="btn btn-primary m10">个人中心</a>
+                <a href="javascript:;" class="btn btn-primary m10">列表模板</a>
+                <a href="javascript:;" class="btn btn-primary m10">详情模板</a>
+            </div>
+        </div>
+        <div class="ibox">
+            <div class="ibox-title">布局</div>
+            <div class="ibox-content">
+                <layout-select (onSelect)="onSelectTheme($event)"></layout-select>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+

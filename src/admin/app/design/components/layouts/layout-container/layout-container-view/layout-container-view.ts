@@ -23,5 +23,7 @@ export class LayoutContainerView implements OnInit {
     
     constructor() { }
 
-    ngOnInit() { }
+    ngOnInit() {
+        console.log(this.widget);
+     }
 }

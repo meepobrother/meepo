@@ -2,8 +2,6 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { LayoutContainer } from '../../layout-container';
 import {
     headerBodyFooter, bodyFooter,
-    bodyFooterMenuLeft, bodyFooterMenuRight,
-    headerBodyFooterMenuLeft, headerBodyFooterMenuRight,
     body, headerBody
 } from './themes';
 @Component({
@@ -17,12 +15,8 @@ export class LayoutSelect implements OnInit {
     widgets: LayoutContainer[] = [
         body,
         bodyFooter,
-        bodyFooterMenuRight,
-        bodyFooterMenuLeft,
         headerBody,
-        headerBodyFooter,
-        headerBodyFooterMenuLeft,
-        headerBodyFooterMenuRight,
+        headerBodyFooter
     ];
     constructor() { }
 

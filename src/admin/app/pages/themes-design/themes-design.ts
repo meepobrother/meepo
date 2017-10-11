@@ -6,8 +6,9 @@ import {
 } from '../../design';
 
 import { MatDialog } from '@angular/material';
-import { AddPageDialog } from './add-page-dialog';
 import { Button } from '../../design';
+
+import { DataPerService, CatalogService } from './section';
 
 
 import {
@@ -42,7 +43,8 @@ export class ThemesDesign implements OnInit, AfterViewInit {
         public dialog: MatDialog,
         public widget$: WidgetService,
         public components$: ComponentsService,
-        public layout$: LayoutService
+        public layout$: LayoutService,
+        public catalogService: CatalogService
     ) {
         this.layout$.onChange.subscribe(container => {
             this._container = container;
@@ -128,34 +130,6 @@ export class ThemesDesign implements OnInit, AfterViewInit {
         this.page$.getList();
     }
 
-
-    // 添加页面
-    addPage() {
-        const dialogRef = this.dialog.open(AddPageDialog);
-        dialogRef.afterClosed().subscribe(res => {
-            console.log(res);
-            if (res) {
-                this.page$.add(res);
-            }
-        });
-    }
-    // 删除页面
-    deletePage(item: any) {
-        this.page$.delete(item);
-    }
-    // 编辑页面
-    editPage(page: any) {
-        const dialogRef = this.dialog.open(AddPageDialog, { data: page });
-        dialogRef.afterClosed().subscribe(res => {
-            if (res) {
-                this.page$.edit(res);
-            }
-        });
-    }
-    // 保存页面
-    savePage() {
-
-    }
     // 保存页面
     saveBtn: any = {
         loading: false,

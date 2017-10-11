@@ -9,6 +9,7 @@ import { Layout } from '../../layout';
 
 const _layoutHeader = new LayoutHeader();
 _layoutHeader.containerStyle = { 'background': 'red' };
+_layoutHeader.show = true;
 
 const _layoutBody = new LayoutBody();
 _layoutBody.containerStyle = { 'background': 'green' };
@@ -21,8 +22,4 @@ const _layoutMenu = new LayoutMenu();
 _layoutMenu.containerStyle = { 'background': 'rgba(0, 0, 0, 0.38)' };
 
 export const headerBody = new LayoutContainer();
-
-headerBody.children = [
-    _layoutHeader,
-    _layoutBody
-];
+headerBody.header = _layoutHeader;

@@ -1,8 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import {
-    DataPerService, CatalogGroup
+    DataPerService
 } from './data-per.service';
+import {
+    CatalogGroup
+} from './model';
 @Injectable()
 export class CatalogService {
     showAddPageDialogStream: Subject<any> = new Subject();
@@ -12,20 +15,29 @@ export class CatalogService {
     pageTempDeleteStream: Subject<any> = new Subject();
     groupTempDeleteStream: Subject<any> = new Subject();
 
-    catalogGroupsData: any[] = [];
+    catalogGroupsData: CatalogGroup[] = [];
+
+    currentPage: any;
+    setCurrentPageStream: Subject<any> = new Subject();
+
+    currentGroup: any;
     constructor(
         public dataPerService: DataPerService
     ) {
-        this.catalogGroupsData = this.dataPerService.cataData.data,
-        this.pageTempDeleteStream.subscribe(() => {
-            // 
-        });
+        this.catalogGroupsData = this.dataPerService.cataGroups,
+            this.pageTempDeleteStream.subscribe(() => {
+                // 
+            });
         this.groupTempDeleteStream.subscribe(() => {
             // 
         });
     }
 
-    clickCataPage() { }
+    clickCataPage(catalogGroup: CatalogGroup, page: any) { 
+        this.currentPage = page;
+        this.currentGroup = catalogGroup;
+        this.setCurrentPageStream.next(page);
+    }
 
     getGroupsData() {
         return this.catalogGroupsData;
@@ -35,7 +47,9 @@ export class CatalogService {
         this.dataPerService.addCatalogGroup(catalogGroup);
     }
 
-    getCatalogGroup() { }
+    getCatalogGroup() { 
+        return this.currentGroup;
+    }
 
     getCurrentPageRouter() { }
 
@@ -49,21 +63,34 @@ export class CatalogService {
 
     getPageData() { }
 
-    savePage() { }
+    savePage(group: CatalogGroup, page: any) { 
+        const index = group.pages.indexOf(page);
+        group.pages[index] = page;
+        this.dataPerService.saveData();
+    }
 
     reorderCatalogGroup() { }
 
     reorderCatalogPage() { }
 
-    addPage() { }
+    addPage(group: CatalogGroup, page: any) { 
+        group.pages.push(page);
+        this.dataPerService.saveData();
+    }
 
     copyPage() { }
 
     canAddPage() { }
 
-    removePage() { }
+    removePage(group: CatalogGroup, page: any) { 
+        const index = group.pages.indexOf(page);
+        group.pages.splice(index,1);
+        this.dataPerService.saveData();
+    }
 
-    removeGroup() { }
+    removeGroup(group: CatalogGroup) {
+        this.dataPerService.removeCatalogGroup(group);
+    }
 
     detailPage() { }
 

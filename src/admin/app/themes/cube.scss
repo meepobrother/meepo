@@ -1,0 +1,54 @@
+$mui: 'imui';
+.#{$mui}-cube {
+    height: 0;
+    width: 100%;
+    margin: 0;
+    padding-bottom: 50%;
+    position: relative;
+    .#{$mui}-cube-left {
+        width: 50%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    .#{$mui}-cube-right {
+        width: 50%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 50%;
+    }
+    .#{$mui}-cube-right1 {
+        width: 100%;
+        height: 50%;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    .#{$mui}-cube-right2 {
+        width: 100%;
+        height: 50%;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        .left {
+            width: 50%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .right {
+            width: 50%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 50%;
+        }
+    }
+    img {
+        width: 100%;
+        height: 100%;
+    }
+}

@@ -1,20 +1,19 @@
-<ul class="group-page-container ui-sortable">
-    <li class="group-page-nav" *ngFor="let group of catalogService.getGroupsData();index as i;">
-        <div class="group-nav">
+<ul class="catalog-container">
+    <li class="group-page-nav" (click)="onGroup(i)" *ngFor="let group of catalogService.getGroupsData();index as i;">
+        <div class="group-nav" [class.active]="currentGroupIndex === i">
             <span>
-                <i class="icon-folder icon-container"></i>
-                {{group.title || '分组名称'}}
+                <i class="icomoon-folder icon-container"></i> {{group.title || '分组名称'}}
             </span>
-            <div>
-                <span class="icon-delete icon-container"></span>
-                <span class="icon-edit icon-container"></span>
-                <span class="icon-addpage icon-container"></span>
+            <div class="right_opts">
+                <span class="fa fa-remove icon-container" (click)="removeGroup(group)"></span>
+                <span class="fa fa-edit icon-container" (click)="showEditGroupDialog(group)"></span>
+                <span class="fa fa-plus icon-container" (click)="showAddGroupPageDialog(group)"></span>
             </div>
         </div>
-        <catalog-page-navs [group]="group" (onClickCata)="clickCata($event)"></catalog-page-navs>
+        <catalog-page-navs *ngIf="currentGroupIndex == i" [group]="group" (onClickCata)="clickCata($event)"></catalog-page-navs>
     </li>
 </ul>
 <div class="new-page-wrap">
-    <span (click)="showAddPageDialog()"><i class="icon-container icon-addpage"></i> 添加页面</span>
-    <span (click)="showAddGroupDialog()"><i class="icon-container icon-addfolder"></i> 添加分组</span>
+    <button class="btn btn-primary" (click)="showAddPageDialog()"><i class="icon-container icon-addpage"></i> 添加页面</button>
+    <button class="btn btn-primary" (click)="showAddGroupDialog()"><i class="icon-container icon-addfolder"></i> 添加分组</button>
 </div>

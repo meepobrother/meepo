@@ -1,6 +1,8 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import uuid from 'uuid';
+import { CatalogGroup } from '../../section/model';
 @Component({
     selector: 'add-group-dialog',
     templateUrl: './add-group-dialog.html',
@@ -15,7 +17,16 @@ export class AddGroupDialog implements OnInit {
     ) {
         this.form = this.fb.group({
             title: [''],
-            pages: [[]]
+            pages: [[]],
+            id: [uuid()]
+        });
+
+        // this.dialog.
+        this.dialog.afterOpen().subscribe(() => {
+            const { id,title, pages } = this.data || new CatalogGroup();
+            this.form.get('title').setValue(title);
+            this.form.get('pages').setValue(pages);
+            this.form.get('id').setValue(id);
         });
     }
 
