@@ -13,7 +13,6 @@ const routes: Routes = [
     }
 ];
 import { ThemesDesignService } from './themes-design.service';
-import { AddPageDialogModule } from './add-page-dialog';
 
 import { SECTIONS, SECTIONS_SERVICES } from './section';
 import { DIALOGS } from './dialog';
@@ -27,8 +26,7 @@ import { DIALOGS } from './dialog';
         CommonModule, 
         RouterModule.forChild(routes), 
         ShareModule, 
-        SidebarModule, 
-        AddPageDialogModule
+        SidebarModule
     ],
     exports: [
         ThemesDesign

@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 
 @Component({
     selector: 'confirm-tip',
-    templateUrl: './comfirm-tip.html',
+    templateUrl: './confirm-tip.html',
     styleUrls: [
-        './comfirm-tip.scss'
+        './confirm-tip.scss'
     ] 
 })
 export class ConfirmTipComponent{

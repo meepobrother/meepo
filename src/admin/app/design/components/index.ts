@@ -20,6 +20,12 @@ import {
     LayoutSelect, LayoutView, LayoutSetting
 } from './layouts';
 
+import {
+    MeepoAdvsSetting, MeepoAdvsView,
+    MeepoFilterSetting, MeepoFilterView,
+    MeepoTasksSetting, MeepoTasksView
+} from './meepo-ui';
+
 
 export const COMPONENTS = [
     ButtonView, ButtonSetting, ButtonSelect,
@@ -39,6 +45,11 @@ export const COMPONENTS = [
     LayoutContainerSelect, LayoutContainerSetting, LayoutContainerView,
     LayoutFooterSelect, LayoutFooterSetting, LayoutFooterView,
     LayoutMenuSelect, LayoutMenuSetting, LayoutMenuView,
+
+    // components
+    MeepoAdvsSetting, MeepoAdvsView,
+    MeepoFilterSetting, MeepoFilterView,
+    MeepoTasksSetting, MeepoTasksView
 ];
 
 export const COMPONENTS_SELECT = {
@@ -63,7 +74,10 @@ export const COMPONENTS_VIEW = {
     'layout-body': LayoutBodyView,
     'layout-footer': LayoutFooterView,
     'layout-header': LayoutHeaderView,
-    'layout-menu': LayoutMenuView
+    'layout-menu': LayoutMenuView,
+    'meepo-advs': MeepoAdvsView,
+    'meepo-filter': MeepoFilterView,
+    'meepo-task': MeepoTasksView
 };
 
 export const COMPONENTS_SETTING = {
@@ -76,7 +90,11 @@ export const COMPONENTS_SETTING = {
     'layout-body': LayoutBodySetting,
     'layout-footer': LayoutFooterSetting,
     'layout-header': LayoutHeaderSetting,
-    'layout-menu': LayoutMenuSetting
+    'layout-menu': LayoutMenuSetting,
+
+    'meepo-advs': MeepoAdvsSetting,
+    'meepo-filter': MeepoFilterSetting,
+    'meepo-task': MeepoTasksSetting
 };
 
 import { Injectable } from '@angular/core';

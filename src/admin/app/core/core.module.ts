@@ -20,6 +20,13 @@ import { ShareModule } from '../share';
 
 import { LoginService } from './login.service';
 
+import {
+    AlertTip,
+    ConfirmTipComponent,
+    AlertTipComponent,
+    ConfirmTipService
+} from './common';
+
 const modules = [
     CommonModule,
     SidebarModule,
@@ -35,17 +42,23 @@ const modules = [
 
 @NgModule({
     declarations: [
-        MainLayoutComponent
+        MainLayoutComponent,
+        ConfirmTipComponent,
+        AlertTipComponent
     ],
     imports: [
         ...modules
     ],
     exports: [
         ...modules,
-        MainLayoutComponent
+        MainLayoutComponent,
+        ConfirmTipComponent,
+        AlertTipComponent
     ],
     providers: [
-        LoginService
+        LoginService,
+        ConfirmTipService,
+        AlertTip
     ],
 })
 export class CoreModule { }

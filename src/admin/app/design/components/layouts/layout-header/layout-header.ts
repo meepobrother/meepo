@@ -1,5 +1,6 @@
 import { LayoutWidget } from '../widget';
 export class LayoutHeader extends LayoutWidget {
+    show: boolean = false;
     constructor() {
         super();
         this.type = 'layout-header';

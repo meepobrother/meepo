@@ -40,4 +40,6 @@ export class AddPageDialog implements OnInit {
         console.log(this.form.value);
         this.dialog.close(this.form.value);
     }
+    // 选择布局
+    onSelectTheme(){}
 }

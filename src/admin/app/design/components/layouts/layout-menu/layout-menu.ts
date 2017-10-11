@@ -2,6 +2,7 @@ import { LayoutWidget } from '../widget';
 export class LayoutMenu extends LayoutWidget {
     direction: string = 'left';
     open: boolean = false;
+    show: boolean = true;
     constructor() {
         super();
         this.type = 'layout-menu';
@@ -13,6 +14,14 @@ export class LayoutMenu extends LayoutWidget {
 
     setContainerClass() {
         this.containerClass = { 'layout-menu': true, left: true, right: false };
+    }
+
+    setOpen(){
+        this.open = true;
+    }
+
+    setClose(){
+        this.open = false;
     }
 
     setContainerStyle() {

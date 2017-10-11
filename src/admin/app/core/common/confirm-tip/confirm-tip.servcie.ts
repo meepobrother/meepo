@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material';
 import { ConfirmTipComponent } from './confirm-tip';
 import { Observable } from 'rxjs/Observable';
 
-export class AlertTip {
+export class ConfirmTipService {
 
     constructor(
         public dialog: MatDialog
