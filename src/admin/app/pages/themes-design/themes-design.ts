@@ -8,6 +8,8 @@ import {
 import { MatDialog } from '@angular/material';
 import { Button } from '../../design';
 
+import { DataPerService, CatalogService } from './section';
+
 
 import {
     ButtonView,
@@ -41,7 +43,8 @@ export class ThemesDesign implements OnInit, AfterViewInit {
         public dialog: MatDialog,
         public widget$: WidgetService,
         public components$: ComponentsService,
-        public layout$: LayoutService
+        public layout$: LayoutService,
+        public catalogService: CatalogService
     ) {
         this.layout$.onChange.subscribe(container => {
             this._container = container;

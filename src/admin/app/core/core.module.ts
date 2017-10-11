@@ -20,12 +20,8 @@ import { ShareModule } from '../share';
 
 import { LoginService } from './login.service';
 
-import {
-    AlertTip,
-    ConfirmTipComponent,
-    AlertTipComponent,
-    ConfirmTipService
-} from './common';
+import { MatDialogModule } from '@angular/material';
+
 
 const modules = [
     CommonModule,
@@ -37,28 +33,23 @@ const modules = [
     ApiModule,
     StylesModule,
     MemberSelectModule,
-    ShareModule
+    ShareModule,
+    MatDialogModule
 ];
 
 @NgModule({
     declarations: [
-        MainLayoutComponent,
-        ConfirmTipComponent,
-        AlertTipComponent
+        MainLayoutComponent
     ],
     imports: [
         ...modules
     ],
     exports: [
         ...modules,
-        MainLayoutComponent,
-        ConfirmTipComponent,
-        AlertTipComponent
+        MainLayoutComponent
     ],
     providers: [
-        LoginService,
-        ConfirmTipService,
-        AlertTip
+        LoginService
     ],
 })
 export class CoreModule { }

@@ -18,6 +18,8 @@ export class CatalogService {
     catalogGroupsData: CatalogGroup[] = [];
 
     currentPage: any;
+    setCurrentPageStream: Subject<any> = new Subject();
+
     currentGroup: any;
     constructor(
         public dataPerService: DataPerService
@@ -34,6 +36,7 @@ export class CatalogService {
     clickCataPage(catalogGroup: CatalogGroup, page: any) { 
         this.currentPage = page;
         this.currentGroup = catalogGroup;
+        this.setCurrentPageStream.next(page);
     }
 
     getGroupsData() {
