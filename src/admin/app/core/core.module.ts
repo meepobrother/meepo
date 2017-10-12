@@ -22,7 +22,6 @@ import { LoginService } from './login.service';
 
 import { MatDialogModule } from '@angular/material';
 
-
 const modules = [
     CommonModule,
     SidebarModule,
@@ -34,7 +33,9 @@ const modules = [
     StylesModule,
     MemberSelectModule,
     ShareModule,
-    MatDialogModule
+    MatDialogModule,
+    // AppEffectsModule,
+    // AppStoreModule
 ];
 
 @NgModule({

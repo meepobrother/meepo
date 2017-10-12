@@ -2,12 +2,11 @@ import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectorRef } fro
 import { CatalogService } from '../catalog.service';
 import { MatDialog } from '@angular/material';
 import { AddGroupDialog, AddPageDialog } from '../../dialog';
-import * as store from 'store';
-import { LayoutContainer } from '../../../../design';
+import * as store2 from 'store';
 import { CatalogGroup } from '../model';
+import {Store} from "@ngrx/store";
 const cacheKey = 'cataData.data';
 
-import { Store } from '@ngrx/store';
 
 @Component({
     selector: 'catalog-section',
@@ -21,12 +20,12 @@ export class CatalogSection implements OnInit {
         public catalogService: CatalogService,
         public dialog: MatDialog,
         public cd: ChangeDetectorRef,
-        public store: store<any>
+        public store: Store<any>
     ) {
-        this.list = store.get(cacheKey, []);
+        this.list = store2.get(cacheKey, []);
         this.store.subscribe(res=>{
             console.log(res);
-        })
+        });
     }
 
     ngOnInit() { }
@@ -81,7 +80,7 @@ export class CatalogSection implements OnInit {
     }
 
     saveData(){
-        store.set(cacheKey,this.list);
+        store2.set(cacheKey,this.list);
     }
 
     showAddPageDialog(group: CatalogGroup) {

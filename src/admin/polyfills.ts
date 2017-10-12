@@ -1,3 +1,5 @@
+import '@segment/to-iso-string';
+
 import 'core-js/es6/symbol';
 import 'core-js/es6/object';
 import 'core-js/es6/function';
@@ -18,3 +20,6 @@ import 'core-js/es7/reflect';
 
 
 import 'zone.js/dist/zone';
+
+import 'intl';
+import 'intl/locale-data/jsonp/en'

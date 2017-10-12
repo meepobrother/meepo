@@ -1,5 +1,5 @@
-//字符长度
-//获得字符串实际长度，中文2，英文1
+// 字符长度
+// 获得字符串实际长度，中文2，英文1
 
 export function stringLength(str) {
     var realLength = 0,

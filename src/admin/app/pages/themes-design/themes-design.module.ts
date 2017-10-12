@@ -17,9 +17,6 @@ import { ThemesDesignService } from './themes-design.service';
 import { SECTIONS, SECTIONS_SERVICES } from './section';
 import { DIALOGS } from './dialog';
 
-
-import { StoreModule } from '@ngrx/store';
-import * as ngrx from './ngrx/reducer';
 @NgModule({
     declarations: [
         ThemesDesign,
@@ -30,8 +27,7 @@ import * as ngrx from './ngrx/reducer';
         CommonModule, 
         RouterModule.forChild(routes), 
         ShareModule, 
-        SidebarModule,
-        StoreModule.forRoot(ngrx.reducer)
+        SidebarModule
     ],
     exports: [
         ThemesDesign

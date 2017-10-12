@@ -13,6 +13,7 @@ import { MatDialogModule } from '@angular/material';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { DesignModule } from '../design';
+import { AppEffectsModule, AppStoreModule } from '../ngrx';
 
 const materials = [
     NavTabsModule,
@@ -33,7 +34,8 @@ const materials = [
     MenuModule,
     EditorModule, LocationPickerModule,
     DesignModule, MeepoDialogModule,
-    WeuiPickerModule
+    WeuiPickerModule,
+    AppEffectsModule, AppStoreModule
 ];
 
 @NgModule({

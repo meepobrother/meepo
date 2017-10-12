@@ -1,22 +1,22 @@
 export class Map{
     elements = new Array();
     i;
-    //获取MAP元素个数  
+    // 获取MAP元素个数
     size() {
         return this.elements.length;
     };
 
-    //判断MAP是否为空  
+    // 判断MAP是否为空
     isEmpty() {
         return (this.elements.length < 1);
     };
 
-    //删除MAP所有元素  
+    // 删除MAP所有元素
     clear() {
         this.elements = new Array();
     };
 
-    //向MAP中增加元素（key, value)   
+    // 向MAP中增加元素（key, value)
     put(_key, _value) {
         this.elements.push({
             key: _key,
@@ -38,7 +38,7 @@ export class Map{
         }
     }
 
-    //删除指定KEY的元素，成功返回True，失败返回False  
+    // 删除指定KEY的元素，成功返回True，失败返回False
     remove(_key) {
         var bln = false;
         try {
@@ -54,7 +54,7 @@ export class Map{
         return bln;
     };
 
-    //获取指定KEY的元素值VALUE，失败返回NULL  
+    // 获取指定KEY的元素值VALUE，失败返回NULL
     get(_key) {
         try {
             for (let i = 0; i < this.elements.length; i++) {
@@ -67,7 +67,7 @@ export class Map{
         }
     };
 
-    //获取指定索引的元素（使用element.key，element.value获取KEY和VALUE），失败返回NULL  
+    // 获取指定索引的元素（使用element.key，element.value获取KEY和VALUE），失败返回NULL
     element(_index) {
         if (_index < 0 || _index >= this.elements.length) {
             return null;
@@ -75,7 +75,7 @@ export class Map{
         return this.elements[_index];
     };
 
-    //判断MAP中是否含有指定KEY的元素  
+    // 判断MAP中是否含有指定KEY的元素
     containsKey(_key) {
         var bln = false;
         try {
@@ -90,7 +90,7 @@ export class Map{
         return bln;
     };
 
-    //判断MAP中是否含有指定VALUE的元素  
+    // 判断MAP中是否含有指定VALUE的元素
     containsValue(_value) {
         var bln = false;
         try {
