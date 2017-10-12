@@ -10,7 +10,6 @@ import { Store } from '@ngrx/store';
     styleUrls: ['./add-group-dialog.scss']
 })
 export class AddGroupDialog implements OnInit {
-    // @Input() data: any;
     form: FormGroup;
     constructor(
         public dialog: MatDialogRef<any>,
@@ -44,13 +43,8 @@ export class AddGroupDialog implements OnInit {
         this.dialog.close();
     }
 
-    hideAddGroupDialog() {
-
-    }
-
     clickAddGroupConfirm() {
         this.dialog.close(this.form.value);
     }
 
-    keyboardEvent() { }
 }

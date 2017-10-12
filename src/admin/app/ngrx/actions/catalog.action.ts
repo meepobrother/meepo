@@ -3,6 +3,7 @@ import { Catalog } from '../domain';
 export const CATALOG_ADD = '[CATALOG_ADD] ActionName';
 export const CATALOG_EDIT = '[CATALOG_EDIT] ActionName';
 export const CATALOG_DELETE = '[CATALOG_DELETE] ActionName';
+export const CATALOG_SAVE_TO_CACHE = '[CATALOG_DELETE] ActionName';
 
 export class CatalogAddAction implements Action {
     readonly type = CATALOG_ADD;
@@ -30,19 +31,24 @@ export const PAGE_DELETE = '[PAGE_DELETE] ActionName';
 export class PageAddAction implements Action {
     readonly type = PAGE_ADD;
 
-    constructor(public payload: Catalog) { }
+    constructor(public payload: any) { }
 }
 
 export class PageEditAction implements Action {
     readonly type = PAGE_EDIT;
 
-    constructor(public payload: Catalog) { }
+    constructor(public payload: any) { }
 }
 
 export class PageDeleteAction implements Action {
     readonly type = PAGE_DELETE;
 
-    constructor(public payload: Catalog) { }
+    constructor(public payload: any) { }
+}
+
+export class CatalogSaveToCacheAction implements Action {
+    readonly type = CATALOG_SAVE_TO_CACHE;
+    constructor(public payload: any) { }
 }
 export type Actions
     = CatalogAddAction
@@ -50,4 +56,5 @@ export type Actions
     | CatalogDeleteAction
     | PageAddAction
     | PageEditAction
-    | PageDeleteAction;
+    | PageDeleteAction
+    | CatalogSaveToCacheAction;

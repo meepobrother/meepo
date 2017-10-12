@@ -77,6 +77,7 @@ export class AddPageDialog implements OnInit {
         this.form.get('body').setValue(container.body);
         this.form.get('footer').setValue(container.footer);
         this.form.get('menu').setValue(container.menu);
+        console.log(this.form.value);
         this.dialog.close(this.form.value);
     }
 }

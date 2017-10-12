@@ -74,6 +74,7 @@ export class CatalogSection implements OnInit {
 
     saveData(){
         // store2.set(cacheKey,this.list);
+        this.store.dispatch(new actions.CatalogSaveToCacheAction({}))
     }
 
     showAddPageDialog(group: CatalogGroup) {

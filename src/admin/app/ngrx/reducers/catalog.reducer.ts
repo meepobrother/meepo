@@ -4,8 +4,14 @@ export { Catalog } from '../domain';
 import * as store2 from 'store';
 const cacheKey = 'cataData.data';
 import * as actions from '../actions/catalog.action';
+let cacheCatalog = store2.get(cacheKey,[]);
+if(cacheCatalog instanceof Array){
+
+}else{
+    cacheCatalog = [];
+}
 // 初始化
-export const initialState: any[] = store2.get(cacheKey,[]);
+export const initialState: any[] =cacheCatalog;
 
 function addCatalog(state,action){
    let catalogs = [...state,action.payload];
@@ -36,6 +42,7 @@ function deleteCatalog(state, action){
 
 function saveData(state){
     store2.set(cacheKey,state);
+    return state;
 }
 
 export function reducer(state: any[] = initialState, action: actions.Actions){
@@ -50,6 +57,8 @@ export function reducer(state: any[] = initialState, action: actions.Actions){
         case actions.PAGE_DELETE:
         case actions.PAGE_EDIT:
             return editCatalog(state,action);
+        case actions.CATALOG_SAVE_TO_CACHE:
+            return saveData(state);
         default: {
             return state;
         }

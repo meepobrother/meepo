@@ -1,13 +1,10 @@
 import { Component, ViewChild } from '@angular/core';
 import {
-    PageService, ApplicationService, WidgetService,
-    ComponentsService, LayoutView, LayoutService, LayoutContainer
+    ApplicationService, WidgetService,
+    LayoutView, LayoutService, LayoutContainer
 } from '../../design';
 
-import { MatDialog } from '@angular/material';
-
 import { CatalogService, CatalogSection } from './section';
-
 
 @Component({
     selector: 'themes-design',
@@ -26,11 +23,8 @@ export class ThemesDesign {
     // 当前容器
     _container: any;
     constructor(
-        public page$: PageService,
         public application$: ApplicationService,
-        public dialog: MatDialog,
         public widget$: WidgetService,
-        public components$: ComponentsService,
         public layout$: LayoutService,
         public catalogService: CatalogService
     ) {
@@ -52,54 +46,9 @@ export class ThemesDesign {
         });
     }
 
-    // 页面导航
-
-    onHeader() {
-        this.layout$.onHeader(this.currentPage.header);
-    }
-
-    onFooter() {
-        this.layout$.onFooter(this.currentPage.footer);
-    }
-
-    onBody() {
-        this.layout$.onBody(this.currentPage.body);
-    }
-
-    onMenu() {
-        this.layout$.onMenu(this.currentPage.menu);
-    }
-    // 页面导航
-
-
-    // 添加组件
-    addWidget(name: string) {
-        this.components$.selectComponent(name);
-        // 选择后 添加
-        const onSelectStream = this.components$.onSelectStream.subscribe(widget => {
-            // 判断容器类型
-            this.addToContainer(widget);
-            this._catalog.saveData(); 
-            onSelectStream.unsubscribe();
-        });
-    }
-
     onAdd(widget: any){
-        console.log(widget);
         this.addToContainer(widget);
         this._catalog.saveData();
-        console.log(this._container);
-    }
-
-    selectWidget(name: string){
-        this.components$.selectComponent(name);
-        // 选择后 添加
-        const onSelectStream = this.components$.onSelectStream.subscribe(widget => {
-            // 判断容器类型
-            this.addToContainer(widget);
-            this._catalog.saveData();        
-            onSelectStream.unsubscribe();
-        });
     }
 
     addToContainer(widget: any) {
@@ -146,15 +95,9 @@ export class ThemesDesign {
     // 保存当前页面
     saveCurrentPage() {
         this.setSaveBtnLoading();
-        if (this.currentPage) {
-            this.page$.edit(this.currentPage);
-        } else {
-            console.log('请选择页面');
-        }
         setTimeout(() => {
             this.setSaveBtnSuccess();
         }, 800);
-        this._catalog.saveData();
     }
 
 }
