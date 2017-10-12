@@ -11,6 +11,9 @@ export class LayoutHeader extends LayoutWidget {
         this.children = [];
         this.content = '小明跑腿';
         this.setContainerClass();
+
+        this.styleObj = {};
+        this.classObj = {};
     }
 
     setContainerClass() {

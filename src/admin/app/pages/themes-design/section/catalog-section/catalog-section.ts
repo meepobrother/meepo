@@ -7,6 +7,8 @@ import { LayoutContainer } from '../../../../design';
 import { CatalogGroup } from '../model';
 const cacheKey = 'cataData.data';
 
+import { Store } from '@ngrx/store';
+
 @Component({
     selector: 'catalog-section',
     templateUrl: './catalog-section.html',
@@ -18,9 +20,13 @@ export class CatalogSection implements OnInit {
     constructor(
         public catalogService: CatalogService,
         public dialog: MatDialog,
-        public cd: ChangeDetectorRef
+        public cd: ChangeDetectorRef,
+        public store: store<any>
     ) {
         this.list = store.get(cacheKey, []);
+        this.store.subscribe(res=>{
+            console.log(res);
+        })
     }
 
     ngOnInit() { }

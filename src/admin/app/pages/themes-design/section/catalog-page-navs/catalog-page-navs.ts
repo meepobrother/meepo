@@ -37,8 +37,9 @@ export class CatalogPageNavs implements OnInit {
     edigePage(page: any, evt: Event) {
         const dialogRef = this.dialog.open(AddPageDialog, { data: page });
         dialogRef.afterClosed().subscribe((res) => {
-            for (let i; i < this.group.pages.length; i++) {
-                if (this.group.pages[i].code = res.code) {
+            for (let i=0; i < this.group.pages.length; i++) {
+                console.log(this.group.pages[i].code === res.code);
+                if (this.group.pages[i].code === res.code) {
                     this.group.pages[i] = res;
                 }
             }

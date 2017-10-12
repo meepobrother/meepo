@@ -87,6 +87,10 @@ export class CatalogService {
         this.dataPerService.saveData();
     }
 
+    autoSavePage(){
+        this.dataPerService.saveData();
+    }
+
     reorderCatalogGroup() { }
 
     reorderCatalogPage() { }

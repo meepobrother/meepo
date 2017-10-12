@@ -1,39 +1,32 @@
 <div class="container">
     <div class="container-left">
-        <nav-tabs>
-            <nav-tab-pane title="应用管理">
-                <ng-template navTabPaneRef>
-                    <catalog-section></catalog-section>
-                </ng-template>
-            </nav-tab-pane>
-            <nav-tab-pane title="组件库">
-                <ng-template navTabPaneRef>
-                    <widget-section></widget-section>
-                </ng-template>
-            </nav-tab-pane>
-        </nav-tabs>
+        <catalog-section></catalog-section>
     </div>
-    <div class="container-center">
+    <div class="container-center" style="overflow: auto;">
         <div class="ibox">
-            <div class="ibox-title" style="text-align:center;">
+            <!-- <div class="ibox-title" style="text-align:center;">
                 <a class="btn btn-primary" (click)="onHeader()">头部</a>
                 <a class="btn btn-primary" (click)="onBody()">主体</a>
                 <a class="btn btn-primary" (click)="onFooter()">尾部</a>
                 <a class="btn btn-primary" (click)="onMenu()">菜单</a>
-            </div>
-            <div class="ibox-content">
-                <iphone6>
-                    <layout-view [widget]="catalogService?.currentPage"></layout-view>
-                </iphone6>
-            </div>
+            </div> -->
             <div class="ibox-content">
                 <div class="footer-save">
                     <a href="javascript:;" (click)="saveCurrentPage()" [class.btn-disable]="saveBtn.loading" class="btn btn-primary ">
                         <i class="weui-loading" *ngIf="saveBtn.loading"></i>{{saveBtn.title}}
                     </a>
-                    <a href="javascript:;" (click)="productCurrentPage()" class="btn btn-danger">生成</a>
+                    <a href="javascript:;" class="btn btn-danger">生成</a>
                 </div>
             </div>
+            <widget-section (onAdd)="onAdd($event)"></widget-section>
+            <div class="ibox-content" style="overflow: auto;">
+                <iphone6>
+                    <layout-view [widget]="currentPage"></layout-view>
+                </iphone6>
+
+
+            </div>
+
         </div>
     </div>
 

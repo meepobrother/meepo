@@ -45,6 +45,13 @@ let nextUniqueId = 0;
 @Component({
     selector: 'meepo-input-container, meepo-form-field, form-field',
     templateUrl: './form-field.html',
+    styles: [
+        `
+        :host{
+            display: block;
+        }
+        `
+    ],
     preserveWhitespaces: false
 })
 export class MeepoFormField implements AfterViewInit, AfterContentInit, AfterContentChecked {

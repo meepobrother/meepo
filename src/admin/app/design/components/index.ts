@@ -23,7 +23,8 @@ import {
 import {
     MeepoAdvsSetting, MeepoAdvsView,
     MeepoFilterSetting, MeepoFilterView,
-    MeepoTasksSetting, MeepoTasksView
+    MeepoTasksSetting, MeepoTasksView,
+    MeepoTextSetting, MeepoTextView
 } from './meepo-ui';
 
 
@@ -49,7 +50,8 @@ export const COMPONENTS = [
     // components
     MeepoAdvsSetting, MeepoAdvsView,
     MeepoFilterSetting, MeepoFilterView,
-    MeepoTasksSetting, MeepoTasksView
+    MeepoTasksSetting, MeepoTasksView,
+    MeepoTextSetting, MeepoTextView
 ];
 
 export const COMPONENTS_SELECT = {
@@ -77,7 +79,8 @@ export const COMPONENTS_VIEW = {
     'layout-menu': LayoutMenuView,
     'meepo-advs': MeepoAdvsView,
     'meepo-filter': MeepoFilterView,
-    'meepo-task': MeepoTasksView
+    'meepo-task': MeepoTasksView,
+    'meepo-text': MeepoTextView
 };
 
 export const COMPONENTS_SETTING = {
@@ -94,7 +97,8 @@ export const COMPONENTS_SETTING = {
 
     'meepo-advs': MeepoAdvsSetting,
     'meepo-filter': MeepoFilterSetting,
-    'meepo-task': MeepoTasksSetting
+    'meepo-task': MeepoTasksSetting,
+    'meepo-text': MeepoTextSetting
 };
 
 import { Injectable } from '@angular/core';
@@ -112,6 +116,10 @@ export class ComponentsService {
         dialogRef.afterClosed().subscribe(res => {
             this.onSelectStream.next(res);
         });
+    }
+
+    addComponent(name: string){
+        return new COMPONENTS_VIEW[name];
     }
 }
 

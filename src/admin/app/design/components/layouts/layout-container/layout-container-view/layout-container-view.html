@@ -1,4 +1,4 @@
-<layout-header-view *ngIf="widget.header.show" [widget]="widget.header"></layout-header-view>
-<layout-body-view [widget]="widget.body"></layout-body-view>
-<layout-footer-view *ngIf="widget.footer.show" [widget]="widget.footer"></layout-footer-view>
-<layout-menu-view [widget]="widget.menu"></layout-menu-view>
+<layout-header-view [ngStyle]="widget.header.styleObj" *ngIf="widget.header.show" [widget]="widget.header"></layout-header-view>
+<layout-body-view [ngStyle]="widget.body.styleObj" [widget]="widget.body"></layout-body-view>
+<layout-footer-view [ngStyle]="widget.footer.styleObj" *ngIf="widget.footer.show" [widget]="widget.footer"></layout-footer-view>
+<layout-menu-view [ngStyle]="widget.menu.styleObj" [widget]="widget.menu"></layout-menu-view>
