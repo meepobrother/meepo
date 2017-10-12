@@ -1,9 +1,7 @@
-import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CatalogService } from '../catalog.service';
 import { MatDialog } from '@angular/material';
 import { AddGroupDialog, AddPageDialog } from '../../dialog';
-import * as store2 from 'store';
-const cacheKey = 'cataData.data';
 
 import { CatalogGroup } from '../model';
 import {Store} from "@ngrx/store";

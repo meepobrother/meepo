@@ -3,6 +3,9 @@ import { MatDialog } from '@angular/material';
 import { AddPageDialog } from '../../dialog';
 import { CatalogService } from '../catalog.service';
 import { CatalogGroup } from '../model';
+import { Store } from '@ngrx/store';
+import * as actions from '../../../../ngrx/actions/catalog.action';
+
 @Component({
     selector: 'catalog-page-navs',
     templateUrl: './catalog-page-navs.html',
@@ -10,14 +13,12 @@ import { CatalogGroup } from '../model';
 })
 export class CatalogPageNavs implements OnInit {
     @Input() group: CatalogGroup = new CatalogGroup();
-    @Input() list: any[] = [];
     @Output() onClickPage: EventEmitter<any> = new EventEmitter();
-    @Output() onChange: EventEmitter<any> = new EventEmitter();
-
     currentIndex: number;
     constructor(
         public dialog: MatDialog,
-        public service: CatalogService
+        public service: CatalogService,
+        public store: Store<any>
     ) { }
 
     ngOnInit() { }
@@ -25,25 +26,23 @@ export class CatalogPageNavs implements OnInit {
     onClick(page: any, index: number) {
         this.currentIndex = index;
         this.service.clickCataPage(this.group, page);
-        this.onChange.emit();
     }
 
     removePage(page: any) {
         const index = this.group.pages.indexOf(page);
         this.group.pages.splice(index, 1);
-        this.onChange.emit();
+        this.store.dispatch(new actions.PageDeleteAction(this.group));
     }
 
     edigePage(page: any, evt: Event) {
         const dialogRef = this.dialog.open(AddPageDialog, { data: page });
         dialogRef.afterClosed().subscribe((res) => {
             for (let i=0; i < this.group.pages.length; i++) {
-                console.log(this.group.pages[i].code === res.code);
                 if (this.group.pages[i].code === res.code) {
                     this.group.pages[i] = res;
                 }
             }
-            this.onChange.emit();
+            this.store.dispatch(new actions.PageEditAction(this.group));
         });
         evt.preventDefault();
     }
