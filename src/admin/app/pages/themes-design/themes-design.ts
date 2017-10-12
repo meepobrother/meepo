@@ -1,25 +1,13 @@
-import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import {
     PageService, ApplicationService, WidgetService,
-    ComponentsService, LayoutView, WeuiPage, LayoutService,
-    Widget, LayoutContainer
+    ComponentsService, LayoutView, LayoutService, LayoutContainer
 } from '../../design';
 
 import { MatDialog } from '@angular/material';
-import { Button } from '../../design';
 
-import { DataPerService, CatalogService, CatalogSection } from './section';
+import { CatalogService, CatalogSection } from './section';
 
-
-import {
-    ButtonView,
-    WeuiCellsView,
-    InputView,
-    SliderView,
-    UploaderView
-} from '../../design/components';
-
-import uuid from 'uuid';
 
 @Component({
     selector: 'themes-design',

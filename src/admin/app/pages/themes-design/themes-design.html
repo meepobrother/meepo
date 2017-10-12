@@ -4,12 +4,6 @@
     </div>
     <div class="container-center" style="overflow: auto;">
         <div class="ibox">
-            <!-- <div class="ibox-title" style="text-align:center;">
-                <a class="btn btn-primary" (click)="onHeader()">头部</a>
-                <a class="btn btn-primary" (click)="onBody()">主体</a>
-                <a class="btn btn-primary" (click)="onFooter()">尾部</a>
-                <a class="btn btn-primary" (click)="onMenu()">菜单</a>
-            </div> -->
             <div class="ibox-content">
                 <div class="footer-save">
                     <a href="javascript:;" (click)="saveCurrentPage()" [class.btn-disable]="saveBtn.loading" class="btn btn-primary ">
@@ -23,10 +17,7 @@
                 <iphone6>
                     <layout-view [widget]="currentPage"></layout-view>
                 </iphone6>
-
-
             </div>
-
         </div>
     </div>
 
@@ -39,82 +30,5 @@
                 <free-widget-setting [widget]="currentWidget"></free-widget-setting>
             </div>
         </div>
-        <!-- <div class="ibox">
-            <div class="ibox-title">
-                <h5>组件库</h5>
-            </div>
-            <div class="ibox-content">
-                <nav-tabs>
-                    <nav-tab-pane title="布局组件">
-                        <ng-template navTabPaneRef>
-                            <div class="widget-container">
-                                <a href="javascript:;" (click)="addWidget('layout-header')" class="btn btn-primary">头部(layout-header)</a>
-                                <a href="javascript:;" (click)="addWidget('layout-body')" class="btn btn-primary">主体(layout-body)</a>
-                                <a href="javascript:;" (click)="addWidget('layout-footer')" class="btn btn-primary">尾部(layout-footer)</a>
-                                <a href="javascript:;" (click)="addWidget('layout-menu')" class="btn btn-primary">菜单(layout-menu)</a>
-                            </div>
-                        </ng-template>
-                    </nav-tab-pane>
-                    <nav-tab-pane title="表单">
-                        <ng-template navTabPaneRef>
-                            <div class="widget-container">
-                                <a href="javascript:;" (click)="addWidget('button')" class="btn btn-primary">按钮(button)</a>
-                                <a href="javascript:;" (click)="addWidget('list')" class="btn btn-primary">列表(list)</a>
-                                <a href="javascript:;" (click)="addWidget('input')" class="btn btn-primary">输入框(input)</a>
-                                <a href="javascript:;" (click)="addWidget('slider')" class="btn btn-primary">滑动条(slider)</a>
-                                <a href="javascript:;" (click)="addWidget('uploader')" class="btn btn-primary">上传附件(uploader)</a>
-                            </div>
-                        </ng-template>
-                    </nav-tab-pane>
-
-                    <nav-tab-pane title="基础组件">
-                        <ng-template navTabPaneRef>
-                            <div class="widget-container">
-                                <a href="javascript:;" (click)="addWidget('article')" class="btn btn-primary">文章(article)</a>
-                                <a href="javascript:;" (click)="addWidget('badge')" class="btn btn-primary">徽章(badge)</a>
-                                <a href="javascript:;" (click)="addWidget('flex')" class="btn btn-primary">布局(flex)</a>
-                                <a href="javascript:;" (click)="addWidget('footer')" class="btn btn-primary">底部版权(footer)</a>
-                                <a href="javascript:;" (click)="addWidget('gallery')" class="btn btn-primary">图片预览(gallery)</a>
-                                <a href="javascript:;" (click)="addWidget('grid')" class="btn btn-primary">九宫格(grid)</a>
-                                <a href="javascript:;" (click)="addWidget('loadmore')" class="btn btn-primary">加载中(loadmore)</a>
-                                <a href="javascript:;" (click)="addWidget('panel')" class="btn btn-primary">面板(panel)</a>
-                                <a href="javascript:;" (click)="addWidget('preview')" class="btn btn-primary">预览(preview)</a>
-                                <a href="javascript:;" (click)="addWidget('progress')" class="btn btn-primary">进度(progress)</a>
-                            </div>
-                        </ng-template>
-                    </nav-tab-pane>
-
-                    <nav-tab-pane title="操作反馈">
-                        <ng-template navTabPaneRef>
-                            <div class="widget-container">
-                                <a href="javascript:;" (click)="addWidget('action-sheet')" class="btn btn-primary">底部快捷(action-sheet)</a>
-                                <a href="javascript:;" (click)="addWidget('dialog')" class="btn btn-primary">对话框(dialog)</a>
-                                <a href="javascript:;" (click)="addWidget('msg')" class="btn btn-primary">提示页(msg)</a>
-                                <a href="javascript:;" (click)="addWidget('picker')" class="btn btn-primary">选择器(picker)</a>
-                                <a href="javascript:;" (click)="addWidget('toast')" class="btn btn-primary">轻提示(toast)</a>
-                            </div>
-                        </ng-template>
-                    </nav-tab-pane>
-
-                    <nav-tab-pane title="搜索相关">
-                        <ng-template navTabPaneRef>
-                            <div class="widget-container">
-                                <a href="javascript:;" (click)="addWidget('search-bar')" class="btn btn-primary">搜索框(search-bar)</a>
-                            </div>
-                        </ng-template>
-                    </nav-tab-pane>
-
-                    <nav-tab-pane title="导航相关">
-                        <ng-template navTabPaneRef>
-                            <div class="widget-container">
-                                <a href="javascript:;" (click)="addWidget('navbar')" class="btn btn-primary">顶部切换(navbar)</a>
-                                <a href="javascript:;" (click)="addWidget('tabbar')" class="btn btn-primary">底部菜单(tabbar)</a>
-                            </div>
-                        </ng-template>
-                    </nav-tab-pane>
-                </nav-tabs>
-
-            </div>
-        </div> -->
     </div>
 </div>

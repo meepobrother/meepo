@@ -13,15 +13,8 @@ import {
   ActionReducer,
   MetaReducer,
   StoreModule,
-  compose,
-  createSelector,
-  createFeatureSelector,
 } from '@ngrx/store';
-import * as fromRouter from '@ngrx/router-store';
-import { StoreRouterConnectingModule } from '@ngrx/router-store';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
-import { environment } from '../../../environments/environment';
 
 /**
  * storeFreeze 用于防止 state 被修改，在 Redux 中我们必须确保 state 是不可更改的，这个函数
@@ -38,7 +31,7 @@ import * as fromCatalog from './catalog.reducer';
  * 并且使用一个 key 来标识各个子 state
  */
 export interface State {
-  catalog: fromCatalog.Catalog
+  catalog: fromCatalog.Catalog[]
 }
 
 export const reducers: ActionReducerMap<State> = {
@@ -61,10 +54,7 @@ export const metaReducers: MetaReducer<State>[] = [storeStateGuard];
      * StoreModule.provideStore  仅需引入一次，请把它包含在根模块或者 CoreModule 中
      * 我们这里为了方便组织，新建了一个 AppStoreModule，但也是只在 CoreModule 中引入的
      */
-    StoreModule.forRoot(reducers, { metaReducers: metaReducers }),
-    StoreRouterConnectingModule,
-    // DevTool 需要在 StoreModule 之后导入
-    !environment.production ? StoreDevtoolsModule.instrument({ maxAge: 50 }) : []
+    StoreModule.forRoot(reducers, { metaReducers: metaReducers })
   ]
 })
 export class AppStoreModule {

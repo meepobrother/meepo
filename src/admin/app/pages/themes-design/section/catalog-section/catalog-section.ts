@@ -3,10 +3,11 @@ import { CatalogService } from '../catalog.service';
 import { MatDialog } from '@angular/material';
 import { AddGroupDialog, AddPageDialog } from '../../dialog';
 import * as store2 from 'store';
-import { CatalogGroup } from '../model';
-import {Store} from "@ngrx/store";
 const cacheKey = 'cataData.data';
 
+import { CatalogGroup } from '../model';
+import {Store} from "@ngrx/store";
+import * as actions from '../../../../ngrx/actions/catalog.action';
 
 @Component({
     selector: 'catalog-section',
@@ -22,9 +23,9 @@ export class CatalogSection implements OnInit {
         public cd: ChangeDetectorRef,
         public store: Store<any>
     ) {
-        this.list = store2.get(cacheKey, []);
         this.store.subscribe(res=>{
-            console.log(res);
+            this.list = res.catalog;
+            console.log('store is ',res);
         });
     }
 
@@ -43,7 +44,8 @@ export class CatalogSection implements OnInit {
         const dialogRef = this.dialog.open(AddGroupDialog);
         dialogRef.afterClosed().subscribe((res) => {
             if (res) {
-                this.list.push(res);
+                // 添加应用
+                this.store.dispatch(new actions.CatalogAddAction(res));
             }
         });
     }
@@ -52,12 +54,7 @@ export class CatalogSection implements OnInit {
         const dialogRef = this.dialog.open(AddGroupDialog, { data: group });
         dialogRef.afterClosed().subscribe((res) => {
             if (res) {
-                for (let i = 0; i < this.list.length; i++) {
-                    if (this.list[i].id == res.id) {
-                        this.list[i] = res;
-                    }
-                }
-                this.saveData();
+                this.store.dispatch(new actions.CatalogEditAction(res));
             }
         });
     }
@@ -68,19 +65,17 @@ export class CatalogSection implements OnInit {
         dialogRef.afterClosed().subscribe((res) => {
             if (res) {
                 group['pages'].push(res);
-                this.saveData();
+                this.store.dispatch(new actions.CatalogEditAction(group));
             }
         });
     }
 
     removeGroup(group: any) {
-        const index = this.list.indexOf(group);
-        this.list.splice(index, 1);
-        this.saveData();
+        this.store.dispatch(new actions.CatalogDeleteAction(group));
     }
 
     saveData(){
-        store2.set(cacheKey,this.list);
+        // store2.set(cacheKey,this.list);
     }
 
     showAddPageDialog(group: CatalogGroup) {
@@ -88,6 +83,7 @@ export class CatalogSection implements OnInit {
         dialogRef.afterClosed().subscribe((res) => {
             if (res) {
                 group.pages.push(res);
+                this.store.dispatch(new actions.CatalogEditAction(group));
             }
         });
     }

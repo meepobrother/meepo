@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { CatalogService } from '../../section/catalog.service';
 import { LayoutContainer } from '../../../../design';
 import uuid from 'uuid';
+import { Store } from '@ngrx/store';
 @Component({
     selector: 'add-page-dialog',
     templateUrl: './add-page-dialog.html',
@@ -12,11 +13,13 @@ import uuid from 'uuid';
 export class AddPageDialog implements OnInit {
     // @Input() data: any;
     form: FormGroup;
+    catalogs: any[] = [];
     constructor(
         public dialog: MatDialogRef<any>,
         @Inject(MAT_DIALOG_DATA) public data: any,
         public fb: FormBuilder,
-        public catalogService: CatalogService
+        public catalogService: CatalogService,
+        public store: Store<any>
     ) {
         this.form = this.fb.group({
             title: [''],
@@ -28,6 +31,10 @@ export class AddPageDialog implements OnInit {
             body: [[]],
             menu: [[]],
             code: [uuid()]
+        });
+
+        this.store.subscribe(res=>{
+            this.catalogs = res.catalog;
         });
 
         this.dialog.afterOpen().subscribe(() => {

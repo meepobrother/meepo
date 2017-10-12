@@ -3,6 +3,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import uuid from 'uuid';
 import { CatalogGroup } from '../../section/model';
+import { Store } from '@ngrx/store';
 @Component({
     selector: 'add-group-dialog',
     templateUrl: './add-group-dialog.html',
@@ -14,7 +15,8 @@ export class AddGroupDialog implements OnInit {
     constructor(
         public dialog: MatDialogRef<any>,
         @Optional() @Inject(MAT_DIALOG_DATA) public data: any,
-        public fb: FormBuilder
+        public fb: FormBuilder,
+        public store: Store<any>
     ) {
         this.form = this.fb.group({
             title: [''],
