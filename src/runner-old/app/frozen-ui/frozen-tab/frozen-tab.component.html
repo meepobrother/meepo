@@ -1,8 +1,0 @@
-<div class="ui-tab">
-  <ul class="ui-tab-nav ui-border-b">
-    <li [class.current]="item.active" (click)="_onItem(item)" *ngFor="let item of items">{{item.title}}</li>
-  </ul>
-  <ul class="ui-tab-content">
-    <ng-content></ng-content>
-  </ul>
-</div>

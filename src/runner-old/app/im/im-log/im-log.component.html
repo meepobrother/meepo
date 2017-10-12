@@ -1,6 +1,0 @@
-<core-scroll top="0px" [offset]="offset" (onInit)="onScrollInit($event)">
-    <div class="list" #list>
-        <im-message-list #imlist (onInit)="onInit($event)" [myOpenid]="myOpenid" [openid]="toOpenid"></im-message-list>
-    </div>
-</core-scroll>
-<im-footer (onSend)="onSend($event)" (onFocus)="onFocus($event)"></im-footer>

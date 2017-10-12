@@ -1,2 +1,0 @@
-### ng.meepo.core.demo
-
