@@ -7,6 +7,8 @@ import {
 
 import { MatDialog } from '@angular/material';
 import { Button } from '../../design';
+import { ApiService } from '../../core';
+
 
 import { DataPerService, CatalogService } from './section';
 
@@ -43,7 +45,8 @@ export class ThemesDesign {
         public widget$: WidgetService,
         public components$: ComponentsService,
         public layout$: LayoutService,
-        public catalogService: CatalogService
+        public catalogService: CatalogService,
+        public api: ApiService
     ) {
         this.layout$.onChange.subscribe(container => {
             this._container = container;
@@ -136,14 +139,12 @@ export class ThemesDesign {
     // 保存当前页面
     saveCurrentPage() {
         this.setSaveBtnLoading();
-        if (this.currentPage) {
-            this.page$.edit(this.currentPage);
-        } else {
-            console.log('请选择页面');
-        }
-        setTimeout(() => {
-            this.setSaveBtnSuccess();
-        }, 800);
+        console.log(this._view);
+        this.api.mpost('app.editAppCatalogPage',this._view.widget).subscribe(res=>{
+            setTimeout(() => {
+                this.setSaveBtnSuccess();
+            }, 800);
+        });
     }
 
 }

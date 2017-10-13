@@ -16,6 +16,7 @@ export class LayoutHeaderView implements OnInit {
     
     @HostListener('click',['$event'])
     onClick(evt: any){
+        console.log(this.widget);
         this.layout.onHeader(this.widget);
         this.widget$.setCurrentWidget(this.widget);
     }
@@ -34,5 +35,7 @@ export class LayoutHeaderView implements OnInit {
         });
     }
 
-    ngOnInit() { }
+    ngOnInit() { 
+        this.widget['type'] = 'layout-header';
+    }
 }
