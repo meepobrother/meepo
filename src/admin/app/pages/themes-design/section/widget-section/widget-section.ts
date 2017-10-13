@@ -1,12 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-
+import { ApiService } from '../../../../core';
 @Component({
     selector: 'widget-section',
     templateUrl: './widget-section.html',
     styleUrls: ['./widget-section.scss']
 })
 export class WidgetSection implements OnInit {
-    constructor() { }
+    widgets: any[] = [];
+    constructor(
+        public api: ApiService
+    ) { }
 
-    ngOnInit() { }
+    ngOnInit() {
+        this.api.mpost('app.getListAppWidgets', { page: 1, psize: 30 }).subscribe((res: any) => {
+            this.widgets = res.info;
+        });
+    }
 }

@@ -8,15 +8,17 @@
     </form-field>
 
     <form-field>
-        <input type="text" formControlName="oauthor" meepoInput class="form-control" placeholder="作者，请输入您的大名！">
+        <input type="text" formControlName="author" meepoInput class="form-control" placeholder="作者，请输入您的大名！">
     </form-field>
 
     <form-field>
-        <input type="text" readonly formControlName="code" meepoInput class="form-control" placeholder="主题代号，请输入英文字符或汉语拼音">
+        <input type="text" readonly formControlName="token" meepoInput class="form-control" placeholder="主题代号，请输入英文字符或汉语拼音">
     </form-field>
 
     <div>
-        <a href="javascript:;" (click)="save()" class="btn btn-primary">添加</a>
+        <a href="javascript:;" (click)="save()" class="btn btn-primary">
+            <i class="weui-loading" *ngIf="btnTitle.isLoading"></i> {{btnTitle.title}}
+        </a>
         <a href="javascript:;" (click)="cancel()" class="btn btn-default">取消</a>
     </div>
 </div>

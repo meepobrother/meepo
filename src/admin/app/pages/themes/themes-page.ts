@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
-import { ThemesAdd } from './themes-add';
 import * as store from 'store';
-import { ThemesMineService } from './themes-mine.service';
+import { ApiService } from '../../core';
 @Component({
     selector: 'themes-page',
     templateUrl: './themes-page.html',
@@ -11,17 +10,10 @@ import { ThemesMineService } from './themes-mine.service';
 export class ThemesPage implements OnInit {
     constructor(
         public dialog: MatDialog,
-        public mine: ThemesMineService
+        public api: ApiService
     ) { }
 
     ngOnInit() { }
 
-    createThemes() {
-        const dialogRef = this.dialog.open(ThemesAdd);
-        dialogRef.afterClosed().subscribe(res => {
-            if (res) {
-                this.mine.add(res);
-            }
-        });
-    }
+    
 }

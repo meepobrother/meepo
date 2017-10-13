@@ -3,6 +3,8 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import uuid from 'uuid';
 import { CatalogGroup } from '../../section/model';
+import { ApiService } from '../../../../core';
+
 @Component({
     selector: 'add-group-dialog',
     templateUrl: './add-group-dialog.html',
@@ -14,41 +16,26 @@ export class AddGroupDialog implements OnInit {
     constructor(
         public dialog: MatDialogRef<any>,
         @Optional() @Inject(MAT_DIALOG_DATA) public data: any,
-        public fb: FormBuilder
+        public fb: FormBuilder,
+        public api: ApiService
     ) {
         this.form = this.fb.group({
             title: [''],
-            pages: [[]],
-            id: [uuid()]
+            id: ['']
         });
-
-        // this.dialog.
         this.dialog.afterOpen().subscribe(() => {
-            const { id,title, pages } = this.data || new CatalogGroup();
+            const { title,id } = this.data || new CatalogGroup();
             this.form.get('title').setValue(title);
-            this.form.get('pages').setValue(pages);
             this.form.get('id').setValue(id);
         });
     }
-
-    ngOnInit() { 
-        const { id,title, pages } = this.data || new CatalogGroup();
-        this.form.get('title').setValue(title);
-        this.form.get('pages').setValue(pages);
-        this.form.get('id').setValue(id);
-    }
-
+    ngOnInit() {}
     cancelGroupDialog() {
         this.dialog.close();
     }
-
-    hideAddGroupDialog() {
-
-    }
-
     clickAddGroupConfirm() {
-        this.dialog.close(this.form.value);
+        this.api.mpost('app.editAppCatalog',this.form.value).subscribe(res=>{
+            this.dialog.close(this.form.value);
+        })
     }
-
-    keyboardEvent() { }
 }
