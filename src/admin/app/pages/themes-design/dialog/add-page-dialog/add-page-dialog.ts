@@ -30,11 +30,12 @@ export class AddPageDialog implements OnInit {
             footer: [[]],
             body: [[]],
             menu: [[]],
-            code: [uuid()]
+            code: [uuid()],
+            id: ['']
         });
 
         this.dialog.afterOpen().subscribe(() => {
-            const { title, cata_id, keyword, desc, header, body, footer, menu, code } = Object.assign(new LayoutContainer, this.data);
+            const { title, cata_id, keyword, desc, header, body, footer, menu, code, id } = Object.assign(new LayoutContainer, this.data);
             this.form.get('title').setValue(title);
             this.form.get('keyword').setValue(keyword);
             this.form.get('desc').setValue(desc);
@@ -44,6 +45,7 @@ export class AddPageDialog implements OnInit {
             this.form.get('menu').setValue(menu);
             this.form.get('cata_id').setValue(cata_id);
             this.form.get('code').setValue(code);
+            this.form.get('id').setValue(id);
         });
     }
 

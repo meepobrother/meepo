@@ -53,7 +53,6 @@ export class ThemesDesign {
         });
         // 设置当前
         this.widget$.setCurrentWidgetStream.subscribe(res => {
-            console.log(res);
             this.currentWidget = res;
         });
         // 页面激活状态变化时
@@ -141,6 +140,7 @@ export class ThemesDesign {
         this.setSaveBtnLoading();
         console.log(this._view);
         this.api.mpost('app.editAppCatalogPage',this._view.widget).subscribe(res=>{
+            console.log(res);
             setTimeout(() => {
                 this.setSaveBtnSuccess();
             }, 800);

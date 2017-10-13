@@ -4,10 +4,10 @@
     </div>
     <div class="ibox-content">
         <form-field>
-            <input type="text" placeholder="请输入标题" meepoInput class="form-control">
+            <input type="text" [(ngModel)]="widget.title" placeholder="请输入标题" meepoInput class="form-control">
         </form-field>
         <form-field>
-            <textarea rows="4" type="text" placeholder="请输入分享内容" class="form-control" meepoInput></textarea>
+            <textarea rows="4" [(ngModel)]="widget.desc" type="text" placeholder="请输入分享内容" class="form-control" meepoInput></textarea>
         </form-field>
     </div>
     <div class="ibox-content">
