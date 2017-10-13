@@ -3,6 +3,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { CatalogService } from '../../section/catalog.service';
 import { LayoutContainer } from '../../../../design';
+import { ApiService } from '../../../../core';
 import uuid from 'uuid';
 @Component({
     selector: 'add-page-dialog',
@@ -12,11 +13,13 @@ import uuid from 'uuid';
 export class AddPageDialog implements OnInit {
     // @Input() data: any;
     form: FormGroup;
+    catalogs: any[] = [];
     constructor(
         public dialog: MatDialogRef<any>,
         @Inject(MAT_DIALOG_DATA) public data: any,
         public fb: FormBuilder,
-        public catalogService: CatalogService
+        public catalogService: CatalogService,
+        public apiService: ApiService
     ) {
         this.form = this.fb.group({
             title: [''],
@@ -44,7 +47,7 @@ export class AddPageDialog implements OnInit {
         });
     }
 
-    ngOnInit() { 
+    ngOnInit() {
         const { title, cata_id, keyword, desc, header, body, footer, menu, code } = Object.assign(new LayoutContainer, this.data);
         this.form.get('title').setValue(title);
         this.form.get('keyword').setValue(keyword);
@@ -55,6 +58,14 @@ export class AddPageDialog implements OnInit {
         this.form.get('menu').setValue(menu);
         this.form.get('cata_id').setValue(cata_id);
         this.form.get('code').setValue(code);
+
+        this.getCatalogs();
+    }
+
+    getCatalogs() {
+        this.apiService.mpost('app.getListAppCatalog', {}).subscribe((res: any) => {
+            this.catalogs = res.info;
+        });
     }
 
     cancelPageDialog() {
@@ -62,7 +73,9 @@ export class AddPageDialog implements OnInit {
     }
 
     clickAddPageConfirm() {
-        this.dialog.close(this.form.value);
+        this.apiService.mpost('app.editAppCatalogPage',this.form.value).subscribe((res: any)=>{
+            this.dialog.close(this.form.value);            
+        });
     }
     // 选择布局
     onSelectTheme(container: LayoutContainer) {
@@ -70,6 +83,8 @@ export class AddPageDialog implements OnInit {
         this.form.get('body').setValue(container.body);
         this.form.get('footer').setValue(container.footer);
         this.form.get('menu').setValue(container.menu);
-        this.dialog.close(this.form.value);
+        this.apiService.mpost('app.editAppCatalogPage',this.form.value).subscribe((res: any)=>{
+            this.dialog.close(this.form.value);            
+        });
     }
 }

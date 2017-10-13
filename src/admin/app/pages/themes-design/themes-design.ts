@@ -50,6 +50,7 @@ export class ThemesDesign {
         });
         // 设置当前
         this.widget$.setCurrentWidgetStream.subscribe(res => {
+            console.log(res);
             this.currentWidget = res;
         });
         // 页面激活状态变化时

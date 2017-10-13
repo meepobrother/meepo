@@ -11,6 +11,7 @@ import { CatalogGroup } from '../model';
 export class CatalogPageNavs implements OnInit {
     @Input() group: CatalogGroup = new CatalogGroup();
     @Input() list: any[] = [];
+
     @Output() onClickPage: EventEmitter<any> = new EventEmitter();
     @Output() onChange: EventEmitter<any> = new EventEmitter();
 
@@ -23,7 +24,9 @@ export class CatalogPageNavs implements OnInit {
     ngOnInit() { }
 
     onClick(page: any, index: number) {
+        console.log(page);
         this.currentIndex = index;
+        page.type = page.type || 'layout';
         this.service.clickCataPage(this.group, page);
         this.onChange.emit();
     }

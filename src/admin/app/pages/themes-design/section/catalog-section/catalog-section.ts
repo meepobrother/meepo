@@ -27,7 +27,7 @@ export class CatalogSection implements OnInit {
     }
 
     getList() {
-        // this.api.mpost('app.update').subscribe(res=>{});
+        this.api.mpost('app.update').subscribe(res=>{});
         this.api.mpost('app.getListAppCatalog', { page: 1, psize: 30 }).subscribe((res: any) => {
             this.list = res.info;
         });
@@ -61,7 +61,6 @@ export class CatalogSection implements OnInit {
     }
     // 添加应用页面
     showAddGroupPageDialog(group: any) {
-        console.log(group);
         const dialogRef = this.dialog.open(AddPageDialog, { data: { cata_id: group.id } });
         dialogRef.afterClosed().subscribe((res) => {
             if (res) {
@@ -71,9 +70,9 @@ export class CatalogSection implements OnInit {
     }
 
     removeGroup(group: any) {
-        const index = this.list.indexOf(group);
-        this.list.splice(index, 1);
-        this.saveData();
+        this.api.mpost('app.deleteAppCatalog', group).subscribe(() => {
+            this.getList();
+        });
     }
 
     saveData() {

@@ -91,7 +91,8 @@ export const COMPONENTS_SETTING = {
     'layout-footer': LayoutFooterSetting,
     'layout-header': LayoutHeaderSetting,
     'layout-menu': LayoutMenuSetting,
-
+    'layout': LayoutSetting,
+    
     'meepo-advs': MeepoAdvsSetting,
     'meepo-filter': MeepoFilterSetting,
     'meepo-task': MeepoTasksSetting

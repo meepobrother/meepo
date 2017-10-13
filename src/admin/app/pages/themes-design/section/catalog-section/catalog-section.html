@@ -1,29 +1,28 @@
-<ul class="catalog-container">
-    <li class="group-page-nav" (click)="onGroup(i)" *ngFor="let group of list;index as i;">
-        <div class="group-nav" [class.active]="currentGroupIndex === i">
-            <span>
-                <i class="icomoon-folder icon-container"></i>
-                {{group.title || '分组名称'}}
-            </span>
-            <div class="right_opts">
-                <span class="fa fa-remove icon-container" (click)="removeGroup(group)"></span>
-                <span class="fa fa-edit icon-container" (click)="showEditGroupDialog(group)"></span>
-                <span class="fa fa-plus icon-container" (click)="showAddGroupPageDialog(group)"></span>
-            </div>
+<div class="ibox">
+    <div class="ibox-title">
+        <h5>页面管理</h5>
+        <div class="ibox-tools">
+            <a class="btn btn-primary btn-xs " (click)="showAddGroupDialog()">
+                <i class="fa fa-plus-square-o"></i>
+            </a>
         </div>
-        <catalog-page-navs *ngIf="currentGroupIndex == i" [group]="group" (onChange)="saveData($event)"></catalog-page-navs>
-    </li>
-</ul>
-<div class="new-page-wrap">
-    <button class="btn btn-primary" (click)="showAddPageDialog()">
-        <i class="icon-container icon-addpage"></i> 
-        添加页面
-    </button>
-    <button class="btn btn-primary" (click)="showAddGroupDialog()">
-        <i class="icon-container icon-addfolder"></i> 
-        添加分组
-    </button>
+    </div>
+    <div class="ibox-content" style="position: relative;">
+        <ul class="catalog-container">
+            <li class="group-page-nav" (click)="onGroup(i)" *ngFor="let group of list;index as i;">
+                <div class="group-nav" [class.active]="currentGroupIndex === i">
+                    <span>
+                        <i class="icomoon-folder icon-container"></i>
+                        {{group.title || '分组名称'}}
+                    </span>
+                    <div class="right_opts">
+                        <span class="fa fa-remove icon-container" (click)="removeGroup(group)"></span>
+                        <span class="fa fa-edit icon-container" (click)="showEditGroupDialog(group)"></span>
+                        <span class="fa fa-plus icon-container" (click)="showAddGroupPageDialog(group)"></span>
+                    </div>
+                </div>
+                <catalog-page-navs *ngIf="currentGroupIndex == i" [group]="group" (onChange)="saveData($event)"></catalog-page-navs>
+            </li>
+        </ul>
+    </div>
 </div>
-
-<!-- <add-page-dialog></add-page-dialog> -->
-<!-- <add-group-dialog></add-group-dialog> -->
