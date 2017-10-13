@@ -1,8 +1,0 @@
-<ul class="nav nav-tabs">
-  <span class="pull-right small text-muted">{{tip}}</span>
-  <li [class.active]="item.active" *ngFor="let item of items" (click)="_onclick(item)">
-    <a href="javascript:;">
-      <i class="fa" [ngClass]="item.classname"></i> {{item.title}}
-    </a>
-  </li>
-</ul>

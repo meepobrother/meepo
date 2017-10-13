@@ -1,42 +1,7 @@
 <div class="widgets-container">
-    <div class="widget ui-draggable ui-draggable-handle">
-        <i class="icon-container icon-text"></i>
-        <label>文本</label>
-    </div>
-
-    <div class="widget ui-draggable ui-draggable-handle">
-        <i class="icon-container icon-text"></i>
-        <label>图片</label>
-    </div>
-
-    <div class="widget ui-draggable ui-draggable-handle">
-        <i class="icon-container icon-text"></i>
-        <label>按钮</label>
-    </div>
-
-    <div class="widget ui-draggable ui-draggable-handle">
-        <i class="icon-container icon-text"></i>
-        <label>标题</label>
-    </div>
-
-    <div class="widget ui-draggable ui-draggable-handle">
-        <i class="icon-container icon-text"></i>
-        <label>轮播</label>
-    </div>
-
-    <div class="widget ui-draggable ui-draggable-handle">
-        <i class="icon-container icon-text"></i>
-        <label>分类</label>
-    </div>
-
-    <div class="widget ui-draggable ui-draggable-handle">
-        <i class="icon-container icon-text"></i>
-        <label>图文</label>
-    </div>
-
-    <div class="widget ui-draggable ui-draggable-handle">
-        <i class="icon-container icon-text"></i>
-        <label>视频</label>
+    <div class="widget ui-draggable ui-draggable-handle" *ngFor="let item of widgets">
+        <i class="icon-container icomoon-text"></i>
+        <label>{{item.name}}</label>
     </div>
 </div>
 

@@ -2,7 +2,7 @@ import uuid from 'uuid';
 
 export class CatalogGroup {
     title: string = '';
-    id: string = uuid();
+    id: number;
     pages: any[] = [];
 
     addPage(page: CatalogPage) {
@@ -26,9 +26,8 @@ export class CatalogGroup {
 
 export class CatalogPage {
     title: string = '';
-    id: string = uuid();
+    id: string;
     type: string = 'page';
-
     // 头部
     header: any[] = [];
     body: any[] = [];

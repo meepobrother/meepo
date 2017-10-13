@@ -1,9 +1,0 @@
-<div class="quick-menu-contatiner">
-    <div class="quick-menu">
-        <ul>
-            <li *ngFor="let item of items">
-                <ng-container *ngTemplateOutlet="outlet.templateRef;context: { $implicit: item }"></ng-container>
-            </li>
-        </ul>
-    </div>
-</div>

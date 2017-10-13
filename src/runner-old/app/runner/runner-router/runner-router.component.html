@@ -1,7 +1,0 @@
-<div class="h60" *ngIf="showNewTaskTop"></div>
-<router-outlet></router-outlet>
-<runner-footer [items]="items" *ngIf="util.showMainFooter">
-  <suyun-edit-btn [fixed]="'true'" [link]="['/','admin','setting','footer-bar']"></suyun-edit-btn>
-</runner-footer>
-<suyun-geolocation *ngIf="updateLocation" (onLocation)="onLocation($event)"></suyun-geolocation>
-<suyun-player-footer (onTouchMove)="onTouchMove($event)" *ngIf="showNewTask" [localId]="localId" [item]="newTask"></suyun-player-footer>
