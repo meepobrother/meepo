@@ -1,4 +1,5 @@
-import { LayoutWidget } from '../widget';
+import { LayoutWidget } from './layout-widget';
+
 export class LayoutHeader extends LayoutWidget {
     show: boolean = false;
     // 左右菜单

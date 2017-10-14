@@ -1,4 +1,4 @@
-import { LayoutWidget } from '../widget';
+import { LayoutWidget } from './layout-widget';
 export class LayoutBody extends LayoutWidget {
     show: boolean = true;
     constructor() {

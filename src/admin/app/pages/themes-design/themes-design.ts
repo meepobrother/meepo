@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import {
     PageService, ApplicationService, WidgetService,
     ComponentsService, LayoutView, WeuiPage, LayoutService,
-    Widget, LayoutContainer
+    Widget, LayoutContainerModel
 } from '../../design';
 
 import { MatDialog } from '@angular/material';
@@ -10,7 +10,7 @@ import { Button } from '../../design';
 import { ApiService } from '../../core';
 
 
-import { DataPerService, CatalogService } from './section';
+import { DataPerService, CatalogService } from '../../design';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import {
@@ -34,7 +34,7 @@ export class ThemesDesign {
 
     // 分组列表
     currentWidget: any;
-    currentPage: any = new LayoutContainer();
+    currentPage: any = new LayoutContainerModel();
 
     // 当前容器
     _container: any;
@@ -67,8 +67,8 @@ export class ThemesDesign {
         });
 
         this.route.params.subscribe(res=>{
-            console.log(res);
             this.app_id = res.id;
+            this.widget$.setAppId(this.app_id);
         });
     }
 

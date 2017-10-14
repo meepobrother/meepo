@@ -1,9 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { AddPageDialog } from '../../dialog';
-import { CatalogService } from '../catalog.service';
 import { CatalogGroup } from '../model';
-import { WidgetService } from '../../../../design';
+import { WidgetService, CatalogService } from '../../../../design';
 import { ApiService } from '../../../../core';
 @Component({
     selector: 'catalog-page-navs',

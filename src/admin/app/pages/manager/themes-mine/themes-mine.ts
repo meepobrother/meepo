@@ -38,7 +38,7 @@ export class ThemesMine implements OnInit {
     }
 
     goDesign(item: any){
-        this.router.navigate(['/themes/design',item.token])
+        this.router.navigate(['/themes/design',item.id])
     }
 
     add(){

@@ -1,4 +1,5 @@
-import { LayoutWidget } from '../widget';
+import { LayoutWidget } from './layout-widget';
+
 export class LayoutMenu extends LayoutWidget {
     direction: string = 'left';
     open: boolean = false;

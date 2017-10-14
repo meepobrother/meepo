@@ -1,8 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectorRef } from '@angular/core';
-import { CatalogService } from '../catalog.service';
+import { CatalogService } from '../../../../design';
 import { MatDialog } from '@angular/material';
 import { AddGroupDialog, AddPageDialog } from '../../dialog';
-import { LayoutContainer } from '../../../../design';
 import { CatalogGroup } from '../model';
 import { ApiService } from '../../../../core';
 

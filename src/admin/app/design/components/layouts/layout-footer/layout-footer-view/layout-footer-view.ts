@@ -2,6 +2,8 @@ import { Component, OnInit, HostListener, Input, HostBinding, OnChanges, SimpleC
 import { LayoutService } from '../../layout.service';
 import { LayoutFooter } from '../layout-footer';
 import { WidgetService } from '../../../../services';
+import { ApiService } from '../../../../../core';
+import { CatalogService } from '../../../../services';
 
 @Component({
     selector: 'layout-footer-view',
@@ -21,7 +23,9 @@ export class LayoutFooterView implements OnInit, OnChanges {
     @HostBinding('class.layout-footer') _footer: boolean = true;
     constructor(
         public layout: LayoutService,
-        public widget$: WidgetService
+        public widget$: WidgetService,
+        public api: ApiService,
+        public CatalogService: CatalogService
     ) { 
         this.layout.onChange.debounceTime(300).subscribe(res=>{
             if(res === this.widget){
@@ -40,6 +44,11 @@ export class LayoutFooterView implements OnInit, OnChanges {
     }
 
     onItem(item: any){
+        // get page
+        this.api.mpost('app.getAppCatalogPage',{id: item.link}).subscribe((res: any)=>{
+            this.widget$.setCurrentWidget(res.info);
+        });
+        console.log(item);
         // this.widget.children.map(res=>{
         //     res['active'] = false;
         //     res['style'] = null;

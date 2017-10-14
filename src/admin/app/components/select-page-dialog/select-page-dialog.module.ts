@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SelectPageDialog } from './select-page-dialog';
+
 @NgModule({
     declarations: [
         SelectPageDialog
@@ -10,5 +11,8 @@ import { SelectPageDialog } from './select-page-dialog';
         SelectPageDialog
     ],
     providers: [],
+    entryComponents: [
+        SelectPageDialog
+    ]
 })
 export class SelectPageDialogModule {}

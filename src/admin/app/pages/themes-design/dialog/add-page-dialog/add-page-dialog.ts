@@ -1,8 +1,8 @@
 import { Component, OnInit, Inject, Input } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { CatalogService } from '../../section/catalog.service';
-import { LayoutContainer } from '../../../../design';
+import { CatalogService } from '../../../../design';
+import { LayoutContainerModel } from '../../../../design';
 import { ApiService } from '../../../../core';
 import uuid from 'uuid';
 @Component({
@@ -80,7 +80,7 @@ export class AddPageDialog implements OnInit {
         });
     }
     // 选择布局
-    onSelectTheme(container: LayoutContainer) {
+    onSelectTheme(container: LayoutContainerModel) {
         this.form.get('header').setValue(container.header);
         this.form.get('body').setValue(container.body);
         this.form.get('footer').setValue(container.footer);

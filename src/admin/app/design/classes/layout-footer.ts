@@ -1,4 +1,5 @@
-import { LayoutWidget } from '../widget';
+import { LayoutWidget } from './layout-widget';
+
 export class LayoutFooter extends LayoutWidget {
     show: boolean = false;
     constructor() {

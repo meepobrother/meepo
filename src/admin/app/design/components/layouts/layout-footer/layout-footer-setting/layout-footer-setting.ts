@@ -1,5 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { LayoutFooter } from '../layout-footer';
+import { MatDialog } from '@angular/material';
+import { SelectPageDialog } from '../../../../../components/select-page-dialog';
+import { WidgetService} from '../../../../services';
 @Component({
     selector: 'layout-footer-setting',
     templateUrl: './layout-footer-setting.html',
@@ -7,11 +10,13 @@ import { LayoutFooter } from '../layout-footer';
 })
 export class LayoutFooterSetting implements OnInit {
     @Input() widget: LayoutFooter = new LayoutFooter();
-    constructor() { }
+    constructor(
+        public dialog: MatDialog,
+        public widget$: WidgetService
+    ) { }
 
     ngOnInit() { 
         this.widget.children = this.widget.children || [];
-        console.log(this.widget);
     }
 
     addItem(){
@@ -30,7 +35,13 @@ export class LayoutFooterSetting implements OnInit {
         this.widget.children.splice(index,1);
     }
 
-    linkItem(item: any){}
+    linkItem(item: any){
+       const dialogRef = this.dialog.open(SelectPageDialog, {data: {app_id: this.widget$.getAppId()}});
+       dialogRef.afterClosed().subscribe(page=>{
+            item['link'] = page.id;
+            item.title = page.title;
+       });
+    }
 
     selectIcon(item: any){
 

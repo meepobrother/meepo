@@ -8,6 +8,16 @@ export class WidgetService {
     private currentWidget: any = new Widget();
     setCurrentWidgetStream: Subject<any> = new Subject();
 
+    appId: any;
+
+    setAppId(id: any){
+        this.appId = id;
+    }
+
+    getAppId(){
+        return this.appId;
+    }
+
     setCurrentWidget(item: any) {
         this.currentWidget = item;
         this.setCurrentWidgetStream.next(this.currentWidget);

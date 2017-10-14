@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, ContentChild, HostBinding, ElementRef } from '@angular/core';
-import { LayoutContainer } from '../layout-container';
+import { LayoutContainerModel } from '../../../../classes';
 
 import { LayoutBodyView } from '../../layout-body';
 import { LayoutHeaderView } from '../../layout-header';
@@ -13,7 +13,7 @@ import { LayoutMenuView } from '../../layout-menu';
     styleUrls: ['./layout-container-view.scss']
 })
 export class LayoutContainerView implements OnInit {
-    @Input() widget: LayoutContainer = new LayoutContainer();
+    @Input() widget: LayoutContainerModel = new LayoutContainerModel();
     @ContentChild(LayoutBodyView) _body: LayoutBodyView;
     @ContentChild(LayoutHeaderView) _header: LayoutHeaderView;
     @ContentChild(LayoutFooterView) _footer: LayoutFooterView;

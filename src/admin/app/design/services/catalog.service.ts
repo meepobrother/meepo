@@ -7,8 +7,8 @@ import {
     CatalogGroup
 } from './model';
 import {
-    LayoutContainer
-} from '../../../design';
+    LayoutContainerModel
+} from '../components/layouts/Layout-container/layout-container';
 @Injectable()
 export class CatalogService {
     showAddPageDialogStream: Subject<any> = new Subject();
@@ -21,7 +21,7 @@ export class CatalogService {
     // 分组数据
     catalogGroupsData: CatalogGroup[] = [];
     // 当前页面
-    currentPage: any = new LayoutContainer();
+    currentPage: any = new LayoutContainerModel();
     // 设置当前页面
     setCurrentPageStream: Subject<any> = new Subject();
     // 当前组

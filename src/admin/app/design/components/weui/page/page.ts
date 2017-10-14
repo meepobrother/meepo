@@ -1,6 +1,6 @@
 import { WeuiWidget } from '../widget';
 import uuid from 'uuid';
-import { Layout, LayoutContainer } from '../../layouts';
+import { Layout, LayoutContainerModel } from '../../layouts';
 export class WeuiPage extends WeuiWidget {
     type: string = 'page';
     name: string = '页面';
@@ -18,7 +18,7 @@ export class WeuiPage extends WeuiWidget {
         this.title = '测试页面';
         this.code = uuid();
         const layout = new Layout();
-        const layoutContainer = new LayoutContainer();
+        const layoutContainer = new LayoutContainerModel();
         layout.children = [
             layoutContainer
         ];

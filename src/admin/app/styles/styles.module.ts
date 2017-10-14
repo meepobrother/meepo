@@ -6,10 +6,9 @@ import { FontAwesomeSelect } from './font-awesome-select';
 import { IconSelect } from './icon-select';
 import { WebIconSelect } from './web-icon-select';
 
-import { NavTabsModule } from '../components';
 import { ReactiveFormsModule } from '@angular/forms';
 
-
+import { NavTabsModule } from '../components/nav-tabs/nav-tabs.module';
 
 @NgModule({
     declarations: [
@@ -19,7 +18,7 @@ import { ReactiveFormsModule } from '@angular/forms';
         IconSelect,
         WebIconSelect
     ],
-    imports: [CommonModule, NavTabsModule, ReactiveFormsModule],
+    imports: [CommonModule, ReactiveFormsModule, NavTabsModule],
     exports: [
         StylesComponent,
         IconfontSelect,

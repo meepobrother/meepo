@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { LayoutBody } from '../layout-body';
+import { LayoutBody } from '../../../../classes';
 @Component({
     selector: 'layout-body-setting',
     templateUrl: './layout-body-setting.html',

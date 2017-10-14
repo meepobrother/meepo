@@ -1,5 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { LayoutContainer } from '../../layout-container';
+import { LayoutContainerModel } from '../../layout-container';
 import {
     headerBodyFooter, bodyFooter,
     body, headerBody
@@ -12,7 +12,7 @@ import {
 export class LayoutSelect implements OnInit {
     @Output() onSelect: EventEmitter<any> = new EventEmitter();
     
-    widgets: LayoutContainer[] = [
+    widgets: LayoutContainerModel[] = [
         body,
         bodyFooter,
         headerBody,

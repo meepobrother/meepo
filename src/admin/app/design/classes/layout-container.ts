@@ -1,10 +1,12 @@
-import { LayoutWidget } from '../widget';
-import { LayoutBody } from '../layout-body';
-import { LayoutHeader } from '../layout-header';
-import { LayoutMenu } from '../layout-menu';
-import { LayoutFooter } from '../layout-footer';
+import { LayoutWidget } from './layout-widget';
+import { LayoutBody } from './layout-body';
+import { LayoutMenu } from './layout-menu';
+import { LayoutFooter } from './layout-footer';
+import { LayoutHeader } from './layout-header';
 
-export class LayoutContainer extends LayoutWidget {
+
+
+export class LayoutContainerModel extends LayoutWidget {
 
     header: LayoutHeader = new LayoutHeader();
     menu: LayoutMenu = new LayoutMenu();
@@ -18,7 +20,6 @@ export class LayoutContainer extends LayoutWidget {
         this.name = '布局-容器';
         this.title = '页面';
         this.children = [];
-
         this.setContainerClass();
     }
 
