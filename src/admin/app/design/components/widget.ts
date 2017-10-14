@@ -9,7 +9,7 @@ export class Widget {
     // 面板动画
     animations: any = {};
     // 包含内容
-    children: Widget[] = [];
+    children: any[] = [];
     // 面板样式 内部样式
     // styleObj: Map<string, string> = new Map();
     // classObj: Map<string, boolean> = new Map();

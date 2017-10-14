@@ -11,7 +11,7 @@ import { ApiService } from '../../core';
 
 
 import { DataPerService, CatalogService } from './section';
-
+import { Router } from '@angular/router';
 
 import {
     ButtonView,
@@ -46,7 +46,8 @@ export class ThemesDesign {
         public components$: ComponentsService,
         public layout$: LayoutService,
         public catalogService: CatalogService,
-        public api: ApiService
+        public api: ApiService,
+        public router: Router
     ) {
         this.layout$.onChange.subscribe(container => {
             this._container = container;
@@ -56,7 +57,7 @@ export class ThemesDesign {
             this.currentWidget = res;
         });
         // 页面激活状态变化时
-        this.catalogService.setCurrentPageStream.subscribe((page)=>{
+        this.catalogService.setCurrentPageStream.subscribe((page) => {
             this.application$.open();
             // 保存当前页面
             this.currentWidget = page;
@@ -85,13 +86,11 @@ export class ThemesDesign {
 
 
     // 添加组件
-    addWidget(name: string) {
-        this.components$.selectComponent(name);
-        // 选择后 添加
-        const onSelectStream = this.components$.onSelectStream.subscribe(widget => {
-            // 判断容器类型
-            this.addToContainer(widget);
-            onSelectStream.unsubscribe();
+    addWidget(widget: any) {
+        this.components$.createWidget(widget.type);
+        const create = this.components$.onCreateStream.subscribe(res => {
+            this.addToContainer(res);
+            create.unsubscribe();
         });
     }
 
@@ -115,7 +114,7 @@ export class ThemesDesign {
         }
     }
     // 添加组件
-    
+
     // 保存页面
     saveBtn: any = {
         loading: false,
@@ -138,13 +137,22 @@ export class ThemesDesign {
     // 保存当前页面
     saveCurrentPage() {
         this.setSaveBtnLoading();
-        console.log(this._view);
-        this.api.mpost('app.editAppCatalogPage',this._view.widget).subscribe(res=>{
+        this.currentPage['html_content'] = this._view.ele.nativeElement.outerHTML as string;
+        console.log(this.currentPage);
+        this.api.mpost('app.editAppCatalogPage', this.currentPage).subscribe(res => {
             console.log(res);
             setTimeout(() => {
                 this.setSaveBtnSuccess();
             }, 800);
         });
+    }
+
+    doPreview() {
+        // console.log(this._view._container.ele.nativeElement);
+        // const url = 'https://meepo.com.cn/app/index.php?i=41&c=entry&do=design&m=imeepos_runner&id=' + this.currentPage.id;
+        // window.open(url,"_blank");
+
+        this.router.navigate(['/themes/preview',this.currentPage.id])
     }
 
 }

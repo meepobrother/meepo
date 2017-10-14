@@ -1,5 +1,5 @@
 <div class="widgets-container">
-    <div class="widget ui-draggable ui-draggable-handle" *ngFor="let item of widgets">
+    <div class="widget ui-draggable ui-draggable-handle" (click)="selectWidget(item)" *ngFor="let item of widgets">
         <i class="icon-container icomoon-text"></i>
         <label>{{item.name}}</label>
     </div>

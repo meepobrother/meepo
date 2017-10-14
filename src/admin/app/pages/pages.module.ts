@@ -75,6 +75,11 @@ const routes:Routes = [
         canActivate: [IsLoginGuard]
     },
     {
+        path: 'themes/preview/:id',
+        loadChildren: 'app/pages/themes-preview/themes-preview.module#ThemesPreviewModule',
+        canActivate: [IsLoginGuard]
+    },
+    {
         path: 'coachs',
         loadChildren: 'app/pages/coachs/coachs-page.module#CoachsPageModule',
         canActivate: [IsLoginGuard]

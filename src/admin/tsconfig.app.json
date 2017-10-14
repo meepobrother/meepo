@@ -22,13 +22,6 @@
         ],
         "rootDir": ".",
         "baseUrl": ".",
-        "paths": {
-            "@meepo/core": ["../../core/public_api"],
-            "@meepo/mobile": ["../../mobile/public_api"],
-            "@meepo/runner": ["../../runner/public_api"],
-            "@meepo/repair": ["../../repair/public_api"],
-            "@meepo/runner/demo": ["../../runner/demo/public_api"],
-            "@meepo/admin": ["../../admin/public_api"]
-        }
+        "paths": {}
     }
 }

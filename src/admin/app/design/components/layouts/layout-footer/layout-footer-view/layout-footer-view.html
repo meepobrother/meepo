@@ -1,1 +1,3 @@
-<free-widget-view [ngClass]="item.containerClass" [ngStyle]="item.containerStyle" [widget]="item" *ngFor="let item of widget.children"></free-widget-view>
+<div class="footer-item" (click)="onItem(item)" [class.active]="item.active" [ngStyle]="item.style" *ngFor="let item of widget.children">
+    <i [class]="item.icon"></i> {{item.title}}
+</div>

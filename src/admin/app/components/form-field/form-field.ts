@@ -45,7 +45,18 @@ let nextUniqueId = 0;
 @Component({
     selector: 'meepo-input-container, meepo-form-field, form-field',
     templateUrl: './form-field.html',
-    preserveWhitespaces: false
+    preserveWhitespaces: false,
+    styles: [
+        `
+        .input-group-btn .label{
+            height: 100%;
+            display: block;
+            line-height: 34px;
+            padding: 0px 10px;
+        }
+        `
+    ],
+    encapsulation: ViewEncapsulation.None
 })
 export class MeepoFormField implements AfterViewInit, AfterContentInit, AfterContentChecked {
     @HostBinding('class.form-group') _formGroup: boolean = true;

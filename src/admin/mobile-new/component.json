@@ -1,0 +1,6 @@
+{
+    "name": "mobile-new",
+    "dependencies": {},
+    "scripts": ["index.js"],
+    "styles": ["index.css"]
+}

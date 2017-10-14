@@ -1,1 +1,17 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+free-widget-view {
+    display: block;
+    position: relative;
+}
+
+// 文字颜色
 @import "./text-color";
+// 字体图标
+@import "./css/font-awesome.css";
+@import "../../meepo-common.scss";
+@import "../design/components/meepo-ui/meepo-advs/meepo-advs-view/meepo-advs-view.scss";
+@import "../design/components/layouts/layout-footer/layout-footer-view/layout-footer-view.scss";

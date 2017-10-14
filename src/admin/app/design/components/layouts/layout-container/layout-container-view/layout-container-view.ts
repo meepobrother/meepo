@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ContentChild, HostBinding } from '@angular/core';
+import { Component, OnInit, Input, ContentChild, HostBinding, ElementRef } from '@angular/core';
 import { LayoutContainer } from '../layout-container';
 
 import { LayoutBodyView } from '../../layout-body';
@@ -21,7 +21,9 @@ export class LayoutContainerView implements OnInit {
 
     @HostBinding('class.layout-container') _container: boolean = true;
     
-    constructor() { }
+    constructor(
+        public ele: ElementRef
+    ) { }
 
     ngOnInit() { }
 }

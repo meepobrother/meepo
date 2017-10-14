@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener, Input, HostBinding } from '@angular/core';
+import { Component, OnInit, HostListener, Input, HostBinding, OnChanges, SimpleChanges } from '@angular/core';
 import { LayoutService } from '../../layout.service';
 import { LayoutFooter } from '../layout-footer';
 import { WidgetService } from '../../../../services';
@@ -8,10 +8,10 @@ import { WidgetService } from '../../../../services';
     templateUrl: './layout-footer-view.html',
     styleUrls: ['./layout-footer-view.scss']
 })
-export class LayoutFooterView implements OnInit {
+export class LayoutFooterView implements OnInit, OnChanges {
     @Input() widget: LayoutFooter = new LayoutFooter();
     @HostBinding('class.active') _active: boolean = false;
-    
+    activeStyle: any;
     @HostListener('click',['$event'])
     onClick(evt: any){
         this.layout.onFooter(this.widget);
@@ -32,5 +32,21 @@ export class LayoutFooterView implements OnInit {
         });
     }
 
-    ngOnInit() { }
+    ngOnInit() { 
+        this.activeStyle = this.widget['activeStyle'];
+    }
+
+    ngOnChanges(changes: SimpleChanges){
+        const widget = changes['widget'].currentValue;
+        this.activeStyle = widget['activeStyle'];
+    }
+
+    onItem(item: any){
+        this.widget.children.map(res=>{
+            res['active'] = false;
+            res['style'] = null;
+        });
+        item['active'] = true;
+        item['style'] = this.widget['activeStyle'];
+    }
 }

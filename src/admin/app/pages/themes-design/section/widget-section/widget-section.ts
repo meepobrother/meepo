@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ApiService } from '../../../../core';
 @Component({
     selector: 'widget-section',
@@ -7,6 +7,7 @@ import { ApiService } from '../../../../core';
 })
 export class WidgetSection implements OnInit {
     widgets: any[] = [];
+    @Output() onSelect: EventEmitter<any> = new EventEmitter();
     constructor(
         public api: ApiService
     ) { }
@@ -15,5 +16,9 @@ export class WidgetSection implements OnInit {
         this.api.mpost('app.getListAppWidgets', { page: 1, psize: 30 }).subscribe((res: any) => {
             this.widgets = res.info;
         });
+    }
+
+    selectWidget(item: any){
+        this.onSelect.emit(item);
     }
 }
