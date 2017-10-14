@@ -15,6 +15,8 @@ export class CatalogSection implements OnInit {
     list: CatalogGroup[] = [];
     currentGroupIndex: number;
 
+    @Input() appId: any;
+
     constructor(
         public catalogService: CatalogService,
         public dialog: MatDialog,
@@ -27,8 +29,8 @@ export class CatalogSection implements OnInit {
     }
 
     getList() {
-        this.api.mpost('app.update').subscribe(res=>{});
-        this.api.mpost('app.getListAppCatalog', { page: 1, psize: 30 }).subscribe((res: any) => {
+        this.api.mpost('app.update').subscribe(res => { });
+        this.api.mpost('app.getListAppCatalog', { page: 1, psize: 30, app_id: this.appId }).subscribe((res: any) => {
             this.list = res.info;
         });
     }
@@ -43,7 +45,7 @@ export class CatalogSection implements OnInit {
 
     // 添加应用
     showAddGroupDialog() {
-        const dialogRef = this.dialog.open(AddGroupDialog);
+        const dialogRef = this.dialog.open(AddGroupDialog, { data: { app_id: this.appId } });
         dialogRef.afterClosed().subscribe((res) => {
             if (res) {
                 this.getList();
@@ -61,7 +63,9 @@ export class CatalogSection implements OnInit {
     }
     // 添加应用页面
     showAddGroupPageDialog(group: any) {
-        const dialogRef = this.dialog.open(AddPageDialog, { data: { cata_id: group.id } });
+        const data = { cata_id: group.id, app_id: this.appId };
+        console.log(data);
+        const dialogRef = this.dialog.open(AddPageDialog, { data: data });
         dialogRef.afterClosed().subscribe((res) => {
             if (res) {
                 this.getList();

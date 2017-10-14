@@ -19,6 +19,9 @@ export * from './dialog';
 export * from './location-picker';
 
 
+export * from './select-page-dialog';
+
+
 
 
 

@@ -15,7 +15,7 @@ export class LayoutHeader extends LayoutWidget {
 
     setContainerClass() {
         this.containerClass = { 'layout-header': true };
-        this.containerStyle = { 'color': '#fff' };
-        
+        this.containerStyle = { 'color': '#fff', 'background-color': '#19b394' };
+        this.styleObj = { color: '#fff' };
     }
 }

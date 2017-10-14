@@ -67,7 +67,7 @@ export class MainLayoutComponent implements OnInit {
             link: ['/dates']
         },
         {
-            title: '皮肤',
+            title: '应用',
             total: 0,
             icon: 'ui-icon ui-icon-dressup',
             link: ['/themes']

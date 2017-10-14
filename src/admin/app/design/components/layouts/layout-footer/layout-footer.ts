@@ -12,5 +12,6 @@ export class LayoutFooter extends LayoutWidget {
 
     setContainerClass() {
         this.containerClass = { 'layout-footer': true };
+        this.containerStyle = { 'color': '#fff', 'background-color': '#ccc'}
     }
 }

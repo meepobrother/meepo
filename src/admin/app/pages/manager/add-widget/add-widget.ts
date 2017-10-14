@@ -18,20 +18,23 @@ export class AddWidget implements OnInit {
         this.form = this.fb.group({
             type: [''],
             name: [''],
-            id: ['']
+            id: [''],
+            tpl: ['']
         });
 
         this.dialog.afterOpen().subscribe(res => {
-            let { type, name, id } = this.data;
+            let { type, name, id, tpl } = this.data;
             this.form.get('type').setValue(type);
             this.form.get('name').setValue(name);
             this.form.get('id').setValue(id);
+            this.form.get('tpl').setValue(tpl);
         });
     }
 
     ngOnInit() { }
 
     save() {
+        this.form.get('tpl').setValue(this.form.get('tpl').value.replace(/[\r\n]/g,""));
         this.api.mpost('app.eidtAppWidgets', this.form.value).subscribe(res => {
             this.dialog.close(this.form.value);
         });

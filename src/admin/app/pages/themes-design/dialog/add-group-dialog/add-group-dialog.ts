@@ -21,11 +21,13 @@ export class AddGroupDialog implements OnInit {
     ) {
         this.form = this.fb.group({
             title: [''],
-            id: ['']
+            id: [''],
+            app_id: ['']            
         });
         this.dialog.afterOpen().subscribe(() => {
-            const { title,id } = this.data || new CatalogGroup();
+            const { title,id, app_id } = this.data || new CatalogGroup();
             this.form.get('title').setValue(title);
+            this.form.get('app_id').setValue(app_id);
             this.form.get('id').setValue(id);
         });
     }

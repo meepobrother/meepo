@@ -11,7 +11,7 @@ import { ApiService } from '../../core';
 
 
 import { DataPerService, CatalogService } from './section';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import {
     ButtonView,
@@ -38,6 +38,7 @@ export class ThemesDesign {
 
     // 当前容器
     _container: any;
+    app_id: any;
     constructor(
         public page$: PageService,
         public application$: ApplicationService,
@@ -47,7 +48,8 @@ export class ThemesDesign {
         public layout$: LayoutService,
         public catalogService: CatalogService,
         public api: ApiService,
-        public router: Router
+        public router: Router,
+        public route: ActivatedRoute
     ) {
         this.layout$.onChange.subscribe(container => {
             this._container = container;
@@ -62,6 +64,11 @@ export class ThemesDesign {
             // 保存当前页面
             this.currentWidget = page;
             this.currentPage = page;
+        });
+
+        this.route.params.subscribe(res=>{
+            console.log(res);
+            this.app_id = res.id;
         });
     }
 
@@ -137,8 +144,8 @@ export class ThemesDesign {
     // 保存当前页面
     saveCurrentPage() {
         this.setSaveBtnLoading();
-        this.currentPage['html_content'] = this._view.ele.nativeElement.outerHTML as string;
-        console.log(this.currentPage);
+        // this.currentPage['html_content'] = this._view.ele.nativeElement.outerHTML as string;
+        // console.log(this.currentPage);
         this.api.mpost('app.editAppCatalogPage', this.currentPage).subscribe(res => {
             console.log(res);
             setTimeout(() => {
@@ -148,10 +155,6 @@ export class ThemesDesign {
     }
 
     doPreview() {
-        // console.log(this._view._container.ele.nativeElement);
-        // const url = 'https://meepo.com.cn/app/index.php?i=41&c=entry&do=design&m=imeepos_runner&id=' + this.currentPage.id;
-        // window.open(url,"_blank");
-
         this.router.navigate(['/themes/preview',this.currentPage.id])
     }
 

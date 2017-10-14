@@ -1,0 +1,20 @@
+<layout-view class="layout">
+    <layout-container-view class="layout-container">
+        {if $data['header']['show']}
+        <layout-header-view class="layout-header" style="{loop $data['header']['containerStyle'] $key $item}{$key}:{$item};{/loop}">
+            <h2 class="title" style="{{#each header.styleObj}}{{@key}}:{{this}};{{/each}}">{{header.content}}</h2>
+        </layout-header-view>
+        {/if} {if $data['body']['show']}
+        <layout-body-view id="layoutBody" style="{loop $data['body']['containerStyle'] $key $item}{$key}:{$item};{/loop}" class="layout-body">
+            
+        </layout-body-view>
+        {/if} {if $data['footer']['show']}
+        <layout-footer-view class="layout-footer" style="{loop $footer['style'] $key $item}{$key}:{$item};{/loop}">
+            {loop $data['footer'][children] $footer}
+            <div class="footer-item" style="{loop $footer['style'] $key $item}{$key}:{$item};{/loop}">
+                <i class="{$footer['icon']}"></i> {$footer['title']} </div>
+            {/loop}
+        </layout-footer-view>
+        {/if}
+    </layout-container-view>
+</layout-view>

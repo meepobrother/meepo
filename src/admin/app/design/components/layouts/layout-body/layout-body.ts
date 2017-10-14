@@ -12,5 +12,6 @@ export class LayoutBody extends LayoutWidget {
 
     setContainerClass() {
         this.containerClass = { 'layout-body': true };
+        this.containerStyle = {'background-color': '#e6e6e6'};
     }
 }

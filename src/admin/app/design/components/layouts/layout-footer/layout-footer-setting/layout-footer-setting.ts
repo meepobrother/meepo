@@ -1,18 +1,17 @@
 import { Component, OnInit, Input } from '@angular/core';
-
+import { LayoutFooter } from '../layout-footer';
 @Component({
     selector: 'layout-footer-setting',
     templateUrl: './layout-footer-setting.html',
     styleUrls: ['./layout-footer-setting.scss']
 })
 export class LayoutFooterSetting implements OnInit {
-    @Input() widget: any;
+    @Input() widget: LayoutFooter = new LayoutFooter();
     constructor() { }
 
     ngOnInit() { 
         this.widget.children = this.widget.children || [];
-        this.widget['activeStyle'] = this.widget['activeStyle'] || {color: '#ff0000'};
-        this.widget['containerStyle'] = this.widget['containerStyle'] || {color: '#fff', 'background-color': '#19b394'};
+        console.log(this.widget);
     }
 
     addItem(){
@@ -20,6 +19,10 @@ export class LayoutFooterSetting implements OnInit {
             title: '标题',
             icon: 'fa fa-plus-square'
         });
+    }
+
+    onChange(){
+        console.log(this.widget);        
     }
 
     deleteItem(item: any){

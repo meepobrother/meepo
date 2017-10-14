@@ -9,11 +9,7 @@
         </form-field>
         <form-field group="true">
             <span class="label" start>前景颜色</span>
-            <input type="color" [(ngModel)]="widget.containerStyle['color']" meepoInput class="form-control">
-        </form-field>
-        <form-field group="true">
-            <span class="label" start>激活颜色</span>
-            <input type="color" [(ngModel)]="widget.activeStyle['color']" meepoInput class="form-control">
+            <input type="color" (change)="onChange()" [(ngModel)]="widget.containerStyle.color" meepoInput class="form-control">
         </form-field>
     </div>
 </div>

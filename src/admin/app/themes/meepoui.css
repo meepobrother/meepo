@@ -646,4 +646,34 @@ button.swiper-pagination-bullet {
   .footer-item:hover {
     transform: scale(1.1, 1.1); }
 
+:host {
+  display: flex;
+  width: 100%;
+  min-height: 44px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center; }
+  :host.active {
+    background-color: #ccc; }
+  :host:hover {
+    border: 2px dashed #00a0e9;
+    cursor: move; }
+
+.title {
+  color: #fff;
+  font-size: 1.2em;
+  font-weight: 600; }
+
+:host {
+  flex: 1;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column; }
+  :host.active {
+    background-color: #ccc; }
+  :host:hover {
+    border: 2px dashed #00a0e9;
+    cursor: move; }
+
 /*# sourceMappingURL=meepoui.css.map */

@@ -25,6 +25,6 @@ export class ThemesShops implements OnInit {
     }
 
     useTheme(item: any){
-        this.router.navigate(['/themes/design/',item.token]);
+        this.router.navigate(['/themes/design/',item.id]);
     }
 }

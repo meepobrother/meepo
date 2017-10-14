@@ -32,9 +32,7 @@ export class LayoutFooterView implements OnInit, OnChanges {
         });
     }
 
-    ngOnInit() { 
-        this.activeStyle = this.widget['activeStyle'];
-    }
+    ngOnInit() { }
 
     ngOnChanges(changes: SimpleChanges){
         const widget = changes['widget'].currentValue;
@@ -42,11 +40,11 @@ export class LayoutFooterView implements OnInit, OnChanges {
     }
 
     onItem(item: any){
-        this.widget.children.map(res=>{
-            res['active'] = false;
-            res['style'] = null;
-        });
-        item['active'] = true;
-        item['style'] = this.widget['activeStyle'];
+        // this.widget.children.map(res=>{
+        //     res['active'] = false;
+        //     res['style'] = null;
+        // });
+        // item['active'] = true;
+        // item['style'] = this.widget['activeStyle'];
     }
 }

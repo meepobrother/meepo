@@ -70,7 +70,7 @@ const routes:Routes = [
         canActivate: [IsLoginGuard]
     },
     {
-        path: 'themes/design/:uuid',
+        path: 'themes/design/:id',
         loadChildren: 'app/pages/themes-design/themes-design.module#ThemesDesignModule',
         canActivate: [IsLoginGuard]
     },
