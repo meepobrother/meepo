@@ -2,7 +2,7 @@
 import { Injectable } from '@angular/core';
 import * as store from 'store';
 import { WidgetService } from './widget.service';
-import { WeuiPage } from '../components';
+import { WeuiPage } from '../classes';
 import { Subject } from 'rxjs/Subject';
 
 @Injectable()

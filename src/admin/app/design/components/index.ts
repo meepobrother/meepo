@@ -1,3 +1,5 @@
+import { MeepoAdvs } from '../classes';
+
 import {
     ButtonSetting, ButtonView, ButtonSelect,
     WeuiCellsSetting, WeuiCellsView,
@@ -21,7 +23,7 @@ import {
 } from './layouts';
 
 import {
-    MeepoAdvsSetting, MeepoAdvsView, MeepoAdvs,
+    MeepoAdvsSetting, MeepoAdvsView,
     MeepoFilterSetting, MeepoFilterView,
     MeepoTasksSetting, MeepoTasksView
 } from './meepo-ui';

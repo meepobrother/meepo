@@ -7,6 +7,9 @@ export * from './layout-widget';
 export * from './layout';
 export * from './widget';
 
+export * from './meepo-advs';
+
+
 
 export * from './weui-cells';
 export * from './weui-navbar';
