@@ -1,4 +1,4 @@
-import { WeuiWidget } from '../widget';
+import { WeuiWidget } from './weui-widget';
 
 export class Tabbar extends WeuiWidget{
     content: any[] = [];

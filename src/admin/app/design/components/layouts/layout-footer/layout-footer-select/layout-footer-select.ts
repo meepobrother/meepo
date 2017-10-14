@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
-import { LayoutFooter } from '../layout-footer';
+import { LayoutFooter } from '../../../../classes';
 @Component({
     selector: 'layout-footer-select',
     templateUrl: './layout-footer-select.html',

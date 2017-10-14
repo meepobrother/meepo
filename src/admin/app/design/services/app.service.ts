@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
-import { DateService } from './date.service';
 @Injectable()
 export class AppService {
 
@@ -41,8 +40,6 @@ export class AppService {
     // 插件库
     showPluginResDialogStream: Subject<any> = new Subject();
 
-    constructor(
-        public date: DateService
-    ){}
+    constructor(){}
 
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { LayoutFooter } from '../layout-footer';
+import { LayoutFooter } from '../../../../classes';
 import { MatDialog } from '@angular/material';
 import { SelectPageDialog } from '../../../../../components/select-page-dialog';
 import { WidgetService} from '../../../../services';

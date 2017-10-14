@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { MeepoAdvs } from '../meepo-advs';
+import { MeepoAdvs } from '../../../../classes';
 @Component({
     selector: 'meepo-advs-setting',
     templateUrl: './meepo-advs-setting.html',

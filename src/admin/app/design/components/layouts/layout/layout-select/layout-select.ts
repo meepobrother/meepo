@@ -1,5 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { LayoutContainerModel } from '../../layout-container';
+import { LayoutContainerModel } from '../../../../classes';
 import {
     headerBodyFooter, bodyFooter,
     body, headerBody

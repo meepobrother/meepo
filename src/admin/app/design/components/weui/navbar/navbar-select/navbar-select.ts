@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Navbar } from '../navbar';
+import { Navbar } from '../../../../classes';
 import { MatDialogRef } from '@angular/material';
 @Component({
     selector: 'navbar-select',

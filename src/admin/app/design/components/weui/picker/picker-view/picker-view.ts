@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { Picker } from '../picker';
+import { Picker } from '../../../../classes';
 @Component({
     selector: 'picker-view',
     templateUrl: './picker-view.html',

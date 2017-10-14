@@ -1,4 +1,4 @@
-import { WeuiWidget } from '../widget';
+import { WeuiWidget } from './weui-widget';
 // 按钮
 export class Icon extends WeuiWidget {
     type: string = 'icon';

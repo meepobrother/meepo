@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, HostBinding, ViewChild, ElementRef } from '@angular/core';
-import { Layout } from '../layout';
+import { Layout } from '../../../../classes';
 
 import { LayoutContainerView } from '../../layout-container';
 

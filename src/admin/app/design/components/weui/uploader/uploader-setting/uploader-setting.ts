@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { MeepoUploader } from '../uploader';
+import { MeepoUploader } from '../../../../classes';
 @Component({
     selector: 'uploader-setting',
     templateUrl: './uploader-setting.html',

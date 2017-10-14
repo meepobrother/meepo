@@ -1,9 +1,8 @@
-import { LayoutHeader } from '../../../layout-header';
-import { LayoutBody } from '../../../layout-body';
-import { LayoutFooter } from '../../../layout-footer';
-import { LayoutContainerModel } from '../../../layout-container/layout-container';
-import { LayoutMenu } from '../../../layout-menu';
-import { Layout } from '../../layout';
+import {
+    LayoutHeader, LayoutBody, LayoutFooter,
+    LayoutContainerModel, LayoutMenu, Layout
+} from '../../../../../classes';
+
 
 
 const _layoutHeader = new LayoutHeader();

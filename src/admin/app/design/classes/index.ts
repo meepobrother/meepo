@@ -17,4 +17,14 @@ export * from './weui-page';
 export * from './weui-picker';
 export * from './weui-uploader';
 export * from './weui-widget';
+export * from './weui-slider';
+export * from './weui-input';
+export * from './weui-button';
+export * from './weui-icon';
+export * from './weui-tabbar';
+
+
+
+
+
 

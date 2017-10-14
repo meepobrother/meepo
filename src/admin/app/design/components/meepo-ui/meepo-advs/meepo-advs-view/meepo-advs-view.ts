@@ -6,7 +6,7 @@ import {
 } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { Subject } from 'rxjs/Subject';
-import { MeepoAdvs } from '../meepo-advs';
+import { MeepoAdvs } from '../../../../classes';
 
 @Component({
     selector: 'meepo-advs-view',

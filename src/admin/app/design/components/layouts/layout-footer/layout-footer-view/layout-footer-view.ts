@@ -1,6 +1,6 @@
 import { Component, OnInit, HostListener, Input, HostBinding, OnChanges, SimpleChanges } from '@angular/core';
 import { LayoutService } from '../../layout.service';
-import { LayoutFooter } from '../layout-footer';
+import { LayoutFooter } from '../../../../classes';
 import { WidgetService } from '../../../../services';
 import { ApiService } from '../../../../../core';
 import { CatalogService } from '../../../../services';
