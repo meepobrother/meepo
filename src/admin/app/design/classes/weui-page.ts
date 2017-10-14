@@ -1,6 +1,7 @@
-import { WeuiWidget } from '../widget';
+import { WeuiWidget } from './weui-widget';
 import uuid from 'uuid';
-import { Layout, LayoutContainerModel } from '../../layouts';
+import { Layout } from './layout';
+import { LayoutContainerModel } from './layout-container';
 export class WeuiPage extends WeuiWidget {
     type: string = 'page';
     name: string = '页面';

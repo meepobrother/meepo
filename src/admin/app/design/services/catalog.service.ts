@@ -8,7 +8,7 @@ import {
 } from './model';
 import {
     LayoutContainerModel
-} from '../components/layouts/Layout-container/layout-container';
+} from '../classes';
 @Injectable()
 export class CatalogService {
     showAddPageDialogStream: Subject<any> = new Subject();

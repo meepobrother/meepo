@@ -1,4 +1,4 @@
-import { WeuiWidget } from '../widget';
+import { WeuiWidget } from './weui-widget';
 
 export class Picker extends WeuiWidget {
     colomn: number = 1;

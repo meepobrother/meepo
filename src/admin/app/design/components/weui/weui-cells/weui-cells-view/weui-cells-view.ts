@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { WeuiCells } from '../weui-cells';
+import { WeuiCells } from '../../../../classes/weui-cells';
 @Component({
     selector: 'weui-cells-view',
     templateUrl: './weui-cells-view.html',

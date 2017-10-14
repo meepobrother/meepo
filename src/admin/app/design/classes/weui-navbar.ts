@@ -1,4 +1,4 @@
-import { WeuiWidget } from '../widget';
+import { WeuiWidget } from './weui-widget';
 export class Navbar extends WeuiWidget{
     constructor(){
         super();
