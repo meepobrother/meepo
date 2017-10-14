@@ -19,6 +19,7 @@ export class WidgetSection implements OnInit {
     }
 
     selectWidget(item: any){
+        console.log(item);
         this.onSelect.emit(item);
     }
 }

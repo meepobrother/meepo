@@ -1,9 +1,8 @@
 import { Component, OnInit, HostListener, Input, HostBinding, OnChanges, SimpleChanges } from '@angular/core';
 import { LayoutService } from '../../layout.service';
 import { LayoutFooter } from '../../../../classes';
-import { WidgetService } from '../../../../services';
+import { WidgetService, CatalogService } from '../../../../services';
 import { ApiService } from '../../../../../core';
-import { CatalogService } from '../../../../services';
 
 @Component({
     selector: 'layout-footer-view',
@@ -14,7 +13,7 @@ export class LayoutFooterView implements OnInit, OnChanges {
     @Input() widget: LayoutFooter = new LayoutFooter();
     @HostBinding('class.active') _active: boolean = false;
     activeStyle: any;
-    @HostListener('click',['$event'])
+    @HostListener('mouseover',['$event'])
     onClick(evt: any){
         this.layout.onFooter(this.widget);
         this.widget$.setCurrentWidget(this.widget);
@@ -25,7 +24,7 @@ export class LayoutFooterView implements OnInit, OnChanges {
         public layout: LayoutService,
         public widget$: WidgetService,
         public api: ApiService,
-        public CatalogService: CatalogService
+        public catalogService: CatalogService
     ) { 
         this.layout.onChange.debounceTime(300).subscribe(res=>{
             if(res === this.widget){
@@ -45,15 +44,12 @@ export class LayoutFooterView implements OnInit, OnChanges {
 
     onItem(item: any){
         // get page
-        this.api.mpost('app.getAppCatalogPage',{id: item.link}).subscribe((res: any)=>{
-            this.widget$.setCurrentWidget(res.info);
-        });
-        console.log(item);
-        // this.widget.children.map(res=>{
-        //     res['active'] = false;
-        //     res['style'] = null;
-        // });
-        // item['active'] = true;
-        // item['style'] = this.widget['activeStyle'];
+        if(item.link > 0){
+            this.api.mpost('app.getAppCatalogPage',{id: item.link}).subscribe((res: any)=>{
+                // this.widget$.setCurrentWidget(res.info);
+                this.catalogService.setCurrentPageStream.next(res.info);
+                console.log(res.info);
+            });
+        }
     }
 }
