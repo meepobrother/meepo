@@ -29,3 +29,4 @@ yarn.lock
 yarn-error.log
 package.json
 help-docs
+*.scssc
