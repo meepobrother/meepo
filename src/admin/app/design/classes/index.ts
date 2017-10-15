@@ -8,6 +8,10 @@ export * from './layout';
 export * from './widget';
 
 export * from './meepo-advs';
+export * from './meepo-filter';
+export * from './meepo-tasks';
+
+
 
 
 

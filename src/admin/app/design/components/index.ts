@@ -1,4 +1,7 @@
-import { MeepoAdvs } from '../classes';
+import {
+    MeepoAdvs, MeepoFilter,
+    MeepoTasks
+} from '../classes';
 
 import {
     ButtonSetting, ButtonView, ButtonSelect,
@@ -91,7 +94,7 @@ export const COMPONENTS_VIEW = {
     'layout-menu': LayoutMenuView,
     'meepo-advs': MeepoAdvsView,
     'meepo-filter': MeepoFilterView,
-    'meepo-task': MeepoTasksView
+    'meepo-tasks': MeepoTasksView
 };
 
 export const COMPONENTS_SETTING = {
@@ -109,12 +112,14 @@ export const COMPONENTS_SETTING = {
 
     'meepo-advs': MeepoAdvsSetting,
     'meepo-filter': MeepoFilterSetting,
-    'meepo-task': MeepoTasksSetting
+    'meepo-tasks': MeepoTasksSetting
 };
 
 
 export const WIDGETS = {
-    'meepo-advs': MeepoAdvs
+    'meepo-advs': MeepoAdvs,
+    'meepo-filter': MeepoFilter,
+    'meepo-tasks': MeepoTasks
 }
 
 import { Injectable } from '@angular/core';
@@ -124,7 +129,7 @@ import { MatDialog } from '@angular/material';
 export class ComponentsService {
     onSelectStream: Subject<any> = new Subject();
     onCreateStream: Subject<any> = new Subject();
-    
+
     constructor(
         public dialog: MatDialog
     ) { }
@@ -136,7 +141,7 @@ export class ComponentsService {
         });
     }
 
-    createWidget(name: string){
+    createWidget(name: string) {
         const widget = new WIDGETS[name]();
         this.onCreateStream.next(widget);
     }

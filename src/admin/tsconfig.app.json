@@ -1,7 +1,7 @@
 {
     "extends": "./tsconfig",
     "compilerOptions": {
-        "outDir": "../../../dist/admin/demo",
+        "outDir": "../../dist/admin/demo",
         "target": "es5",
         "module": "es2015",
         "sourceMap": true,
@@ -21,7 +21,6 @@
             "dom"
         ],
         "rootDir": ".",
-        "baseUrl": ".",
-        "paths": {}
+        "baseUrl": "."
     }
 }

@@ -1,17 +1,8 @@
 <div class="container">
     <div class="container-left">
-        <nav-tabs>
-            <nav-tab-pane title="应用管理">
-                <ng-template navTabPaneRef>
-                    <catalog-section [appId]="app_id"></catalog-section>
-                </ng-template>
-            </nav-tab-pane>
-            <nav-tab-pane title="组件库">
-                <ng-template navTabPaneRef>
-                    <widget-section (onSelect)="addWidget($event)"></widget-section>
-                </ng-template>
-            </nav-tab-pane>
-        </nav-tabs>
+        <widget-section *ngIf="showComponent" (onSelect)="addWidget($event)"></widget-section>
+        <div style="height: 20px;"></div>
+        <catalog-section [appId]="app_id"></catalog-section>
     </div>
     <div class="container-center">
         <div class="ibox">

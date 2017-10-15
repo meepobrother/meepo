@@ -31,6 +31,7 @@ export class ThemesDesign {
 
     @ViewChild(LayoutView) _view: LayoutView;
 
+    showComponent: boolean = false;
     // 分组列表
     currentWidget: any;
     currentPage: any = new LayoutContainerModel();
@@ -57,6 +58,11 @@ export class ThemesDesign {
         this.widget$.setCurrentWidgetStream.subscribe(res => {
             this.currentWidget = res;
         });
+
+        this.widget$.removeWidgetStream.subscribe(widget => {
+            const index = this.currentPage.body.children.indexOf(widget);
+            this.currentPage.body.children.splice(index,1);
+        });
         // 页面激活状态变化时
         this.catalogService.setCurrentPageStream.subscribe((page) => {
             this.application$.open();
@@ -65,10 +71,16 @@ export class ThemesDesign {
             this.currentPage = page;
         });
 
-        this.route.params.subscribe(res=>{
+        this.route.params.subscribe(res => {
             this.app_id = res.id;
             this.widget$.setAppId(this.app_id);
         });
+
+        this.route.queryParams.subscribe(res=>{
+            if(res.manager){
+                this.showComponent = true;
+            }
+        })
     }
 
     // 页面导航
@@ -154,7 +166,7 @@ export class ThemesDesign {
     }
 
     doPreview() {
-        this.router.navigate(['/themes/preview',this.currentPage.id])
+        this.router.navigate(['/themes/preview', this.currentPage.id])
     }
 
 }

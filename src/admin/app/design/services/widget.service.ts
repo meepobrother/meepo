@@ -7,6 +7,8 @@ export class WidgetService {
 
     private currentWidget: any = new Widget();
     setCurrentWidgetStream: Subject<any> = new Subject();
+    removeWidgetStream: Subject<any> = new Subject();
+    
 
     appId: any;
 
@@ -16,6 +18,10 @@ export class WidgetService {
 
     getAppId(){
         return this.appId;
+    }
+
+    removeWidget(widget: any){
+        this.removeWidgetStream.next(widget);
     }
 
     setCurrentWidget(item: any) {

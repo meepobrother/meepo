@@ -1,0 +1,31 @@
+<div class="ibox-title">
+    基础设置
+    <div class="ibox-tools">
+        <a class="btn btn-primary btn-xs">
+            <i class="fa fa-dropbox"></i>
+        </a>
+    </div>
+</div>
+<div class="ibox-content">
+    <div class="input-box">
+        <div class="input-title">上间距</div>
+        <input type="number" [(ngModel)]="widget.containerStyle['margin-top']" placeholder="上间距">
+    </div>
+    <div class="input-box">
+        <div class="input-title">下间距</div>
+        <input type="number" [(ngModel)]="widget.containerStyle['margin-bottom']" placeholder="下间距">
+    </div>
+    <div class="input-box">
+        <div class="input-title">左间距</div>
+        <input type="number" [(ngModel)]="widget.containerStyle['margin-left']" placeholder="左间距">
+    </div>
+    <div class="input-box">
+        <div class="input-title">右间距</div>
+        <input type="number" [(ngModel)]="widget.containerStyle['margin-right']" placeholder="右间距">
+    </div>
+
+    <div class="input-box">
+        <div class="input-title">背景色</div>
+        <input type="color" [(ngModel)]="widget.styleObj['background-color']">
+    </div>
+</div>

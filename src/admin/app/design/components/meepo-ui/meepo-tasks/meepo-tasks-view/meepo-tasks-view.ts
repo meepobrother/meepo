@@ -1,12 +1,26 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, Input } from '@angular/core';
+import { MeepoTasks } from '../../../../classes';
+import { ApiService } from '../../../../../core';
 @Component({
     selector: 'meepo-tasks-view',
     templateUrl: './meepo-tasks-view.html',
     styleUrls: ['./meepo-tasks-view.scss']
 })
 export class MeepoTasksView implements OnInit {
-    constructor() { }
+    @Input() widget: MeepoTasks = new MeepoTasks();
+    tasks: any[] = [];
+    constructor(
+        public api: ApiService
+    ) { }
 
-    ngOnInit() { }
+    ngOnInit() { 
+        this.getList();
+    }
+
+    getList(){
+        this.api.mpost('task.getAll',{action: 'index'}).subscribe((res: any)=>{
+            console.log(res);
+            this.tasks = res.info;
+        });
+    }
 }

@@ -1,0 +1,46 @@
+.tasks-list {
+    background-color: #fff;
+    min-height: 50px;
+    display: flex;
+    flex-direction: column;
+    .tasks-item {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        border-bottom: 1px solid #ccc;
+        padding: 10px 5px;
+        &:hover {
+            background: #ccc;
+        }
+        .tasks-item-avatar {
+            padding: 3px 3px;
+            margin: 0px 5px;
+            display: flex;
+            flex-direction: column;
+            color: gray;
+            justify-items: center;
+            align-items: center;
+            .tasks-item-nickname {
+                font-size: .7em;
+                margin: 5px 0px;
+            }
+            img {
+                border-radius: 50%;
+                width: 2.5em;
+                height: 2.5em;
+            }
+        }
+        .tasks-item-content {
+            color: #000;
+        }
+        .tasks-item-desc {
+            color: gray;
+            font-size: .9em;
+        }
+        .tasks-item-tags {
+            color: gray;
+            font-size: .8em;
+        }
+    }
+}
