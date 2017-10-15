@@ -3,12 +3,8 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import uuid from 'uuid';
 import { CatalogGroup } from '../../section/model';
-<<<<<<< HEAD
-import { Store } from '@ngrx/store';
-=======
 import { ApiService } from '../../../../core';
 
->>>>>>> master
 @Component({
     selector: 'add-group-dialog',
     templateUrl: './add-group-dialog.html',
@@ -20,11 +16,7 @@ export class AddGroupDialog implements OnInit {
         public dialog: MatDialogRef<any>,
         @Optional() @Inject(MAT_DIALOG_DATA) public data: any,
         public fb: FormBuilder,
-<<<<<<< HEAD
-        public store: Store<any>
-=======
         public api: ApiService
->>>>>>> master
     ) {
         this.form = this.fb.group({
             title: [''],
@@ -42,17 +34,9 @@ export class AddGroupDialog implements OnInit {
     cancelGroupDialog() {
         this.dialog.close();
     }
-<<<<<<< HEAD
-
-=======
->>>>>>> master
     clickAddGroupConfirm() {
         this.api.mpost('app.editAppCatalog',this.form.value).subscribe(res=>{
             this.dialog.close(this.form.value);
         })
     }
-<<<<<<< HEAD
-
-=======
->>>>>>> master
 }

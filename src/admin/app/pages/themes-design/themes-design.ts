@@ -1,12 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
 import {
-<<<<<<< HEAD
-    ApplicationService, WidgetService,
-    LayoutView, LayoutService, LayoutContainer
-} from '../../design';
-
-import { CatalogService, CatalogSection } from './section';
-=======
     PageService, ApplicationService, WidgetService,
     ComponentsService, LayoutView, WeuiPage, LayoutService,
     Widget, LayoutContainerModel
@@ -27,8 +20,8 @@ import {
     UploaderView
 } from '../../design/components';
 
+import { CatalogSection } from './section/catalog-section';
 import uuid from 'uuid';
->>>>>>> master
 
 @Component({
     selector: 'themes-design',
@@ -55,7 +48,8 @@ export class ThemesDesign {
         public catalogService: CatalogService,
         public api: ApiService,
         public router: Router,
-        public route: ActivatedRoute
+        public route: ActivatedRoute,
+        public components$: ComponentsService
     ) {
         this.layout$.onChange.subscribe(container => {
             this._container = container;
@@ -91,11 +85,6 @@ export class ThemesDesign {
         })
     }
 
-<<<<<<< HEAD
-    onAdd(widget: any){
-        this.addToContainer(widget);
-        this._catalog.saveData();
-=======
     // 页面导航
 
     onHeader() {
@@ -123,7 +112,6 @@ export class ThemesDesign {
             this.addToContainer(res);
             create.unsubscribe();
         });
->>>>>>> master
     }
 
     addToContainer(widget: any) {
@@ -170,11 +158,6 @@ export class ThemesDesign {
     // 保存当前页面
     saveCurrentPage() {
         this.setSaveBtnLoading();
-<<<<<<< HEAD
-        setTimeout(() => {
-            this.setSaveBtnSuccess();
-        }, 800);
-=======
         // this.currentPage['html_content'] = this._view.ele.nativeElement.outerHTML as string;
         // console.log(this.currentPage);
         this.api.mpost('app.editAppCatalogPage', this.currentPage).subscribe(res => {
@@ -187,7 +170,6 @@ export class ThemesDesign {
 
     doPreview() {
         this.router.navigate(['/themes/preview', this.currentPage.id])
->>>>>>> master
     }
 
 }

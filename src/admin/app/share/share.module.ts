@@ -36,12 +36,7 @@ const materials = [
     EditorModule, LocationPickerModule,
     DesignModule, MeepoDialogModule,
     WeuiPickerModule,
-<<<<<<< HEAD
-    AppEffectsModule, AppStoreModule
-=======
-    SelectPageDialogModule,
-    
->>>>>>> master
+    SelectPageDialogModule
 ];
 
 @NgModule({
