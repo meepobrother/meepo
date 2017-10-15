@@ -18,6 +18,8 @@ free-widget-view {
 // 字体图标
 @import "./css/font-awesome.css";
 @import "../../meepo-common.scss";
+// hover
+@import "./hover/hover.scss";
 @import "../design/components/meepo-ui/meepo-advs/meepo-advs-view/meepo-advs-view.scss";
 @import "../design/components/meepo-ui/meepo-filter/meepo-filter-view/meepo-filter-view.scss";
 @import "../design/components/meepo-ui/meepo-tasks/meepo-tasks-view/meepo-tasks-view.scss";

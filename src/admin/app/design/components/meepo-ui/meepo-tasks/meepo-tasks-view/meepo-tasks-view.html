@@ -7,7 +7,7 @@
         'background-color': widget.styleObj['background-color']        
     }
 ">
-    <div class="tasks-item" *ngFor="let item of tasks" [ngStyle]="widget.itemStyle">
+    <div class="tasks-item hvr-box-shadow-outset" *ngFor="let item of tasks" [ngStyle]="widget.itemStyle">
         <div class="tasks-item-avatar"><img [src]="item.avatar" alt="">
             <div class="tasks-item-nickname">{{item.nickname}}</div>
         </div>

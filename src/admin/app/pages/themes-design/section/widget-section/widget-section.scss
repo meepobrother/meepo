@@ -1,7 +1,10 @@
 :host {
     display: flex;
     flex-direction: column;
-    width: 300px;
+    min-width: 300px;
+    background: #fff;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 15px;
 }
 
 .widget {
