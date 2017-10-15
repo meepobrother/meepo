@@ -1,6 +1,8 @@
+<widget-section *ngIf="showComponent" (onSelect)="addWidget($event)">
+</widget-section>
+
 <div class="container">
     <div class="container-left">
-        <widget-section *ngIf="showComponent" (onSelect)="addWidget($event)"></widget-section>
         <div style="height: 20px;"></div>
         <catalog-section [appId]="app_id"></catalog-section>
     </div>
