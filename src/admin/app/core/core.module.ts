@@ -16,11 +16,14 @@ import { ApiModule } from './api';
 import { UpdateModule } from './update';
 import { MemberSelectModule } from './member-select';
 
-import { ShareModule } from '../share';
 
 import { LoginService } from './login.service';
 
 import { MatDialogModule } from '@angular/material';
+<<<<<<< HEAD
+=======
+import { ColorSelectModule } from '../components/color-select';
+>>>>>>> master
 
 const modules = [
     CommonModule,
@@ -32,10 +35,15 @@ const modules = [
     ApiModule,
     StylesModule,
     MemberSelectModule,
+<<<<<<< HEAD
     ShareModule,
     MatDialogModule,
     // AppEffectsModule,
     // AppStoreModule
+=======
+    MatDialogModule,
+    ColorSelectModule
+>>>>>>> master
 ];
 
 @NgModule({

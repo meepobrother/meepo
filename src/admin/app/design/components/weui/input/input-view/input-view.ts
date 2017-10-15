@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { MeepoInput } from '../input';
+import { MeepoInput } from '../../../../classes';
 @Component({
     selector: 'input-view',
     templateUrl: './input-view.html',

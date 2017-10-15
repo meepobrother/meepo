@@ -1,9 +1,0 @@
-<coach-advs code="card.recharge.advs"></coach-advs>
-
-<feed-tab [items]="navs">
-  <goods-list [items]="items" (onAdd)="onAdd($event)"></goods-list>
-</feed-tab>
-
-<sku *ngIf="showSku" (onClose)="onClose()" [good]="skuItem" (onAdd)="addToCart($event)" (onBuy)="buyNow()"></sku>
-<pay-order [tip]="tip" (onPay)="buyNow()" [price]="price" *ngIf="price>0"></pay-order>
-<div class="h65"></div>

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, HostBinding } from '@angular/core';
-import { Navbar } from '../navbar';
+import { Navbar } from '../../../../classes';
 @Component({
     selector: 'navbar-view',
     templateUrl: './navbar-view.html',

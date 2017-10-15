@@ -1,0 +1,45 @@
+<div class="ibox">
+    <div class="ibox-title">
+        <h5>基本设置</h5>
+    </div>
+    <div class="ibox-content">
+        <form-field>
+            <input type="text" [(ngModel)]="widget.title" placeholder="请输入标题" meepoInput class="form-control">
+        </form-field>
+        <form-field>
+            <textarea rows="4" [(ngModel)]="widget.desc" type="text" placeholder="请输入分享内容" class="form-control" meepoInput></textarea>
+        </form-field>
+    </div>
+    <div class="ibox-content">
+        <h5>布局设置</h5>
+        <div class="weui-cells weui-cells_checkbox" style="margin: 0px;">
+            <label class="weui-cell weui-check__label" for="s11">
+                <div class="weui-cell__hd">
+                    <input type="checkbox" class="weui-check" [(ngModel)]="widget.header.show" id="s11" checked="checked">
+                    <i class="weui-icon-checked"></i>
+                </div>
+                <div class="weui-cell__bd">
+                    <p>顶部导航</p>
+                </div>
+            </label>
+            <label class="weui-cell weui-check__label" for="s13">
+                <div class="weui-cell__hd">
+                    <input type="checkbox" class="weui-check" [(ngModel)]="widget.body.show" id="s13" checked="checked">
+                    <i class="weui-icon-checked"></i>
+                </div>
+                <div class="weui-cell__bd">
+                    <p>主体部分</p>
+                </div>
+            </label>
+            <label class="weui-cell weui-check__label" for="s12">
+                <div class="weui-cell__hd">
+                    <input type="checkbox" [(ngModel)]="widget.footer.show" class="weui-check" id="s12">
+                    <i class="weui-icon-checked"></i>
+                </div>
+                <div class="weui-cell__bd">
+                    <p>底部导航</p>
+                </div>
+            </label>
+        </div>
+    </div>
+</div>

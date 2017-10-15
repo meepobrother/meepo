@@ -1,0 +1,18 @@
+<div class="ibox-content" [formGroup]="form">
+    <form-field>
+        <input type="text" formControlName="type" meepoInput placeholder="请输入组件代号" class="form-control">
+    </form-field>
+    <form-field>
+        <input type="text" formControlName="name" meepoInput placeholder="请输入组件名称" class="form-control">
+    </form-field>
+
+    <form-field>
+        <textarea formControlName="tpl" meepoInput placeholder="请输入模板" class="form-control" rows="3"></textarea>
+    </form-field>
+
+    <div>
+        <a href="javascript:;" class="btn btn-primary" (click)="save()">提交</a>
+        <a href="javascript:;" class="btn btn-danger" (click)="delete()">删除</a>
+        <a href="javascript:;" class="btn btn-default" (click)="cancel()">取消</a>
+    </div>
+</div>

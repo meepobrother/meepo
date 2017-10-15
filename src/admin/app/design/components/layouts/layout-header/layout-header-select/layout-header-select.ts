@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
-import { LayoutHeader } from '../layout-header';
+import { LayoutHeader } from '../../../../classes';
 @Component({
     selector: 'layout-header-select',
     templateUrl: './layout-header-select.html',

@@ -1,0 +1,16 @@
+.input-box {
+    display: flex;
+    flex-direction: row;
+    height: 2em;
+    margin: 5px 0;
+    align-items: center;
+    justify-content: center;
+    .input-title {
+        width: 4em;
+    }
+    input {
+        flex: 1;
+        outline: none;
+        padding: 0 10px;
+    }
+}

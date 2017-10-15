@@ -7,9 +7,7 @@ import { CatalogPageNavs } from './catalog-page-navs';
 import { CatalogSection } from './catalog-section';
 import { WidgetSection } from './widget-section';
 
-
-import { CatalogService } from './catalog.service';
-import { DataPerService } from './data-per.service';
+import { CatalogService, DataPerService } from '../../../design/services';
 
 export const SECTIONS = [
     CatalogPageNavs,
@@ -20,8 +18,5 @@ export const SECTIONS = [
 export const SECTIONS_SERVICES = [
     CatalogService,
     DataPerService
-]; 
+];
 
-
-export { CatalogService } from './catalog.service';
-export { DataPerService } from './data-per.service';

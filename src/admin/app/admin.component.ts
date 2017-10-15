@@ -7,6 +7,7 @@ import { DropdownsService } from './dropdown/dropdowns.service';
     styleUrls: ["./admin.component.scss"]
 })
 export class AdminComponent implements OnInit {
+    widget: any;
     constructor(
         public sidebar$: SidebarContainerService,
         public dropdowns$: DropdownsService

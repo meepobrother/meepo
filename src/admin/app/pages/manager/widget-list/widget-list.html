@@ -1,0 +1,21 @@
+<div class="ibox">
+    <div class="ibox-title" style="text-primary">
+        <h5>组件管理</h5>
+        <div class="ibox-tools">
+            <a href="javascript:;" (click)="addWidget()" class="btn btn-white btn-xs btn-bitbucket">
+                <i class="fa fa-plus-circle"></i>
+            </a>
+        </div>
+    </div>
+    <div class="ibox-content">
+        <ul>
+            <li *ngFor="let widget of widgets">
+                <span>{{widget.name}}</span>
+                <div>
+                    <span class="fa fa-edit" (click)="editWidget(widget)"></span> &nbsp; &nbsp;
+                    <span class="fa fa-trash-o" (click)="deleteWidget(widget)"></span>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

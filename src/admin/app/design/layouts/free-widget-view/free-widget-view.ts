@@ -54,6 +54,10 @@ export class FreeWidgetView implements OnInit, AfterViewInit, OnDestroy, OnChang
 
     }
 
+    removeWidget(){
+        this.service.removeWidget(this._widget);
+    }
+
     renderWidgetContainer() {
         this.compRef && this.compRef.destroy()
         if (this._widget) {

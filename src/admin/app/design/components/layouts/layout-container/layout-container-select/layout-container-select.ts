@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
-import { LayoutContainer } from '../layout-container';
+import { LayoutContainerModel } from '../../../../classes';
 @Component({
     selector: 'layout-container-select',
     templateUrl: './layout-container-select.html',
@@ -15,7 +15,7 @@ export class LayoutContainerSelect implements OnInit {
     ngOnInit() { }
 
     select(){
-        const footer = new LayoutContainer();
+        const footer = new LayoutContainerModel();
         this.onSelect.emit(footer);
         this.dialog.close(footer);
     }

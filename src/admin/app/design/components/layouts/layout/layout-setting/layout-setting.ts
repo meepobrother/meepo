@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
     selector: 'layout-setting',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./layout-setting.scss']
 })
 export class LayoutSetting implements OnInit {
+    @Input() widget: any;
     constructor() { }
 
     ngOnInit() { }

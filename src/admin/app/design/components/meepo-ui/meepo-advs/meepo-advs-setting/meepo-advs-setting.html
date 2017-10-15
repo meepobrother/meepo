@@ -1,0 +1,57 @@
+<div class="ibox-title">
+    广告样式
+</div>
+<div class="ibox-content">
+
+</div>
+
+<div class="ibox-title">
+    容器样式
+</div>
+<div class="ibox-content">
+    <form-field>
+        <input type="number" meepoInput [(ngModel)]="widget.containerStyle['margin-top']" placeholder="请输入上间距" class="form-control">
+    </form-field>
+    <form-field>
+        <input type="number" meepoInput [(ngModel)]="widget.containerStyle['margin-bottom']" placeholder="请输入下间距" class="form-control">
+    </form-field>
+    <form-field>
+        <input type="number" meepoInput [(ngModel)]="widget.containerStyle['margin-left']" placeholder="请输入左间距" class="form-control">
+    </form-field>
+    <form-field>
+        <input type="number" meepoInput [(ngModel)]="widget.containerStyle['margin-right']" placeholder="请输入右间距" class="form-control">
+    </form-field>
+</div>
+
+
+<div class="ibox-title">
+    内部样式
+</div>
+<div class="ibox-content">
+    <form-field group="true">
+        <input type="number" meepoInput [(ngModel)]="widget.styleObj['height']" placeholder="请输入高度" class="form-control">
+    </form-field>
+</div>
+
+<div class="ibox-title">
+    广告项目
+    <div class="ibox-tools">
+        <a href="javascript:;" class="btn btn-primary btn-xs" (click)="addItem()">
+            <i class="fa fa-plus-square"></i>
+        </a>
+    </div>
+</div>
+<div class="ibox-content">
+    <div class="advs">
+        <div class="adv-item" *ngFor="let item of widget.children">
+            <div class="adv-img">
+                <img [src]="item.image" />
+            </div>
+            <div class="adv-title">
+                <a href="javascript:;" class="btn btn-primary btn-xs">
+                    <i class="fa fa-link"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

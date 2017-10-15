@@ -1,0 +1,22 @@
+themes-preview {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    flex: 1;
+    height: 100%;
+    img {
+        height: auto;
+        width: 302px;
+        margin: 0 auto;
+    }
+    .url {
+        margin: 10px auto;
+        text-align: center;
+    }
+}
+
+.center {
+    text-align: center;
+    margin-top: 10px;
+}

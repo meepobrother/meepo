@@ -28,5 +28,8 @@ tslint.json
 yarn.lock
 yarn-error.log
 package.json
-help-docs
+./runner-darwin-x64/
+runner-darwin-x64/
+src/admin/app/themes/
 *.scssc
+help-docs/

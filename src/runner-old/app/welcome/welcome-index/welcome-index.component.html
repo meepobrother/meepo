@@ -1,9 +1,0 @@
-<div class="container">
-  <swiper-default hasPage="true" height="100%">
-    <div class="swiper-slide" *ngFor="let item of items;index as i;">
-      <suyun-edit-btn [upload]="isText" [index]="i" (onUpload)="onUpload($event)"></suyun-edit-btn>
-      <img [src]="item"/>
-      <a href="javascript:;" class="weui-btn weui-btn_primary" (click)="go()">立即体验</a>
-    </div>
-  </swiper-default>
-</div>

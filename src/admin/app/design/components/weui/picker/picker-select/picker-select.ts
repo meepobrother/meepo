@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Picker } from '../picker';
+import { Picker } from '../../../../classes';
 import { MatDialogRef } from '@angular/material';
 @Component({
     selector: 'picker-select',

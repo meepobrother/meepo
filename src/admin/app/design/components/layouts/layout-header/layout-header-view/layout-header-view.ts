@@ -1,7 +1,10 @@
 import { Component, OnInit, HostListener, Input, HostBinding } from '@angular/core';
 
 import { LayoutService } from '../../layout.service';
-import { LayoutHeader } from '../layout-header';
+import { LayoutHeader } from '../../../../classes';
+import { WidgetService } from '../../../../services/widget.service';
+
+
 @Component({
     selector: 'layout-header-view',
     templateUrl: './layout-header-view.html',
@@ -14,11 +17,13 @@ export class LayoutHeaderView implements OnInit {
     @HostListener('click',['$event'])
     onClick(evt: any){
         this.layout.onHeader(this.widget);
+        this.widget$.setCurrentWidget(this.widget);
     }
 
     @HostBinding('class.layout-header') _header: boolean = true;
     constructor(
-        public layout: LayoutService
+        public layout: LayoutService,
+        public widget$: WidgetService
     ) { 
         this.layout.onChange.debounceTime(300).subscribe(res=>{
             if(res === this.widget){
@@ -29,5 +34,7 @@ export class LayoutHeaderView implements OnInit {
         });
     }
 
-    ngOnInit() { }
+    ngOnInit() { 
+        this.widget['type'] = 'layout-header';
+    }
 }

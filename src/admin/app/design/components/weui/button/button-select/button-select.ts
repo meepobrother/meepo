@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { Button } from '../button';
+import { Button } from '../../../../classes';
 import { MatDialogRef } from '@angular/material';
 
 @Component({

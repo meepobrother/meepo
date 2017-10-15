@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
-import { LayoutBody } from '../layout-body';
+import { LayoutBody } from '../../../../classes';
 @Component({
     selector: 'layout-body-select',
     templateUrl: './layout-body-select.html',

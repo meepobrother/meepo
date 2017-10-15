@@ -1,7 +1,9 @@
 import { Component, OnInit, HostListener, Input, HostBinding } from '@angular/core';
 import { LayoutService } from '../../layout.service';
-import { LayoutBody } from '../layout-body';
+import { LayoutBody } from '../../../../classes';
 import 'rxjs/add/operator/debounceTime';
+import { WidgetService } from '../../../../services/widget.service';
+
 @Component({
     selector: 'layout-body-view',
     templateUrl: './layout-body-view.html',
@@ -15,10 +17,12 @@ export class LayoutBodyView implements OnInit {
     @HostListener('click',['$event'])
     click(evt: any){
         this.layout.onBody(this.widget);
+        this.widget$.setCurrentWidget(this.widget);
     }
 
     constructor(
-        public layout: LayoutService
+        public layout: LayoutService,
+        public widget$: WidgetService
     ) { 
         this.layout.onChange.debounceTime(300).subscribe(res=>{
             if(res === this.widget){

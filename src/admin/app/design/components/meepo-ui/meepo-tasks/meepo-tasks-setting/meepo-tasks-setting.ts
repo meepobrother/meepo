@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { MeepoTasks } from '../../../../classes';
 
 @Component({
     selector: 'meepo-tasks-setting',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./meepo-tasks-setting.scss']
 })
 export class MeepoTasksSetting implements OnInit {
+    @Input() widget: MeepoTasks = new MeepoTasks();
     constructor() { }
 
     ngOnInit() { }

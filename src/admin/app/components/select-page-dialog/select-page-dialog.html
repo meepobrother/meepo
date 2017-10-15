@@ -1,0 +1,7 @@
+<div class="ibox-content">
+    <div class="page-list">
+        <div class="page-item" (click)="onSelectPage(item)" *ngFor="let item of pages">
+            {{item.id}}-{{item.title}}
+        </div>
+    </div>
+</div>

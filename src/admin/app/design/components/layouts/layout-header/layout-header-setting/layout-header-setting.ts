@@ -10,4 +10,9 @@ export class LayoutHeaderSetting implements OnInit {
     constructor() { }
 
     ngOnInit() { }
+
+    change(){
+        console.log(this.widget);
+    }
+
 }

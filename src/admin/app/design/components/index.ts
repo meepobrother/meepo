@@ -1,4 +1,9 @@
 import {
+    MeepoAdvs, MeepoFilter,
+    MeepoTasks
+} from '../classes';
+
+import {
     ButtonSetting, ButtonView, ButtonSelect,
     WeuiCellsSetting, WeuiCellsView,
     InputSetting, InputView,
@@ -28,6 +33,13 @@ import {
 } from './meepo-ui';
 
 
+import {
+    View, ViewSetting,
+    ScrollView, ScrollViewSetting,
+    SwiperItem, Swiper, SwiperSetting
+} from './wxapp';
+
+
 export const COMPONENTS = [
     ButtonView, ButtonSetting, ButtonSelect,
     WeuiCellsSetting, WeuiCellsView,
@@ -51,7 +63,15 @@ export const COMPONENTS = [
     MeepoAdvsSetting, MeepoAdvsView,
     MeepoFilterSetting, MeepoFilterView,
     MeepoTasksSetting, MeepoTasksView,
+<<<<<<< HEAD
     MeepoTextSetting, MeepoTextView
+=======
+
+    // wxapp
+    View, ViewSetting,
+    ScrollView, ScrollViewSetting,
+    SwiperItem, Swiper, SwiperSetting
+>>>>>>> master
 ];
 
 export const COMPONENTS_SELECT = {
@@ -79,8 +99,12 @@ export const COMPONENTS_VIEW = {
     'layout-menu': LayoutMenuView,
     'meepo-advs': MeepoAdvsView,
     'meepo-filter': MeepoFilterView,
+<<<<<<< HEAD
     'meepo-task': MeepoTasksView,
     'meepo-text': MeepoTextView
+=======
+    'meepo-tasks': MeepoTasksView
+>>>>>>> master
 };
 
 export const COMPONENTS_SETTING = {
@@ -94,12 +118,24 @@ export const COMPONENTS_SETTING = {
     'layout-footer': LayoutFooterSetting,
     'layout-header': LayoutHeaderSetting,
     'layout-menu': LayoutMenuSetting,
+    'layout': LayoutSetting,
 
     'meepo-advs': MeepoAdvsSetting,
     'meepo-filter': MeepoFilterSetting,
+<<<<<<< HEAD
     'meepo-task': MeepoTasksSetting,
     'meepo-text': MeepoTextSetting
+=======
+    'meepo-tasks': MeepoTasksSetting
+>>>>>>> master
 };
+
+
+export const WIDGETS = {
+    'meepo-advs': MeepoAdvs,
+    'meepo-filter': MeepoFilter,
+    'meepo-tasks': MeepoTasks
+}
 
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
@@ -107,6 +143,8 @@ import { MatDialog } from '@angular/material';
 @Injectable()
 export class ComponentsService {
     onSelectStream: Subject<any> = new Subject();
+    onCreateStream: Subject<any> = new Subject();
+
     constructor(
         public dialog: MatDialog
     ) { }
@@ -118,12 +156,20 @@ export class ComponentsService {
         });
     }
 
+<<<<<<< HEAD
     addComponent(name: string){
         return new COMPONENTS_VIEW[name];
+=======
+    createWidget(name: string) {
+        const widget = new WIDGETS[name]();
+        this.onCreateStream.next(widget);
+>>>>>>> master
     }
 }
 
 export * from './weui';
 export * from './layouts';
+export * from './wxapp';
+
 
 
