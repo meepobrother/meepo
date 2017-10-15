@@ -20,11 +20,7 @@ export class AddPageDialog implements OnInit {
         @Inject(MAT_DIALOG_DATA) public data: any,
         public fb: FormBuilder,
         public catalogService: CatalogService,
-<<<<<<< HEAD
-        public store: Store<any>
-=======
         public apiService: ApiService
->>>>>>> master
     ) {
         this.form = this.fb.group({
             title: [''],
@@ -38,10 +34,6 @@ export class AddPageDialog implements OnInit {
             code: [uuid()],
             id: [''],
             app_id: ['']
-        });
-
-        this.store.subscribe(res=>{
-            this.catalogs = res.catalog;
         });
 
         this.dialog.afterOpen().subscribe(() => {
@@ -94,13 +86,8 @@ export class AddPageDialog implements OnInit {
         this.form.get('body').setValue(container.body);
         this.form.get('footer').setValue(container.footer);
         this.form.get('menu').setValue(container.menu);
-<<<<<<< HEAD
-        console.log(this.form.value);
-        this.dialog.close(this.form.value);
-=======
         this.apiService.mpost('app.editAppCatalogPage', this.form.value).subscribe((res: any) => {
             this.dialog.close(this.form.value);
         });
->>>>>>> master
     }
 }

@@ -63,15 +63,11 @@ export const COMPONENTS = [
     MeepoAdvsSetting, MeepoAdvsView,
     MeepoFilterSetting, MeepoFilterView,
     MeepoTasksSetting, MeepoTasksView,
-<<<<<<< HEAD
-    MeepoTextSetting, MeepoTextView
-=======
 
     // wxapp
     View, ViewSetting,
     ScrollView, ScrollViewSetting,
     SwiperItem, Swiper, SwiperSetting
->>>>>>> master
 ];
 
 export const COMPONENTS_SELECT = {
@@ -99,12 +95,7 @@ export const COMPONENTS_VIEW = {
     'layout-menu': LayoutMenuView,
     'meepo-advs': MeepoAdvsView,
     'meepo-filter': MeepoFilterView,
-<<<<<<< HEAD
-    'meepo-task': MeepoTasksView,
-    'meepo-text': MeepoTextView
-=======
     'meepo-tasks': MeepoTasksView
->>>>>>> master
 };
 
 export const COMPONENTS_SETTING = {
@@ -122,12 +113,7 @@ export const COMPONENTS_SETTING = {
 
     'meepo-advs': MeepoAdvsSetting,
     'meepo-filter': MeepoFilterSetting,
-<<<<<<< HEAD
-    'meepo-task': MeepoTasksSetting,
-    'meepo-text': MeepoTextSetting
-=======
     'meepo-tasks': MeepoTasksSetting
->>>>>>> master
 };
 
 
@@ -156,14 +142,9 @@ export class ComponentsService {
         });
     }
 
-<<<<<<< HEAD
-    addComponent(name: string){
-        return new COMPONENTS_VIEW[name];
-=======
     createWidget(name: string) {
         const widget = new WIDGETS[name]();
         this.onCreateStream.next(widget);
->>>>>>> master
     }
 }
 
