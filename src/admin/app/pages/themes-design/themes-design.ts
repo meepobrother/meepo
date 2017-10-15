@@ -169,7 +169,13 @@ export class ThemesDesign {
     }
 
     doPreview() {
-        this.router.navigate(['/themes/preview', this.currentPage.id])
+        this.router.navigate(['/themes/preview/', this.currentPage.id])
     }
+
+    doWxapp(){
+        window.location.href = "https://meepo.com.cn/imeepos/index.php?c=wxapp&do=build&id="+this.app_id;
+    }
+
+    
 
 }
