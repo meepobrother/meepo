@@ -18,9 +18,7 @@
                         <i class="weui-loading" *ngIf="saveBtn.loading"></i>{{saveBtn.title}}
                     </a>
                     <a class="btn btn-danger" (click)="doPreview()">html5</a>
-                    <a class="btn btn-success" (click)="doWxapp()">小程序</a>
-                    <a class="btn btn-default" (click)="doIos()">ios</a>
-                    <a class="btn btn-default" (click)="doAndrod()">android</a>
+                    <a class="btn btn-success" [href]="wxappHref">小程序</a>
                 </div>
             </div>
         </div>

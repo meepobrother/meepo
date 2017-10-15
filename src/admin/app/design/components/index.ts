@@ -63,6 +63,7 @@ export const COMPONENTS = [
     MeepoAdvsSetting, MeepoAdvsView,
     MeepoFilterSetting, MeepoFilterView,
     MeepoTasksSetting, MeepoTasksView,
+    MeepoTextSetting, MeepoTextView,
 
     // wxapp
     View, ViewSetting,
