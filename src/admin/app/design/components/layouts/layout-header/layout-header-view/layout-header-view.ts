@@ -1,8 +1,8 @@
 import { Component, OnInit, HostListener, Input, HostBinding } from '@angular/core';
 
 import { LayoutService } from '../../layout.service';
-import { LayoutHeader } from '../layout-header';
-import { WidgetService } from '../../../../services';
+import { LayoutHeader } from '../../../../classes';
+import { WidgetService } from '../../../../services/widget.service';
 
 
 @Component({
@@ -16,7 +16,6 @@ export class LayoutHeaderView implements OnInit {
     
     @HostListener('click',['$event'])
     onClick(evt: any){
-        console.log(this.widget);
         this.layout.onHeader(this.widget);
         this.widget$.setCurrentWidget(this.widget);
     }

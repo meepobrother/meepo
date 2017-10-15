@@ -2,7 +2,7 @@ import {
     Component, OnInit, Input, OnChanges,
     SimpleChanges, HostListener, HostBinding
 } from '@angular/core';
-import { LayoutMenu } from '../layout-menu';
+import { LayoutMenu } from '../../../../classes';
 import { LayoutService } from '../../layout.service';
 
 @Component({

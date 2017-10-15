@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { MeepoSlider } from '../slider';
+import { MeepoSlider } from '../../../../classes';
 @Component({
     selector: 'slider-view',
     templateUrl: './slider-view.html',

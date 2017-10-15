@@ -17,31 +17,31 @@ export class ThemesMine implements OnInit {
         public api: ApiService
     ) { }
 
-    ngOnInit() { 
+    ngOnInit() {
         this.getList();
     }
 
-    getList(){
-        this.api.mpost('app.getListApp',{page: 1, psize: 30}).subscribe((res: any)=>{
+    getList() {
+        this.api.mpost('app.getListApp', { page: 1, psize: 30 }).subscribe((res: any) => {
             this.list = res.info;
         });
     }
 
     edit(item: any) {
-        const dialogRef = this.dialog.open(ThemesAdd,{data: item});
+        const dialogRef = this.dialog.open(ThemesAdd, { data: item });
     }
 
-    delete(item: any){
-        this.api.mpost('app.deleteApp',item).subscribe(res=>{
+    delete(item: any) {
+        this.api.mpost('app.deleteApp', item).subscribe(res => {
             this.getList();
         });
     }
 
-    goDesign(item: any){
-        this.router.navigate(['/themes/design',item.token])
+    goDesign(item: any) {
+        this.router.navigate(['/themes/design', item.id], { queryParams: { manager: true } })
     }
 
-    add(){
+    add() {
         const dialogRef = this.dialog.open(ThemesAdd);
         dialogRef.afterClosed().subscribe(res => {
             if (res) {

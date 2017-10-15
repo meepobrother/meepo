@@ -1,30 +1,15 @@
 <div class="ibox-content">
     <h5>标题设置</h5>
-    <ul>
-        <li>
-            <a class="weui-cell weui-cell_access" href="javascript:;">
-                <div class="weui-cell__bd">
-                    <input type="text" class="form-control" [(ngModel)]="widget.content" placeholder="请输入标题">
-                </div>
-            </a>
-        </li>
-        <li>
-            <a class="weui-cell weui-cell_access" href="javascript:;">
-                <div class="weui-cell__bd">
-                    颜色
-                    <input type="color" [(ngModel)]="widget.styleObj.color">
-                </div>
-            </a>
-        </li>
-        <li>
-            <a class="weui-cell weui-cell_access" href="javascript:;">
-                <div class="weui-cell__bd">
-                    背景颜色
-                    <input type="color" (change)="change()" [(ngModel)]="widget.containerStyle['background']">
-                </div>
-            </a>
-        </li>
-    </ul>
+    <form-field group="true">
+        <input end type="color" vlaue="#fff" [(ngModel)]="widget.styleObj.color">
+        <input type="text" placeholder="请输入标题" [(ngModel)]="widget.content" meepoInput class="form-control">
+    </form-field>
+
+    <form-field group="true">
+        <span class="label" start>背景颜色</span>
+        <input type="color" [(ngModel)]="widget.containerStyle['background-color']" meepoInput class="form-control">
+    </form-field>
+
     <h5>左侧菜单</h5>
     <ul>
         <li>

@@ -9,9 +9,7 @@ export class LayoutHeaderSetting implements OnInit {
     @Input() widget: any;
     constructor() { }
 
-    ngOnInit() { 
-
-    }
+    ngOnInit() { }
 
     change(){
         console.log(this.widget);

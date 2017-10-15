@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { Icon } from '../icon';
+import { Icon } from '../../../../classes';
 @Component({
     selector: 'icon-view',
     templateUrl: './icon-view.html',

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { WeuiPage } from '../page';
+import { WeuiPage } from '../../../../classes';
 @Component({
     selector: 'page-setting',
     templateUrl: './page-setting.html',

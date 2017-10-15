@@ -11,11 +11,13 @@
     overflow-y: auto;
     .container-left {
         width: 300px;
+        min-width: 300px;
         padding-top: 10px;
         border-right: 1px solid #e4eaec;
         position: relative;
         background: #fff;
         margin-left: -15px;
+        display: block;
     }
     .container-center {
         padding: 10px;

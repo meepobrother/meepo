@@ -1,4 +1,9 @@
 import {
+    MeepoAdvs, MeepoFilter,
+    MeepoTasks
+} from '../classes';
+
+import {
     ButtonSetting, ButtonView, ButtonSelect,
     WeuiCellsSetting, WeuiCellsView,
     InputSetting, InputView,
@@ -27,6 +32,13 @@ import {
 } from './meepo-ui';
 
 
+import {
+    View, ViewSetting,
+    ScrollView, ScrollViewSetting,
+    SwiperItem, Swiper, SwiperSetting
+} from './wxapp';
+
+
 export const COMPONENTS = [
     ButtonView, ButtonSetting, ButtonSelect,
     WeuiCellsSetting, WeuiCellsView,
@@ -49,7 +61,12 @@ export const COMPONENTS = [
     // components
     MeepoAdvsSetting, MeepoAdvsView,
     MeepoFilterSetting, MeepoFilterView,
-    MeepoTasksSetting, MeepoTasksView
+    MeepoTasksSetting, MeepoTasksView,
+
+    // wxapp
+    View, ViewSetting,
+    ScrollView, ScrollViewSetting,
+    SwiperItem, Swiper, SwiperSetting
 ];
 
 export const COMPONENTS_SELECT = {
@@ -77,7 +94,7 @@ export const COMPONENTS_VIEW = {
     'layout-menu': LayoutMenuView,
     'meepo-advs': MeepoAdvsView,
     'meepo-filter': MeepoFilterView,
-    'meepo-task': MeepoTasksView
+    'meepo-tasks': MeepoTasksView
 };
 
 export const COMPONENTS_SETTING = {
@@ -92,11 +109,18 @@ export const COMPONENTS_SETTING = {
     'layout-header': LayoutHeaderSetting,
     'layout-menu': LayoutMenuSetting,
     'layout': LayoutSetting,
-    
+
     'meepo-advs': MeepoAdvsSetting,
     'meepo-filter': MeepoFilterSetting,
-    'meepo-task': MeepoTasksSetting
+    'meepo-tasks': MeepoTasksSetting
 };
+
+
+export const WIDGETS = {
+    'meepo-advs': MeepoAdvs,
+    'meepo-filter': MeepoFilter,
+    'meepo-tasks': MeepoTasks
+}
 
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
@@ -104,6 +128,8 @@ import { MatDialog } from '@angular/material';
 @Injectable()
 export class ComponentsService {
     onSelectStream: Subject<any> = new Subject();
+    onCreateStream: Subject<any> = new Subject();
+
     constructor(
         public dialog: MatDialog
     ) { }
@@ -114,9 +140,16 @@ export class ComponentsService {
             this.onSelectStream.next(res);
         });
     }
+
+    createWidget(name: string) {
+        const widget = new WIDGETS[name]();
+        this.onCreateStream.next(widget);
+    }
 }
 
 export * from './weui';
 export * from './layouts';
+export * from './wxapp';
+
 
 

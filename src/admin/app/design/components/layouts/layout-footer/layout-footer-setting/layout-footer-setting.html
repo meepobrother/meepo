@@ -1,0 +1,41 @@
+<div class="ibox">
+    <div class="ibox-title">
+        主题设置
+    </div>
+    <div class="ibox-content">
+        <form-field group="true">
+            <span class="label" start>背景颜色</span>
+            <input type="color" [(ngModel)]="widget.containerStyle['background-color']" meepoInput class="form-control">
+        </form-field>
+        <form-field group="true">
+            <span class="label" start>前景颜色</span>
+            <input type="color" (change)="onChange()" [(ngModel)]="widget.containerStyle.color" meepoInput class="form-control">
+        </form-field>
+    </div>
+</div>
+
+
+<div class="ibox">
+    <div class="ibox-title">
+        <h5>底部菜单项目</h5>
+        <a href="javascript:;" class="btn btn-primary btn-xs" (click)="addItem()">
+            <i class="fa fa-plus-square"></i> 添加
+        </a>
+    </div>
+    <div class="ibox-content">
+        <form-field group="true" *ngFor="let item of widget.children">
+            <span class="label" start (click)="selectIcon(item)">
+                <i [class]="item.icon"></i>
+            </span>
+            <input type="text" placeholder="请输入标题" [(ngModel)]="item.title" meepoInput class="form-control">
+            <div class="label" end>
+                <button class="btn btn-danger btn-xs">
+                    <i (click)="deleteItem(item)" class="fa fa-remove"></i>
+                </button>
+                <button class="btn btn-primary btn-xs">
+                    <i (click)="linkItem(item)" class="fa fa-link"></i>                
+                </button>
+            </div>
+        </form-field>
+    </div>
+</div>

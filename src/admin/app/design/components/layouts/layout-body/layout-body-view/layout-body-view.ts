@@ -1,8 +1,8 @@
 import { Component, OnInit, HostListener, Input, HostBinding } from '@angular/core';
 import { LayoutService } from '../../layout.service';
-import { LayoutBody } from '../layout-body';
+import { LayoutBody } from '../../../../classes';
 import 'rxjs/add/operator/debounceTime';
-import { WidgetService } from '../../../../services';
+import { WidgetService } from '../../../../services/widget.service';
 
 @Component({
     selector: 'layout-body-view',

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Tabbar } from '../tabbar';
+import { Tabbar } from '../../../../classes';
 @Component({
     selector: 'tabbar-setting',
     templateUrl: './tabbar-setting.html',

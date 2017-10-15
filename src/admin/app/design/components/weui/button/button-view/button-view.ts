@@ -4,7 +4,7 @@ import {
     ElementRef, Renderer2,
     HostBinding
 } from '@angular/core';
-import { Button } from '../button';
+import { Button } from '../../../../classes';
 @Component({
     selector: 'button-view',
     templateUrl: './button-view.html',

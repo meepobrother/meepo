@@ -1,0 +1,25 @@
+.meepo-filter-tabs {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    min-height: 44px;
+    background-color: #fff;
+    .meepo-filter-tabs-item {
+        line-height: 44px;
+        height: 44px;
+        color: #000;
+        padding: 0 10px;
+        margin: 0 10px;
+        min-width: 4em;
+        flex: 1;
+        text-align: center;
+        &.active {
+            color: red;
+        }
+        &:hover {
+            color: red;
+            border-bottom: 2px solid red;
+        }
+    }
+}

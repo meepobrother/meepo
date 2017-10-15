@@ -1,0 +1,22 @@
+.adv-img {
+    width: 3em;
+    img {
+        width: 100%;
+    }
+}
+
+.adv-item {
+    display: flex;
+    flex-direction: row;
+    margin-top: 5px;
+    .adv-title {
+        flex: 1;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+}
+
+form-field {
+    margin-top: 5px;
+}

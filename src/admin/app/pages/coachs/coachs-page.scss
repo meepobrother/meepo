@@ -1,0 +1,12 @@
+.section {
+    display: block;
+    padding: 10px;
+    &.section_hover {
+        background: #ccc;
+    }
+}
+
+.scroll-view {
+    height: 200px;
+    display: block;
+}

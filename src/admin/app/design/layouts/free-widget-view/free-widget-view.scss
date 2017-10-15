@@ -6,10 +6,32 @@
     &.active {
         border: 2px dashed #00a0e9;
         cursor: move;
+        .opts {
+            display: block;
+        }
     }
 }
 
 p {
     margin: 0px;
     padding: 0px;
+}
+
+.opts {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    color: #000;
+    font-size: 1.2em;
+    display: none;
+    .fa {
+        margin: 5px;
+        cursor: pointer;
+        background: #ccc;
+        padding: 5px 10px;
+        border-radius: 3px;
+        &:hover {
+            color: red;
+        }
+    }
 }
