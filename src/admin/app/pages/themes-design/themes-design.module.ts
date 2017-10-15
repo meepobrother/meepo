@@ -16,6 +16,7 @@ import { ThemesDesignService } from './themes-design.service';
 
 import { SECTIONS, SECTIONS_SERVICES } from './section';
 import { DIALOGS } from './dialog';
+
 @NgModule({
     declarations: [
         ThemesDesign,

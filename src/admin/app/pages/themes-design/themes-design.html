@@ -3,23 +3,40 @@
 
 <div class="container">
     <div class="container-left">
+<<<<<<< HEAD
+        <catalog-section></catalog-section>
+=======
         <div style="height: 20px;"></div>
         <catalog-section [appId]="app_id"></catalog-section>
+>>>>>>> master
     </div>
-    <div class="container-center">
+    <div class="container-center" style="overflow: auto;">
         <div class="ibox">
+<<<<<<< HEAD
+=======
             <div class="ibox-content">
                 <iphone6>
                     <layout-view [widget]="currentPage"></layout-view>
                 </iphone6>
             </div>
+>>>>>>> master
             <div class="ibox-content">
                 <div class="footer-save">
                     <a href="javascript:;" (click)="saveCurrentPage()" [class.btn-disable]="saveBtn.loading" class="btn btn-primary ">
                         <i class="weui-loading" *ngIf="saveBtn.loading"></i>{{saveBtn.title}}
                     </a>
+<<<<<<< HEAD
+                    <a href="javascript:;" class="btn btn-danger">生成</a>
+=======
                     <a class="btn btn-default" (click)="doPreview()">预览</a>
+>>>>>>> master
                 </div>
+            </div>
+            <widget-section (onAdd)="onAdd($event)"></widget-section>
+            <div class="ibox-content" style="overflow: auto;">
+                <iphone6>
+                    <layout-view [widget]="currentPage"></layout-view>
+                </iphone6>
             </div>
         </div>
     </div>

@@ -1,9 +1,20 @@
+<<<<<<< HEAD
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { CatalogService } from '../catalog.service';
+import { MatDialog } from '@angular/material';
+import { AddGroupDialog, AddPageDialog } from '../../dialog';
+
+import { CatalogGroup } from '../model';
+import {Store} from "@ngrx/store";
+import * as actions from '../../../../ngrx/actions/catalog.action';
+=======
 import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectorRef } from '@angular/core';
 import { CatalogService } from '../../../../design';
 import { MatDialog } from '@angular/material';
 import { AddGroupDialog, AddPageDialog } from '../../dialog';
 import { CatalogGroup } from '../model';
 import { ApiService } from '../../../../core';
+>>>>>>> master
 
 @Component({
     selector: 'catalog-section',
@@ -20,11 +31,20 @@ export class CatalogSection implements OnInit {
         public catalogService: CatalogService,
         public dialog: MatDialog,
         public cd: ChangeDetectorRef,
+<<<<<<< HEAD
+        public store: Store<any>
+    ) {
+        this.store.subscribe(res=>{
+            this.list = res.catalog;
+            console.log('store is ',res);
+        });
+=======
         public api: ApiService
     ) { }
 
     ngOnInit() {
         this.getList();
+>>>>>>> master
     }
 
     getList() {
@@ -47,7 +67,12 @@ export class CatalogSection implements OnInit {
         const dialogRef = this.dialog.open(AddGroupDialog, { data: { app_id: this.appId } });
         dialogRef.afterClosed().subscribe((res) => {
             if (res) {
+<<<<<<< HEAD
+                // 添加应用
+                this.store.dispatch(new actions.CatalogAddAction(res));
+=======
                 this.getList();
+>>>>>>> master
             }
         });
     }
@@ -56,7 +81,11 @@ export class CatalogSection implements OnInit {
         const dialogRef = this.dialog.open(AddGroupDialog, { data: group });
         dialogRef.afterClosed().subscribe((res) => {
             if (res) {
+<<<<<<< HEAD
+                this.store.dispatch(new actions.CatalogEditAction(res));
+=======
                 this.getList();
+>>>>>>> master
             }
         });
     }
@@ -67,12 +96,25 @@ export class CatalogSection implements OnInit {
         const dialogRef = this.dialog.open(AddPageDialog, { data: data });
         dialogRef.afterClosed().subscribe((res) => {
             if (res) {
+<<<<<<< HEAD
+                group['pages'].push(res);
+                this.store.dispatch(new actions.CatalogEditAction(group));
+=======
                 this.getList();
+>>>>>>> master
             }
         });
     }
 
     removeGroup(group: any) {
+<<<<<<< HEAD
+        this.store.dispatch(new actions.CatalogDeleteAction(group));
+    }
+
+    saveData(){
+        // store2.set(cacheKey,this.list);
+        this.store.dispatch(new actions.CatalogSaveToCacheAction({}))
+=======
         this.api.mpost('app.deleteAppCatalog', group).subscribe(() => {
             this.getList();
         });
@@ -80,6 +122,7 @@ export class CatalogSection implements OnInit {
 
     saveData() {
         this.getList();
+>>>>>>> master
     }
 
     showAddPageDialog(group: CatalogGroup) {
@@ -87,6 +130,7 @@ export class CatalogSection implements OnInit {
         dialogRef.afterClosed().subscribe((res) => {
             if (res) {
                 group.pages.push(res);
+                this.store.dispatch(new actions.CatalogEditAction(group));
             }
         });
     }

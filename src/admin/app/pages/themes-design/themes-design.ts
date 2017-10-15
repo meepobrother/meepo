@@ -1,5 +1,12 @@
-import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import {
+<<<<<<< HEAD
+    ApplicationService, WidgetService,
+    LayoutView, LayoutService, LayoutContainer
+} from '../../design';
+
+import { CatalogService, CatalogSection } from './section';
+=======
     PageService, ApplicationService, WidgetService,
     ComponentsService, LayoutView, WeuiPage, LayoutService,
     Widget, LayoutContainerModel
@@ -21,6 +28,7 @@ import {
 } from '../../design/components';
 
 import uuid from 'uuid';
+>>>>>>> master
 
 @Component({
     selector: 'themes-design',
@@ -30,6 +38,7 @@ import uuid from 'uuid';
 export class ThemesDesign {
 
     @ViewChild(LayoutView) _view: LayoutView;
+    @ViewChild(CatalogSection) _catalog: CatalogSection;
 
     showComponent: boolean = false;
     // 分组列表
@@ -40,11 +49,8 @@ export class ThemesDesign {
     _container: any;
     app_id: any;
     constructor(
-        public page$: PageService,
         public application$: ApplicationService,
-        public dialog: MatDialog,
         public widget$: WidgetService,
-        public components$: ComponentsService,
         public layout$: LayoutService,
         public catalogService: CatalogService,
         public api: ApiService,
@@ -57,6 +63,7 @@ export class ThemesDesign {
         // 设置当前
         this.widget$.setCurrentWidgetStream.subscribe(res => {
             this.currentWidget = res;
+            this._catalog.saveData();
         });
 
         this.widget$.removeWidgetStream.subscribe(widget => {
@@ -69,6 +76,7 @@ export class ThemesDesign {
             // 保存当前页面
             this.currentWidget = page;
             this.currentPage = page;
+            this._catalog.saveData();
         });
 
         this.route.params.subscribe(res => {
@@ -83,6 +91,11 @@ export class ThemesDesign {
         })
     }
 
+<<<<<<< HEAD
+    onAdd(widget: any){
+        this.addToContainer(widget);
+        this._catalog.saveData();
+=======
     // 页面导航
 
     onHeader() {
@@ -110,6 +123,7 @@ export class ThemesDesign {
             this.addToContainer(res);
             create.unsubscribe();
         });
+>>>>>>> master
     }
 
     addToContainer(widget: any) {
@@ -130,6 +144,7 @@ export class ThemesDesign {
                 this.currentPage.body.children.push(widget);
                 break;
         }
+        this._catalog.saveData();
     }
     // 添加组件
 
@@ -155,6 +170,11 @@ export class ThemesDesign {
     // 保存当前页面
     saveCurrentPage() {
         this.setSaveBtnLoading();
+<<<<<<< HEAD
+        setTimeout(() => {
+            this.setSaveBtnSuccess();
+        }, 800);
+=======
         // this.currentPage['html_content'] = this._view.ele.nativeElement.outerHTML as string;
         // console.log(this.currentPage);
         this.api.mpost('app.editAppCatalogPage', this.currentPage).subscribe(res => {
@@ -167,6 +187,7 @@ export class ThemesDesign {
 
     doPreview() {
         this.router.navigate(['/themes/preview', this.currentPage.id])
+>>>>>>> master
     }
 
 }

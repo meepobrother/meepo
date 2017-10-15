@@ -31,3 +31,5 @@ package.json
 ./runner-darwin-x64/
 runner-darwin-x64/
 src/admin/app/themes/
+*.scssc
+help-docs/

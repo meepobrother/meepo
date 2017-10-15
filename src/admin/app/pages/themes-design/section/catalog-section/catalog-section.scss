@@ -1,3 +1,11 @@
+:host {
+    display: block;
+    position: relative;
+    height: calc( 100% - 180px);
+    min-height: calc( 100% - 180px);
+    max-height: calc( 100% - 180px);
+}
+
 .catalog-container {
     position: absolute;
     left: 0px;

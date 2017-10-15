@@ -14,6 +14,7 @@ import { MatDialogModule } from '@angular/material';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { DesignModule } from '../design';
+import { AppEffectsModule, AppStoreModule } from '../ngrx';
 
 const materials = [
     NavTabsModule,
@@ -35,8 +36,12 @@ const materials = [
     EditorModule, LocationPickerModule,
     DesignModule, MeepoDialogModule,
     WeuiPickerModule,
+<<<<<<< HEAD
+    AppEffectsModule, AppStoreModule
+=======
     SelectPageDialogModule,
     
+>>>>>>> master
 ];
 
 @NgModule({

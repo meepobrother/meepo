@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import * as store from 'store';
-console.log(store);
 @Injectable()
 export class ThemesMineService {
     list: Map<string, any> = new Map();
@@ -14,8 +13,13 @@ export class ThemesMineService {
     }
 
     getList(){
-        const list = store.get(this.code,[]);
-        if (list) {
+        let list = store.get(this.code,[]);
+        if(list instanceof Array){
+
+        }else{
+            list = [];
+        }
+        if (list.length>0) {
             list.map(res => {
                 this.list.set(res.code, res);
             });

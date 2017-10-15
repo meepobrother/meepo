@@ -7,16 +7,18 @@ import { CoreModule } from './core/core.module';
 import { PagesModule } from './pages';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { StoreModule } from '@ngrx/store';
 @NgModule({
     declarations: [
         AdminComponent
     ],
     imports: [
-        BrowserModule,
+        BrowserModule.withServerTransition({appId: 'runner-admin'}),
         BrowserAnimationsModule,
         CoreModule,
         RouterModule.forRoot([], { useHash: true }),
-        PagesModule
+        PagesModule,
+        StoreModule
     ],
     providers: [],
     bootstrap: [AdminComponent]
