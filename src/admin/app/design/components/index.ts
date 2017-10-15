@@ -1,6 +1,6 @@
 import {
     MeepoAdvs, MeepoFilter,
-    MeepoTasks
+    MeepoTasks, MeepoTags
 } from '../classes';
 
 import {
@@ -29,7 +29,8 @@ import {
     MeepoAdvsSetting, MeepoAdvsView,
     MeepoFilterSetting, MeepoFilterView,
     MeepoTasksSetting, MeepoTasksView,
-    MeepoTextSetting, MeepoTextView
+    MeepoTextSetting, MeepoTextView,
+    MeepoTagsSetting, MeepoTagsView
 } from './meepo-ui';
 
 
@@ -64,6 +65,7 @@ export const COMPONENTS = [
     MeepoFilterSetting, MeepoFilterView,
     MeepoTasksSetting, MeepoTasksView,
     MeepoTextSetting, MeepoTextView,
+    MeepoTagsSetting, MeepoTagsView,
 
     // wxapp
     View, ViewSetting,
@@ -96,7 +98,8 @@ export const COMPONENTS_VIEW = {
     'layout-menu': LayoutMenuView,
     'meepo-advs': MeepoAdvsView,
     'meepo-filter': MeepoFilterView,
-    'meepo-tasks': MeepoTasksView
+    'meepo-tasks': MeepoTasksView,
+    'meepo-tags': MeepoTagsView
 };
 
 export const COMPONENTS_SETTING = {
@@ -114,14 +117,16 @@ export const COMPONENTS_SETTING = {
 
     'meepo-advs': MeepoAdvsSetting,
     'meepo-filter': MeepoFilterSetting,
-    'meepo-tasks': MeepoTasksSetting
+    'meepo-tasks': MeepoTasksSetting,
+    'meepo-tags': MeepoTagsSetting
 };
 
 
 export const WIDGETS = {
     'meepo-advs': MeepoAdvs,
     'meepo-filter': MeepoFilter,
-    'meepo-tasks': MeepoTasks
+    'meepo-tasks': MeepoTasks,
+    'meepo-tags': MeepoTags
 }
 
 import { Injectable } from '@angular/core';

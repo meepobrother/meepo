@@ -17,7 +17,7 @@
                     <a href="javascript:;" (click)="saveCurrentPage()" [class.btn-disable]="saveBtn.loading" class="btn btn-primary ">
                         <i class="weui-loading" *ngIf="saveBtn.loading"></i>{{saveBtn.title}}
                     </a>
-                    <a class="btn btn-danger" (click)="doPreview()">html5</a>
+                    <a class="btn btn-danger" *ngIf="currentPage.id" (click)="doPreview()">html5</a>
                     <a class="btn btn-success" [href]="wxappHref">小程序</a>
                 </div>
             </div>
