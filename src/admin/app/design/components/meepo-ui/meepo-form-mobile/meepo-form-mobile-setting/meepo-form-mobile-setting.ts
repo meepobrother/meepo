@@ -7,7 +7,7 @@ import { MeepoFormMobile } from '../../../../classes';
     styleUrls: ['./meepo-form-mobile-setting.scss']
 })
 export class MeepoFormMobileSetting implements OnInit {
-    @Input() widgegt: MeepoFormMobile = new MeepoFormMobile();
+    @Input() widget: MeepoFormMobile = new MeepoFormMobile();
     constructor() { }
 
     ngOnInit() { }

@@ -33,7 +33,8 @@ import {
     MeepoTextSetting, MeepoTextView,
     MeepoTagsSetting, MeepoTagsView,
     MeepoFormMobileView, MeepoFormMobileSetting,
-    MeepoFormTextareaView, MeepoFormTextareaSetting
+    MeepoFormTextareaView, MeepoFormTextareaSetting,
+    MeepoSwiperTagsSetting, MeepoSwiperTagsView
 } from './meepo-ui';
 
 
@@ -46,7 +47,7 @@ import {
 
 import {
     SettingContainerMargin, SettingContainerPadding,
-    NumberComponent, NumberPx
+    NumberComponent, NumberPx, FontSize, TextAlign
 } from './setting';
 
 export const COMPONENTS = [
@@ -77,6 +78,7 @@ export const COMPONENTS = [
     MeepoTagsSetting, MeepoTagsView,
     MeepoFormMobileView, MeepoFormMobileSetting,
     MeepoFormTextareaView, MeepoFormTextareaSetting,
+    MeepoSwiperTagsSetting, MeepoSwiperTagsView,
 
     // wxapp
     View, ViewSetting,
@@ -86,7 +88,7 @@ export const COMPONENTS = [
 
     // setting
     SettingContainerMargin, SettingContainerPadding,
-    NumberComponent, NumberPx
+    NumberComponent, NumberPx, FontSize, TextAlign
 ];
 
 export const COMPONENTS_SELECT = {
