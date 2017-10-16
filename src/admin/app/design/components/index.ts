@@ -37,13 +37,11 @@ import {
     MeepoSwiperTagsSetting, MeepoSwiperTagsView
 } from './meepo-ui';
 
-
 import {
     View, ViewSetting,
     ScrollView, ScrollViewSetting,
     SwiperItem, Swiper, SwiperSetting
 } from './wxapp';
-
 
 import {
     SettingContainerMargin, SettingContainerPadding,
@@ -69,7 +67,6 @@ export const COMPONENTS = [
     LayoutFooterSelect, LayoutFooterSetting, LayoutFooterView,
     LayoutMenuSelect, LayoutMenuSetting, LayoutMenuView,
 
-
     // components
     MeepoAdvsSetting, MeepoAdvsView,
     MeepoFilterSetting, MeepoFilterView,
@@ -84,7 +81,6 @@ export const COMPONENTS = [
     View, ViewSetting,
     ScrollView, ScrollViewSetting,
     SwiperItem, Swiper, SwiperSetting,
-
 
     // setting
     SettingContainerMargin, SettingContainerPadding,
@@ -164,6 +160,7 @@ export class ComponentsService {
     constructor(
         public dialog: MatDialog
     ) { }
+
     // 选择组件样式
     selectComponent(name: string) {
         const dialogRef = this.dialog.open(COMPONENTS_SELECT[name]);
@@ -171,7 +168,7 @@ export class ComponentsService {
             this.onSelectStream.next(res);
         });
     }
-
+    // 创建
     createWidget(name: string) {
         const widget = new WIDGETS[name]();
         this.onCreateStream.next(widget);
@@ -181,6 +178,3 @@ export class ComponentsService {
 export * from './weui';
 export * from './layouts';
 export * from './wxapp';
-
-
-

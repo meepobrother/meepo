@@ -8,6 +8,8 @@
 </div>
 <div class="ibox-content">
     <ul>
-        <li *ngFor="let item of widget.children">{{item.title}}</li>
+        <li *ngFor="let item of widget.children">
+            <input type="text" [(ngModel)]="item.title" placeholder="名字">
+        </li>
     </ul>
 </div>
