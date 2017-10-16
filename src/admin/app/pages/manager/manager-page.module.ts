@@ -4,6 +4,8 @@ import { ManagerPage } from './manager-page';
 import { RouterModule, Routes } from '@angular/router';
 import { AddWidget } from './add-widget';
 import { WidgetList } from './widget-list';
+import { FormsList } from './forms-list';
+
 import { ThemesMine} from './themes-mine';
 import { ThemesAdd } from './themes-add';
 
@@ -21,7 +23,8 @@ const routes: Routes = [
         AddWidget,
         WidgetList,
         ThemesMine,
-        ThemesAdd
+        ThemesAdd,
+        FormsList
     ],
     imports: [ CommonModule, RouterModule.forChild(routes), ShareModule ],
     exports: [
