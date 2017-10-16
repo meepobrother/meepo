@@ -41,6 +41,8 @@ export class ThemesDesign {
     // 当前容器
     _container: any;
     app_id: any;
+
+    wxappHref: string;
     constructor(
         public application$: ApplicationService,
         public widget$: WidgetService,
@@ -75,6 +77,7 @@ export class ThemesDesign {
 
         this.route.params.subscribe(res => {
             this.app_id = res.id;
+            this.wxappHref =  'https://meepo.com.cn/imeepos/index.php?c=wxapp&do=build&id='+this.app_id;
             this.widget$.setAppId(this.app_id);
         });
 
@@ -169,7 +172,7 @@ export class ThemesDesign {
     }
 
     doPreview() {
-        this.router.navigate(['/themes/preview', this.currentPage.id])
+        this.router.navigate(['/themes/preview/', this.currentPage.id])
     }
 
 }

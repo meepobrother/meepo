@@ -1,12 +1,4 @@
-<div class="tasks-list" [ngStyle]="
-    {
-        'margin-top.px': widget.containerStyle['margin-top'],
-        'margin-bottom.px': widget.containerStyle['margin-bottom'],
-        'margin-left.px': widget.containerStyle['margin-left'],
-        'margin-right.px': widget.containerStyle['margin-right'],
-        'background-color': widget.styleObj['background-color']        
-    }
-">
+<div class="tasks-list" [ngStyle]="widget.containerStyle">
     <div class="tasks-item hvr-box-shadow-outset" *ngFor="let item of tasks" [ngStyle]="widget.itemStyle">
         <div class="tasks-item-avatar"><img [src]="item.avatar" alt="">
             <div class="tasks-item-nickname">{{item.nickname}}</div>

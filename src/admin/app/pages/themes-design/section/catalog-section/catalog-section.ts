@@ -28,7 +28,6 @@ export class CatalogSection implements OnInit {
     }
 
     getList() {
-        this.api.mpost('app.update').subscribe(res => { });
         this.api.mpost('app.getListAppCatalog', { page: 1, psize: 30, app_id: this.appId }).subscribe((res: any) => {
             this.list = res.info;
         });
@@ -63,7 +62,6 @@ export class CatalogSection implements OnInit {
     // 添加应用页面
     showAddGroupPageDialog(group: any) {
         const data = { cata_id: group.id, app_id: this.appId };
-        console.log(data);
         const dialogRef = this.dialog.open(AddPageDialog, { data: data });
         dialogRef.afterClosed().subscribe((res) => {
             if (res) {

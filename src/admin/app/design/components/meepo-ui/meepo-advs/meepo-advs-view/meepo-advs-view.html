@@ -1,10 +1,4 @@
-<div class="swiper-container" #container [ngStyle]="{
-    'margin-top.px': widget.containerStyle['margin-top'],
-    'margin-bottom.px': widget.containerStyle['margin-bottom'],
-    'margin-left.px': widget.containerStyle['margin-left'],
-    'margin-right.px': widget.containerStyle['margin-right'],
-    'height.px': widget.styleObj['height']
-}">
+<div class="swiper-container" #container [ngStyle]="widget.containerStyle">
     <div class="swiper-wrapper">
         <div class="swiper-slide" *ngFor="let item of widget.children" [style.height.px]="widget.styleObj['height']">
             <img [src]="item.image" alt="">
