@@ -1,7 +1,8 @@
 import {
     MeepoAdvs, MeepoFilter,
     MeepoTasks, MeepoTags,
-    MeepoFormMobile, MeepoFormTextarea
+    MeepoFormMobile, MeepoFormTextarea,
+    MeepoAddAddress
 } from '../classes';
 
 import {
@@ -34,7 +35,10 @@ import {
     MeepoTagsSetting, MeepoTagsView,
     MeepoFormMobileView, MeepoFormMobileSetting,
     MeepoFormTextareaView, MeepoFormTextareaSetting,
-    MeepoSwiperTagsSetting, MeepoSwiperTagsView
+    MeepoSwiperTagsSetting, MeepoSwiperTagsView,
+
+    // 地址
+    MeepoAddAddressView, MeepoAddAddressSetting
 } from './meepo-ui';
 
 import {
@@ -84,7 +88,10 @@ export const COMPONENTS = [
 
     // setting
     SettingContainerMargin, SettingContainerPadding,
-    NumberComponent, NumberPx, FontSize, TextAlign
+    NumberComponent, NumberPx, FontSize, TextAlign,
+
+    // address
+    MeepoAddAddressView, MeepoAddAddressSetting
 ];
 
 export const COMPONENTS_SELECT = {
@@ -116,6 +123,7 @@ export const COMPONENTS_VIEW = {
     'meepo-tags': MeepoTagsView,
     'meepo-form-mobile': MeepoFormMobileView,
     'meepo-form-textarea': MeepoFormTextareaView,
+    'meepo-add-address': MeepoAddAddressView
 };
 
 export const COMPONENTS_SETTING = {
@@ -136,7 +144,9 @@ export const COMPONENTS_SETTING = {
     'meepo-tasks': MeepoTasksSetting,
     'meepo-tags': MeepoTagsSetting,
     'meepo-form-mobile': MeepoFormMobileSetting,
-    'meepo-form-textarea': MeepoFormTextareaSetting
+    'meepo-form-textarea': MeepoFormTextareaSetting,
+
+    'meepo-add-address': MeepoAddAddressSetting
 };
 
 
@@ -146,7 +156,8 @@ export const WIDGETS = {
     'meepo-tasks': MeepoTasks,
     'meepo-tags': MeepoTags,
     'meepo-form-mobile': MeepoFormMobile,
-    'meepo-form-textarea': MeepoFormTextarea
+    'meepo-form-textarea': MeepoFormTextarea,
+    'meepo-add-address': MeepoAddAddress
 }
 
 import { Injectable } from '@angular/core';
