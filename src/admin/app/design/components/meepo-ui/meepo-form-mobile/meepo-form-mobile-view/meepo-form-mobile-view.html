@@ -1,0 +1,19 @@
+<div class="weui-cells weui-cells_form">
+    <div class="weui-cell weui-cell_vcode">
+        <div class="weui-cell__hd">
+            <label class="weui-label" [style.color]="widget.data.mobile.color">{{widget.data.mobile.label}}</label>
+        </div>
+        <div class="weui-cell__bd">
+            <input class="weui-input" [(ngModel)]="widget.data.mobile.value" type="tel" placeholder="{{widget.data.mobile.placeholder}}">
+        </div>
+        <div class="weui-cell__ft">
+            <button class="weui-vcode-btn" (click)="getCode()">{{widget.data.mobile.tip}}</button>
+        </div>
+    </div>
+    <div class="weui-cell">
+        <div class="weui-cell__hd"><label class="weui-label" [style.color]="widget.data.code.color">{{widget.data.code.label}}</label></div>
+        <div class="weui-cell__bd">
+            <input class="weui-input" [(ngModel)]="widget.data.code.value" type="number" placeholder="{{widget.data.code.placeholder}}">
+        </div>
+    </div>
+</div>

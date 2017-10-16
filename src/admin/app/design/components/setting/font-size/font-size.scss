@@ -1,0 +1,47 @@
+.font-size-input {
+    display: inline-block;
+    position: relative;
+}
+
+.font-size-input input {
+    padding-right: 20px;
+    text-align: center;
+}
+
+.font-size-input::before {
+    content: 'px';
+    position: absolute;
+    top: 6px;
+    left: 40px;
+    z-index: 1;
+    font-size: 16px;
+}
+
+.font-tip {
+    display: none;
+    position: absolute;
+    top: -42px;
+    left: 12px;
+    width: 46px;
+    height: 30px;
+    line-height: 30px;
+    background: #000;
+    border-radius: 5px;
+    text-align: center;
+    color: #fff;
+}
+
+.font-tip::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    margin-left: -8px;
+    border-top: 8px solid #000;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+}
+
+.font-size-input:hover .font-tip {
+    display: block;
+}

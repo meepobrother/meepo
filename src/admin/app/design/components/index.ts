@@ -1,6 +1,7 @@
 import {
     MeepoAdvs, MeepoFilter,
-    MeepoTasks, MeepoTags
+    MeepoTasks, MeepoTags,
+    MeepoFormMobile, MeepoFormTextarea
 } from '../classes';
 
 import {
@@ -30,7 +31,9 @@ import {
     MeepoFilterSetting, MeepoFilterView,
     MeepoTasksSetting, MeepoTasksView,
     MeepoTextSetting, MeepoTextView,
-    MeepoTagsSetting, MeepoTagsView
+    MeepoTagsSetting, MeepoTagsView,
+    MeepoFormMobileView, MeepoFormMobileSetting,
+    MeepoFormTextareaView, MeepoFormTextareaSetting
 } from './meepo-ui';
 
 
@@ -40,6 +43,11 @@ import {
     SwiperItem, Swiper, SwiperSetting
 } from './wxapp';
 
+
+import {
+    SettingContainerMargin, SettingContainerPadding,
+    NumberComponent, NumberPx
+} from './setting';
 
 export const COMPONENTS = [
     ButtonView, ButtonSetting, ButtonSelect,
@@ -60,17 +68,25 @@ export const COMPONENTS = [
     LayoutFooterSelect, LayoutFooterSetting, LayoutFooterView,
     LayoutMenuSelect, LayoutMenuSetting, LayoutMenuView,
 
+
     // components
     MeepoAdvsSetting, MeepoAdvsView,
     MeepoFilterSetting, MeepoFilterView,
     MeepoTasksSetting, MeepoTasksView,
     MeepoTextSetting, MeepoTextView,
     MeepoTagsSetting, MeepoTagsView,
+    MeepoFormMobileView, MeepoFormMobileSetting,
+    MeepoFormTextareaView, MeepoFormTextareaSetting,
 
     // wxapp
     View, ViewSetting,
     ScrollView, ScrollViewSetting,
-    SwiperItem, Swiper, SwiperSetting
+    SwiperItem, Swiper, SwiperSetting,
+
+
+    // setting
+    SettingContainerMargin, SettingContainerPadding,
+    NumberComponent, NumberPx
 ];
 
 export const COMPONENTS_SELECT = {
@@ -99,7 +115,9 @@ export const COMPONENTS_VIEW = {
     'meepo-advs': MeepoAdvsView,
     'meepo-filter': MeepoFilterView,
     'meepo-tasks': MeepoTasksView,
-    'meepo-tags': MeepoTagsView
+    'meepo-tags': MeepoTagsView,
+    'meepo-form-mobile': MeepoFormMobileView,
+    'meepo-form-textarea': MeepoFormTextareaView,
 };
 
 export const COMPONENTS_SETTING = {
@@ -118,7 +136,9 @@ export const COMPONENTS_SETTING = {
     'meepo-advs': MeepoAdvsSetting,
     'meepo-filter': MeepoFilterSetting,
     'meepo-tasks': MeepoTasksSetting,
-    'meepo-tags': MeepoTagsSetting
+    'meepo-tags': MeepoTagsSetting,
+    'meepo-form-mobile': MeepoFormMobileSetting,
+    'meepo-form-textarea': MeepoFormTextareaSetting
 };
 
 
@@ -126,7 +146,9 @@ export const WIDGETS = {
     'meepo-advs': MeepoAdvs,
     'meepo-filter': MeepoFilter,
     'meepo-tasks': MeepoTasks,
-    'meepo-tags': MeepoTags
+    'meepo-tags': MeepoTags,
+    'meepo-form-mobile': MeepoFormMobile,
+    'meepo-form-textarea': MeepoFormTextarea
 }
 
 import { Injectable } from '@angular/core';

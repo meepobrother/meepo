@@ -10,3 +10,4 @@ export class MeepoSwiperTagsView implements OnInit {
 
     ngOnInit() { }
 }
+
