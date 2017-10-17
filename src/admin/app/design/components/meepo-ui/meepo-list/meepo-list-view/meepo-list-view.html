@@ -1,0 +1,33 @@
+<div class="meepo-list" [ngStyle]="widget.containerStyle">
+    <!-- 展示样式 -->
+    <ul class="widget.model">
+        <li class="meepo-list-item" *ngFor="let item of widget.children" [ngStyle]="widget.styleObj">
+            <div class="inner-content">
+                <img src="" alt="">
+                <div class="title-container">
+                    <p class="title"></p>
+                    <div class="seckill-list-bottom">
+                        <div>
+                            <span class="price">$100</span>
+                            <span class="oldprice">$200</span>
+                        </div>
+                        <div>
+                            <div class="seckill-progress-wrap">
+                                <span>已售0%</span>
+                                <div class="seckill-progress">
+                                    <span style="width: 1%;"></span>
+                                </div>
+                            </div>
+                            <div class="countdown">
+                                <label>已结束</label>
+                                <span class="hours">00</span>:
+                                <span class="minutes">00</span>:
+                                <span class="seconds">00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>

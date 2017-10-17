@@ -1,0 +1,11 @@
+<div class="ibox" [formGroup]="form">
+    <div class="ibox-title">
+        <div class="form-group">
+            <input type="text" formControlName="title" class="form-control" placeholder="标签">
+        </div>
+    </div>
+    <div class="ibox-footer">
+        <a href="javascript:;" class="btn btn-primary" (click)="save()">提交</a>
+        <a href="javascript:;" class="btn btn-default" (click)="cancel()">取消</a>
+    </div>
+</div>
