@@ -1,0 +1,29 @@
+ul {
+    margin: 0;
+    padding: 0;
+    li {
+        line-height: 44px;
+        height: 44px;
+        padding: 0 20px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        &:hover {
+            background: #ccc;
+        }
+        div {
+            flex: 1;
+            justify-content: flex-end;
+            align-items: center;
+            display: flex;
+            flex-direction: row;
+        }
+        .fa {
+            cursor: pointer;
+            font-size: 16px;
+            &:hover {
+                transform: scale(1.4, 1.4);
+            }
+        }
+    }
+}

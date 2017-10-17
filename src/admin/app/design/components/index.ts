@@ -1,7 +1,8 @@
 import {
     MeepoAdvs, MeepoFilter,
     MeepoTasks, MeepoTags,
-    MeepoFormMobile, MeepoFormTextarea
+    MeepoFormMobile, MeepoFormTextarea,
+    MeepoAddAddress
 } from '../classes';
 
 import {
@@ -33,9 +34,12 @@ import {
     MeepoTextSetting, MeepoTextView,
     MeepoTagsSetting, MeepoTagsView,
     MeepoFormMobileView, MeepoFormMobileSetting,
-    MeepoFormTextareaView, MeepoFormTextareaSetting
-} from './meepo-ui';
+    MeepoFormTextareaView, MeepoFormTextareaSetting,
+    MeepoSwiperTagsSetting, MeepoSwiperTagsView,
 
+    // 地址
+    MeepoAddAddressView, MeepoAddAddressSetting
+} from './meepo-ui';
 
 import {
     View, ViewSetting,
@@ -43,10 +47,11 @@ import {
     SwiperItem, Swiper, SwiperSetting
 } from './wxapp';
 
-
 import {
     SettingContainerMargin, SettingContainerPadding,
-    NumberComponent, NumberPx
+    NumberComponent, NumberPx, FontSize, TextAlign,
+    BindDataSource, ShopsTagsDataSelect, BindRightSource,
+    SelectPageDialog
 } from './setting';
 
 export const COMPONENTS = [
@@ -68,7 +73,6 @@ export const COMPONENTS = [
     LayoutFooterSelect, LayoutFooterSetting, LayoutFooterView,
     LayoutMenuSelect, LayoutMenuSetting, LayoutMenuView,
 
-
     // components
     MeepoAdvsSetting, MeepoAdvsView,
     MeepoFilterSetting, MeepoFilterView,
@@ -77,16 +81,21 @@ export const COMPONENTS = [
     MeepoTagsSetting, MeepoTagsView,
     MeepoFormMobileView, MeepoFormMobileSetting,
     MeepoFormTextareaView, MeepoFormTextareaSetting,
+    MeepoSwiperTagsSetting, MeepoSwiperTagsView,
 
     // wxapp
     View, ViewSetting,
     ScrollView, ScrollViewSetting,
     SwiperItem, Swiper, SwiperSetting,
 
-
     // setting
     SettingContainerMargin, SettingContainerPadding,
-    NumberComponent, NumberPx
+    NumberComponent, NumberPx, FontSize, TextAlign,
+    BindDataSource, ShopsTagsDataSelect, BindRightSource,
+    SelectPageDialog,
+
+    // address
+    MeepoAddAddressView, MeepoAddAddressSetting
 ];
 
 export const COMPONENTS_SELECT = {
@@ -118,6 +127,7 @@ export const COMPONENTS_VIEW = {
     'meepo-tags': MeepoTagsView,
     'meepo-form-mobile': MeepoFormMobileView,
     'meepo-form-textarea': MeepoFormTextareaView,
+    'meepo-add-address': MeepoAddAddressView
 };
 
 export const COMPONENTS_SETTING = {
@@ -138,7 +148,9 @@ export const COMPONENTS_SETTING = {
     'meepo-tasks': MeepoTasksSetting,
     'meepo-tags': MeepoTagsSetting,
     'meepo-form-mobile': MeepoFormMobileSetting,
-    'meepo-form-textarea': MeepoFormTextareaSetting
+    'meepo-form-textarea': MeepoFormTextareaSetting,
+
+    'meepo-add-address': MeepoAddAddressSetting
 };
 
 
@@ -148,7 +160,8 @@ export const WIDGETS = {
     'meepo-tasks': MeepoTasks,
     'meepo-tags': MeepoTags,
     'meepo-form-mobile': MeepoFormMobile,
-    'meepo-form-textarea': MeepoFormTextarea
+    'meepo-form-textarea': MeepoFormTextarea,
+    'meepo-add-address': MeepoAddAddress
 }
 
 import { Injectable } from '@angular/core';
@@ -162,6 +175,7 @@ export class ComponentsService {
     constructor(
         public dialog: MatDialog
     ) { }
+
     // 选择组件样式
     selectComponent(name: string) {
         const dialogRef = this.dialog.open(COMPONENTS_SELECT[name]);
@@ -169,7 +183,7 @@ export class ComponentsService {
             this.onSelectStream.next(res);
         });
     }
-
+    // 创建
     createWidget(name: string) {
         const widget = new WIDGETS[name]();
         this.onCreateStream.next(widget);
@@ -179,6 +193,3 @@ export class ComponentsService {
 export * from './weui';
 export * from './layouts';
 export * from './wxapp';
-
-
-

@@ -6,7 +6,7 @@ import { Component, OnInit, Input, ElementRef } from '@angular/core';
     styleUrls: ['./font-size.scss']
 })
 export class FontSize implements OnInit {
-    @Input() model: any;
+    @Input() widget: any;
     constructor() { }
     ngOnInit() { }
 }

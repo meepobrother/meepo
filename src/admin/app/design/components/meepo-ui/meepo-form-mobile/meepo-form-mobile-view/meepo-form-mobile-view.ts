@@ -10,4 +10,6 @@ export class MeepoFormMobileView implements OnInit {
     constructor() { }
 
     ngOnInit() { }
+
+    getCode(){}
 }

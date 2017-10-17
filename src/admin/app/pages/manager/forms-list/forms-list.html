@@ -1,0 +1,21 @@
+<div class="ibox">
+    <div class="ibox-title" style="text-primary">
+        <h5>表单组件</h5>
+        <div class="ibox-tools">
+            <a href="javascript:;" (click)="addForm()" class="btn btn-white btn-xs btn-bitbucket">
+                <i class="fa fa-plus-circle"></i>
+            </a>
+        </div>
+    </div>
+    <div class="ibox-content">
+        <ul>
+            <li *ngFor="let form of forms">
+                <span>{{form.name}}</span>
+                <div>
+                    <span class="fa fa-edit" (click)="editForm(form)"></span> &nbsp; &nbsp;
+                    <span class="fa fa-trash-o" (click)="deleteForm(form)"></span>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

@@ -7,6 +7,7 @@ import { ApiService } from '../../../../core';
 })
 export class WidgetSection implements OnInit {
     widgets: any[] = [];
+    forms: any[] = [];
     @Output() onSelect: EventEmitter<any> = new EventEmitter();
     constructor(
         public api: ApiService
