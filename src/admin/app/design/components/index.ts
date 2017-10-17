@@ -2,7 +2,7 @@ import {
     MeepoAdvs, MeepoFilter,
     MeepoTasks, MeepoTags,
     MeepoFormMobile, MeepoFormTextarea,
-    MeepoAddAddress
+    MeepoAddAddress, MeepoList
 } from '../classes';
 
 import {
@@ -38,7 +38,8 @@ import {
     MeepoSwiperTagsSetting, MeepoSwiperTagsView,
 
     // 地址
-    MeepoAddAddressView, MeepoAddAddressSetting
+    MeepoAddAddressView, MeepoAddAddressSetting,
+    MeepoListSetting, MeepoListView
 } from './meepo-ui';
 
 import {
@@ -51,7 +52,8 @@ import {
     SettingContainerMargin, SettingContainerPadding,
     NumberComponent, NumberPx, FontSize, TextAlign,
     BindDataSource, ShopsTagsDataSelect, BindRightSource,
-    SelectPageDialog, GoodsTagsDataSelect
+    SelectPageDialog, GoodsTagsDataSelect, 
+    TasksTagsDataSelect, SkillsTagsDataSelect, OrdersTagsDataSelect
 } from './setting';
 
 export const COMPONENTS = [
@@ -93,9 +95,11 @@ export const COMPONENTS = [
     NumberComponent, NumberPx, FontSize, TextAlign,
     BindDataSource, ShopsTagsDataSelect, BindRightSource,
     SelectPageDialog, GoodsTagsDataSelect,
+    TasksTagsDataSelect, SkillsTagsDataSelect, OrdersTagsDataSelect,
 
     // address
-    MeepoAddAddressView, MeepoAddAddressSetting
+    MeepoAddAddressView, MeepoAddAddressSetting,
+    MeepoListSetting, MeepoListView
 ];
 
 export const COMPONENTS_SELECT = {
@@ -127,7 +131,8 @@ export const COMPONENTS_VIEW = {
     'meepo-tags': MeepoTagsView,
     'meepo-form-mobile': MeepoFormMobileView,
     'meepo-form-textarea': MeepoFormTextareaView,
-    'meepo-add-address': MeepoAddAddressView
+    'meepo-add-address': MeepoAddAddressView,
+    'meepo-list': MeepoListView
 };
 
 export const COMPONENTS_SETTING = {
@@ -150,7 +155,8 @@ export const COMPONENTS_SETTING = {
     'meepo-form-mobile': MeepoFormMobileSetting,
     'meepo-form-textarea': MeepoFormTextareaSetting,
 
-    'meepo-add-address': MeepoAddAddressSetting
+    'meepo-add-address': MeepoAddAddressSetting,
+    'meepo-list': MeepoListSetting
 };
 
 
@@ -161,7 +167,8 @@ export const WIDGETS = {
     'meepo-tags': MeepoTags,
     'meepo-form-mobile': MeepoFormMobile,
     'meepo-form-textarea': MeepoFormTextarea,
-    'meepo-add-address': MeepoAddAddress
+    'meepo-add-address': MeepoAddAddress,
+    'meepo-list': MeepoList
 }
 
 import { Injectable } from '@angular/core';
