@@ -14,11 +14,12 @@ export class GoodsTags implements OnInit {
         public api: ApiService
     ) { }
 
-    ngOnInit() { 
+    ngOnInit() {
         this.getList();
     }
 
     getList() {
+        this.api.mpost('goods.update').subscribe(r => { });
         this.api.mpost('goods.getListGoodsTags', { page: 1, psize: 30 }).subscribe((res: any) => {
             this.list = res.info;
         });
@@ -35,8 +36,8 @@ export class GoodsTags implements OnInit {
         });
     }
 
-    edit(item: any){
-        const dialogRef = this.dialog.open(GoodsTagsAdd,{ data: item});
+    edit(item: any) {
+        const dialogRef = this.dialog.open(GoodsTagsAdd, { data: item });
         dialogRef.afterClosed().subscribe(res => {
             if (res) {
                 this.api.mpost('goods.editGoodsTags', res).subscribe((res: any) => {
@@ -46,3 +47,5 @@ export class GoodsTags implements OnInit {
         });
     }
 }
+
+
