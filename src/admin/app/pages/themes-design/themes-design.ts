@@ -59,7 +59,7 @@ export class ThemesDesign {
         // 设置当前
         this.widget$.setCurrentWidgetStream.subscribe(res => {
             this.currentWidget = res;
-            this._catalog.saveData();
+            // this._catalog.saveData();
         });
 
         this.widget$.removeWidgetStream.subscribe(widget => {
@@ -72,7 +72,7 @@ export class ThemesDesign {
             // 保存当前页面
             this.currentWidget = page;
             this.currentPage = page;
-            this._catalog.saveData();
+            // this._catalog.saveData();
         });
 
         this.route.params.subscribe(res => {

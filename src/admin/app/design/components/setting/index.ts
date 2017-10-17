@@ -10,4 +10,6 @@ export * from './bind-right-source';
 
 export * from './setting-container-margin/setting-container-margin';
 export * from './setting-container-padding/setting-container-padding';
+export * from './setting-container-color/setting-container-color';
+
 

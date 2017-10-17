@@ -12,6 +12,8 @@ export * from './meepo-filter';
 export * from './meepo-tasks';
 export * from './meepo-tags';
 export * from './meepo-list';
+export * from './meepo-swiper-tags';
+
 
 export * from './meepo-form-mobile';
 export * from './meepo-form-textarea';

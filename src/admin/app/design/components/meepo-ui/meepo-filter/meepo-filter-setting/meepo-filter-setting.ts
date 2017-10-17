@@ -31,7 +31,8 @@ export class MeepoFilterSetting implements OnInit {
     selectPageSource(item: any) {
         const dialogRef = this.dialog.open(SelectPageDialog, { data: { app_id: this.widget$.getAppId() } });
         dialogRef.afterClosed().subscribe(res => {
-
+            item.link = res.id;
+            item.title = res.title;
         });
     }
 }

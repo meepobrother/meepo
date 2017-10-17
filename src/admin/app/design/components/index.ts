@@ -2,7 +2,7 @@ import {
     MeepoAdvs, MeepoFilter,
     MeepoTasks, MeepoTags,
     MeepoFormMobile, MeepoFormTextarea,
-    MeepoAddAddress, MeepoList
+    MeepoAddAddress, MeepoList, MeepoSwiperTags
 } from '../classes';
 
 import {
@@ -53,7 +53,8 @@ import {
     NumberComponent, NumberPx, FontSize, TextAlign,
     BindDataSource, ShopsTagsDataSelect, BindRightSource,
     SelectPageDialog, GoodsTagsDataSelect, 
-    TasksTagsDataSelect, SkillsTagsDataSelect, OrdersTagsDataSelect
+    TasksTagsDataSelect, SkillsTagsDataSelect, OrdersTagsDataSelect,
+    SettingContainerColor
 } from './setting';
 
 export const COMPONENTS = [
@@ -96,6 +97,7 @@ export const COMPONENTS = [
     BindDataSource, ShopsTagsDataSelect, BindRightSource,
     SelectPageDialog, GoodsTagsDataSelect,
     TasksTagsDataSelect, SkillsTagsDataSelect, OrdersTagsDataSelect,
+    SettingContainerColor,
 
     // address
     MeepoAddAddressView, MeepoAddAddressSetting,
@@ -132,7 +134,8 @@ export const COMPONENTS_VIEW = {
     'meepo-form-mobile': MeepoFormMobileView,
     'meepo-form-textarea': MeepoFormTextareaView,
     'meepo-add-address': MeepoAddAddressView,
-    'meepo-list': MeepoListView
+    'meepo-list': MeepoListView,
+    'meepo-swiper-tags': MeepoSwiperTagsView
 };
 
 export const COMPONENTS_SETTING = {
@@ -156,7 +159,8 @@ export const COMPONENTS_SETTING = {
     'meepo-form-textarea': MeepoFormTextareaSetting,
 
     'meepo-add-address': MeepoAddAddressSetting,
-    'meepo-list': MeepoListSetting
+    'meepo-list': MeepoListSetting,
+    'meepo-swiper-tags': MeepoSwiperTagsSetting
 };
 
 
@@ -168,7 +172,8 @@ export const WIDGETS = {
     'meepo-form-mobile': MeepoFormMobile,
     'meepo-form-textarea': MeepoFormTextarea,
     'meepo-add-address': MeepoAddAddress,
-    'meepo-list': MeepoList
+    'meepo-list': MeepoList,
+    'meepo-swiper-tags': MeepoSwiperTags
 }
 
 import { Injectable } from '@angular/core';
