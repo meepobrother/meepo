@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { LayoutFooter } from '../../../../classes';
 import { MatDialog } from '@angular/material';
-import { SelectPageDialog } from '../../../../../components/select-page-dialog';
+import { SelectPageDialog } from '../../../setting/select-page-dialog';
 import { WidgetService} from '../../../../services';
 @Component({
     selector: 'layout-footer-setting',

@@ -1,9 +1,17 @@
+:host {
+    min-width: 450px;
+    min-height: 300px;
+    display: block;
+    width: 450px;
+}
+
 .page-list {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     .page-item {
         line-height: 2em;
-        margin: 0 10px;
+        margin: 5px 10px;
         cursor: pointer;
         &:hover {
             background: #ccc;

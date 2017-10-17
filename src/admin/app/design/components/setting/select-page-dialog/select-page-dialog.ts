@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject, Input } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { ApiService } from '../../core';
+import { ApiService } from '../../../../core';
 
 @Component({
     selector: 'select-page-dialog',

@@ -10,6 +10,7 @@
     <ul>
         <li *ngFor="let item of widget.children">
             <input type="text" [(ngModel)]="item.title" placeholder="名字">
+            <a href="javascript:;" (click)="selectDataSource(item)" class="btn">数据源</a>
         </li>
     </ul>
 </div>

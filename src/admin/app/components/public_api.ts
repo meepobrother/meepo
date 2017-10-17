@@ -18,6 +18,4 @@ export * from './editor';
 export * from './dialog';
 export * from './location-picker';
 
-
-export * from './select-page-dialog';
 export * from './bootstrap';

@@ -3,10 +3,12 @@ import { CommonModule } from '@angular/common';
 import { COMPONENTS, ComponentsService, LayoutService} from './components';
 import { SERVICES } from './services';
 
-import { NavTabsModule, MeepoFormFieldModule, WeuiPickerModule, PriceListModule, SelectPageDialogModule } from '../components';
+import { NavTabsModule, MeepoFormFieldModule, WeuiPickerModule, PriceListModule } from '../components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material';
 import { DesignLayoutsModule } from './layouts';
+
+import { ShopsTagsService } from '../pages/shops/shops-tags/shops-tags.service';
 
 @NgModule({
     declarations: [
@@ -21,8 +23,7 @@ import { DesignLayoutsModule } from './layouts';
         MeepoFormFieldModule,
         ReactiveFormsModule,
         WeuiPickerModule,
-        PriceListModule,
-        SelectPageDialogModule
+        PriceListModule
     ],
     exports: [
         ...COMPONENTS,
@@ -31,7 +32,8 @@ import { DesignLayoutsModule } from './layouts';
     providers: [
         ...SERVICES,
         ComponentsService,
-        LayoutService
+        LayoutService,
+        ShopsTagsService
     ],
     entryComponents: [
         ...COMPONENTS

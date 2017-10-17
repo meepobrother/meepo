@@ -49,7 +49,9 @@ import {
 
 import {
     SettingContainerMargin, SettingContainerPadding,
-    NumberComponent, NumberPx, FontSize, TextAlign
+    NumberComponent, NumberPx, FontSize, TextAlign,
+    BindDataSource, ShopsTagsDataSelect, BindRightSource,
+    SelectPageDialog
 } from './setting';
 
 export const COMPONENTS = [
@@ -89,6 +91,8 @@ export const COMPONENTS = [
     // setting
     SettingContainerMargin, SettingContainerPadding,
     NumberComponent, NumberPx, FontSize, TextAlign,
+    BindDataSource, ShopsTagsDataSelect, BindRightSource,
+    SelectPageDialog,
 
     // address
     MeepoAddAddressView, MeepoAddAddressSetting

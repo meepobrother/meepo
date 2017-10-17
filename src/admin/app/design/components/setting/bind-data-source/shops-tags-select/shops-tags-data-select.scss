@@ -1,0 +1,7 @@
+.label {
+    font-size: 1.2em;
+    cursor: pointer;
+    &:hover {
+        font-size: 1.3em;
+    }
+}
