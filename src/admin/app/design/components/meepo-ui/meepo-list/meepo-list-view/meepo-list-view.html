@@ -1,11 +1,11 @@
 <div class="meepo-list" [ngStyle]="widget.containerStyle">
     <!-- 展示样式 -->
-    <ul class="widget.model">
+    <ul [class]="widget.model">
         <li class="meepo-list-item" *ngFor="let item of widget.children" [ngStyle]="widget.styleObj">
             <div class="inner-content">
-                <img src="" alt="">
+                <img class="meepo-list-image" [src]="item.image" alt="">
                 <div class="title-container">
-                    <p class="title"></p>
+                    <p class="title">标题</p>
                     <div class="seckill-list-bottom">
                         <div>
                             <span class="price">$100</span>
@@ -20,9 +20,7 @@
                             </div>
                             <div class="countdown">
                                 <label>已结束</label>
-                                <span class="hours">00</span>:
-                                <span class="minutes">00</span>:
-                                <span class="seconds">00</span>
+                                <span class="hours">00</span>:<span class="minutes">00</span>:<span class="seconds">00</span>
                             </div>
                         </div>
                     </div>

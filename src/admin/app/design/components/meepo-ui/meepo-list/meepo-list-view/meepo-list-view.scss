@@ -1,0 +1,98 @@
+.meepo-list {
+    display: flex;
+    flex-direction: column;
+    .meepo-list-image {
+        width: 70px;
+        height: 100%;
+        margin: 0 auto;
+        display: block;
+    }
+    .countdown {
+        label {
+            vertical-align: middle;
+            color: #9a9a9a;
+            font-size: .8em;
+        }
+        span {
+            display: inline-block;
+            height: 14px;
+            background-color: #9a9a9a;
+            color: #fff;
+            text-align: center;
+            line-height: 14px;
+            margin: 3px 1px;
+            padding: 0 3px;
+            border-radius: 4px;
+            vertical-align: top;
+            font-size: .7em;
+        }
+    }
+    .meepo-list-item {
+        position: relative;
+        margin-bottom: 5px;
+        text-decoration: inherit;
+        background: #fff;
+    }
+    .title-container {
+        flex: 1;
+        padding: 0px 10px 0px 10px;
+        color: rgb(102, 102, 102);
+    }
+    .price {
+        color: #f60;
+        margin-right: 10px;
+    }
+    .oldprice {
+        font-size: 10px;
+        color: #a8a8a8;
+        text-decoration: line-through;
+    }
+    .inner-content {
+        align-items: center;
+        justify-content: center;
+    }
+    .list-model-1 {
+        display: flex;
+        flex-direction: column;
+        .inner-content {
+            display: flex;
+            flex-direction: row;
+        }
+    }
+    .list-model-2 {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        .meepo-list-image {
+            width: 100% !important;
+            height: 100% !important;
+        }
+        .inner-content {
+            display: flex;
+            flex-direction: column;
+        }
+        .meepo-list-item {
+            width: calc( 50% - 4px);
+            margin: 0 2px;
+        }
+    }
+    .list-model-3 {
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+        .meepo-list-image {
+            width: calc( 100% - 30px) !important;
+            height: 100% !important;
+        }
+        .inner-content {
+            display: flex;
+            flex-direction: column;
+            min-width: 200px;
+        }
+        .meepo-list-item {
+            margin-right: 10px;
+            width: auto;
+            height: inherit;
+        }
+    }
+}
