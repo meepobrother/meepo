@@ -3,9 +3,9 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ApiService } from '../../../core';
 @Component({
-    selector: 'add-table',
-    templateUrl: './add-table.html',
-    styleUrls: ['./add-table.scss']
+    selector: 'add-form',
+    templateUrl: './add-form.html',
+    styleUrls: ['./add-form.scss']
 })
 export class AddForm implements OnInit {
     form: FormGroup;
