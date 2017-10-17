@@ -14,12 +14,16 @@ export class GoodsTagsAdd implements OnInit {
         public fb: FormBuilder
     ) { 
         this.form = this.fb.group({
-            title: ['']
+            title: [''],
+            id: [''],
+            uniacid: ['']          
         });
 
         this.dialog.afterOpen().subscribe(res=>{
-            let { title } = this.data || new GoodsTagsDefault();
+            let { title, id, uniacid } = this.data || new GoodsTagsDefault();
             this.form.get('title').setValue(title);
+            this.form.get('uniacid').setValue(uniacid);
+            this.form.get('id').setValue(id);      
         });
     }
 
@@ -36,4 +40,6 @@ export class GoodsTagsAdd implements OnInit {
 
 export class GoodsTagsDefault{
     title: string;
+    id: number;
+    uniacid: number;
 }

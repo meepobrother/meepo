@@ -38,7 +38,9 @@ export class GoodsTags implements OnInit {
 
     edit(item: any) {
         const dialogRef = this.dialog.open(GoodsTagsAdd, { data: item });
+        console.log(item);
         dialogRef.afterClosed().subscribe(res => {
+            console.log(res);
             if (res) {
                 this.api.mpost('goods.editGoodsTags', res).subscribe((res: any) => {
                     this.getList();
