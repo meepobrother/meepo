@@ -1,6 +1,7 @@
 import { Widget } from './widget';
 
 export class MeepoList extends Widget {
+    model: string = 'list-model-1';
     constructor() {
         super();
         this.type = 'meepo-list';
@@ -8,7 +9,18 @@ export class MeepoList extends Widget {
         this.children = [
             {
                 title: '测试',
-                code: 'all'
+                code: 'all',
+                image: './assets/img/a1.jpg'
+            },
+            {
+                title: '测试',
+                code: 'all',
+                image: './assets/img/a2.jpg'
+            },
+            {
+                title: '测试',
+                code: 'all',
+                image: './assets/img/a3.jpg'
             }
         ];
         this.styleObj = { color: '#fff' };
