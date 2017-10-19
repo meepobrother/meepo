@@ -1,0 +1,10 @@
+@import "../_vars.scss";
+html,
+body,
+demos-root {
+    height: 100%;
+    width: 100%;
+    display: block;
+    background: $bgColor;
+    color: #fff;
+}
