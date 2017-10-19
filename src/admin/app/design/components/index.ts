@@ -57,6 +57,10 @@ import {
     SettingContainerColor
 } from './setting';
 
+import {
+    CardComponent, CardSetting, CardView, SlotDirective
+} from './zan-ui';
+
 export const COMPONENTS = [
     ButtonView, ButtonSetting, ButtonSelect,
     WeuiCellsSetting, WeuiCellsView,
@@ -101,7 +105,10 @@ export const COMPONENTS = [
 
     // address
     MeepoAddAddressView, MeepoAddAddressSetting,
-    MeepoListSetting, MeepoListView
+    MeepoListSetting, MeepoListView,
+
+    // zan ui
+    CardComponent, CardSetting, CardView
 ];
 
 export const COMPONENTS_SELECT = {
@@ -205,3 +212,5 @@ export class ComponentsService {
 export * from './weui';
 export * from './layouts';
 export * from './wxapp';
+export * from './zan-ui';
+

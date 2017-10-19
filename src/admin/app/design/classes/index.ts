@@ -34,7 +34,6 @@ export * from './weui-icon';
 export * from './weui-tabbar';
 
 
-
-
+export * from './zan-ui/card';
 
 

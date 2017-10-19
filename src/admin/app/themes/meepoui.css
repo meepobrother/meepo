@@ -5926,7 +5926,7 @@ button.swiper-pagination-bullet {
     flex-wrap: wrap;
 }
 
-.meepo-swiper-tags-list .meepo-swiper-tags-item {
+.meepo-swiper-tags-item {
     width: 25%;
     min-height: 44px;
     display: flex;
@@ -5936,11 +5936,11 @@ button.swiper-pagination-bullet {
     color: gray;
 }
 
-.meepo-swiper-tags-list .meepo-swiper-tags-item:hover {
+.meepo-swiper-tags-item:hover {
     color: red;
 }
 
-.meepo-swiper-tags-list .meepo-swiper-tags-item img {
+.meepo-swiper-tags-item .img {
     flex: 1;
     border-radius: 50%;
     width: 32px;

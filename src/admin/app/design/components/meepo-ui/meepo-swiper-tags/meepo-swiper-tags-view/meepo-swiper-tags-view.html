@@ -3,7 +3,7 @@
         <div class="swiper-slide" *ngFor="let item of widget.children" [style.height.px]="widget.styleObj['height']">
             <div class="meepo-swiper-tags-list">
                 <div class="meepo-swiper-tags-item" *ngFor="let tag of item">
-                    <img [src]="tag.image">
+                    <img class="img" [src]="tag.image">
                     <label>{{tag.title}}</label>
                 </div>
             </div>

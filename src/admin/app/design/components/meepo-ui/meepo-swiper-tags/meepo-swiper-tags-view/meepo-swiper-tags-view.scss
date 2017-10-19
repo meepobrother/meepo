@@ -1,25 +1,32 @@
+:host {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
 .meepo-swiper-tags-list {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
     flex-wrap: wrap;
-    .meepo-swiper-tags-item {
-        width: 25%;
-        min-height: 44px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        color: gray;
-        &:hover {
-            color: red;
-        }
-        img {
-            flex: 1;
-            border-radius: 50%;
-            width: 32px;
-            height: 32px;
-        }
+}
+
+.meepo-swiper-tags-item {
+    width: 25%;
+    min-height: 44px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: gray;
+    &:hover {
+        color: red;
+    }
+    .img {
+        flex: 1;
+        border-radius: 50%;
+        width: 32px;
+        height: 32px;
     }
 }

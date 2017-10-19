@@ -10,9 +10,12 @@ import { DesignLayoutsModule } from './layouts';
 
 import { ShopsTagsService } from '../pages/shops/shops-tags/shops-tags.service';
 
+import { SlotDirective } from './components';
+
 @NgModule({
     declarations: [
-        ...COMPONENTS
+        ...COMPONENTS,
+        SlotDirective
     ],
     imports: [
         CommonModule,
