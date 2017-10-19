@@ -2,25 +2,22 @@
     <view class="addAddress-content-container">
         <view style="padding:7px;background:#fff;">
             <view class="dialog-block-item">
-                <input class="addAddress-edit-input" bindinput="nameInput" value="{{ name }}" />
+                <input class="addAddress-edit-input" />
             </view>
             <view class="dialog-block-item">
-                <input class="addAddress-edit-input" bindinput="contactInput" value="{{ contact }}" />
+                <input class="addAddress-edit-input" />
             </view>
             <view class="dialog-block-item">
                 <view class="item-label">所在地区</view>
-                <view class="picker-container">
-
-                </view>
+                <view class="picker-container"></view>
             </view>
             <view class="dialog-block-item">
-                <textarea class="addAddress-edit-input" bindinput="detailInput" value="{{ detail }}"></textarea>
+                <textarea class="addAddress-edit-input"></textarea>
             </view>
-            <view class="dialog-block-item" style="line-height:30px;">
-            </view>
+            <view class="dialog-block-item" style="line-height:30px;"></view>
         </view>
     </view>
 </view>
 <view class="addAddress-bottom-opt">
-    <button class="btn btn-block btn-red" bindtap="addAddress">保存</button>
+    <button class="btn btn-block btn-red">保存</button>
 </view>

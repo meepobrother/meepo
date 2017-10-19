@@ -1,0 +1,27 @@
+<div [ngClass]="['van-card', { 'van-card--center': centered }]">
+    <div class="van-card__thumb">
+        <slot name="thumb">
+            <img [src]="thumb" class="van-card__img" />
+        </slot>
+    </div>
+
+    <div class="van-card__content">
+        <slot name="title">
+            <div class="van-card__row" *ngIf="title || price !== undefined">
+                <div *ngIf="title" class="van-card__title">{{ title }}</div>
+                <div *ngIf="price !== undefined" class="van-card__price">¥ {{ price }}</div>
+            </div>
+        </slot>
+        <slot *ngIf="desc.templateRef">
+            <div class="van-card__row" *ngIf="desc || num !== undefined">
+                <div *ngIf="desc" class="van-card__desc">{{ desc }}</div>
+                <div *ngIf="num !== undefined" class="van-card__num">x {{ num }}</div>
+            </div>
+        </slot>
+        <slot *ngTemplateOutlet="tags.templateRef"></slot>
+    </div>
+
+    <div class="van-card__footer" *ngIf="footer.templateRef">
+        <slot *ngTemplateOutlet="footer.templateRef"></slot>
+    </div>
+</div>

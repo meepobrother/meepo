@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { MeepoSwiperTags } from '../../../../classes';
 
 @Component({
     selector: 'meepo-swiper-tags-setting',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./meepo-swiper-tags-setting.scss']
 })
 export class MeepoSwiperTagsSetting implements OnInit {
+    @Input() widget: MeepoSwiperTags = new MeepoSwiperTags();
     constructor() { }
 
     ngOnInit() { }

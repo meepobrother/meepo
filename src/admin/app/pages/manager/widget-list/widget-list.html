@@ -1,3 +1,4 @@
+
 <div class="ibox">
     <div class="ibox-title" style="text-primary">
         <h5>基础组件</h5>
@@ -11,8 +12,8 @@
         <ul>
             <li *ngFor="let widget of widgets">
                 <span>{{widget.name}}</span>
-                <div>
-                    <span class="fa fa-edit" (click)="editWidget(widget)"></span> &nbsp; &nbsp;
+                <div class="opts">
+                    <span class="fa fa-edit" (click)="editWidget(widget)"></span>
                     <span class="fa fa-trash-o" (click)="deleteWidget(widget)"></span>
                 </div>
             </li>

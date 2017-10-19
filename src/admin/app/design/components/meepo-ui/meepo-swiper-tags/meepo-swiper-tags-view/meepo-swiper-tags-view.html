@@ -1,0 +1,19 @@
+<div class="swiper-container" #container [ngStyle]="widget.containerStyle">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide" *ngFor="let item of widget.children" [style.height.px]="widget.styleObj['height']">
+            <div class="meepo-swiper-tags-list">
+                <div class="meepo-swiper-tags-item" *ngFor="let tag of item">
+                    <img class="img" [src]="tag.image">
+                    <label>{{tag.title}}</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="swiper-pagination"></div>
+    <div class="water">
+        <div class="water-c">
+            <div class="water-1"></div>
+            <div class="water-2"></div>
+        </div>
+    </div>
+</div>

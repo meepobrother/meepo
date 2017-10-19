@@ -5918,6 +5918,35 @@ button.swiper-pagination-bullet {
     width: 100%;
 }
 
+.meepo-swiper-tags-list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.meepo-swiper-tags-item {
+    width: 25%;
+    min-height: 44px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: gray;
+}
+
+.meepo-swiper-tags-item:hover {
+    color: red;
+}
+
+.meepo-swiper-tags-item .img {
+    flex: 1;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+}
+
 .meepo-filter-tabs {
     display: flex;
     flex-direction: row;
@@ -5925,6 +5954,7 @@ button.swiper-pagination-bullet {
     align-items: center;
     min-height: 44px;
     background-color: #fff;
+    flex-wrap: nowrap;
 }
 
 .meepo-filter-tabs .meepo-filter-tabs-item {
@@ -5933,7 +5963,7 @@ button.swiper-pagination-bullet {
     color: #000;
     padding: 0 10px;
     margin: 0 10px;
-    min-width: 4em;
+    width: auto;
     flex: 1;
     text-align: center;
 }
@@ -5945,6 +5975,127 @@ button.swiper-pagination-bullet {
 .meepo-filter-tabs .meepo-filter-tabs-item:hover {
     color: red;
     border-bottom: 2px solid red;
+}
+
+.meepo-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.meepo-list .meepo-list-image {
+    width: 70px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+}
+
+.meepo-list .countdown label {
+    vertical-align: middle;
+    color: #9a9a9a;
+    font-size: .8em;
+}
+
+.meepo-list .countdown span {
+    display: inline-block;
+    height: 14px;
+    background-color: #9a9a9a;
+    color: #fff;
+    text-align: center;
+    line-height: 14px;
+    margin: 3px 1px;
+    padding: 0 3px;
+    border-radius: 4px;
+    vertical-align: top;
+    font-size: .7em;
+}
+
+.meepo-list .meepo-list-item {
+    position: relative;
+    margin-bottom: 5px;
+    text-decoration: inherit;
+    background: #fff;
+}
+
+.meepo-list .title-container {
+    flex: 1;
+    padding: 0px 10px 0px 10px;
+    color: #666666;
+}
+
+.meepo-list .price {
+    color: #f60;
+    margin-right: 10px;
+}
+
+.meepo-list .oldprice {
+    font-size: 10px;
+    color: #a8a8a8;
+    text-decoration: line-through;
+}
+
+.meepo-list .inner-content {
+    align-items: center;
+    justify-content: center;
+}
+
+.meepo-list .list-model-1 {
+    display: flex;
+    flex-direction: column;
+}
+
+.meepo-list .list-model-1 .inner-content {
+    display: flex;
+    flex-direction: row;
+}
+
+.meepo-list .list-model-2 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.meepo-list .list-model-2 .meepo-list-image {
+    width: 100% !important;
+}
+
+.meepo-list .list-model-2 .inner-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.meepo-list .list-model-2 .meepo-list-item {
+    width: calc( 50% - 4px);
+    margin: 0 2px;
+}
+
+.meepo-list .list-model-2 .seckill-list-bottom {
+    padding-bottom: 5px;
+}
+
+.meepo-list .list-model-3 {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+}
+
+.meepo-list .list-model-3 .meepo-list-image {
+    width: calc( 100% - 10px) !important;
+}
+
+.meepo-list .list-model-3 .inner-content {
+    display: flex;
+    flex-direction: column;
+    min-width: 200px;
+}
+
+.meepo-list .list-model-3 .meepo-list-item {
+    margin-right: 10px;
+    width: auto;
+    height: inherit;
+}
+
+.meepo-list .list-model-3 .seckill-list-bottom {
+    padding-bottom: 5px;
 }
 
 .tasks-list {
