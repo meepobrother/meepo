@@ -1,0 +1,42 @@
+:host {
+    min-width: 500px;
+}
+
+.member-list {
+    display: flex;
+    flex-wrap: wrap;
+    .member-item {
+        margin: 3px;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        justify-content: center;
+        p {
+            text-align: center;
+        }
+        &.active {
+            border: 2px solid white;
+        }
+    }
+}
+
+.member-item-avatar {
+    width: 3em;
+}
+
+.member-search-model {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 888;
+    background: rgba(0, 0, 0, 0.6);
+    .member-search {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+    }
+}

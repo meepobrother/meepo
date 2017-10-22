@@ -15,7 +15,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { DesignModule } from '../design';
 import { AppEffectsModule, AppStoreModule } from '../ngrx';
-
+import { CoreModule } from '../core';
 const materials = [
     NavTabsModule,
     MeepoFormFieldModule,
@@ -36,6 +36,7 @@ const materials = [
     EditorModule, LocationPickerModule,
     DesignModule, MeepoDialogModule,
     WeuiPickerModule,
+    CoreModule,
 ];
 
 @NgModule({
