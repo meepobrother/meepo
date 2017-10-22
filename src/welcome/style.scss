@@ -57,12 +57,26 @@ body {
 
 .links>a {
     color: #eceeef;
-    padding: 0 25px;
+    padding: 5px 15px;
     font-size: 12px;
     font-weight: 600;
     letter-spacing: .1rem;
     text-decoration: none;
     text-transform: uppercase;
+}
+
+.links>a:focus,
+.links>a:visited,
+.links>a:active {
+    color: #eceeef;
+    text-decoration: none;
+}
+
+.links>a:hover {
+    background-color: #fff;
+    color: #ce3a2f;
+    border-radius: 5px;
+    text-decoration: none;
 }
 
 .m-b-md {
@@ -85,7 +99,22 @@ body {
     font-size: .6em;
     position: relative;
     text-decoration: none;
+    padding: 5px 10px;
     z-index: 99;
+}
+
+.top-navs>a:focus,
+.top-navs>a:visited,
+.top-navs>a:active {
+    color: #eceeef;
+    text-decoration: none;
+}
+
+.top-navs>a:hover {
+    background-color: #fff;
+    color: #ce3a2f;
+    border-radius: 5px;
+    text-decoration: none;
 }
 
 .download {
@@ -100,10 +129,20 @@ body {
     display: inline-block;
 }
 
-.download:hover {
+.download:focus,
+.download:visited,
+.download:active {
+    background-color: rgb(206, 58, 47);
+    color: #fff;
+    text-decoration: none;
+}
+
+.download:hover,
+{
     background-color: #fff;
     color: rgb(206, 58, 47);
     border-radius: .3em;
+    text-decoration: none;
 }
 
 .page {
@@ -115,11 +154,12 @@ body {
     overflow-y: auto;
     overflow-x: hidden;
     .page-container {
-        margin: 10px 30px;
+        margin: 10px 5px 0px 5px;
         width: 100%;
         display: block;
         background: #fff;
         color: #8e8e8e;
         padding: 10px 20px;
+        overflow: auto;
     }
 }

@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="zh">
+<header>
+    <title>米波开发文档</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="https://meepo.com.cn/meepo/libs/highlight/styles/default.css">
+
+    <style>
+        #menu {
+            display: flex;
+            position: fixed;
+            left: 0px;
+            width: 200px;
+            top: 0px;
+            bottom: 0px;
+            background: #fff;
+            border-right: 1px solid #ccc;
+            flex-direction: column;
+            padding-left: 15px;
+        }
+        
+        html,
+        body,
+        #page {
+            width: 100%;
+            height: 100%;
+        }
+        
+        #page {
+            padding-left: 210px;
+            padding-right: 20px;
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+        
+        #menu ul {
+            margin: 0px;
+            padding: 0px;
+            display: flex;
+            flex-direction: column;
+            list-style: none;
+        }
+        
+        #menu ul li {
+            line-height: 33px;
+            height: 33px;
+            margin: 0 10px;
+            width: 100%;
+        }
+        
+        #menu ul li a {
+            color: gray;
+            text-decoration: none;
+        }
+    </style>
+</header>
+
+<body>
+    <div id="menu">
+        <h5>app</h5>
+        <ul>
+            <li>
+                <a href="https://meepo.com.cn/meepo/docs/?m=app">app</a>
+            </li>
+        </ul>
+        <h5>framework</h5>
+        <ul>
+            <li>
+                <a href="https://meepo.com.cn/meepo/docs/?m=framework/builtin">builtin</a>
+            </li>
+            <li>
+                <a href="https://meepo.com.cn/meepo/docs/?m=framework/class">class</a>
+            </li>
+            <li>
+                <a href="https://meepo.com.cn/meepo/docs/?m=framework/function">function</a>
+            </li>
+            <li>
+                <a href="https://meepo.com.cn/meepo/docs/?m=framework/model">model</a>
+            </li>
+            <li>
+                <a href="https://meepo.com.cn/meepo/docs/?m=framework/table">table</a>
+            </li>
+        </ul>
+    </div>
+    <div id="page"></div>
+    <script src="https://meepo.com.cn/meepo/libs/jquery-3.2.1.min.js"></script>
+    <script src="https://meepo.com.cn/meepo/libs/highlight/highlight.pack.js"></script>
+    <script src="https://meepo.com.cn/meepo/libs/marked.min.js"></script>
+    <script>
+        $(function() {
+            function GetQueryString(name) {
+                var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+                var r = window.location.search.substr(1).match(reg);
+                if (r != null) return unescape(r[2]);
+                return null;
+            }
+            var m = GetQueryString('m');
+            var t = new Date().getTime();
+            $.get('https://meepo.com.cn/meepo/docs/' + m + '.md?t=' + t, function(res) {
+                $('#page').html(marked(res));
+            }, 'html');
+        });
+    </script>
+</body>
+
+</html>
