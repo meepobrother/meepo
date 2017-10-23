@@ -1,22 +1,20 @@
 ### basic
 
 - BasicModuleProcessor
-
 > respond
 
 - BasicModule
-
 > fieldsFormDisplay
 > fieldsFormValidate
 > fieldsFormSubmit
 > ruleDeleted
-
 
 ### chats
 
 - ChatsModule
 
 - ChatsModuleProcessor
+
 > begin
 > end
 > respond
@@ -35,8 +33,11 @@
 > doMobileDetail
 
 - CoreModuleReceiver
+
 > receive
+
 - CoreModuleProcessor
+
 > respond
 > basic_respond
 > image_respond
@@ -48,6 +49,7 @@
 
 ### cover
 - CoverModuleProcessor
+
 > respond
 
 
@@ -63,6 +65,7 @@
 > respond
 
 - CustomModule
+
 > fieldsFormDisplay
 > fieldsFormValidate
 > fieldsFormSubmit
@@ -72,6 +75,7 @@
 ### default
 
 - DefaultModuleProcessor
+
 > respond
 
 
@@ -104,12 +108,14 @@
 > fileUpload
 
 - MusicModuleProcessor
+
 > respond
 
 
 ### paycenter
 
 - PaycenterModuleSite
+
 > doMobileLogin
 > doMobileLogout
 > doMobileHome
@@ -126,6 +132,7 @@
 
 
 ### recharge
+
 > doMobilePay
 > payResult
 > pay
