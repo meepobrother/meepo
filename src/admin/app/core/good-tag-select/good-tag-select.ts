@@ -4,30 +4,28 @@ import { SelectionModel } from '@angular/cdk/collections';
 
 export const EXE_COUNTER_VALUE_ACCESSOR: any = {
     provide: NG_VALUE_ACCESSOR,
-    useExisting: forwardRef(() => ShopTagSelect),
+    useExisting: forwardRef(() => GoodTagSelect),
     multi: true
 };
 
 import { ApiService } from '../../core/api';
 
 @Component({
-    selector: 'shop-tag-select',
-    templateUrl: './shop-tag-select.html',
-    styleUrls: ['./shop-tag-select.scss'],
+    selector: 'good-tag-select',
+    templateUrl: './good-tag-select.html',
+    styleUrls: ['./good-tag-select.scss'],
     providers: [
         EXE_COUNTER_VALUE_ACCESSOR
     ]
 })
-export class ShopTagSelect implements OnInit, ControlValueAccessor {
+export class GoodTagSelect implements OnInit, ControlValueAccessor {
     selects: Map<number, any> = new Map();
 
     list: any[] = [];
     onChange: (_: any) => {};
     onTouched: (_: any) => {};
-
     selectionModel: any;
 
-    // @Output() onSelect: EventEmitter<any> = new EventEmitter();
     constructor(
         public api: ApiService
     ) { 
@@ -59,7 +57,7 @@ export class ShopTagSelect implements OnInit, ControlValueAccessor {
     }
 
     getList(){
-        this.api.mpost('shops.getListShopsTags',{}).subscribe((res: any)=>{
+        this.api.mpost('goods.getListGoodsTags',{}).subscribe((res: any)=>{
             this.list = res.info;
         });
     }

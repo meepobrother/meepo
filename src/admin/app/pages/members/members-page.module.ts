@@ -4,6 +4,10 @@ import { Routes, RouterModule } from '@angular/router';
 import { MembersPage } from './members-page';
 
 import { MemberList } from './member-list/member-list';
+import { CarsList } from './cars-list';
+import { CardList } from './card-list';
+
+
 import { MemberRights } from './member-rights/member-rights';
 import { ShareModule } from '../../share';
 import { MemberGroupModule } from './member-group';
@@ -17,8 +21,11 @@ const modules = [
 const component = [
     MembersPage,
     MemberList,
-    MemberRights
+    MemberRights,
+    CarsList,
+    CardList
 ];
+
 const routes: Routes = [
     {
         path: '',

@@ -11,6 +11,9 @@ import { MainLayoutComponent } from './main-layout/main-layout';
 import { ShopTagSelect } from './shop-tag-select';
 import { ShopGroupSelect } from './shop-group-select';
 
+import { GoodTagSelect } from './good-tag-select';
+import { GoodGroupSelect } from './good-group-select';
+
 
 import { StylesModule } from '../styles';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -44,7 +47,9 @@ const modules = [
     declarations: [
         MainLayoutComponent,
         ShopTagSelect,
-        ShopGroupSelect
+        ShopGroupSelect,
+        GoodTagSelect,
+        GoodGroupSelect
     ],
     imports: [
         ...modules
@@ -53,7 +58,9 @@ const modules = [
         ...modules,
         MainLayoutComponent,
         ShopTagSelect,
-        ShopGroupSelect
+        ShopGroupSelect,
+        GoodTagSelect,
+        GoodGroupSelect
     ],
     providers: [
         LoginService

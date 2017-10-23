@@ -1,1 +1,41 @@
-list
+<div class="ibox">
+    <div class="ibox-title">
+        <h5></h5>
+        <div class="ibox-tools">
+            <a href="javascript:;" class="btn btn-primary btn-xs" (click)="add()">添加</a>
+        </div>
+    </div>
+    <div class="ibox-content">
+        <div *ngIf="list.length>0">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <td style="width: 4em;">编号</td>
+                        <td style="width: 12em;">标题</td>
+                        <td style="width: 10em;">价格</td>
+                        <td style="width: 10em;">库存</td>
+                        <td style="width: 10em;">店铺</td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of list">
+                        <td>{{item.id}}</td>
+                        <td>{{item.title}}</td>
+                        <td>{{item.price}}</td>
+                        <td>{{item.count}}</td>
+                        <td>{{item.shop}}</td>
+                        <td>
+                            <a class="btn btn-primary btn-xs">编辑</a>
+                            <a class="btn btn-danger btn-xs">删除</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <blank title="还没有商品" *ngIf="list.length<=0">
+            立即添加商品
+            <a href="javascript:;" class="btn btn-primary" (click)="add()">添加</a>
+        </blank>
+    </div>
+</div>

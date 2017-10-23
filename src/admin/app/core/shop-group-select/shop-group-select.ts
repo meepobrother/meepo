@@ -8,7 +8,7 @@ export const EXE_COUNTER_VALUE_ACCESSOR: any = {
     multi: true
 };
 
-import { ApiService } from '../../core';
+import { ApiService } from '../../core/api';
 
 @Component({
     selector: 'shop-group-select',
