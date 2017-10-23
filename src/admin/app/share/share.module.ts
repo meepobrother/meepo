@@ -6,8 +6,7 @@ import {
     TextAdvModule, PriceListModule, OverlayModule,
     CoverModule, DndModule, ColorSelectModule, Iphone6Module,
     WeuiGridModule, MenuModule, EditorModule, LocationPickerModule,
-    MeepoDialogModule, WeuiPickerModule,
-    NgbModule
+    MeepoDialogModule, WeuiPickerModule, UploaderBtns
 } from '../components';
 
 import { MatDialogModule } from '@angular/material';
@@ -42,12 +41,15 @@ const materials = [
 @NgModule({
     imports: [
         ...materials,
-        DndModule.forRoot(),
-        NgbModule.forRoot()
+        DndModule.forRoot()
+    ],
+    declarations: [
+        UploaderBtns
     ],
     exports: [
         ...materials,
-        DndModule
+        DndModule,
+        UploaderBtns
     ]
 })
 export class ShareModule { }
