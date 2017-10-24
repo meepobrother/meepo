@@ -9,6 +9,8 @@ import {
     MeepoDialogModule, WeuiPickerModule, UploaderBtns
 } from '../components';
 
+import { QuillModule } from 'ngx-quill';
+
 import { MatDialogModule } from '@angular/material';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
@@ -36,6 +38,7 @@ const materials = [
     DesignModule, MeepoDialogModule,
     WeuiPickerModule,
     CoreModule,
+    QuillModule
 ];
 
 @NgModule({
