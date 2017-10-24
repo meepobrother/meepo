@@ -1,4 +1,4 @@
-import '@segment/to-iso-string';
+// import '@segment/to-iso-string';
 
 import 'core-js/es6/symbol';
 import 'core-js/es6/object';

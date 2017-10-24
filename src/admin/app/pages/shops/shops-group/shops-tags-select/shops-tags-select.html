@@ -1,1 +1,8 @@
-<button type="button" [class.btn-default]="!selects.get(item.id)" [class.btn-primary]="selects.get(item.id)" (click)="select(item)" *ngFor="let item of api.dates" class="btn btn-xs">{{item.title || '标题'}}</button>
+<div class="ibox">
+    <div class="ibox-title">
+        店铺标签选择
+    </div>
+    <div class="ibox-content">
+        <button type="button" [class.btn-default]="!selects.get(item.id)" [class.btn-primary]="selects.get(item.id)" (click)="select(item)" *ngFor="let item of api.dates" class="btn btn-xs">{{item.title || '标题'}}</button>
+    </div>
+</div>

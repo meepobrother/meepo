@@ -1,0 +1,30 @@
+<div class="ibox">
+    <div class="ibox-title">
+        {{title}}
+    </div>
+    <div class="ibox-content">
+        <div class="member-list member-row">
+            <div class="member-item" (click)="_select(item)" *ngFor="let item of selected.selected">
+                <img class="member-item-avatar" [src]="item.avatar" alt="">
+            </div>
+        </div>
+        <a class="btn btn-primary btn-xs" (click)="addMember()">添加</a>
+
+        <div class="member-search-model" *ngIf="showModel">
+            <div class="member-search">
+                <input type="text" class="form-control" placeholder="请输入电话号码">
+                <a class="btn btn-primary">搜索</a>
+            </div>
+            <div class="member-list">
+                <div class="member-item" (click)="_select(item)" [class.active]="selected.isSelected(item)" *ngFor="let item of members">
+                    <img class="member-item-avatar" [src]="item.avatar" alt="">
+                    <div class="content">
+                        <p>{{item?.nickname || '昵称'}}</p>
+                        <p>{{item?.realname}} {{item?.mobile}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="btn btn-primary" style="width: 100%;" (click)="save()">确认</div>
+        </div>
+    </div>
+</div>

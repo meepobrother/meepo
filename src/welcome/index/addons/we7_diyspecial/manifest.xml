@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns="http://www.we7.cc" versionCode="">
+	<application setting="false">
+		<name><![CDATA[专题页面]]></name>
+		<identifie><![CDATA[we7_diyspecial]]></identifie>
+		<version><![CDATA[1.2]]></version>
+		<type><![CDATA[activity]]></type>
+		<ability><![CDATA[紧跟时代步伐，拥抱HTML5，做出属于我们自己的H5营销推广页面。]]></ability>
+		<description><![CDATA[可制作两种类型的场景页：长单页场景、多页场景。
+一个专题页面只能制作一种类型的场景页。
+即一个专题页面，要么是长单页场景，要么是多页场景。]]></description>
+		<author><![CDATA[微擎团队]]></author>
+		<url><![CDATA[]]></url>
+	</application>
+	<platform>
+		<subscribes>
+		</subscribes>
+		<handles>
+			<message type="text" />
+		</handles>
+		<rule embed="false" />
+		<card embed="false" />
+	</platform>
+	<bindings>
+		<menu>
+			<entry title="专题管理" do="index" />
+		</menu>
+	</bindings>
+	<permissions>
+	</permissions>
+	<install><![CDATA[]]></install>
+	<uninstall><![CDATA[]]></uninstall>
+	<upgrade><![CDATA[]]></upgrade>
+</manifest>

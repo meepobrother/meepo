@@ -1,0 +1,8 @@
+<div class="ibox">
+    <div class="ibox-title">
+        选择商品标签
+    </div>
+    <div class="ibox-content">
+        <button type="button" [class.btn-default]="!selectionModel.isSelected(item)" [class.btn-primary]="selectionModel.isSelected(item)" (click)="select(item)" *ngFor="let item of list" class="btn btn-xs">{{item.title || '标题'}}</button>
+    </div>
+</div>

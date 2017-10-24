@@ -1,0 +1,105 @@
+#menu {
+    display: flex;
+    position: fixed;
+    left: 0px;
+    width: 200px;
+    top: 0px;
+    bottom: 0px;
+    background: #fff;
+    border-right: 1px solid #ccc;
+    flex-direction: column;
+    padding-left: 15px;
+    color: #000;
+}
+
+html,
+body,
+#page {
+    width: 100%;
+    height: 100%;
+}
+
+#page {
+    position: absolute;
+    bottom: 0px;
+    left: 283px;
+    right: 0px;
+    top: 0px;
+}
+
+#menu ul {
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+}
+
+#menu ul li {
+    line-height: 33px;
+    margin: 0 10px;
+    width: 100%;
+}
+
+#menu ul li a {
+    color: gray;
+    text-decoration: none;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+#page ul li {
+    margin-left: 2em;
+    color: #fff200;
+    font-size: 1.1em;
+    font-style: italic;
+}
+
+#page blockquote {
+    margin-left: 3em;
+}
+
+.download {
+    line-height: 2em;
+    font-size: 30px;
+    font-weight: 300;
+    border: 1px solid;
+    padding: 5px 10px;
+    color: #eceeef;
+    text-decoration: none;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+.download:focus,
+.download:visited,
+.download:active {
+    background-color: rgb(206, 58, 47);
+    color: #fff;
+    text-decoration: none;
+}
+
+.download:hover {
+    background-color: #fff;
+    color: rgb(206, 58, 47);
+    border-radius: .3em;
+    text-decoration: none;
+}
+
+.full-height {
+    height: 100vh;
+}
+
+.flex-center {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.content {
+    text-align: center;
+}

@@ -1,0 +1,26 @@
+{
+    "extends": "./tsconfig",
+    "compilerOptions": {
+        "outDir": "../../dist/meepo/demos",
+        "target": "es5",
+        "module": "es2015",
+        "sourceMap": true,
+        "declaration": false,
+        "moduleResolution": "node",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "typeRoots": [
+            "./node_modules/@types",
+            "./node_modules"
+        ],
+        "types": [
+            "node"
+        ],
+        "lib": [
+            "es2015",
+            "dom"
+        ],
+        "rootDir": ".",
+        "baseUrl": "."
+    }
+}

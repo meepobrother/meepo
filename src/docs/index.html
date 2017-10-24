@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="zh">
+<header>
+    <title>米波开发文档</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- weui -->
+    <link rel="stylesheet" href="https://meepo.com.cn/meepo/libs/weui/weui.min.css">
+    <link rel="stylesheet" href="https://meepo.com.cn/meepo/libs/weui/jquery-weui.min.css">
+    <!-- weui -->
+    <link rel="stylesheet" href="https://meepo.com.cn/meepo/libs/highlight/styles/default.css">
+
+    <link rel="stylesheet" href="https://meepo.com.cn/meepo/docs/index.css?t=1123467901">
+</header>
+
+<body style="background: rgb(206, 58, 47);color: #fff;">
+    <div id="menu">
+        <h5>微擎</h5>
+        <ul>
+            <li>
+                <h6>app</h6>
+                <ul>
+                    <li data-action="app">
+                        <a href="javascript:;">app</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <h6>framework</h6>
+                <ul>
+                    <li data-action="framework/builtin">
+                        <a href="javascript:;">builtin</a>
+                    </li>
+                    <li data-action="framework/class">
+                        <a href="javascript:;">class</a>
+                    </li>
+                    <li data-action="framework/function">
+                        <a href="javascript:;">function</a>
+                    </li>
+                    <li data-action="framework/model">
+                        <a href="javascript:;">model</a>
+                    </li>
+                    <li data-action="framework/table">
+                        <a href="javascript:;">table</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <h6>web</h6>
+                <ul>
+                    <li data-action="web/util">
+                        <a href="javascript:;">util</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div id="page">
+        <div class="title m-b-md" style="
+            font-weight: 600;
+            margin-top: 300px;
+            font-size: 60px;
+            margin-left: 120px;
+        ">
+            欢迎使用 Meepo Pro 文档
+        </div>
+    </div>
+    <script src="https://meepo.com.cn/meepo/libs/jquery-3.2.1.min.js"></script>
+    <script src="https://meepo.com.cn/meepo/libs/highlight/highlight.pack.js"></script>
+    <script src="https://meepo.com.cn/meepo/libs/marked.min.js"></script>
+    <script>
+        $(function() {
+            function GetQueryString(name) {
+                var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+                var r = window.location.search.substr(1).match(reg);
+                if (r != null) return unescape(r[2]);
+                return null;
+            }
+
+            $('li[data-action]').click(function() {
+                console.log('data-action');
+                var m = $(this).data('action');
+                var t = new Date().getTime();
+
+                $.get('https://meepo.com.cn/meepo/docs/' + m + '.md?t=' + t, function(res) {
+                    $('#page').html(marked(res));
+                }, 'html');
+            });
+            var m = GetQueryString('m');
+        });
+    </script>
+</body>
+
+</html>

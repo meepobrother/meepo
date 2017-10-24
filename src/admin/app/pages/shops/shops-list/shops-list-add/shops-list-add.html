@@ -1,10 +1,10 @@
-<div class="row">
+<div class="row" [formGroup]="form">
     <div class="col-md-4">
         <div class="ibox">
             <div class="ibox-title">
                 基本信息
             </div>
-            <div class="ibox-content" [formGroup]="form">
+            <div class="ibox-content">
                 <form-field>
                     <input type="text" formControlName="title" meepoInput placeholder="门店名称" class="form-control">
                 </form-field>
@@ -13,9 +13,6 @@
                 </form-field>
                 <form-field>
                     <textarea rows="5" formControlName="desc" meepoInput placeholder="门店简介" class="form-control"></textarea>
-                </form-field>
-                <form-field>
-                    <editor meepoInput formControlName="content"></editor>
                 </form-field>
                 <div>
                     <a href="javascript:;" (click)="add()" class="btn btn-primary">添加</a>
@@ -27,30 +24,9 @@
     </div>
 
     <div class="col-md-4">
-        <div class="ibox">
-            <div class="ibox-title">
-                店铺店长
-            </div>
-            <div class="ibox-content">
-
-            </div>
-        </div>
-        <div class="ibox">
-            <div class="ibox-title">
-                店铺员工
-            </div>
-            <div class="ibox-content">
-
-            </div>
-        </div>
-        <div class="ibox">
-            <div class="ibox-title">
-                前台接待
-            </div>
-            <div class="ibox-content">
-
-            </div>
-        </div>
+        <member-select (onChange)="onChangeShopers($event)" title="店铺店长"></member-select>
+        <member-select (onChange)="onChangeEmployers($event)" title="店铺员工"></member-select>
+        <member-select (onChange)="onChangeKefus($event)" title="店铺前台"></member-select>
     </div>
 
     <div class="col-md-4">
@@ -62,5 +38,16 @@
                 <location-picker></location-picker>
             </div>
         </div>
+        <shop-group-select formControlName="group"></shop-group-select>
+        <shop-tag-select fromControlName="tag"></shop-tag-select>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-12">
+        <editor>
+            <p>请输入门店详情。。。</p>
+        </editor>
     </div>
 </div>

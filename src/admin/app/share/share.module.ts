@@ -6,16 +6,17 @@ import {
     TextAdvModule, PriceListModule, OverlayModule,
     CoverModule, DndModule, ColorSelectModule, Iphone6Module,
     WeuiGridModule, MenuModule, EditorModule, LocationPickerModule,
-    MeepoDialogModule, WeuiPickerModule,
-    NgbModule
+    MeepoDialogModule, WeuiPickerModule, UploaderBtns
 } from '../components';
+
+import { QuillModule } from 'ngx-quill';
 
 import { MatDialogModule } from '@angular/material';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { DesignModule } from '../design';
 import { AppEffectsModule, AppStoreModule } from '../ngrx';
-
+import { CoreModule } from '../core';
 const materials = [
     NavTabsModule,
     MeepoFormFieldModule,
@@ -36,17 +37,22 @@ const materials = [
     EditorModule, LocationPickerModule,
     DesignModule, MeepoDialogModule,
     WeuiPickerModule,
+    CoreModule,
+    QuillModule
 ];
 
 @NgModule({
     imports: [
         ...materials,
-        DndModule.forRoot(),
-        NgbModule.forRoot()
+        DndModule.forRoot()
+    ],
+    declarations: [
+        UploaderBtns
     ],
     exports: [
         ...materials,
-        DndModule
+        DndModule,
+        UploaderBtns
     ]
 })
 export class ShareModule { }

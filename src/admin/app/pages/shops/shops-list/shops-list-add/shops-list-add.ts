@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { ShopsListService } from '../shops-list.service';
+import { ApiService } from '../../../../core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { FormGroup, FormBuilder } from '@angular/forms';
 @Component({
@@ -10,10 +10,10 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 export class ShopsListAdd implements OnInit {
     form: FormGroup;
     constructor(
-        public api: ShopsListService,
+        public api: ApiService,
         public dialogRef: MatDialogRef<any>,
         @Inject(MAT_DIALOG_DATA) data: any,
-        public fb: FormBuilder
+        public fb: FormBuilder,
     ) { 
         this.form = this.fb.group({
             title: [''],
@@ -25,15 +25,41 @@ export class ShopsListAdd implements OnInit {
                 detail: ['']
             }),
             desc: [''],
-            content: ['']
-        })
+            content: [''],
+            shopers: [[]],
+            kefus: [[]],
+            employers: [[]],
+            group: [''],
+            tag: ['']
+        });
     }
 
     ngOnInit() { }
 
-    cancel() { }
+    cancel() { 
+        this.dialogRef.close();
+    }
 
-    add() { }
+    add() {
+        this.dialogRef.close(this.form.value);
+    }
+
+    onChangeShopers(e: any){
+        console.log('onChangeShopers',e);
+        this.form.get('shopers').setValue(e);
+    }
+
+    onChangeKefus(e: any){
+        console.log('onChangeKefus',e);
+        
+        this.form.get('kefus').setValue(e);
+    }
+
+    onChangeEmployers(e: any){
+        console.log('onChangeEmployers',e);
+        
+        this.form.get('employers').setValue(e);
+    }
 
     delete() { }
 }

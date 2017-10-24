@@ -19,3 +19,5 @@ export * from './dialog';
 export * from './location-picker';
 
 export * from './bootstrap';
+export * from './uploader';
+
