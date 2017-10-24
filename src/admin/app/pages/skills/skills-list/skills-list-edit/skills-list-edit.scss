@@ -1,0 +1,23 @@
+:host {
+    min-width: 700px;
+    display: block;
+    min-height: 600px;
+}
+
+.input-group-addon {
+    min-width: 200px;
+    padding: 0px;
+    margin: 0px;
+    border: none;
+    .skills-unit {
+        display: flex;
+        flex-direction: row;
+        .label {
+            line-height: 33px;
+            padding: 0px 5px;
+        }
+        .form-control {
+            flex: 1;
+        }
+    }
+}

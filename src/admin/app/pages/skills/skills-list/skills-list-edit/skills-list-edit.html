@@ -1,0 +1,58 @@
+<div class="row">
+    <div class="col-md-6">
+        <div class="ibox">
+            <div class="ibox-title">
+                <h5>编辑技能</h5>
+            </div>
+            <div class="ibox-content">
+                <div class="form-group">
+                    <input class="form-control" placeholder="技能名称">
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control" rows="3">技能简介</textarea>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <input class="form-control" placeholder="技能单价">
+                        <div class="input-group-addon" style="min-width: 200px;">
+                            <div class="skills-unit">
+                                <label class="label label-default">元/</label>
+                                <select class="form-control">
+                                    <option>次</option>
+                                    <option>分钟</option>
+                                    <option>小时</option>
+                                    <option>天</option>
+                                    <option>周</option>
+                                    <option>月</option>
+                                </select>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <a class="btn btn-primary" (click)="save()">提交</a>
+                    <a class="btn btn-default" (click)="cancel()">取消</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="ibox">
+            <div class="ibox-title">
+                <h5>技能认证表单</h5>
+            </div>
+            <div class="ibox-content">
+                <div class="weui-cell weui-cell_switch" *ngFor="let item of forms;index as i;">
+                    <div class="weui-cell__bd">{{item.title}}</div>
+                    <div class="weui-cell__ft">
+                        <label [attr.for]="'switchCP'+i" class="weui-switch-cp">
+                            <input [attr.id]="'switchCP'+i" class="weui-switch-cp__input" type="checkbox" checked="checked">
+                            <div class="weui-switch-cp__box"></div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

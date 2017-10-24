@@ -25,6 +25,7 @@
                 <div class="form-group">
                     <input type="number" formControlName="price" class="form-control" placeholder="库存价格">
                 </div>
+
                 <div class="form-group">
                     <a class="btn btn-primary" (click)="save()">保存</a>
                     <a class="btn btn-default" (click)="cancel()">取消</a>
@@ -35,5 +36,12 @@
     <div class="col-md-6">
         <good-group-select></good-group-select>
         <good-tag-select></good-tag-select>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <editor>
+            <p>请输入商品详情。。。</p>
+        </editor>
     </div>
 </div>
