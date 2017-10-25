@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../../core';
 import { MatDialog } from '@angular/material';
-import { TasksGroupAdd } from './tasks-group-add/tasks-group-add';
+import { TopicsTagsAdd } from './topics-tags-add/topics-tags-add';
 @Component({
-    selector: "tasks-group",
-    templateUrl: "./tasks-group.html"
+    selector: "topics-tags",
+    templateUrl: "./topics-tags.html"
 })
-export class TasksGroup implements OnInit {
+export class TopicsTags implements OnInit {
 
     list: any[] = [];
 
@@ -16,7 +16,7 @@ export class TasksGroup implements OnInit {
     ) { }
 
     getList() {
-        this.api.mpost('tasks.getListTaskGroup', {}).subscribe((res: any) => {
+        this.api.mpost('topics.getListTopic', {}).subscribe((res: any) => {
             this.list = res.info;
         });
     }
@@ -26,10 +26,10 @@ export class TasksGroup implements OnInit {
     }
 
     edit(item: any) {
-        let dialogRef = this.dialog.open(TasksGroupAdd, { data: item });
+        let dialogRef = this.dialog.open(TopicsTagsAdd, { data: item });
         dialogRef.afterClosed().subscribe(res => {
             if (res) {
-                this.api.mpost('tasks.editTaskGroup', res).subscribe(res => {
+                this.api.mpost('topics.editTopic', res).subscribe(res => {
                     this.getList();
                 });
             }
@@ -37,16 +37,16 @@ export class TasksGroup implements OnInit {
     }
 
     delete(item: any) {
-        this.api.mpost('tasks.deleteTaskGroup', item).subscribe(res => {
+        this.api.mpost('topics.deleteTopic', item).subscribe(res => {
             this.getList();
         });
     }
 
     add() {
-        let dialogRef = this.dialog.open(TasksGroupAdd);
+        let dialogRef = this.dialog.open(TopicsTagsAdd);
         dialogRef.afterClosed().subscribe(res => {
             if (res) {
-                this.api.mpost('tasks.editTaskGroup', res).subscribe(res => {
+                this.api.mpost('topics.editTopic', res).subscribe(res => {
                     this.getList();
                 });
             }
