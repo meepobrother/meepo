@@ -1,0 +1,39 @@
+<div class="ibox-title">
+    容器样式
+</div>
+<div class="ibox-content">
+    <setting-container-margin [(widget)]="widget.containerStyle"></setting-container-margin>
+    <setting-container-padding [(widget)]="widget.containerStyle"></setting-container-padding>
+    <setting-container-color [(widget)]="widget.containerStyle"></setting-container-color>
+</div>
+
+<div class="ibox">
+    <div class="ibox-title">
+        重量设置
+        <div class="ibox-tools">
+            <label for="switchCP1" class="weui-switch-cp">
+                <input id="switchCP1" class="weui-switch-cp__input" [(ngModel)]="widget.show" type="checkbox" checked="checked">
+                <div class="weui-switch-cp__box"></div>
+            </label>
+        </div>
+    </div>
+    <div class="ibox-content">
+        <div class="form-group">
+            <label>标题</label>
+            <input class="form-control" [(ngModel)]="widget.title" />
+        </div>
+        <div class="form-group">
+            <label>输入提示</label>
+            <input class="form-control" [(ngModel)]="widget.placeholder" />
+        </div>
+        <div class="weui-cell weui-cell_switch">
+            <div class="weui-cell__bd">必填</div>
+            <div class="weui-cell__ft">
+                <label for="switchCP" class="weui-switch-cp">
+                    <input id="switchCP" class="weui-switch-cp__input" [(ngModel)]="widget.required" type="checkbox" checked="checked">
+                    <div class="weui-switch-cp__box"></div>
+                </label>
+            </div>
+        </div>
+    </div>
+</div>

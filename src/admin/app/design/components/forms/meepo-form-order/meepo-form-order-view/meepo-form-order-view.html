@@ -1,0 +1,13 @@
+<div class="cap-pay-order">
+    <div class="cap-pay-order__tip" *ngIf="tip">{{tip}}</div>
+    <div class="cap-pay-order__bar">
+        <div class="cap-pay-order__price" (click)="detail()">
+            <span class="cap-pay-order__price-text">合计：</span>
+            <span class="cap-pay-order__price-interger">¥{{price1}}.</span>
+            <span class="cap-pay-order__price-decimal">{{price2}}</span>
+        </div>
+        <button (click)="_pay()" [class.van-button--disabled]="!_isActive" class="van-button van-button--danger van-button--normal ">
+            <span class="van-button__text">{{widget.btnTitle}}</span>
+        </button>
+    </div>
+</div>

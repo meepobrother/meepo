@@ -1,0 +1,18 @@
+<div class="ibox-title">
+    标签列表
+    <div class="ibox-tools">
+        <a class="btn btn-primary btn-xs" (click)="addTags()">
+            <i class="fa fa-plus-square-o"></i>
+        </a>
+    </div>
+</div>
+<div class="ibox-content">
+    <ul>
+        <li *ngFor="let item of widget.children">
+            <input type="text" [(ngModel)]="item.title" placeholder="请输入标签名称">
+            <a class="btn btn-danger btn-xs" (click)="addTags()">
+                <i class="fa fa-plus-square-o"></i>
+            </a>
+        </li>
+    </ul>
+</div>

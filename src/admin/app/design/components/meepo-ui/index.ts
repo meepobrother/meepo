@@ -5,8 +5,6 @@ export * from './meepo-text';
 export * from './meepo-tags';
 export * from './meepo-list';
 
-export * from './meepo-form-mobile';
-export * from './meepo-form-textarea';
 export * from './meepo-swiper-tags';
 
 

@@ -93,6 +93,11 @@ const routes:Routes = [
         path: 'manager',
         loadChildren: 'app/pages/manager/manager-page.module#ManagerPageModule',
         canActivate: [IsLoginGuard]
+    },
+    {
+        path: 'topics',
+        loadChildren: 'app/pages/topics/topics-page.module#TopicsPageModule',
+        canActivate: [IsLoginGuard]
     }
 ];
 @NgModule({

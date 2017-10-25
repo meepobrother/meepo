@@ -1,8 +1,13 @@
 import {
     MeepoAdvs, MeepoFilter,
     MeepoTasks, MeepoTags,
-    MeepoFormMobile, MeepoFormTextarea,
-    MeepoAddAddress, MeepoList, MeepoSwiperTags
+    MeepoFormMobile, MeepoFormTextareaDefault,
+    MeepoAddAddress, MeepoList, MeepoSwiperTags,
+    MeepoFormWeightDefault, MeepoFormTijiDefault,
+    MeepoFormPriceDefault, MeepoFormTimeDefault,
+    MeepoFormTimeStartDefault, MeepoFormTimeEndDefault,
+    MeepoFormMoneyDefault, MeepoFormFeeDefault, MeepoFormInputDefault,
+    MeepoFormOrderDefault, MeepoFormTagDefault, MeepoFormBaojiaDefault
 } from '../classes';
 
 import {
@@ -33,14 +38,31 @@ import {
     MeepoTasksSetting, MeepoTasksView,
     MeepoTextSetting, MeepoTextView,
     MeepoTagsSetting, MeepoTagsView,
-    MeepoFormMobileView, MeepoFormMobileSetting,
-    MeepoFormTextareaView, MeepoFormTextareaSetting,
     MeepoSwiperTagsSetting, MeepoSwiperTagsView,
 
     // 地址
     MeepoAddAddressView, MeepoAddAddressSetting,
     MeepoListSetting, MeepoListView
 } from './meepo-ui';
+
+import {
+    MeepoFormMobileView, MeepoFormMobileSetting,
+    MeepoFormTextareaView, MeepoFormTextareaSetting,
+    MeepoFormWeightSetting, MeepoFormWeightView,
+    MeepoFormTijiSetting, MeepoFormTijiView,
+    MeepoFormPriceSetting, MeepoFormPriceView,
+    MeepoFormMoneySetting, MeepoFormMoneyView,
+    MeepoFormFeeSetting, MeepoFormFeeView,
+    
+    MeepoFormTimeSetting, MeepoFormTimeView,
+    MeepoFormTimeStartSetting, MeepoFormTimeStartView,
+    MeepoFormTimeEndSetting, MeepoFormTimeEndView,
+    MeepoFormInputSetting, MeepoFormInputView,
+    MeepoFormOrderSetting, MeepoFormOrderView,
+    MeepoFormTagSetting, MeepoFormTagView,
+    MeepoFormBaojiaSetting, MeepoFormBaojiaView,
+    
+} from './forms';
 
 import {
     View, ViewSetting,
@@ -86,8 +108,6 @@ export const COMPONENTS = [
     MeepoTasksSetting, MeepoTasksView,
     MeepoTextSetting, MeepoTextView,
     MeepoTagsSetting, MeepoTagsView,
-    MeepoFormMobileView, MeepoFormMobileSetting,
-    MeepoFormTextareaView, MeepoFormTextareaSetting,
     MeepoSwiperTagsSetting, MeepoSwiperTagsView,
 
     // wxapp
@@ -108,7 +128,27 @@ export const COMPONENTS = [
     MeepoListSetting, MeepoListView,
 
     // zan ui
-    CardComponent, CardSetting, CardView
+    CardComponent, CardSetting, CardView,
+
+
+    // forms
+    MeepoFormMobileView, MeepoFormMobileSetting,
+    MeepoFormTextareaView, MeepoFormTextareaSetting,
+    MeepoFormWeightSetting, MeepoFormWeightView,
+    MeepoFormTijiSetting, MeepoFormTijiView,
+    MeepoFormPriceSetting, MeepoFormPriceView,
+    MeepoFormTimeSetting, MeepoFormTimeView,
+    MeepoFormTimeStartSetting, MeepoFormTimeStartView,
+    MeepoFormTimeEndSetting, MeepoFormTimeEndView,
+    
+    MeepoFormMoneySetting, MeepoFormMoneyView,
+    MeepoFormFeeSetting, MeepoFormFeeView,
+    MeepoFormInputSetting, MeepoFormInputView,
+    MeepoFormOrderSetting, MeepoFormOrderView,
+    MeepoFormTagSetting, MeepoFormTagView,
+    MeepoFormBaojiaSetting, MeepoFormBaojiaView,
+    
+    
 ];
 
 export const COMPONENTS_SELECT = {
@@ -138,11 +178,24 @@ export const COMPONENTS_VIEW = {
     'meepo-filter': MeepoFilterView,
     'meepo-tasks': MeepoTasksView,
     'meepo-tags': MeepoTagsView,
-    'meepo-form-mobile': MeepoFormMobileView,
-    'meepo-form-textarea': MeepoFormTextareaView,
     'meepo-add-address': MeepoAddAddressView,
     'meepo-list': MeepoListView,
-    'meepo-swiper-tags': MeepoSwiperTagsView
+    'meepo-swiper-tags': MeepoSwiperTagsView,
+    // forms
+    'meepo-form-weight': MeepoFormWeightView,
+    'meepo-form-tiji': MeepoFormTijiView,
+    'meepo-form-price': MeepoFormPriceView,
+    'meepo-form-time': MeepoFormTimeView,
+    'meepo-form-time-start': MeepoFormTimeStartView,
+    'meepo-form-time-end': MeepoFormTimeEndView,
+    'meepo-form-money': MeepoFormMoneyView,
+    'meepo-form-fee': MeepoFormFeeView,
+    'meepo-form-input': MeepoFormInputView,
+    'meepo-form-textarea': MeepoFormTextareaView,    
+    'meepo-form-mobile': MeepoFormMobileView,
+    'meepo-form-order': MeepoFormOrderView, 
+    'meepo-form-tag': MeepoFormTagView,
+    'meepo-form-baojia': MeepoFormBaojiaView
 };
 
 export const COMPONENTS_SETTING = {
@@ -162,12 +215,28 @@ export const COMPONENTS_SETTING = {
     'meepo-filter': MeepoFilterSetting,
     'meepo-tasks': MeepoTasksSetting,
     'meepo-tags': MeepoTagsSetting,
-    'meepo-form-mobile': MeepoFormMobileSetting,
-    'meepo-form-textarea': MeepoFormTextareaSetting,
+    
 
     'meepo-add-address': MeepoAddAddressSetting,
     'meepo-list': MeepoListSetting,
-    'meepo-swiper-tags': MeepoSwiperTagsSetting
+    'meepo-swiper-tags': MeepoSwiperTagsSetting,
+
+    // forms
+    'meepo-form-weight': MeepoFormWeightSetting,
+    'meepo-form-tiji': MeepoFormTijiSetting,
+    'meepo-form-price': MeepoFormPriceSetting,
+    'meepo-form-time': MeepoFormTimeSetting,
+    'meepo-form-time-start': MeepoFormTimeStartSetting,
+    'meepo-form-time-end': MeepoFormTimeEndSetting,    
+    'meepo-form-money': MeepoFormMoneySetting,
+    'meepo-form-fee': MeepoFormFeeSetting,
+    'meepo-form-input': MeepoFormInputSetting, 
+    'meepo-form-mobile': MeepoFormMobileSetting,
+    'meepo-form-textarea': MeepoFormTextareaSetting,
+    'meepo-form-order': MeepoFormOrderSetting,
+    'meepo-form-tag': MeepoFormTagSetting,
+    'meepo-form-baojia': MeepoFormBaojiaSetting
+    
 };
 
 
@@ -176,11 +245,28 @@ export const WIDGETS = {
     'meepo-filter': MeepoFilter,
     'meepo-tasks': MeepoTasks,
     'meepo-tags': MeepoTags,
-    'meepo-form-mobile': MeepoFormMobile,
-    'meepo-form-textarea': MeepoFormTextarea,
+    
     'meepo-add-address': MeepoAddAddress,
     'meepo-list': MeepoList,
-    'meepo-swiper-tags': MeepoSwiperTags
+    'meepo-swiper-tags': MeepoSwiperTags,
+
+    // forms
+    'meepo-form-mobile': MeepoFormMobile,
+    'meepo-form-textarea': MeepoFormTextareaDefault,
+
+    'meepo-form-weight': MeepoFormWeightDefault,
+    'meepo-form-tiji': MeepoFormTijiDefault,
+    'meepo-form-price': MeepoFormPriceDefault,
+    'meepo-form-time': MeepoFormTimeDefault,
+    'meepo-form-time-start': MeepoFormTimeStartDefault,
+    'meepo-form-time-end': MeepoFormTimeEndDefault, 
+    'meepo-form-money': MeepoFormMoneyDefault,
+    'meepo-form-fee': MeepoFormFeeDefault,
+    'meepo-form-input': MeepoFormInputDefault,
+    'meepo-form-order': MeepoFormOrderDefault,
+    'meepo-form-tag': MeepoFormTagDefault,
+    'meepo-form-baojia': MeepoFormBaojiaDefault
+    
 }
 
 import { Injectable } from '@angular/core';

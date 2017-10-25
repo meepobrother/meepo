@@ -35,7 +35,7 @@ export class AddForm implements OnInit {
 
     save() {
         this.form.get('tpl').setValue(this.form.get('tpl').value.replace(/[\r\n]/g,""));
-        this.api.mpost('app.eidtAppWidgets', this.form.value).subscribe(res => {
+        this.api.mpost('app.eidtAppForms', this.form.value).subscribe(res => {
             this.dialog.close(this.form.value);
         });
     }
@@ -45,7 +45,7 @@ export class AddForm implements OnInit {
     }
 
     delete() {
-        this.api.mpost('app.deleteAppWidgets', this.form.value).subscribe(res => {
+        this.api.mpost('app.deleteAppForms', this.form.value).subscribe(res => {
             this.cancel();
         });
     }

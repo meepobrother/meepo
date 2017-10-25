@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../../core';
 import { MatDialog } from '@angular/material';
-import { AddWidget } from '../add-widget';
+import { AddForm } from '../add-form';
 
 @Component({
     selector: 'forms-list',
@@ -27,7 +27,7 @@ export class FormsList implements OnInit {
     }
 
     addForm(){
-        const dialogRef = this.dialog.open(AddWidget);
+        const dialogRef = this.dialog.open(AddForm);
         dialogRef.afterClosed().subscribe(res=>{
             if(res){
                 this.getList();
@@ -36,7 +36,7 @@ export class FormsList implements OnInit {
     }
 
     editForm(item: any){
-        const dialogRef = this.dialog.open(AddWidget,{data: item});
+        const dialogRef = this.dialog.open(AddForm,{data: item});
         dialogRef.afterClosed().subscribe(res=>{
             if(res){
                 this.getList();
