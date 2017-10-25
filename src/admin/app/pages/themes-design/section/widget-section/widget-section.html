@@ -1,26 +1,22 @@
-<div class="ibox-title">
-    常用
-</div>
-<div class="widgets-container">
-    <div class="widget ui-draggable ui-draggable-handle" (click)="selectWidget(item)" *ngFor="let item of widgets">
-        <i class="icon-container icomoon-text"></i>
-        <label>{{item.name}}</label>
-    </div>
-</div>
-
-<div class="ibox-title">
-    表单
-</div>
-<div class="widgets-container">
-    <div class="widget ui-draggable ui-draggable-handle" (click)="selectWidget(item)" *ngFor="let item of forms">
-        <i class="icon-container icomoon-text"></i>
-        <label>{{item.name}}</label>
-    </div>
-</div>
-
-<!-- 
 <nav-tabs>
-    <nav-tab-pane title="布局"></nav-tab-pane>
-    <nav-tab-pane title="高级"></nav-tab-pane>
-    <nav-tab-pane title="其他"></nav-tab-pane>
-</nav-tabs> -->
+    <nav-tab-pane title="常用">
+        <ng-template navTabPaneRef>
+            <div class="widgets-container">
+                <div class="widget ui-draggable ui-draggable-handle" (click)="selectWidget(item)" *ngFor="let item of widgets">
+                    <i class="icon-container icomoon-text"></i>
+                    <label>{{item.name}}</label>
+                </div>
+            </div>
+        </ng-template>
+    </nav-tab-pane>
+    <nav-tab-pane title="表单">
+        <ng-template navTabPaneRef>
+            <div class="widgets-container">
+                <div class="widget ui-draggable ui-draggable-handle" (click)="selectWidget(item)" *ngFor="let item of forms">
+                    <i class="icon-container icomoon-text"></i>
+                    <label>{{item.name}}</label>
+                </div>
+            </div>
+        </ng-template>
+    </nav-tab-pane>
+</nav-tabs>

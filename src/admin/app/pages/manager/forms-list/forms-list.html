@@ -10,9 +10,9 @@
     <div class="ibox-content">
         <ul>
             <li *ngFor="let form of forms">
-                <span>{{form.name}}</span>
-                <div>
-                    <span class="fa fa-edit" (click)="editForm(form)"></span> &nbsp; &nbsp;
+                <span>{{form.name || '组件名字'}}</span>
+                <div class="opts">
+                    <span class="fa fa-edit" (click)="editForm(form)"></span>
                     <span class="fa fa-trash-o" (click)="deleteForm(form)"></span>
                 </div>
             </li>

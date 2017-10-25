@@ -31,9 +31,15 @@
         flex: 1;
         padding-top: 10px;
         border-left: 1px solid #e4eaec;
-        position: relative;
         margin-right: -15px;
         background: #fff;
+        position: absolute;
+        right: -500px;
+        max-height: 550px;
+        z-index: 9999;
+        top: 100px;
+        width: 500px;
+        overflow: auto;
     }
 }
 

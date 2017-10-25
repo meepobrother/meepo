@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { MeepoFormFeeDefault } from '../../../../classes';
 
 @Component({
     selector: 'meepo-form-fee-view',
@@ -6,7 +8,16 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./meepo-form-fee-view.scss']
 })
 export class MeepoFormFeeView implements OnInit {
-    constructor() { }
+    @Input() widget: MeepoFormFeeDefault = new MeepoFormFeeDefault();
+    form: FormGroup;
+    constructor(
+        public fb: FormBuilder
+    ) { 
+        this.form = this.fb.group({
+            price: ['',Validators.required]
+        });
+    }
 
     ngOnInit() { }
 }
+

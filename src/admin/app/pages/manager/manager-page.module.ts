@@ -41,7 +41,8 @@ const routes: Routes = [
     providers: [],
     entryComponents: [
         AddWidget,
-        ThemesAdd
+        ThemesAdd,
+        AddForm
     ]
 })
 export class ManagerPageModule {}

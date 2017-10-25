@@ -17,6 +17,9 @@ export class WidgetSection implements OnInit {
         this.api.mpost('app.getListAppWidgets', { page: 1, psize: 30 }).subscribe((res: any) => {
             this.widgets = res.info;
         });
+        this.api.mpost('app.getListAppForms', { page: 1, psize: 30 }).subscribe((res: any) => {
+            this.forms = res.info;
+        });
     }
 
     selectWidget(item: any){

@@ -1,11 +1,22 @@
-<widget-section *ngIf="showComponent" (onSelect)="addWidget($event)"></widget-section>
-
 <div class="container">
     <div class="container-left">
         <div style="height: 20px;"></div>
-        <catalog-section [appId]="app_id"></catalog-section>
+        <nav-tabs>
+            <nav-tab-pane title="页面">
+                <ng-template navTabPaneRef>
+                    <catalog-section [appId]="app_id"></catalog-section>
+                </ng-template>
+            </nav-tab-pane>
+            <nav-tab-pane title="组件" *ngIf="showComponent">
+                <ng-template navTabPaneRef>
+                    <widget-section (onSelect)="addWidget($event)"></widget-section>
+                </ng-template>
+            </nav-tab-pane>
+        </nav-tabs>
+
+
     </div>
-    <div class="container-center" style="overflow: auto;">
+    <div class="container-center">
         <div class="ibox">
             <div class="ibox-content">
                 <iphone6>
@@ -22,16 +33,18 @@
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="container-right">
-        <div class="ibox">
-            <div class="ibox-title">
-                <h5>{{currentWidget?.name}}参数设置</h5>
-            </div>
-            <div class="ibox-content">
-                <free-widget-setting [widget]="currentWidget"></free-widget-setting>
+        <div class="container-right">
+            <div class="ibox">
+                <div class="ibox-title">
+                    <h5>{{currentWidget?.name}}参数设置</h5>
+                </div>
+                <div class="ibox-content">
+                    <free-widget-setting [widget]="currentWidget"></free-widget-setting>
+                </div>
             </div>
         </div>
     </div>
+
+
 </div>

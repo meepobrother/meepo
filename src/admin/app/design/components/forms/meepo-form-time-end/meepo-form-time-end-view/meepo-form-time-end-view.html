@@ -1,0 +1,8 @@
+<div class="weui-cells mt10" [formGroup]="form" *ngIf="widget.show">
+    <a class="weui-cell weui-cell_access" [class.weui-cell_warn]="!form.get('time').valid  && widget.required" href="javascript:;" (click)="timeSelect()">
+        <div class="weui-cell__bd">
+            <p>{{widget.title}}</p>
+        </div>
+        <div class="weui-cell__ft">{{this.form.get('time').value['title'] || widget.placeholder}}</div>
+    </a>
+</div>

@@ -1,4 +1,4 @@
-import { Widget } from './widget';
+import { Widget } from '../widget';
 
 export class MeepoFormMobile extends Widget {
     data: any;

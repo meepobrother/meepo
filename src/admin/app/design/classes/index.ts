@@ -15,10 +15,9 @@ export * from './meepo-list';
 export * from './meepo-swiper-tags';
 
 
-export * from './meepo-form-mobile';
-export * from './meepo-form-textarea';
+// export * from './meepo-form-mobile';
+// export * from './meepo-form-textarea';
 export * from './meepo-add-address';
-
 
 
 export * from './weui-cells';
@@ -36,5 +35,5 @@ export * from './weui-tabbar';
 
 export * from './zan-ui/card';
 
-
 export * from './forms';
+export * from './goods';

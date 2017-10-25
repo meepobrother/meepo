@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { MeepoFormFeeDefault } from '../../../../classes';
 
 @Component({
     selector: 'meepo-form-fee-setting',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./meepo-form-fee-setting.scss']
 })
 export class MeepoFormFeeSetting implements OnInit {
+    @Input() widget: MeepoFormFeeDefault = new MeepoFormFeeDefault();
     constructor() { }
 
     ngOnInit() { }

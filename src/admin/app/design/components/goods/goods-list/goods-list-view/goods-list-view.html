@@ -1,0 +1,20 @@
+<div class="cap-goods-list">
+    <div class="cap-goods-list__container--small" *ngFor="let item of widget.children">
+        <div>
+            <div class="cap-goods-list-goods cap-goods-list-goods--card cap-goods-list-goods--small">
+                <a href="javascript:;">
+                    <div class="goods-list-goods__photo">
+                        <img [src]="item.image">
+                    </div>
+                    <div class="cap-goods-list-goods--info">
+                        <div class="title">{{item.title}}</div>
+                        <div class="price">
+                            <em>￥{{item.price}}</em>
+                        </div>
+                    </div>
+                    <div class="goods-buy btn1" (click)="addToCart(item)"></div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

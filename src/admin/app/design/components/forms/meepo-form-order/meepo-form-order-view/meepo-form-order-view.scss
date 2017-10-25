@@ -1,0 +1,73 @@
+:host {
+    min-height: 55px;
+    display: block;
+}
+
+.cap-pay-order {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 5;
+    position: absolute;
+    -webkit-user-select: none;
+    user-select: none;
+    .van-button {
+        width: 110px;
+        height: 100%;
+        border-radius: 0;
+    }
+    .van-button--disabled {
+        border: none;
+        background: gray;
+        color: #fff;
+    }
+}
+
+.cap-pay-order__tip {
+    color: #f60;
+    font-size: 12px;
+    line-height: 18px;
+    padding: 10px;
+    background-color: #fff6e1;
+}
+
+.cap-pay-order__bar {
+    height: 50px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    line-height: 50px;
+    background-color: #fff;
+}
+
+.cap-pay-order__price {
+    -webkit-box-flex: 1;
+    flex: 1;
+    text-align: right;
+    padding-right: 10px;
+}
+
+.cap-pay-order__price-text {
+    color: #666;
+    font-size: 16px;
+}
+
+.cap-pay-order__price-interger {
+    color: #f44;
+    font-size: 16px;
+}
+
+.cap-pay-order__price-decimal {
+    color: #f44;
+    font-size: 12px;
+}
+
+.van-button--danger {
+    color: #fff;
+    background-color: #f44;
+    border: 1px solid #e33;
+    &:active {
+        border-color: #d43333;
+        background-color: #d43333;
+    }
+}

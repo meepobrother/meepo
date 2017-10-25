@@ -1,0 +1,11 @@
+<div class="weui-cells" [ngStyle]="widget.containerStyle" [formGroup]="form" *ngIf="widget.show">
+    <div class="weui-cell" [class.weui-cell_warn]="!form.get('price').valid  && widget.required">
+        <div class="weui-cell__hd"><label class="weui-label">{{widget.title}}</label></div>
+        <div class="weui-cell__bd">
+            <input class="weui-input" type="number" formControlName="price" [placeholder]="widget.placeholder">
+        </div>
+        <div class="weui-cell__ft" *ngIf="!form.get('price').valid  && widget.required">
+            <i class="weui-icon-warn"></i>
+        </div>
+    </div>
+</div>

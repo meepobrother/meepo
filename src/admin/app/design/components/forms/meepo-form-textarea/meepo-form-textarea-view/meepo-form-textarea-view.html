@@ -1,8 +1,10 @@
-<div class="weui-cells weui-cells_form">
-    <div class="weui-cell">
+<div class="weui-cells weui-cells_form" [ngStyle]="widget.containerStyle" [formGroup]="form">
+    <div class="weui-cell" [class.weui-cell_warn]="!form.get('desc').valid  && widget.required">
         <div class="weui-cell__bd">
-            <textarea class="weui-textarea" [placeholder]="widget.data.placeholder" rows="3"></textarea>
-            <!-- <div class="weui-textarea-counter"><span>0</span>/200</div> -->
+            <textarea class="weui-textarea" formControlName="desc" [placeholder]="widget.placeholder" rows="3"></textarea>
+        </div>
+        <div class="weui-cell__ft" *ngIf="!form.get('desc').valid  && widget.required">
+            <i class="weui-icon-warn"></i>
         </div>
     </div>
 </div>
