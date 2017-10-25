@@ -37,3 +37,4 @@ export * from './weui-tabbar';
 export * from './zan-ui/card';
 
 
+export * from './forms';

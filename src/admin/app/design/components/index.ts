@@ -2,7 +2,8 @@ import {
     MeepoAdvs, MeepoFilter,
     MeepoTasks, MeepoTags,
     MeepoFormMobile, MeepoFormTextarea,
-    MeepoAddAddress, MeepoList, MeepoSwiperTags
+    MeepoAddAddress, MeepoList, MeepoSwiperTags,
+    MeepoFormWeightDefault, MeepoFormTijiDefault
 } from '../classes';
 
 import {
@@ -33,14 +34,19 @@ import {
     MeepoTasksSetting, MeepoTasksView,
     MeepoTextSetting, MeepoTextView,
     MeepoTagsSetting, MeepoTagsView,
-    MeepoFormMobileView, MeepoFormMobileSetting,
-    MeepoFormTextareaView, MeepoFormTextareaSetting,
     MeepoSwiperTagsSetting, MeepoSwiperTagsView,
 
     // 地址
     MeepoAddAddressView, MeepoAddAddressSetting,
     MeepoListSetting, MeepoListView
 } from './meepo-ui';
+
+import {
+    MeepoFormMobileView, MeepoFormMobileSetting,
+    MeepoFormTextareaView, MeepoFormTextareaSetting,
+    MeepoFormWeightSetting, MeepoFormWeightView,
+    MeepoFormTijiSetting, MeepoFormTijiView
+} from './forms';
 
 import {
     View, ViewSetting,
@@ -86,8 +92,6 @@ export const COMPONENTS = [
     MeepoTasksSetting, MeepoTasksView,
     MeepoTextSetting, MeepoTextView,
     MeepoTagsSetting, MeepoTagsView,
-    MeepoFormMobileView, MeepoFormMobileSetting,
-    MeepoFormTextareaView, MeepoFormTextareaSetting,
     MeepoSwiperTagsSetting, MeepoSwiperTagsView,
 
     // wxapp
@@ -108,7 +112,14 @@ export const COMPONENTS = [
     MeepoListSetting, MeepoListView,
 
     // zan ui
-    CardComponent, CardSetting, CardView
+    CardComponent, CardSetting, CardView,
+
+
+    // forms
+    MeepoFormMobileView, MeepoFormMobileSetting,
+    MeepoFormTextareaView, MeepoFormTextareaSetting,
+    MeepoFormWeightSetting, MeepoFormWeightView,
+    MeepoFormTijiSetting, MeepoFormTijiView
 ];
 
 export const COMPONENTS_SELECT = {
@@ -142,7 +153,10 @@ export const COMPONENTS_VIEW = {
     'meepo-form-textarea': MeepoFormTextareaView,
     'meepo-add-address': MeepoAddAddressView,
     'meepo-list': MeepoListView,
-    'meepo-swiper-tags': MeepoSwiperTagsView
+    'meepo-swiper-tags': MeepoSwiperTagsView,
+    // forms
+    'meepo-form-weight': MeepoFormWeightView,
+    'meepo-form-tiji': MeepoFormTijiView    
 };
 
 export const COMPONENTS_SETTING = {
@@ -167,7 +181,12 @@ export const COMPONENTS_SETTING = {
 
     'meepo-add-address': MeepoAddAddressSetting,
     'meepo-list': MeepoListSetting,
-    'meepo-swiper-tags': MeepoSwiperTagsSetting
+    'meepo-swiper-tags': MeepoSwiperTagsSetting,
+
+    // forms
+    'meepo-form-weight': MeepoFormWeightSetting,
+    'meepo-form-tiji': MeepoFormTijiSetting,
+    
 };
 
 
@@ -180,7 +199,11 @@ export const WIDGETS = {
     'meepo-form-textarea': MeepoFormTextarea,
     'meepo-add-address': MeepoAddAddress,
     'meepo-list': MeepoList,
-    'meepo-swiper-tags': MeepoSwiperTags
+    'meepo-swiper-tags': MeepoSwiperTags,
+
+    // forms
+    'meepo-form-weight': MeepoFormWeightDefault,
+    'meepo-form-tiji': MeepoFormTijiDefault
 }
 
 import { Injectable } from '@angular/core';

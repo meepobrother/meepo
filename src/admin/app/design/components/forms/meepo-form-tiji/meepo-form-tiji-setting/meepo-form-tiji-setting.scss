@@ -1,0 +1,11 @@
+.form-group {
+    display: flex;
+    flex-direction: row;
+    label {
+        line-height: 33px;
+        min-width: 8em;
+    }
+    input {
+        flex: 1;
+    }
+}
