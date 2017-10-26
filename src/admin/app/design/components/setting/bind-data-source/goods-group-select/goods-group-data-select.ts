@@ -3,11 +3,11 @@ import { ShopsTagsService } from '../../../../../pages/shops/shops-tags/shops-ta
 import { MatDialog } from '@angular/material';
 import { ApiService } from '../../../../../core';
 @Component({
-    selector: 'goods-tags-data-select',
-    templateUrl: './goods-tags-data-select.html',
-    styleUrls: ['./goods-tags-data-select.scss']
+    selector: 'goods-group-data-select',
+    templateUrl: './goods-group-data-select.html',
+    styleUrls: ['./goods-group-data-select.scss']
 })
-export class GoodsTagsDataSelect implements OnInit {
+export class GoodsGroupDataSelect implements OnInit {
     list: any[] = [];
     constructor(
         public api: ApiService,
@@ -19,7 +19,7 @@ export class GoodsTagsDataSelect implements OnInit {
     }
 
     getList() {
-        this.api.mpost('goods.getListGoodsTags', { page: 1, psize: 30 }).subscribe((res: any) => {
+        this.api.mpost('goods.getListGoodsGroup', { page: 1, psize: 30 }).subscribe((res: any) => {
             this.list = res.info;
         });
     }

@@ -1,8 +1,8 @@
-export * from './goods-tags-select/goods-tags-data-select';
-export * from './shops-tags-select/shops-tags-data-select';
+export * from './goods-group-select/goods-group-data-select';
+export * from './shops-group-select/shops-group-data-select';
 
-export * from './orders-tags-select/orders-tags-data-select';
-export * from './skills-tags-select/skills-tags-data-select';
-export * from './tasks-tags-select/tasks-tags-data-select';
+export * from './orders-group-select/orders-group-data-select';
+export * from './skills-group-select/skills-group-data-select';
+export * from './tasks-group-select/tasks-group-data-select';
 
 export * from './bind-data-source';

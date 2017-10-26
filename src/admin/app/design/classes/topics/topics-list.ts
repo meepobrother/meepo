@@ -5,6 +5,7 @@ export class TopicsListDefault extends Widget{
     show: boolean = true;
     required: boolean = true;
     dataSource: string = '';
+
     constructor(){
         super();
         this.type = 'meepo-topics-list';
@@ -16,5 +17,8 @@ export class TopicsListDefault extends Widget{
         this.styleObj = {
             'margin-top': '0px'
         }
+
+        this.content = '帖子列表';
+        this.dataSource = '';
     }
 }

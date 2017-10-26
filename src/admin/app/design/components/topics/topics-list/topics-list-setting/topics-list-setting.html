@@ -7,4 +7,19 @@
     <setting-container-margin [(widget)]="widget.containerStyle"></setting-container-margin>
     <setting-container-padding [(widget)]="widget.containerStyle"></setting-container-padding>
     <setting-container-color [widget]="widget.containerStyle"></setting-container-color>
+    <setting-container-border [widget]="widget.containerStyle"></setting-container-border>
+</div>
+
+
+<h5>内容设置</h5>
+
+<div class="form-group">
+    <label>标题</label>
+    <input type="text" class="form-control" placeholder="请输入标题" [(ngModel)]="widget['content']">
+</div>
+
+
+<h5>数据源</h5>
+<div class="form-group">
+    <input type="text" class="form-control" (click)="selectDataSource()" [(ngModel)]="widget['dataSource']" readonly placeholder="请选择数据">
 </div>

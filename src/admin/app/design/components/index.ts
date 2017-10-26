@@ -88,10 +88,10 @@ import {
 import {
     SettingContainerMargin, SettingContainerPadding,
     NumberComponent, NumberPx, FontSize, TextAlign,
-    BindDataSource, ShopsTagsDataSelect, BindRightSource,
-    SelectPageDialog, GoodsTagsDataSelect, 
-    TasksTagsDataSelect, SkillsTagsDataSelect, OrdersTagsDataSelect,
-    SettingContainerColor
+    BindDataSource, ShopsGroupDataSelect, BindRightSource,
+    SelectPageDialog, GoodsGroupDataSelect, 
+    TasksGroupDataSelect, SkillsGroupDataSelect, OrdersGroupDataSelect,
+    SettingContainerColor, SettingContainerBorder
 } from './setting';
 
 import {
@@ -131,11 +131,11 @@ export const COMPONENTS = [
     SwiperItem, Swiper, SwiperSetting,
 
     // setting
-    SettingContainerMargin, SettingContainerPadding,
+    SettingContainerMargin, SettingContainerPadding, SettingContainerBorder,
     NumberComponent, NumberPx, FontSize, TextAlign,
-    BindDataSource, ShopsTagsDataSelect, BindRightSource,
-    SelectPageDialog, GoodsTagsDataSelect,
-    TasksTagsDataSelect, SkillsTagsDataSelect, OrdersTagsDataSelect,
+    BindDataSource, ShopsGroupDataSelect, BindRightSource,
+    SelectPageDialog, GoodsGroupDataSelect,
+    TasksGroupDataSelect, SkillsGroupDataSelect, OrdersGroupDataSelect,
     SettingContainerColor,
 
     // address

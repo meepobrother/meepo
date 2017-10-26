@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { ApiService } from '../../../../../core';
 @Component({
-    selector: 'orders-tags-data-select',
-    templateUrl: './orders-tags-data-select.html',
-    styleUrls: ['./orders-tags-data-select.scss']
+    selector: 'skills-group-data-select',
+    templateUrl: './skills-group-data-select.html',
+    styleUrls: ['./skills-group-data-select.scss']
 })
-export class OrdersTagsDataSelect implements OnInit {
+export class SkillsGroupDataSelect implements OnInit {
     list: any[] = [];
     constructor(
         public api: ApiService,
@@ -18,7 +18,7 @@ export class OrdersTagsDataSelect implements OnInit {
     }
 
     getList(){
-        this.api.mpost('orders.getListOrderTags',{}).subscribe((res: any)=>{
+        this.api.mpost('skills.getListTasksTags',{}).subscribe((res: any)=>{
             this.list = res.info;
         });
     }
