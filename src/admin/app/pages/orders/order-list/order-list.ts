@@ -35,6 +35,8 @@ export class OrderList implements OnInit {
                 this.api.mpost('orders.addOrder', res).subscribe(res => {
                     this.getList();
                 });
+            }else{
+                this.getList();
             }
         });
     }
@@ -46,6 +48,8 @@ export class OrderList implements OnInit {
                 this.api.mpost('orders.addOrder', res).subscribe(res => {
                     this.getList();
                 });
+            }else{
+                this.getList();
             }
         });
     }

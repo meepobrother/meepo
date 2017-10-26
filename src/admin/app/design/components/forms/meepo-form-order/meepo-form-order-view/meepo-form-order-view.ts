@@ -54,5 +54,9 @@ export class MeepoFormOrderView implements OnInit {
         this.price2 = priceArray[1]
         this.price2 = this.price2 || '00'
     }
+
+    detail(){}
+    
+    _pay(){}
 }
 

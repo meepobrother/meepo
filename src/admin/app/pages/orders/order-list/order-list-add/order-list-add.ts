@@ -30,6 +30,7 @@ export class OrderListAdd implements OnInit {
         });
 
         this.selects.onChange.subscribe(res => {
+            console.log(this.selects.selected);
             this.form.get('tag').setValue(this.selects.selected);
         });
 
@@ -43,7 +44,6 @@ export class OrderListAdd implements OnInit {
 
         this.dialogRef.afterOpen().subscribe(res => {
             let { title, desc, money, class_id, tag, uniacid, id } = this.data || { title: '', desc: '', money: '', class_id: 0, tag: '', id: 0, uniacid: 0 };
-            console.log(this.data);
             this.form.get('title').setValue(title);
             this.form.get('desc').setValue(desc);
             this.form.get('money').setValue(money);
@@ -51,7 +51,10 @@ export class OrderListAdd implements OnInit {
             this.form.get('tag').setValue(tag);
             this.form.get('uniacid').setValue(uniacid);
             this.form.get('id').setValue(id);
-            this.selects = new SelectionModel(true, tag, true);
+        });
+
+        this.form.get('tag').valueChanges.subscribe(tags=>{
+            
         });
     }
 
@@ -71,8 +74,7 @@ export class OrderListAdd implements OnInit {
 
     select(item: any) {
         this.selects.toggle(item);
-        console.log(this.selects);
-        // this.selects.hasValue(item);
+        this.form.get('tag').setValue(this.selects.selected);
     }
 
     postDate() {
@@ -80,7 +82,9 @@ export class OrderListAdd implements OnInit {
     }
 
     delete() {
-        this.dialogRef.close();
+        this.api.mpost('orders.deleteOrder',this.form.value).subscribe(res=>{
+            this.dialogRef.close();            
+        });
     }
 
     cancel() {

@@ -7,7 +7,8 @@ import {
     MeepoFormPriceDefault, MeepoFormTimeDefault,
     MeepoFormTimeStartDefault, MeepoFormTimeEndDefault,
     MeepoFormMoneyDefault, MeepoFormFeeDefault, MeepoFormInputDefault,
-    MeepoFormOrderDefault, MeepoFormTagDefault, MeepoFormBaojiaDefault
+    MeepoFormOrderDefault, MeepoFormTagDefault, MeepoFormBaojiaDefault,
+    MeepoFormAddressDefault, MeepoFormAddressEndDefault, MeepoFormAddressStartDefault
 } from '../classes';
 
 import {
@@ -61,8 +62,17 @@ import {
     MeepoFormOrderSetting, MeepoFormOrderView,
     MeepoFormTagSetting, MeepoFormTagView,
     MeepoFormBaojiaSetting, MeepoFormBaojiaView,
-    
+    //
+    MeepoFormAddressEndSetting, MeepoFormAddressEndView,
+    MeepoFormAddressSetting, MeepoFormAddressStartSetting,
+    MeepoFormAddressStartView, MeepoFormAddressView,
+
+    MeepoFormIdcardSetting, MeepoFormIdcardView
 } from './forms';
+
+import {
+    MeepoGoodsListSetting, MeepoGoodsListView
+} from './goods';
 
 import {
     View, ViewSetting,
@@ -148,7 +158,15 @@ export const COMPONENTS = [
     MeepoFormTagSetting, MeepoFormTagView,
     MeepoFormBaojiaSetting, MeepoFormBaojiaView,
     
-    
+    MeepoFormAddressEndSetting, MeepoFormAddressEndView,
+    MeepoFormAddressSetting, MeepoFormAddressStartSetting,
+    MeepoFormAddressStartView, MeepoFormAddressView,
+
+    // 
+    MeepoFormIdcardSetting, MeepoFormIdcardView,
+
+    // 
+    MeepoGoodsListSetting, MeepoGoodsListView
 ];
 
 export const COMPONENTS_SELECT = {
@@ -195,7 +213,12 @@ export const COMPONENTS_VIEW = {
     'meepo-form-mobile': MeepoFormMobileView,
     'meepo-form-order': MeepoFormOrderView, 
     'meepo-form-tag': MeepoFormTagView,
-    'meepo-form-baojia': MeepoFormBaojiaView
+    'meepo-form-baojia': MeepoFormBaojiaView,
+
+    // 地址
+    'meepo-form-address': MeepoFormAddressView, 
+    'meepo-form-address-end': MeepoFormAddressEndView, 
+    'meepo-form-address-start': MeepoFormAddressStartView
 };
 
 export const COMPONENTS_SETTING = {
@@ -235,8 +258,11 @@ export const COMPONENTS_SETTING = {
     'meepo-form-textarea': MeepoFormTextareaSetting,
     'meepo-form-order': MeepoFormOrderSetting,
     'meepo-form-tag': MeepoFormTagSetting,
-    'meepo-form-baojia': MeepoFormBaojiaSetting
-    
+    'meepo-form-baojia': MeepoFormBaojiaSetting,
+    // 地址
+    'meepo-form-address': MeepoFormAddressSetting, 
+    'meepo-form-address-end': MeepoFormAddressEndSetting, 
+    'meepo-form-address-start': MeepoFormAddressStartSetting
 };
 
 
@@ -265,8 +291,11 @@ export const WIDGETS = {
     'meepo-form-input': MeepoFormInputDefault,
     'meepo-form-order': MeepoFormOrderDefault,
     'meepo-form-tag': MeepoFormTagDefault,
-    'meepo-form-baojia': MeepoFormBaojiaDefault
-    
+    'meepo-form-baojia': MeepoFormBaojiaDefault,
+    // 地址
+    'meepo-form-address': MeepoFormAddressDefault, 
+    'meepo-form-address-end': MeepoFormAddressEndDefault, 
+    'meepo-form-address-start': MeepoFormAddressStartDefault
 }
 
 import { Injectable } from '@angular/core';
