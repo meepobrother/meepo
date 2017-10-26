@@ -1,0 +1,28 @@
+.meepo-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 44px;
+    color: gray;
+    background-color: #fff;
+    .title {
+        flex: 1;
+        font-size: 14px;
+        color: #000;
+        font-weight: 300;
+        text-align: center;
+        line-height: 44px;
+    }
+    .header-left {
+        line-height: 44px;
+        padding: 0 12px;
+        width: 70px;
+        font-size: 18px;
+    }
+    .header-right {
+        line-height: 44px;
+        padding: 0 5px;
+        width: 70px;
+    }
+}

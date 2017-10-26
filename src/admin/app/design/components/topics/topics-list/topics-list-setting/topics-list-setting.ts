@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { TopicsListDefault } from '../../../../classes';
 import { MatDialog } from '@angular/material';
 import { BindDataSource } from '../../../setting';
+
 @Component({
     selector: 'topics-list-setting',
     templateUrl: './topics-list-setting.html',
