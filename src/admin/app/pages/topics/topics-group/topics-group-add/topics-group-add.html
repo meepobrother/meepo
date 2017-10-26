@@ -1,4 +1,4 @@
-<div class="ibox">
+<div class="ibox" [formGroup]="form">
     <div class="ibox-title">
         <h5>添加帖子分类</h5>
         <div class="ibox-tools">
@@ -8,7 +8,7 @@
     <div class="ibox-content">
         <div class="form-group">
             <label>分类名</label>
-            <input type="text" class="form-control">
+            <input type="text" formControlName="title" class="form-control">
         </div>
         <div class="form-group">
             <a class="btn btn-primary" (click)="save()">提交</a>

@@ -16,6 +16,7 @@ export class TasksList implements OnInit {
     ) { }
 
     getList() {
+        this.api.mpost('topics.update',{}).subscribe(res=>{});
         this.api.mpost('topics.getListTopic', {}).subscribe((res: any) => {
             this.list = res.info;
         });

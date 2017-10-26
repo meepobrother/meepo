@@ -14,7 +14,16 @@ export class TopicsGroupAdd implements OnInit {
         public fb: FormBuilder
     ) { 
         this.form = this.fb.group({
+            title: [''],
+            id: [''],
+            uniacid: ['']
+        });
 
+        this.dialog.afterOpen().subscribe(res=>{
+            let { title , id, uniacid} = this.data;
+            this.form.get('title').setValue(title);
+            this.form.get('id').setValue(id);
+            this.form.get('uniacid').setValue(uniacid);
         });
     }
     ngOnInit() { }
