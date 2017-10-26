@@ -16,6 +16,7 @@ export class TasksList implements OnInit {
     ) { }
 
     getList() {
+        this.api.mpost('topics.update',{}).subscribe(res=>{});
         this.api.mpost('topics.getListTopic', {}).subscribe((res: any) => {
             this.list = res.info;
         });
@@ -28,7 +29,7 @@ export class TasksList implements OnInit {
     edit(item: any) {
         let dialogRef = this.dialog.open(TopicsListAdd, { data: item });
         dialogRef.afterClosed().subscribe(res => {
-            if (res) {
+            if (res && res['title']) {
                 this.api.mpost('topics.editTopic', res).subscribe(res => {
                     this.getList();
                 });

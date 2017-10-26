@@ -3,11 +3,11 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MeepoGoodsListDefault } from '../../../../classes';
 
 @Component({
-    selector: 'meepo-goods-list-setting',
-    templateUrl: './meepo-goods-list-setting.html',
-    styleUrls: ['./meepo-goods-list-setting.scss']
+    selector: 'goods-list-setting',
+    templateUrl: './goods-list-setting.html',
+    styleUrls: ['./goods-list-setting.scss']
 })
-export class MeepoGoodsListView implements OnInit {
+export class MeepoGoodsListSetting implements OnInit {
     @Input() widget: MeepoGoodsListDefault = new MeepoGoodsListDefault();
     constructor( ) { }
 

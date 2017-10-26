@@ -15,3 +15,10 @@ export * from './meepo-form-baojia';
 export * from './meepo-form-time';
 export * from './meepo-form-time-end';
 export * from './meepo-form-time-start';
+
+
+export * from './meepo-form-address';
+export * from './meepo-form-address-end';
+export * from './meepo-form-address-start';
+
+export * from './meepo-form-idcard';

@@ -1,7 +1,23 @@
 <div class="ibox-content" [formGroup]="form">
     <form-field>
-        <input type="text" formControlName="title" placeholder="请输入分类名称" meepoInput class="form-control">
+        <input type="text" formControlName="title" placeholder="请输入工单标题" meepoInput class="form-control">
     </form-field>
+    <form-field>
+        <textarea rows="3" formControlName="desc" placeholder="请输入工单简介" meepoInput class="form-control">请输入工单简介</textarea>
+    </form-field>
+    <div class="form-group">
+        <label>分类</label>
+        <select formControlName="class_id" class="form-control">
+            <option [attr.value]="item.id" *ngFor="let item of classes">{{item.title}}</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <button type="button" [class.btn-default]="!selects.isSelected(item)" [class.btn-primary]="selects.isSelected(item)" (click)="select(item)" *ngFor="let item of tags" class="btn btn-xs">{{item.title || '标题'}}</button>
+    </div>
+    <div class="form-group">
+        <label>小费/金额</label>
+        <input type="text" class="form-control" placeholder="请输入金额/小费" formControlName="money">
+    </div>
     <div>
         <a href="javascript:;" (click)="postDate()" class="btn btn-primary">提交</a>
         <a href="javascript:;" *ngIf="form.get('id').value" (click)="delete()" class="btn btn-danger">删除</a>

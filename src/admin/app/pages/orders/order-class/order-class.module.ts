@@ -7,6 +7,7 @@ import { ShareModule } from '../../../share';
 import { OrderClassAdd } from './order-class-add';
 import { OrderClassAddService } from './order-class-add.service';
 import { OrderTagsService } from '../order-tags';
+
 @NgModule({
     declarations: [
         OrderClass,

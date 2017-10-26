@@ -37,3 +37,5 @@ export * from './zan-ui/card';
 
 export * from './forms';
 export * from './goods';
+export * from './topics';
+

@@ -61,6 +61,18 @@ export class MainLayoutComponent implements OnInit {
             link: ['/topics']
         },
         {
+            title: '活动',
+            total: 0,
+            icon: 'fa fa-graduation-cap',
+            link: ['/actives']
+        },
+        {
+            title: '课程',
+            total: 0,
+            icon: 'fa fa-graduation-cap',
+            link: ['/lessons']
+        },
+        {
             title: '财务',
             total: 0,
             icon: 'fa fa-credit-card',

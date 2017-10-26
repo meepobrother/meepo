@@ -98,6 +98,16 @@ const routes:Routes = [
         path: 'topics',
         loadChildren: 'app/pages/topics/topics-page.module#TopicsPageModule',
         canActivate: [IsLoginGuard]
+    },
+    {
+        path: 'actives',
+        loadChildren: 'app/pages/actives/actives-page.module#ActivesPageModule',
+        canActivate: [IsLoginGuard]
+    },
+    {
+        path: 'lessons',
+        loadChildren: 'app/pages/lessons/lessons-page.module#LessonsPageModule',
+        canActivate: [IsLoginGuard]
     }
 ];
 @NgModule({

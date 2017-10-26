@@ -7,10 +7,21 @@
     </div>
     <div class="ibox-content">
         <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <td style="width: 4em;">编号</td>
+                    <td style="width: 10em;">标题</td>
+                    <td>简介</td>
+                </tr>
+            </thead>
             <tbody>
                 <tr *ngFor="let item of list">
+                    <td>{{item.id}}</td>
                     <td>
-                        <a class="client-link">{{item.title || '昵称'}}</a>
+                        <a (click)="edit(item)" class="client-link">{{item.title || '昵称'}}</a>
+                    </td>
+                    <td>
+                        {{item.desc}}
                     </td>
                     <td>
                         <a href="javascript:;" (click)="edit(item)" class="btn btn-primary btn-xs">编辑</a>
