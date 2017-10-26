@@ -8,7 +8,8 @@ import {
     MeepoFormTimeStartDefault, MeepoFormTimeEndDefault,
     MeepoFormMoneyDefault, MeepoFormFeeDefault, MeepoFormInputDefault,
     MeepoFormOrderDefault, MeepoFormTagDefault, MeepoFormBaojiaDefault,
-    MeepoFormAddressDefault, MeepoFormAddressEndDefault, MeepoFormAddressStartDefault
+    MeepoFormAddressDefault, MeepoFormAddressEndDefault, MeepoFormAddressStartDefault,
+    TopicsListDefault
 } from '../classes';
 
 import {
@@ -73,6 +74,10 @@ import {
 import {
     MeepoGoodsListSetting, MeepoGoodsListView
 } from './goods';
+
+import {
+    TopicsListSetting, TopicsListView
+} from './topics';
 
 import {
     View, ViewSetting,
@@ -166,7 +171,10 @@ export const COMPONENTS = [
     MeepoFormIdcardSetting, MeepoFormIdcardView,
 
     // 
-    MeepoGoodsListSetting, MeepoGoodsListView
+    MeepoGoodsListSetting, MeepoGoodsListView,
+
+    //
+    TopicsListSetting, TopicsListView
 ];
 
 export const COMPONENTS_SELECT = {
@@ -218,7 +226,9 @@ export const COMPONENTS_VIEW = {
     // 地址
     'meepo-form-address': MeepoFormAddressView, 
     'meepo-form-address-end': MeepoFormAddressEndView, 
-    'meepo-form-address-start': MeepoFormAddressStartView
+    'meepo-form-address-start': MeepoFormAddressStartView,
+
+    'meepo-topics-list': TopicsListView
 };
 
 export const COMPONENTS_SETTING = {
@@ -262,7 +272,10 @@ export const COMPONENTS_SETTING = {
     // 地址
     'meepo-form-address': MeepoFormAddressSetting, 
     'meepo-form-address-end': MeepoFormAddressEndSetting, 
-    'meepo-form-address-start': MeepoFormAddressStartSetting
+    'meepo-form-address-start': MeepoFormAddressStartSetting,
+
+    //
+    'meepo-topics-list': TopicsListSetting, 
 };
 
 
@@ -295,7 +308,10 @@ export const WIDGETS = {
     // 地址
     'meepo-form-address': MeepoFormAddressDefault, 
     'meepo-form-address-end': MeepoFormAddressEndDefault, 
-    'meepo-form-address-start': MeepoFormAddressStartDefault
+    'meepo-form-address-start': MeepoFormAddressStartDefault,
+
+    //
+    'meepo-topics-list': TopicsListDefault
 }
 
 import { Injectable } from '@angular/core';
