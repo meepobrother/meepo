@@ -7,29 +7,29 @@
     </div>
     <div class="ibox-content">
         <table class="table table-striped table-hover" *ngIf="list.length>0">
+            <thead>
+                <tr>
+                    <td style="width: 4em;">编号</td>
+                    <td style="width: 10em;">标题</td>
+                </tr>
+            </thead>
             <tbody>
                 <tr *ngFor="let item of list">
-                    <td class="client-avatar">
-                        <img alt="头像" [src]="item.avatar">
+                    <td>{{item.id}}</td>
+                    <td>
+                        <a class="client-link">{{item.title || '工单标题'}}</a>
                     </td>
                     <td>
-                        <a class="client-link">{{item.nickname || '昵称'}}</a>
-                        <a class="client-link">{{item.realname}}</a>
-                        <a class="client-link">{{item.mobile}}</a>
+                        {{item.desc}}
                     </td>
-                    <td class="contact-type">
-                        <i class="fa fa-location-arrow text-danger"> </i>
-                    </td>
-                    <td class="client-status">
-                        <span [class.label-primary]="item.isadmin == 1" class="label">站长</span>
-                        <span [class.label-primary]="item.ismanager == 1" class="label">管理员</span>
-                        <span [class.label-primary]="item.isrunner == 1" class="label">员工</span>
-                        <span [class.label-primary]="item.mobile" class="label">会员</span>
+                    <td>
+                        <a href="javascript:;" (click)="edit(item)" class="btn btn-primary btn-xs">编辑</a>
+                        <a href="javascript:;" (click)="delete(item)" class="btn btn-danger btn-xs">删除</a>
                     </td>
                 </tr>
             </tbody>
         </table>
-        <blank title="还没有工单">
+        <blank title="还没有工单" *ngIf="list.length<=0">
             立即添加工单
             <a href="javascript:;" class="btn btn-primary" (click)="add()">添加</a>
         </blank>
