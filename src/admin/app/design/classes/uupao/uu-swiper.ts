@@ -18,5 +18,20 @@ export class UuSwiperDefault extends Widget{
             'margin-top': '0px'
         }
         this.dataSource = '';
+
+        this.children = [
+            {
+                image: 'https://otherfiles.uupt.com/ActivityScene/20170524/03c0c70b7f2546b88240320c567dfe50_big.png',
+                link: ['']
+            },
+            {
+                image: 'https://otherfiles.uupt.com/ActivityScene/20170524/03c0c70b7f2546b88240320c567dfe50_big.png',
+                link: ['']
+            },
+            {
+                image: 'https://otherfiles.uupt.com/ActivityScene/20170524/03c0c70b7f2546b88240320c567dfe50_big.png',
+                link: ['']
+            }
+        ];
     }
 }

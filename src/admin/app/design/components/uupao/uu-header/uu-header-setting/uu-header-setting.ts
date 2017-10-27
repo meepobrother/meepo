@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { UuHeaderDefault } from '../../../../classes';
 
 @Component({
     selector: 'uu-header-setting',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./uu-header-setting.scss']
 })
 export class UuHeaderSetting implements OnInit {
+    @Input() widget: UuHeaderDefault = new UuHeaderDefault();
+    
     constructor() { }
 
     ngOnInit() { }

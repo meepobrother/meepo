@@ -12,3 +12,7 @@ export * from './setting-container-padding/setting-container-padding';
 export * from './setting-container-color/setting-container-color';
 
 export * from './setting-container-border/setting-container-border';
+export * from './icon-link-select/icon-link-select';
+export * from './image-select/image-select';
+export * from './image-link-select/image-link-select';
+

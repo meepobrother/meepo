@@ -18,5 +18,24 @@ export class UuItemBoxDefault extends Widget{
             'margin-top': '0px'
         }
         this.dataSource = '';
+
+        this.children = [
+            {
+                image: 'http://wechat.uupaotui.com/StyleV4/images/use_tp1.png',
+                link: ['']
+            },
+            {
+                image: 'http://wechat.uupaotui.com/StyleV4/images/use_tp2.png',
+                link: ['']
+            },
+            {
+                image: 'http://wechat.uupaotui.com/StyleV4/images/use_tp3.png',
+                link: ['']
+            },
+            {
+                image: 'http://wechat.uupaotui.com/StyleV4/images/use_tp4.png',
+                link: ['']
+            }
+        ];
     }
 }

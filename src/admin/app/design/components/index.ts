@@ -101,7 +101,7 @@ import {
     SelectPageDialog, GoodsGroupDataSelect,
     TasksGroupDataSelect, SkillsGroupDataSelect, OrdersGroupDataSelect,
     SettingContainerColor, SettingContainerBorder,
-    TopicsGroupDataSelect
+    TopicsGroupDataSelect, IconLinkSelect, ImageSelect, ImageLinkSelect,
 } from './setting';
 
 import {
@@ -147,7 +147,7 @@ export const COMPONENTS = [
     BindDataSource, ShopsGroupDataSelect, BindRightSource,
     SelectPageDialog, GoodsGroupDataSelect,
     TasksGroupDataSelect, SkillsGroupDataSelect, OrdersGroupDataSelect,
-    SettingContainerColor,
+    SettingContainerColor, IconLinkSelect, ImageSelect, ImageLinkSelect,
 
     // address
     MeepoAddAddressView, MeepoAddAddressSetting,

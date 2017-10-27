@@ -1,29 +1,10 @@
 <div class="benefit bor-b marbot20">
     <ul class="itembox">
-        <li>
-            <a>
-                <img src="http://wechat.uupaotui.com/StyleV4/images/use_benefit4.png" alt="">
-                <p>发货记录</p>
-            </a>
-        </li>
-        <li>
-            <a>
-                <img src="http://wechat.uupaotui.com/StyleV4/images/use_benefit5.png" alt="">
-                <p>收货记录</p>
-            </a>
-        </li>
-        <li>
-            <a>
-                <img src="http://wechat.uupaotui.com/StyleV4/images/use_benefit2.png" alt="">
-                <p>充值优惠中</p>
-            </a>
-        </li>
-        <li>
-            <a>
-                <img src="http://wechat.uupaotui.com/StyleV4/images/use_benefit3.png" alt="">
-                <p>口令优惠券</p>
+        <li *ngFor="let item of widget.children">
+            <a [attr.link]="item.link">
+                <img [src]="item.image" alt="">
+                <p>{{item.title}}</p>
             </a>
         </li>
     </ul>
-
 </div>

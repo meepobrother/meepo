@@ -1,0 +1,15 @@
+<div class="ibox">
+    <div class="ibox-title">
+        顶部菜单
+    </div>
+    <div class="ibox-content">
+        <div class="form-group">
+            <label>标题</label>
+            <input type="text" class="form-control" [(ngModel)]="widget.content" placeholder="标题">
+        </div>
+        <h5>左边</h5>
+        <icon-link-select [widget]="widget.left"></icon-link-select>
+        <h5>右边边</h5>
+        <icon-link-select [widget]="widget.right"></icon-link-select>
+    </div>
+</div>

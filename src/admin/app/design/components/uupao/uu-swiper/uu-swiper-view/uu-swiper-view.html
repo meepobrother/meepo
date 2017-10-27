@@ -1,18 +1,8 @@
 <div class="swiper-container swiper-container-horizontal">
     <div class="swiper-wrapper">
-        <div class="swiper-slide bannerbox swiper-slide-duplicate swiper-slide-next swiper-slide-duplicate-prev">
-            <a href="6d4362b2dff64f33b15856c59e31a8d1">
-                <img src="https://otherfiles.uupt.com/ActivityScene/20170524/03c0c70b7f2546b88240320c567dfe50_big.png">
-            </a>
-        </div>
-        <div class="swiper-slide bannerbox swiper-slide-duplicate-active swiper-slide-prev swiper-slide-duplicate-next">
-            <a href="6d4362b2dff64f33b15856c59e31a8d1">
-                <img src="https://otherfiles.uupt.com/ActivityScene/20170524/03c0c70b7f2546b88240320c567dfe50_big.png">
-            </a>
-        </div>
-        <div class="swiper-slide bannerbox swiper-slide-duplicate swiper-slide-active swiper-slide-duplicate-prev">
-            <a href="6d4362b2dff64f33b15856c59e31a8d1">
-                <img src="https://otherfiles.uupt.com/ActivityScene/20170524/03c0c70b7f2546b88240320c567dfe50_big.png">
+        <div class="swiper-slide bannerbox" *ngFor="let item of widget.children">
+            <a href="javascript:;">
+                <img [src]="item.image">
             </a>
         </div>
     </div>

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { UuItemBoxDefault } from '../../../../classes';
 
 @Component({
     selector: 'uu-item-box-view',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./uu-item-box-view.scss']
 })
 export class UuItemBoxView implements OnInit {
+    @Input() widget: UuItemBoxDefault = new UuItemBoxDefault();
+    
     constructor() { }
 
     ngOnInit() { }

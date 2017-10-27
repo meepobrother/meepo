@@ -6,6 +6,16 @@ export class UuHeaderDefault extends Widget{
     required: boolean = true;
     dataSource: string = '';
 
+    left: any = {
+        icon: 'fa fa-user',
+        title: ''
+    };
+
+    right: any = {
+        title: '郑州市',
+        icon: 'fa fa-chevron-down'
+    };
+
     constructor(){
         super();
         this.type = 'uu-header';

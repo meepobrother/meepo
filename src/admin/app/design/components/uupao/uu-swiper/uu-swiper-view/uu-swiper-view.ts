@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { UuSwiperDefault } from '../../../../classes';
 
 @Component({
     selector: 'uu-swiper-view',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./uu-swiper-view.scss']
 })
 export class UuSwiperView implements OnInit {
+    @Input() widget: UuSwiperDefault = new UuSwiperDefault();
+    
     constructor() { }
 
     ngOnInit() { }

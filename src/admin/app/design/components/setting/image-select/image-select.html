@@ -1,0 +1,19 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        图片
+    </div>
+    <div class="panel-body">
+        <div class="form-group">
+            <div class="input-group">
+                <input type="text" class="form-control" readonly (click)="selectImage()" [(ngModel)]="widget.image" placeholder="请选择图片">
+                <div class="input-group-addon" (click)="selectImage()">
+                    <img [src]="widget.image">图片
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-footer">
+        <a class="btn btn-primary" (click)="save()">保存</a>
+        <a class="btn btn-default" (click)="cancel()">取消</a>
+    </div>
+</div>
