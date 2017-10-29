@@ -8,8 +8,22 @@
             <input type="text" class="form-control" [(ngModel)]="widget.content" placeholder="标题">
         </div>
         <h5>左边</h5>
-        <icon-link-select [widget]="widget.left"></icon-link-select>
-        <h5>右边边</h5>
-        <icon-link-select [widget]="widget.right"></icon-link-select>
+        <div class="form-group">
+            <div class="input-group">
+                <input type="text" class="form-control" [(ngModel)]="widget.left.link" placeholder="链接">
+                <div class="input-group-addon" (click)="editLeft()">
+                    <i [ngClass]="widget.left.icon"></i> {{widget.left.title}}
+                </div>
+            </div>
+        </div>
+        <h5>右边</h5>
+        <div class="form-group">
+            <div class="input-group">
+                <input type="text" class="form-control" [(ngModel)]="widget.right.link" placeholder="链接">
+                <div class="input-group-addon" (click)="editRight()">
+                    <i [ngClass]="widget.right.icon"></i> {{widget.right.title}}
+                </div>
+            </div>
+        </div>
     </div>
 </div>

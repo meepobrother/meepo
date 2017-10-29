@@ -14,7 +14,6 @@ import { QuillModule } from 'ngx-quill';
 import { MatDialogModule } from '@angular/material';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
-import { DesignModule } from '../design';
 import { AppEffectsModule, AppStoreModule } from '../ngrx';
 import { CoreModule } from '../core';
 const materials = [
@@ -35,7 +34,7 @@ const materials = [
     WeuiGridModule,
     MenuModule,
     EditorModule, LocationPickerModule,
-    DesignModule, MeepoDialogModule,
+    MeepoDialogModule,
     WeuiPickerModule,
     CoreModule,
     QuillModule

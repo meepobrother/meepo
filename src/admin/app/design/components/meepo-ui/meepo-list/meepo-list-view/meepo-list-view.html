@@ -3,24 +3,18 @@
     <ul [class]="widget.model">
         <li class="meepo-list-item" *ngFor="let item of widget.children" [ngStyle]="widget.styleObj">
             <div class="inner-content">
-                <img class="meepo-list-image" [src]="item.image" alt="">
+                <img class="meepo-list-image" src="{{item.avatar || './assets/img/a1.jpg'}}" alt="">
                 <div class="title-container">
-                    <p class="title">标题</p>
+                    <p class="title">
+                        {{item.title}}
+                    </p>
                     <div class="seckill-list-bottom">
                         <div>
-                            <span class="price">$100</span>
-                            <span class="oldprice">$200</span>
+                            <span class="price">${{item.money}}</span>
                         </div>
                         <div>
                             <div class="seckill-progress-wrap">
-                                <span>已售0%</span>
-                                <div class="seckill-progress">
-                                    <span style="width: 1%;"></span>
-                                </div>
-                            </div>
-                            <div class="countdown">
-                                <label>已结束</label>
-                                <span class="hours">00</span>:<span class="minutes">00</span>:<span class="seconds">00</span>
+                                <span class="order-tag" *ngFor="let tag of item.tag">{{tag.title}}</span>
                             </div>
                         </div>
                     </div>

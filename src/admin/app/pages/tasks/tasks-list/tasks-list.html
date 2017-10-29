@@ -7,13 +7,57 @@
     </div>
     <div class="ibox-content">
         <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <td style="width: 3em;"></td>
+                </tr>
+            </thead>
             <tbody>
                 <tr *ngFor="let item of list">
                     <td>
-                        <a class="client-link">{{item.title || '昵称'}}</a>
+                        <a class="client-link">
+                            <img style="width: 2em;" [src]="item.member.avatar">
+                        </a>
+                    </td>
+                    <td>
+                        <p>{{item.member.nickname || '昵称'}}</p>
+                    </td>
+                    <td>
+                        {{item.detail.goodsname}}
+                    </td>
+                    <td>
+                        <label class="label label-primary" *ngIf="item.payType == 'credit'">余额支付</label>
+                        <label class="label label-danger" *ngIf="item.payType == 'wechat'">微信支付</label>
+                        <label class="label label-info" *ngIf="item.payType == 'alipay'">支付宝支付</label>
+                        <label class="label label-default" *ngIf="item.payType == 'divider'">货到付款</label>
+                    </td>
+                    <td>
+                        {{item.message}}
+                    </td>
+                    <td>
+                        {{item.detail.total}}元
+                    </td>
+                    <td>
+                        {{item.detail.duration}}
+                    </td>
+                    <td>
+                        发货地： <span>{{item.detail.sendaddress}}</span>
+                    </td>
+                    <td>
+                        收货地： <span>{{item.detail.receiveaddress}}</span>
+                    </td>
+                    <td>{{item.create_time}}</td>
+                    <td>
+                        <label class="label label-primary" *ngIf="item.status == 1">待接单</label>
+                        <label class="label label-danger" *ngIf="item.status == 2">待完成</label>
+                        <label class="label label-info" *ngIf="item.status == 3">待收货</label>
+                        <label class="label label-success" *ngIf="item.status == 4">待结款</label>
+                        <label class="label label-success" *ngIf="item.status == 5">已完结</label>
+                        <label class="label label-warning" *ngIf="item.status == 6">已退款</label>
                     </td>
                     <td>
                         <a href="javascript:;" (click)="edit(item)" class="btn btn-primary btn-xs">编辑</a>
+                        <a href="javascript:;" (click)="pai(item)" class="btn btn-info btn-xs">派单</a>
                         <a href="javascript:;" (click)="delete(item)" class="btn btn-danger btn-xs">删除</a>
                     </td>
                 </tr>

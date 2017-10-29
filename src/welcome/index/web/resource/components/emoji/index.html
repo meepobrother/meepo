@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <base href="http://wechat.uupaotui.com">
+    <!-- 声明文档使用的字符编码 -->
+    <meta charset='utf-8'>
+    <meta name="flexible" content="initial-dpr=1" />
+    <!-- 优先使用 IE 最新版本和 Chrome -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <!-- 页面描述 -->
+    <meta name="description" content="不超过150个字符" />
+    <!-- 页面关键词 -->
+    <meta name="keywords" content="" />
+    <!-- 网页作者 -->
+    <meta name="author" content="male" />
+    <!-- 搜索引擎抓取 -->
+    <meta name="robots" content="index,follow" />
+    <!-- iOS 设备 begin -->
+    <meta name="apple-mobile-web-app-title" content="标题">
+    <!-- 添加到主屏后的标题（iOS 6 新增） -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <!-- 是否启用 WebApp 全屏模式，删除苹果默认的工具栏和菜单栏 -->
+    <meta name="apple-itunes-app" content="app-id=myAppStoreID, affiliate-data=myAffiliateData, app-argument=myURL">
+    <!-- 添加智能 App 广告条 Smart App Banner（iOS 6+ Safari） -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <!-- 设置苹果工具栏颜色 -->
+    <meta name="format-detection" content="telphone=no, email=no" />
+    <!-- 忽略页面中的数字识别为电话，忽略email识别 -->
+    <!-- 启用360浏览器的极速模式(webkit) -->
+    <meta name="renderer" content="webkit">
+    <!-- 避免IE使用兼容模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 不让百度转码 -->
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+    <meta name="HandheldFriendly" content="true">
+    <!-- 微软的老式浏览器 -->
+    <meta name="MobileOptimized" content="320">
+    <!-- windows phone 点击无高光 -->
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="msapplication-TileColor" content="#000" />
+    <!-- Windows 8 磁贴颜色 -->
+    <!-- Windows 8 磁贴图标 -->
+    <!--<link rel="stylesheet" href="css/index.css"/>-->
+    <link rel="stylesheet" href="../StyleV4/css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="/StyleV4/css/login.css?v=2" />
+    <script type="text/javascript" charset="utf-8" src="../StyleV4/js/flexible.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../StyleV4/js/zepto.min.js"></script>
+    <script src="../StyleV4/layer/layer.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../StyleV4/js/fastclick.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../StyleV4/js/solve.js" type="text/javascript" charset="utf-8"></script>
+    <title>我的个人中心</title>
+</head>
+<body>
+    <!--侧边栏-->
+    <div class="page side_bar pageMydide">
+        <div class="sidebox">
+            <div class="head nosign hide">
+                <div class="headtop">
+                    <div class="headpic"><img src="/StyleV4/images/side_head.png" /></div>
+                    <div class="name">
+                        <a class="login" href="#">登录&nbsp;/&nbsp;注册</a>
+                    </div>
+                </div>
+            </div>
+            <div class="head signed">
+                <div class="headtop">
+                   
+                                        <div class="headpic"><img src="/StyleV4/images/side_head.png" /></div>
+                    <div class="vip_box">
+                        <div class="vip">
+                            <i class="icon icon_card1"></i><span>金卡会员</span>
+                        </div>
+                    </div>
+                    <div class="name">
+                        <h1><span class="username">15637972535</span></h1>
+                    </div>
+                                    </div>
+                <div class="headbot">
+                    <div class="notice">
+                        <!-- <div class="noticeR" onclick="javascript: window.location.href = '/bizmall/CouponList.aspx'"> -->
+                        <div class="noticeR" onclick="javascript: window.location.href = '/NewWeChat/index.html#/CouponList?ctype=3&action=1022&opt=0&t=6d4362b2dff64f33b15856c59e31a8d1'">                         
+                            <p class="top"> 1</p>
+                            <p class="down">优惠券</p>
+                        </div>
+                        <div class="noticeR" onclick="javascript: window.location.href = '/NewWeChat/index.html#/AccountMoney?ctype=3&action=4002'">
+                            <p class="top"> 0.00</p>
+                           <p class="down">账户余额</p>
+                        </div>
+                        <img class="side_dotte" src="/StyleV4/images/side_dotte.png" />
+                        <img class="side_dotte side_dotte1" src="/StyleV4/images/side_dotte.png" />
+                        <div class="noticeR noticeLa" onclick="javascript: window.location.href = '/bizmall/UserRechargeV2.aspx'">
+                            <p class="top">充值优惠</p>
+                            <p class="down">去充值</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--SVIP状态 -->
+            <div class="head signed svip hide">
+                <div class="headtop">
+                    <div class="headpic"><img src="/StyleV4/images/headpic.png" /></div>
+                    <div class="vip_box">
+                        <div class="vip">
+                            <i class="icon icon_diamond"></i><span>钻石卡会员</span>
+                        </div>
+                    </div>
+                    <div class="name">
+                        <h1><span class="username">这是我的名字</span><img class="icon_svip" src="/StyleV4/images/icon_svip.png"></h1>
+                    </div>
+                </div>
+                <div class="headbot">
+                    <div class="notice">
+                        <div class="noticeR">
+                            <p class="top">128</p>
+                            <p class="down">优惠券</p>
+                        </div>
+                        <div class="noticeR">
+                            <p class="top">1666.0</p>
+                            <p class="down">账户余额</p>
+                        </div>
+                        <img class="side_dotte" src="/StyleV4/images/side_dotte.png" />
+                        <img class="side_dotte side_dotte1" src="/StyleV4/images/side_dotte.png" />
+                        <div class="noticeR noticeLa">
+                            <p class="top">充值优惠</p>
+                            <p class="down">去充值</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--充值、邀请有奖、优惠券-->
+            <div class="sidecon sidecon1">
+                <!--SVIP状态 -->
+                <div class="svip hide">
+                    <a href="#" class="side_card flex fl-1 fl-ali bor-b">
+                        <div class="flex fl-1 fl-ali">
+                            <i class="icon aside_svip"></i>
+                            <h2>SVIP</h2>
+                        </div>
+                        <i class="icon icon_right"></i>
+                    </a>
+                    <a href="#" class="side_card flex fl-1 fl-ali bor-b">
+                        <div class="flex fl-1 fl-ali">
+                            <i class="icon aside_red"></i>
+                            <h2>UU红包</h2>
+                        </div>
+                        <i class="icon icon_right"></i>
+                    </a>
+                    <a href="#" class="side_card flex fl-1 fl-ali bor-b">
+                        <div class="flex fl-1 fl-ali">
+                            <i class="icon icon_remain"></i>
+                            <h2>我的余额</h2>
+                        </div>
+                        <i class="icon icon_right"></i>
+                    </a>
+                </div>
+
+                <!-- 普通登录状态 -->
+                <a href="http://appweb.uupaotui.com/Pages/PageHandler.ashx?action=4035&ctype=1&t=6d4362b2dff64f33b15856c59e31a8d1" class="side_card flex fl-1 fl-ali bor-b">
+                    <div class="flex fl-1 fl-ali">
+                        <i class="icon aside_quan"></i>
+                        <h2>口令优惠券</h2>
+                    </div>
+                    <i class="icon icon_right"></i>
+                </a>
+                <a href="share.html?mobile=15637972535" class="side_card flex fl-1 fl-ali">
+                    <div class="flex fl-1 fl-ali">
+                        <i class="icon side_gift"></i>
+                        <h2>邀请有奖</h2>
+                    </div>
+                    <i class="icon icon_right"></i>
+                </a>
+
+            </div>
+            <!--我的订单、消息通知-->
+            <div class="sidecon sidecon2">
+                <a href="/Pages/PageHandler.ashx?ctype=3&action=4003&t=6d4362b2dff64f33b15856c59e31a8d1" class="side_card flex fl-1 fl-ali bor-b">
+                    <div class="flex fl-1 fl-ali">
+                        <i class="icon side_ben"></i>
+                        <h2>我的订单</h2>
+                    </div>
+                    <i class="icon icon_right"></i>
+                </a>
+                <a href="/Pages/PageHandler.ashx?ctype=4&action=4003&t=6d4362b2dff64f33b15856c59e31a8d1" class="side_card flex fl-1 fl-ali">
+                    <div class="flex fl-1 fl-ali">
+                        <i class="icon icon_con"></i>
+                        <h2>收件记录</h2>
+                    </div>
+                    <i class="icon icon_right"></i>
+                </a>
+            </div>
+
+            <!--底部 图片和按钮-->
+            <div class="sidefoot">
+                <a href="http://www.uupaotui.com/mobile/xiazai-1.html"><img src="/StyleV4/images/side_down.jpg" /></a>
+            </div>
+            <div class="signoutbox">
+                <span class="signout"><a href="/bizmall/loginout.aspx">退出登录</a></span>
+            </div>
+        </div>
+    </div>
+    <!--登陆弹框-->
+    <div class="login_pup">
+        <div class="log_mask"></div>
+        <div class="cardbox">
+            <div class="log_close"></div>
+            <h1>请验证您的手机号</h1>
+            <div class="ipt imgkey" style="display:none">
+                <input type="text" class="ipt_n" placeholder="请输入图片验证码" maxlength="6" id="photo_code">
+                <img id="img_Code" src="/bizmall/Captcha.ashx?Type=1" onclick="this.src = '/bizmall/Captcha.ashx?Type=1&code' + Math.random()" style="display:inline-block;" />
+            </div>
+            <div class="ipt"><input type="text" class="tel iptChange" placeholder="请输入手机号码" maxlength="13" id="mobile" /></div>
+            <div class="ipt">
+                <input type="text" class="code iptChange" placeholder="请输入验证码" maxlength="4" id="verify_code" />
+                <div class="get_code" id="verify_btn_submit">发送手机验证码</div>
+            </div>
+            <div class="log_btn on" id="regbutton">确定</div>
+        </div>
+        <input type="hidden" id="sendCount" value="0" />
+    </div>
+    <script>
+    $(function () {
+        //禁止双击上移
+        proMove();
+        //判断系统修改文字对齐
+        function is_Adr1(){
+            var u = navigator.userAgent;
+            var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Android') > -1;
+            var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+            if(isAndroid){
+                $('.line_card .card_l').css('padding-top','0.1rem');
+            }else{
+                return false;
+            }
+        }
+        is_Adr1();
+
+        //侧边栏
+        function aside(){
+            var blean=0;   //0是未登录状态，1是已登录状态，2是SVIP状态
+            if(blean==1){ //当bulean为1时是已登录状态
+                $('.nosign').addClass('hide');
+                $('.signed').removeClass('hide');
+                $('.signoutbox').removeClass('hide');
+                $('.side_bar .headpic img').css({'border':'3px solid #f5f5f5','box-shadow':'0 1px 3px 1px #c6700d'});
+            }else if(blean==2){
+                $('.nosign').addClass('hide');
+                $('.svip').removeClass('hide');
+                $('.signoutbox').removeClass('hide');
+                $('.side_bar .headpic img').css({'border':'3px solid #f5f5f5','box-shadow':'0 1px 3px 1px #c6700d'});
+            }
+        }
+        aside();
+//	        名字长度限制
+        var name=$('.username').text();
+        if(name.length>11){
+            $('.username').text(name.slice(0,11));
+        }
+
+        //禁止微信上下拉
+        var startX, startY, endX, endY,x,y;
+        document.querySelector('body').addEventListener('touchstart', function (ev) {
+            var touch = event.touches[0];
+            startY = touch.pageY;
+            startX = touch.pageX;
+        });
+        //禁止微信上下拉
+        document.querySelector('body').addEventListener('touchmove', function (ev) {
+            var touch = event.touches[0];
+            endY = touch.pageY;
+            endX = touch.pageX;
+            x=Math.abs(endX-startX);
+            y=Math.abs(endY-startY);
+            //判断垂直移动时禁止
+            if(y>=x){
+                event.preventDefault();
+            }
+
+        });
+
+    })
+    </script>
+
+    <script type="text/javascript">
+        var jq = $;
+        if (1 == 0) {
+            $('.login_pup').show();
+        }
+        if ($("#sendCount").val() > 0) {
+            $(".imgkey").css("display", "block");
+        }
+        var n;  //设置读秒时间
+        var timer;   //时间开关
+        $('.get_code').on('tap', btnTap);  //绑定获取验证码按钮点击事件
+        function btnTap() {
+            //图片验证码
+            if ($(".imgkey").css("display") != "none") {
+                if ($("#photo_code").val() == "") {
+                    layer.open({ content: '图片验证码不能为空', time: 1 });
+                    $("#photo_code").focus();
+                    return false;
+                }
+                if (!$("#photo_code").val().match(/\d{6}/)) {
+                    layer.open({ content: '图片验证码格式不正确', time: 1 });
+
+                    $("#photo_code").focus();
+                    return false;
+                }
+            }
+            var mobilevalue = jq.trim($("#mobile").val());
+
+            if (mobilevalue == "") {
+                layer.open({ content: '手机号码不能为空', time: 1 });
+                $("#mobile").focus();
+                return false;
+            }
+            if (!mobilevalue.match(/^((1)+\d{10})$/)) {
+                layer.open({ content: '手机号码格式不正确', time: 1 });
+                $("#mobile").focus();
+                return false;
+            }
+
+            if ($(".imgkey").css("display") != "none") {
+                //发送验证码
+                jq.post("/bizmall/SendSns.ashx?action=sendsns", { mobile: mobilevalue, ValidateType: 1, photoCode: $("#photo_code").val() },
+                   function (data) {
+                       //发送验证码
+                       if (data.State == "1") {
+                           n = 60;   //重置读秒时间
+                           $('.get_code').off('tap', btnTap);   //读秒时不能点击获取验证码按钮
+                           $('.get_code').text(n + 's后重新获取').addClass('on');
+                           timer = setInterval(move, 1000);
+                       } else {
+                           layer.open({ content: data.Msg, time: 1 });
+
+                           return false;
+                       }
+                   }, "json");
+            }
+            else {
+                //获取发送验证啊次数
+                jq.post("/bizmall/SendSns.ashx?action=sendCount", {},
+                   function (data) {
+                       if (data.State == "1") {
+                           //发送验证码
+                           jq.post("/bizmall/SendSns.ashx?action=sendsns", { mobile: mobilevalue, ValidateType: 1, photoCode: $("#photo_code").val() },
+                              function (data) {
+                                  if (data.State == "1") {
+
+                                      n = 60;   //重置读秒时间
+                                      $('.get_code').off('tap', btnTap);   //读秒时不能点击获取验证码按钮
+                                      $('.get_code').text(n + 's后重新获取').addClass('on');
+                                      timer = setInterval(move, 1000);
+                                  } else {
+                                      layer.open({ content: data.Msg, time: 1 });
+                                      return false;
+                                  }
+                              }, "json");
+                       } else {
+                           $(".imgkey").css("display", "block");
+                           layer.open({ content: "请输入图片验证码", time: 1 });
+
+                           return false;
+                       }
+                   }, "json");
+            }
+
+        }
+        function move() {
+            n--;
+            if (n >= 0) {
+                $('.get_code').text(n + 's后重新获取');
+            } else {
+                clearInterval(timer);
+                $('.get_code').text('获取验证码').removeClass('on');  //读秒结束绑定事件
+                $('.get_code').on('tap', btnTap);
+            }
+        }
+        function firtyz() {
+            if ($(".imgkey").css("display") != "none") {
+                if ($("#photo_code").val() == "") {
+                    layer.open({ content: "图片验证码不能为空！", time: 1 });
+                    $("#photo_code").focus();
+                    return false;
+                }
+                if (!$("#photo_code").val().match(/\d{6}/)) {
+                    layer.open({ content: "图片验证码格式不正确！", time: 1 });
+                    $("#photo_code").focus();
+                    return false;
+                }
+            }
+            if ($("#mobile").val() == "") {
+                layer.open({ content: "手机号码不能为空！", time: 1 });
+                $("#mobile").focus();
+                return false;
+            }
+            if ($("#verify_code").val() == "") {
+                layer.open({ content: "验证码输入不正确！", time: 1 });
+                $("#verify_code").focus();
+                return false;
+            }
+            return true;
+        }
+      
+        $("#regbutton").click(function () {
+            if (!firtyz()) {
+                return false;
+            }
+            $("#regbutton").hide();
+            jq.post("/bizmall/SendSns.ashx?action=verify", {
+                mobile: $("#mobile").val().trim(),
+                verify_code: $("#verify_code").val(),
+                nextaction: "",
+                cityname: $(".curCity").text(),
+                district: $(".curCity").text(),
+                ValidateType: 2,
+                RegSource: $("#ChannelID").val(),
+                photoCode: $("#photo_code").val()
+            },
+                 function (data) {
+                     //发送验证码
+                     if (data.State == 1) {
+                         if (window.localStorage) {
+                             localStorage.setItem("UserOp", data.Body.UserOp);
+                         }
+                         $('.login_pup').hide();
+                         layer.open({
+                             content: "登录成功", time: 1
+                         });
+                         window.location.href = "/NewOderV4/MyPage.ashx?v=" + Math.random();
+                     } else {
+                         layer.open({ content: data.Msg, time: 1 });
+
+                     }
+                     $("#regbutton").show();
+                     layer.close(jdxs);
+                 }, "json");
+        });
+        //关闭弹层
+        $('.log_close').on('click', function () {
+            $('.login_pup').hide();
+        })
+        //截取url参数
+
+        function RequestPara() {
+            var url = location.search; //获取url中"?"符后的字串
+            var theRequest = new Object();
+            if (url.indexOf("?") != -1) {
+                var str = url.substr(1);
+                strs = str.split("&");
+                for (var i = 0; i < strs.length; i++) {
+                    theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
+                }
+            }
+            return theRequest;
+        }
+    </script>
+</body>
+</html>

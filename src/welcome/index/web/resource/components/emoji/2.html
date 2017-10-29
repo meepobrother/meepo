@@ -1,0 +1,310 @@
+
+
+        <!DOCTYPE html>
+        <html>
+
+        <head>
+    <base href="http://wechat.uupaotui.com/bizmall/">
+        
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+            <meta name="apple-mobile-web-app-capable" content="yes">
+            <meta name="apple-mobile-web-app-status-bar-style" content="black">
+            <meta name="format-detection" content="telephone=no">
+            <title>充值</title>
+            <link rel="stylesheet" href="/StyleV4/css/reset.css" />
+            <script type="text/javascript" charset="utf-8" src="/StyleV4/js/flexible.js"></script>
+            <style type="text/css">
+                body, html {
+                height:auto;
+                }
+
+              .header {
+  height: 5.78666666rem;
+  background: url('images/hd.png') no-repeat bottom center;
+  background-size: 100%;
+  background-color:#fff;
+}
+
+.header h2 {
+  padding: 1.12rem .3rem 0;
+  font-size: 0.48rem;
+  text-align: center;
+  line-height: 0.8rem;
+}
+.header .tips {
+  font-size: 0.48rem;
+  text-align: center;
+  line-height: 0.93333333rem;
+}
+.acount_money,
+.recharge_number,
+.payWay {
+  background: white;
+}
+.acount_money a {
+  display: block;
+  position: relative;
+  text-align: left;
+  margin: 0 1em;
+  padding: 0.4rem 0 0.13333333rem;
+}
+.acount_money a span {
+  color: #ff8b03;
+  margin-left: .5em;
+}
+.acount_money a em {
+  font-style: normal;
+  font-size: 1.5em;
+}
+.recharge_number {
+  margin-top: .5em;
+}
+.recharge_number ul {
+  float: none;
+  overflow: hidden;
+  zoom: 1;
+  padding: 0 1% .5em;
+}
+.recharge_number li {
+  float: left;
+  width: 30%;
+  margin: 0.5em 0 0.24rem 2.5%;
+  font-size: 0.4rem;
+  font-weight: 600;
+  color: #444;
+  height: 1.6rem;
+  border: .1em solid #ddd;
+   display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+.recharge_number li div {
+  position: relative;
+  text-align: center;
+}
+.recharge_number li span {
+  display: block;
+  font-size: 80%;
+  color: #aaa;
+  font-weight: normal;
+}
+.recharge_number li .hd {
+  display: none;
+}
+.recharge_number li.on {
+  background: url('images/on.png') no-repeat right top;
+  background-size: 0.61333333rem;
+  border-color: #ff8b03;
+}
+.recharge_number li.on div {
+  color: #ff8b03;
+}
+.recharge_number li.on span {
+  color: #ff8b03;
+}
+.payWay {
+  margin-top: .5em;
+}
+.payWay li {
+  position: relative;
+  padding: .5em 2em .5em 4em;
+  border-bottom: .1em solid #ddd;
+}
+.payWay li p {
+  color: #999;
+  font-size: 0.8em;
+}
+.payWay li i.ico {
+  width: 2.5em;
+  height: 2.5em;
+  position: absolute;
+  top: 50%;
+  left: 1em;
+  margin-top: -1.25em;
+}
+.payWay li i.icon {
+  width: 1.4em;
+  height: 1.4em;
+  position: absolute;
+  top: 50%;
+  right: .5em;
+  margin-top: -0.7em;
+}
+.payBtn {
+  margin: .5em;
+  margin-top:.8rem;
+}
+.payBtn .btn {
+  width: 100%;
+  text-align: center;
+  padding: 0.4rem 0;
+  background: #444;
+  color: white;
+  font-size: 0.4rem;
+  border-radius: 0.10666667rem;
+  -webkit-border-radius: 0.10666667rem;
+  -moz-border-radius: 0.10666667rem;
+}
+.recharge_agreement {
+  margin: 0.74666667rem 0.5em 0;
+  text-align: center;
+  color: #444;
+  font-size:.32rem;
+  padding-bottom:.32rem;
+}
+.recharge_agreement span {
+  color: #333;
+  font-size:.32rem;
+  text-decoration: underline;
+}
+
+
+            </style>
+        </head>
+
+        <body id="recharge" style="display:none">
+            <div class="header">
+                <h2 class="hd_tips">充100元,可得100元余额+10元优惠券</h2>
+            </div>
+
+            <input id="uid" name="uid" type="hidden" value="54235" />
+            <input id="usertype" name="usertype" type="hidden" value="0" />
+            <input id="EnterpriseId" name="EnterpriseId" type="hidden" value="" />
+            <input id="PrivilegeID" name="PrivilegeID" type="hidden" value="5" />
+            <input id="WebType" name="WebType" type="hidden" value="1" />
+            <input id="city" name="city" type="hidden" value="" />
+            <div class="acount_money">
+                <a href="#">余额(元)<span><em>0</em></span><i class="ico ico_arrow_right"></i></a>    
+            </div>
+            <div class="recharge_number" style="margin-bottom:10px">
+                <ul>
+                    <li data='5' rel='0' class='on'><div>100元<span>送10元优惠券</span><i class='ico'></i><span class='hd'>充100元,可得100元余额+10元优惠券</span></div></li><li data='413' rel='0'><div>500元<span>送50元优惠券</span><i class='ico'></i><span class='hd'>充500元,可得500元余额+50元优惠券</span></div></li><li data='2585' rel='0'><div>1000元<span>送120元优惠券</span><i class='ico'></i><span class='hd'>充1000元,可得1000元余额+120元优惠券</span></div></li>
+                </ul>
+            </div>
+             
+                <div class="pay_card pay_money zxpay" id="wxpay">
+                    <div class="paybox flex fl-ali bor-b">
+                        <i class="icon icon_weixin"></i>
+                        <div class="pay_r">
+                            <p class="pay_t">微信支付</p>
+                            <p class="pay_b">推荐安装微信5.0及以上版本的使用</p>
+                        </div>
+                        <i class="icon icon_payed"></i>
+                    </div>
+                </div>
+                 
+                        <div class="payBtn">
+                            <input type="button" class="btn" value="立即充值" id="rz" /></div>
+                        <div class="recharge_agreement"><a href="recharge_agreement.html">点击立即充值，即已同意<span>《充值协议》</span>。余额不可提现、转赠、退还。</a></div>
+
+                        <div id="zfbsub"></div>
+                        <script type="text/javascript" src="../js/jquery.min.js"></script>
+                        <script type="text/javascript" src="../js/layer/layer.js"></script>
+
+                        <script type="text/javascript">
+                            $(function() {
+                                setTimeout(function() {
+                                    $("#recharge").show()
+                                }, 500)
+                                $('.recharge_number li').click(function() {
+                                    $(this).addClass("on").siblings().removeClass("on");
+                                    $('.hd_tips').text($(this).find("span.hd").text());
+                                    $("#PrivilegeID").val($(this).attr("data"));
+
+                                });
+                                $('#rz').click(function() {
+                                    //loading层
+                                    var jdxs = layer.load(1, {
+                                        shade: [0.3, '#fff'] //0.1透明度的白色背景
+                                    });
+
+                                    $.post("PayOrderV4.ashx?action=1002", {
+                                        uid: $("#uid").val(),
+                                        city: $("#city").val(),
+                                        usertype: $("#usertype").val(),
+                                        PrivilegeID: $("#PrivilegeID").val()
+                                    }, function(data) {
+                                        //发送验证码
+                                        if (parseInt($("#WebType").val()) == 1) {
+                                            if (data.State == "1") {
+                                                callpay(data.Body);
+                                                layer.close(jdxs);
+                                            } else {
+                                                alert(data.Msg + " fail");
+                                                layer.close(jdxs);
+                                                return false;
+                                            }
+                                        } else {
+                                            if (data.State == "1") {
+                                                $("#zfbsub").html(data.Body);
+                                                layer.close(jdxs);
+                                            } else {
+                                                alert(data.Msg + " fail");
+                                                layer.close(jdxs);
+                                                return false;
+                                            }
+                                        }
+                                    }, "json");
+
+                                });
+
+                            });
+                            //调用微信JS api 支付
+                            function jsApiCall(body) {
+                                WeixinJSBridge.invoke(
+                                    "getBrandWCPayRequest", {
+                                        "appId": body.appId, //公众号名称，由商户传入
+                                        "timeStamp": body.timestamp, //时间戳 这里随意使用了一个值
+                                        "nonceStr": body.noncestr, //随机串
+                                        "package": body.package, //扩展字段，由商户传入
+                                        "signType": body.signType, //微信签名方式:sha1
+                                        "paySign": body.paySign //微信签名
+                                    },
+                                    function(res) {
+                                        if (res.err_msg == "get_brand_wcpay_request:ok") {
+                                            if ($("EnterpriseId").val() != "") {
+                                                alert("充值成功，登录APP客户端，进入企业功能即可查看或使用企业版");
+                                                window.location.reload();
+                                            } else {
+                                                window.location.href = body.refurl;
+                                            }
+
+                                        } else {
+                                            $("#btnSubmit").show();
+                                        }
+                                    }
+                                );
+                            }
+
+                            function callpay(body) {
+                                if (typeof WeixinJSBridge == "undefined") {
+                                    if (document.addEventListener) {
+                                        document.addEventListener('WeixinJSBridgeReady', jsApiCall, false);
+                                    } else if (document.attachEvent) {
+                                        document.attachEvent('WeixinJSBridgeReady', jsApiCall);
+                                        document.attachEvent('onWeixinJSBridgeReady', jsApiCall);
+                                    }
+                                } else {
+                                    jsApiCall(body);
+                                }
+                            }
+                        </script>
+
+
+                        <div style="display:none">
+                            <script src="https://s4.cnzz.com/z_stat.php?id=1259655381&web_id=1259655381" language="JavaScript"></script>
+                        </div>
+        </body>
+
+        </html>

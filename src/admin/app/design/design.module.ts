@@ -11,6 +11,7 @@ import { DesignLayoutsModule } from './layouts';
 import { ShopsTagsService } from '../pages/shops/shops-tags/shops-tags.service';
 
 import { SlotDirective } from './components';
+import { ShareModule } from '../share';
 
 @NgModule({
     declarations: [
@@ -26,7 +27,8 @@ import { SlotDirective } from './components';
         MeepoFormFieldModule,
         ReactiveFormsModule,
         WeuiPickerModule,
-        PriceListModule
+        PriceListModule,
+        ShareModule
     ],
     exports: [
         ...COMPONENTS,

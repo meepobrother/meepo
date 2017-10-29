@@ -1,6 +1,5 @@
 import { Observable } from 'rxjs/Observable';
 
-import { NoopInterceptor } from './NoopInterceptor';
 import { TimingInterceptor } from './TimingInterceptor';
 
 import { HTTP_INTERCEPTORS, HttpClientModule, HttpClient } from '@angular/common/http';
@@ -19,14 +18,6 @@ import { SiteService } from './site.service';
         SysinfoService,
         ApiService,
         SiteService,
-        {
-            provide: HTTP_INTERCEPTORS,
-            useClass: NoopInterceptor,
-            multi: true,
-            deps: [
-                SysinfoService
-            ]
-        },
         {
             provide: HTTP_INTERCEPTORS,
             useClass: TimingInterceptor,

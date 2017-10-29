@@ -2,7 +2,7 @@
     <div class="ibox-title">
         <h5>广告列表</h5>
         <div class="ibox-tools">
-            <a href="javascript:;" class="btn btn-primary btn-xs">添加</a>
+            <a href="javascript:;" class="btn btn-primary btn-xs" (click)="add()">添加</a>
         </div>
     </div>
     <div class="ibox-content">
@@ -15,7 +15,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let item of widget.children">
+                <tr *ngFor="let item of widget.children;index as i;">
                     <td>
                         <img style="width: 3em;" [src]="item.image">
                     </td>
@@ -23,9 +23,8 @@
                         {{item.link}}
                     </td>
                     <td>
-                        <a class="btn btn-danger btn-xs">删除</a>
-                        <a class="btn btn-primary btn-xs">编辑</a>
-                        <a class="btn btn-info btn-xs">选择</a>
+                        <a class="btn btn-danger btn-xs" (click)="delete(i)">删除</a>
+                        <a class="btn btn-primary btn-xs" (click)="edit(i,item)">编辑</a>
                     </td>
                 </tr>
             </tbody>

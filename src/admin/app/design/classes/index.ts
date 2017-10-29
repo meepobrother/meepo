@@ -31,6 +31,7 @@ export * from './weui-input';
 export * from './weui-button';
 export * from './weui-icon';
 export * from './weui-tabbar';
+export * from './meepo-danmu';
 
 
 export * from './zan-ui/card';
@@ -38,6 +39,8 @@ export * from './zan-ui/card';
 export * from './forms';
 export * from './goods';
 export * from './topics';
+export * from './active';
+
 
 export * from './uupao';
 

@@ -13,6 +13,12 @@ export * from './setting-container-color/setting-container-color';
 
 export * from './setting-container-border/setting-container-border';
 export * from './icon-link-select/icon-link-select';
-export * from './image-select/image-select';
+
 export * from './image-link-select/image-link-select';
+export * from './image-link-title-select/image-link-title-select';
+
+export * from './icon-select-dialog/icon-select-dialog';
+export * from './icon-link-icon-select/icon-link-icon-select';
+export * from './image-link-title-select/image-link-title-select';
+
 

@@ -4,6 +4,9 @@
     ul {
         overflow: hidden;
         padding: 10px 1px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
         li {
             width: 25%;
             float: left;

@@ -6,6 +6,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { ThemesMineService } from '../themes/themes-mine.service';
 import { ShareModule } from '../../share';
 import { SidebarModule } from '../../sidebar/sidebar.module';
+
+import { DesignModule } from '../../design';
 const routes: Routes = [
     {
         path: '',
@@ -27,7 +29,8 @@ import { DIALOGS } from './dialog';
         CommonModule, 
         RouterModule.forChild(routes), 
         ShareModule, 
-        SidebarModule
+        SidebarModule,
+        DesignModule
     ],
     exports: [
         ThemesDesign

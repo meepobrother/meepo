@@ -9,7 +9,9 @@ import { ApiService } from '../../../../core';
 })
 export class SelectPageDialog implements OnInit {
     pages: any[] = [];
+    apps: any[] = [];
     app_id: any;
+    uniacid: number = 0;
     constructor(
         public dialog: MatDialogRef<any>,
         @Inject(MAT_DIALOG_DATA) public data: any,
@@ -23,7 +25,19 @@ export class SelectPageDialog implements OnInit {
     }
 
     ngOnInit() {
-        
+        this.getApps();
+    }
+
+    getApps() {
+        this.apiService.mpost('app.getListApp').subscribe((res: any) => {
+            this.apps = res.info;
+        });
+    }
+
+    onSelectApp(app: any){
+        this.app_id = app.id;
+        this.uniacid = app.uniacid;
+        this.getPages();
     }
 
     getPages() {
@@ -38,6 +52,13 @@ export class SelectPageDialog implements OnInit {
 
     // 选择布局
     onSelectPage(page: any) {
-        this.dialog.close(page);
+        console.log(page);
+        const id = page.id;
+        const url = './index.php?i='+this.uniacid+'&c=entry&do=design&m=imeepos_runner&id='+id;
+        this.dialog.close(url);
+    }
+
+    cancel(){
+        this.dialog.close();
     }
 }

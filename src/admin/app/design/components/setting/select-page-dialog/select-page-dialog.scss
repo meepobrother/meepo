@@ -1,14 +1,15 @@
 :host {
-    min-width: 450px;
-    min-height: 300px;
+    max-height: 500px;
     display: block;
-    width: 450px;
+    width: 650px;
+    overflow: auto;
 }
 
 .page-list {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    border-bottom: 1px solid #ccc;
     .page-item {
         line-height: 2em;
         margin: 5px 10px;
@@ -16,5 +17,19 @@
         &:hover {
             background: #ccc;
         }
+    }
+}
+
+.app-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #ccc;
+    .app-item {
+        cursor: pointer;
+        padding: 0px 5px;
+        margin-top: 5px;
+        margin: 5px;
+        line-height: 44px;
     }
 }

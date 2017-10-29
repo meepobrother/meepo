@@ -1,0 +1,34 @@
+.danmu-show {
+    left: 0;
+    top: 0;
+    position: absolute;
+    z-index: 111;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    display: block;
+}
+
+.danmu-show .cm-content {
+    background-color: rgba(0, 0, 0, .1);
+    border-radius: 5px;
+    padding: 0 10px;
+    height: 64px;
+    line-height: 64px;
+    display: table;
+    font-size: 22px;
+    color: rgb(255, 255, 255);
+}
+
+.danmu-show .vertical {
+    margin-bottom: 10px;
+    position: absolute;
+}
+
+.danmu-show .cm-content img {
+    width: 44px;
+    height: 44px;
+    border-radius: 22px;
+    margin-right: 15px;
+}

@@ -1,5 +1,8 @@
-import { Component, OnInit, Input, Inject } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { Component, OnInit, Input, Inject, ElementRef, ViewChild } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material';
+import { SelectPageDialog } from '../select-page-dialog';
+declare const layui: any;
+import { ApiService } from '../../../../core';
 @Component({
     selector: 'image-link-select',
     templateUrl: './image-link-select.html',
@@ -7,32 +10,67 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 })
 export class ImageLinkSelect implements OnInit {
     @Input() widget: ImageLinkDefault = new ImageLinkDefault();
-    
+    @ViewChild('imgSelect') imgSelect: ElementRef;
+
     constructor(
         @Inject(MAT_DIALOG_DATA) public data: any,
-        public dialog: MatDialogRef<any>
-    ) { }
+        public dialogRef: MatDialogRef<any>,
+        public dialog: MatDialog,
+        public api: ApiService
+    ) {
 
-    save(){
-        this.dialog.close(this.widget);
+        this.dialogRef.afterOpen().subscribe(res => {
+            let { image, link, title } = this.data;
+            this.widget.image = image;
+            this.widget.link = link;
+            this.widget.title = title;
+        });
     }
 
-    cancel(){
-        this.dialog.close();
+    save() {
+        this.dialogRef.close(this.widget);
     }
 
-    ngOnInit() { }
+    cancel() {
+        this.dialogRef.close();
+    }
 
-    selectImage(){
+    ngOnInit() {
+        layui.use('upload', () => {
+            var upload = layui.upload;
+            //执行实例
+            var uploadInst = upload.render({
+                elem: this.imgSelect.nativeElement //绑定元素
+                , url: this.api.doMobileUrl('upload','imeepos_runner')//this.api.murl('utility/file/upload', { type: 'image' }) //上传接口
+                , done: (res, index, upload) => {
+                    //上传完毕回调
+                    console.log(res);
+                    console.log(index);
+                    console.log(upload);
+
+                    this.widget.image = res.url;
+                }
+                , error: () => {
+                    //请求异常回调
+                    console.log('上传失败');
+                }
+            });
+        });
+    }
+
+    selectImage() {
 
     }
 
-    selectLink(){
-
+    selectLink() {
+        let dialogRef = this.dialog.open(SelectPageDialog);
+        dialogRef.afterClosed().subscribe(link => {
+            this.widget.link = link;
+        });
     }
 }
 
-export class ImageLinkDefault{
+export class ImageLinkDefault {
     image: string;
     link: string;
     title: string;

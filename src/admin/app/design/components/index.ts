@@ -10,7 +10,9 @@ import {
     MeepoFormOrderDefault, MeepoFormTagDefault, MeepoFormBaojiaDefault,
     MeepoFormAddressDefault, MeepoFormAddressEndDefault, MeepoFormAddressStartDefault,
     TopicsListDefault, UuItemBoxDefault, UuSwiperDefault, UuBenefitDefault, UuHeaderDefault,
-    UuHomeHeaderDefault
+    UuHomeHeaderDefault, UuHomeItemDefault, UuConDefault, UuCouponDefault,
+    ActiveItemDefault, BargainItemDefault, ArticleItemDefault, CityItemDefault,
+    MeepoDanmu
 } from '../classes';
 
 import {
@@ -18,8 +20,18 @@ import {
     UuSwiperSetting, UuSwiperView,
     UuBenefitSetting, UuBenefitView,
     UuHeaderSetting, UuHeaderView,
-    UuHomeHeaderSetting, UuHomeHeaderView
+    UuHomeHeaderSetting, UuHomeHeaderView,
+    UuHomeItemSetting, UuHomeItemView,
+    UuConSetting, UuConView,
+    UuCouponSetting, UuCouponView
 } from './uupao';
+
+import {
+    ActiveItemSetting, ActiveItemView,
+    BargainItemSetting, BargainItemView,
+    ArticleItemSetting, ArticleItemView,
+    CityItemSetting, CityItemView
+} from './active';
 
 import {
     ButtonSetting, ButtonView, ButtonSelect,
@@ -53,7 +65,8 @@ import {
 
     // 地址
     MeepoAddAddressView, MeepoAddAddressSetting,
-    MeepoListSetting, MeepoListView
+    MeepoListSetting, MeepoListView,
+    MeepoDanmuSetting, MeepoDanmuView
 } from './meepo-ui';
 
 import {
@@ -101,7 +114,8 @@ import {
     SelectPageDialog, GoodsGroupDataSelect,
     TasksGroupDataSelect, SkillsGroupDataSelect, OrdersGroupDataSelect,
     SettingContainerColor, SettingContainerBorder,
-    TopicsGroupDataSelect, IconLinkSelect, ImageSelect, ImageLinkSelect,
+    TopicsGroupDataSelect, IconLinkSelect, ImageLinkSelect,
+    IconSelectDialog, IconLinkIconSelect, ImageLinkTitleSelect
 } from './setting';
 
 import {
@@ -118,7 +132,7 @@ export const COMPONENTS = [
     TabbarSelect, TabbarSetting, TabbarView,
     NavbarSelect, NavbarView, NavbarSetting,
     PickerSelect, PickerView, PickerSetting,
-    TopicsGroupDataSelect,
+    TopicsGroupDataSelect, IconSelectDialog, IconLinkIconSelect, ImageLinkTitleSelect,
 
     // layouts
     LayoutSelect, LayoutView, LayoutSetting,
@@ -147,7 +161,7 @@ export const COMPONENTS = [
     BindDataSource, ShopsGroupDataSelect, BindRightSource,
     SelectPageDialog, GoodsGroupDataSelect,
     TasksGroupDataSelect, SkillsGroupDataSelect, OrdersGroupDataSelect,
-    SettingContainerColor, IconLinkSelect, ImageSelect, ImageLinkSelect,
+    SettingContainerColor, IconLinkSelect, ImageLinkSelect,
 
     // address
     MeepoAddAddressView, MeepoAddAddressSetting,
@@ -190,7 +204,15 @@ export const COMPONENTS = [
     UuSwiperSetting, UuSwiperView,
     UuBenefitSetting, UuBenefitView,
     UuHeaderSetting, UuHeaderView,
-    UuHomeHeaderSetting, UuHomeHeaderView
+    UuHomeHeaderSetting, UuHomeHeaderView,
+    UuHomeItemSetting, UuHomeItemView,
+    UuConSetting, UuConView,
+    UuCouponSetting, UuCouponView,
+    ActiveItemSetting, ActiveItemView,
+    BargainItemSetting, BargainItemView,
+    ArticleItemSetting, ArticleItemView,
+    CityItemSetting, CityItemView,
+    MeepoDanmuSetting, MeepoDanmuView
 ];
 
 export const COMPONENTS_SELECT = {
@@ -249,7 +271,15 @@ export const COMPONENTS_VIEW = {
     'uu-swiper': UuSwiperView,
     'uu-benefit': UuBenefitView,
     'uu-header': UuHeaderView,
-    'uu-home-header': UuHomeHeaderView
+    'uu-home-header': UuHomeHeaderView,
+    'uu-home-item': UuHomeItemView,
+    'uu-con': UuConView,
+    'uu-coupon': UuCouponView,
+    'active-item': ActiveItemView,
+    'bargain-item': BargainItemView,
+    'article-item': ArticleItemView,
+    'city-item': CityItemView,
+    'meepo-danmu': MeepoDanmuView
 };
 
 
@@ -303,6 +333,15 @@ export const COMPONENTS_SETTING = {
     'uu-benefit': UuBenefitSetting, 
     'uu-header': UuHeaderSetting,
     'uu-home-header': UuHomeHeaderSetting, 
+    'uu-home-item': UuHomeItemSetting,
+    'uu-con': UuConSetting, 
+
+    'uu-coupon': UuCouponSetting, 
+    'active-item': ActiveItemSetting, 
+    'bargain-item': BargainItemSetting, 
+    'article-item': ArticleItemSetting, 
+    'city-item': CityItemSetting, 
+    'meepo-danmu': MeepoDanmuSetting, 
 };
 
 
@@ -343,7 +382,15 @@ export const WIDGETS = {
     'uu-swiper': UuSwiperDefault,
     'uu-benefit': UuBenefitDefault,
     'uu-header': UuHeaderDefault,   
-    'uu-home-header': UuHomeHeaderDefault 
+    'uu-home-header': UuHomeHeaderDefault,
+    'uu-home-item': UuHomeItemDefault,
+    'uu-con': UuConDefault,
+    'uu-coupon': UuCouponDefault,
+    'active-item': ActiveItemDefault,
+    'bargain-item': BargainItemDefault,
+    'article-item': ArticleItemDefault,
+    'city-item': CityItemDefault,
+    'meepo-danmu': MeepoDanmu
 }
 
 import { Injectable } from '@angular/core';

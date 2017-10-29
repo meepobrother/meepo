@@ -1,0 +1,31 @@
+<div class="ibox">
+    <div class="ibox-title">
+        <h5>设置</h5>
+    </div>
+    <div class="ibox-content">
+        <div class="form-group">
+            <label>图片</label>
+            <input class="form-control" [(ngModel)]="widget.image" type="text" readonly>
+        </div>
+
+        <div class="form-group">
+            <label>提示</label>
+            <input class="form-control" [(ngModel)]="widget.tip" type="text" placeholder="请输入提示">
+        </div>
+
+        <div class="form-group">
+            <label>按钮</label>
+            <input class="form-control" type="text" [(ngModel)]="widget.btn" placeholder="按钮文字">
+        </div>
+        <div class="form-group">
+            <label>规则标题</label>
+            <input class="form-control" type="text" [(ngModel)]="widget.rule" placeholder="规则标题">
+        </div>
+        <div class="form-group">
+            <label>规则内容</label>
+            <editor>
+                {{widget.rule_content}}
+            </editor>
+        </div>
+    </div>
+</div>

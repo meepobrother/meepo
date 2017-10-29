@@ -5,9 +5,9 @@
     <div class="panel-body">
         <div class="form-group">
             <div class="input-group">
-                <input type="text" class="form-control" [(ngModel)]="widget.title" placeholder="标题">
-                <div class="input-group-addon" (click)="selectImage()">
-                    <img [src]="widget.image"> 图片
+                <input type="text" class="form-control" (click)="selectImage()" readonly [(ngModel)]="widget.image" placeholder="图片">
+                <div class="input-group-addon" #imgSelect (click)="selectImage()">
+                    选择
                 </div>
             </div>
         </div>

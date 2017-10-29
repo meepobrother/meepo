@@ -1,7 +1,18 @@
 <div class="ibox-content">
+    <div class="app-list">
+        <div class="app-item label label-danger" *ngFor="let app of apps" (click)="onSelectApp(app)">
+            {{app.id}}-{{app.title}}
+        </div>
+    </div>
     <div class="page-list">
         <div class="page-item label label-danger" (click)="onSelectPage(item)" *ngFor="let item of pages">
             {{item.id}}-{{item.title}}
         </div>
+    </div>
+    <div class="form-group" style="margin-top: 10px;">
+        <input type="text" class="form-control" placeholder="链接">
+    </div>
+    <div class="form-group">
+        <a class="btn btn-default" (click)="cancel()">取消</a>
     </div>
 </div>

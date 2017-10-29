@@ -28,7 +28,6 @@ import { LoginService } from './login.service';
 
 import { MatDialogModule } from '@angular/material';
 import { ColorSelectModule } from '../components/color-select';
-
 const modules = [
     CommonModule,
     SidebarModule,
@@ -40,7 +39,7 @@ const modules = [
     StylesModule,
     MemberSelectModule,
     MatDialogModule,
-    ColorSelectModule
+    ColorSelectModule,
 ];
 
 @NgModule({

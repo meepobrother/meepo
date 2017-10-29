@@ -6498,5 +6498,274 @@ button.swiper-pagination-bullet {
     bottom: 0;
 }
 
+.uu-home-header {
+    background-image: url(./side_bg1.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: top left;
+    position: relative;
+}
+
+.uu-home-header .headtop {
+    padding-top: 20px;
+    width: 100%;
+    overflow: hidden;
+    padding-bottom: 100px;
+}
+
+.uu-home-header .headtop .headpic {
+    width: 65px;
+    margin: 0 auto;
+    float: none;
+}
+
+.uu-home-header .headtop .headpic img {
+    width: 100%;
+}
+
+.uu-home-header .headtop .vip_box {
+    position: relative;
+    text-align: center;
+}
+
+.uu-home-header .headtop .vip_box .vip {
+    margin: 0 auto;
+    display: inline-block;
+    height: 0.42666667rem;
+    padding: 0 0.06666667rem;
+    line-height: 0.42666667rem;
+    border-radius: 0.24rem;
+    font-size: 0.26666667rem;
+    color: #7a3900;
+    background: #fef1dc;
+}
+
+.uu-home-header .headtop .name {
+    float: none;
+    margin-top: 0.26666667rem;
+    text-align: center;
+    color: #fff;
+    font-size: 0.42666667rem;
+    font-weight: 900;
+}
+
+.uu-home-header .headtop .name h1 {
+    font-size: 0.4rem;
+}
+
+.uu-home-header .headbot {
+    width: 100%;
+    height: 90px;
+    background: url(./side_bg2.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: left top;
+    position: absolute;
+    bottom: 0;
+}
+
+.uu-home-header .headbot .notice {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffefdc;
+    overflow: hidden;
+    position: relative;
+    margin-top: 10px;
+}
+
+.uu-home-header .headbot .notice .notice-item {
+    text-align: center;
+    line-height: 30px;
+    width: 33%;
+}
+
+.uu-home-header .headbot .notice .notice-item .top {
+    color: #7a3900;
+    font-weight: 900;
+}
+
+.uu-home-header .headbot .notice .notice-item .down {
+    font-size: 9px;
+    color: #9c6e4e;
+}
+
+.uu-home-list {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    padding: 0 10px;
+}
+
+.uu-home-list a {
+    color: #000;
+}
+
+.uu-home-list .uu-home-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex: 1;
+    line-height: 44px;
+}
+
+.uu-home-list .uu-home-item:after {
+    content: " ";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    color: #d9d9d9;
+    bottom: 0;
+    border-bottom: 1px solid #d9d9d9;
+    -webkit-transform-origin: 0 100%;
+    transform-origin: 0 100%;
+    -webkit-transform: scaleY(0.5);
+    transform: scaleY(0.5);
+}
+
+.uu-home-list .uu-home-item .uu-home-item-left {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex: 1;
+}
+
+.uu-home-list .uu-home-item .uu-home-item-left .title {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.uu-home-list .uu-home-item .fa,
+.uu-home-list .uu-home-item .ui-icon {
+    font-size: 24px;
+    margin: 0 10px;
+}
+
+.itembox {
+    background: #fff;
+    position: relative;
+}
+
+.itembox ul {
+    overflow: hidden;
+    padding: .08rem .13333333rem;
+}
+
+.itembox ul li {
+    width: 50%;
+    float: left;
+    position: relative;
+    padding: 5px 2px;
+}
+
+.itembox ul li a {
+    color: #666;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.itembox ul li img {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+
+.bannerbox {
+    position: relative;
+}
+
+.bannerbox a {
+    color: #666;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.bannerbox a img {
+    width: 100%;
+}
+
+.meepo-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 44px;
+    color: gray;
+    background-color: #fff;
+}
+
+.meepo-header .title {
+    flex: 1;
+    font-size: 14px;
+    color: #000;
+    font-weight: 300;
+    text-align: center;
+    line-height: 44px;
+}
+
+.meepo-header .header-left {
+    line-height: 44px;
+    padding: 0 12px;
+    width: 70px;
+}
+
+.meepo-header .header-right {
+    line-height: 44px;
+    padding: 0 5px;
+    width: 70px;
+}
+
+.benefit {
+    background: #fff;
+    position: relative;
+}
+
+.benefit ul {
+    overflow: hidden;
+    padding: 10px 1px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.benefit ul li {
+    width: 25%;
+    float: left;
+    background-repeat: no-repeat;
+    background-size: 1px 70%;
+    background-position: right center;
+}
+
+.benefit ul li a {
+    display: block;
+    width: 100%;
+}
+
+.benefit ul li a img {
+    display: block;
+    width: 70%;
+    height: auto;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+
+.benefit ul li a p {
+    padding-top: 10px;
+    text-align: center;
+    font-size: 13px;
+    color: #666;
+}
+
+.benefit .itembox {
+    background: #fff;
+    position: relative;
+}
+
+.marbot20 {
+    margin-bottom: 20px;
+}
+
 
 /*# sourceMappingURL=meepoui.css.map */

@@ -1,0 +1,49 @@
+.con_h {
+    padding: 20px 0px;
+    background: #fff;
+    img {
+        width: 100%;
+        margin: 0 auto;
+    }
+}
+
+.con_s {
+    position: relative;
+    background: #fff;
+    padding: 12.4px 0 50px;
+    margin-top: -1px;
+    input {
+        border: 1px solid #e1e1e1;
+        margin-top: 0;
+        box-sizing: border-box;
+        line-height: 1.8;
+        padding: 12px 0;
+        padding-left: 25px;
+        display: block;
+        width: 86%;
+        font-size: 14px;
+        color: #444;
+        border-radius: 5px;
+        margin: 0 auto;
+        height: 44px;
+    }
+    button {
+        line-height: 44px;
+        background: #d9d9d9;
+        color: #fff;
+        width: 86%;
+        margin-top: 10px;
+    }
+}
+
+.con_s_tip {
+    margin-top: 10px;
+    position: absolute;
+    right: 7%;
+    color: #999;
+    font-size: 16px;
+    padding-left: 5px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: left center;
+}
