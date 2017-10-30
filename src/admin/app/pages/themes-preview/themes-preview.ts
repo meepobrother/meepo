@@ -5,6 +5,7 @@ import {
 import { ActivatedRoute } from '@angular/router';
 import { DOCUMENT } from '@angular/common';
 import { Subject } from 'rxjs/Subject';
+import { SysinfoService } from '../../core';
 @Component({
     selector: 'themes-preview',
     templateUrl: './themes-preview.html',
@@ -20,7 +21,8 @@ export class ThemesPreview {
     constructor(
         public route: ActivatedRoute,
         @Inject(DOCUMENT) public document: any,
-        public ele: ElementRef
+        public ele: ElementRef,
+        public sysinfo: SysinfoService
     ) {
         this.route.params.subscribe(res => {
             this.id = res.id;
@@ -34,7 +36,7 @@ export class ThemesPreview {
 
     buildQrcode() {
         const _qrcode = new this.qrcode(this._qrcode.nativeElement, {
-            text: 'https://meepo.com.cn/app/index.php?i=41&c=entry&do=design&m=imeepos_runner&id=' + this.id,
+            text: this.sysinfo.siteroot+'app/index.php?i='+this.sysinfo.getUniacid()+'&c=entry&do=design&m=imeepos_runner&id=' + this.id,
             width: 128,
             height: 128,
             colorDark: "#000000",
@@ -42,7 +44,7 @@ export class ThemesPreview {
             correctLevel: this.qrcode.CorrectLevel.H
         });
 
-        this.url = 'https://meepo.com.cn/app/index.php?i=41&c=entry&do=design&m=imeepos_runner&id=' + this.id;
+        this.url = this.sysinfo.siteroot+'app/index.php?i='+this.sysinfo.getUniacid()+'&c=entry&do=design&m=imeepos_runner&id=' + this.id;
     }   
 
     loadJScript() {

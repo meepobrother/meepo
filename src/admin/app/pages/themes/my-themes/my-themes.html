@@ -1,0 +1,30 @@
+<div class="row" *ngIf="list.length>0">
+    <div class="col-sm-4" *ngFor="let item of list">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>{{item.title}}</h5>
+                <div class="ibox-tools">
+                    <a class="btn btn-danger btn-xs btn-bitbucket" (click)="delete(item)">
+                        <i class="fa fa-trash"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="ibox-content profile-content">
+                <!-- <p>价格： {{item.price}}元</p> -->
+                <p>编号： {{item.token}}</p>
+                <p>作者： {{item.author}}</p>
+                <div class="user-button" style="margin-top: 10px;">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <button type="button" (click)="goDesign(item)" class="btn btn-primary btn-sm btn-block"><i class="fa fa-coffee"></i> 设计</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<blank *ngIf="list.length<=0" title="还没有任何主题">
+    立即创建专属主题
+</blank>

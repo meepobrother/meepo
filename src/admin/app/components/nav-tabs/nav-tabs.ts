@@ -1,4 +1,4 @@
-import { Component, OnInit, ContentChildren, AfterContentInit, QueryList, Input, HostBinding } from '@angular/core';
+import { Component, OnInit, ContentChildren, AfterContentInit, QueryList, Input, HostBinding, Output, EventEmitter } from '@angular/core';
 import { NavTabPane, NavTabPaneRef } from './nav-tab-pane/nav-tab-pane';
 
 export function isTrueProperty(val: any): boolean {
@@ -18,7 +18,9 @@ export function isTrueProperty(val: any): boolean {
 export class NavTabs implements OnInit, AfterContentInit {
     @ContentChildren(NavTabPane) panes: QueryList<NavTabPane>;
     @Input() title: string;
-    activePane: NavTabPane;
+    @Input() activePane: NavTabPane;
+
+    @Output() onInit: EventEmitter<any> = new EventEmitter();
 
     @HostBinding('class') _class: string = 'tabs-container';
 
@@ -45,7 +47,9 @@ export class NavTabs implements OnInit, AfterContentInit {
     
     constructor() { }
 
-    ngOnInit() { }
+    ngOnInit() { 
+        this.onInit.emit(this);
+    }
 
     ngAfterContentInit() {
         this.onClick(this.panes.first);

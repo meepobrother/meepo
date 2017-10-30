@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Directive, TemplateRef, ContentChild, AfterContentInit } from '@angular/core';
+import { Component, OnInit, Input, Directive, TemplateRef, ContentChild, AfterContentInit, Output, EventEmitter } from '@angular/core';
 
 @Directive({
     selector: '[navTabPaneRef]'
@@ -22,10 +22,13 @@ export class NavTabPane implements OnInit, AfterContentInit {
     @Input() icon: string;
 
     @ContentChild(NavTabPaneRef) paneRef: NavTabPaneRef;
+    @Output() onInit: EventEmitter<any> = new EventEmitter();
 
     constructor() { }
 
-    ngOnInit() { }
+    ngOnInit() { 
+        this.onInit.emit(this);
+    }
 
     ngAfterContentInit(){
         

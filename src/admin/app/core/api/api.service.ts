@@ -32,7 +32,7 @@ export class ApiService {
         return this.http.get<T>(url, { headers: this.header });
     }
 
-    murl(segment: string, params: any = {}) {
+    murl(segment: string, params: any = {}, isCloud: boolean = false) {
         let segments = segment.split('/');
         const __controller = segments[0];
         const __action = segments[1];
@@ -41,7 +41,11 @@ export class ApiService {
         for (let key in params) {
             str += "&" + key + "=" + params[key];
         }
-        return `${this.sysinfo.siteroot}app/index.php?c=${__controller}&do=${__do}&a=${__action}&i=${this.sysinfo.getUniacid()}&j=${this.sysinfo.getAcid()}${str}`;
+        if(isCloud){
+            return `https://meepo.com.cn/app/index.php?c=${__controller}&do=${__do}&a=${__action}&i=${this.sysinfo.getUniacid()}&j=${this.sysinfo.getAcid()}${str}`;
+        }else{
+            return `${this.sysinfo.siteroot}app/index.php?c=${__controller}&do=${__do}&a=${__action}&i=${this.sysinfo.getUniacid()}&j=${this.sysinfo.getAcid()}${str}`;
+        }
     }
 
     wurl(segment: string, params: any = {}) {
@@ -64,8 +68,8 @@ export class ApiService {
         return this.wurl('site/entry/' + __do, { m: __module });
     }
 
-    mpost<T>(__do: string = 'index', __body: any = {}, __module: string = 'imeepos_runner'): Observable<T> {
-        let url = this.murl('entry//open', { m: 'imeepos_runner', __do: __do });
+    mpost<T>(__do: string = 'index', __body: any = {}, __module: string = 'imeepos_runner',isCloud: boolean = false): Observable<T> {
+        let url = this.murl('entry//open', { m: 'imeepos_runner', __do: __do },isCloud);
         const d = JSON.stringify(__body);
         const encrypted = Base64.encode(d);
         return this.http.post<T>(url, { encrypted: encrypted }, { headers: this.header });
