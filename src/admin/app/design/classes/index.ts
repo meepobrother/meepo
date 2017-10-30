@@ -43,5 +43,5 @@ export * from './active';
 
 
 export * from './uupao';
-
+export * from './payui';
 

@@ -22,7 +22,7 @@ export class ThemesMine implements OnInit {
     }
 
     getList() {
-        this.api.mpost('app.getListApp', { page: 1, psize: 30 }).subscribe((res: any) => {
+        this.api.mpost('app.getListApp', { page: 1, psize: 30 }, 'imeepos_runner', true).subscribe((res: any) => {
             this.list = res.info;
         });
     }
@@ -32,7 +32,7 @@ export class ThemesMine implements OnInit {
     }
 
     delete(item: any) {
-        this.api.mpost('app.deleteApp', item).subscribe(res => {
+        this.api.mpost('app.deleteApp', item, 'imeepos_runner', true).subscribe(res => {
             this.getList();
         });
     }

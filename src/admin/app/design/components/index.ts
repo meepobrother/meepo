@@ -12,7 +12,7 @@ import {
     TopicsListDefault, UuItemBoxDefault, UuSwiperDefault, UuBenefitDefault, UuHeaderDefault,
     UuHomeHeaderDefault, UuHomeItemDefault, UuConDefault, UuCouponDefault,
     ActiveItemDefault, BargainItemDefault, ArticleItemDefault, CityItemDefault,
-    MeepoDanmu
+    MeepoDanmu, PayRecordDefault, PaySelectMoneyDefault
 } from '../classes';
 
 import {
@@ -25,6 +25,11 @@ import {
     UuConSetting, UuConView,
     UuCouponSetting, UuCouponView
 } from './uupao';
+
+import {
+    PayRecordSetting, PayRecordView,
+    PaySelectMoneySetting, PaySelectMoneyView
+} from './payui';
 
 import {
     ActiveItemSetting, ActiveItemView,
@@ -212,7 +217,11 @@ export const COMPONENTS = [
     BargainItemSetting, BargainItemView,
     ArticleItemSetting, ArticleItemView,
     CityItemSetting, CityItemView,
-    MeepoDanmuSetting, MeepoDanmuView
+    MeepoDanmuSetting, MeepoDanmuView,
+
+
+    PayRecordSetting, PayRecordView,
+    PaySelectMoneySetting, PaySelectMoneyView
 ];
 
 export const COMPONENTS_SELECT = {
@@ -279,7 +288,9 @@ export const COMPONENTS_VIEW = {
     'bargain-item': BargainItemView,
     'article-item': ArticleItemView,
     'city-item': CityItemView,
-    'meepo-danmu': MeepoDanmuView
+    'meepo-danmu': MeepoDanmuView,
+    'pay-record': PayRecordView,
+    'pay-select-money': PaySelectMoneyView
 };
 
 
@@ -342,6 +353,8 @@ export const COMPONENTS_SETTING = {
     'article-item': ArticleItemSetting, 
     'city-item': CityItemSetting, 
     'meepo-danmu': MeepoDanmuSetting, 
+    'pay-record': PayRecordSetting,
+    'pay-select-money': PaySelectMoneySetting, 
 };
 
 
@@ -390,7 +403,9 @@ export const WIDGETS = {
     'bargain-item': BargainItemDefault,
     'article-item': ArticleItemDefault,
     'city-item': CityItemDefault,
-    'meepo-danmu': MeepoDanmu
+    'meepo-danmu': MeepoDanmu,
+    'pay-record': PayRecordDefault,
+    'pay-select-money': PaySelectMoneyDefault
 }
 
 import { Injectable } from '@angular/core';

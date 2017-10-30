@@ -1,0 +1,55 @@
+<div class="weui-wepay-lists">
+    <div class="weui-wepay-lists__hd" [ngStyle]="widget.listsStyle" [style.padding-top.px]="paddingTop">
+
+        <div class="weui-wepay-lists__menu">
+            <div class="weui-wepay-lists__menu__item" [class.weui-wepay-lists__menu__item_on]="item.active" (click)="onTab(item)" *ngFor="let item of widget.children">{{item.title}}</div>
+        </div>
+    </div>
+    <div class="weui-wepay-lists__bd" #list>
+        <div class="weui-cells" style="margin-top:0" *ngIf="widget.styleType == 'default'">
+            <a class="weui-cell weui-cell_access" href="javascript:;" (click)="_onMore(item,i)" *ngFor="let item of widget.logs;index as i;">
+                <div class="weui-cell__bd">
+                    <h2 class="weui-cell__title">{{item.title}}</h2>
+                    <div class="weui-cell__info">{{item.time}}</div>
+                </div>
+                <div class="weui-cell__ft">
+                    <div class="weui-cell__title">{{item.tip}}</div>
+                    <div class="weui-cell__info">{{item.fee}}元</div>
+                </div>
+            </a>
+        </div>
+
+        <div class="weui-cells" style="margin-top: 0;" *ngIf="widget.styleType == 'label'">
+            <a class="weui-cell weui-cell_access" href="javascript:;" (click)="_onMore(item,i)" *ngFor="let item of widget.logs;index as i;">
+                <div class="weui-cell__bd">
+                    <div class="weui-cell__title">{{item.title}}</div>
+                    <div class="weui-cell__info">{{item.label1}}</div>
+                    <div class="weui-cell__info">{{item.label2}}</div>
+                </div>
+                <div class="weui-cell__ft">
+                    <div class="weui-cell__info weui-wepay-color-green">{{item.tip}}</div>
+                </div>
+            </a>
+        </div>
+
+        <div class="weui-cells" style="margin-top:0" *ngIf="widget.styleType == 'avatar'">
+            <a class="weui-cell weui-cell_primary" href="javascript:;" (click)="_onMore(item,i)" *ngFor="let item of widget.logs;index as i;">
+                <div class="weui-cell__hd">
+                    <img [src]="item.avatar" alt="" width="34" height="34">
+                </div>
+                <div class="weui-cell__bd">
+                    <div class="weui-cell__title">{{item.title}}</div>
+                    <div class="weui-cell__info">{{item.time}}</div>
+                </div>
+                <div class="weui-cell__ft">
+                    <div class="weui-cell__title weui-wepay-color-orange">{{item.money}}</div>
+                    <div class="weui-cell__info">{{item.nickname}}</div>
+                </div>
+            </a>
+        </div>
+
+        <div class="weui-cells" *ngIf="widget.logs.length<=0">
+            <p style="color: gray;text-align: center;padding: 30px;">暂无记录</p>
+        </div>
+    </div>
+</div>

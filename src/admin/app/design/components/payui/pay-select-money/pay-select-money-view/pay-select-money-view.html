@@ -1,0 +1,19 @@
+<div class="weui-wepay-pay-select" style="background:#fff;">
+    <div class="weui-wepay-pay-select__hd">
+        <h1 class="weui-wepay-pay-select__title">{{widget.payTitle}}</h1>
+        <p class="weui-wepay-pay-select__info">{{widget.payDesc}}</p>
+    </div>
+    <div class="weui-wepay-pay-select__bd">
+        <ul class="weui-wepay-pay-select__element">
+            <li class="weui-wepay-pay-select__li" (click)="_onItem(item)" *ngFor="let item of widget.children">
+                <a href="javascript:;" class="weui-wepay-pay-select__item" [class.weui-wepay-pay-select__item_on]="item.active">{{item.title}}</a>
+            </li>
+        </ul>
+    </div>
+    <div class="weui-wepay-pay-select__ft">
+        <div class="weui-wepay-pay__btn">
+            <a href="javascript:;" class="weui-btn weui-btn_primary" (click)="pay()">{{widget.btn}}</a>
+        </div>
+        <p class="weui-wepay-pay__info">{{widget.tip}}</p>
+    </div>
+</div>

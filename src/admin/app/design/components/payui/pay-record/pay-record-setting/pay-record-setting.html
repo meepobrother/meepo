@@ -1,0 +1,36 @@
+<div class="ibox">
+    <div class="ibox-title"></div>
+    <div class="ibox-content">
+        <div class="form-group">
+            <select class="form-control" [(ngModel)]="widget.styleType" type="text">
+                <option value="default">默认</option>
+                <option value="label">文字</option>
+                <option value="avatar">头像</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <div class="ibox-title">
+                <h5>导航项目</h5>
+                <div class="ibox-tools">
+                    <a class="btn btn-primary btn-xs">添加</a>
+                </div>
+            </div>
+            <table class="table table-hover">
+                <tbody>
+                    <tr *ngFor="let item of widget.children">
+                        <td>
+                            <input [(ngModel)]="item.title" class="form-control" placeholder="请输入标题" value="{{item.title}}" />
+                        </td>
+                        <td>
+                            <a class="btn btn-danger btn-xs">删除</a>
+                            <a class="btn btn-primary btn-xs">数据</a>
+                            <a *ngIf="!item.active" (click)="setDefault(item)" class="btn btn-success btn-xs">默认</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="form-group"></div>
+        <div class="form-group"></div>
+    </div>
+</div>

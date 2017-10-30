@@ -34,8 +34,8 @@ export class AddForm implements OnInit {
     ngOnInit() { }
 
     save() {
-        this.form.get('tpl').setValue(this.form.get('tpl').value.replace(/[\r\n]/g,""));
-        this.api.mpost('app.eidtAppForms', this.form.value).subscribe(res => {
+        this.form.get('tpl').setValue(this.form.get('tpl').value.replace(/[\r\n]/g, ""));
+        this.api.mpost('app.eidtAppForms', this.form.value, 'imeepos_runner', true).subscribe(res => {
             this.dialog.close(this.form.value);
         });
     }
@@ -45,7 +45,7 @@ export class AddForm implements OnInit {
     }
 
     delete() {
-        this.api.mpost('app.deleteAppForms', this.form.value).subscribe(res => {
+        this.api.mpost('app.deleteAppForms', this.form.value, 'imeepos_runner', true).subscribe(res => {
             this.cancel();
         });
     }
