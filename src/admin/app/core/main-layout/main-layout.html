@@ -2,7 +2,7 @@
     <sidebar-container *ngIf="showMenu">
         <sidebar-list>
             <sidebar-header>
-                <img ngStyle.xs="max-width: 2em" class="sidebar-header-avatar" src="assets/img/a1.jpg" alt="">
+                <img ngStyle.xs="max-width: 2em" class="sidebar-header-avatar" [src]="myinfo.avatar" alt="">
             </sidebar-header>
             <sidebar-item *ngFor="let item of menus" (onItem)="onItem(item)" class="active">
                 <i icon [class]="item.icon"></i> {{item.title}}

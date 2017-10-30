@@ -45,3 +45,4 @@ export * from './active';
 export * from './uupao';
 export * from './payui';
 
+export * from './iqiyi';

@@ -11,11 +11,15 @@ export class PayRecordDefault extends Widget {
         this.styleType = 'default';
         this.children = [
             {
-                title: '成功'
+                title: '处理中',
+                __post: {status: 0},
+                __do: 'tixian.log',
+                active: true
             }, {
-                title: '失败'
-            }, {
-                title: '退款'
+                title: '已完成',
+                __post: {status: 0},
+                __do: 'tixian.log',
+                active: false
             }
         ];
 

@@ -12,25 +12,57 @@
             <div class="ibox-title">
                 <h5>导航项目</h5>
                 <div class="ibox-tools">
-                    <a class="btn btn-primary btn-xs">添加</a>
+                    <a class="btn btn-primary btn-xs" (click)="add()">添加</a>
                 </div>
             </div>
             <table class="table table-hover">
                 <tbody>
-                    <tr *ngFor="let item of widget.children">
+                    <tr *ngFor="let item of widget.children;index as i;">
                         <td>
                             <input [(ngModel)]="item.title" class="form-control" placeholder="请输入标题" value="{{item.title}}" />
                         </td>
                         <td>
-                            <a class="btn btn-danger btn-xs">删除</a>
-                            <a class="btn btn-primary btn-xs">数据</a>
+                            <a class="btn btn-danger btn-xs" (click)="delete(i)">删除</a>
+                            <a class="btn btn-primary btn-xs" (click)="dataSelectData(item,i)">数据</a>
                             <a *ngIf="!item.active" (click)="setDefault(item)" class="btn btn-success btn-xs">默认</a>
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
+        <div class="form-group">
+
+        </div>
         <div class="form-group"></div>
-        <div class="form-group"></div>
+    </div>
+</div>
+
+
+<div class="modal show" *ngIf="openDataDialog">
+    <div class="ibox" style="width: 400px; height: 500px;">
+        <div class="ibox-title">
+            数据设置
+        </div>
+        <div class="ibox-content">
+            <nav-tabs>
+                <nav-tab-pane title="提现记录">
+                    <ng-template navTabPaneRef>
+                        <div class="p10">
+                            <a class="btn btn-primary btn-xs btn-block" (click)="setStatus('tixian.log',{status: 0})">处理中</a>
+                            <a class="btn btn-primary btn-xs btn-block" (click)="setStatus('tixian.log',{status: 2})">已完成</a>
+                        </div>
+                    </ng-template>
+                </nav-tab-pane>
+                <nav-tab-pane title="充值记录">
+                    <ng-template navTabPaneRef>
+                        <div class="p10">
+                            <a class="btn btn-primary btn-xs btn-block" (click)="setStatus('tixian.chongzhi_log',{status: 0})">待支付</a>
+                            <a class="btn btn-primary btn-xs btn-block" (click)="setStatus('tixian.chongzhi_log',{status: 1})">已支付</a>
+                            <a class="btn btn-primary btn-xs btn-block" (click)="setStatus('tixian.chongzhi_log',{status: 2})">充值成功</a>
+                        </div>
+                    </ng-template>
+                </nav-tab-pane>
+            </nav-tabs>
+        </div>
     </div>
 </div>

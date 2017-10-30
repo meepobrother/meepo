@@ -12,7 +12,7 @@ import {
     TopicsListDefault, UuItemBoxDefault, UuSwiperDefault, UuBenefitDefault, UuHeaderDefault,
     UuHomeHeaderDefault, UuHomeItemDefault, UuConDefault, UuCouponDefault,
     ActiveItemDefault, BargainItemDefault, ArticleItemDefault, CityItemDefault,
-    MeepoDanmu, PayRecordDefault, PaySelectMoneyDefault
+    MeepoDanmu, PayRecordDefault, PaySelectMoneyDefault, IqiyiHeadNavDefault
 } from '../classes';
 
 import {
@@ -30,6 +30,10 @@ import {
     PayRecordSetting, PayRecordView,
     PaySelectMoneySetting, PaySelectMoneyView
 } from './payui';
+
+import {
+    IqiyiHeadNavView, IqiyiHeadNavSetting
+} from './iqiyi';
 
 import {
     ActiveItemSetting, ActiveItemView,
@@ -221,7 +225,8 @@ export const COMPONENTS = [
 
 
     PayRecordSetting, PayRecordView,
-    PaySelectMoneySetting, PaySelectMoneyView
+    PaySelectMoneySetting, PaySelectMoneyView,
+    IqiyiHeadNavView, IqiyiHeadNavSetting
 ];
 
 export const COMPONENTS_SELECT = {
@@ -290,7 +295,8 @@ export const COMPONENTS_VIEW = {
     'city-item': CityItemView,
     'meepo-danmu': MeepoDanmuView,
     'pay-record': PayRecordView,
-    'pay-select-money': PaySelectMoneyView
+    'pay-select-money': PaySelectMoneyView,
+    'iqiyi-head-nav': IqiyiHeadNavView,
 };
 
 
@@ -355,6 +361,7 @@ export const COMPONENTS_SETTING = {
     'meepo-danmu': MeepoDanmuSetting, 
     'pay-record': PayRecordSetting,
     'pay-select-money': PaySelectMoneySetting, 
+    'iqiyi-head-nav':  IqiyiHeadNavSetting,
 };
 
 
@@ -405,7 +412,8 @@ export const WIDGETS = {
     'city-item': CityItemDefault,
     'meepo-danmu': MeepoDanmu,
     'pay-record': PayRecordDefault,
-    'pay-select-money': PaySelectMoneyDefault
+    'pay-select-money': PaySelectMoneyDefault,
+    'iqiyi-head-nav': IqiyiHeadNavDefault
 }
 
 import { Injectable } from '@angular/core';

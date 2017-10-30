@@ -111,13 +111,15 @@ export class MainLayoutComponent implements OnInit {
     ];
     showMenu: boolean = false;
     timer: any;
+
+    myinfo: any;
     constructor(
         public sidebar$: SidebarContainerService,
         public dropdowns$: DropdownsService,
         public router: Router,
         public login$: LoginService
     ) {
-
+        this.myinfo = store.get('__meepo_myuserinfo', { avatar: 'assets/img/a1.jpg' })
     }
     ngOnInit() {
         const isLogin = store.get('isLogin');
