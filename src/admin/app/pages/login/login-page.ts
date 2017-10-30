@@ -26,6 +26,7 @@ export class LoginPage implements OnInit {
     timer: any;
     QRCode: any;
     siteroot: string;
+    sitehttp: string = 'https://';
 
     showNext: boolean = false;
 
@@ -37,20 +38,20 @@ export class LoginPage implements OnInit {
         @Inject(DOCUMENT) public document: any,
         public api: ApiService
     ) {
-        this.rcode = store.get('__meepo_rcode',uuid());
+        this.rcode = store.get('__meepo_rcode', uuid());
         this.siteroot = store.get('__meepo_siteroot');
-        
+
         this.laodSuccess.subscribe(QRCode => {
             this.QRCode = QRCode;
         });
-
-        this.api.onInit.subscribe(sysinfo=>{});
+        this.api.onInit.subscribe(sysinfo => { });
     }
 
-    next(){
+    next() {
         this.showNext = true;
-        this.api.setSiteroot(this.siteroot);
-        document.getElementById('qrcode').innerHTML="";
+        this.api.setSiteroot(this.sitehttp + this.siteroot + "/");
+        store.set('__meepo_siteroot',this.siteroot);
+        document.getElementById('qrcode').innerHTML = "";
         var qrcode = new this.QRCode(document.getElementById("qrcode"), {
             text: "" + this.api.murl('entry//open', { __do: 'login.qrcode', m: 'imeepos_runner', r: this.rcode }),
             width: 328,
@@ -62,7 +63,7 @@ export class LoginPage implements OnInit {
     }
 
     ngOnInit() {
-        this.api.mpost('login.update',{}).subscribe(res=>{});
+        this.api.mpost('login.update', {}).subscribe(res => { });
         this.timer = setInterval(() => {
             this.api.mpost('login.autologin', { r: this.rcode }).subscribe((res: any) => {
                 const date = res.info;
@@ -77,7 +78,7 @@ export class LoginPage implements OnInit {
                     store.set('__meepo_acid', acid);
                     store.set('__meepo_siteroot', siteroot);
 
-                    if(uniacid){
+                    if (uniacid) {
                         store.set('isLogin', true);
                         this.login$.isLogin = true;
                         this.router.navigate(['members']);

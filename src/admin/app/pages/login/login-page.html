@@ -3,9 +3,9 @@
         <div [class.hiden]="showNext">
             <h2 class="title">请输入域名</h2>
             <div class="form-group">
-                <select class="form-control" style="width: 5em;">
-                    <option>http://</option>
-                    <option>https://</option>
+                <select class="form-control" [(ngModel)]="sitehttp" style="width: 5em;">
+                    <option value="http://">http://</option>
+                    <option value="https://">https://</option>
                 </select>
                 <input type="text" [(ngModel)]="siteroot" class="form-control" placeholder="请输入域名">
             </div>
