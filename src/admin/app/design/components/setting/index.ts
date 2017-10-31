@@ -19,6 +19,8 @@ export * from './image-link-title-select/image-link-title-select';
 
 export * from './icon-select-dialog/icon-select-dialog';
 export * from './icon-link-icon-select/icon-link-icon-select';
+export * from './icon-title-dialog/icon-title-dialog';
+
 export * from './image-link-title-select/image-link-title-select';
 
 

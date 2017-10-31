@@ -126,7 +126,8 @@ import {
     TasksGroupDataSelect, SkillsGroupDataSelect, OrdersGroupDataSelect,
     SettingContainerColor, SettingContainerBorder,
     TopicsGroupDataSelect, IconLinkSelect, ImageLinkSelect,
-    IconSelectDialog, IconLinkIconSelect, ImageLinkTitleSelect
+    IconSelectDialog, IconLinkIconSelect, ImageLinkTitleSelect,
+    IconTitleDialog
 } from './setting';
 
 import {
@@ -144,6 +145,7 @@ export const COMPONENTS = [
     NavbarSelect, NavbarView, NavbarSetting,
     PickerSelect, PickerView, PickerSetting,
     TopicsGroupDataSelect, IconSelectDialog, IconLinkIconSelect, ImageLinkTitleSelect,
+    IconTitleDialog,
 
     // layouts
     LayoutSelect, LayoutView, LayoutSetting,

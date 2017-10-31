@@ -12,6 +12,13 @@
         按钮设置
     </div>
     <div class="ibox-content">
-        <a class="btn btn-primary">设置按钮</a>
+        <div class="form-group">
+            <div class="input-group">
+                <input type="text" class="form-control" [(ngModel)]="widget.content" placeholder="标题">
+                <div class="input-group-addon" (click)="selectIcon()">
+                    <i [ngClass]="widget.icon"></i> 图标
+                </div>
+            </div>
+        </div>
     </div>
 </div>
