@@ -13,7 +13,7 @@ import {
     UuHomeHeaderDefault, UuHomeItemDefault, UuConDefault, UuCouponDefault,
     ActiveItemDefault, BargainItemDefault, ArticleItemDefault, CityItemDefault,
     MeepoDanmu, PayRecordDefault, PaySelectMoneyDefault, IqiyiHeadNavDefault,
-    MeepoFormBtnDefault
+    MeepoFormBtnDefault, MeepoFormRealnameDefault
 } from '../classes';
 
 import {
@@ -72,7 +72,6 @@ import {
     MeepoTextSetting, MeepoTextView,
     MeepoTagsSetting, MeepoTagsView,
     MeepoSwiperTagsSetting, MeepoSwiperTagsView,
-
     // 地址
     MeepoAddAddressView, MeepoAddAddressSetting,
     MeepoListSetting, MeepoListView,
@@ -101,7 +100,8 @@ import {
     MeepoFormAddressStartView, MeepoFormAddressView,
 
     MeepoFormIdcardSetting, MeepoFormIdcardView,
-    MeepoFormBtnSetting, MeepoFormBtnView
+    MeepoFormBtnSetting, MeepoFormBtnView,
+    MeepoFormRealnameView, MeepoFormRealnameSetting
 } from './forms';
 
 import {
@@ -145,7 +145,7 @@ export const COMPONENTS = [
     NavbarSelect, NavbarView, NavbarSetting,
     PickerSelect, PickerView, PickerSetting,
     TopicsGroupDataSelect, IconSelectDialog, IconLinkIconSelect, ImageLinkTitleSelect,
-    IconTitleDialog,
+    IconTitleDialog, MeepoFormRealnameDefault,
 
     // layouts
     LayoutSelect, LayoutView, LayoutSetting,
@@ -227,11 +227,11 @@ export const COMPONENTS = [
     CityItemSetting, CityItemView,
     MeepoDanmuSetting, MeepoDanmuView,
 
-
     PayRecordSetting, PayRecordView,
     PaySelectMoneySetting, PaySelectMoneyView,
     IqiyiHeadNavView, IqiyiHeadNavSetting,
-    MeepoFormBtnSetting, MeepoFormBtnView
+    MeepoFormBtnSetting, MeepoFormBtnView,
+    MeepoFormRealnameView, MeepoFormRealnameSetting
 ];
 
 export const COMPONENTS_SELECT = {
@@ -302,7 +302,8 @@ export const COMPONENTS_VIEW = {
     'pay-record': PayRecordView,
     'pay-select-money': PaySelectMoneyView,
     'iqiyi-head-nav': IqiyiHeadNavView,
-    'meepo-form-btn': MeepoFormBtnView
+    'meepo-form-btn': MeepoFormBtnView,
+    'meepo-form-realname': MeepoFormRealnameView, 
 };
 
 
@@ -353,22 +354,23 @@ export const COMPONENTS_SETTING = {
     'meepo-topics-list': TopicsListSetting,
     'uu-item-box': UuItemBoxSetting,
     'uu-swiper': UuSwiperSetting,
-    'uu-benefit': UuBenefitSetting, 
+    'uu-benefit': UuBenefitSetting,
     'uu-header': UuHeaderSetting,
-    'uu-home-header': UuHomeHeaderSetting, 
+    'uu-home-header': UuHomeHeaderSetting,
     'uu-home-item': UuHomeItemSetting,
-    'uu-con': UuConSetting, 
+    'uu-con': UuConSetting,
 
-    'uu-coupon': UuCouponSetting, 
-    'active-item': ActiveItemSetting, 
-    'bargain-item': BargainItemSetting, 
-    'article-item': ArticleItemSetting, 
-    'city-item': CityItemSetting, 
-    'meepo-danmu': MeepoDanmuSetting, 
+    'uu-coupon': UuCouponSetting,
+    'active-item': ActiveItemSetting,
+    'bargain-item': BargainItemSetting,
+    'article-item': ArticleItemSetting,
+    'city-item': CityItemSetting,
+    'meepo-danmu': MeepoDanmuSetting,
     'pay-record': PayRecordSetting,
-    'pay-select-money': PaySelectMoneySetting, 
-    'iqiyi-head-nav':  IqiyiHeadNavSetting,
-    'meepo-form-btn': MeepoFormBtnSetting, 
+    'pay-select-money': PaySelectMoneySetting,
+    'iqiyi-head-nav': IqiyiHeadNavSetting,
+    'meepo-form-btn': MeepoFormBtnSetting,
+    'meepo-form-realname': MeepoFormRealnameSetting
 };
 
 
@@ -408,7 +410,7 @@ export const WIDGETS = {
     'uu-item-box': UuItemBoxDefault,
     'uu-swiper': UuSwiperDefault,
     'uu-benefit': UuBenefitDefault,
-    'uu-header': UuHeaderDefault,   
+    'uu-header': UuHeaderDefault,
     'uu-home-header': UuHomeHeaderDefault,
     'uu-home-item': UuHomeItemDefault,
     'uu-con': UuConDefault,
@@ -421,7 +423,8 @@ export const WIDGETS = {
     'pay-record': PayRecordDefault,
     'pay-select-money': PaySelectMoneyDefault,
     'iqiyi-head-nav': IqiyiHeadNavDefault,
-    'meepo-form-btn': MeepoFormBtnDefault
+    'meepo-form-btn': MeepoFormBtnDefault,
+    'meepo-form-realname': MeepoFormRealnameDefault
 }
 
 import { Injectable } from '@angular/core';
