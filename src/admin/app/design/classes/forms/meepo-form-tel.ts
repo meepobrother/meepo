@@ -2,17 +2,16 @@
 import { Widget } from '../widget';
 
 
-export class MeepoFormInputDefault extends Widget{
+export class MeepoFormTelDefault extends Widget{
     show: boolean = true;
     required: boolean = true;
-    placeholder: string = '请输入something';
-    title: string = '输入框';
-    field_name: string;
+    placeholder: string = '请输入联系电话';
+    title: string = '联系电话';
 
     constructor(){
         super();
-        this.type = 'meepo-form-input';
-        this.name = '输入框';
+        this.type = 'meepo-form-tel';
+        this.name = '联系电话';
 
         this.containerStyle = {
             'margin-top': '0px'

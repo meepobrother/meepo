@@ -9,14 +9,7 @@ import { MeepoFormInputDefault } from '../../../../classes';
 })
 export class MeepoFormInputView implements OnInit {
     @Input() widget: MeepoFormInputDefault = new MeepoFormInputDefault();
-    form: FormGroup;
-    constructor(
-        public fb: FormBuilder
-    ) { 
-        this.form = this.fb.group({
-            price: ['',Validators.required]
-        });
-    }
+    constructor() { }
 
     ngOnInit() { }
 }
