@@ -85,7 +85,7 @@ export class ThemesDesign {
             if(res.manager){
                 this.showComponent = true;
             }
-        })
+        });
     }
 
     // 页面导航

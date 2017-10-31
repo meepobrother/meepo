@@ -34,8 +34,6 @@ export class NumberPx implements OnInit {
     ngOnInit() { 
         this.render.setStyle(this.ele.nativeElement,'position','relative');
         this._model = this._model || 0;
-        
-        console.log(this._model);
     }
 
     change(e) {

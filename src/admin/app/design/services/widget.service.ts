@@ -10,10 +10,16 @@ export class WidgetService {
     removeWidgetStream: Subject<any> = new Subject();
     
 
+    widget: any;
+
     appId: any;
 
     setAppId(id: any){
         this.appId = id;
+    }
+
+    setData(widget: any){
+        this.widget = widget;
     }
 
     getAppId(){
