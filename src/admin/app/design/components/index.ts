@@ -12,7 +12,8 @@ import {
     TopicsListDefault, UuItemBoxDefault, UuSwiperDefault, UuBenefitDefault, UuHeaderDefault,
     UuHomeHeaderDefault, UuHomeItemDefault, UuConDefault, UuCouponDefault,
     ActiveItemDefault, BargainItemDefault, ArticleItemDefault, CityItemDefault,
-    MeepoDanmu, PayRecordDefault, PaySelectMoneyDefault, IqiyiHeadNavDefault
+    MeepoDanmu, PayRecordDefault, PaySelectMoneyDefault, IqiyiHeadNavDefault,
+    MeepoFormBtnDefault
 } from '../classes';
 
 import {
@@ -100,6 +101,7 @@ import {
     MeepoFormAddressStartView, MeepoFormAddressView,
 
     MeepoFormIdcardSetting, MeepoFormIdcardView,
+    MeepoFormBtnSetting, MeepoFormBtnView
 } from './forms';
 
 import {
@@ -226,7 +228,8 @@ export const COMPONENTS = [
 
     PayRecordSetting, PayRecordView,
     PaySelectMoneySetting, PaySelectMoneyView,
-    IqiyiHeadNavView, IqiyiHeadNavSetting
+    IqiyiHeadNavView, IqiyiHeadNavSetting,
+    MeepoFormBtnSetting, MeepoFormBtnView
 ];
 
 export const COMPONENTS_SELECT = {
@@ -297,6 +300,7 @@ export const COMPONENTS_VIEW = {
     'pay-record': PayRecordView,
     'pay-select-money': PaySelectMoneyView,
     'iqiyi-head-nav': IqiyiHeadNavView,
+    'meepo-form-btn': MeepoFormBtnView
 };
 
 
@@ -362,6 +366,7 @@ export const COMPONENTS_SETTING = {
     'pay-record': PayRecordSetting,
     'pay-select-money': PaySelectMoneySetting, 
     'iqiyi-head-nav':  IqiyiHeadNavSetting,
+    'meepo-form-btn': MeepoFormBtnSetting, 
 };
 
 
@@ -413,7 +418,8 @@ export const WIDGETS = {
     'meepo-danmu': MeepoDanmu,
     'pay-record': PayRecordDefault,
     'pay-select-money': PaySelectMoneyDefault,
-    'iqiyi-head-nav': IqiyiHeadNavDefault
+    'iqiyi-head-nav': IqiyiHeadNavDefault,
+    'meepo-form-btn': MeepoFormBtnDefault
 }
 
 import { Injectable } from '@angular/core';
