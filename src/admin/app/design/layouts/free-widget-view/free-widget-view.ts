@@ -12,8 +12,6 @@ import { Subject } from 'rxjs/Subject';
 
 import "rxjs/add/operator/last";
 
-declare const jQuery: any;
-
 @Component({
     selector: 'free-widget-view',
     templateUrl: './free-widget-view.html',
@@ -91,13 +89,11 @@ export class FreeWidgetView implements OnInit, AfterViewInit, OnDestroy, OnChang
     ngOnInit() { }
 
     ngAfterViewInit() {
-        this.renderWidgetContainer();
+
     }
 
-    removeWidget(e: any) {
-        // this.service.removeWidget(this._widget);
-        var t = jQuery(e.target);
-        this.widgetService.removeWidget(t.closest(".ele-container"))
+    removeWidget() {
+        this.service.removeWidget(this._widget);
     }
 
     renderWidgetContainer() {
@@ -118,7 +114,7 @@ export class FreeWidgetView implements OnInit, AfterViewInit, OnDestroy, OnChang
     }
 
     ngOnChanges() {
-        this._widget.parentForm = this.parentForm;
+        this.renderWidgetContainer();
     }
 }
 
