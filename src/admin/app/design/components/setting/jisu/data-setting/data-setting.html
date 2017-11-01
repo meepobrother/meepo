@@ -1,0 +1,75 @@
+<p class="setting-group-name" [class.active]="prop" (click)="changePropStatus()">数据管理</p>
+<div [style.display]="prop?'block':'none'" class="setting-wrap eles-wrap">
+
+    <div style="border-bottom: 1px solid #dcdcdc;padding-bottom: 15px;">
+        <div class="eles-wrap">
+            <span>设置为详情页</span>
+            <div id="div1" class="{{isDetailPage?'open1':'close1'}}" (click)="setDetailPage()">
+                <div id="div2" class="{{isDetailPage?'open2':'close2'}}"></div>
+            </div>
+        </div>
+        <div class="eles-wrap" [hidden]="isDetailPage === false">
+            <label>绑定数据：</label>
+            <bind-data-object [currentWidget]="currentPageCustom"></bind-data-object>
+            <div class="note-tip" style="margin-top:10px;">
+                <label>提示：</label>详情页必须搭配 "动态列表" 使用。操作步骤：1.在其他页面添加"动态列表" 2.列表和本页面绑定相同数据 3.把列表跳转设置为本页面
+            </div>
+        </div>
+    </div>
+
+    <div class="setting-wrap eles-wrap">
+        <div *ngFor="let widget of filterWidget(widgetList,currentPageCustom)">
+            <div class="ele" [class.parent-ele]="widget.isVessel === true" (click)="showChildren($event)" (click)="makeWidgetInView(widget)" (mouseover)="addMouseoverClass(widget.id)" (mouseout)="removeMouseoverClass(widget.id)">
+                <i class="icon icon-{{widget.type}}"></i> {{widget.name}}
+
+                <div class="data-set" *ngIf="filterNoDataVessel(widget.type)">
+                    <div *ngIf="isVesselObject(currentPageCustom,widget.type)">
+                        <label class="text-label">绑定数据：</label>
+                        <bind-data-object *ngIf="widget.type != 'dynamic-vessel'" [currentWidget]="widget"></bind-data-object>
+                        <bind-data-object-dynamic *ngIf="widget.type == 'dynamic-vessel'" [currentWidget]="widget"></bind-data-object-dynamic>
+                    </div>
+                    <div *ngIf="isVesselKey(currentPageCustom,widget.type)">
+                        <label class="text-label">选择字段：</label>
+                        <bind-data-field [currentWidget]="widget"></bind-data-field>
+                    </div>
+                    <div *ngIf="hasObjectCategory(currentPageCustom,widget.type)">
+                        <label class="text-label">选择分类：</label>
+                        <select #select class="data-source-select" [value]="widget.customFeature.source?widget.customFeature.source:'none'" (change)="widget.customFeature.source = select.value;">
+                            <option disabled *ngIf="widget.customFeature.form == ''">请先绑定数据</option>
+                            <option value="none">全部</option>
+                            <option *ngFor="let category of widgetSettingService.getFormCategory(widget.customFeature.form)" value="{{ category.id }}">{{ category.name }}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <ul *ngIf="widget.isVessel === true" class="sec-wrap {{widget.type}}">
+                <li *ngFor="let childWidget of parseChildren(widget)" [attr.data-id]="childWidget.id" [attr.data-parentId]="widget.id">
+                    <div (mouseover)="addMouseoverClass(childWidget.id)" (click)="showChildren($event)" (mouseout)="removeMouseoverClass(childWidget.id)" class="ele" [class.parent-ele]="childWidget.isVessel === true">
+                        <i class="icon icon-{{childWidget.type}}"></i> {{childWidget.name}}
+                        <div class="data-set">
+                            <div *ngIf="filterNoDataVessel(childWidget.type)">
+                                <label class="text-label">选择字段：</label>
+                                <bind-data-field [currentWidget]="childWidget"></bind-data-field>
+                            </div>
+                        </div>
+                    </div>
+
+                    <ul *ngIf="childWidget.isVessel === true" class="sec-wrap {{childWidget.type}}">
+                        <li *ngFor="let lastWidget of parseChildren(childWidget)" [attr.data-id]="lastWidget.id" [attr.data-parentId]="childWidget.id">
+                            <div (mouseover)="addMouseoverClass(lastWidget.id)" (mouseout)="removeMouseoverClass(lastWidget.id)" class="ele">
+                                <i class="icon icon-{{lastWidget.type}}"></i> {{lastWidget.name}}
+                                <div class="data-set">
+                                    <div *ngIf="filterNoDataVessel(lastWidget.type)">
+                                        <label class="text-label">选择字段：</label>
+                                        <bind-data-field [currentWidget]="lastWidget"></bind-data-field>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

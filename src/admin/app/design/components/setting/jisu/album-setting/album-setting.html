@@ -1,0 +1,115 @@
+<div class="top-tab-nav operate-navs">
+    <span (click)="setWidgetSettingType('content')" [class.active]="widgetSettingType === 'content'" id="cur-com-name" class="active">{{currentWidget.name}}组件</span>
+    <span (click)="setWidgetSettingType('style')" [class.active]="widgetSettingType === 'style'">组件样式</span>
+</div>
+<div [class.active]="widgetSettingType === 'content'" class="tab-content">
+    <div class="content-set-wrap">
+        <span class="full-yellow-btn green" (click)="addPicture()">添加图片</span>
+        <ul class="accordion-container js-accordion-container">
+            <li class="accordion" *ngFor="let item of currentWidget.content;let i=index" [class.expand]="paraShow === i && isDetail">
+                <p class="set-title"><span (click)="showDetail(i)" class="js-text">{{item.title}}</span><span (click)="deletePicture(item)" class="delete-btn icon-container icon-delete"></span></p>
+                <div class="set-content">
+                    <p class="setting-row"><span class="setting-label">标题：</span><input class="input" type="text" [(ngModel)]="item.title"></p>
+                    <p class="setting-row"><span class="setting-label">图片：</span><img class="thumbnail" src="{{item.pic}}">
+                        <change-pic [currentWidget]="currentWidget" [index]="i"></change-pic>
+                    </p>
+                    <div class="click-page-link">
+                        <cpn-click-response [currentWidget]="currentWidget" [index]="i"></cpn-click-response>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<div [class.active]="widgetSettingType === 'style'" class="tab-content">
+    <div class="setting-accordion active">
+        <div class="setting-accordion-title" (click)="showAccordionExpand($event)">组件设置</div>
+        <div class="setting-accordion-content">
+            <div class="setting-row">
+                <div class="setting-row-text" style="vertical-align: top; margin-right: 2px;">样式</div>
+                <div class="setting-inline">
+                    <album-set [currentWidget]="currentWidget"></album-set>
+                </div>
+            </div>
+            <div class="setting-row">
+                <div class="setting-row-text">行数</div>
+                <div class="setting-inline">
+                    <pic-row-num [currentWidget]="currentWidget"></pic-row-num>
+                </div>
+                <div class="setting-row-text">列数</div>
+                <div class="setting-inline">
+                    <pic-col-num [currentWidget]="currentWidget"></pic-col-num>
+                </div>
+            </div>
+            <div class="setting-row">
+                <div class="setting-row-text">间距</div>
+                <div class="setting-inline">
+                    <label>上</label>
+                    <margin-top [currentWidget]="currentWidget"></margin-top>
+                </div>
+            </div>
+            <div class="setting-row">
+                <div class="setting-row-text">背景</div>
+                <div class="setting-inline">
+                    <background-color [currentWidget]="currentWidget"></background-color>
+                </div>
+                <div class="setting-inline">
+                    <background-image [currentWidget]="currentWidget"></background-image>
+                </div>
+            </div>
+            <div class="setting-row">
+                <div class="setting-row-text">透明</div>
+                <div class="setting-inline">
+                    <opacity-style [currentWidget]="currentWidget"></opacity-style>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="setting-accordion active">
+        <div class="setting-accordion-title" (click)="showAccordionExpand($event)">图片设置</div>
+        <div class="setting-accordion-content">
+            <div class="setting-row">
+                <div class="setting-row-text">尺寸</div>
+                <div class="setting-inline">
+                    <label>高</label>
+                    <pic-height [currentWidget]="currentWidget"></pic-height>
+                </div>
+            </div>
+            <div class="setting-row">
+                <div class="setting-row-text">间距</div>
+                <div class="setting-inline">
+                    <label>左</label>
+                    <pic-left-pad [currentWidget]="currentWidget"></pic-left-pad>
+                </div>
+                <div class="setting-inline">
+                    <label>上</label>
+                    <pic-top-pad [currentWidget]="currentWidget"></pic-top-pad>
+                </div>
+            </div>
+            <div class="setting-row">
+                <div class="setting-row-text">圆角</div>
+                <div class="setting-inline">
+                    <pic-border-radius [currentWidget]="currentWidget"></pic-border-radius>
+                </div>
+                <div class="setting-inline">
+                    <pic-border-circle [currentWidget]="currentWidget"></pic-border-circle>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="setting-accordion active">
+        <div class="setting-accordion-title" (click)="showAccordionExpand($event)">文字设置</div>
+        <div class="setting-accordion-content">
+            <div class="setting-row">
+                <div class="setting-inline" style="margin-bottom: 10px;">
+                    <font-size [currentWidget]="currentWidget"></font-size>
+                    <div class="divide-line"></div>
+                    <font-decoration [currentWidget]="currentWidget"></font-decoration>
+                    <div class="divide-line"></div>
+                    <font-color [currentWidget]="currentWidget"></font-color>
+                    <text-align [currentWidget]="currentWidget"></text-align>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

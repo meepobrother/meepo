@@ -1,0 +1,97 @@
+<div class="webapp-box-bg" id="webapp-img-box-bg"></div>
+<div class="webapp-box" id="webapp-img-box">
+    <div class="webapp-box-header">
+        <div>
+            <div>
+                <ul class="webapp-box-header-ul">
+                    <li>我的图片</li>
+                    <li class="system-img-library">图片库</li>
+                </ul>
+            </div>
+        </div>
+        <span class="webapp-box-close">×</span>
+    </div>
+    <div class="webapp-box-content">
+        <div class="box-resource-content" id="webapp-my-img">
+            <div>
+                <ul class="webapp-content-tab">
+                    <li data-page="1" data-id="0" id="default-img-group">全部</li>
+                </ul>
+                <div class="resource-list-wrap">
+                    <ul class="resource-list"></ul>
+                </div>
+            </div>
+        </div>
+        <div class="box-resource-content" id="webapp-system-img">
+            <ul class="webapp-content-tab">
+                <li data-page="1" data-id="0">全部</li>
+            </ul>
+            <div class="resource-list-wrap">
+                <ul class="resource-list"></ul>
+            </div>
+        </div>
+        <div class="content-top-operation">
+            <div class="box-operation-menu">
+                <ul>
+                    <li class="btn btn-success green" id="select-local-img">上传至当前组</li>
+                    <li class="btn btn-default" data-href="#img-box-group-create">新建分组</li>
+                    <li class="btn btn-default cannot-operate-default edit-img-group" data-href="#img-box-group-edit">编辑分组</li>
+                    <li class="btn btn-default img-batch" data-href="#box-img-batch">批量处理</li>
+                </ul>
+            </div>
+            <div class="box-hide" id="img-box-group-edit">修改组名 <input class="group-name-input form-control input" type="text">
+                <a href="javascript:;" class="btn btn-success green group-edit-confirm">确定</a>
+                <a href="javascript:;" class="btn btn-default group-edit-cancel">取消</a>
+                <a href="javascript:;" class="btn btn-danger orange delete-img-group">删除当前组</a>
+            </div>
+            <div class="box-hide" id="img-box-group-create">新建分组 <input class="group-name-input form-control input" type="text">
+                <a href="javascript:;" class="btn btn-success green group-edit-confirm">确定</a>
+                <a href="javascript:;" class="btn btn-default group-edit-cancel">取消</a>
+                <span>组名不超过6个字</span>
+            </div>
+            <div class="box-hide" id="box-img-batch">已选<span class="resource-select-num">0</span>张 移至 <select class="resource-group-select form-control"></select>
+                <a href="javascript:;" class="btn btn-success green group-edit-confirm">确定</a>
+                <a href="javascript:;" class="btn btn-danger orange delete-select-img">删除选中图片</a>
+                <a href="javascript:;" class="btn btn-default group-edit-cancel">取消</a>
+            </div>
+        </div>
+    </div>
+    <!--     <div class="webapp-box-footer">
+        <a href="javascript:;" class="btn blue img-box-confirm">确定</a>
+    </div> -->
+</div>
+<div class="webapp-box-bg" id="img-crop-box-bg"></div>
+<div class="webapp-box" id="img-crop-box">
+    <div class="webapp-box-header">
+        <div class="webapp-box-header-ul">
+            <span style="font-size:16px;">图片裁剪</span>
+        </div>
+        <span class="webapp-box-close">×</span>
+    </div>
+    <div class="webapp-box-content">
+        <div class="form-inline img-crop-top-input">
+            <span>宽度: </span><input class="form-control input-sm input img-crop-width-input" type="text">
+            <span>高度: </span><input class="form-control input-sm input img-crop-height-input" type="text">
+        </div>
+        <div class="img-crop-body">
+            <div class="img-crop-body-left">
+                <label>原图比例<input class="img-box-ui-radio" data-ratio="1" type="radio" name="img-box-ratio"></label>
+                <label>1:1<input class="img-box-ui-radio" data-ratio="1" type="radio" name="img-box-ratio"></label>
+                <label>4:3<input class="img-box-ui-radio" data-ratio="4/3" type="radio" name="img-box-ratio"></label>
+                <label>3:4<input class="img-box-ui-radio" data-ratio="3/4" type="radio" name="img-box-ratio"></label>
+                <label>16:9<input class="img-box-ui-radio" data-ratio="16/9" type="radio" name="img-box-ratio"></label>
+                <label>自由拖动<input class="img-box-ui-radio" data-ratio="0" type="radio" name="img-box-ratio"></label>
+            </div>
+            <div class="img-crop-body-right">
+                <div class="img-crop-scope">
+                    <img id="img-crop-target">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="webapp-box-footer">
+        <button class="btn btn-info blue img-crop-cancel">不裁剪</button>
+        <button class="btn btn-success green img-crop-confirm">裁剪</button>
+        <button class="btn btn-default img-crop-return" style="margin-left:50px;">取消</button>
+    </div>
+</div>

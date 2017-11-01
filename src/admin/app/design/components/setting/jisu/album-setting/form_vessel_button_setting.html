@@ -1,0 +1,103 @@
+<div class="top-tab-nav operate-navs">
+    <span (click)="setWidgetSettingType('content')" [class.active]="widgetSettingType === 'content'" id="cur-com-name" class="active">{{currentWidget.name}}</span>
+    <span (click)="setWidgetSettingType('style')" [class.active]="widgetSettingType === 'style'">组件样式</span>
+</div>
+<div [class.active]="widgetSettingType === 'content'" class="tab-content">
+    <div class="setting-row">
+        <span>按钮文字：</span>
+        <set-button-text [currentWidget]="currentWidget"></set-button-text>
+    </div>
+    <div class="setting-row bind-data-field" *ngIf="ifShowBindDataField">
+        <label>绑定数据对象字段：</label>
+        <select disabled>
+            <option selected>提交数据</option>
+          </select>
+    </div>
+</div>
+<div [class.active]="widgetSettingType === 'style'" class="tab-content">
+    <div class="setting-row">
+        <div class="setting-inline">
+            <label>宽度：</label>
+            <width-style [currentWidget]="currentWidget"></width-style>
+        </div>
+        <div class="setting-inline">
+            <label>高度：</label>
+            <height-style [currentWidget]="currentWidget"></height-style>
+        </div>
+    </div>
+    <div class="setting-row">
+        <div class="setting-inline">
+            <label>字体大小：</label>
+            <font-size [currentWidget]="currentWidget"></font-size>
+        </div>
+        <div class="setting-inline">
+            <font-decoration [currentWidget]="currentWidget"></font-decoration>
+        </div>
+    </div>
+    <div class="setting-row">
+        <div class="setting-inline">
+            <label>文字颜色：</label>
+            <font-color [currentWidget]="currentWidget"></font-color>
+        </div>
+        <div class="setting-inline">
+            <text-align [currentWidget]="currentWidget"></text-align>
+        </div>
+    </div>
+    <div class="setting-row">
+        <div class="setting-inline">
+            <label>背景颜色：</label>
+            <background-color [currentWidget]="currentWidget"></background-color>
+        </div>
+        <div class="setting-inline">
+            <background-image [currentWidget]="currentWidget"></background-image>
+        </div>
+    </div>
+    <div class="setting-row" *ngIf="currentWidget.pattern !== 'free'">
+        <div class="setting-inline">
+            <label>上边距：</label>
+            <margin-top [currentWidget]="currentWidget"></margin-top>
+        </div>
+        <div class="setting-inline">
+            <label>左边距：</label>
+            <margin-left [currentWidget]="currentWidget"></margin-left>
+        </div>
+    </div>
+    <div class="setting-row" *ngIf="currentWidget.pattern !== 'free'">
+        <label>位置：</label>
+        <widget-position [currentWidget]="currentWidget"></widget-position>
+    </div>
+
+    <div class="setting-row">
+        <label>透明度：</label>
+        <opacity-style [currentWidget]="currentWidget"></opacity-style>
+    </div>
+    <div class="setting-row">
+        <div class="setting-inline">
+            <label>圆角：</label>
+            <border-radius-style [currentWidget]="currentWidget"></border-radius-style>
+        </div>
+        <div class="setting-inline">
+            <border-circle-style [currentWidget]="currentWidget"></border-circle-style>
+        </div>
+    </div>
+    <div class="setting-row">
+        <label>边框样式：</label>
+        <border-style [currentWidget]="currentWidget"></border-style>
+    </div>
+    <div class="setting-row">
+        <label>边框粗细：</label>
+        <border-width [currentWidget]="currentWidget"></border-width>
+    </div>
+    <div class="setting-row">
+        <label>边框颜色：</label>
+        <border-color [currentWidget]="currentWidget"></border-color>
+    </div>
+    <div class="setting-row">
+        <shadow-style [currentWidget]="currentWidget"></shadow-style>
+    </div>
+
+    <div *ngIf="currentWidget.pattern === 'free'">
+        <free-widget-position [currentWidget]="currentWidget"></free-widget-position>
+    </div>
+
+</div>

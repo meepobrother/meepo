@@ -1,0 +1,67 @@
+<div id="page-property-container" class="page-property">
+    <div class="widget-tree-title">元素<i class="close icon-cross" (click)="closeTree()"></i></div>
+    <div class="scroll-wrap">
+        <div class="setting-wrap eles-wrap">
+            <div *ngFor="let widget of widgetService.getWidgetOnly(widgetList, 'top-nav')">
+                <div class="ele" (mouseover)="addMouseoverClass(widget.id)" (mouseout)="removeMouseoverClass(widget.id)" (click)="makeWidgetInView(widget)">
+                    <i (click)="clickWidget(widget)" class="icon icon-top-nav"></i>
+                    <span>顶部导航</span>
+                    <div class="ele-set">
+                        <i (click)="deleteWidget(widget.id,null)" class="delete-ele icon-delete"></i>
+                    </div>
+                </div>
+            </div>
+            <ul class="sortable top-wrap">
+                <li *ngFor="let widget of widgetService.getWidgetExclude(widgetList, ['hotspot','bottom-nav','top-nav' , 'suspension'])" [attr.data-id]="widget.id" [attr.data-parentId]="">
+                    <div (mouseover)="addMouseoverClass(widget.id)" (mouseout)="removeMouseoverClass(widget.id)" (click)="makeWidgetInView(widget)" (click)="showChildren($event)" class="ele" [class.parent-ele]="widget.isVessel === true && widget.type != 'layout-vessel'">
+                        <i (click)="clickWidget(widget)" class="icon icon-{{widget.type}}"></i> {{widget.name}}
+                        <div class="ele-set">
+                            <i (click)="deleteWidget(widget.id,null)" class="delete icon-delete"></i>
+                            <i class="drag-ele icon-drag" (mousedown)="setInvalidVessel(widget.type)" (mouseup)="clearInvalidVessel()"></i>
+                        </div>
+                    </div>
+                    <ul (click)="makeWidgetInView(widget.id)" style="display:none" *ngIf="widget.isVessel === true && widget.type != 'layout-vessel'" class="sec-wrap sortable {{widget.type}}">
+                        <li *ngFor="let childWidget of widget.children" [attr.data-id]="childWidget.id" [attr.data-parentId]="widget.id">
+                            <div (click)="clickWidget(childWidget)" (mouseover)="addMouseoverClass(childWidget.id)" (mouseout)="removeMouseoverClass(childWidget.id)" class="ele" (click)="showChildren($event)" [class.parent-ele]="childWidget.isVessel === true && childWidget.type != 'layout-vessel'">
+                                <i (click)="clickWidget(childWidget)" class="icon icon-{{childWidget.type}}"></i> {{childWidget.name}}
+                                <div class="ele-set">
+                                    <i (click)="deleteWidget(childWidget.id,widget.id)" class="delete icon-delete"></i>
+                                    <i class="drag-ele icon-drag" *ngIf="widget.type !== 'free-vessel'" (mousedown)="setInvalidVessel(childWidget.type)" (mouseup)="clearInvalidVessel()"></i>
+                                </div>
+                            </div>
+                            <ul style="display:none" *ngIf="childWidget.isVessel === true && childWidget.type != 'layout-vessel'" class="last-wrap sortable {{childWidget.type}}">
+                                <li *ngFor="let lastWidget of childWidget.children" [attr.data-id]="lastWidget.id" [attr.data-parentId]="childWidget.id">
+                                    <div (click)="clickWidget(lastWidget)" (mouseover)="addMouseoverClass(lastWidget.id)" (mouseout)="removeMouseoverClass(lastWidget.id)" class="ele">
+                                        <i (click)="clickWidget(lastWidget)" class="icon icon-{{lastWidget.type}}"></i> {{lastWidget.name}}
+                                        <div class="ele-set">
+                                            <i (click)="deleteWidget(lastWidget.id,childWidget.id)" class="delete icon-delete"></i>
+                                            <i class="drag-ele icon-drag" *ngIf="childWidget.type !== 'free-vessel'" (mousedown)="setInvalidVessel(lastWidget.type)" (mouseup)="clearInvalidVessel()"></i>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <div *ngFor="let widget of widgetService.getWidgetOnly(widgetList, 'bottom-nav')">
+                <div class="ele" (mouseover)="addMouseoverClass(widget.id)" (mouseout)="removeMouseoverClass(widget.id)" (click)="clickWidget(widget)">
+                    <i (click)="clickWidget(widget)" class="icon icon-bottom-nav"></i>
+                    <span>底部导航</span>
+                    <div class="ele-set">
+                        <i (click)="deleteWidget(widget.id,null)" class="delete-ele icon-delete"></i>
+                    </div>
+                </div>
+            </div>
+            <div *ngFor="let widget of widgetService.getWidgetOnly(widgetList, 'suspension')">
+                <div class="ele" (mouseover)="addMouseoverClass(widget.id)" (mouseout)="removeMouseoverClass(widget.id)" (click)="clickWidget(widget)">
+                    <i (click)="clickWidget(widget)" class="icon icon-suspension"></i>
+                    <span>悬浮窗</span>
+                    <div class="ele-set">
+                        <i (click)="deleteWidget(widget.id,null)" class="delete-ele icon-delete"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

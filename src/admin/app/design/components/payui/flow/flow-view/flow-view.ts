@@ -12,5 +12,24 @@ export class PayuiFlowView implements OnInit {
     list: any[] = [];
     constructor() { }
 
-    ngOnInit() { }
+    ngOnInit() {
+        this.widget.flows.map((res,key)=>{
+            if(res.status == 1){
+                this.widget.ActiveFlowIndex = key;
+            }
+        });
+     }
+
+    next(){
+        const len = this.widget.flows.length;
+        if(this.widget.ActiveFlowIndex +1 < len){
+            this.widget.flows[this.widget.ActiveFlowIndex].status = 2;
+            this.widget.flows[this.widget.ActiveFlowIndex+1].status = 1;
+            this.widget.ActiveFlowIndex ++;
+        }else{
+            this.widget.flows[this.widget.ActiveFlowIndex].status = 2;
+            console.log('到底了');
+            // 该提交数据了
+        }
+    }
 }

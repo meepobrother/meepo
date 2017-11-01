@@ -1,0 +1,72 @@
+<div class="webapp-box-bg" id="webapp-audio-box-bg"></div>
+<div class="webapp-box" id="webapp-audio-box">
+    <div class="webapp-box-header">
+        <div>
+            <div data-role="audio">
+                <audio id="resource-audio-ele" style="position:absolute;left:-2000px;opacity:0;"></audio>
+                <ul class="webapp-box-header-ul">
+                    <li class="system-audio-library">音频库</li>
+                    <li>我的音频</li>
+                </ul>
+            </div>
+        </div>
+        <span class="webapp-box-close">×</span>
+    </div>
+    <div class="webapp-box-content">
+        <div class="box-resource-content" id="webapp-system-audio">
+            <ul class="webapp-content-tab">
+                <li data-page="1" data-id="0">全部</li>
+            </ul>
+            <div class="resource-list-wrap">
+                <ul class="resource-list"></ul>
+            </div>
+        </div>
+        <div class="box-resource-content" id="webapp-my-audio">
+            <div>
+                <ul class="webapp-content-tab">
+                    <li data-page="1" data-id="0" id="default-audio-group">全部</li>
+                </ul>
+                <div class="resource-list-wrap">
+                    <ul class="resource-list"></ul>
+                </div>
+            </div>
+        </div>
+        <div class="content-top-operation">
+            <div class="box-operation-menu">
+                <ul>
+                    <li class="btn green audio-add-link" data-href="#box-audio-link">添加外链</li>
+                    <li class="btn" id="select-local-audio">上传至当前组</li>
+                    <li class="btn" data-href="#box-group-create">新建分组</li>
+                    <li class="btn cannot-operate-default edit-audio-group" data-href="#box-group-edit">编辑当前分组</li>
+                    <li class="btn audio-batch" data-href="#box-audio-batch">音频批量处理</li>
+                </ul>
+            </div>
+            <div class="box-hide" id="box-group-edit">修改组名 <input class="group-name-input input" type="text">
+                <a href="javascript:;" class="btn green group-edit-confirm">确定</a>
+                <a href="javascript:;" class="btn group-edit-cancel">取消</a>
+                <a href="javascript:;" class="btn orange delete-audio-group">删除当前组</a>
+                <span>组名不超过6个字</span>
+            </div>
+            <div class="box-hide" id="box-group-create">新建分组 <input class="group-name-input input" type="text">
+                <a href="javascript:;" class="btn green group-edit-confirm">确定</a>
+                <a href="javascript:;" class="btn group-edit-cancel">取消</a>
+            </div>
+            <div class="box-hide" id="box-audio-batch">已选<span class="resource-select-num">0</span>首 移至 <select class="resource-group-select"></select>
+                <a href="javascript:;" class="btn green group-edit-confirm">确定</a>
+                <a href="javascript:;" class="btn orange delete-select-audio">删除选中音频</a>
+                <a href="javascript:;" class="btn group-edit-cancel">取消</a>
+            </div>
+            <div class="box-hide" id="box-audio-link">名称 <input class="audio-name-input input" style="width:100px;" type="text"> 链接 <input class="audio-link-input input" style="width:220px;" type="text">
+                <a href="javascript:;" class="btn green group-edit-confirm">添加</a>
+                <a href="javascript:;" class="btn group-edit-cancel">取消</a>
+            </div>
+        </div>
+    </div>
+    <div class="webapp-box-footer">
+        <label>是否自动播放：<input id="sound-effect-autoplay" class="ui-checkbox" type="checkbox"></label>
+        <label>音乐是否循环播放：<input id="music-isloop" class="ui-checkbox" type="checkbox" checked="checked"></label>
+        <span class="audio-size-tip">* 音频大小限制在1M以下</span>
+        <a href="http://bbs.zhichiwangluo.com/forum.php?mod=viewthread&tid=11223&page=1&extra=#pid12723" target="_blank" style="color:#3b08f7; text-decoration:underline; padding:0 6px 3px; margin-left:20px;">音乐压缩教程</a>
+        <a href="javascript:;" class="btn blue box-confirm">确定</a>
+    </div>
+</div>
