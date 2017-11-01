@@ -4,9 +4,12 @@
     width: 100%;
     position: relative;
     &.active {
-        border: 2px dashed #00a0e9;
+        border: 1px dashed #00a0e9;
         cursor: move;
         .opts {
+            display: block;
+        }
+        .control-wrap {
             display: block;
         }
     }

@@ -1,14 +1,12 @@
-<div class="row">
-    <div class="col-md-12">
-        <widget-list></widget-list>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-md-12">
-        <forms-list></forms-list>
-    </div>
-</div>
-
-
-<themes-mine></themes-mine>
+<nav-tabs>
+    <nav-tab-pane title="我的应用">
+        <ng-template navTabPaneRef>
+            <themes-mine></themes-mine>
+        </ng-template>
+    </nav-tab-pane>
+    <nav-tab-pane title="我的组件">
+        <ng-template navTabPaneRef>
+            <widget-group-list></widget-group-list>
+        </ng-template>
+    </nav-tab-pane>
+</nav-tabs>

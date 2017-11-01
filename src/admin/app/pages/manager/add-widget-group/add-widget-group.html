@@ -1,0 +1,13 @@
+<div class="ibox-content" [formGroup]="form">
+    <form-field>
+        <input type="text" formControlName="code" meepoInput placeholder="请输入分组代号" class="form-control">
+    </form-field>
+    <form-field>
+        <input type="text" formControlName="title" meepoInput placeholder="请输入分组名称" class="form-control">
+    </form-field>
+    <div>
+        <a href="javascript:;" class="btn btn-primary" (click)="save()">提交</a>
+        <a href="javascript:;" class="btn btn-danger" (click)="delete()">删除</a>
+        <a href="javascript:;" class="btn btn-default" (click)="cancel()">取消</a>
+    </div>
+</div>

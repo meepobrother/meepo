@@ -17,9 +17,7 @@ export class WidgetView implements OnInit {
 
     constructor(
         public ele: ElementRef,
-        public compFactoryResolver: ComponentFactoryResolver,
-        public widgetService: WidgetService,
-        public widgetSettingService: WidgetSettingService
+        public compFactoryResolver: ComponentFactoryResolver
     ) { 
         this.el = this.ele.nativeElement;
     }
@@ -50,6 +48,5 @@ export class WidgetView implements OnInit {
 
     removeWidget(e: any){
         const t = jQuery(e.target);
-        this.widgetService.removeWidget(t.closest(".ele-container"))
     }
 }
