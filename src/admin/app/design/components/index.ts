@@ -13,7 +13,8 @@ import {
     UuHomeHeaderDefault, UuHomeItemDefault, UuConDefault, UuCouponDefault,
     ActiveItemDefault, BargainItemDefault, ArticleItemDefault, CityItemDefault,
     MeepoDanmu, PayRecordDefault, PaySelectMoneyDefault, IqiyiHeadNavDefault,
-    MeepoFormBtnDefault, MeepoFormRealnameDefault
+    MeepoFormBtnDefault, MeepoFormRealnameDefault, WeuiCellsDefault, WeuiPreviewDefault,
+    PayuiFlowDefault
 } from '../classes';
 
 import {
@@ -29,7 +30,8 @@ import {
 
 import {
     PayRecordSetting, PayRecordView,
-    PaySelectMoneySetting, PaySelectMoneyView
+    PaySelectMoneySetting, PaySelectMoneyView,
+    PayuiFlowSetting, PayuiFlowView
 } from './payui';
 
 import {
@@ -52,7 +54,8 @@ import {
     PageSetting, IconView,
     TabbarSelect, TabbarSetting, TabbarView,
     NavbarSelect, NavbarView, NavbarSetting,
-    PickerSelect, PickerView, PickerSetting
+    PickerSelect, PickerView, PickerSetting,
+    WeuiPreviewSetting, WeuiPreviewView
 } from './weui';
 
 import {
@@ -145,7 +148,7 @@ export const COMPONENTS = [
     NavbarSelect, NavbarView, NavbarSetting,
     PickerSelect, PickerView, PickerSetting,
     TopicsGroupDataSelect, IconSelectDialog, IconLinkIconSelect, ImageLinkTitleSelect,
-    IconTitleDialog, MeepoFormRealnameDefault,
+    IconTitleDialog,
 
     // layouts
     LayoutSelect, LayoutView, LayoutSetting,
@@ -231,7 +234,9 @@ export const COMPONENTS = [
     PaySelectMoneySetting, PaySelectMoneyView,
     IqiyiHeadNavView, IqiyiHeadNavSetting,
     MeepoFormBtnSetting, MeepoFormBtnView,
-    MeepoFormRealnameView, MeepoFormRealnameSetting
+    MeepoFormRealnameView, MeepoFormRealnameSetting,
+    WeuiPreviewSetting, WeuiPreviewView,
+    PayuiFlowSetting, PayuiFlowView
 ];
 
 export const COMPONENTS_SELECT = {
@@ -304,6 +309,9 @@ export const COMPONENTS_VIEW = {
     'iqiyi-head-nav': IqiyiHeadNavView,
     'meepo-form-btn': MeepoFormBtnView,
     'meepo-form-realname': MeepoFormRealnameView, 
+    'weui-cells': WeuiCellsView,
+    'weui-preview': WeuiPreviewView,
+    'payui-flow': PayuiFlowView
 };
 
 
@@ -370,7 +378,10 @@ export const COMPONENTS_SETTING = {
     'pay-select-money': PaySelectMoneySetting,
     'iqiyi-head-nav': IqiyiHeadNavSetting,
     'meepo-form-btn': MeepoFormBtnSetting,
-    'meepo-form-realname': MeepoFormRealnameSetting
+    'meepo-form-realname': MeepoFormRealnameSetting,
+    'weui-cells': WeuiCellsSetting, 
+    'weui-preview': WeuiPreviewSetting, 
+    'payui-flow': PayuiFlowSetting, 
 };
 
 
@@ -424,7 +435,10 @@ export const WIDGETS = {
     'pay-select-money': PaySelectMoneyDefault,
     'iqiyi-head-nav': IqiyiHeadNavDefault,
     'meepo-form-btn': MeepoFormBtnDefault,
-    'meepo-form-realname': MeepoFormRealnameDefault
+    'meepo-form-realname': MeepoFormRealnameDefault,
+    'weui-cells': WeuiCellsDefault,
+    'weui-preview': WeuiPreviewDefault,
+    'payui-flow': PayuiFlowDefault
 }
 
 import { Injectable } from '@angular/core';

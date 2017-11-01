@@ -28,10 +28,28 @@
             <input class="form-control" [(ngModel)]="widget.placeholder" />
         </div>
         <div class="form-group">
+            <label>类型</label>
+            <select class="form-control" [(ngModel)]="widget.field_type">
+                <option value="password">密码</option>
+                <option value="text">文本</option>
+                <option value="email">邮箱</option>
+                <option value="number">数字</option>
+                <option value="range">slider 控件</option>
+                <option value="tel">电话</option>
+                <option value="url">链接</option>
+                <option value="color">颜色</option>
+                <option value="date">日期（带有 calendar 控件）</option>
+                <option value="datetime">日期（带有 calendar 和 time 控件）</option>
+                <option value="datetime-local">日期（带有 calendar 和 time 控件）</option>
+                <option value="month">月（带有 calendar）</option>
+                <option value="week">周（带有 calendar）</option>
+                <option value="time">时、分、秒（带有 time控件)</option>
+            </select>
+        </div>
+        <div class="form-group">
             <label>绑定字段</label>
             <input class="form-control" [(ngModel)]="widget.field_name" />
         </div>
-
         <div class="weui-cell weui-cell_switch">
             <div class="weui-cell__bd">必填</div>
             <div class="weui-cell__ft">

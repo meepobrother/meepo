@@ -41,8 +41,8 @@ export * from './goods';
 export * from './topics';
 export * from './active';
 
-
 export * from './uupao';
 export * from './payui';
 
 export * from './iqiyi';
+export * from './weui';

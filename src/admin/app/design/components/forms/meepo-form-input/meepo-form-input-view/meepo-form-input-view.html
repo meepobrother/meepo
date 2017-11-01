@@ -2,7 +2,7 @@
     <div class="weui-cell">
         <div class="weui-cell__hd"><label class="weui-label">{{widget.title}}</label></div>
         <div class="weui-cell__bd">
-            <input class="weui-input" type="number" [placeholder]="widget.placeholder">
+            <input class="weui-input" [attr.type]="widget.field_type" [placeholder]="widget.placeholder">
         </div>
     </div>
 </div>
