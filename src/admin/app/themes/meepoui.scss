@@ -13,12 +13,10 @@ free-widget-view {
     position: relative;
 }
 
-// 文字颜色
 @import "./text-color";
-// 字体图标
 @import "./css/font-awesome.css";
 @import "../../meepo-common.scss";
-// hover
+@import "../styles/iconfont.scss";
 @import "./hover/hover.scss";
 @import "../design/components/meepo-ui/meepo-advs/meepo-advs-view/meepo-advs-view.scss";
 @import "../design/components/meepo-ui/meepo-swiper-tags/meepo-swiper-tags-view/meepo-swiper-tags-view.scss";
@@ -30,3 +28,14 @@ free-widget-view {
 @import "../design/components/layouts/layout-body/layout-body-view/layout-body-view.scss";
 @import "../design/components/forms/meepo-form-order/meepo-form-order-view/meepo-form-order-view.scss";
 @import "../design/components/forms/meepo-form-tag/meepo-form-tag-view/meepo-form-tag-view.scss";
+@import "../design/components/uupao/uu-home-header/uu-home-header-view/uu-home-header-view.scss";
+@import "../design/components/uupao/uu-home-item/uu-home-item-view/uu-home-item-view.scss";
+@import "../design/components/uupao/uu-item-box/uu-item-box-view/uu-item-box-view.scss";
+@import "../design/components/uupao/uu-swiper/uu-swiper-view/uu-swiper-view.scss";
+@import "../design/components/uupao/uu-header/uu-header-view/uu-header-view.scss";
+@import "../design/components/uupao/uu-benefit/uu-benefit-view/uu-benefit-view.scss";
+// money
+@import "../design/components/payui/pay-select-money/pay-select-money-view/pay-select-money-view.scss";
+a:hover {
+    color: #fff;
+}

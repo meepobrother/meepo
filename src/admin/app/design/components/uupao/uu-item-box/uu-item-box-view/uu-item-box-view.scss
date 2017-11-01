@@ -1,0 +1,24 @@
+.itembox {
+    background: #fff;
+    position: relative;
+    ul {
+        overflow: hidden;
+        padding: 5px 0px;
+        li {
+            width: calc( 50% - 5px);
+            float: left;
+            position: relative;
+            padding: 5px 2px;
+            a {
+                color: #666;
+                text-decoration: none;
+                -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            }
+            img {
+                width: 100%;
+                height: auto;
+                margin: 0 auto;
+            }
+        }
+    }
+}

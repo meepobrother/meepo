@@ -1,0 +1,51 @@
+<div class="ibox">
+    <div class="ibox-content">
+        <div class="form-group">
+            <label>标题</label>
+            <input class="form-control" [(ngModel)]="widget.payTitle" placeholder="请输入标题">
+        </div>
+        <div class="form-group">
+            <label>简介</label>
+            <input class="form-control" [(ngModel)]="widget.payDesc" placeholder="请输入简介">
+        </div>
+        <div class="form-group">
+            <label>按钮</label>
+            <input class="form-control" [(ngModel)]="widget.btn" placeholder="请填写按钮">
+        </div>
+    </div>
+</div>
+
+
+<div class="ibox">
+    <div class="ibox-title">
+        选择金额
+        <div class="ibox-tools">
+            <a class="btn btn-primary btn-xs" (click)="add()">添加</a>
+        </div>
+    </div>
+    <div class="ibox-content">
+
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <td>标题</td>
+                    <td>金额</td>
+                    <td>操作</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of widget.children">
+                    <td>
+                        <input [(ngModel)]="item.title" class="form-control" placeholder="请输入标题" />
+                    </td>
+                    <td>
+                        <input [(ngModel)]="item.money" class="form-control" placeholder="请输入金额" />
+                    </td>
+                    <td>
+                        <a class="btn btn-danger btn-xs">删除</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

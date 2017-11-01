@@ -8,17 +8,10 @@ import { WeuiCells } from '../../../../classes/weui-cells';
 })
 export class WeuiCellsSetting implements OnInit, OnChanges {
     @Input() widget: WeuiCells = new WeuiCells();
-    innerStyle: any;
     constructor() { }
 
-    ngOnInit() { 
-        this.innerStyle = this.widget.style;
-    }
+    ngOnInit() { }
 
-    ngOnChanges(changes: SimpleChanges){
-        if('widget' in changes){
-            this.innerStyle = this.widget.style;
-        }
-    }
+    ngOnChanges(changes: SimpleChanges){}
 }
 

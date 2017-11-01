@@ -17,35 +17,35 @@ export class WidgetList implements OnInit {
 
     ngOnInit() {
         this.getList();
-        this.api.mpost('app.update',{}).subscribe(res=>{});
+        this.api.mpost('app.update', {}).subscribe(res => { });
     }
 
-    getList(){
-        this.api.mpost('app.getListAppWidgets', { page: 1, psize: 30 }).subscribe((res: any) => {
+    getList() {
+        this.api.mpost('app.getListAppWidgets', { page: 1, psize: 30 }, 'imeepos_runner', true).subscribe((res: any) => {
             this.widgets = res.info;
         });
     }
 
-    addWidget(){
+    addWidget() {
         const dialogRef = this.dialog.open(AddWidget);
-        dialogRef.afterClosed().subscribe(res=>{
-            if(res){
+        dialogRef.afterClosed().subscribe(res => {
+            if (res) {
                 this.getList();
             }
         });
     }
 
-    editWidget(item: any){
-        const dialogRef = this.dialog.open(AddWidget,{data: item});
-        dialogRef.afterClosed().subscribe(res=>{
-            if(res){
+    editWidget(item: any) {
+        const dialogRef = this.dialog.open(AddWidget, { data: item });
+        dialogRef.afterClosed().subscribe(res => {
+            if (res) {
                 this.getList();
             }
         });
     }
 
-    deleteWidget(item: any){
-        this.api.mpost('app.deleteAppWidgets',item).subscribe(res=>{
+    deleteWidget(item: any) {
+        this.api.mpost('app.deleteAppWidgets', item).subscribe(res => {
             this.getList();
         });
     }

@@ -1,0 +1,44 @@
+<div class="ibox-title">
+    容器样式
+</div>
+<div class="ibox-content">
+    <setting-container-margin [(widget)]="widget.containerStyle"></setting-container-margin>
+    <setting-container-padding [(widget)]="widget.containerStyle"></setting-container-padding>
+    <setting-container-color [(widget)]="widget.containerStyle"></setting-container-color>
+</div>
+
+<div class="ibox">
+    <div class="ibox-title">
+        <h5>个人中心项目设置</h5>
+        <div class="ibox-tools">
+            <a class="btn btn-primary btn-xs" (click)="add()">添加</a>
+        </div>
+    </div>
+    <div class="ibox-content">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <td style="width: 4em;">左边</td>
+                    <td>名字</td>
+                    <td style="width: 4em;">右边</td>
+                    <td>操作</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of widget.children;index as i;">
+                    <td>
+                        <i [class]="item.left"></i>
+                    </td>
+                    <td>{{item.title}}</td>
+                    <td>
+                        <i [class]="item.right"></i>
+                    </td>
+                    <td>
+                        <a class="btn btn-primary btn-xs" (click)="edit(i,item)">编辑</a>
+                        <a class="btn btn-danger btn-xs" (click)="delete(i)">删除</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

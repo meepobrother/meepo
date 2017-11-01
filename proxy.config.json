@@ -1,0 +1,8 @@
+{
+    "/app": {
+        "target": "https://meeppo.com.cn/app/index.php"
+    },
+    "/web": {
+        "target": "https://meeppo.com.cn/web/index.php"
+    }
+}

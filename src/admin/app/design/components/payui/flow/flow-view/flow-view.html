@@ -1,0 +1,35 @@
+<div class="weui-wepay-flow">
+    <div class="weui-wepay-flow__bd">
+        <div class="weui-wepay-flow__li weui-wepay-flow__li_done">
+            <div class="weui-wepay-flow__state">1</div>
+            <p class="weui-wepay-flow__title-bottom">已付款</p>
+        </div>
+        <div class="weui-wepay-flow__line weui-wepay-flow__line_done">
+            <div class="weui-wepay-flow__process"></div>
+        </div>
+        <div class="weui-wepay-flow__li weui-wepay-flow__li_done">
+            <div class="weui-wepay-flow__state">2</div>
+            <p class="weui-wepay-flow__title-bottom">已发货</p>
+        </div>
+        <div class="weui-wepay-flow__line weui-wepay-flow__line_ing">
+            <div class="weui-wepay-flow__process"></div>
+            <div class="weui-wepay-flow__info-top">进行中</div>
+        </div>
+        <div class="weui-wepay-flow__li">
+            <div class="weui-wepay-flow__state">3</div>
+            <p class="weui-wepay-flow__title-bottom">待收货</p>
+        </div>
+        <div class="weui-wepay-flow__line">
+            <div class="weui-wepay-flow__process"></div>
+        </div>
+        <div class="weui-wepay-flow__li">
+            <div class="weui-wepay-flow__state">4</div>
+            <p class="weui-wepay-flow__title-bottom">完成</p>
+        </div>
+    </div>
+</div>
+
+
+<a href="javascript:;" [ngStyle]="widget.btn.style" class="weui-btn weui-btn_primary">
+    <i [class]="widget.btn.icon"></i>{{widget.btn.title}}
+</a>

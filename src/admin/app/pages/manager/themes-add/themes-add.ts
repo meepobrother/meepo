@@ -25,7 +25,7 @@ export class ThemesAdd implements OnInit {
             id: ['']
         });
         this.dialogRef.afterOpen().subscribe(() => {
-            let { title, price, author, token, id } = this.data || {title: '', author: '', token: uuid(), id: 0, price: 0.00};
+            let { title, price, author, token, id } = this.data || { title: '', author: '', token: uuid(), id: 0, price: 0.00 };
             this.form.get('title').setValue(title);
             this.form.get('price').setValue(price);
             this.form.get('author').setValue(author);
@@ -42,22 +42,22 @@ export class ThemesAdd implements OnInit {
     };
 
     save() {
-        if(!this.btnTitle.isLoading){
+        if (!this.btnTitle.isLoading) {
             this.btnTitle = {
                 title: '保存中',
                 isLoading: true
             };
-            this.api.mpost('app.editApp',this.form.value).subscribe(res=>{
-                setTimeout(()=>{
+            this.api.mpost('app.editApp', this.form.value, 'imeepos_runner', true).subscribe(res => {
+                setTimeout(() => {
                     this.btnTitle = {
                         title: '保存',
                         isLoading: false
                     };
-                    this.dialogRef.close(this.form.value);                
-                },300)    
+                    this.dialogRef.close(this.form.value);
+                }, 300)
             });
         }
-        
+
     }
 
     cancel() {

@@ -8,4 +8,6 @@ export * from './icon';
 export * from './tabbar';
 export * from './navbar';
 export * from './picker';
+export * from './preview';
+
 

@@ -1,0 +1,15 @@
+.bannerbox {
+    position: relative;
+    a {
+        color: #666;
+        text-decoration: none;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        img {
+            width: 100%;
+        }
+    }
+}
+
+.swiper-wrapper {
+    height: auto;
+}

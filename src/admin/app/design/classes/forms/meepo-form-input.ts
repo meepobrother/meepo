@@ -7,6 +7,7 @@ export class MeepoFormInputDefault extends Widget{
     required: boolean = true;
     placeholder: string = '请输入something';
     title: string = '输入框';
+    field_name: string;
 
     constructor(){
         super();

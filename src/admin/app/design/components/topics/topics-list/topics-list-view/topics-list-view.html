@@ -3,3 +3,10 @@
         {{widget.content}}
     </h5>
 </div>
+
+<ul class="topics-list">
+    <li class="topics-list-item" *ngFor="let item of list">
+        <h5>{{item.title}}</h5>
+        <p>{{item.desc}}</p>
+    </li>
+</ul>

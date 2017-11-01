@@ -1,0 +1,29 @@
+<div class="ibox">
+    <div class="ibox-title">
+        顶部菜单
+    </div>
+    <div class="ibox-content">
+        <div class="form-group">
+            <label>标题</label>
+            <input type="text" class="form-control" [(ngModel)]="widget.content" placeholder="标题">
+        </div>
+        <h5>左边</h5>
+        <div class="form-group">
+            <div class="input-group">
+                <input type="text" class="form-control" [(ngModel)]="widget.left.link" placeholder="链接">
+                <div class="input-group-addon" (click)="editLeft()">
+                    <i [ngClass]="widget.left.icon"></i> {{widget.left.title}}
+                </div>
+            </div>
+        </div>
+        <h5>右边</h5>
+        <div class="form-group">
+            <div class="input-group">
+                <input type="text" class="form-control" [(ngModel)]="widget.right.link" placeholder="链接">
+                <div class="input-group-addon" (click)="editRight()">
+                    <i [ngClass]="widget.right.icon"></i> {{widget.right.title}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

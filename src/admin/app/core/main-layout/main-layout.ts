@@ -110,24 +110,31 @@ export class MainLayoutComponent implements OnInit {
         }
     ];
     showMenu: boolean = false;
+    timer: any;
+
+    myinfo: any;
     constructor(
         public sidebar$: SidebarContainerService,
         public dropdowns$: DropdownsService,
         public router: Router,
         public login$: LoginService
-    ) { }
+    ) {
+        this.myinfo = store.get('__meepo_myuserinfo', { avatar: 'assets/img/a1.jpg' })
+    }
     ngOnInit() {
         const isLogin = store.get('isLogin');
         if (isLogin) {
             this.showMenu = true;
         }
-        this.login$.onLogin.subscribe(res => {
-            if (res) {
-                this.showMenu = true;
-            } else {
-                this.showMenu = false;
-            }
-        });
+        if (!this.showMenu) {
+            this.timer = setInterval(() => {
+                const isLogin = store.get('isLogin');
+                if (isLogin) {
+                    this.showMenu = true;
+                    clearInterval(this.timer);
+                }
+            }, 1000)
+        }
     }
 
     onItem(item: any) {

@@ -8,6 +8,10 @@ import {
 import { ComponentPortal } from '@angular/cdk/portal';
 import { COMPONENTS_VIEW } from '../../components';
 import { WidgetService } from '../../services';
+import { Subject } from 'rxjs/Subject';
+
+import "rxjs/add/operator/last";
+
 @Component({
     selector: 'free-widget-view',
     templateUrl: './free-widget-view.html',
@@ -15,6 +19,38 @@ import { WidgetService } from '../../services';
 })
 export class FreeWidgetView implements OnInit, AfterViewInit, OnDestroy, OnChanges {
     @HostBinding('class.active') _active: boolean = false;
+    @HostBinding('attr.draggable') _draggable: boolean = true;
+    @HostBinding('style.background-color') _bgColor: string = '';
+
+    onDragEnter: Subject<any> = new Subject();
+    onDragLeave: Subject<any> = new Subject();
+
+    // 经过
+    @HostListener('dragover', ['$event'])
+    dragover(evt: any) {
+        evt.preventDefault();
+    }
+
+    @HostListener('drop', ['$event'])
+    drop(evt: any) {
+        let code = evt.dataTransfer.getData('Text');
+        console.log(evt);
+        console.log(code);
+    }
+
+    // 结束
+    @HostListener('dragend', ['$event'])
+    dragend(evt: any) {
+        console.log(this.service.widget);
+    }
+    // 开始
+    @HostListener('dragstart', ['$event'])
+    dragstart(evt: any) {
+        evt.dataTransfer.effectAllowed = "move";
+        this.service.setData(this._widget);
+    }
+
+
     @HostListener('mouseover', ['$event'])
     mouseover(evt: any) {
         // 鼠标移动到改元素时 改变设置
@@ -46,7 +82,9 @@ export class FreeWidgetView implements OnInit, AfterViewInit, OnDestroy, OnChang
         private ele: ElementRef,
         private viewContainerRef: ViewContainerRef,
         private service: WidgetService
-    ) { }
+    ) { 
+
+    }
 
     ngOnInit() { }
 
@@ -54,7 +92,7 @@ export class FreeWidgetView implements OnInit, AfterViewInit, OnDestroy, OnChang
 
     }
 
-    removeWidget(){
+    removeWidget() {
         this.service.removeWidget(this._widget);
     }
 

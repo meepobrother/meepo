@@ -8,6 +8,8 @@ import { TopicsListDefault } from '../../../../classes';
 })
 export class TopicsListView implements OnInit {
     @Input() widget: TopicsListDefault = new TopicsListDefault();
+
+    list: any[] = [];
     constructor() { }
 
     ngOnInit() { }

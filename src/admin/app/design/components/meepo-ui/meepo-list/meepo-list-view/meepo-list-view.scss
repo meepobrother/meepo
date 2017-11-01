@@ -6,6 +6,15 @@
         height: auto;
         margin: 0 auto;
         display: block;
+        max-height: 150px;
+        margin-bottom: 5px;
+    }
+    .title-container{
+        .title{
+            color: gray;
+            font-size: 14px;
+            font-weight: 300;
+        }
     }
     .countdown {
         label {
@@ -98,5 +107,13 @@
         .seckill-list-bottom {
             padding-bottom: 5px;
         }
+    }
+    .order-tag {
+        font-size: .7em;
+        background: #4d8e02;
+        padding: 2px 5px;
+        border-radius: 3px;
+        color: #fff;
+        margin: 2px;
     }
 }

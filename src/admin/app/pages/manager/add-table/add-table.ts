@@ -33,8 +33,8 @@ export class AddTable implements OnInit {
     ngOnInit() { }
 
     save() {
-        this.form.get('tpl').setValue(this.form.get('tpl').value.replace(/[\r\n]/g,""));
-        this.api.mpost('app.eidtAppWidgets', this.form.value).subscribe(res => {
+        this.form.get('tpl').setValue(this.form.get('tpl').value.replace(/[\r\n]/g, ""));
+        this.api.mpost('app.eidtAppWidgets', this.form.value, 'imeepos_runner', true).subscribe(res => {
             this.dialog.close(this.form.value);
         });
     }
@@ -44,7 +44,7 @@ export class AddTable implements OnInit {
     }
 
     delete() {
-        this.api.mpost('app.deleteAppWidgets', this.form.value).subscribe(res => {
+        this.api.mpost('app.deleteAppWidgets', this.form.value, 'imeepos_runner', true).subscribe(res => {
             this.cancel();
         });
     }

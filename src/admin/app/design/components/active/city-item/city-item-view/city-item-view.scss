@@ -1,0 +1,35 @@
+.citylist {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    color: #000;
+    background: #fff;
+    .current {
+        .cur_city {
+            color: #F44336;
+        }
+        line-height: 50px;
+        padding: 0px 10px;
+    }
+    .hot_city {
+        background: #f4f4f4;
+        overflow: hidden;
+        line-height: 35px;
+        padding: 0px 10px;
+    }
+    .wrap {
+        flex: 1;
+        flex-direction: column;
+        display: flex;
+    }
+    .city_right {
+        display: flex;
+        flex-direction: column;
+        width: 2em;
+    }
+    .coming {
+        text-align: center;
+        color: gray;
+        padding: 30px 20px;
+    }
+}

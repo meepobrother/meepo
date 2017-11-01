@@ -1,0 +1,9 @@
+<div class="uu-home-list" [ngStyle]="widget.containerStyle">
+    <a href="javascript:;" *ngFor="let item of widget.children" class="uu-home-item">
+        <div class="uu-home-item-left">
+            <i class="{{item.left}}"></i>
+            <span class="title">{{item.title}}</span>
+        </div>
+        <i class="{{item.right}}"></i>
+    </a>
+</div>

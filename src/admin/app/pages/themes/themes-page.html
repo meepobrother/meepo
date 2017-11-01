@@ -1,8 +1,12 @@
-<div class="ibox">
-    <div class="ibox-title">
-        <h5>主题应用市场</h5>
-    </div>
-    <div class="ibox-content">
-        <themes-shops></themes-shops>
-    </div>
-</div>
+<nav-tabs (onInit)="navTabsInit($event)">
+    <nav-tab-pane title="我的主题" (onInit)="onMyThemesInit($event)">
+        <ng-template navTabPaneRef>
+            <my-themes></my-themes>
+        </ng-template>
+    </nav-tab-pane>
+    <nav-tab-pane title="主题市场" (onInit)="onThemesShopsInit($event)">
+        <ng-template navTabPaneRef>
+            <themes-shops [father]="father" [tabs]="tabs"></themes-shops>
+        </ng-template>
+    </nav-tab-pane>
+</nav-tabs>

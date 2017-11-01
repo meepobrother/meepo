@@ -1,0 +1,44 @@
+.benefit {
+    background: #fff;
+    position: relative;
+    ul {
+        overflow: hidden;
+        padding: 10px 1px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        li {
+            width: 25%;
+            float: left;
+            // background-image: url(../images/use_dotte.png);
+            background-repeat: no-repeat;
+            background-size: 1px 70%;
+            background-position: right center;
+            a {
+                display: block;
+                width: 100%;
+                img {
+                    display: block;
+                    width: 70%;
+                    height: auto;
+                    border-radius: 50%;
+                    margin: 0 auto;
+                }
+                p {
+                    padding-top: 10px;
+                    text-align: center;
+                    font-size: 13px;
+                    color: #666;
+                }
+            }
+        }
+    }
+    .itembox {
+        background: #fff;
+        position: relative;
+    }
+}
+
+.marbot20 {
+    margin-bottom: 20px;
+}

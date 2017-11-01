@@ -1,0 +1,12 @@
+<div class="swiper-container swiper-container-horizontal">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide bannerbox" *ngFor="let item of widget.children">
+            <a href="javascript:;">
+                <img [src]="item.image">
+            </a>
+        </div>
+    </div>
+    <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets">
+        <span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span>
+    </div>
+</div>

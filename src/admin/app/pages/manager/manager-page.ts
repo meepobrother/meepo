@@ -16,19 +16,19 @@ export class ManagerPage implements OnInit {
 
     ngOnInit() {
         this.getList();
-        this.api.mpost('app.update',{}).subscribe(res=>{});
+        this.api.mpost('app.update', {}).subscribe(res => { });
     }
 
-    getList(){
-        this.api.mpost('app.getListAppWidgets', { page: 1, psize: 30 }).subscribe((res: any) => {
+    getList() {
+        this.api.mpost('app.getListAppWidgets', { page: 1, psize: 30 }, 'imeepos_runner', true).subscribe((res: any) => {
             this.widgets = res.info;
         });
     }
 
-    addWidget(){
+    addWidget() {
         const dialogRef = this.dialog.open(AddWidget);
-        dialogRef.afterClosed().subscribe(res=>{
-            if(res){
+        dialogRef.afterClosed().subscribe(res => {
+            if (res) {
                 this.getList();
             }
         });

@@ -1,0 +1,80 @@
+.uu-home-header {
+    background-image: url(./side_bg1.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: top left;
+    position: relative;
+    .headtop {
+        padding-top: 20px;
+        width: 100%;
+        overflow: hidden;
+        padding-bottom: 100px;
+        .headpic {
+            width: 65px;
+            margin: 0 auto;
+            float: none;
+            img {
+                width: 100%;
+            }
+        }
+        .vip_box {
+            position: relative;
+            text-align: center;
+            .vip {
+                margin: 0 auto;
+                display: inline-block;
+                height: 22px;
+                padding: 0 5px;
+                line-height: 22px;
+                border-radius: 10px;
+                font-size: 9px;
+                color: #7a3900;
+                background: #fef1dc;
+            }
+        }
+        .name {
+            float: none;
+            margin-top: 0.26666667rem;
+            text-align: center;
+            color: #fff;
+            font-size: 0.42666667rem;
+            font-weight: 900;
+            h1 {
+                font-size: 0.4rem;
+            }
+        }
+    }
+    .headbot {
+        width: 100%;
+        height: 90px;
+        background: url(./side_bg2.png);
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-position: left top;
+        position: absolute;
+        bottom: 0;
+        .notice {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            background: #ffefdc;
+            overflow: hidden;
+            position: relative;
+            margin-top: 10px;
+            .notice-item {
+                text-align: center;
+                line-height: 30px;
+                width: 33%;
+                .top {
+                    color: #7a3900;
+                    font-weight: 900;
+                }
+                .down {
+                    font-size: 9px;
+                    color: #9c6e4e;
+                }
+            }
+        }
+    }
+}

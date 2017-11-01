@@ -17,35 +17,35 @@ export class FormsList implements OnInit {
 
     ngOnInit() {
         this.getList();
-        this.api.mpost('app.update',{}).subscribe(res=>{});
+        this.api.mpost('app.update', {}).subscribe(res => { });
     }
 
-    getList(){
-        this.api.mpost('app.getListAppForms', { page: 1, psize: 30 }).subscribe((res: any) => {
+    getList() {
+        this.api.mpost('app.getListAppForms', { page: 1, psize: 30 }, 'imeepos_runner', true).subscribe((res: any) => {
             this.forms = res.info;
         });
     }
 
-    addForm(){
+    addForm() {
         const dialogRef = this.dialog.open(AddForm);
-        dialogRef.afterClosed().subscribe(res=>{
-            if(res){
+        dialogRef.afterClosed().subscribe(res => {
+            if (res) {
                 this.getList();
             }
         });
     }
 
-    editForm(item: any){
-        const dialogRef = this.dialog.open(AddForm,{data: item});
-        dialogRef.afterClosed().subscribe(res=>{
-            if(res){
+    editForm(item: any) {
+        const dialogRef = this.dialog.open(AddForm, { data: item });
+        dialogRef.afterClosed().subscribe(res => {
+            if (res) {
                 this.getList();
             }
         });
     }
 
-    deleteForm(item: any){
-        this.api.mpost('app.deleteAppForms',item).subscribe(res=>{
+    deleteForm(item: any) {
+        this.api.mpost('app.deleteAppForms', item, 'imeepos_runner', true).subscribe(res => {
             this.getList();
         });
     }
