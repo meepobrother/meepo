@@ -6,7 +6,7 @@ import {
 } from '@angular/core';
 import { SidebarService } from '../sidebar.service';
 import { SidebarContainerService } from '../sidebar-container.service';
-import uuid from 'uuid';
+import * as uuid from 'uuid';
 
 import { Directive } from '@angular/core';
 

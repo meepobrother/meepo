@@ -133,8 +133,9 @@ export class MainLayoutComponent implements OnInit {
                     this.showMenu = true;
                     clearInterval(this.timer);
                 }
-            }, 1000)
+            }, 1000);
         }
+        console.log(this.menus);
     }
 
     onItem(item: any) {

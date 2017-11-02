@@ -22,6 +22,7 @@ import { AppEffectsModule, AppStoreModule } from '../ngrx';
 import { CoreModule } from '../core';
 
 const materials = [
+    CommonModule,
     NavTabsModule,
     MeepoFormFieldModule,
     MatDialogModule,

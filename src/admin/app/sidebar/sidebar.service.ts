@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import uuid from 'uuid';
+import * as uuid from 'uuid';
 @Injectable()
 export class SidebarService {
     sidebars: Map<string, any> = new Map();

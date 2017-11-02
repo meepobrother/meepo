@@ -28,6 +28,9 @@ import { LoginService } from './login.service';
 
 import { MatDialogModule } from '@angular/material';
 import { ColorSelectModule } from '../components/color-select';
+
+import { ShareNewModule } from '../share-new/share-new.module';
+
 const modules = [
     CommonModule,
     SidebarModule,
@@ -40,6 +43,7 @@ const modules = [
     MemberSelectModule,
     MatDialogModule,
     ColorSelectModule,
+    ShareNewModule
 ];
 
 @NgModule({
