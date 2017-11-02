@@ -3,3 +3,23 @@
     height: 100%;
     display: block;
 }
+
+.panel-body,
+.ibox-content {
+    img {
+        width: 150px;
+        height: 150px;
+        margin: 0 auto;
+        display: block;
+    }
+}
+
+.btn {
+    color: #fff;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}

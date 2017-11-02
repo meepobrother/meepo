@@ -5,6 +5,7 @@ import { FreeWidgetSetting } from './free-widget-setting';
 
 import { PortalModule } from '@angular/cdk/portal';
 import { WidgetService } from '../services';
+
 @NgModule({
     declarations: [
         FreeWidgetView,

@@ -75,6 +75,12 @@ export class ApiService {
         return this.http.post<T>(url, { encrypted: encrypted }, { headers: this.header });
     }
 
+    entry(__body: any = {}){
+        const d = JSON.stringify(__body);
+        const encrypted = Base64.encode(d);
+        return { encrypted: encrypted };
+    }
+
     wget<T>(__do: string = 'index', __module: string = 'imeepos_runner'): Observable<T> {
         const params =
             new HttpParams()

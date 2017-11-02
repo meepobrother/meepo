@@ -1,0 +1,211 @@
+<div class="top-tab-nav operate-navs">
+    <span (click)="setWidgetSettingType('content')" [class.active]="widgetSettingType === 'content'" class="active">{{currentWidget.name}}组件</span>
+    <span (click)="setWidgetSettingType('style')" [class.active]="widgetSettingType === 'style'">组件样式</span>
+</div>
+<div [class.active]="widgetSettingType === 'content'" class="tab-content">
+    <div class="setting-row">
+        <span class="setting-label">列表名称：</span>
+        <input class="input" type="text" [(ngModel)]="currentWidget.customFeature.name">
+    </div>
+    <div class="setting-row bind-data-object">
+        <label>绑定数据对象：</label>
+        <bind-data-object [currentWidget]="currentWidget"></bind-data-object>
+        <div class="setting js-sort list-vessel-set">
+            <p style="margin-top:10px">
+                <label>选择数据分类：</label>
+                <select #select class="data-source-select" [value]="currentWidget.customFeature.source" (change)="bindCategory(select.value)">
+                <option disabled *ngIf="currentWidget.customFeature.form == ''">请先绑定数据对象</option>
+                <option value="none">全部</option>
+                <option *ngFor="let category of widgetSettingService.getFormCategory(currentWidget.customFeature.form)" value="{{ category.id }}">{{ category.name }}</option>
+              </select>
+            </p>
+        </div>
+    </div>
+    <div class="setting-row">
+        <p>
+            <label>动态列表高度：</label>
+        </p>
+        <div class="setting-second-level">
+            <div class="setting-second-row">
+                <input id="customheight" (click)="setAutoHeight(0)" [checked]="currentWidget.customFeature.vesselAutoheight == 0" type="radio" name="height">
+                <label for="customheight">自定义高度</label>
+            </div>
+            <div class="setting-second-level setting-second-row" *ngIf="currentWidget.customFeature.vesselAutoheight == 0">
+                <label>高度设置：</label>
+                <not-auto-height [currentWidget]="currentWidget" [autoHeight]="currentWidget.customFeature.vesselAutoheight"></not-auto-height>
+            </div>
+        </div>
+        <div class="setting-second-level">
+            <div class="setting-second-row">
+                <input id="autoheight" (click)="setAutoHeight(1)" [checked]="currentWidget.customFeature.vesselAutoheight == 1" type="radio" name="height">
+                <label for="autoheight">自适应高度</label>
+            </div>
+            <div class="setting-second-level" *ngIf="currentWidget.customFeature.vesselAutoheight == 1">
+                <div class="setting-second-row">
+                    <label>加载方式：</label>
+                    <label><input type="radio" name="loading-data" [checked]="currentWidget.customFeature.loadingMethod == 1" (click)="setLoadingMethod(1)" >点击加载</label>
+                    <label class="loading-way"><input type="radio" name="loading-data" [checked]="currentWidget.customFeature.loadingMethod == 0" (click)="setLoadingMethod(0)">滚动加载</label>
+                </div>
+                <div class="setting-second-row" *ngIf="currentWidget.customFeature.loadingMethod == 1">
+                    <div class="setting-second-row">
+                        <label>每次加载数据条数：</label>
+                        <loading-num [currentWidget]="currentWidget"></loading-num>
+                    </div>
+                    <div>
+                        <label>按钮样式：</label>
+                        <div class="setting-second-row">
+                            <label><input type="radio" name="loading-btn" [checked]="currentWidget.customFeature.loadingStyle == 'img'" (click)="setLoadingStyle('img')" />图片</label>
+                            <div class="setting-second-level setting-second-row">
+                                <loading-img [currentWidget]="currentWidget"></loading-img>
+                            </div>
+                        </div>
+                        <div class="setting-second-row">
+                            <label><input type="radio" name="loading-btn" [checked]="currentWidget.customFeature.loadingStyle == 'text'" (click)="setLoadingStyle('text')" />文字</label>
+                            <div class="setting-second-level setting-second-row">
+                                <input class="input loading-text-input" type="text" [(ngModel)]="currentWidget.customFeature.loadingText" />
+                                <loading-color [currentWidget]="currentWidget"></loading-color>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="setting-second-row" *ngIf="currentWidget.customFeature.loadingMethod == 0">
+                    <span class="tip-in-list-vessel-setting">*注：使用高度自适应的滚动加载，组件必须放置于页面底部，才能有滚动加载效果</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="setting-row" *ngIf="currentWidget.customFeature.form != ''">
+        <div class="setting-title">列表项点击事件：</div>
+        <div>
+            跳转至：
+            <select #pageResponse [disabled]="currentWidget.customFeature.form === 'goods' || currentWidget.customFeature.form === 'appointment' || currentWidget.customFeature.form === 'takeout' || currentWidget.customFeature.form === 'tostore'" class="js-button-page-link"
+                value="{{currentWidget.customFeature.link}}" (change)="pageResponseChange(pageResponse.value)">
+              <option value="-1">无</option>
+              <option *ngIf="currentWidget.customFeature.form === 'goods' || currentWidget.customFeature.form === 'appointment'" [selected]="currentWidget.customFeature.link === 'goodsDetail'" value="goodsDetail">商品详情页</option>
+              <option *ngIf="currentWidget.customFeature.form === 'takeout'" [selected]="currentWidget.customFeature.link === 'waimaiDetail'" value="waimaiDetail">商品详情页</option>
+              <option *ngIf="currentWidget.customFeature.form === 'tostore'" [selected]="currentWidget.customFeature.link === 'tostoreDetail'" value="tostoreDetail">商品详情页</option>
+              <optgroup *ngFor="let group of catalogService.getGroupsData()" label="{{ group.group }}">
+                <option *ngFor="let page of group.pages" value="{{ page.router }}">{{ page.name }}</option>
+              </optgroup>
+            </select>
+            <div class="question-note">
+                <span class="icon-help"></span>
+                <div class="help-tip left-help-tip">
+                    动态列表项的跳转会传递该项的id，一般跳转至该列表的动态页
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="setting-row note-tip">
+        <label>备注：</label> 动态列表当前编辑的是每一个列表项的设置，预览时才能看到完整内容:列表的总高度／列表项的间隔／列表的背景颜色
+    </div>
+</div>
+<div [class.active]="widgetSettingType === 'style'" class="tab-content">
+    <div class="setting-accordion active">
+        <div class="setting-accordion-title" (click)="showAccordionExpand($event)">组件设置</div>
+        <div class="setting-accordion-content">
+            <div class="setting-row">
+                <div class="setting-row-text">样式</div>
+                <ul class="layout-wrap">
+                    <li class="list-layout" (click)="setDoubleDisplay(0)" [class.selected]="currentWidget.customFeature.mode === 0">
+                        <!-- <p>单列展示</p> -->
+                        <div class="list-layout-content" title="一栏">
+                            <div class="line">
+                                <div class="small-block">
+                                    <div class="gray-block"></div>
+                                </div>
+                            </div>
+                            <div class="small-block">
+                                <div class="gray-block"></div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-layout" (click)="setDoubleDisplay(1)" [class.selected]="currentWidget.customFeature.mode === 1">
+                        <!-- <p>双列展示</p> -->
+                        <div class="list-layout-content double-layout" title="两栏">
+                            <div class="big-block borderRight">
+                                <div class="gray-block"></div>
+                            </div>
+                            <div class="big-block">
+                                <div class="gray-block"></div>
+                            </div>
+                            <div class="big-block borderRight">
+                                <div class="gray-block"></div>
+                            </div>
+                            <div class="big-block">
+                                <div class="gray-block"></div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-layout" (click)="setDoubleDisplay(3)" [class.selected]="currentWidget.customFeature.mode === 3">
+                        <!-- <p>三列展示</p> -->
+                        <div class="list-layout-content three-layout" title="三栏">
+                            <div class="big-block borderRight">
+                                <div class="gray-block"></div>
+                            </div>
+                            <div class="big-block borderRight">
+                                <div class="gray-block"></div>
+                            </div>
+                            <div class="big-block">
+                                <div class="gray-block"></div>
+                            </div>
+                            <div class="big-block borderRight">
+                                <div class="gray-block"></div>
+                            </div>
+                            <div class="big-block borderRight">
+                                <div class="gray-block"></div>
+                            </div>
+                            <div class="big-block">
+                                <div class="gray-block"></div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-layout hor-mode" (click)="setDoubleDisplay(2)" [class.selected]="currentWidget.customFeature.mode === 2">
+                        <!-- <p>横划展示</p> -->
+                        <div class="list-layout-content" title="横向滚动">
+                            <div style="border-right: 2px solid #767676;width: 27%;" class="big-block">
+                                <div class="gray-block"></div>
+                            </div>
+                            <div style="border-right: 2px solid #767676;width: 27%;" class="big-block">
+                                <div class="gray-block"></div>
+                            </div>
+                            <div style="width: 22%;padding-right: 0;" class="big-block">
+                                <div class="gray-block"></div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="setting-row" *ngIf="currentWidget.customFeature.mode === 2">
+                <span class="tip-in-list-vessel-setting">*注：使用横向滚动样式，组件默认滚动加载，设置点击加载将不生效</span>
+            </div>
+            <div class="setting-row">
+                <div class="setting-row-text">组件间隔</div>
+                <div class="setting-inline">
+                    <label>上</label>
+                    <margin-top [currentWidget]="currentWidget"></margin-top>
+                </div>
+            </div>
+            <div class="setting-row">
+                <div class="setting-row-text">背景</div>
+                <background-color-list [currentWidget]="currentWidget"></background-color-list>
+                <background-image-list [currentWidget]="currentWidget"></background-image-list>
+            </div>
+            <div class="setting-row">
+                <div class="setting-row-text" style="margin-right: 9px;">行背景</div>
+                <line-background-color [currentWidget]="currentWidget"></line-background-color>
+                <line-background-image [currentWidget]="currentWidget"></line-background-image>
+            </div>
+            <div class="setting-row" *ngIf="currentWidget.customFeature.mode !== 2">
+                <div class="setting-row-text">列表间隔</div>
+                <vessel-margin-bottom [currentWidget]="currentWidget"></vessel-margin-bottom>
+            </div>
+            <div class="setting-row">
+                <div class="setting-row-text">透明</div>
+                <opacity-style [currentWidget]="currentWidget"></opacity-style>
+            </div>
+        </div>
+    </div>
+</div>

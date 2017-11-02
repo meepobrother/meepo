@@ -1,0 +1,63 @@
+<div id="phone-component" class="phone-component app">
+    <div>
+        <div class="phone-top"><img src="http://cdn.jisuapp.cn/zhichi_frontend/static/webapp/images/phonetop.png"></div>
+        <div id="phone-container" class="phone-contents" [class.toTopIndex]="isTop">
+            <div class="top-fixed-container">
+                <widget-view *ngFor="let widget of widgetService.getWidgetOnly(widgetList, 'top-nav')" [widget]="widget" [parentForm]="currentPageCustom.form" id="{{widget.id}}" [class.curchange]="widget === widgetService.getCurrentWidget()" (click)="clickWidget(widget)"
+                    style="width:320px;"></widget-view>
+            </div>
+            <div class="app-wrap" [ngStyle]="{
+                height: appWrapHeight | async,
+                'background-color': currentPageCustom['background-color'],
+                'background-image': currentPageCustom['background-image']
+              }">
+                <div class="page componentVessel" [class.dialog-page]="currentPageCustom.ifDialog" style="background-size: 100% 100%;" [ngStyle]="{
+                  'margin-top': pageMarginTop | async,
+                  'padding-top': pagePaddingTop | async
+                }" [class.empty-page]="widgetList.length == 0" (click)="clickPage()">
+                    <widget-view *ngFor="let widget of widgetService.getWidgetExclude(widgetList, ['hotspot','bottom-nav','top-nav', 'suspension'])" [widget]="widget" [parentForm]="currentPageCustom.form" id="{{widget.id}}" [class.curchange]="widget === widgetService.getCurrentWidget()"
+                        (click)="clickWidget(widget)"></widget-view>
+                    <div *ngIf="currentPageCustom.ifDialog" class="dialog-shadow" [ngStyle]="{
+                    'opacity':currentPageCustom.opacity
+                  }"></div>
+                    <free-widget-view *ngFor="let widget of widgetService.getWidgetOnly(widgetList, 'hotspot')" [widget]="widget" [parentForm]="currentPageCustom.form" id="{{widget.id}}" [class.curchange]="widget === widgetService.getCurrentWidget()" class="ele-container element {{widget?.type}}"
+                        (click)="clickWidget(widget)" [ngStyle]="{
+                        position: 'absolute',
+                        top: widget.style.top,
+                        left: widget.style.left,
+                        width: widget.style.width,
+                        height: widget.style.height
+                    }"></free-widget-view>
+                </div>
+            </div>
+            <div class="bottom-fixed-container">
+                <widget-view *ngFor="let widget of widgetService.getWidgetOnly(widgetList, 'bottom-nav')" [widget]="widget" [parentForm]="currentPageCustom.form" id="{{widget.id}}" [class.curchange]="widget === widgetService.getCurrentWidget()" (click)="clickWidget(widget)"
+                    style="width:320px;"></widget-view>
+            </div>
+            <div *ngFor="let widget of widgetService.getWidgetOnly(widgetList, 'suspension')" class="right-fixed-container" [bottom]="widget.style.bottom">
+                <widget-view [widget]="widget" [parentForm]="currentPageCustom.form" id="{{widget.id}}" [class.curchange]="widget === widgetService.getCurrentWidget()" (click)="clickWidget(widget)"></widget-view>
+            </div>
+        </div>
+        <div class="phone-bottom"><img src="http://cdn.jisuapp.cn/zhichi_frontend/static/webapp/images/phonebottom.png"></div>
+    </div>
+    <div class="operate-wrap">
+        <span (click)="oneStepForward()" [class.disable]="!ifCanOneStepForward()" class="icon-container icon-forward" title="前进一步"></span>前进
+        <span (click)="oneStepBackward()" [class.disable]="!ifCanOneStepBackward()" class="icon-container icon-backward" title="后退一步"></span>后退
+        <span (click)="showTemplate()" title="模版" class="icon-container icon-template"></span>模版
+        <span style="font-size: 22px;" (click)="showElementsSetting()" title="组件" class="icon-container icon-conponent"></span>元素
+        <span style="font-size: 22px;" (click)="showPageSetting()" title="数据" class="icon-container icon-page"></span>数据
+        <span style="font-size: 16px;" (click)="showGroupCenter()" title="模块" class="icon-container icon-heart"></span>模块
+    </div>
+    <ul id="context-menu" class="context-menu">
+        <li data-operation="copy">
+            <p (click)="copyCurrentWidgetTo(appService.getCurrentPageRouter())">复制</p>
+            <ul id="copy-to-menu" class="context-menu sec-menu">
+                <li *ngFor="let page of getPageList()" [attr.data-router]="page.router" (click)="copyCurrentWidgetTo(page.router);">{{ page.name }}</li>
+            </ul>
+        </li>
+        <li *ngIf="false" data-operation="hotspot" (click)="addHotspot()">
+            设置热区
+        </li>
+        <li data-operation="animation" (click)="showAnimationDilaog()">动画</li>
+    </ul>
+</div>

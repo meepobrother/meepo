@@ -1,0 +1,129 @@
+<div>
+    <ul class="function-tab-nav right-third-navs">
+        <li (click)="setClickResponse('none')" [class.active]="clickResponse === 'none' || !clickResponse"><a href="javascript:;">无</a></li>
+        <li (click)="setClickResponse('page')" [class.active]="clickResponse === 'page'"><a href="javascript:;">页面</a></li>
+        <li (click)="setClickResponse('function')" [class.active]="clickResponse === 'function'"><a href="javascript:;">功能</a></li>
+    </ul>
+    <div class="right-third-content" [style.display]="clickResponse === 'none' ? 'block':'none'"> </div>
+    <div class="right-third-content" [style.display]="clickResponse === 'page' ? 'block':'none'">
+        <div class="setting-row">
+            <p><span>连接至：</span>
+                <select #pageResponse class="js-button-page-link" value="{{setResponseSelection()}}" (change)="pageResponseChange(pageResponse.value)">
+                <option value="prePage">后退</option>
+                <option value="groupCenter">拼团中心</option>
+                <option value="shoppingCart">购物车</option>
+                <option value="myOrder">订单管理</option>
+                <option value="custom-link">自定义链接</option>
+                <option value="weiye">微页</option>
+                <optgroup *ngFor="let group of catalogService.getGroupsData()" label="{{ group.group }}">
+                  <option *ngFor="let page of group.pages" value="{{ page.router }}">{{ page.name }}</option>
+                </optgroup>
+              </select>
+            </p>
+            <input class="input custom-link-input" [style.display]="pageResponse.value === 'custom-link' ? 'block':'none'" [(ngModel)]="currentWidget.customFeature['custom-page-link']" type="text" placeholder="以http://或https://开头">
+            <div class="link-weiye" [style.display]="pageResponse.value === 'weiye' ? 'block':'none'">
+                <div class="link-weiye-name">{{ currentWidget.customFeature['weiye-name'] }}</div>
+                <button *ngIf="!currentWidget.customFeature['weiye-name']" class="link-weiye-btn btn orange" (click)="showWeiyeDialog()">选择微页</button>
+                <button *ngIf="currentWidget.customFeature['weiye-name']" class="link-weiye-btn btn orange" (click)="showWeiyeDialog()">更改微页</button>
+            </div>
+        </div>
+        <span class="tip-in-text-widget-setting">*注：小程序不支持“自定义链接”和“微页”</span>
+    </div>
+    <div class="right-third-content" [style.display]="clickResponse === 'function' ? 'block':'none'">
+        <div class="setting-row">
+            <span>调用功能：</span>
+            <select #functionResponse class="js-button-fn-select" value="{{setResponseSelection()}}" (change)="functionResponseChange(functionResponse.value)">
+              <option value="call">拨打电话</option>
+              <option value="turn-to-xcx">跳转小程序</option>
+              <option value="refresh-page">刷新页面</option>
+              <option value="refresh-list">刷新列表</option>
+              <option *ngIf="currentWidget.type == 'button'" value="share">分享页面</option>
+              <option *ngIf="currentWidget.type == 'button'" value="contact">联系客服</option>
+              <option value="goods-trade">商品买卖</option>
+              <option value="get-coupon">领取优惠券</option>
+              <option value="coupon-receive-list">优惠券领取列表</option>
+              <option value="recharge">储值金充值</option>
+              <option value="to-franchisee">进入商家</option>
+              <option value="community">社区版块</option>
+              <option value="transfer">当面付</option>
+              <option value="to-seckill">秒杀</option>
+              <option value="to-promotion">推广</option>
+              <option *ngIf="currentWidget.type == 'picture'" value="preview-picture">预览大图(小程序专属)</option>
+              <option value="lucky-wheel">大转盘</option>
+            </select>
+        </div>
+        <div class="fn-set-wrap setting-row" [style.display]="functionResponse.value === 'call' ? 'block':'none'">
+            <span>电话号码：</span>
+            <input class="input js-button-phone-num" type="text" [(ngModel)]="currentWidget.customFeature['phone-num']">
+        </div>
+        <div class="fn-set-wrap setting-row" [style.display]="functionResponse.value === 'turn-to-xcx' ? 'block':'none'">
+            <p>
+                <span>APPID：</span>
+                <input class="input js-button-phone-num" type="text" [(ngModel)]="currentWidget.customFeature['xcx-appid']">
+            </p>
+            <div>
+                <span>页面路径：(可选)</span>
+                <input class="input" type="text" [(ngModel)]="currentWidget.customFeature['xcx-page-url']" placeholder="例：pages/home/home?id=abc" style="margin-top:5px;width:230px;">
+                <div class="question-note">
+                    <span class="icon-help"></span>
+                    <div class="help-tip left-help-tip">路径格式：页面路径<span style="color:#0064ff;">?页面参数</span>。页面路径和参数可在开发者工具内查看，若无页面参数则省略蓝色字体部分</div>
+                </div>
+            </div>
+        </div>
+        <div class="fn-set-wrap setting-row" [style.display]="functionResponse.value === 'refresh-list' ? 'block':'none'">
+            <p>
+                <span>刷新对象：</span>
+                <select #refresh class="refresh-object-select" value="{{ currentWidget.customFeature.refresh_object }}" (change)="refreshObject(refresh.value)">
+                <option *ngFor="let list of widgetService.getCurrentPageWidgets(['list-vessel', 'goods-list','franchisee-list'])" [attr.widgetId]="list.id" value="{{ list.customFeature.id }}">{{ list.customFeature.name }}</option>
+              </select>
+            </p>
+            <p><span>索引字段：</span>
+                <select #index class="refresh-segment-select" value="{{ currentWidget.customFeature.index_segment }}" (change)="refreshIndex(index.value)">
+                <option value="" disabled>请选择相应字段</option>
+                <option *ngFor="let item of getListVesselForm()" value="{{item.field}}" [selected]="currentWidget.customFeature.index_segment == item.field" [innerHTML]="item.name"></option>
+                <!-- <option *ngFor="let item of listVesselForm | async" value="{{item.field}}" [selected]="currentWidget.customFeature.index_segment == item.field" [innerHTML]="item.name"></option> -->
+              </select>
+            </p>
+            <div>
+                <span>索引值：</span><input [(ngModel)]="currentWidget.customFeature.index_value" class="input refresh-value-input" type="text">
+                <div class="question-note">
+                    <span class="icon-help"></span>
+                    <div class="help-tip left-help-tip">刷新功能只针对动态列表、商品列表，设置完成后 点击时根据设置刷新绑定的列表</div>
+                </div>
+            </div>
+        </div>
+        <div class="fn-set-wrap setting-row" [style.display]="functionResponse.value === 'share' ? 'block':'none'">
+            <div>
+                <span>分享描述：</span><input [(ngModel)]="currentWidget.customFeature.desc" class="input refresh-value-input" type="text">
+                <div class="question-note">
+                    <span class="icon-help"></span>
+                    <div class="help-tip left-help-tip">注意：页面分享功能只针对小程序使用</div>
+                </div>
+            </div>
+        </div>
+        <div class="link-weiye" [style.display]="functionResponse.value === 'goods-trade' ? 'block':'none'">
+            <div class="link-weiye-name">{{ currentWidget.customFeature['goods-name'] }}</div>
+            <button *ngIf="!currentWidget.customFeature['goods-name']" class="link-weiye-btn btn orange" (click)="showGoodsDialog()">选择商品</button>
+            <button *ngIf="currentWidget.customFeature['goods-name']" class="link-weiye-btn btn orange" (click)="showGoodsDialog()">更改商品</button>
+        </div>
+        <div class="link-weiye" [style.display]="functionResponse.value === 'community' ? 'block':'none'">
+            <div class="link-weiye-name">{{ currentWidget.customFeature['community-name'] }}</div>
+            <button *ngIf="!currentWidget.customFeature['community-name']" class="link-weiye-btn btn orange" (click)="showCommunityDialog()">选择社区</button>
+            <button *ngIf="currentWidget.customFeature['community-name']" class="link-weiye-btn btn orange" (click)="showCommunityDialog()">更改社区</button>
+        </div>
+        <div class="fn-set-wrap setting-row" style="padding-left: 74px;" [style.display]="functionResponse.value === 'get-coupon' ? 'block':'none'">
+            <select [(ngModel)]="currentWidget.customFeature['coupon-id']">
+              <option disabled value="">选择优惠券</option>
+              <option *ngFor="let coupon of couponList" [value]="coupon.id">{{coupon.title}}</option>
+            </select>
+        </div>
+        <div class="link-weiye" [style.display]="functionResponse.value === 'to-franchisee' ? 'block':'none'">
+            <div class="link-weiye-name">{{ currentWidget.customFeature['franchisee-name'] }}</div>
+            <button class="link-weiye-btn btn orange" (click)="showFranchiseeDialog()">{{ currentWidget.customFeature['franchisee-name'] ? '更改商家' : '选择商家' }}</button>
+        </div>
+        <div class="link-weiye" [style.display]="functionResponse.value === 'to-seckill' ? 'block':'none'">
+            <div class="link-weiye-name">{{ currentWidget.customFeature['seckill-name'] }}</div>
+            <button class="link-weiye-btn btn orange" (click)="showSeckillDialog()">{{ currentWidget.customFeature['seckill-name'] ? '更改秒杀' : '选择秒杀' }}</button>
+        </div>
+    </div>
+</div>

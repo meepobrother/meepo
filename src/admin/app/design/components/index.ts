@@ -137,6 +137,8 @@ import {
     CardComponent, CardSetting, CardView, SlotDirective
 } from './zan-ui';
 
+import { LAYOUT_COMPONENT, LAYOUT_COMPONENT_SETTING, LAYOUT_COMPONENT_VIEW, LAYOIUT_ARRAY } from '../layouts/export';
+
 export const COMPONENTS = [
     ButtonView, ButtonSetting, ButtonSelect,
     WeuiCellsSetting, WeuiCellsView,
@@ -236,8 +238,10 @@ export const COMPONENTS = [
     MeepoFormBtnSetting, MeepoFormBtnView,
     MeepoFormRealnameView, MeepoFormRealnameSetting,
     WeuiPreviewSetting, WeuiPreviewView,
-    PayuiFlowSetting, PayuiFlowView
+    PayuiFlowSetting, PayuiFlowView,
+    ...LAYOIUT_ARRAY
 ];
+
 
 export const COMPONENTS_SELECT = {
     'button': ButtonSelect,
@@ -308,10 +312,11 @@ export const COMPONENTS_VIEW = {
     'pay-select-money': PaySelectMoneyView,
     'iqiyi-head-nav': IqiyiHeadNavView,
     'meepo-form-btn': MeepoFormBtnView,
-    'meepo-form-realname': MeepoFormRealnameView, 
+    'meepo-form-realname': MeepoFormRealnameView,
     'weui-cells': WeuiCellsView,
     'weui-preview': WeuiPreviewView,
-    'payui-flow': PayuiFlowView
+    'payui-flow': PayuiFlowView,
+    ...LAYOUT_COMPONENT_VIEW
 };
 
 
@@ -379,9 +384,10 @@ export const COMPONENTS_SETTING = {
     'iqiyi-head-nav': IqiyiHeadNavSetting,
     'meepo-form-btn': MeepoFormBtnSetting,
     'meepo-form-realname': MeepoFormRealnameSetting,
-    'weui-cells': WeuiCellsSetting, 
-    'weui-preview': WeuiPreviewSetting, 
-    'payui-flow': PayuiFlowSetting, 
+    'weui-cells': WeuiCellsSetting,
+    'weui-preview': WeuiPreviewSetting,
+    'payui-flow': PayuiFlowSetting,
+    ...LAYOUT_COMPONENT_SETTING,
 };
 
 
@@ -438,7 +444,8 @@ export const WIDGETS = {
     'meepo-form-realname': MeepoFormRealnameDefault,
     'weui-cells': WeuiCellsDefault,
     'weui-preview': WeuiPreviewDefault,
-    'payui-flow': PayuiFlowDefault
+    'payui-flow': PayuiFlowDefault,
+    ...LAYOUT_COMPONENT
 }
 
 import { Injectable } from '@angular/core';

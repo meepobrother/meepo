@@ -1,0 +1,151 @@
+<div id="animate-shadow" class="animate-shadow">
+    <div class="animate-wrapper">
+        <div class="animate-cancel animate-close-window">&times;</div>
+        <section class="animate-left-menu">
+            <header>动画</header>
+            <ul class="animate-continuous-ul"></ul>
+            <button class="add-animation animate-continuous-button"><span style="margin-right:5px;font-size:18px;">+</span>增加动画</button>
+        </section>
+        <section class="animate-right-menu">
+            <div class="animate-right-content">
+                <div class="animation-type-menu" id="animation-type-menu">
+                    <div class="type-menu-div" data-type="appear"><button class="animation-type active">进入动画</button></div>
+                    <div class="type-menu-div" data-type="transit"><button class="animation-type">展示动画</button></div>
+                    <div class="type-menu-div last-child" data-type="disappear"><button class="animation-type" data-c="js-animate-disappear">消失动画</button></div>
+                </div>
+                <div id="animate-main">
+                    <div class="animation-page swiper-container animation-appear active">
+                        <div class="swiper-wrapper">
+                            <div class="animation-ul-holder swiper-slide" data-slideIndex="0">
+                                <!-- direction-type, 0:上下左右中 1:上下左右 2:内外 3:特殊 4:左右-->
+                                <ul class="animation-choice" data-type="appear">
+                                    <li data-value="appear_fade" direction-type="0">淡入<span></span></li>
+                                    <li data-value="appear_bounce" direction-type="0">弹入<span></span></li>
+                                    <li data-value="appear_translate" direction-type="1">平移<span></span></li>
+                                    <li data-value="appear_rotate" direction-type="0">旋转<span></span></li>
+
+                                    <li data-value="appear_lightSpeed" direction-type="1">光速<span></span></li>
+                                    <li data-value="appear_fly" direction-type="1">飞入<span></span></li>
+                                    <li data-value="appear_unfold" direction-type="1">展开<span></span></li>
+                                    <li data-value="appear_roll" direction-type="1">翻滚<span></span></li>
+                                    <li data-value="appear_bigScale" direction-type="2">大幅缩放<span></span></li>
+                                    <li data-value="appear_smallScale" direction-type="2">小幅缩放<span></span></li>
+                                    <li data-value="appear_flip_y" direction-type="3">Y翻转</li>
+                                    <li data-value="appear_flip_x" direction-type="3">X翻转</li>
+                                    <!-- <li data-value="scaleX" data-direction-type="3">缩放<span>(X轴放大)</span></li> -->
+                                    <!-- <li data-value="scaleY" data-direction-type="3">缩放<span>(Y轴放大)</span></li> -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="animation-page animation-transit">
+                        <div class="swiper-wrapper">
+                            <div class="animation-ul-holder swiper-slide" data-slideIndex="0">
+                                <ul class="animation-choice" data-type="transit">
+                                    <li data-value="transit_swing" direction-type="3">摇动</li>
+                                    <li data-value="transit_jump" direction-type="3">跳动</li>
+                                    <li data-value="transit_rotate" direction-type="3">转动</li>
+                                    <li data-value="transit_fade" direction-type="3">呼吸灯</li>
+                                    <li data-value="transit_flash" direction-type="3">闪动</li>
+                                    <li data-value="transit_shake" direction-type="3">抖动</li>
+                                    <li data-value="transit_jitter" direction-type="3">乱抖动</li>
+                                    <li data-value="transit_flip" direction-type="3">翻转</li>
+                                    <li data-value="transit_jelly" direction-type="3">果冻</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="animation-page animation-disappear">
+                        <div class="swiper-wrapper">
+                            <div class="animation-ul-holder active swiper-slide" data-slideIndex="0">
+                                <ul class="animation-choice" data-type="disappear">
+                                    <li data-value="disappear_fade" direction-type="0">淡出<span></span></li>
+                                    <li data-value="disappear_bounce" direction-type="0">弹出<span></span></li>
+                                    <li data-value="disappear_translate" direction-type="1">移出<span></span></li>
+                                    <li data-value="disappear_lightSpeed" direction-type="1">光速<span></span></li>
+                                    <li data-value="disappear_roll" direction-type="1">翻滚<span></span></li>
+                                    <li data-value="disappear_scale" direction-type="2">缩放<span></span></li>
+                                    <li data-value="disappear_flip_y" direction-type="3">Y翻转</li>
+                                    <li data-value="disappear_flip_x" direction-type="3">X翻转</li>
+                                    <li data-value="disappear_fall" direction-type="4">脱落<span></span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="animation-direction-wrapper" id="direction-wrap">
+                    <label>方向:</label>
+                    <ul class="animation-direction-menu active" direction-type="0">
+                        <li data-value="_right" class="chosen">从左向右</li>
+                        <li data-value="_left">从右向左</li>
+                        <li data-value="_up">从下向上</li>
+                        <li data-value="_down">从上向下</li>
+                        <li data-value="_center">中心</li>
+                    </ul>
+                    <ul class="animation-direction-menu" direction-type="1">
+                        <li data-value="_right">从左向右</li>
+                        <li data-value="_left">从右向左</li>
+                        <li data-value="_up">从下向上</li>
+                        <li data-value="_down">从上向下</li>
+                    </ul>
+                    <ul class="animation-direction-menu" direction-type="2">
+                        <li data-value="_in">向内</li>
+                        <li data-value="_out">向外</li>
+                    </ul>
+                    <ul class="animation-direction-menu" direction-type="3"></ul>
+                    <ul class="animation-direction-menu" direction-type="4">
+                        <li data-value="_left">左</li>
+                        <li data-value="_right">右</li>
+                    </ul>
+                </div>
+                <div class="animation-seperator">
+                </div>
+                <div class="option show-inline-block">
+                    <ul>
+                        <li>
+                            <p>开始时间:</p>
+                            <div>
+                                <div class="div_range delay-time" id="delayTime" tp="dt"></div>
+                                <input class="rangeinput" tp="dt" type="text" value="0.2">
+                                <span>秒</span>
+                            </div>
+                        </li>
+                        <li>
+                            <p>持续时间:</p>
+                            <div>
+                                <div class="div_range animate-time" id="animateTime" tp="at"></div>
+                                <input class="rangeinput" tp="at" type="text" value="2.5" min="0">
+                                <span>秒</span>
+                            </div>
+                        </li>
+                        <li>
+                            <p>循环次数:</p>
+                            <select id="animateTimes">
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="9">9</option>
+                      <option value="10">10</option>
+                      <option value="100">100</option>
+                      <option value="infinite">无数次</option>
+                    </select>
+                            <span>次</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="preview" id="preview_animate">
+                    <div class="animateEle"></div>
+                </div>
+                <footer>
+                    <button class="animate-cancel">取消</button>
+                    <button class="animateSure">确定</button>
+                </footer>
+            </div>
+        </section>
+    </div>
+</div>

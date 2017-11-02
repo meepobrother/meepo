@@ -43,9 +43,8 @@ export class ThemesPreview {
             colorLight: "#ffffff",
             correctLevel: this.qrcode.CorrectLevel.H
         });
-
         this.url = this.sysinfo.siteroot+'app/index.php?i='+this.sysinfo.getUniacid()+'&c=entry&do=design&m=imeepos_runner&id=' + this.id;
-    }   
+    }
 
     loadJScript() {
         const script = this.document.createElement('script');

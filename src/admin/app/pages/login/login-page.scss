@@ -4,12 +4,15 @@
     align-content: center;
     justify-content: center;
     height: 100%;
+    background-image: cover;
+    overflow: hidden;
 }
 
 .login-box {
     box-shadow: 0 0 10px 0 hsla(0, 6%, 58%, .6);
-    min-width: 300px;
+    max-width: 460px;
     margin: 20px auto;
+    background: rgba(204, 204, 204, 0.22);
 }
 
 .qrcode {
@@ -29,4 +32,8 @@
 
 .hiden {
     display: none;
+}
+
+.btn {
+    color: #fff;
 }

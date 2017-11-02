@@ -1,0 +1,57 @@
+<div class="top-tab-nav operate-navs">
+    <span (click)="setWidgetSettingType('content')" [class.active]="widgetSettingType === 'content'" class="active">{{currentWidget.name}}组件</span>
+    <span (click)="setWidgetSettingType('style')" [class.active]="widgetSettingType === 'style'">组件样式</span>
+</div>
+<div [class.active]="widgetSettingType === 'content'" class="tab-content">
+    <div class="setting-row">
+        <p>
+            <label>手机端展示高度：</label>
+            <not-auto-height [currentWidget]="currentWidget" [autoHeight]="currentWidget.customFeature.vesselAutoheight"></not-auto-height>
+        </p>
+        <div>
+            <label for="autoheight">高度自适应：</label>
+            <input id="autoheight" (click)="setAutoHeight(currentWidget.customFeature.vesselAutoheight)" [checked]="currentWidget.customFeature.vesselAutoheight == 1" type="checkbox" name="height">
+            <div class="question-note">
+                <span class="icon-help"></span>
+                <div class="help-tip">'列表组件' 设置为高度自适应后，需放置于页面底部才能正常滚动加载</div>
+            </div>
+        </div>
+    </div>
+    <div class="setting-row code-set">
+        <span class="code-show-edit option-btn" (click)="showCode()">编辑代码</span>
+        <div class="full-screen-mask code-edit-wrap" [style.display]="ifShowCode?'block':'none'">
+            <div class="code-edit-container">
+                <div class="code-edit-header">插入代码 <i class="code-close-edit" (click)="showCode()">&times;</i></div>
+                <textarea class="code-edit-textarea"></textarea>
+                <div class="code-edit-footer">
+                    <span class="code-save-html btn orange" (click)="saveCode()">保存HTML代码</span>
+                    <span class="code-close-edit btn" (click)="showCode()">取消</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div [class.active]="widgetSettingType === 'style'" class="tab-content">
+    <div class="setting-row">
+        <label>上间距：</label>
+        <margin-top [currentWidget]="currentWidget"></margin-top>
+    </div>
+    <div class="setting-row">
+        <div class="setting-inline">
+            <label>边框样式：</label>
+            <border-style [currentWidget]="currentWidget"></border-style>
+        </div>
+    </div>
+    <div class="setting-row">
+        <div class="setting-inline ">
+            <label>边框粗细：</label>
+            <border-width [currentWidget]="currentWidget"></border-width>
+        </div>
+    </div>
+    <div class="setting-row">
+        <div class="setting-inline">
+            <label>边框颜色：</label>
+            <border-color [currentWidget]="currentWidget"></border-color>
+        </div>
+    </div>
+</div>

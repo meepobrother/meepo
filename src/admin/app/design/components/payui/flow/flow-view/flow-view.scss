@@ -513,3 +513,19 @@ a {
     color: #999;
     font-size: 9pt
 }
+
+.weui-wepay-flow__line_ing {
+    .weui-wepay-flow__state {
+        background-color: #1aad19;
+    }
+    .weui-wepay-flow__title-bottom {
+        color: #1aad19;
+    }
+}
+
+.weui-wepay-flow__content {
+    flex: 1;
+    flex-direction: column;
+    display: flex;
+    min-height: 300px;
+}

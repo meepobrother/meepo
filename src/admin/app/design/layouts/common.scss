@@ -1,0 +1,94 @@
+.control-wrap {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    left: 0;
+    top: 0;
+    font-size: 0;
+    font-style: normal;
+    font-weight: normal;
+    z-index: 100;
+    .move-handle {
+        position: absolute;
+        left: 50%;
+        top: 0;
+        width: 55px;
+        height: 14px;
+        padding-top: 1px;
+        font-size: 16px;
+        margin-left: -28px;
+        border-left: 1px solid #37a1ec;
+        border-right: 1px solid #37a1ec;
+        border-bottom: 1px solid #37a1ec;
+        border-radius: 0 0 3px 3px;
+        background-color: #fff;
+        cursor: move;
+        i {
+            display: block;
+            width: 15px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 2px;
+            border-top: 1px solid #37a1ec;
+        }
+    }
+    .ele-delete-icon {
+        position: absolute;
+        right: -1px;
+        top: -1px;
+        width: 18px;
+        height: 18px;
+        line-height: 14px;
+        font-size: 20px;
+        border: 1px solid #37a1ec;
+        border-radius: 2px;
+        background-color: #fff;
+        color: #37a1ec;
+        cursor: pointer;
+        text-align: center;
+        z-index: 999;
+    }
+}
+
+.fixed {
+    position: fixed;
+}
+
+.floor {
+    font-size: 0;
+    width: 100%;
+    .floor-container {
+        overflow: visible;
+        height: 100%;
+        font-size: 0px;
+        background-color: #fff;
+        box-shadow: 0 0 10PX 0PX rgba(155, 143, 143, 0.6);
+    }
+}
+
+.bdr-top:before {
+    height: 1PX;
+    content: '';
+    width: 100%;
+    border-bottom: 1PX solid #f0f0f0;
+    position: absolute;
+    top: -1PX;
+    right: 0;
+    transform: scaleY(0.5);
+    -webkit-transform: scaleY(0.5);
+    z-index: 10;
+}
+
+.bdr-top:after {
+    height: 1PX;
+    content: '';
+    width: 100%;
+    border-top: 1PX solid #f0f0f0;
+    position: absolute;
+    bottom: -1PX;
+    right: 0;
+    transform: scaleY(0.5);
+    -webkit-transform: scaleY(0.5);
+    z-index: 10;
+}

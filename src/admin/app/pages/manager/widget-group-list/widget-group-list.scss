@@ -1,0 +1,51 @@
+ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    li {
+        line-height: 44px;
+        height: 44px;
+        padding: 0 20px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        position: relative;
+        margin-bottom: 20px;
+        .opts {
+            display: none;
+        }
+        span {
+            margin-right: 10px;
+        }
+        &:hover {
+            background: #ccc;
+            .opts {
+                display: block;
+                position: absolute;
+                top: 33px;
+            }
+        }
+        div {
+            flex: 1;
+            justify-content: flex-end;
+            align-items: center;
+            display: flex;
+            flex-direction: row;
+        }
+        .fa {
+            cursor: pointer;
+            font-size: 16px;
+            &:hover {
+                transform: scale(1.4, 1.4);
+            }
+        }
+    }
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}

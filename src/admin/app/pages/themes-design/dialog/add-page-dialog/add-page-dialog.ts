@@ -15,6 +15,24 @@ export class AddPageDialog implements OnInit {
     // @Input() data: any;
     form: FormGroup;
     catalogs: any[] = [];
+    pageTypes: any[] = [
+        {
+            title: '列表',
+            type: 'list'
+        },
+        {
+            title: '详情',
+            type: 'detail'
+        },
+        {
+            title: '发布',
+            type: 'post'
+        },
+        {
+            title: '搜索',
+            type: 'search'
+        }
+    ];
     constructor(
         public dialog: MatDialogRef<any>,
         @Inject(MAT_DIALOG_DATA) public data: any,

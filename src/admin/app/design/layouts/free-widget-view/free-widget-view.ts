@@ -92,7 +92,7 @@ export class FreeWidgetView implements OnInit, AfterViewInit, OnDestroy, OnChang
 
     }
 
-    removeWidget() {
+    removeWidget(e: any) {
         this.service.removeWidget(this._widget);
     }
 

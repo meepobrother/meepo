@@ -3,11 +3,16 @@ import { CommonModule } from '@angular/common';
 import { ManagerPage } from './manager-page';
 import { RouterModule, Routes } from '@angular/router';
 import { AddWidget } from './add-widget';
+import { AddWidgetGroup } from './add-widget-group';
+
+
 import { AddForm } from './add-form';
 import { AddTable } from './add-table';
 
 
 import { WidgetList } from './widget-list';
+import { WidgetGroupList } from './widget-group-list/widget-group-list';
+
 import { FormsList } from './forms-list';
 
 import { ThemesMine} from './themes-mine';
@@ -30,19 +35,23 @@ const routes: Routes = [
         ThemesAdd,
         FormsList,
         AddForm,
-        AddTable
+        AddTable,
+        AddWidgetGroup,
+        WidgetGroupList
     ],
     imports: [ CommonModule, RouterModule.forChild(routes), ShareModule ],
     exports: [
         ManagerPage,
         AddWidget,
-        WidgetList
+        WidgetList,
+        AddWidgetGroup
     ],
     providers: [],
     entryComponents: [
         AddWidget,
         ThemesAdd,
-        AddForm
+        AddForm,
+        AddWidgetGroup
     ]
 })
 export class ManagerPageModule {}

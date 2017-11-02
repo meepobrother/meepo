@@ -8,6 +8,8 @@ export class MeepoFormTextareaDefault extends Widget{
     placeholder: string = '请输入文本';
     title: string = '文本';
 
+    field_name: string;
+
     constructor(){
         super();
         this.type = 'meepo-form-textarea';

@@ -1,0 +1,32 @@
+.bottom-nav-view {
+    height: 54px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+}
+
+.meepo-tabs {
+    height: 100%;
+    position: relative;
+    background-color: #fff;
+    display: flex;
+    flex-direction: row;
+    li {
+        text-align: center;
+        width: 20%;
+        height: 100%;
+        .bar-img {
+            display: inline-block;
+            width: 65PX;
+            height: 100%;
+            position: relative;
+            z-index: 20;
+            img {
+                max-height: 100%;
+                max-width: 100%;
+                width: auto;
+                overflow: hidden;
+            }
+        }
+    }
+}
