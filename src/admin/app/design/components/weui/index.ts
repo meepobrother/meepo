@@ -11,3 +11,6 @@ export * from './picker';
 export * from './preview';
 
 
+
+
+export const COMPONENT_VIEW = [];

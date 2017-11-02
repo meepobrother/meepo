@@ -1,5 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
+import { SelectPageDialog } from '../components/setting/select-page-dialog';
+import { ImageLinkTitleSelect } from '../components/setting/image-link-title-select/image-link-title-select';
+
+import { MatDialog } from '@angular/material';
 @Injectable()
 export class AppService {
 
@@ -40,6 +44,20 @@ export class AppService {
     // 插件库
     showPluginResDialogStream: Subject<any> = new Subject();
 
-    constructor(){}
+    constructor(
+        public dialog: MatDialog
+    ) { }
+
+
+    selectPages(app_id?: number) {
+        let dialogRef = this.dialog.open(SelectPageDialog, { data: { app_id: app_id } });
+        return dialogRef.afterClosed();
+    }
+
+    imageLinkTitleSelectDialog(item?: any){
+        //ImageLinkTitleSelect
+        let dialogRef = this.dialog.open(ImageLinkTitleSelect, { data: item });
+        return dialogRef.afterClosed();
+    }
 
 }

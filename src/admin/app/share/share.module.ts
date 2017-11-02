@@ -9,6 +9,10 @@ import {
     MeepoDialogModule, WeuiPickerModule, UploaderBtns
 } from '../components';
 
+import { SECTIONS, SECTIONS_SERVICES } from './section';
+import { DIALOGS } from './dialog';
+
+
 import { QuillModule } from 'ngx-quill';
 
 import { MatDialogModule } from '@angular/material';
@@ -46,12 +50,23 @@ const materials = [
         DndModule.forRoot()
     ],
     declarations: [
-        UploaderBtns
+        UploaderBtns,
+        ...SECTIONS,
+        ...DIALOGS
     ],
     exports: [
         ...materials,
         DndModule,
-        UploaderBtns
+        UploaderBtns,
+        ...SECTIONS,
+        ...DIALOGS
+    ],
+    providers: [
+        ...SECTIONS_SERVICES
+    ],
+    entryComponents: [
+        ...DIALOGS,
+        ...SECTIONS
     ]
 })
 export class ShareModule { }

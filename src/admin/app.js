@@ -1,4 +1,4 @@
-if (require('electron-squirrel-startup')) return;
+// if (require('electron-squirrel-startup')) return;
 
 const electron = require('electron')
     // Module to control application life.
@@ -26,7 +26,7 @@ function createWindow() {
     }))
 
     // Open the DevTools.
-    mainWindow.webContents.openDevTools()
+    // mainWindow.webContents.openDevTools()
 
     // Emitted when the window is closed.
     mainWindow.on('closed', function() {

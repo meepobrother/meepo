@@ -10,6 +10,7 @@ export class MeepoFormBtnDefault extends Widget{
 
     __do: string;
     __post: any;
+    success: string;
     constructor(){
         super();
         this.type = 'meepo-form-btn';

@@ -20,7 +20,7 @@ import {
     UploaderView
 } from '../../design/components';
 
-import { CatalogSection } from './section/catalog-section';
+import { CatalogSection } from '../../share';
 import uuid from 'uuid';
 
 @Component({

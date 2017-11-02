@@ -16,14 +16,10 @@ const routes: Routes = [
 ];
 import { ThemesDesignService } from './themes-design.service';
 
-import { SECTIONS, SECTIONS_SERVICES } from './section';
-import { DIALOGS } from './dialog';
 
 @NgModule({
     declarations: [
-        ThemesDesign,
-        ...SECTIONS,
-        ...DIALOGS
+        ThemesDesign
     ],
     imports: [
         CommonModule, 
@@ -37,11 +33,8 @@ import { DIALOGS } from './dialog';
     ],
     providers: [
         ThemesMineService,
-        ThemesDesignService,
-        ...SECTIONS_SERVICES
+        ThemesDesignService
     ],
-    entryComponents: [
-        ...DIALOGS
-    ]
+    entryComponents: []
 })
 export class ThemesDesignModule { }

@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MeepoFormBtnDefault } from '../../../../classes';
 import { MatDialog } from '@angular/material';
 import { IconTitleDialog, IconSelectDialog } from '../../../setting';
+import { AppService } from '../../../../services';
 @Component({
     selector: 'meepo-form-btn-setting',
     templateUrl: './meepo-form-btn-setting.html',
@@ -11,7 +12,8 @@ import { IconTitleDialog, IconSelectDialog } from '../../../setting';
 export class MeepoFormBtnSetting implements OnInit {
     @Input() widget: MeepoFormBtnDefault = new MeepoFormBtnDefault();
     constructor(
-        public dialog: MatDialog
+        public dialog: MatDialog,
+        public app: AppService
     ) { }
     ngOnInit() { }
 
@@ -29,5 +31,15 @@ export class MeepoFormBtnSetting implements OnInit {
         dialogRef.afterClosed().subscribe(icon => {
             this.widget.icon = icon;
         });
+    }
+
+    selectPage(){
+        this.app.selectPages().subscribe((res: any)=>{
+            this.widget.success = res;
+        });
+    }
+
+    selectDo(){
+
     }
 }
