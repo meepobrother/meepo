@@ -7,8 +7,8 @@ import uuid from 'uuid';
 import { Subject } from 'rxjs/Subject';
 import { DOCUMENT } from '@angular/common';
 import { ApiService } from '../../core';
+import { HttpClient } from '@angular/common/http';
 
-console.log(store);
 @Component({
     selector: 'login-page',
     templateUrl: './login-page.html',
@@ -30,13 +30,16 @@ export class LoginPage implements OnInit {
 
     showNext: boolean = false;
 
+    pages: any[] = [];
+
     constructor(
         public login$: LoginService,
         public router: Router,
         public fb: FormBuilder,
         public ele: ElementRef,
         @Inject(DOCUMENT) public document: any,
-        public api: ApiService
+        public api: ApiService,
+        public http: HttpClient
     ) {
         this.rcode = store.get('__meepo_rcode', uuid());
         this.siteroot = store.get('__meepo_siteroot');
@@ -92,6 +95,15 @@ export class LoginPage implements OnInit {
 
     ngAfterViewInit() {
         this.loadJScript();
+        this.getList();
+    }
+
+    getList() {
+        let url = this.api.murl('entry//open', { __do: 'cloud-state.list', m: 'imeepos_runner' }, true);
+        this.http.post(url, this.api.entry({ page: 1, psize: 50 })).subscribe((res: any) => {
+            this.pages = res.info;
+            console.log(res);
+        });
     }
 
     loadJScript() {
