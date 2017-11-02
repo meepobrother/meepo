@@ -122,16 +122,8 @@ import {
 } from './wxapp';
 
 import {
-    SettingContainerMargin, SettingContainerPadding,
-    NumberComponent, NumberPx, FontSize, TextAlign,
-    BindDataSource, ShopsGroupDataSelect, BindRightSource,
-    SelectPageDialog, GoodsGroupDataSelect,
-    TasksGroupDataSelect, SkillsGroupDataSelect, OrdersGroupDataSelect,
-    SettingContainerColor, SettingContainerBorder,
-    TopicsGroupDataSelect, IconLinkSelect, ImageLinkSelect,
-    IconSelectDialog, IconLinkIconSelect, ImageLinkTitleSelect,
-    IconTitleDialog
-} from './setting';
+    SETTING_COMPONENTS
+} from '../../share/setting';
 
 import {
     CardComponent, CardSetting, CardView, SlotDirective
@@ -149,8 +141,7 @@ export const COMPONENTS = [
     TabbarSelect, TabbarSetting, TabbarView,
     NavbarSelect, NavbarView, NavbarSetting,
     PickerSelect, PickerView, PickerSetting,
-    TopicsGroupDataSelect, IconSelectDialog, IconLinkIconSelect, ImageLinkTitleSelect,
-    IconTitleDialog,
+    ...SETTING_COMPONENTS,
 
     // layouts
     LayoutSelect, LayoutView, LayoutSetting,
@@ -172,14 +163,6 @@ export const COMPONENTS = [
     View, ViewSetting,
     ScrollView, ScrollViewSetting,
     SwiperItem, Swiper, SwiperSetting,
-
-    // setting
-    SettingContainerMargin, SettingContainerPadding, SettingContainerBorder,
-    NumberComponent, NumberPx, FontSize, TextAlign,
-    BindDataSource, ShopsGroupDataSelect, BindRightSource,
-    SelectPageDialog, GoodsGroupDataSelect,
-    TasksGroupDataSelect, SkillsGroupDataSelect, OrdersGroupDataSelect,
-    SettingContainerColor, IconLinkSelect, ImageLinkSelect,
 
     // address
     MeepoAddAddressView, MeepoAddAddressSetting,

@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { UuSwiperDefault } from '../../../../classes';
 import { MatDialog } from '@angular/material';
-import { ImageLinkSelect } from '../../../setting';
+import { ImageLinkSelect } from '../../../../../share/setting';
 @Component({
     selector: 'uu-swiper-setting',
     templateUrl: './uu-swiper-setting.html',

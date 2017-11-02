@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { UuBenefitDefault } from '../../../../classes';
 import { MatDialog } from '@angular/material';
-import { ImageLinkTitleSelect } from '../../../setting';
+import { ImageLinkTitleSelect } from '../../../../../share/setting';
 @Component({
     selector: 'uu-benefit-setting',
     templateUrl: './uu-benefit-setting.html',

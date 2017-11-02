@@ -1,6 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
 import {
-    PageService, ApplicationService, WidgetService,
     ComponentsService, LayoutView, WeuiPage, LayoutService,
     Widget, LayoutContainerModel
 } from '../../design';
@@ -9,7 +8,7 @@ import { MatDialog } from '@angular/material';
 import { ApiService } from '../../core';
 
 
-import { DataPerService, CatalogService } from '../../design';
+import { DataPerService, CatalogService, PageService, ApplicationService, WidgetService } from '../../share/services';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import {
@@ -20,7 +19,7 @@ import {
     UploaderView
 } from '../../design/components';
 
-import { CatalogSection } from '../../share';
+import { CatalogSection } from '../../share/section';
 import uuid from 'uuid';
 
 @Component({
@@ -64,7 +63,7 @@ export class ThemesDesign {
 
         this.widget$.removeWidgetStream.subscribe(widget => {
             const index = this.currentPage.body.children.indexOf(widget);
-            this.currentPage.body.children.splice(index,1);
+            this.currentPage.body.children.splice(index, 1);
         });
         // 页面激活状态变化时
         this.catalogService.setCurrentPageStream.subscribe((page) => {
@@ -77,12 +76,12 @@ export class ThemesDesign {
 
         this.route.params.subscribe(res => {
             this.app_id = res.id;
-            this.wxappHref =  'https://meepo.com.cn/imeepos/index.php?c=wxapp&do=build&id='+this.app_id;
+            this.wxappHref = 'https://meepo.com.cn/imeepos/index.php?c=wxapp&do=build&id=' + this.app_id;
             this.widget$.setAppId(this.app_id);
         });
 
-        this.route.queryParams.subscribe(res=>{
-            if(res.manager){
+        this.route.queryParams.subscribe(res => {
+            if (res.manager) {
                 this.showComponent = true;
             }
         });

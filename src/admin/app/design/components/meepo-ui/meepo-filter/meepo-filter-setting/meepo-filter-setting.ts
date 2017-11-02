@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MeepoFilter } from '../../../../classes';
 import { MatDialog } from '@angular/material';
-import { BindDataSource, SelectPageDialog } from '../../../setting';
-import { WidgetService } from '../../../../services';
+import { BindDataSource, SelectPageDialog } from '../../../../../share/setting';
+import { WidgetService } from '../../../../../share/services';
 @Component({
     selector: 'meepo-filter-setting',
     templateUrl: './meepo-filter-setting.html',

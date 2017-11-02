@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { TopicsListDefault } from '../../../../classes';
 import { MatDialog } from '@angular/material';
-import { BindDataSource } from '../../../setting';
+import { BindDataSource } from '../../../../../share/setting';
 
 @Component({
     selector: 'topics-list-setting',

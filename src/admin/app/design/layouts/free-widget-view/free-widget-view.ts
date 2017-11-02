@@ -7,7 +7,7 @@ import {
 } from '@angular/core';
 import { ComponentPortal } from '@angular/cdk/portal';
 import { COMPONENTS_VIEW } from '../../components';
-import { WidgetService } from '../../services';
+import { WidgetService } from '../../../share/services';
 import { Subject } from 'rxjs/Subject';
 
 import "rxjs/add/operator/last";

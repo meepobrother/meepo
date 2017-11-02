@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Iphone6Component } from './iphone6.component';
-import { ApplicationService } from '../services';
+import { ApplicationService } from '../../share/services';
 import { DndModule } from '../../components/dnd';
 @NgModule({
   imports: [

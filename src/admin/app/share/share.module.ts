@@ -20,6 +20,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { AppEffectsModule, AppStoreModule } from '../ngrx';
 import { CoreModule } from '../core';
+
 const materials = [
     NavTabsModule,
     MeepoFormFieldModule,
