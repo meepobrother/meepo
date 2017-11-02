@@ -26,13 +26,9 @@
     </div>
     <div class="col-sm-7">
         <div class="ibox">
-            <div class="ibox-title">跑腿页面</div>
+            <div class="ibox-title">页面</div>
             <div class="ibox-content" [formGroup]="form">
-                <a href="javascript:;" class="btn btn-primary m10">首页模板</a>
-                <a href="javascript:;" class="btn btn-primary m10">发布模板</a>
-                <a href="javascript:;" class="btn btn-primary m10">个人中心</a>
-                <a href="javascript:;" class="btn btn-primary m10">列表模板</a>
-                <a href="javascript:;" class="btn btn-primary m10">详情模板</a>
+                <a href="javascript:;" *ngFor="let page of pageTypes" class="btn btn-primary m10">{{page.title}}</a>
             </div>
         </div>
         <div class="ibox">

@@ -25,8 +25,8 @@ export class NavTabs implements OnInit, AfterContentInit {
     @HostBinding('class') _class: string = 'tabs-container';
 
     _isTabs: boolean = true;
-    @Input() 
-    set isTabs(val: boolean){
+    @Input()
+    set isTabs(val: boolean) {
         this._isTabs = isTrueProperty(val);
     }
 
@@ -44,10 +44,10 @@ export class NavTabs implements OnInit, AfterContentInit {
         }
     }
 
-    
+
     constructor() { }
 
-    ngOnInit() { 
+    ngOnInit() {
         this.onInit.emit(this);
     }
 
@@ -56,10 +56,13 @@ export class NavTabs implements OnInit, AfterContentInit {
     }
 
     onClick(item: NavTabPane) {
+
         this.panes.map(res => {
             res.unActive();
-        })
-        item.doActive();
+        });
+        if (item) {
+            item.doActive && item.doActive();
+        }
         this.activePane = item;
     }
 }

@@ -27,11 +27,12 @@ export class WidgetGroupList implements OnInit {
     getList() {
         this.api.mpost('app.getListAppWidgetsGroup', { page: 1, psize: 30 }, 'imeepos_runner', true).subscribe((res: any) => {
             this.widgets = res.info;
+            console.log(this.widgets);
         });
     }
 
-    addWidget() {
-        const dialogRef = this.dialog.open(AddWidget);
+    addWidget(group: any) {
+        const dialogRef = this.dialog.open(AddWidget, { data: { group_id: group.id } });
         dialogRef.afterClosed().subscribe(res => {
             if (res) {
                 this.getList();
@@ -39,16 +40,16 @@ export class WidgetGroupList implements OnInit {
         });
     }
 
-    addWidgetGroup(){
+    addWidgetGroup() {
         const dialogRef = this.dialog.open(AddWidgetGroup);
         dialogRef.afterClosed().subscribe(res => {
             if (res) {
-                if(res['title']){
-                    if(!this.loading){
+                if (res['title']) {
+                    if (!this.loading) {
                         this.loading = true;
                         this.api.mpost('app.eidtAppWidgetsGroup', res).subscribe(res => {
-                            this.getList();  
-                            this.loading = false;      
+                            this.getList();
+                            this.loading = false;
                         });
                     }
                 }
@@ -65,9 +66,16 @@ export class WidgetGroupList implements OnInit {
         });
     }
 
-    deleteWidget(item: any) {
+    deleteWidgetGroup(item: any) {
         console.log(item);
         this.api.mpost('app.deleteAppWidgetsGroup', item).subscribe(res => {
+            this.getList();
+        });
+    }
+
+    deleteWidget(item: any) {
+        console.log(item);
+        this.api.mpost('app.deleteAppWidgets', item).subscribe(res => {
             this.getList();
         });
     }

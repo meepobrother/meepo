@@ -7,6 +7,9 @@ export class MeepoFormBtnDefault extends Widget{
     required: boolean = true;
     title: string = '按钮';
     icon: string = '';
+
+    __do: string;
+    __post: any;
     constructor(){
         super();
         this.type = 'meepo-form-btn';

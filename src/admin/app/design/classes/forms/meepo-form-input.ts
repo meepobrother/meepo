@@ -8,6 +8,7 @@ export class MeepoFormInputDefault extends Widget{
     placeholder: string = '请输入something';
     title: string = '输入框';
     field_name: string;
+    field_type: string;
 
     constructor(){
         super();

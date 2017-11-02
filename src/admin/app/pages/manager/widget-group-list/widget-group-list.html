@@ -7,7 +7,7 @@
                     <a href="javascript:;" (click)="addWidgetGroup()" class="btn btn-white btn-xs btn-bitbucket">
                         <i class="fa fa-plus-circle"></i>
                     </a>
-                    <a href="javascript:;" (click)="deleteWidget(group)" class="btn btn-danger btn-xs">
+                    <a href="javascript:;" (click)="deleteWidgetGroup(group)" class="btn btn-danger btn-xs">
                         删除
                     </a>
                 </div>
@@ -21,7 +21,7 @@
                             <span class="fa fa-trash-o" (click)="deleteWidget(widget)"></span>
                         </div>
                     </li>
-                    <li (click)="addWidget()">
+                    <li (click)="addWidget(group)">
                         添加
                     </li>
                 </ul>

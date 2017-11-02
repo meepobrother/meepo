@@ -7,6 +7,6 @@
     </li>
 </ul>
 
-<div class="tab-content">
-    <ng-container *ngTemplateOutlet="activePane.paneRef?.templateRef"></ng-container>
+<div class="tab-content" *ngIf="activePane">
+    <ng-container *ngTemplateOutlet="activePane?.paneRef.templateRef"></ng-container>
 </div>

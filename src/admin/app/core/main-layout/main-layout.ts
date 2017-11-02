@@ -103,7 +103,7 @@ export class MainLayoutComponent implements OnInit {
             link: ['/settings']
         },
         {
-            title: '测试',
+            title: '演示',
             total: 0,
             icon: 'fa fa-cogs',
             link: ['/tests']

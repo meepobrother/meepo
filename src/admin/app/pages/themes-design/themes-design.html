@@ -12,11 +12,6 @@
                     <widget-section (onSelect)="addWidget($event)"></widget-section>
                 </ng-template>
             </nav-tab-pane>
-            <nav-tab-pane title="操作" *ngIf="showComponent">
-                <ng-template navTabPaneRef>
-                    <action-section (onSelect)="addWidget($event)"></action-section>
-                </ng-template>
-            </nav-tab-pane>
         </nav-tabs>
     </div>
     <div class="container-center">
