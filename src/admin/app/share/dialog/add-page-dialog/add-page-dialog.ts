@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject, Input } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { CatalogService } from '../../../design';
+import { CatalogService } from '../../services';
 import { LayoutContainerModel } from '../../../design';
 import { ApiService } from '../../../core';
 import uuid from 'uuid';

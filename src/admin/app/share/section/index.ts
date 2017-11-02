@@ -11,7 +11,7 @@ import { WidgetSection } from './widget-section';
 import { ActionSection } from './action-section';
 
 
-import { CatalogService, DataPerService } from '../../design/services';
+import { CatalogService, DataPerService } from '../services';
 
 export const SECTIONS = [
     CatalogPageNavs,

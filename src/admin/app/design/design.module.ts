@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { COMPONENTS, ComponentsService, LayoutService} from './components';
-import { SERVICES } from './services';
+import { SERVICES } from '../share/services';
 
 import { NavTabsModule, MeepoFormFieldModule, WeuiPickerModule, PriceListModule } from '../components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';

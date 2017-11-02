@@ -2,8 +2,9 @@ import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MeepoFormBtnDefault } from '../../../../classes';
 import { MatDialog } from '@angular/material';
-import { IconTitleDialog, IconSelectDialog } from '../../../setting';
-import { AppService } from '../../../../services';
+import { IconTitleDialog } from '../../../../../share/setting';
+import { IconSelectDialog } from '../../../../../dialogs';
+import { AppService } from '../../../../../share/services';
 @Component({
     selector: 'meepo-form-btn-setting',
     templateUrl: './meepo-form-btn-setting.html',
