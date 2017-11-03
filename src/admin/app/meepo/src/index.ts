@@ -5,10 +5,20 @@ import { MeConfirm } from './me-confirm/me-confirm';
 import { McPageSelect } from './mc-page-select/mc-page-select';
 import { McIconSelect } from './mc-icon-select/mc-icon-select';
 
+import { SwiperDefafult } from './swiper-defafult/swiper-defafult';
+
+import { We7EmojiComponent } from './we7-emoji/we7-emoji.component';
+import { QqFaceComponent } from './qq-face/qq-face.component';
+
+
 export const MeepoComponents = [
     MeLoading,
     MeAlert,
     MeConfirm,
     McPageSelect,
-    McIconSelect
+    McIconSelect,
+
+    SwiperDefafult,
+    We7EmojiComponent,
+    QqFaceComponent
 ];

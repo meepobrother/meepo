@@ -1,0 +1,12 @@
+<ng-content></ng-content>
+<swiper-default height="auto" spaceBetween="30" centeredSlides="true">
+    <div class="swiper-slide" *ngFor="let ul of uls;index as i;">
+        <ul class="qzfl_emotion_default" [ngClass]="'qzfl_emotion_page_'+(i+1)">
+            <li *ngFor="let item of lis;index as j;">
+                <a class="js_emotion" href="javascript:;" (click)="_onClick(i,j)">
+                    <div class="icon"></div>
+                </a>
+            </li>
+        </ul>
+    </div>
+</swiper-default>

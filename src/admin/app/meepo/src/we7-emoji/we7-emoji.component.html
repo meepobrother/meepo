@@ -1,0 +1,5 @@
+<swiper-default>
+    <div class="swiper-slide" *ngFor="let item of uls;index as i;">
+        <span class="emoji" *ngFor="let it of lis;index as j;" [ngStyle]="{backgroundPosition: '0px -'+getWidth(i,j)+'px',padding: '0px',margin:'1px'}" (click)="_onClick($event)"></span>
+    </div>
+</swiper-default>

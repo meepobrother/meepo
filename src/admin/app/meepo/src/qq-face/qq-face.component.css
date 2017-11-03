@@ -1,0 +1,62 @@
+img {
+    padding: 5px;
+}
+
+ul.qzfl_emotion_default {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    margin: 0 auto;
+}
+
+.qzfl_emotion_default {
+    overflow: hidden;
+}
+
+.qzfl_emotion_page_1 {
+    background: url(1.png) 0 0 no-repeat;
+}
+
+.qzfl_emotion_page_2 {
+    background: url(2.png) 0 0 no-repeat;
+}
+
+.qzfl_emotion_page_3 {
+    background: url(3.png) 0 0 no-repeat;
+}
+
+.qzfl_emotion_page_4 {
+    background: url(4.png) 0 0 no-repeat;
+}
+
+.qzfl_emotion_page_5 {
+    background: url(5.png) 0 0 no-repeat;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    margin: 0;
+}
+
+.qzfl_emotion_default a {
+    height: 24px;
+    width: 24px;
+}
+
+a {
+    padding: 1px;
+    display: block;
+}
+
+.editor {
+    margin: 5px;
+    border-color: #ccc;
+    border-width: 1px;
+    border-style: solid;
+    height: 300px;
+    overflow: scroll;
+    padding: 5px;
+}
