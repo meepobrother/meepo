@@ -30,6 +30,8 @@ import { MatDialogModule } from '@angular/material';
 import { ColorSelectModule } from '../components/color-select';
 
 import { ShareNewModule } from '../share-new/share-new.module';
+import { MeepoModule } from '../meepo/meepo.module';
+import { NavTabsModule } from '../components/nav-tabs';
 
 const modules = [
     CommonModule,
@@ -43,7 +45,9 @@ const modules = [
     MemberSelectModule,
     MatDialogModule,
     ColorSelectModule,
-    ShareNewModule
+    ShareNewModule,
+    MeepoModule,
+    NavTabsModule
 ];
 
 @NgModule({

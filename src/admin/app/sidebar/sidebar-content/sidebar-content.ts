@@ -6,7 +6,6 @@ import { Component, OnInit, HostBinding } from '@angular/core';
     styleUrls: ['./sidebar-content.scss']
 })
 export class SidebarContent implements OnInit {
-    @HostBinding('style.flex') _flex: string = '10';
     constructor() { }
 
     ngOnInit() { }

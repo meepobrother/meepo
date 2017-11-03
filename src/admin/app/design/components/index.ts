@@ -125,6 +125,8 @@ import {
     SETTING_COMPONENTS
 } from '../../share/setting';
 
+import { IconSelectDialog } from '../../dialogs';
+
 import {
     CardComponent, CardSetting, CardView, SlotDirective
 } from './zan-ui';
@@ -142,6 +144,7 @@ export const COMPONENTS = [
     NavbarSelect, NavbarView, NavbarSetting,
     PickerSelect, PickerView, PickerSetting,
     ...SETTING_COMPONENTS,
+    IconSelectDialog,
 
     // layouts
     LayoutSelect, LayoutView, LayoutSetting,

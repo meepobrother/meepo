@@ -3,4 +3,9 @@
     display: block;
     background-color: #2f4050;
     overflow: scroll;
+    width: 100px;
+    z-index: 1000;
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
 }

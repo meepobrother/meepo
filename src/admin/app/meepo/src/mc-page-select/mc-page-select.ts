@@ -1,6 +1,7 @@
 import { Component, OnInit, SkipSelf, Optional, EventEmitter, Output, Input } from '@angular/core';
 import { MeepoAppService } from '../../app.service';
-import { ApiService } from '../../../core';
+import { ApiService } from '../../../core/api';
+
 @Component({
     selector: 'mc-page-select',
     templateUrl: './mc-page-select.html',

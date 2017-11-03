@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
-import { ElMessageService, ElNotificationService } from 'element-angular'
+import { ElMessageService, ElNotificationService } from 'element-angular';
+
 @Injectable()
 export class MeepoAppService {
     // 语音库
@@ -11,6 +12,8 @@ export class MeepoAppService {
     showVideoResDialogStream: Subject<any> = new Subject();
     // 图标库
     showIconResDialogStream: Subject<any> = new Subject();
+    closeIconResDialogStream: Subject<any> = new Subject();
+    
     // 颜色库
     showColorResDialogStream: Subject<any> = new Subject();
     // 日期选择
@@ -68,7 +71,12 @@ export class MeepoAppService {
         this.showMessageStream.subscribe((data: any) => {
             this.showMessage(data);
         });
+        this.getMeepoApi();
+    }
+
+    getMeepoApi(){
         MeepoAppService.api = MeepoAppService.api || this;
+        return MeepoAppService.api;
     }
 
     showNotification(data: any) {

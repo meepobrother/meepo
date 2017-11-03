@@ -630,3 +630,153 @@ body {
 header {
     background: #fff !important;
 }
+
+.el-menu-scroll-y {
+    .el-menu {
+        overflow: auto;
+        width: 100%;
+    }
+}
+
+.el-menu-right {
+    &>ul {
+        padding-left: 0px !important;
+    }
+}
+
+.el-menu-item-group {
+    &>ul {
+        padding-left: 0px !important;
+    }
+}
+
+.top-nav {
+    background: #fff;
+    border: 0;
+    border-radius: 0;
+    position: fixed;
+    min-height: 44px;
+    box-shadow: 0 0 10px 0 hsla(0, 6%, 58%, .6);
+    z-index: 999;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    display: flex;
+    padding-left: 100px;
+    .top-nav-title {
+        text-align: center;
+        display: block;
+        width: 100%;
+        line-height: 44px;
+        height: 44px;
+        margin: 0px;
+        padding: 0px;
+        font-size: 18px;
+        font-weight: 600;
+    }
+}
+
+.el-menu {
+    width: 100%;
+    min-width: 250px;
+}
+
+.row {
+    width: 100%;
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+}
+
+.right-menu {
+    .nav-tabs {
+        height: 44px;
+        line-height: 44px;
+        a {
+            padding: 5px !important;
+            line-height: 32px;
+        }
+    }
+    .el-menu {
+        min-width: 100px;
+    }
+}
+
+.nav-tabs {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    li {
+        min-width: 8em;
+    }
+}
+
+.tabs-container {
+    padding-top: 10px;
+    ul.meepo-tabs {
+        display: flex;
+        box-shadow: 0 0 10px 0 rgba(154, 141, 141, 0.6);
+        overflow: auto;
+        height: 44px;
+        line-height: 44px;
+        li {
+            line-height: 44px;
+            height: 44px;
+            min-width: 6em;
+            text-align: center;
+            &.active {
+                border-bottom: 2px solid red;
+            }
+        }
+    }
+    ul.nav-tabs {
+        border: none !important;
+        margin: 0px;
+        padding: 0px;
+        li.active {
+            border: none;
+            a {
+                margin: 0px !important;
+                padding: 0px !important;
+                border-bottom: 2px solid red;
+                text-align: center;
+                border: none;
+            }
+        }
+    }
+}
+
+
+/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+
+::-webkit-scrollbar {
+    width: 0px;
+    /*滚动条宽度*/
+    height: 0px;
+    /*滚动条高度*/
+}
+
+
+/*定义滚动条轨道 内阴影+圆角*/
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 0px rgba(255, 255, 255, 0.3);
+    border-radius: 0px;
+    /*滚动条的背景区域的圆角*/
+    background-color: red;
+    /*滚动条的背景颜色*/
+}
+
+
+/*定义滑块 内阴影+圆角*/
+
+::-webkit-scrollbar-thumb {
+    border-radius: 0px;
+    /*滚动条的圆角*/
+    -webkit-box-shadow: inset 0 0 0px rgba(0, 0, 0, .3);
+    background-color: green;
+    /*滚动条的背景颜色*/
+}
+
+.cdk-overlay-container {
+    z-index: 999999999;
+}

@@ -8,7 +8,6 @@ import { SidebarContainerService } from '../sidebar-container.service';
 })
 export class SidebarContainer implements OnInit {
     @HostBinding('class.sidebar-container-close') _close: boolean = false;
-
     constructor(
         public service$: SidebarContainerService
     ) { }

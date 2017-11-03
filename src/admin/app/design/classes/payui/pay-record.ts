@@ -9,6 +9,7 @@ export class PayRecordDefault extends Widget {
         this.type = 'pay-record';
         this.name = '支付记录';
         this.styleType = 'default';
+        
         this.children = [
             {
                 title: '处理中',

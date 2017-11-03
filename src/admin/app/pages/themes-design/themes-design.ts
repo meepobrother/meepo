@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, OnDestroy } from '@angular/core';
 import {
     ComponentsService, LayoutView, WeuiPage, LayoutService,
     Widget, LayoutContainerModel
@@ -27,7 +27,7 @@ import uuid from 'uuid';
     templateUrl: './themes-design.html',
     styleUrls: ['./themes-design.scss']
 })
-export class ThemesDesign {
+export class ThemesDesign implements OnDestroy {
 
     @ViewChild(LayoutView) _view: LayoutView;
     @ViewChild(CatalogSection) _catalog: CatalogSection;
@@ -42,6 +42,7 @@ export class ThemesDesign {
     app_id: any;
 
     wxappHref: string;
+    showRight: boolean = false;
     constructor(
         public application$: ApplicationService,
         public widget$: WidgetService,
@@ -58,7 +59,6 @@ export class ThemesDesign {
         // 设置当前
         this.widget$.setCurrentWidgetStream.subscribe(res => {
             this.currentWidget = res;
-            // this._catalog.saveData();
         });
 
         this.widget$.removeWidgetStream.subscribe(widget => {
@@ -71,7 +71,8 @@ export class ThemesDesign {
             // 保存当前页面
             this.currentWidget = page;
             this.currentPage = page;
-            // this._catalog.saveData();
+
+            this.showRight = true;
         });
 
         this.route.params.subscribe(res => {
@@ -91,6 +92,10 @@ export class ThemesDesign {
 
     onHeader() {
         this.layout$.onHeader(this.currentPage.header);
+    }
+
+    ngOnDestroy() {
+        this.showRight = false;
     }
 
     onFooter() {
