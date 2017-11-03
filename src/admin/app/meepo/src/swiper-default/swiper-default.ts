@@ -14,7 +14,7 @@ import { Subject } from 'rxjs/Subject';
     styleUrls: ['./swiper-default.scss'],
     encapsulation: ViewEncapsulation.None
 })
-export class SwiperDefafult implements OnInit, AfterViewInit {
+export class SwiperDefault implements OnInit, AfterViewInit {
     swiperJs: string = 'https://meepo.com.cn/meepo/libs/swiper.min.js';
     swiper: any;
     laodSuccess: Subject<any> = new Subject();
