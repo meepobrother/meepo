@@ -1,29 +1,3 @@
-<!-- <div class="row">
-    <div class="col-md-6">
-        <div class="row">
-            <div class="col-md-6" *ngFor="let item of pages">
-                <div class="ibox">
-                    <div class="ibox-title">
-                        {{item.page_title}}
-                        <div class="ibox-tools">
-                            <a class="btn btn-primary btn-xs" target="_blank" [attr.href]="item.script_url">
-                                查看<span>{{item.scan_num || 0}}次</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="ibox-content">
-                        <img [src]="item.qrcode" />
-                        <p style="text-align: center;">{{item.title}}</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-6">
-        
-    </div>
-</div> -->
-
 <cover image="./assets/bg.jpg">
     <cover-content style="
         display: flex;
@@ -39,9 +13,9 @@
         <div [class.hiden]="showNext">
             <div class="form-group">
                 <select class="form-control" [(ngModel)]="sitehttp" style="width: 5em;">
-                                <option value="http://">http://</option>
-                                <option value="https://">https://</option>
-                            </select>
+                    <option value="http://">http://</option>
+                    <option value="https://">https://</option>
+                </select>
                 <input type="text" [(ngModel)]="siteroot" class="form-control" placeholder="请输入域名">
             </div>
             <div class="form-group">

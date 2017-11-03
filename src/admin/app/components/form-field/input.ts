@@ -7,7 +7,7 @@ import {
 import { Subject } from 'rxjs/Subject';
 
 import { MeepoFormFieldControl } from './form-field-control';
-import uuid from 'uuid';
+import * as uuid from 'uuid';
 
 @Directive({
     selector: '[meepoInput]'

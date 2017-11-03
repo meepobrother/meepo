@@ -122,23 +122,17 @@ import {
 } from './wxapp';
 
 import {
-    SettingContainerMargin, SettingContainerPadding,
-    NumberComponent, NumberPx, FontSize, TextAlign,
-    BindDataSource, ShopsGroupDataSelect, BindRightSource,
-    SelectPageDialog, GoodsGroupDataSelect,
-    TasksGroupDataSelect, SkillsGroupDataSelect, OrdersGroupDataSelect,
-    SettingContainerColor, SettingContainerBorder,
-    TopicsGroupDataSelect, IconLinkSelect, ImageLinkSelect,
-    IconSelectDialog, IconLinkIconSelect, ImageLinkTitleSelect,
-    IconTitleDialog
-} from './setting';
+    SETTING_COMPONENTS
+} from '../../share/setting';
+
+import { IconSelectDialog } from '../../dialogs';
 
 import {
     CardComponent, CardSetting, CardView, SlotDirective
 } from './zan-ui';
 
 import { LAYOUT_COMPONENT, LAYOUT_COMPONENT_SETTING, LAYOUT_COMPONENT_VIEW, LAYOIUT_ARRAY } from '../layouts/export';
-
+import { actions_component, actions_component_view, actions_component_setting, actions_models } from './actions';
 export const COMPONENTS = [
     ButtonView, ButtonSetting, ButtonSelect,
     WeuiCellsSetting, WeuiCellsView,
@@ -149,8 +143,8 @@ export const COMPONENTS = [
     TabbarSelect, TabbarSetting, TabbarView,
     NavbarSelect, NavbarView, NavbarSetting,
     PickerSelect, PickerView, PickerSetting,
-    TopicsGroupDataSelect, IconSelectDialog, IconLinkIconSelect, ImageLinkTitleSelect,
-    IconTitleDialog,
+    ...SETTING_COMPONENTS,
+    IconSelectDialog,
 
     // layouts
     LayoutSelect, LayoutView, LayoutSetting,
@@ -172,14 +166,6 @@ export const COMPONENTS = [
     View, ViewSetting,
     ScrollView, ScrollViewSetting,
     SwiperItem, Swiper, SwiperSetting,
-
-    // setting
-    SettingContainerMargin, SettingContainerPadding, SettingContainerBorder,
-    NumberComponent, NumberPx, FontSize, TextAlign,
-    BindDataSource, ShopsGroupDataSelect, BindRightSource,
-    SelectPageDialog, GoodsGroupDataSelect,
-    TasksGroupDataSelect, SkillsGroupDataSelect, OrdersGroupDataSelect,
-    SettingContainerColor, IconLinkSelect, ImageLinkSelect,
 
     // address
     MeepoAddAddressView, MeepoAddAddressSetting,
@@ -239,7 +225,8 @@ export const COMPONENTS = [
     MeepoFormRealnameView, MeepoFormRealnameSetting,
     WeuiPreviewSetting, WeuiPreviewView,
     PayuiFlowSetting, PayuiFlowView,
-    ...LAYOIUT_ARRAY
+    ...LAYOIUT_ARRAY,
+    ...actions_component
 ];
 
 
@@ -316,7 +303,8 @@ export const COMPONENTS_VIEW = {
     'weui-cells': WeuiCellsView,
     'weui-preview': WeuiPreviewView,
     'payui-flow': PayuiFlowView,
-    ...LAYOUT_COMPONENT_VIEW
+    ...LAYOUT_COMPONENT_VIEW,
+    ...actions_component_view
 };
 
 
@@ -388,6 +376,7 @@ export const COMPONENTS_SETTING = {
     'weui-preview': WeuiPreviewSetting,
     'payui-flow': PayuiFlowSetting,
     ...LAYOUT_COMPONENT_SETTING,
+    ...actions_component_setting
 };
 
 
@@ -445,7 +434,8 @@ export const WIDGETS = {
     'weui-cells': WeuiCellsDefault,
     'weui-preview': WeuiPreviewDefault,
     'payui-flow': PayuiFlowDefault,
-    ...LAYOUT_COMPONENT
+    ...LAYOUT_COMPONENT,
+    ...actions_models
 }
 
 import { Injectable } from '@angular/core';

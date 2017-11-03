@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import { DropdownsService } from './dropdowns.service';
-import uuid from 'uuid';
+import * as uuid from 'uuid';
 @Injectable()
 export class DropdownService {
     onOpen: Subject<string> = new Subject();

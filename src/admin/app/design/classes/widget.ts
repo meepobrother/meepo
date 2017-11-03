@@ -1,4 +1,4 @@
-import uuid from 'uuid';
+import * as uuid from 'uuid';
 // 面板
 export class Widget {
     code: string = uuid();
@@ -15,14 +15,14 @@ export class Widget {
     // classObj: Map<string, boolean> = new Map();
 
     styleObj: any = {};
-    classObj: any = {};    
+    classObj: any = {};
 
 
     // 外部容器样式
     // containerStyle: Map<string, string> = new Map();
     // containerClass: Map<string, boolean> = new Map();
     containerStyle: any = {};
-    containerClass: any = {};    
+    containerClass: any = {};
 
     constructor() { }
     // getWidgetData() { }

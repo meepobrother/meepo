@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { UuItemBoxDefault } from '../../../../classes';
 
 import { MatDialog } from '@angular/material';
-import { ImageLinkSelect } from '../../../setting';
+import { ImageLinkSelect } from '../../../../../share/setting';
 @Component({
     selector: 'uu-item-box-setting',
     templateUrl: './uu-item-box-setting.html',

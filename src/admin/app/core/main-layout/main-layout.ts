@@ -4,7 +4,7 @@ import { DropdownsService } from '../../dropdown/dropdowns.service';
 import { Router } from '@angular/router';
 import { LoginService } from '../login.service';
 import * as store from 'store';
-
+import { ApiService } from '../api';
 @Component({
     selector: 'main-layout',
     templateUrl: './main-layout.html',
@@ -113,15 +113,24 @@ export class MainLayoutComponent implements OnInit {
     timer: any;
 
     myinfo: any;
+    myapps: any[] = [];
     constructor(
         public sidebar$: SidebarContainerService,
         public dropdowns$: DropdownsService,
         public router: Router,
-        public login$: LoginService
+        public login$: LoginService,
+        public api: ApiService
     ) {
         this.myinfo = store.get('__meepo_myuserinfo', { avatar: 'assets/img/a1.jpg' })
     }
+
+    getMyApp() {
+        this.api.mpost('app.getListApp', { page: 1, psize: 50 }).subscribe((res: any) => {
+            this.myapps = res.info;
+        });
+    }
     ngOnInit() {
+        this.getMyApp();
         const isLogin = store.get('isLogin');
         if (isLogin) {
             this.showMenu = true;
@@ -133,7 +142,7 @@ export class MainLayoutComponent implements OnInit {
                     this.showMenu = true;
                     clearInterval(this.timer);
                 }
-            }, 1000)
+            }, 1000);
         }
     }
 

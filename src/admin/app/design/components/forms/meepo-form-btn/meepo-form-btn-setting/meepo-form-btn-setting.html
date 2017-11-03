@@ -20,8 +20,25 @@
                 </div>
             </div>
         </div>
+
         <div class="form-group">
-            <input type="text" class="form-control" [(ngModel)]="widget.__do" placeholder="do">
+            <div class="input-group">
+                <input type="text" class="form-control" [(ngModel)]="widget.__do" placeholder="提交地址">
+                <div class="input-group-addon" (click)="selectDo()">
+                    地址
+                </div>
+            </div>
         </div>
+
+        <div class="form-group">
+            <div class="input-group">
+                <input type="text" class="form-control" [(ngModel)]="widget.success" placeholder="成功后跳转后链接">
+                <div class="input-group-addon" (click)="selectPage()">
+                    选择
+                </div>
+            </div>
+        </div>
+
+
     </div>
 </div>

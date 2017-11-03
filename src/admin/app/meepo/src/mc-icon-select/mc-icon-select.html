@@ -1,0 +1,7 @@
+<el-dialog title="图标选择" [(visible)]="visible">
+    <ul class="icon-list">
+        <li *ngFor="let icon of icons">
+            <span><i [class]="icon"></i>{{icon}}</span>
+        </li>
+    </ul>
+</el-dialog>

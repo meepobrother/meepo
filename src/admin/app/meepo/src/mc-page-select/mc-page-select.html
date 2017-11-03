@@ -1,0 +1,10 @@
+<el-menu [mode]="'vertical'" [menu-trigger]="'click'" (modelChange)="_onMenuChange($event)" class="el-menu-vertical-demo">
+    <el-submenu *ngFor="let app of myapps;index as ai;">
+        <ng-template #title>
+            <i class="el-icon-message"></i>{{app.title}}
+        </ng-template>
+        <el-menu-item-group [title]="catalog.title" *ngFor="let catalog of app.catalogs;index as ci;">
+            <el-menu-item [index]="page.id" *ngFor="let page of catalog.pages;index as pi;">{{page.title}}</el-menu-item>
+        </el-menu-item-group>
+    </el-submenu>
+</el-menu>

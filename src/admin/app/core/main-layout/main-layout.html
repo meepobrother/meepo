@@ -1,43 +1,49 @@
-<div fxFlexFill fxLayout="row">
-    <sidebar-container *ngIf="showMenu">
+<div style="width: 100%;height: 100%;overflow: auto;">
+    <!-- 侧边菜单 -->
+    <sidebar-container [style.width]="sidebar$._open ? '55px' : '100px'" *ngIf="showMenu">
         <sidebar-list>
             <sidebar-header>
-                <img ngStyle.xs="max-width: 2em" class="sidebar-header-avatar" [src]="myinfo.avatar" alt="">
+                <img (click)="openSidebar()" ngStyle.xs="max-width: 2em" class="sidebar-header-avatar" [src]="myinfo.avatar" alt="">
             </sidebar-header>
-            <sidebar-item *ngFor="let item of menus" (onItem)="onItem(item)" class="active">
-                <i icon [class]="item.icon"></i> {{item.title}}
-                <span *ngIf="item.total>0" sidebar-item-right class="label label-warning pull-right">{{item.total}}</span>
-            </sidebar-item>
+            <div *ngFor="let item of menus">
+                <sidebar-item (onItem)="onItem(item)" class="active">
+                    <i icon [class]="item.icon"></i> {{item.title}}
+                    <span *ngIf="item.total>0" sidebar-item-right class="label label-warning pull-right">{{item.total}}</span>
+                </sidebar-item>
+            </div>
         </sidebar-list>
     </sidebar-container>
-    <sidebar-content fxLayout="column">
-        <topnav *ngIf="showMenu">
-            <topnav-left>
-                <a (click)="openSidebar()" class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="javascript:;">
-                    <i class="fa fa-bars"></i>
-                </a>
-            </topnav-left>
-            <topnav-right>
-                <dropdown>
-                    <dropdown-toggle title="颜色">
-                        <i class="fa fa-bookmark" style="font-size: 1.6em;color: #1ab394;"></i>
-                    </dropdown-toggle>
-                    <dropdown-menu class="right">
-                        <color-select></color-select>
-                    </dropdown-menu>
-                </dropdown>
-                <dropdown>
-                    <dropdown-toggle title="图标">
-                        <i class="fa fa-life-buoy" style="font-size: 1.6em;color: #1ab394;"></i>
-                    </dropdown-toggle>
-                    <dropdown-menu class="right">
-                        <icon-select></icon-select>
-                    </dropdown-menu>
-                </dropdown>
-            </topnav-right>
-        </topnav>
-        <div (click)="onContentClick()" style="flex: 1;overflow: auto;background-color: #e8e8e8;min-width: 900px;">
+    <!-- 主要内容 -->
+    <sidebar-content [style.padding-left]="sidebar$._open ? '55px' : '100px'" [style.padding-right]="sidebar$._open ? '0px' : '160px'">
+        <div class="top-nav" style="padding:0px;" [style.margin-left]="sidebar$._open ? '55px' : '100px'" [style.margin-right]="sidebar$._open ? '0px' : '170px'">
+            <h5 class="top-nav-title" style="text-align:center;">小明跑腿</h5>
+        </div>
+        <div (click)="onContentClick()" style="width: 100%;background-color:inherit;height: 100%;overflow: auto;">
             <ng-content></ng-content>
         </div>
     </sidebar-content>
+
+    <sidebar-container class="right-menu" [style.width]="sidebar$._open ? '0px' : '160px'" style="right:0px;background-color: #fff;box-shadow: 0 0 10px 0 rgba(154, 141, 141, 0.6);" *ngIf="showMenu">
+        <nav-tabs>
+            <nav-tab-pane title="我的应用">
+                <ng-template navTabPaneRef>
+                    <el-menu class="el-menu-right" *ngIf="showMenu" [style.padding-left]="sidebar$._open ? '55px' : '100px'" theme="dark">
+                        <el-submenu class="el-menu-scroll-y" [index]="app.id" *ngFor="let app of myapps;index as ai;">
+                            <ng-template #title>
+                                {{app.title | slice: 0:4}}
+                            </ng-template>
+                            <el-menu-item-group [title]="catalog.title" *ngFor="let catalog of app.catalogs;index as ci;">
+                                <el-menu-item style="padding-left: 40px;" [index]="page.id" *ngFor="let page of catalog.pages;index as pi;">{{page.title}}</el-menu-item>
+                            </el-menu-item-group>
+                        </el-submenu>
+                    </el-menu>
+                </ng-template>
+            </nav-tab-pane>
+            <nav-tab-pane title="我的消息">
+                <ng-template navTabPaneRef>
+                    我的消息
+                </ng-template>
+            </nav-tab-pane>
+        </nav-tabs>
+    </sidebar-container>
 </div>

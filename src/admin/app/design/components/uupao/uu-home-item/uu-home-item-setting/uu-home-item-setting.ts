@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { UuHomeItemDefault } from '../../../../classes';
-import { IconLinkIconSelect } from '../../../setting';
+import { IconLinkIconSelect } from '../../../../../share/setting';
 import { MatDialog } from '@angular/material';
 
 @Component({

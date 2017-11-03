@@ -1,14 +1,4 @@
-:host {
-    background: #f3f3f4;
-    border: 0;
-    border-radius: 0;
-    position: relative;
-    min-height: 44px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    box-shadow: 0 0 10px 0 hsla(0, 6%, 58%, .6);
-}
+:host {}
 
 .center {
     flex: 1 1 90px;

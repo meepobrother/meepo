@@ -1,0 +1,41 @@
+<div class="row">
+    <div class="col-sm-5">
+        <div class="ibox">
+            <div class="ibox-title">基本配置</div>
+            <div class="ibox-content" [formGroup]="form">
+                <form-field>
+                    <input type="text" formControlName="title" placeholder="请输入页面名称" meepoInput class="form-control">
+                </form-field>
+                <form-field>
+                    <select class="form-control" meepoInput formControlName="cata_id">
+                        <option [attr.value]="cata.id" *ngFor="let cata of catalogs">{{cata.title}}</option>
+                    </select>
+                </form-field>
+                <form-field>
+                    <input type="text" formControlName="keyword" placeholder="触发关键字" meepoInput class="form-control">
+                </form-field>
+                <form-field>
+                    <textarea rows="4" formControlName="desc" placeholder="分享简介" meepoInput class="form-control"></textarea>
+                </form-field>
+                <div style="text-align: center; margin: 12px;">
+                    <span class="btn btn-default" (click)="cancelPageDialog()">取消</span>
+                    <span class="btn btn-primary" (click)="clickAddPageConfirm()">确定</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-7">
+        <div class="ibox">
+            <div class="ibox-title">页面</div>
+            <div class="ibox-content" [formGroup]="form">
+                <a href="javascript:;" *ngFor="let page of pageTypes" class="btn btn-primary m10">{{page.title}}</a>
+            </div>
+        </div>
+        <div class="ibox">
+            <div class="ibox-title">布局</div>
+            <div class="ibox-content">
+                <!-- <layout-select (onSelect)="onSelectTheme($event)"></layout-select> -->
+            </div>
+        </div>
+    </div>
+</div>

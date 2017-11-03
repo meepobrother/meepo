@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { TestsPage } from './tests-page';
 import { Routes, RouterModule } from '@angular/router';
 import { ShareModule } from '../../share';
+import { MeepoModule } from '../../meepo/meepo.module';
+
 const routes = [
     {
         path: '',
@@ -17,7 +19,8 @@ const routes = [
     imports: [
         CommonModule,
         RouterModule.forChild(routes),
-        ShareModule
+        ShareModule,
+        MeepoModule
     ],
     exports: [
         TestsPage

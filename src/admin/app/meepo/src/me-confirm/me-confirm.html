@@ -1,0 +1,6 @@
+<el-dialog [title]="title" [size]="size" [top]="top" [lock-scroll]="lock_scroll" [(visible)]="visible" [before-close]="onClose">
+    <span>{{msg}}</span>
+    <ng-template #footer>
+        <el-button (click)="hide()">我知道了</el-button>
+    </ng-template>
+</el-dialog>

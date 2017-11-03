@@ -2,7 +2,7 @@ import { Component, OnInit, HostListener, Input, HostBinding } from '@angular/co
 
 import { LayoutService } from '../../layout.service';
 import { LayoutHeader } from '../../../../classes';
-import { WidgetService } from '../../../../services/widget.service';
+import { WidgetService } from '../../../../../share/services';
 
 
 @Component({

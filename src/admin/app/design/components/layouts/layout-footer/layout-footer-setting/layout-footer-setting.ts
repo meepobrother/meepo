@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { LayoutFooter } from '../../../../classes';
 import { MatDialog } from '@angular/material';
-import { IconLinkSelect } from '../../../setting';
-import { WidgetService } from '../../../../services';
+import { IconLinkSelect } from '../../../../../share/setting';
+import { WidgetService } from '../../../../../share/services';
 @Component({
     selector: 'layout-footer-setting',
     templateUrl: './layout-footer-setting.html',

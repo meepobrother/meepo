@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { UuHeaderDefault } from '../../../../classes';
 import { MatDialog } from '@angular/material';
-import { IconLinkSelect } from '../../../setting';
+import { IconLinkSelect } from '../../../../../share/setting';
 @Component({
     selector: 'uu-header-setting',
     templateUrl: './uu-header-setting.html',
