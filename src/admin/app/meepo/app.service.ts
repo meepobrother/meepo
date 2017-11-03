@@ -42,9 +42,7 @@ export class MeepoAppService {
 
     // 操作提示
     
-    showDialogStream: Subject<any> = new Subject();
-    showToastStream: Subject<any> = new Subject();
-    showTipStream: Subject<any> = new Subject();
+    // 提示
     showLoadingStream: Subject<any> = new Subject();
 
     showAlertStream: Subject<any> = new Subject();

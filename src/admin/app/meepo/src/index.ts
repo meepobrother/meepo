@@ -2,8 +2,12 @@ import { MeLoading } from './me-loading/me-loading';
 import { MeAlert } from './me-alert/me-alert';
 import { MeConfirm } from './me-confirm/me-confirm';
 
+import { McPageSelect } from './mc-page-select/mc-page-select';
+
+
 export const MeepoComponents = [
     MeLoading,
     MeAlert,
-    MeConfirm
+    MeConfirm,
+    McPageSelect
 ];

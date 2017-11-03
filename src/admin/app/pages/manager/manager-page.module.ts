@@ -20,6 +20,7 @@ import { ThemesAdd } from './themes-add';
 
 
 import { ShareModule } from '../../share';
+import { MeepoModule } from '../../meepo/meepo.module';
 const routes: Routes = [
     {
         path: '',
@@ -39,7 +40,7 @@ const routes: Routes = [
         AddWidgetGroup,
         WidgetGroupList
     ],
-    imports: [ CommonModule, RouterModule.forChild(routes), ShareModule ],
+    imports: [ CommonModule, RouterModule.forChild(routes), ShareModule, MeepoModule ],
     exports: [
         ManagerPage,
         AddWidget,
