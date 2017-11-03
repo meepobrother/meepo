@@ -1,11 +1,11 @@
 import { Component, OnInit, SkipSelf, Optional } from '@angular/core';
 import { MeepoAppService } from '../../app.service';
 @Component({
-    selector: 'me-alert',
-    templateUrl: './me-alert.html',
-    styleUrls: ['./me-alert.scss']
+    selector: 'me-confirm',
+    templateUrl: './me-confirm.html',
+    styleUrls: ['./me-confirm.scss']
 })
-export class MeAlert implements OnInit {
+export class MeConfirm implements OnInit {
     title: string = 'info';
     size: string = 'tiny';
     visible: boolean = false;
@@ -16,15 +16,15 @@ export class MeAlert implements OnInit {
     meepo: MeepoAppService;
 
     onClose: any = (e: any) => {
-        this.meepo.showAlertStream.next({
+        this.meepo.showConfirmStream.next({
             visible: false
         });
-        this.meepo.hideAlertStream.next(e);
+        this.meepo.hideConfirmStream.next(e);
     }
 
     constructor() {
         this.meepo = MeepoAppService.api;
-        this.meepo.showAlertStream.subscribe((data: any) => {
+        this.meepo.showConfirmStream.subscribe((data: any) => {
             let { visible, title, size, top, lock_scroll, before_close, msg } = data;
             this.visible = visible ? true : false;
             this.title = title;
@@ -36,4 +36,8 @@ export class MeAlert implements OnInit {
     }
 
     ngOnInit() { }
+
+    hide(){
+        this.onClose();
+    }
 }

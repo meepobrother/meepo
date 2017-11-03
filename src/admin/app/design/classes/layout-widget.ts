@@ -1,5 +1,5 @@
 import { Widget } from './widget';
-import uuid from 'uuid';
+import * as uuid from 'uuid';
 
 export class LayoutWidget extends Widget {
     isContainer: boolean = true;

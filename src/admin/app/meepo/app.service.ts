@@ -41,24 +41,27 @@ export class MeepoAppService {
     showPluginResDialogStream: Subject<any> = new Subject();
 
     // 操作提示
+    
+    showDialogStream: Subject<any> = new Subject();
+    showToastStream: Subject<any> = new Subject();
+    showTipStream: Subject<any> = new Subject();
+    showLoadingStream: Subject<any> = new Subject();
+
     showAlertStream: Subject<any> = new Subject();
     hideAlertStream: Subject<any> = new Subject();
 
-    
-    showDialogStream: Subject<any> = new Subject();
     showConfirmStream: Subject<any> = new Subject();
-    showToastStream: Subject<any> = new Subject();
-    showTipStream: Subject<any> = new Subject();
-
-    showLoadingStream: Subject<any> = new Subject();
-
+    hideConfirmStream: Subject<any> = new Subject();
+    
     showMessageStream: Subject<any> = new Subject();
     closeMessageStream: Subject<any> = new Subject();
 
     showNotificationStream: Subject<any> = new Subject();
     closeNotificationStream: Subject<any> = new Subject();
 
+    time: any = new Date().getTime();
 
+    static api: any;
 
     constructor(
         public message: ElMessageService,
@@ -67,6 +70,7 @@ export class MeepoAppService {
         this.showMessageStream.subscribe((data: any) => {
             this.showMessage(data);
         });
+        MeepoAppService.api = MeepoAppService.api || this;
     }
 
     showNotification(data: any) {
