@@ -2,9 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../core';
 import { HttpClient } from '@angular/common/http';
 import * as store from 'store';
-
-
 import { MeepoAppService } from '../../meepo/app.service';
+
 @Component({
     selector: 'tests-page',
     templateUrl: './tests-page.html',
@@ -22,16 +21,13 @@ export class TestsPage implements OnInit {
 
     ngOnInit() { 
         this.app.showMessage({msg: 'ngOnInit'});
-
         this.app.showNotification({msg: 'ngOnInit'});
-
         this.app.closeMessageStream.subscribe(r=>{
             console.log('close');
         });
-
         this.app.showAlertStream.next({
-            type: 'info',
-            msg: '测试'
+            title: '标题',
+            msg: '内容'
         });
     }
 

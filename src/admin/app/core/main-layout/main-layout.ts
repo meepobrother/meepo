@@ -135,7 +135,6 @@ export class MainLayoutComponent implements OnInit {
                 }
             }, 1000);
         }
-        console.log(this.menus);
     }
 
     onItem(item: any) {
