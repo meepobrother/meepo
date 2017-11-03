@@ -3,7 +3,7 @@ import { LoginService } from '../../core';
 import { Router } from '@angular/router';
 import * as store from 'store';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import uuid from 'uuid';
+import * as uuid from 'uuid';
 import { Subject } from 'rxjs/Subject';
 import { DOCUMENT } from '@angular/common';
 import { ApiService } from '../../core';

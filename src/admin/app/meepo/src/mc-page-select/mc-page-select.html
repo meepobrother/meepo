@@ -1,12 +1,12 @@
 <div el-row class="tac">
     <h5>所有应用</h5>
-    <el-menu model="2" class="el-menu-vertical-demo">
-        <el-submenu [index]="ai" *ngFor="let app of myapps;index as ai;">
+    <el-menu (modelChange)="_onMenuChange($event)" class="el-menu-vertical-demo">
+        <el-submenu *ngFor="let app of myapps;index as ai;">
             <ng-template #title>
                 <i class="el-icon-message"></i>{{app.title}}
             </ng-template>
             <el-menu-item-group [title]="catalog.title" *ngFor="let catalog of app.catalogs;index as ci;">
-                <el-menu-item (click)="_select(page)" [index]="ci+'-'+pi" *ngFor="let page of catalog.pages;index as pi;">{{page.title}}</el-menu-item>
+                <el-menu-item [index]="page.id" *ngFor="let page of catalog.pages;index as pi;">{{page.title}}</el-menu-item>
             </el-menu-item-group>
         </el-submenu>
     </el-menu>

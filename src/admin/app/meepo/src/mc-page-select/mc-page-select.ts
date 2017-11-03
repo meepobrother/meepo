@@ -1,4 +1,4 @@
-import { Component, OnInit, SkipSelf, Optional, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, SkipSelf, Optional, EventEmitter, Output, Input } from '@angular/core';
 import { MeepoAppService } from '../../app.service';
 import { ApiService } from '../../../core';
 @Component({
@@ -10,6 +10,7 @@ export class McPageSelect implements OnInit {
 
     meepo: MeepoAppService;
     myapps: any[] = [];
+    @Input() page_id: number = 0;
 
     @Output() onSelect: EventEmitter<any> = new EventEmitter();
 
@@ -19,7 +20,7 @@ export class McPageSelect implements OnInit {
         this.meepo = MeepoAppService.api;
     }
 
-    ngOnInit() { 
+    ngOnInit() {
         this.getMyApp();
     }
 
@@ -29,7 +30,8 @@ export class McPageSelect implements OnInit {
         });
     }
 
-    private _select(page: any){
-        this.onSelect.emit(page);
+    private _onMenuChange(e: any) {
+        this.page_id = e;
+        this.onSelect.emit(e);
     }
 }
