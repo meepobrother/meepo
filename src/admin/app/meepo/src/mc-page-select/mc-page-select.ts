@@ -31,7 +31,7 @@ export class McPageSelect implements OnInit {
         });
     }
 
-    private _onMenuChange(e: any) {
+    _onMenuChange(e: any) {
         this.page_id = e;
         this.onSelect.emit(e);
     }
