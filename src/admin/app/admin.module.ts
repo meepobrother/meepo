@@ -11,6 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StoreModule } from '@ngrx/store';
 
 import { ElModule } from 'element-angular';
+import { MeepoModule } from './meepo/meepo.module';
 
 @NgModule({
     declarations: [
@@ -25,6 +26,7 @@ import { ElModule } from 'element-angular';
         PagesModule,
         StoreModule,
         ElModule.forRoot(),
+        MeepoModule
     ],
     providers: [],
     bootstrap: [AdminComponent]
