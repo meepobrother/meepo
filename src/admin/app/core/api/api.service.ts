@@ -10,19 +10,17 @@ import { Subject } from 'rxjs/Subject';
 export class ApiService {
     header: HttpHeaders = new HttpHeaders();
     onInit: Subject<any> = new Subject();
+
+    static that: any;
+    sysinfo: SysinfoService;
     constructor(
         public http: HttpClient,
-        public sysinfo: SysinfoService
     ) {
+        this.sysinfo = SysinfoService.getSysinfo();
         this.header.append('Content-Type', 'application/x-www-form-urlencoded');
-        this.mpost('login.getOauthUniacid', {}).subscribe((res: any) => {
-            this.sysinfo.uniacid = res.info;
-            this.sysinfo.acid = res.info;
-            this.onInit.next(this.sysinfo);
-        });
     }
 
-    setSiteroot(siteroot: string){
+    setSiteroot(siteroot: string) {
         this.sysinfo.siteroot = siteroot;
     }
 
@@ -41,9 +39,9 @@ export class ApiService {
         for (let key in params) {
             str += "&" + key + "=" + params[key];
         }
-        if(isCloud){
+        if (isCloud) {
             return `https://meepo.com.cn/app/index.php?c=${__controller}&do=${__do}&a=${__action}&i=${this.sysinfo.getUniacid()}&j=${this.sysinfo.getAcid()}${str}`;
-        }else{
+        } else {
             return `${this.sysinfo.siteroot}app/index.php?c=${__controller}&do=${__do}&a=${__action}&i=${this.sysinfo.getUniacid()}&j=${this.sysinfo.getAcid()}${str}`;
         }
     }
@@ -68,14 +66,14 @@ export class ApiService {
         return this.wurl('site/entry/' + __do, { m: __module });
     }
 
-    mpost<T>(__do: string = 'index', __body: any = {}, __module: string = 'imeepos_runner',isCloud: boolean = false): Observable<T> {
-        let url = this.murl('entry//open', { m: 'imeepos_runner', __do: __do },isCloud);
+    mpost<T>(__do: string = 'index', __body: any = {}, __module: string = 'imeepos_runner', isCloud: boolean = false): Observable<T> {
+        let url = this.murl('entry//open', { m: 'imeepos_runner', __do: __do }, isCloud);
         const d = JSON.stringify(__body);
         const encrypted = Base64.encode(d);
         return this.http.post<T>(url, { encrypted: encrypted }, { headers: this.header });
     }
 
-    entry(__body: any = {}){
+    entry(__body: any = {}) {
         const d = JSON.stringify(__body);
         const encrypted = Base64.encode(d);
         return { encrypted: encrypted };

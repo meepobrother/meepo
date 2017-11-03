@@ -38,11 +38,11 @@ export class LoginPage implements OnInit {
         public fb: FormBuilder,
         public ele: ElementRef,
         @Inject(DOCUMENT) public document: any,
-        public api: ApiService,
-        public http: HttpClient
+        public http: HttpClient,
+        public api: ApiService
     ) {
         this.rcode = store.get('__meepo_rcode', uuid());
-        this.siteroot = store.get('__meepo_siteroot');
+        this.siteroot = store.get('__meepo_siteroot',"meepo.com.cn");
 
         this.laodSuccess.subscribe(QRCode => {
             this.QRCode = QRCode;
@@ -53,24 +53,32 @@ export class LoginPage implements OnInit {
     next() {
         this.showNext = true;
         this.api.setSiteroot(this.sitehttp + this.siteroot + "/");
-        store.set('__meepo_siteroot',this.siteroot);
+        store.set('__meepo_siteroot', this.siteroot);
         document.getElementById('qrcode').innerHTML = "";
-        var qrcode = new this.QRCode(document.getElementById("qrcode"), {
-            text: "" + this.api.murl('entry//open', { __do: 'login.qrcode', m: 'imeepos_runner', r: this.rcode }),
-            width: 328,
-            height: 328,
-            colorDark: "#000000",
-            colorLight: "#ffffff",
-            correctLevel: this.QRCode.CorrectLevel.H
+
+        this.autoCheck();
+        // 
+        this.api.mpost('login.getOauthUniacid', {}).subscribe((res: any) => {
+            this.api.sysinfo.uniacid = res.info;
+            this.api.sysinfo.acid = res.info;
+            this.api.onInit.next(this.api.sysinfo);
+
+            var qrcode = new this.QRCode(document.getElementById("qrcode"), {
+                text: "" + this.api.murl('entry/site/open', { __do: 'login.qrcode', m: 'imeepos_runner', r: this.rcode }),
+                width: 328,
+                height: 328,
+                colorDark: "#000000",
+                colorLight: "#ffffff",
+                correctLevel: this.QRCode.CorrectLevel.H
+            });
         });
     }
 
-    ngOnInit() {
-        this.api.mpost('login.update', {}).subscribe(res => { });
+    autoCheck(){
         this.timer = setInterval(() => {
             this.api.mpost('login.autologin', { r: this.rcode }).subscribe((res: any) => {
                 const date = res.info;
-                let { openid, rcode, uid, info, uniacid, acid, siteroot } = date;
+                let { openid, rcode, uid, info, uniacid, acid, siteroot, account } = date;
                 if (openid) {
                     store.set('__meepo_uid', uid);
                     store.set('__meepo_openid', openid);
@@ -80,6 +88,8 @@ export class LoginPage implements OnInit {
                     store.set('__meepo_uniacid', uniacid);
                     store.set('__meepo_acid', acid);
                     store.set('__meepo_siteroot', siteroot);
+
+                    store.set('__meepo_account', account);
 
                     if (uniacid) {
                         store.set('isLogin', true);
@@ -93,17 +103,12 @@ export class LoginPage implements OnInit {
         }, 1500);
     }
 
-    ngAfterViewInit() {
-        this.loadJScript();
-        this.getList();
+    ngOnInit() {
+        this.api.mpost('login.update', {}).subscribe(res => { });
     }
 
-    getList() {
-        let url = this.api.murl('entry//open', { __do: 'cloud-state.list', m: 'imeepos_runner' }, true);
-        this.http.post(url, this.api.entry({ page: 1, psize: 50 })).subscribe((res: any) => {
-            this.pages = res.info;
-            console.log(res);
-        });
+    ngAfterViewInit() {
+        this.loadJScript();
     }
 
     loadJScript() {
