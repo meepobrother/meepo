@@ -1,0 +1,8 @@
+.layout-vessel {
+    min-height: 150px;
+    display: flex;
+    flex-direction: row;
+    .layout-vessel-container-left {
+        flex: 1;
+    }
+}

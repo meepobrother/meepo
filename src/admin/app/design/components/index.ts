@@ -54,8 +54,7 @@ import {
     PageSetting, IconView,
     TabbarSelect, TabbarSetting, TabbarView,
     NavbarSelect, NavbarView, NavbarSetting,
-    PickerSelect, PickerView, PickerSetting,
-    WeuiPreviewSetting, WeuiPreviewView
+    PickerSelect, PickerView, PickerSetting
 } from './weui';
 
 import {
@@ -77,8 +76,7 @@ import {
     MeepoSwiperTagsSetting, MeepoSwiperTagsView,
     // 地址
     MeepoAddAddressView, MeepoAddAddressSetting,
-    MeepoListSetting, MeepoListView,
-    MeepoDanmuSetting, MeepoDanmuView
+    MeepoListSetting, MeepoListView
 } from './meepo-ui';
 
 import {
@@ -216,14 +214,12 @@ export const COMPONENTS = [
     BargainItemSetting, BargainItemView,
     ArticleItemSetting, ArticleItemView,
     CityItemSetting, CityItemView,
-    MeepoDanmuSetting, MeepoDanmuView,
 
     PayRecordSetting, PayRecordView,
     PaySelectMoneySetting, PaySelectMoneyView,
     IqiyiHeadNavView, IqiyiHeadNavSetting,
     MeepoFormBtnSetting, MeepoFormBtnView,
     MeepoFormRealnameView, MeepoFormRealnameSetting,
-    WeuiPreviewSetting, WeuiPreviewView,
     PayuiFlowSetting, PayuiFlowView,
     ...LAYOIUT_ARRAY,
     ...actions_component
@@ -294,14 +290,12 @@ export const COMPONENTS_VIEW = {
     'bargain-item': BargainItemView,
     'article-item': ArticleItemView,
     'city-item': CityItemView,
-    'meepo-danmu': MeepoDanmuView,
     'pay-record': PayRecordView,
     'pay-select-money': PaySelectMoneyView,
     'iqiyi-head-nav': IqiyiHeadNavView,
     'meepo-form-btn': MeepoFormBtnView,
     'meepo-form-realname': MeepoFormRealnameView,
     'weui-cells': WeuiCellsView,
-    'weui-preview': WeuiPreviewView,
     'payui-flow': PayuiFlowView,
     ...LAYOUT_COMPONENT_VIEW,
     ...actions_component_view
@@ -366,14 +360,12 @@ export const COMPONENTS_SETTING = {
     'bargain-item': BargainItemSetting,
     'article-item': ArticleItemSetting,
     'city-item': CityItemSetting,
-    'meepo-danmu': MeepoDanmuSetting,
     'pay-record': PayRecordSetting,
     'pay-select-money': PaySelectMoneySetting,
     'iqiyi-head-nav': IqiyiHeadNavSetting,
     'meepo-form-btn': MeepoFormBtnSetting,
     'meepo-form-realname': MeepoFormRealnameSetting,
     'weui-cells': WeuiCellsSetting,
-    'weui-preview': WeuiPreviewSetting,
     'payui-flow': PayuiFlowSetting,
     ...LAYOUT_COMPONENT_SETTING,
     ...actions_component_setting
