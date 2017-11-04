@@ -33,3 +33,5 @@ runner-darwin-x64/
 src/admin/app/themes/
 *.scssc
 help-docs/
+.idea/
+.vscode/
