@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ThemesPage } from './themes-page';
 
+import { ThemesPage } from './themes-page';
 import { ThemesListFreeModule } from './themes-list-free';
 import { ThemesShops } from './themes-shops';
 import { MyThemes } from './my-themes';

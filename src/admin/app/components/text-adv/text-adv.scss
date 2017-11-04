@@ -53,8 +53,8 @@ marquee {
             display: block;
             overflow: hidden;
             background-repeat: no-repeat;
-            -webkit-background-size: cover;
-            -webkit-border-radius: 200px;
+            background-size: cover;
+            border-radius: 200px;
         }
     }
     div {
