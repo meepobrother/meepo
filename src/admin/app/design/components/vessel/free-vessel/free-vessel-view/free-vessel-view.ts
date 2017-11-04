@@ -10,3 +10,15 @@ export class FreeVesselView implements OnInit {
 
     ngOnInit() { }
 }
+
+
+export class FreeVesselDefafult{
+    children: any[] = [];
+    type: string;
+    name: string;
+
+    constructor(){
+        this.type = 'free-vessel';
+        this.name = '自由面板';
+    }
+}
