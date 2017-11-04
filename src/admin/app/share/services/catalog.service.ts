@@ -9,6 +9,7 @@ import {
 import {
     LayoutContainerModel
 } from '../../design/classes';
+
 @Injectable()
 export class CatalogService {
     showAddPageDialogStream: Subject<any> = new Subject();
@@ -50,7 +51,6 @@ export class CatalogService {
 
     addCatalogGroup(catalogGroup: CatalogGroup) {
         // 检查是否存在
-        console.log(catalogGroup);
         let needAdd: boolean = true;
         this.catalogGroupsData.map(res => {
             if (res.id === catalogGroup.id) {
@@ -58,10 +58,8 @@ export class CatalogService {
                 needAdd = false;
             }
         });
-        console.log(needAdd);
         if (needAdd) {
             this.catalogGroupsData.push(catalogGroup);
-            // this.dataPerService.addCatalogGroup(catalogGroup);
         }
     }
 

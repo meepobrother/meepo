@@ -4,7 +4,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { CatalogService } from '../../services';
 import { LayoutContainerModel } from '../../../design';
 import { ApiService } from '../../../core';
-import uuid from 'uuid';
+import * as uuid from 'uuid';
 
 @Component({
     selector: 'add-page-dialog',

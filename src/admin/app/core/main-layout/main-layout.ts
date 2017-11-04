@@ -137,24 +137,33 @@ export class MainLayoutComponent implements OnInit {
         this.myinfo = store.get('__meepo_myuserinfo', { avatar: 'assets/img/a1.jpg' });
 
         this.sidebar$.onOpen.subscribe(open => {
-            console.log(open);
-            if (open) {
+            const isLogin = store.get('isLogin');
+            if (isLogin) {
+                if (open) {
+                    this.openStyle.content = {
+                        'padding-left': '55px',
+                        'padding-right': '0px'
+                    };
+                    this.avatarStyle = {
+                        'max-width': '2em'
+                    };
+                } else {
+                    this.openStyle.content = {
+                        'padding-left': '100px',
+                        'padding-right': '160px'
+                    };
+                    this.avatarStyle = {
+                        'min-width': '2em'
+                    }
+                }
+            }else {
                 this.openStyle.content = {
-                    'padding-left': '55px',
-                    'padding-right': '0px'
-                };
-                this.avatarStyle = {
-                    'max-width': '2em'
-                };
-            } else {
-                this.openStyle.content = {
-                    'padding-left': '100px',
-                    'padding-right': '160px'
+                    'padding-left': '0px',
+                    'padding-rigght': '0px'
                 };
                 this.avatarStyle = {
                     'min-width': '2em'
-                }
-               
+                };
             }
         })
     }

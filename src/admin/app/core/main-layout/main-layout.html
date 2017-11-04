@@ -16,9 +16,6 @@
 
     <!-- 主要内容 -->
     <sidebar-content [ngStyle]="openStyle.content">
-        <div class="top-nav" *ngIf="showMenu" style="padding:0px;" [style.margin-left]="sidebar$._open ? '55px' : '100px'" [style.margin-right]="sidebar$._open ? '0px' : '170px'">
-            <h5 class="top-nav-title" style="text-align:center;">小明跑腿</h5>
-        </div>
         <div style="width: 100%;height: 100%;overflow: auto;">
             <ng-content></ng-content>
         </div>
@@ -31,7 +28,7 @@
                     <el-menu class="el-menu-right" *ngIf="showMenu" [style.padding-left]="sidebar$._open ? '55px' : '100px'" theme="dark">
                         <el-submenu class="el-menu-scroll-y" [index]="app.id" *ngFor="let app of myapps;index as ai;">
                             <ng-template #title>
-                                {{app.title | slice: 0:4}}
+                                {{app.title | slice: 0:6}}
                             </ng-template>
                             <el-menu-item-group [title]="catalog.title" *ngFor="let catalog of app.catalogs;index as ci;">
                                 <el-menu-item style="padding-left: 40px;" [index]="page.id" *ngFor="let page of catalog.pages;index as pi;">{{page.title}}</el-menu-item>
