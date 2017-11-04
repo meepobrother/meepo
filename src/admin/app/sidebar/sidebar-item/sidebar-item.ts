@@ -54,7 +54,6 @@ export class SidebarItem implements OnInit {
         this.service$.sidebars.set(this.id, this);
 
         this.container$.onOpen.subscribe(res=>{
-            console.log('sidebar item is ', res);
             this._open = res;
         });
     }

@@ -1,9 +1,9 @@
-<div style="width: 100%;height: 100%;overflow: auto;">
+<div style="width: 100%;height: 100%;">
     <!-- 侧边菜单 -->
     <sidebar-container [style.width]="sidebar$._open ? '55px' : '100px'" *ngIf="showMenu">
         <sidebar-list>
             <sidebar-header>
-                <img (click)="openSidebar()" ngStyle.xs="max-width: 2em" class="sidebar-header-avatar" [src]="myinfo.avatar" alt="">
+                <img (click)="openSidebar()" [ngStyle]="avatarStyle" class="sidebar-header-avatar" [src]="myinfo.avatar" alt="">
             </sidebar-header>
             <div *ngFor="let item of menus">
                 <sidebar-item (onItem)="onItem(item)" class="active">
@@ -13,12 +13,13 @@
             </div>
         </sidebar-list>
     </sidebar-container>
+
     <!-- 主要内容 -->
-    <sidebar-content [style.padding-left]="sidebar$._open ? '55px' : '100px'" [style.padding-right]="sidebar$._open ? '0px' : '160px'">
-        <div class="top-nav" style="padding:0px;" [style.margin-left]="sidebar$._open ? '55px' : '100px'" [style.margin-right]="sidebar$._open ? '0px' : '170px'">
+    <sidebar-content [ngStyle]="openStyle.content">
+        <div class="top-nav" *ngIf="showMenu" style="padding:0px;" [style.margin-left]="sidebar$._open ? '55px' : '100px'" [style.margin-right]="sidebar$._open ? '0px' : '170px'">
             <h5 class="top-nav-title" style="text-align:center;">小明跑腿</h5>
         </div>
-        <div (click)="onContentClick()" style="width: 100%;background-color:inherit;height: 100%;overflow: auto;">
+        <div style="width: 100%;height: 100%;overflow: auto;">
             <ng-content></ng-content>
         </div>
     </sidebar-content>

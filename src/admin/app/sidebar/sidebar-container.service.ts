@@ -5,18 +5,20 @@ import { Subject } from 'rxjs/Subject';
 export class SidebarContainerService {
     _open: boolean = false;
     onOpen: Subject<boolean> = new Subject();
-    
-    open(){
+
+    constructor() { }
+
+    open() {
         this.onOpen.next(true);
         this._open = true;
     }
 
-    close(){
+    close() {
         this.onOpen.next(false);
         this._open = false;
     }
 
-    toogle(){
+    toogle() {
         this._open = !this._open;
         this.onOpen.next(this._open);
     }
