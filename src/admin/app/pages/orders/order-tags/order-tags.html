@@ -5,9 +5,9 @@
             <a href="javascript:;" class="btn btn-primary btn-xs" (click)="add()">添加</a>
         </div>
     </div>
-    <alert info>
+    <el-alert type="warning" [show-icon]="true">
         标签是为了方便搜索查找归类
-    </alert>
+    </el-alert>
     <div class="ibox-content">
         <div *ngIf="tags.list.size>0">
             <span (click)="edit(item)" class="label label-primary" style="margin: 5px;" *ngFor="let item of tags.dates">{{item.title || '标题'}}</span>

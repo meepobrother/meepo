@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
     NavTabsModule, MeepoFormFieldModule,
-    PanelModule, AlertModule, BlankModule,
+    PanelModule, BlankModule,
     TextAdvModule, PriceListModule, OverlayModule,
     CoverModule, DndModule, ColorSelectModule, Iphone6Module,
     WeuiGridModule, MenuModule, EditorModule, LocationPickerModule,
@@ -18,7 +18,6 @@ import { QuillModule } from 'ngx-quill';
 import { MatDialogModule } from '@angular/material';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
-import { AppEffectsModule, AppStoreModule } from '../ngrx';
 import { CoreModule } from '../core';
 
 import { MeepoModule } from '../meepo/meepo.module';
@@ -30,7 +29,6 @@ const materials = [
     MatDialogModule,
     ReactiveFormsModule,
     PanelModule,
-    AlertModule,
     FormsModule,
     BlankModule,
     TextAdvModule,
