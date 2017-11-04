@@ -5,7 +5,6 @@ import { CatalogService } from '../../services';
 import { LayoutContainerModel } from '../../../design';
 import { ApiService } from '../../../core';
 import uuid from 'uuid';
-import { Store } from '@ngrx/store';
 
 @Component({
     selector: 'add-page-dialog',
