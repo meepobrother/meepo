@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MeepoAppService } from './app.service';
-import { MeepoComponents } from './src';
 import { ElModule } from 'element-angular';
 
 export const ShareNewModules = [
     CommonModule,
     ElModule
 ];
+
+import { MeepoComponents } from './src';
 
 @NgModule({
     imports: [
@@ -23,7 +24,9 @@ export const ShareNewModules = [
     providers: [
         MeepoAppService
     ],
-    entryComponents: []
+    entryComponents: [
+        ...MeepoComponents
+    ]
 })
 export class MeepoModule { }
 

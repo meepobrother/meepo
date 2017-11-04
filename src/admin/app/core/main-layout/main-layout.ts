@@ -114,6 +114,19 @@ export class MainLayoutComponent implements OnInit {
 
     myinfo: any;
     myapps: any[] = [];
+
+    openStyle: any = {
+        // 没有登陆
+        content: {
+            margin: '0px',
+            padding: '0px'
+        }
+    };
+    closeStyle: any = {};
+
+    avatarStyle: any = {
+        'min-width': '2em'
+    }
     constructor(
         public sidebar$: SidebarContainerService,
         public dropdowns$: DropdownsService,
@@ -121,7 +134,29 @@ export class MainLayoutComponent implements OnInit {
         public login$: LoginService,
         public api: ApiService
     ) {
-        this.myinfo = store.get('__meepo_myuserinfo', { avatar: 'assets/img/a1.jpg' })
+        this.myinfo = store.get('__meepo_myuserinfo', { avatar: 'assets/img/a1.jpg' });
+
+        this.sidebar$.onOpen.subscribe(open => {
+            console.log(open);
+            if (open) {
+                this.openStyle.content = {
+                    'padding-left': '55px',
+                    'padding-right': '0px'
+                };
+                this.avatarStyle = {
+                    'max-width': '2em'
+                };
+            } else {
+                this.openStyle.content = {
+                    'padding-left': '100px',
+                    'padding-right': '160px'
+                };
+                this.avatarStyle = {
+                    'min-width': '2em'
+                }
+               
+            }
+        })
     }
 
     getMyApp() {
@@ -131,15 +166,25 @@ export class MainLayoutComponent implements OnInit {
     }
     ngOnInit() {
         this.getMyApp();
+        this.sidebar$.close();
         const isLogin = store.get('isLogin');
         if (isLogin) {
             this.showMenu = true;
+            // 默认关闭
+            this.openStyle.content = {
+                'padding-left': '100px',
+                'padding-right': '160px'
+            }
         }
         if (!this.showMenu) {
             this.timer = setInterval(() => {
                 const isLogin = store.get('isLogin');
                 if (isLogin) {
                     this.showMenu = true;
+                    this.openStyle.content = {
+                        'padding-left': '100px',
+                        'padding-right': '160px'
+                    }
                     clearInterval(this.timer);
                 }
             }, 1000);
@@ -159,7 +204,12 @@ export class MainLayoutComponent implements OnInit {
     onContentClick() {
         this.dropdowns$.dropdowns.forEach(res => {
             res.close();
-        })
+        });
     }
 }
 
+
+
+export class openContentStyle {
+
+}

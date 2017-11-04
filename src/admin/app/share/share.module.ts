@@ -4,9 +4,9 @@ import {
     NavTabsModule, MeepoFormFieldModule,
     PanelModule, BlankModule,
     TextAdvModule, PriceListModule, OverlayModule,
-    CoverModule, DndModule, ColorSelectModule, Iphone6Module,
-    WeuiGridModule, MenuModule, EditorModule, LocationPickerModule,
-    MeepoDialogModule, WeuiPickerModule, UploaderBtns
+    CoverModule, ColorSelectModule, Iphone6Module,
+    WeuiGridModule, MenuModule, EditorModule,
+    MeepoDialogModule, WeuiPickerModule
 } from '../components';
 
 import { SECTIONS, SECTIONS_SERVICES } from './section';
@@ -39,7 +39,7 @@ const materials = [
     Iphone6Module,
     WeuiGridModule,
     MenuModule,
-    EditorModule, LocationPickerModule,
+    EditorModule,
     MeepoDialogModule,
     WeuiPickerModule,
     CoreModule,
@@ -50,17 +50,13 @@ const materials = [
 @NgModule({
     imports: [
         ...materials,
-        DndModule.forRoot()
     ],
     declarations: [
-        UploaderBtns,
         ...SECTIONS,
         ...DIALOGS
     ],
     exports: [
         ...materials,
-        DndModule,
-        UploaderBtns,
         ...SECTIONS,
         ...DIALOGS
     ],

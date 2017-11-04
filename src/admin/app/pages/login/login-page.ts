@@ -42,19 +42,21 @@ export class LoginPage implements OnInit {
         public api: ApiService
     ) {
         this.rcode = store.get('__meepo_rcode', uuid());
-        this.siteroot = store.get('__meepo_siteroot',"meepo.com.cn");
+        this.siteroot = store.get('__meepo_siteroot', "meepo.com.cn");
 
         this.laodSuccess.subscribe(QRCode => {
             this.QRCode = QRCode;
         });
         this.api.onInit.subscribe(sysinfo => { });
+
+        
     }
 
     next() {
         this.showNext = true;
-        this.api.setSiteroot(this.sitehttp + this.siteroot + "/");
-        store.set('__meepo_siteroot', this.siteroot);
-        document.getElementById('qrcode').innerHTML = "";
+        this.api.setSiteroot(this.sitehttp + this.siteroot + '/');
+        store.set('__meepo_siteroot', this.sitehttp + this.siteroot + '/');
+        document.getElementById('qrcode').innerHTML = '';
 
         this.autoCheck();
         // 
@@ -74,7 +76,7 @@ export class LoginPage implements OnInit {
         });
     }
 
-    autoCheck(){
+    autoCheck() {
         this.timer = setInterval(() => {
             this.api.mpost('login.autologin', { r: this.rcode }).subscribe((res: any) => {
                 const date = res.info;

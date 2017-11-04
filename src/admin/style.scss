@@ -781,3 +781,8 @@ header {
 .cdk-overlay-container {
     z-index: 999999999;
 }
+
+body,
+html {
+    overflow: hidden;
+}

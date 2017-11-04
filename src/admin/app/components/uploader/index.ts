@@ -1,1 +1,0 @@
-export * from './uploader-btns/uploader-btns';

@@ -57,11 +57,6 @@ export class AddPageDialog implements OnInit {
 
         this.dialog.afterOpen().subscribe(() => {
             const { title, cata_id, keyword, desc, header, body, footer, menu, code, id, app_id } = this.data;
-
-            console.log('data is ', this.data);
-            console.log('cata id', cata_id);
-            console.log('app id', app_id);
-            
             this.form.get('title').setValue(title);
             this.form.get('keyword').setValue(keyword);
             this.form.get('desc').setValue(desc);
