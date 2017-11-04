@@ -13,8 +13,6 @@ import { SECTIONS, SECTIONS_SERVICES } from './section';
 import { DIALOGS } from './dialog';
 
 
-import { QuillModule } from 'ngx-quill';
-
 import { MatDialogModule } from '@angular/material';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
@@ -43,7 +41,6 @@ const materials = [
     MeepoDialogModule,
     WeuiPickerModule,
     CoreModule,
-    QuillModule,
     MeepoModule
 ];
 

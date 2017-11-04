@@ -8,10 +8,8 @@ export class WidgetService {
     private currentWidget: any = new Widget();
     setCurrentWidgetStream: Subject<any> = new Subject();
     removeWidgetStream: Subject<any> = new Subject();
-    
 
     widget: any;
-
     appId: any;
 
     setAppId(id: any){
