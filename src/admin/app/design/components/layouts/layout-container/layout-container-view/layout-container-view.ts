@@ -14,13 +14,14 @@ import { LayoutMenuView } from '../../layout-menu';
 })
 export class LayoutContainerView implements OnInit {
     @Input() widget: LayoutContainerModel = new LayoutContainerModel();
+
     @ContentChild(LayoutBodyView) _body: LayoutBodyView;
     @ContentChild(LayoutHeaderView) _header: LayoutHeaderView;
     @ContentChild(LayoutFooterView) _footer: LayoutFooterView;
     @ContentChild(LayoutMenuView) _menu: LayoutMenuView;
 
     @HostBinding('class.layout-container') _container: boolean = true;
-    
+
     constructor(
         public ele: ElementRef
     ) { }

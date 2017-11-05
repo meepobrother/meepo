@@ -1,3 +1,3 @@
-<div class="footer-item" (click)="onItem(item)" [class.active]="item.active" [ngStyle]="item.style" *ngFor="let item of widget.children">
+<div class="footer-item" (click)="onItem(item)" [ngStyle]="item.active ? widget.activeStyle : {}" *ngFor="let item of widget.children">
     <i [class]="item.icon"></i> {{item.title}}
 </div>

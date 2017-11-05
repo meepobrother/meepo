@@ -16,6 +16,7 @@ export class LayoutFooterSetting implements OnInit {
     ) { }
 
     ngOnInit() {
+        console.log(this.widget);
         this.widget.children = this.widget.children || [];
     }
 
@@ -38,13 +39,23 @@ export class LayoutFooterSetting implements OnInit {
     linkItem(item: any) {
         const dialogRef = this.dialog.open(IconLinkSelect, { data: item });
         dialogRef.afterClosed().subscribe((res) => {
-            item['link'] = res.link;
-            item['icon'] = res.icon;
-            item['title'] = res.title;
+            if (res) {
+                const { link, icon, title } = res;
+                item['link'] = link;
+                item['icon'] = icon;
+                item['title'] = title;
+            }
         });
     }
 
     selectIcon(item: any) {
 
+    }
+
+    activeItem(item: any) {
+        this.widget.children.map((res: any) => {
+            res.active = false;
+        });
+        item.active = !item.active;
     }
 }

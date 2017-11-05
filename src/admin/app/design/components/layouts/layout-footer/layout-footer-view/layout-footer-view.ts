@@ -13,8 +13,8 @@ export class LayoutFooterView implements OnInit, OnChanges {
     @Input() widget: LayoutFooter = new LayoutFooter();
     @HostBinding('class.active') _active: boolean = false;
     activeStyle: any;
-    @HostListener('mouseover',['$event'])
-    onClick(evt: any){
+    @HostListener('mouseover', ['$event'])
+    onClick(evt: any) {
         this.layout.onFooter(this.widget);
         this.widget$.setCurrentWidget(this.widget);
     }
@@ -25,30 +25,29 @@ export class LayoutFooterView implements OnInit, OnChanges {
         public widget$: WidgetService,
         public api: ApiService,
         public catalogService: CatalogService
-    ) { 
-        this.layout.onChange.debounceTime(300).subscribe(res=>{
-            if(res === this.widget){
+    ) {
+        this.layout.onChange.debounceTime(300).subscribe(res => {
+            if (res === this.widget) {
                 this._active = true;
-            }else{
+            } else {
                 this._active = false;
             }
         });
     }
 
-    ngOnInit() { }
+    ngOnInit() {
+        console.log(this.widget);
+    }
 
-    ngOnChanges(changes: SimpleChanges){
+    ngOnChanges(changes: SimpleChanges) {
         const widget = changes['widget'].currentValue;
         this.activeStyle = widget['activeStyle'];
     }
 
-    onItem(item: any){
-        // get page
-        if(item.link > 0){
-            this.api.mpost('app.getAppCatalogPage',{id: item.link}).subscribe((res: any)=>{
-                // this.widget$.setCurrentWidget(res.info);
+    onItem(item: any) {
+        if (item.link > 0) {
+            this.api.mpost('app.getAppCatalogPage', { id: item.link }).subscribe((res: any) => {
                 this.catalogService.setCurrentPageStream.next(res.info);
-                console.log(res.info);
             });
         }
     }
