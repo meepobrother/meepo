@@ -25,5 +25,7 @@ export class LayoutContainerModel extends LayoutWidget {
 
     setContainerClass() {
         this.containerClass = { 'layout-container': true };
+
+        console.log(this.footer);
     }
 }

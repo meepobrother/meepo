@@ -64,7 +64,7 @@ import {
     LayoutContainerSelect, LayoutContainerSetting, LayoutContainerView,
     LayoutFooterSelect, LayoutFooterSetting, LayoutFooterView,
     LayoutMenuSelect, LayoutMenuSetting, LayoutMenuView,
-    LayoutSelect, LayoutView, LayoutSetting
+    LayoutView, LayoutSetting
 } from './layouts';
 
 import {
@@ -129,7 +129,6 @@ import {
     CardComponent, CardSetting, CardView, SlotDirective
 } from './zan-ui';
 
-import { LAYOUT_COMPONENT, LAYOUT_COMPONENT_SETTING, LAYOUT_COMPONENT_VIEW, LAYOIUT_ARRAY } from '../layouts/export';
 import { actions_component, actions_component_view, actions_component_setting, actions_models } from './actions';
 export const COMPONENTS = [
     ButtonView, ButtonSetting, ButtonSelect,
@@ -145,7 +144,7 @@ export const COMPONENTS = [
     IconSelectDialog,
 
     // layouts
-    LayoutSelect, LayoutView, LayoutSetting,
+    LayoutView, LayoutSetting,
     LayoutHeaderSelect, LayoutHeaderSetting, LayoutHeaderView,
     LayoutBodySelect, LayoutBodySetting, LayoutBodyView,
     LayoutContainerSelect, LayoutContainerSetting, LayoutContainerView,
@@ -221,7 +220,6 @@ export const COMPONENTS = [
     MeepoFormBtnSetting, MeepoFormBtnView,
     MeepoFormRealnameView, MeepoFormRealnameSetting,
     PayuiFlowSetting, PayuiFlowView,
-    ...LAYOIUT_ARRAY,
     ...actions_component
 ];
 
@@ -297,7 +295,6 @@ export const COMPONENTS_VIEW = {
     'meepo-form-realname': MeepoFormRealnameView,
     'weui-cells': WeuiCellsView,
     'payui-flow': PayuiFlowView,
-    ...LAYOUT_COMPONENT_VIEW,
     ...actions_component_view
 };
 
@@ -367,7 +364,6 @@ export const COMPONENTS_SETTING = {
     'meepo-form-realname': MeepoFormRealnameSetting,
     'weui-cells': WeuiCellsSetting,
     'payui-flow': PayuiFlowSetting,
-    ...LAYOUT_COMPONENT_SETTING,
     ...actions_component_setting
 };
 
@@ -426,7 +422,6 @@ export const WIDGETS = {
     'weui-cells': WeuiCellsDefault,
     'weui-preview': WeuiPreviewDefault,
     'payui-flow': PayuiFlowDefault,
-    ...LAYOUT_COMPONENT,
     ...actions_models
 }
 
@@ -460,4 +455,3 @@ export * from './weui';
 export * from './layouts';
 export * from './wxapp';
 export * from './zan-ui';
-

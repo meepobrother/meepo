@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectorRef } from '@angular/core';
-import { CatalogService } from '../../services';
+import { CatalogService } from '../../services/catalog.service';
 import { MatDialog } from '@angular/material';
 import { AddGroupDialog, AddPageDialog } from '../../dialog';
 import { CatalogGroup } from '../model';

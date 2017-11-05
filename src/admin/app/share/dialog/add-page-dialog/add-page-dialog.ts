@@ -2,7 +2,7 @@ import { Component, OnInit, Inject, Input } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { CatalogService } from '../../services';
-import { LayoutContainerModel } from '../../../design';
+import { LayoutContainerModel } from '../../../design/classes/layout-container';
 import { ApiService } from '../../../core';
 import * as uuid from 'uuid';
 
@@ -55,7 +55,13 @@ export class AddPageDialog implements OnInit {
         });
 
         this.dialog.afterOpen().subscribe(() => {
-            const { title, cata_id, keyword, desc, header, body, footer, menu, code, id, app_id } = this.data;
+            let { title, cata_id, keyword, desc, header, body, footer, menu, code, id, app_id } = this.data || new LayoutContainerModel();
+            const mode = new LayoutContainerModel();
+            body = body || mode.body;
+            header = header || mode.header;
+            footer = footer || mode.footer;
+            menu = menu || mode.menu;
+            
             this.form.get('title').setValue(title);
             this.form.get('keyword').setValue(keyword);
             this.form.get('desc').setValue(desc);
@@ -77,7 +83,6 @@ export class AddPageDialog implements OnInit {
     }
 
     getCatalogs() {
-        console.log(this.form.value);
         this.apiService.mpost('app.getListAppCatalog', { app_id: this.form.get('app_id').value }).subscribe((res: any) => {
             this.catalogs = res.info;
             console.log(res);

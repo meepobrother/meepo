@@ -14,6 +14,24 @@
     </div>
 </div>
 
+
+<div class="ibox">
+    <div class="ibox-title">
+        激活状态设置
+    </div>
+    <div class="ibox-content">
+        <form-field group="true">
+            <span class="label" start>背景颜色</span>
+            <input type="color" [(ngModel)]="widget.activeStyle['background-color']" meepoInput class="form-control">
+        </form-field>
+        <form-field group="true">
+            <span class="label" start>前景颜色</span>
+            <input type="color" (change)="onChange()" [(ngModel)]="widget.activeStyle['color']" meepoInput class="form-control">
+        </form-field>
+    </div>
+</div>
+
+
 <div class="ibox">
     <div class="ibox-title">
         <h5>底部菜单项目</h5>
@@ -33,6 +51,9 @@
                 </button>
                 <button class="btn btn-primary btn-xs">
                     <i (click)="linkItem(item)" class="fa fa-link"></i>                
+                </button>
+                <button class="btn btn-info btn-xs" (click)="activeItem(item)" *ngIf="!item.active">
+                    激活
                 </button>
             </div>
         </form-field>
