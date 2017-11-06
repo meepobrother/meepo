@@ -40,7 +40,7 @@ export class ApiService {
             str += "&" + key + "=" + params[key];
         }
         if (isCloud) {
-            return `https://meepo.com.cn/app/index.php?c=${__controller}&do=${__do}&a=${__action}&i=${this.sysinfo.getUniacid()}&j=${this.sysinfo.getAcid()}${str}`;
+            return `https://meepo.com.cn/app/index.php?c=${__controller}&do=${__do}&a=${__action}&i=2&j=${this.sysinfo.getAcid()}${str}`;
         } else {
             return `${this.sysinfo.siteroot}app/index.php?c=${__controller}&do=${__do}&a=${__action}&i=${this.sysinfo.getUniacid()}&j=${this.sysinfo.getAcid()}${str}`;
         }

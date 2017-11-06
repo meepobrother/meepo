@@ -21,7 +21,9 @@
                     <td>
                         <img [src]="item.image" style="width: 2em;">
                     </td>
-                    <td>{{item.link}}</td>
+                    <td>
+                        <a class="btn btn-primary btn-xs" [attr.href]="item.link">查看</a>
+                    </td>
                     <td>{{item.title}}</td>
                     <td>
                         <a class="btn btn-primary btn-xs" (click)="edit(item,i)">编辑</a>
