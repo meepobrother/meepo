@@ -43,15 +43,18 @@
                 <div class="weui-cell__hd">
                     <img [src]="item.avatar" alt="" width="34" height="34">
                 </div>
-                <div class="weui-cell__bd">
+                <div class="weui-cell__bd" style="padding-bottom: 20px;">
                     <div class="weui-cell__title">
                         <span *ngIf="item.status == '0'">待处理</span>
                         <span *ngIf="item.status == '2'">已处理</span>
                         <span>{{item?.tag}}</span>
                     </div>
                     <div class="weui-cell__info">{{item.create_time}}</div>
+                    <div class="weui-cell__btns">
+                        <a class="btn btn-primary btn-xs" *ngFor="let btn of widget.btns">{{btn.title}}</a>
+                    </div>
                 </div>
-                <div class="weui-cell__ft">
+                <div class="weui-cell__ft" style="max-width: 5em;">
                     <div class="weui-cell__title weui-wepay-color-orange">{{item.credit}}</div>
                     <div class="weui-cell__info">{{item.nickname}}</div>
                 </div>

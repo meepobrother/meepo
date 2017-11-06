@@ -30,24 +30,27 @@
                 </tbody>
             </table>
         </div>
-        <div class="form-group">
-            <label>事件设置</label>
-            <select class="form-control" [(ngModel)]="widget.event">
-                <option [attr.value]="item.code" *ngFor="let item of events">{{item.title}}</option>
-            </select>
-        </div>
-        <div class="form-group" *ngIf="widget.event == 'detail'">
-            <label>详情链接</label>
-            <input type="text" [(ngModel)]="widget.link" class="form-control">
-        </div>
+        <div class="ibox">
+            <div class="ibox-title">
+                操作按钮
+                <div class="ibox-tools">
+                    <a class="btn btn-primary btn-xs" (click)="addBtn()">添加</a>
+                </div>
+            </div>
+            <div class="ibox-content">
+                <table class="table table-hover">
+                    <tr *ngFor="let btn of widget.btns">
+                        <td>{{btn.title}}</td>
+                        <td>
 
-        <div class="form-group" *ngIf="widget.event == 'open'">
-            <label>展开设置</label>
-            <input type="text" [(ngModel)]="widget.open" class="form-control">
-        </div>
-        <div class="form-group" *ngIf="widget.event == 'btns'">
-            <label>按钮设置</label>
-            <input type="text" [(ngModel)]="widget.btns" class="form-control">
+                        </td>
+                        <td>
+                            <a class="btn btn-primary btn-xs">编辑</a>
+                            <a class="btn btn-danger btn-xs">删除</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </div>
 </div>

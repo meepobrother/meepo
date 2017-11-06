@@ -124,7 +124,7 @@ import {
     SETTING_COMPONENTS
 } from '../../share/setting';
 
-import { IconSelectDialog } from '../../dialogs';
+import { IconSelectDialog, CreateBtnDialog } from '../../dialogs';
 
 import {
     CardComponent, CardSetting, CardView, SlotDirective
@@ -142,7 +142,7 @@ export const COMPONENTS = [
     NavbarSelect, NavbarView, NavbarSetting,
     PickerSelect, PickerView, PickerSetting,
     ...SETTING_COMPONENTS,
-    IconSelectDialog,
+    IconSelectDialog, CreateBtnDialog,
 
     // layouts
     LayoutView, LayoutSetting,

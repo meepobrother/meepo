@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { PayRecordDefault } from '../../../../classes';
-
+import { CreateBtnDialog } from '../../../../../dialogs';
+import { MatDialog } from '@angular/material';
 @Component({
     selector: 'pay-record-setting',
     templateUrl: './pay-record-setting.html',
@@ -13,25 +14,12 @@ export class PayRecordSetting implements OnInit {
     activeItem: any;
     activeIndex: number;
 
-    events: any[] = [];
-    constructor() { }
+    constructor(
+        public dialog: MatDialog
+    ) { }
 
-    ngOnInit() { 
-        this.events = [
-            {
-                title: '详情',
-                link: '',
-                code: 'detail'
-            },
-            {
-                title: '展开',
-                code: 'open'
-            },
-            {
-                title: '按钮',
-                code: 'btns'
-            }
-        ];
+    ngOnInit() {
+        this.widget['btns'] = this.widget['btns'] || [];
     }
 
     setDefault(item: any) {
@@ -46,8 +34,16 @@ export class PayRecordSetting implements OnInit {
     }
 
     add() {
-        let item = { title: '测试' };
+        let item = { title: '测试', type: 'btn btn-primary btn-xs' };
         this.widget.children.push(item);
+    }
+
+    addBtn(item?: any) {
+        item = item || { title: '测试', color: 'btn-primary', size: 'btn-xs' }
+        let dialogRef = this.dialog.open(CreateBtnDialog, { data: item });
+        dialogRef.afterClosed().subscribe((res: any) => {
+            this.widget.btns.push(item);
+        });
     }
 
     dataSelectData(item, index) {
@@ -56,7 +52,7 @@ export class PayRecordSetting implements OnInit {
         this.activeIndex = index;
     }
 
-    setStatus(__do: string, __post: any){
+    setStatus(__do: string, __post: any) {
         this.activeItem['__do'] = __do;
         this.activeItem['__post'] = __post;
         this.widget.children[this.activeIndex] = this.activeItem;
