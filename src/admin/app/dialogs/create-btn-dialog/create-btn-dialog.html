@@ -1,10 +1,49 @@
 <div class="ibox-content">
     <h5>按钮颜色</h5>
-    <div>
+    <div class="form-group">
         <a class="btn btn-primary">primary</a>
         <a class="btn btn-danger">danger</a>
         <a class="btn btn-default">default</a>
         <a class="btn btn-gray">gray</a>
         <a class="btn btn-info">primary</a>
+    </div>
+
+    <div class="form-group">
+        <label>标题</label>
+        <input class="form-control" type="text" [(ngModel)]="widget.title">
+    </div>
+
+    <div class="form-group">
+        <label>大小</label>
+        <select class="form-control" [(ngModel)]="widget.size">
+            <option value="btn-xs">小</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>颜色</label>
+        <select class="form-control" [(ngModel)]="widget.color">
+            <option value="btn-primary">btn-primary</option>
+            <option value="btn-danger">btn-danger</option>
+            <option value="btn-default">btn-default</option>
+            <option value="btn-gray">btn-gray</option>
+            <option value="btn-info">btn-info</option>
+            <option value="btn-success">btn-success</option>
+            <option value="btn-warning">btn-warning</option>
+        </select>
+    </div>
+
+    <div class="form-group ">
+        <label>形状</label>
+        <select class="form-control " [(ngModel)]="widget.style">
+            <option value="btn-circle">圆形</option>
+            <option value="btn-outline">outline</option>
+            <option value="btn-rounded">圆角</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <a class="btn btn-primary" (click)="open()">确定</a>
+        <a class="btn btn-default" (click)="close()">取消</a>
     </div>
 </div>

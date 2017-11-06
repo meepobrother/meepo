@@ -15,7 +15,10 @@ export class PayRecordView implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.widget.children.map(res=>{
+        this.widget['btns'] = this.widget['btns'] || [];
+        this.widget['items'] = this.widget['items'] || [];
+        
+        this.widget.items.map(res=>{
             if(res['active']){
                 this.activeItem = res;
                 this.getList();
@@ -37,7 +40,7 @@ export class PayRecordView implements OnInit {
     }
 
     onTab(item: any) { 
-        this.widget.children.map(res=>{
+        this.widget.items.map(res=>{
             res['active'] = false;
         })
         item['active'] = !item['active'];

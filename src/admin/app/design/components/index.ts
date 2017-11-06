@@ -14,7 +14,7 @@ import {
     ActiveItemDefault, BargainItemDefault, ArticleItemDefault, CityItemDefault,
     MeepoDanmu, PayRecordDefault, PaySelectMoneyDefault, IqiyiHeadNavDefault,
     MeepoFormBtnDefault, MeepoFormRealnameDefault, WeuiCellsDefault, WeuiPreviewDefault,
-    PayuiFlowDefault, MeepoGridsDefault
+    PayuiFlowDefault, MeepoGridsDefault, PayStateDefault
 } from '../classes';
 
 import {
@@ -31,7 +31,8 @@ import {
 import {
     PayRecordSetting, PayRecordView,
     PaySelectMoneySetting, PaySelectMoneyView,
-    PayuiFlowSetting, PayuiFlowView
+    PayuiFlowSetting, PayuiFlowView,
+    PayStateSetting, PayStateView
 } from './payui';
 
 import {
@@ -222,7 +223,8 @@ export const COMPONENTS = [
     MeepoFormRealnameView, MeepoFormRealnameSetting,
     PayuiFlowSetting, PayuiFlowView,
     ...actions_component,
-    MeepoGridsSetting, MeepoGridsView
+    MeepoGridsSetting, MeepoGridsView,
+    PayStateSetting, PayStateView
 ];
 
 
@@ -298,7 +300,8 @@ export const COMPONENTS_VIEW = {
     'weui-cells': WeuiCellsView,
     'payui-flow': PayuiFlowView,
     ...actions_component_view,
-    'meepo-grids': MeepoGridsView
+    'meepo-grids': MeepoGridsView,
+    'pay-state': PayStateView
 };
 
 
@@ -369,6 +372,7 @@ export const COMPONENTS_SETTING = {
     'payui-flow': PayuiFlowSetting,
     ...actions_component_setting,
     'meepo-grids': MeepoGridsSetting, 
+    'pay-state': PayStateSetting, 
 };
 
 
@@ -427,7 +431,8 @@ export const WIDGETS = {
     'weui-preview': WeuiPreviewDefault,
     'payui-flow': PayuiFlowDefault,
     ...actions_models,
-    'meepo-grids': MeepoGridsDefault
+    'meepo-grids': MeepoGridsDefault,
+    'pay-state': PayStateDefault
 }
 
 import { Injectable } from '@angular/core';

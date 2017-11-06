@@ -1,7 +1,7 @@
 <div class="weui-wepay-lists">
     <div class="weui-wepay-lists__hd" [ngStyle]="widget.listsStyle">
         <div class="weui-wepay-lists__menu">
-            <div class="weui-wepay-lists__menu__item" [class.weui-wepay-lists__menu__item_on]="item.active" (click)="onTab(item)" *ngFor="let item of widget.children">{{item.title}}</div>
+            <div class="weui-wepay-lists__menu__item" [class.weui-wepay-lists__menu__item_on]="item.active" (click)="onTab(item)" *ngFor="let item of widget.items">{{item.title}}</div>
         </div>
     </div>
     <div class="weui-wepay-lists__bd" #list>
@@ -50,8 +50,8 @@
                         <span>{{item?.tag}}</span>
                     </div>
                     <div class="weui-cell__info">{{item.create_time}}</div>
-                    <div class="weui-cell__btns">
-                        <a class="btn btn-primary btn-xs" *ngFor="let btn of widget.btns">{{btn.title}}</a>
+                    <div class="weui-cell__btns ">
+                        <a [ngStyle]="btn.styleObj" [class]="'btn '+ btn.color +' '+ btn.size +' '+ btn.style" *ngFor="let btn of widget.btns">{{btn.title}}</a>
                     </div>
                 </div>
                 <div class="weui-cell__ft" style="max-width: 5em;">
