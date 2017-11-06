@@ -7,7 +7,16 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class LayoutSetting implements OnInit {
     @Input() widget: any;
-    constructor() { }
+
+    types: any[] = [];
+    constructor() { 
+        this.types = [
+            {
+                title: '详情页面',
+                code: 'detail'
+            }
+        ];
+    }
 
     ngOnInit() { }
 }

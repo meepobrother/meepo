@@ -31,9 +31,24 @@
             </table>
         </div>
         <div class="form-group">
-
+            <label>事件设置</label>
+            <select class="form-control" [(ngModel)]="widget.event">
+                <option [attr.value]="item.code" *ngFor="let item of events">{{item.title}}</option>
+            </select>
         </div>
-        <div class="form-group"></div>
+        <div class="form-group" *ngIf="widget.event == 'detail'">
+            <label>详情链接</label>
+            <input type="text" [(ngModel)]="widget.link" class="form-control">
+        </div>
+
+        <div class="form-group" *ngIf="widget.event == 'open'">
+            <label>展开设置</label>
+            <input type="text" [(ngModel)]="widget.open" class="form-control">
+        </div>
+        <div class="form-group" *ngIf="widget.event == 'btns'">
+            <label>按钮设置</label>
+            <input type="text" [(ngModel)]="widget.btns" class="form-control">
+        </div>
     </div>
 </div>
 <div class="modal show" *ngIf="openDataDialog">
@@ -80,7 +95,7 @@
                             <a class="btn btn-primary btn-xs btn-block" (click)="setStatus('runner.getListRunner',{status: 0})">待审核</a>
                             <a class="btn btn-primary btn-xs btn-block" (click)="setStatus('runner.getListRunner',{status: 1})">正常接单</a>
                             <a class="btn btn-primary btn-xs btn-block" (click)="setStatus('runner.getListRunner',{status: 2})">审核失败</a>
-                            <a class="btn btn-primary btn-xs btn-block" (click)="setStatus('runner.getListRunner',{status: -1})">小黑屋</a>
+                            <a class="btn btn-primary btn-xs btn-block" (click)="setStatus('runner.getListRunner',{forbid: 1})">小黑屋</a>
                         </div>
                     </ng-template>
                 </nav-tab-pane>

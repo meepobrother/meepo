@@ -36,14 +36,14 @@ export class ThemesPreview {
 
     buildQrcode() {
         const _qrcode = new this.qrcode(this._qrcode.nativeElement, {
-            text: this.sysinfo.siteroot+'app/index.php?i='+this.sysinfo.getUniacid()+'&c=entry&do=design&m=imeepos_runner&id=' + this.id,
+            text: this.sysinfo.siteroot+'app/index.php?i='+this.sysinfo.getUniacid()+'&c=entry&do=design&m=imeepos_runner&pid=' + this.id,
             width: 128,
             height: 128,
             colorDark: "#000000",
             colorLight: "#ffffff",
             correctLevel: this.qrcode.CorrectLevel.H
         });
-        this.url = this.sysinfo.siteroot+'app/index.php?i='+this.sysinfo.getUniacid()+'&c=entry&do=design&m=imeepos_runner&id=' + this.id;
+        this.url = this.sysinfo.siteroot+'app/index.php?i='+this.sysinfo.getUniacid()+'&c=entry&do=design&m=imeepos_runner&pid=' + this.id;
     }
 
     loadJScript() {

@@ -11,6 +11,7 @@
                     <h2 class="weui-cell__title">
                         <span *ngIf="item.status == '0'">待处理</span>
                         <span *ngIf="item.status == '2'">已处理</span>
+                        <span>{{item?.tag}}</span>
                     </h2>
                     <div class="weui-cell__info">{{item.create_time}}</div>
                 </div>
@@ -46,6 +47,7 @@
                     <div class="weui-cell__title">
                         <span *ngIf="item.status == '0'">待处理</span>
                         <span *ngIf="item.status == '2'">已处理</span>
+                        <span>{{item?.tag}}</span>
                     </div>
                     <div class="weui-cell__info">{{item.create_time}}</div>
                 </div>

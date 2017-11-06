@@ -33,7 +33,7 @@ export class SelectPageDialog implements OnInit {
 
     // 选择布局
     onSelectPage(page: any) {
-        const url = './index.php?i='+this.sysinfo.getUniacid()+'&c=entry&do=design&m=imeepos_runner&id='+page;
+        const url = './index.php?i='+this.sysinfo.getUniacid()+'&c=entry&do=design&m=imeepos_runner&pid='+page;
         this.dialog.close(url);
     }
 
