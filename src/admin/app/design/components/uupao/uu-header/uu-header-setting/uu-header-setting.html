@@ -11,7 +11,7 @@
         <div class="form-group">
             <div class="input-group">
                 <input type="text" class="form-control" [(ngModel)]="widget.left.link" placeholder="链接">
-                <div class="input-group-addon" (click)="editLeft()">
+                <div class="input-group-addon" (click)="editLeft(widget.left)">
                     <i [ngClass]="widget.left.icon"></i> {{widget.left.title}}
                 </div>
             </div>
@@ -20,7 +20,7 @@
         <div class="form-group">
             <div class="input-group">
                 <input type="text" class="form-control" [(ngModel)]="widget.right.link" placeholder="链接">
-                <div class="input-group-addon" (click)="editRight()">
+                <div class="input-group-addon" (click)="editRight(widget.right)">
                     <i [ngClass]="widget.right.icon"></i> {{widget.right.title}}
                 </div>
             </div>
