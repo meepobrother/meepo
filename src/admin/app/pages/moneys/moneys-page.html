@@ -3,6 +3,30 @@
         <h2>财务统计</h2>
     </div>
     <div class="ibox-content">
+        <nav-tabs>
+            <nav-tab-pane title="提现管理">
+                <ng-template navTabPaneRef>
+                    <tixian-list></tixian-list>
+                </ng-template>
+            </nav-tab-pane>
 
+            <nav-tab-pane title="余额充值">
+                <ng-template navTabPaneRef>
+                    <yue-list></yue-list>
+                </ng-template>
+            </nav-tab-pane>
+
+            <nav-tab-pane title="积分充值">
+                <ng-template navTabPaneRef>
+                    <jifen-list></jifen-list>
+                </ng-template>
+            </nav-tab-pane>
+
+            <nav-tab-pane title="信誉充值">
+                <ng-template navTabPaneRef>
+                    <xinyu-list></xinyu-list>
+                </ng-template>
+            </nav-tab-pane>
+        </nav-tabs>
     </div>
 </div>
