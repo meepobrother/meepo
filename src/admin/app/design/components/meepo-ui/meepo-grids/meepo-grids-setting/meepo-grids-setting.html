@@ -11,6 +11,10 @@
         </div>
     </div>
     <div class="ibox-content">
+        <div class="form-group">
+            <label>列数</label>
+            <input class="form-control" type="number" placeholder="请输入列数" [(ngModel)]="widget.colNum" />
+        </div>
         <table class="table table-hover">
             <tbody>
                 <tr *ngFor="let item of widget.items;index as i;">
@@ -20,7 +24,7 @@
                     <td>{{item.link}}</td>
                     <td>{{item.title}}</td>
                     <td>
-                        <a class="btn btn-prmary btn-xs" (click)="edit(item,i)">编辑</a>
+                        <a class="btn btn-primary btn-xs" (click)="edit(item,i)">编辑</a>
                         <a class="btn btn-danger btn-xs" (click)="delete(i)">删除</a>
                     </td>
                 </tr>

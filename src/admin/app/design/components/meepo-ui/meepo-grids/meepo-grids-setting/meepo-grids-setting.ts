@@ -16,20 +16,21 @@ export class MeepoGridsSetting implements OnInit {
     ngOnInit() { }
 
     add() {
-        let dialogRef = this.dialog.open(ImageLinkTitleSelect);
-
+        let dialogRef = this.dialog.open(ImageLinkTitleSelect, {
+            data: { title: '标题', link: '', image: './assets/img/a1.jpg' }
+        });
         dialogRef.afterClosed().subscribe((res: any) => {
             let { image, title, link } = res;
-            let data = {image: image, title: title, link: link};
+            let data = { image: image, title: title, link: link };
             this.widget.items.push(data);
         });
     }
 
-    edit(item: any,index: number) {
+    edit(item: any, index: number) {
         let dialogRef = this.dialog.open(ImageLinkTitleSelect, { data: item });
         dialogRef.afterClosed().subscribe((res: any) => {
             let { image, title, link } = res;
-            let data = {image: image, title: title, link: link};
+            let data = { image: image, title: title, link: link };
             this.widget.items[index] = data;
         });
     }

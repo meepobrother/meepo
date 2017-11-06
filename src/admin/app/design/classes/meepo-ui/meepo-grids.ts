@@ -15,15 +15,15 @@ export class MeepoGridsDefault extends Widget {
 
         this.items = [{
             title: '项目1',
-            image: '',
+            image: './assets/img/a1.jpg',
             link: ''
         },{
             title: '项目1',
-            image: '',
+            image: './assets/img/a2.jpg',
             link: ''
         },{
             title: '项目1',
-            image: '',
+            image: './assets/img/a2.jpg',
             link: ''
         }];
     }
