@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { PayRecordDefault } from '../../../../classes';
 import { ApiService } from '../../../../../core';
 import * as store from 'store';
+
 @Component({
     selector: 'pay-record-view',
     templateUrl: './pay-record-view.html',

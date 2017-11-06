@@ -1,13 +1,16 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, Input } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { Subject } from 'rxjs/Subject';
-
+import { PayStateDefault } from '../../../../classes';
 @Component({
     selector: 'pay-state-view',
     templateUrl: './pay-state-view.html',
     styleUrls: ['./pay-state-view.scss']
 })
 export class PayStateView implements OnInit {
+
+    @Input() widget: PayStateDefault = new PayStateDefault();
+
     swiperJs: string = 'https://meepo.com.cn/meepo/libs/Chart.min.js';
     swiper: any;
     laodSuccess: Subject<any> = new Subject();
@@ -16,31 +19,49 @@ export class PayStateView implements OnInit {
     ) { 
 
         this.laodSuccess.subscribe(Chart=>{
-            var data = {
-                labels : ["January","February","March","April","May","June","July"],
-                datasets : [
-                    {
-                        fillColor : "rgba(220,220,220,0.5)",
-                        strokeColor : "rgba(220,220,220,1)",
-                        pointColor : "rgba(220,220,220,1)",
-                        pointStrokeColor : "#fff",
-                        data : [65,59,90,81,56,55,40]
-                    },
-                    {
-                        fillColor : "rgba(151,187,205,0.5)",
-                        strokeColor : "rgba(151,187,205,1)",
-                        pointColor : "rgba(151,187,205,1)",
-                        pointStrokeColor : "#fff",
-                        data : [28,48,40,19,96,27,100]
+            var ctx = document.getElementById("myChart").getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+                    datasets: [{
+                        label: '# of Votes',
+                        data: [12, 19, 3, 5, 2, 3],
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(255, 159, 64, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255,99,132,1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero:true
+                            }
+                        }]
                     }
-                ]
-            }
-            var ctx = document.getElementById("myChart").getContext("2d");
-            var myNewChart = new Chart(ctx).PolarArea(data);            
+                }
+            });         
         })
     }
 
-    ngOnInit() { }
+    ngOnInit() { 
+        this.loadJScript();
+    }
 
     loadJScript() {
         const script = this.document.createElement('script');
