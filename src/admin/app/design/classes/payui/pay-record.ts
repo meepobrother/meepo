@@ -4,10 +4,7 @@ export class PayRecordDefault extends Widget {
     logs: any[] = [];
     styleType: string;
     listsStyle: any = {};
-    event: any;
-    link: any;
-    btns: any;
-    open: any;
+    btns: any[] = [];
     constructor() {
         super();
         this.type = 'pay-record';
