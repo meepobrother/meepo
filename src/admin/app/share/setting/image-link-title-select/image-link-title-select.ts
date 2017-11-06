@@ -45,10 +45,6 @@ export class ImageLinkTitleSelect implements OnInit {
                 , url: this.api.doMobileUrl('upload','imeepos_runner')//this.api.murl('utility/file/upload', { type: 'image' }) //上传接口
                 , done: (res, index, upload) => {
                     //上传完毕回调
-                    console.log(res);
-                    console.log(index);
-                    console.log(upload);
-
                     this.widget.image = res.url;
                 }
                 , error: () => {

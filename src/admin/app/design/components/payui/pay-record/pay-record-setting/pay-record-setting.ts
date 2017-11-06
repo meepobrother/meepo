@@ -12,9 +12,27 @@ export class PayRecordSetting implements OnInit {
 
     activeItem: any;
     activeIndex: number;
+
+    events: any[] = [];
     constructor() { }
 
-    ngOnInit() { }
+    ngOnInit() { 
+        this.events = [
+            {
+                title: '详情',
+                link: '',
+                code: 'detail'
+            },
+            {
+                title: '展开',
+                code: 'open'
+            },
+            {
+                title: '按钮',
+                code: 'btns'
+            }
+        ];
+    }
 
     setDefault(item: any) {
         this.widget.children.map(res => {

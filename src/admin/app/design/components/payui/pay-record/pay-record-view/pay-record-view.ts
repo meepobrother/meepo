@@ -25,7 +25,7 @@ export class PayRecordView implements OnInit {
 
     getList() {
         let openid = store.get('__meepo_openid');
-        this.activeItem['__post']['action'] = 'mylog';
+        this.activeItem['__post']['action'] = this.activeItem['__post']['action'] || 'mylog';
         this.activeItem['__post']['openid'] = openid;
         this.api.mpost(this.activeItem['__do'], this.activeItem['__post'], 'imeepos_runner').subscribe((res: any) => {
             this.widget.logs = res.info;

@@ -1,0 +1,16 @@
+<table class="table table-hover">
+    <tr *ngFor="let item of list">
+        <td>
+            <img style="width: 2em;" [src]="item.avatar">
+        </td>
+        <td>
+            {{item.nickname}}
+        </td>
+        <td>{{item.money}}</td>
+        <td>{{item.create_time}}</td>
+        <td>
+            <a class="btn btn-primary btn-xs">打款</a>
+            <a class="btn btn-primary btn-xs">退回</a>
+        </td>
+    </tr>
+</table>
