@@ -5,6 +5,10 @@ import { Router } from '@angular/router';
 import { LoginService } from '../login.service';
 import * as store from 'store';
 import { ApiService } from '../api';
+import { WidgetService } from '../../share/services/widget.service';
+import { CatalogService } from '../../share/services/catalog.service';
+
+
 @Component({
     selector: 'main-layout',
     templateUrl: './main-layout.html',
@@ -127,13 +131,21 @@ export class MainLayoutComponent implements OnInit {
     avatarStyle: any = {
         'min-width': '2em'
     }
+
+    widget: WidgetService;
+    service: CatalogService;
+
     constructor(
         public sidebar$: SidebarContainerService,
         public dropdowns$: DropdownsService,
         public router: Router,
         public login$: LoginService,
-        public api: ApiService
+        public api: ApiService,
+        public widgetService: WidgetService,
+        public catalogService: CatalogService
     ) {
+        this.widget = this.widgetService.getWidgetInstance();
+        this.service = this.catalogService.getCatalogInstance();
         this.myinfo = store.get('__meepo_myuserinfo', { avatar: 'assets/img/a1.jpg' });
 
         this.sidebar$.onOpen.subscribe(open => {
@@ -156,7 +168,7 @@ export class MainLayoutComponent implements OnInit {
                         'min-width': '2em'
                     }
                 }
-            }else {
+            } else {
                 this.openStyle.content = {
                     'padding-left': '0px',
                     'padding-rigght': '0px'
@@ -213,6 +225,22 @@ export class MainLayoutComponent implements OnInit {
     onContentClick() {
         this.dropdowns$.dropdowns.forEach(res => {
             res.close();
+        });
+    }
+
+    menuRightModelChange(index: any) {
+        this.myapps.map((app: any) => {
+            app.catalogs.map((catalog: any) => {
+                catalog.pages.map((page: any) => {
+                    if (page.id == index) {
+                        setTimeout(()=>{
+                            this.widget.setCurrentWidget(page);
+                            this.service.clickCataPage(catalog, page);
+                        },300)
+                        this.router.navigate(['/themes/design/',app.id]);                        
+                    }
+                });
+            });
         });
     }
 }

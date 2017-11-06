@@ -25,7 +25,7 @@
         <nav-tabs>
             <nav-tab-pane title="我的应用">
                 <ng-template navTabPaneRef>
-                    <el-menu class="el-menu-right" *ngIf="showMenu" [style.padding-left]="sidebar$._open ? '55px' : '100px'" theme="dark">
+                    <el-menu (modelChange)="menuRightModelChange($event)" class="el-menu-right" *ngIf="showMenu" [style.padding-left]="sidebar$._open ? '55px' : '100px'" theme="dark">
                         <el-submenu class="el-menu-scroll-y" [index]="app.id" *ngFor="let app of myapps;index as ai;">
                             <ng-template #title>
                                 {{app.title | slice: 0:6}}

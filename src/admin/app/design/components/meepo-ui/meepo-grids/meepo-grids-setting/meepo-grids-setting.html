@@ -1,0 +1,36 @@
+<setting-container-margin [widget]="widget.containerStyle"></setting-container-margin>
+<setting-container-padding [widget]="widget.containerStyle"></setting-container-padding>
+<setting-container-color [widget]="widget.containerStyle"></setting-container-color>
+
+
+<div class="ibox">
+    <div class="ibox-title">
+        项目设置
+        <div class="ibox-tools">
+            <a href="javascript:;" class="btn btn-primary btn-xs" (click)="add()">添加</a>
+        </div>
+    </div>
+    <div class="ibox-content">
+        <div class="form-group">
+            <label>列数</label>
+            <input class="form-control" type="number" placeholder="请输入列数" [(ngModel)]="widget.colNum" />
+        </div>
+        <table class="table table-hover">
+            <tbody>
+                <tr *ngFor="let item of widget.items;index as i;">
+                    <td>
+                        <img [src]="item.image" style="width: 2em;">
+                    </td>
+                    <td>
+                        <a class="btn btn-primary btn-xs" [attr.href]="item.link">查看</a>
+                    </td>
+                    <td>{{item.title}}</td>
+                    <td>
+                        <a class="btn btn-primary btn-xs" (click)="edit(item,i)">编辑</a>
+                        <a class="btn btn-danger btn-xs" (click)="delete(i)">删除</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

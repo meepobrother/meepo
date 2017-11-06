@@ -20,12 +20,16 @@ export class LayoutFooterView implements OnInit, OnChanges {
     }
 
     @HostBinding('class.layout-footer') _footer: boolean = true;
+    catalogService: CatalogService;
+    widget$: WidgetService;
     constructor(
         public layout: LayoutService,
-        public widget$: WidgetService,
+        public widgetService: WidgetService,
         public api: ApiService,
-        public catalogService: CatalogService
+        public catalogService$: CatalogService
     ) {
+        this.catalogService = this.catalogService$.getCatalogInstance();
+        this.widget$ = this.widgetService.getWidgetInstance();
         this.layout.onChange.debounceTime(300).subscribe(res => {
             if (res === this.widget) {
                 this._active = true;

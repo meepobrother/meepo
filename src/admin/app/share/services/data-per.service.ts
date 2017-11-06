@@ -7,6 +7,7 @@ import { CatalogGroup } from './model';
 @Injectable()
 export class DataPerService {
 
+    static that: any;
     constructor() { 
         this.autoSaveData();
     }
@@ -17,6 +18,10 @@ export class DataPerService {
         this.cataGroups.push(catalogGroup);
         // 保存缓存
         this.saveData();
+    }
+
+    getDataPerInstance(){
+        return DataPerService.that = DataPerService.that || new DataPerService();
     }
 
     removeCatalogGroup(group: any) {

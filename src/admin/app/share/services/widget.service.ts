@@ -4,13 +4,22 @@ import { ComponentPortal } from '@angular/cdk/portal';
 import { Widget } from '../../design/classes';
 @Injectable()
 export class WidgetService {
-
+    static that: any;
+    
     private currentWidget: any = new Widget();
     setCurrentWidgetStream: Subject<any> = new Subject();
     removeWidgetStream: Subject<any> = new Subject();
 
     widget: any;
     appId: any;
+
+    constructor(){
+        
+    }
+
+    getWidgetInstance(){
+        return WidgetService.that = WidgetService.that || new WidgetService();
+    }
 
     setAppId(id: any){
         this.appId = id;

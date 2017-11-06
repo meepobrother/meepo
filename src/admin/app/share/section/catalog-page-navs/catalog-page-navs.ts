@@ -17,12 +17,17 @@ export class CatalogPageNavs implements OnInit {
     @Output() onChange: EventEmitter<any> = new EventEmitter();
     
     currentIndex: number;
+    service: CatalogService;
+    widget: WidgetService;
     constructor(
         public dialog: MatDialog,
-        public service: CatalogService,
-        public widget: WidgetService,
+        public serviceService: CatalogService,
+        public widgetService: WidgetService,
         public api: ApiService
-    ) { }
+    ) { 
+        this.service = this.serviceService.getCatalogInstance();
+        this.widget = this.widgetService.getWidgetInstance();
+    }
 
     ngOnInit() { }
 
@@ -44,7 +49,7 @@ export class CatalogPageNavs implements OnInit {
         dialogRef.afterClosed().subscribe((res) => {
             this.api.mpost('app.editAppCatalogPage',res).subscribe(res=>{
                 this.onChange.emit();
-            })
+            });
         });
         evt.preventDefault();
     }

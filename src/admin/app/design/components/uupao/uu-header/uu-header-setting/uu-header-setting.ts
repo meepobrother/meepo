@@ -16,8 +16,8 @@ export class UuHeaderSetting implements OnInit {
 
     ngOnInit() { }
 
-    editLeft() {
-        let dialogRef = this.dialog.open(IconLinkSelect);
+    editLeft(item: any) {
+        let dialogRef = this.dialog.open(IconLinkSelect, { data: item });
         dialogRef.afterClosed().subscribe(data => {
             if (data) {
                 let { title, link, icon } = data;
@@ -28,8 +28,8 @@ export class UuHeaderSetting implements OnInit {
         });
     }
 
-    editRight() {
-        let dialogRef = this.dialog.open(IconLinkSelect);
+    editRight(item: any) {
+        let dialogRef = this.dialog.open(IconLinkSelect, { data: item });
         dialogRef.afterClosed().subscribe(data => {
             if (data) {
                 let { title, link, icon } = data;

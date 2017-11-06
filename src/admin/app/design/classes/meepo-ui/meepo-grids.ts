@@ -12,5 +12,19 @@ export class MeepoGridsDefault extends Widget {
         this.containerStyle = {
             'margin-top': '0px'
         }
+
+        this.items = [{
+            title: '项目1',
+            image: './assets/img/a1.jpg',
+            link: ''
+        },{
+            title: '项目1',
+            image: './assets/img/a2.jpg',
+            link: ''
+        },{
+            title: '项目1',
+            image: './assets/img/a2.jpg',
+            link: ''
+        }];
     }
 }

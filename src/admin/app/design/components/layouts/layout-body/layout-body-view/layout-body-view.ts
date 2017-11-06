@@ -19,11 +19,13 @@ export class LayoutBodyView implements OnInit {
         this.layout.onBody(this.widget);
         this.widget$.setCurrentWidget(this.widget);
     }
-
+    
+    widget$: WidgetService;
     constructor(
         public layout: LayoutService,
-        public widget$: WidgetService
+        public widgetService: WidgetService
     ) { 
+        this.widget$ = this.widgetService.getWidgetInstance();
         this.layout.onChange.debounceTime(300).subscribe(res=>{
             if(res === this.widget){
                 this._active = true;
