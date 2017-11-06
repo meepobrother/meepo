@@ -21,7 +21,7 @@ export class ImageLinkTitleSelect implements OnInit {
     ) {
 
         this.dialogRef.afterOpen().subscribe(res => {
-            let { image, link, title } = this.data;
+            let { image, link, title } = this.data || new ImageLinkTitleDefault();
             this.widget.image = image;
             this.widget.link = link;
             this.widget.title = title;
