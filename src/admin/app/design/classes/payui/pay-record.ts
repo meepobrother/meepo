@@ -5,13 +5,14 @@ export class PayRecordDefault extends Widget {
     styleType: string;
     listsStyle: any = {};
     btns: any[] = [];
+    items: any[] = [];
     constructor() {
         super();
         this.type = 'pay-record';
         this.name = '支付记录';
         this.styleType = 'default';
         
-        this.children = [
+        this.items = [
             {
                 title: '处理中',
                 __post: {status: 0},

@@ -17,7 +17,7 @@
             </div>
             <table class="table table-hover">
                 <tbody>
-                    <tr *ngFor="let item of widget.children;index as i;">
+                    <tr *ngFor="let item of widget.items;index as i;">
                         <td>
                             <input [(ngModel)]="item.title" class="form-control" placeholder="请输入标题" value="{{item.title}}" />
                         </td>
@@ -39,14 +39,16 @@
             </div>
             <div class="ibox-content">
                 <table class="table table-hover">
-                    <tr *ngFor="let btn of widget.btns">
+                    <tr *ngFor="let btn of widget.btns;index as i;">
                         <td>{{btn.title}}</td>
                         <td>
-
+                            <input type="color" [(ngModel)]="btn.styleObj['color']">颜色 <br>
+                            <input type="color" [(ngModel)]="btn.styleObj['background-color']">背景色 <br>
+                            <input type="color" [(ngModel)]="btn.styleObj['border-color']">边框色 <br>
                         </td>
                         <td>
-                            <a class="btn btn-primary btn-xs">编辑</a>
-                            <a class="btn btn-danger btn-xs">删除</a>
+                            <a class="btn btn-primary btn-xs" (click)="editBtn(btn,i)">编辑</a>
+                            <a class="btn btn-danger btn-xs" (click)="deleteBtn(i)">删除</a>
                         </td>
                     </tr>
                 </table>
@@ -105,11 +107,11 @@
                 <nav-tab-pane title="任务列表">
                     <ng-template navTabPaneRef>
                         <div class="p10">
-                            <a class="btn btn-primary btn-xs btn-block" (click)="setStatus('runner.getListRunner',{status: 0})">待接单</a>
-                            <a class="btn btn-primary btn-xs btn-block" (click)="setStatus('runner.getListRunner',{status: 1})">配送中</a>
-                            <a class="btn btn-primary btn-xs btn-block" (click)="setStatus('runner.getListRunner',{status: 2})">已完成</a>
-                            <a class="btn btn-primary btn-xs btn-block" (click)="setStatus('runner.getListRunner',{status: -1})">已确认</a>
-                            <a class="btn btn-primary btn-xs btn-block" (click)="setStatus('runner.getListRunner',{status: -1})">待评价</a>
+                            <a class="btn btn-primary btn-xs btn-block" (click)="setStatus('tasks.getListTask',{status: 0})">待接单</a>
+                            <a class="btn btn-primary btn-xs btn-block" (click)="setStatus('tasks.getListTask',{status: 1})">配送中</a>
+                            <a class="btn btn-primary btn-xs btn-block" (click)="setStatus('tasks.getListTask',{status: 2})">已完成</a>
+                            <a class="btn btn-primary btn-xs btn-block" (click)="setStatus('tasks.getListTask',{status: 3})">已确认</a>
+                            <a class="btn btn-primary btn-xs btn-block" (click)="setStatus('tasks.getListTask',{status: 4})">已结束</a>
                         </div>
                     </ng-template>
                 </nav-tab-pane>
