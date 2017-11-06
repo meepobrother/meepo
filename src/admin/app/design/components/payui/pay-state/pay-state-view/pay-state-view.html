@@ -1,1 +1,10 @@
-<canvas id="myChart" width="400" height="400"></canvas>
+<div class="weui-wepay-lists">
+    <div class="weui-wepay-lists__hd" [ngStyle]="widget.listsStyle">
+        <div class="weui-wepay-lists__menu">
+            <div class="weui-wepay-lists__menu__item" [class.weui-wepay-lists__menu__item_on]="item.active" (click)="onTab(item)" *ngFor="let item of widget.items">{{item.title}}</div>
+        </div>
+    </div>
+    <div class="weui-wepay-lists__bd" #list>
+        <canvas id="myChart" width="400" height="400"></canvas>
+    </div>
+</div>
