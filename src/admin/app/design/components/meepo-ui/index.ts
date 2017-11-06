@@ -11,3 +11,4 @@ export * from './meepo-danmu';
 
 
 export * from './meepo-add-address';
+export * from './meepo-grids';

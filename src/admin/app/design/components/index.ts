@@ -14,7 +14,7 @@ import {
     ActiveItemDefault, BargainItemDefault, ArticleItemDefault, CityItemDefault,
     MeepoDanmu, PayRecordDefault, PaySelectMoneyDefault, IqiyiHeadNavDefault,
     MeepoFormBtnDefault, MeepoFormRealnameDefault, WeuiCellsDefault, WeuiPreviewDefault,
-    PayuiFlowDefault
+    PayuiFlowDefault, MeepoGridsDefault
 } from '../classes';
 
 import {
@@ -76,7 +76,8 @@ import {
     MeepoSwiperTagsSetting, MeepoSwiperTagsView,
     // 地址
     MeepoAddAddressView, MeepoAddAddressSetting,
-    MeepoListSetting, MeepoListView
+    MeepoListSetting, MeepoListView,
+    MeepoGridsSetting, MeepoGridsView
 } from './meepo-ui';
 
 import {
@@ -220,7 +221,8 @@ export const COMPONENTS = [
     MeepoFormBtnSetting, MeepoFormBtnView,
     MeepoFormRealnameView, MeepoFormRealnameSetting,
     PayuiFlowSetting, PayuiFlowView,
-    ...actions_component
+    ...actions_component,
+    MeepoGridsSetting, MeepoGridsView
 ];
 
 
@@ -295,7 +297,8 @@ export const COMPONENTS_VIEW = {
     'meepo-form-realname': MeepoFormRealnameView,
     'weui-cells': WeuiCellsView,
     'payui-flow': PayuiFlowView,
-    ...actions_component_view
+    ...actions_component_view,
+    'meepo-grids': MeepoGridsView
 };
 
 
@@ -364,7 +367,8 @@ export const COMPONENTS_SETTING = {
     'meepo-form-realname': MeepoFormRealnameSetting,
     'weui-cells': WeuiCellsSetting,
     'payui-flow': PayuiFlowSetting,
-    ...actions_component_setting
+    ...actions_component_setting,
+    'meepo-grids': MeepoGridsSetting, 
 };
 
 
@@ -422,7 +426,8 @@ export const WIDGETS = {
     'weui-cells': WeuiCellsDefault,
     'weui-preview': WeuiPreviewDefault,
     'payui-flow': PayuiFlowDefault,
-    ...actions_models
+    ...actions_models,
+    'meepo-grids': MeepoGridsDefault
 }
 
 import { Injectable } from '@angular/core';
