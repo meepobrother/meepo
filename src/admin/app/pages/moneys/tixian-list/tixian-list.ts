@@ -12,5 +12,13 @@ export class TixianList implements OnInit {
         public api: ApiService
     ) { }
 
-    ngOnInit() { }
+    ngOnInit() { 
+        this.getList();
+    }
+
+    getList() {
+        this.api.mpost('tixian.tixian_log', { action: 'admin', start: 0, len: 20 }).subscribe((res: any) => {
+            this.list = res.info;
+        });
+    }
 }

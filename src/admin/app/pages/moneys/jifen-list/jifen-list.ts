@@ -11,5 +11,13 @@ export class JifenList implements OnInit {
         public api: ApiService
     ) { }
 
-    ngOnInit() { }
+    ngOnInit() { 
+        this.getList();
+    }
+
+    getList() {
+        this.api.mpost('tixian.jifen_log', { action: 'admin', start: 0, len: 20 }).subscribe((res: any) => {
+            this.list = res.info;
+        });
+    }
 }
