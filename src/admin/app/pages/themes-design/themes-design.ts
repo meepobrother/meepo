@@ -43,22 +43,30 @@ export class ThemesDesign implements OnDestroy {
 
     wxappHref: string;
     showRight: boolean = false;
+
+    widget$: WidgetService;
+    catalogService: CatalogService;
     constructor(
         public application$: ApplicationService,
-        public widget$: WidgetService,
+        public widgetService: WidgetService,
         public layout$: LayoutService,
-        public catalogService: CatalogService,
+        public catalogService$: CatalogService,
         public api: ApiService,
         public router: Router,
         public route: ActivatedRoute,
         public components$: ComponentsService
     ) {
+        this.widget$ = this.widgetService.getWidgetInstance();
+        this.catalogService = this.catalogService$.getCatalogInstance();
+
         this.layout$.onChange.subscribe(container => {
             this._container = container;
+            this.application$.open();
         });
         // 设置当前
         this.widget$.setCurrentWidgetStream.subscribe(res => {
             this.currentWidget = res;
+            this.application$.open();
         });
 
         this.widget$.removeWidgetStream.subscribe(widget => {
@@ -179,4 +187,7 @@ export class ThemesDesign implements OnDestroy {
         this.router.navigate(['/themes/preview/', this.currentPage.id])
     }
 
+    close() {
+        this.showRight = false;
+    }
 }

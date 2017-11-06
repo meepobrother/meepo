@@ -27,6 +27,8 @@ export class CatalogService {
     setCurrentPageStream: Subject<any> = new Subject();
     // 当前组
     currentGroup: any;
+
+    static that: any;
     constructor(
         public dataPerService: DataPerService
     ) {
@@ -37,6 +39,11 @@ export class CatalogService {
         this.groupTempDeleteStream.subscribe(() => {
             // 
         });
+    }
+    
+    getCatalogInstance(){
+        let data = this.dataPerService.getDataPerInstance();
+        return CatalogService.that = CatalogService.that || new CatalogService(data);
     }
 
     clickCataPage(catalogGroup: CatalogGroup, page: any) {

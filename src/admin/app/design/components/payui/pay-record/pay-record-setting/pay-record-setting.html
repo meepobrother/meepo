@@ -36,8 +36,6 @@
         <div class="form-group"></div>
     </div>
 </div>
-
-
 <div class="modal show" *ngIf="openDataDialog">
     <div class="ibox" style="width: 400px; height: 500px;">
         <div class="ibox-title">
@@ -62,7 +60,6 @@
                         </div>
                     </ng-template>
                 </nav-tab-pane>
-
                 <nav-tab-pane title="积分充值">
                     <ng-template navTabPaneRef>
                         <a class="btn btn-primary btn-xs btn-block" (click)="setStatus('tixian.jifen_log',{status: 0})">待支付</a>
@@ -70,7 +67,6 @@
                         <a class="btn btn-primary btn-xs btn-block" (click)="setStatus('tixian.jifen_log',{status: 2})">充值成功</a>
                     </ng-template>
                 </nav-tab-pane>
-
                 <nav-tab-pane title="信誉充值">
                     <ng-template navTabPaneRef>
                         <a class="btn btn-primary btn-xs btn-block" (click)="setStatus('tixian.xinyu_log',{status: 0})">待支付</a>
@@ -78,8 +74,6 @@
                         <a class="btn btn-primary btn-xs btn-block" (click)="setStatus('tixian.xinyu_log',{status: 2})">充值成功</a>
                     </ng-template>
                 </nav-tab-pane>
-
-
                 <nav-tab-pane title="跑腿列表">
                     <ng-template navTabPaneRef>
                         <div class="p10">
@@ -87,6 +81,17 @@
                             <a class="btn btn-primary btn-xs btn-block" (click)="setStatus('runner.getListRunner',{status: 1})">正常接单</a>
                             <a class="btn btn-primary btn-xs btn-block" (click)="setStatus('runner.getListRunner',{status: 2})">审核失败</a>
                             <a class="btn btn-primary btn-xs btn-block" (click)="setStatus('runner.getListRunner',{status: -1})">小黑屋</a>
+                        </div>
+                    </ng-template>
+                </nav-tab-pane>
+                <nav-tab-pane title="任务列表">
+                    <ng-template navTabPaneRef>
+                        <div class="p10">
+                            <a class="btn btn-primary btn-xs btn-block" (click)="setStatus('runner.getListRunner',{status: 0})">待接单</a>
+                            <a class="btn btn-primary btn-xs btn-block" (click)="setStatus('runner.getListRunner',{status: 1})">配送中</a>
+                            <a class="btn btn-primary btn-xs btn-block" (click)="setStatus('runner.getListRunner',{status: 2})">已完成</a>
+                            <a class="btn btn-primary btn-xs btn-block" (click)="setStatus('runner.getListRunner',{status: -1})">已确认</a>
+                            <a class="btn btn-primary btn-xs btn-block" (click)="setStatus('runner.getListRunner',{status: -1})">待评价</a>
                         </div>
                     </ng-template>
                 </nav-tab-pane>

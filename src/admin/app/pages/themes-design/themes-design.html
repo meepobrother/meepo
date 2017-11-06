@@ -34,6 +34,9 @@
             <div class="ibox">
                 <div class="ibox-title">
                     <h5>{{currentWidget?.name}}参数设置</h5>
+                    <div class="ibox-tools">
+                        <a class="btn btn-primary btn-xs" (click)="close()">关闭</a>
+                    </div>
                 </div>
                 <div class="ibox-content">
                     <free-widget-setting [widget]="currentWidget"></free-widget-setting>

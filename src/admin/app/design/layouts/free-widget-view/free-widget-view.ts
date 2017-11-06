@@ -54,6 +54,7 @@ export class FreeWidgetView implements OnInit, AfterViewInit, OnDestroy, OnChang
     @HostListener('mouseover', ['$event'])
     mouseover(evt: any) {
         // 鼠标移动到改元素时 改变设置
+        console.log(this._active);
         this._active = true;
         this.service.setCurrentWidget(this._widget);
         evt.stopPropagation();
@@ -75,15 +76,15 @@ export class FreeWidgetView implements OnInit, AfterViewInit, OnDestroy, OnChang
     compRef: any;
     parentForm: any;
     @ViewChild('placeholder', { read: ViewContainerRef }) placeholder: ViewContainerRef;
-
+    service: WidgetService;
     constructor(
         private compFactoryResolver: ComponentFactoryResolver,
         private render: Renderer2,
         private ele: ElementRef,
         private viewContainerRef: ViewContainerRef,
-        private service: WidgetService
+        private widgetService: WidgetService
     ) { 
-
+        this.service = this.widgetService.getWidgetInstance();
     }
 
     ngOnInit() { }

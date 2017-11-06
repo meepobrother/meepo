@@ -33,6 +33,11 @@ import { ShareNewModule } from '../share-new/share-new.module';
 import { MeepoModule } from '../meepo/meepo.module';
 import { NavTabsModule } from '../components/nav-tabs';
 
+import { WidgetService } from '../share/services/widget.service';
+import { CatalogService } from '../share/services/catalog.service';
+import { DataPerService } from '../share/services/data-per.service';
+
+
 const modules = [
     CommonModule,
     SidebarModule,
@@ -70,7 +75,10 @@ const modules = [
         GoodGroupSelect
     ],
     providers: [
-        LoginService
+        LoginService,
+        WidgetService,
+        CatalogService,
+        DataPerService
     ],
 })
 export class CoreModule { }
