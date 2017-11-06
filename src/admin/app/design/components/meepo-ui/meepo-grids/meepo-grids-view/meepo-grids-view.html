@@ -1,0 +1,8 @@
+<div class="weui-grids" [ngStyle]="style.containerStyle">
+    <a href="javascript:;" class="weui-grid" [style.width]="100/widget.colNum+'%'" *ngFor="let item of widget.items">
+        <div class="weui-grid__icon">
+            <img [src]="item.icon">
+        </div>
+        <p class="weui-grid__label ">{{item.title}}</p>
+    </a>
+</div>

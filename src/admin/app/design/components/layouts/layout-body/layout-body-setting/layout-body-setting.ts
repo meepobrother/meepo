@@ -10,4 +10,8 @@ export class LayoutBodySetting implements OnInit {
     constructor() { }
 
     ngOnInit() { }
+
+    clear() {
+        this.widget.children = [];
+    }
 }
