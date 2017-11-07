@@ -16,10 +16,10 @@
                         </div>
                         <div class="weui-cell__info">{{item.create_time}}</div>
                         <div class="weui-cell__btns ">
-                            <a class="btn btn-primary btn-xs btn-outline" (click)="pai(item)">派单</a>
-                            <a class="btn btn-danger btn-xs btn-outline" (click)="finish(item)">完成</a>
-                            <a class="btn btn-sucess btn-xs btn-outline" (click)="repai(item)">重派</a>
-                            <a class="btn btn-warning btn-xs" (click)="confirm(item)">确认</a>
+                            <a class="btn btn-info btn-xs btn-outline" (click)="detail(item)">资料</a>
+                            <a class="btn btn-primary btn-xs btn-outline" (click)="finish(item)">审核</a>
+                            <a class="btn btn-danger btn-xs" (click)="confirm(item)">拉黑</a>
+                            <a class="btn btn-warning btn-xs" (click)="confirm(item)">接封</a>
                         </div>
                     </div>
                     <div class="weui-cell__ft" style="max-width: 5em;">

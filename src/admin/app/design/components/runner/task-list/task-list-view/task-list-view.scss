@@ -1,0 +1,19 @@
+.weui-cell__hd {
+    height: 34px;
+}
+
+.weui-cell__hd img {
+    margin-right: 15px;
+}
+
+a {
+    color: #000;
+}
+
+.weui-cell__btns {
+    position: absolute;
+    right: 10px;
+    .btn {
+        margin: 0 3px;
+    }
+}

@@ -1,15 +1,15 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { TaskListDefault } from '../../../../classes';
+import { RunnerListDefault } from '../../../../classes';
 import { ApiService } from '../../../../../core';
 import * as store from 'store';
 
 @Component({
-    selector: 'task-list-view',
-    templateUrl: './task-list-view.html',
-    styleUrls: ['./task-list-view.scss']
+    selector: 'runner-list-view',
+    templateUrl: './runner-list-view.html',
+    styleUrls: ['./runner-list-view.scss']
 })
-export class TaskListView implements OnInit {
-    @Input() widget: TaskListDefault = new TaskListDefault();
+export class RunnerListView implements OnInit {
+    @Input() widget: RunnerListDefault = new RunnerListDefault();
     activeItem: any;
     constructor(
         public api: ApiService

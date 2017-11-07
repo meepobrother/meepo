@@ -14,7 +14,7 @@ import {
     ActiveItemDefault, BargainItemDefault, ArticleItemDefault, CityItemDefault,
     MeepoDanmu, PayRecordDefault, PaySelectMoneyDefault, IqiyiHeadNavDefault,
     MeepoFormBtnDefault, MeepoFormRealnameDefault, WeuiCellsDefault, WeuiPreviewDefault,
-    PayuiFlowDefault, MeepoGridsDefault, PayStateDefault, TaskListDefault
+    PayuiFlowDefault, MeepoGridsDefault, PayStateDefault, TaskListDefault, RunnerListDefault
 } from '../classes';
 
 import {
@@ -47,7 +47,8 @@ import {
 } from './active';
 
 import {
-    TaskListSetting, TaskListView
+    TaskListSetting, TaskListView,
+    RunnerListSetting, RunnerListView
 } from './runner';
 
 import {
@@ -231,7 +232,8 @@ export const COMPONENTS = [
     MeepoGridsSetting, MeepoGridsView,
     PayStateSetting, PayStateView,
 
-    TaskListSetting, TaskListView
+    TaskListSetting, TaskListView,
+    RunnerListSetting, RunnerListView
 ];
 
 
@@ -309,7 +311,8 @@ export const COMPONENTS_VIEW = {
     ...actions_component_view,
     'meepo-grids': MeepoGridsView,
     'pay-state': PayStateView,
-    'task-list': TaskListView
+    'task-list': TaskListView,
+    'runner-list': RunnerListView
 };
 
 
@@ -382,6 +385,7 @@ export const COMPONENTS_SETTING = {
     'meepo-grids': MeepoGridsSetting, 
     'pay-state': PayStateSetting, 
     'task-list': TaskListSetting, 
+    'runner-list': RunnerListSetting, 
 };
 
 
@@ -442,12 +446,14 @@ export const WIDGETS = {
     ...actions_models,
     'meepo-grids': MeepoGridsDefault,
     'pay-state': PayStateDefault,
-    'task-list': TaskListDefault
+    'task-list': TaskListDefault,
+    'runner-list': RunnerListDefault
 }
 
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import { MatDialog } from '@angular/material';
+
 @Injectable()
 export class ComponentsService {
     onSelectStream: Subject<any> = new Subject();
