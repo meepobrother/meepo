@@ -77,9 +77,13 @@ export class PayRecordSetting implements OnInit {
         this.activeIndex = index;
     }
 
-    setStatus(__do: string, __post: any) {
-        this.activeItem['__do'] = __do;
-        this.activeItem['__post'] = __post;
+    onClose(item: any) {
+        if(item.__do){
+            this.activeItem['__do'] = item.__do;
+        }
+        if(item.__post){
+            this.activeItem['__post'] = item.__post;
+        }
         this.widget.items[this.activeIndex] = this.activeItem;
         this.openDataDialog = false;
     }
