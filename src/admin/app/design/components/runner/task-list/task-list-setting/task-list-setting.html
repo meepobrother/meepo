@@ -1,97 +1,38 @@
 <div class="ibox">
-        <div class="ibox-title"></div>
-        <div class="ibox-content">
-            <div class="form-group">
-                <select class="form-control" [(ngModel)]="widget.styleType" type="text">
-                    <option value="default">默认</option>
-                    <option value="label">文字</option>
-                    <option value="avatar">头像</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <div class="ibox-title">
-                    <h5>导航项目</h5>
-                    <div class="ibox-tools">
-                        <a class="btn btn-primary btn-xs" (click)="add()">添加</a>
-                    </div>
-                </div>
-                <table class="table table-hover">
-                    <tbody>
-                        <tr *ngFor="let item of widget.items;index as i;">
-                            <td>
-                                <input [(ngModel)]="item.title" class="form-control" placeholder="请输入标题" value="{{item.title}}" />
-                            </td>
-                            <td>
-                                <a class="btn btn-danger btn-xs" (click)="delete(i)">删除</a>
-                                <a class="btn btn-primary btn-xs" (click)="dataSelectData(item,i)">数据</a>
-                                <a *ngIf="!item.active" (click)="setDefault(item)" class="btn btn-success btn-xs">默认</a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+    <div class="ibox-title"></div>
+    <div class="ibox-content">
+        <div class="form-group">
+            <select class="form-control" [(ngModel)]="widget.styleType" type="text">
+                <option value="default">默认</option>
+                <option value="label">文字</option>
+                <option value="avatar">头像</option>
+            </select>
         </div>
-    </div>
-    <div class="modal show" *ngIf="openDataDialog">
-        <div class="ibox" style="width: 400px; height: 500px;">
+        <div class="form-group">
             <div class="ibox-title">
-                数据设置
+                <h5>导航项目</h5>
+                <div class="ibox-tools">
+                    <a class="btn btn-primary btn-xs" (click)="add()">添加</a>
+                </div>
             </div>
-            <div class="ibox-content">
-                <nav-tabs>
-                    <nav-tab-pane title="余额提现">
-                        <ng-template navTabPaneRef>
-                            <div class="p10">
-                                <a class="btn btn-primary btn-xs btn-block" (click)="setStatus('tixian.log',{status: 0})">处理中</a>
-                                <a class="btn btn-primary btn-xs btn-block" (click)="setStatus('tixian.log',{status: 2})">已完成</a>
-                            </div>
-                        </ng-template>
-                    </nav-tab-pane>
-                    <nav-tab-pane title="余额充值">
-                        <ng-template navTabPaneRef>
-                            <div class="p10">
-                                <a class="btn btn-primary btn-xs btn-block" (click)="setStatus('tixian.chongzhi_log',{status: 0})">待支付</a>
-                                <a class="btn btn-primary btn-xs btn-block" (click)="setStatus('tixian.chongzhi_log',{status: 1})">已支付</a>
-                                <a class="btn btn-primary btn-xs btn-block" (click)="setStatus('tixian.chongzhi_log',{status: 2})">充值成功</a>
-                            </div>
-                        </ng-template>
-                    </nav-tab-pane>
-                    <nav-tab-pane title="积分充值">
-                        <ng-template navTabPaneRef>
-                            <a class="btn btn-primary btn-xs btn-block" (click)="setStatus('tixian.jifen_log',{status: 0})">待支付</a>
-                            <a class="btn btn-primary btn-xs btn-block" (click)="setStatus('tixian.jifen_log',{status: 1})">已支付</a>
-                            <a class="btn btn-primary btn-xs btn-block" (click)="setStatus('tixian.jifen_log',{status: 2})">充值成功</a>
-                        </ng-template>
-                    </nav-tab-pane>
-                    <nav-tab-pane title="信誉充值">
-                        <ng-template navTabPaneRef>
-                            <a class="btn btn-primary btn-xs btn-block" (click)="setStatus('tixian.xinyu_log',{status: 0})">待支付</a>
-                            <a class="btn btn-primary btn-xs btn-block" (click)="setStatus('tixian.xinyu_log',{status: 1})">已支付</a>
-                            <a class="btn btn-primary btn-xs btn-block" (click)="setStatus('tixian.xinyu_log',{status: 2})">充值成功</a>
-                        </ng-template>
-                    </nav-tab-pane>
-                    <nav-tab-pane title="跑腿列表">
-                        <ng-template navTabPaneRef>
-                            <div class="p10">
-                                <a class="btn btn-primary btn-xs btn-block" (click)="setStatus('runner.getListRunner',{status: 0})">待审核</a>
-                                <a class="btn btn-primary btn-xs btn-block" (click)="setStatus('runner.getListRunner',{status: 1})">正常接单</a>
-                                <a class="btn btn-primary btn-xs btn-block" (click)="setStatus('runner.getListRunner',{status: 2})">审核失败</a>
-                                <a class="btn btn-primary btn-xs btn-block" (click)="setStatus('runner.getListRunner',{forbid: 1})">小黑屋</a>
-                            </div>
-                        </ng-template>
-                    </nav-tab-pane>
-                    <nav-tab-pane title="任务列表">
-                        <ng-template navTabPaneRef>
-                            <div class="p10">
-                                <a class="btn btn-primary btn-xs btn-block" (click)="setStatus('tasks.getListTask',{status: 0})">待接单</a>
-                                <a class="btn btn-primary btn-xs btn-block" (click)="setStatus('tasks.getListTask',{status: 1})">配送中</a>
-                                <a class="btn btn-primary btn-xs btn-block" (click)="setStatus('tasks.getListTask',{status: 2})">已完成</a>
-                                <a class="btn btn-primary btn-xs btn-block" (click)="setStatus('tasks.getListTask',{status: 3})">已确认</a>
-                                <a class="btn btn-primary btn-xs btn-block" (click)="setStatus('tasks.getListTask',{status: 4})">已结束</a>
-                            </div>
-                        </ng-template>
-                    </nav-tab-pane>
-                </nav-tabs>
-            </div>
+            <table class="table table-hover">
+                <tbody>
+                    <tr *ngFor="let item of widget.items;index as i;">
+                        <td>
+                            <input [(ngModel)]="item.title" class="form-control" placeholder="请输入标题" value="{{item.title}}" />
+                        </td>
+                        <td>
+                            <a class="btn btn-danger btn-xs" (click)="delete(i)">删除</a>
+                            <a class="btn btn-primary btn-xs" (click)="dataSelectData(item,i)">数据</a>
+                            <a *ngIf="!item.active" (click)="setDefault(item)" class="btn btn-success btn-xs">默认</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
+</div>
+
+<div class="modal show" *ngIf="openDataDialog">
+    <bind-data-source (onClose)="onClose($event)"></bind-data-source>
+</div>
