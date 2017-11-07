@@ -1,15 +1,16 @@
 $white: #ffffff;
 //语义
-$default: #000000;
+$default: #c2c2c2;
 $success: #1c84c6;
 $primary: #1ab394;
 $info: #3abbdb;
 $warning: #ffc000;
 $danger: #eb6060;
+$dark: #000000;
 // 颜色
 $green: #15d2b9;
 $blue: #50b6fe;
 $orange: #ff741d;
 $yellow: #feb312;
 $red: #fd5454;
-$colorMap: ( "default": $default, "success": $success, "primary": $primary, "info": $info, "warning": $warning, "danger": $danger, "green": $green);
+$colorMap: ( "dark": $dark, "default": $default, "success": $success, "primary": $primary, "info": $info, "warning": $warning, "danger": $danger, "green": $green);
