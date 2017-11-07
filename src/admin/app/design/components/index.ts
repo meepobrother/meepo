@@ -14,7 +14,7 @@ import {
     ActiveItemDefault, BargainItemDefault, ArticleItemDefault, CityItemDefault,
     MeepoDanmu, PayRecordDefault, PaySelectMoneyDefault, IqiyiHeadNavDefault,
     MeepoFormBtnDefault, MeepoFormRealnameDefault, WeuiCellsDefault, WeuiPreviewDefault,
-    PayuiFlowDefault, MeepoGridsDefault, PayStateDefault
+    PayuiFlowDefault, MeepoGridsDefault, PayStateDefault, TaskListDefault
 } from '../classes';
 
 import {
@@ -45,6 +45,10 @@ import {
     ArticleItemSetting, ArticleItemView,
     CityItemSetting, CityItemView
 } from './active';
+
+import {
+    TaskListSetting, TaskListView
+} from './runner';
 
 import {
     ButtonSetting, ButtonView, ButtonSelect,
@@ -132,6 +136,7 @@ import {
 } from './zan-ui';
 
 import { actions_component, actions_component_view, actions_component_setting, actions_models } from './actions';
+
 export const COMPONENTS = [
     ButtonView, ButtonSetting, ButtonSelect,
     WeuiCellsSetting, WeuiCellsView,
@@ -224,7 +229,9 @@ export const COMPONENTS = [
     PayuiFlowSetting, PayuiFlowView,
     ...actions_component,
     MeepoGridsSetting, MeepoGridsView,
-    PayStateSetting, PayStateView
+    PayStateSetting, PayStateView,
+
+    TaskListSetting, TaskListView
 ];
 
 
@@ -301,7 +308,8 @@ export const COMPONENTS_VIEW = {
     'payui-flow': PayuiFlowView,
     ...actions_component_view,
     'meepo-grids': MeepoGridsView,
-    'pay-state': PayStateView
+    'pay-state': PayStateView,
+    'task-list': TaskListView
 };
 
 
@@ -373,6 +381,7 @@ export const COMPONENTS_SETTING = {
     ...actions_component_setting,
     'meepo-grids': MeepoGridsSetting, 
     'pay-state': PayStateSetting, 
+    'task-list': TaskListSetting, 
 };
 
 
@@ -432,7 +441,8 @@ export const WIDGETS = {
     'payui-flow': PayuiFlowDefault,
     ...actions_models,
     'meepo-grids': MeepoGridsDefault,
-    'pay-state': PayStateDefault
+    'pay-state': PayStateDefault,
+    'task-list': TaskListDefault
 }
 
 import { Injectable } from '@angular/core';

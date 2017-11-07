@@ -1,6 +1,6 @@
 
 import { Widget } from '../widget';
-export class PayRecordDefault extends Widget {
+export class TaskListDefault extends Widget {
     logs: any[] = [];
     styleType: string;
     listsStyle: any = {};
@@ -9,20 +9,25 @@ export class PayRecordDefault extends Widget {
     
     constructor() {
         super();
-        this.type = 'pay-record';
-        this.name = '支付记录';
+        this.type = 'task-list';
+        this.name = '任务列表';
         this.styleType = 'default';
         
         this.items = [
             {
-                title: '处理中',
+                title: '待接单',
                 __post: {status: 0},
-                __do: 'tixian.log',
+                __do: 'task.log',
                 active: true
             }, {
-                title: '已完成',
-                __post: {status: 0},
-                __do: 'tixian.log',
+                title: '配送中',
+                __post: {status: 1},
+                __do: 'task.log',
+                active: false
+            }, {
+                title: '已送达',
+                __post: {status: 2},
+                __do: 'task.log',
                 active: false
             }
         ];

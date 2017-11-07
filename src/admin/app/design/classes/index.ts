@@ -46,5 +46,6 @@ export * from './payui';
 
 export * from './iqiyi';
 export * from './weui';
+export * from './runner';
 
 export * from './meepo-ui';

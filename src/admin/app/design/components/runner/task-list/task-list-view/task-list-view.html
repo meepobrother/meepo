@@ -1,0 +1,35 @@
+<div class="weui-wepay-lists">
+        <div class="weui-wepay-lists__hd" [ngStyle]="widget.listsStyle">
+            <div class="weui-wepay-lists__menu">
+                <div class="weui-wepay-lists__menu__item" [class.weui-wepay-lists__menu__item_on]="item.active" (click)="onTab(item)" *ngFor="let item of widget.items">{{item.title}}</div>
+            </div>
+        </div>
+        <div class="weui-wepay-lists__bd" #list>
+            <div class="weui-cells" style="margin-top:0" *ngIf="widget.styleType == 'avatar'">
+                <a class="weui-cell weui-cell_primary" href="javascript:;" (click)="_onMore(item,i)" *ngFor="let item of widget.logs;index as i;">
+                    <div class="weui-cell__hd">
+                        <img [src]="item.avatar" alt="" width="34" height="34">
+                    </div>
+                    <div class="weui-cell__bd" style="padding-bottom: 20px;">
+                        <div class="weui-cell__title">
+                            <span>{{item?.tag}}</span>
+                        </div>
+                        <div class="weui-cell__info">{{item.create_time}}</div>
+                        <div class="weui-cell__btns ">
+                            <a class="btn btn-primary btn-xs btn-outline">派单</a>
+                            <a class="btn btn-danger btn-xs btn-outline">完成</a>
+                            <a class="btn btn-sucess btn-xs btn-outline">重派</a>
+                            <a class="btn btn-warning btn-xs">确认</a>
+                        </div>
+                    </div>
+                    <div class="weui-cell__ft" style="max-width: 5em;">
+                        <div class="weui-cell__title weui-wepay-color-orange">{{item.credit}}</div>
+                        <div class="weui-cell__info">{{item.nickname}}</div>
+                    </div>
+                </a>
+            </div>
+            <div class="weui-cells" *ngIf="widget.logs.length<=0">
+                <p style="color: gray;text-align: center;padding: 30px;">暂无记录</p>
+            </div>
+        </div>
+    </div>
