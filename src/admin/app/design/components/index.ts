@@ -48,7 +48,9 @@ import {
 
 import {
     TaskListSetting, TaskListView,
-    RunnerListSetting, RunnerListView
+    RunnerListSetting, RunnerListView,
+    AddMoneyViewComponent, AddMoneySettingComponent,
+    TaskDetailView, TaskDetailSetting
 } from './runner';
 
 import {
@@ -60,7 +62,8 @@ import {
     PageSetting, IconView,
     TabbarSelect, TabbarSetting, TabbarView,
     NavbarSelect, NavbarView, NavbarSetting,
-    PickerSelect, PickerView, PickerSetting
+    PickerSelect, PickerView, PickerSetting,
+    WeuiPreviewView, WeuiPreviewSetting
 } from './weui';
 
 import {
@@ -83,7 +86,8 @@ import {
     // 地址
     MeepoAddAddressView, MeepoAddAddressSetting,
     MeepoListSetting, MeepoListView,
-    MeepoGridsSetting, MeepoGridsView
+    MeepoGridsSetting, MeepoGridsView,
+    MeepoDanmuView, MeepoDanmuSetting
 } from './meepo-ui';
 
 import {
@@ -135,6 +139,11 @@ import { IconSelectDialog, CreateBtnDialog } from '../../dialogs';
 import {
     CardComponent, CardSetting, CardView, SlotDirective
 } from './zan-ui';
+
+import {
+    LayoutVesselSetting, LayoutVesselView,
+    FreeVesselSetting, FreeVesselView
+} from './vessel';
 
 import { actions_component, actions_component_view, actions_component_setting, actions_models } from './actions';
 
@@ -233,7 +242,15 @@ export const COMPONENTS = [
     PayStateSetting, PayStateView,
 
     TaskListSetting, TaskListView,
-    RunnerListSetting, RunnerListView
+    RunnerListSetting, RunnerListView,
+    AddMoneyViewComponent, AddMoneySettingComponent,
+    TaskDetailView, TaskDetailSetting,
+    WeuiPreviewView, WeuiPreviewSetting,
+    MeepoDanmuView, MeepoDanmuSetting,
+
+
+    LayoutVesselSetting, LayoutVesselView,
+    FreeVesselSetting, FreeVesselView
 ];
 
 

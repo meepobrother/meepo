@@ -43,28 +43,15 @@ export class LoginPage implements OnInit {
     ) {
         this.rcode = store.get('__meepo_rcode', uuid());
         this.siteroot = store.get('__meepo_siteroot', "meepo.com.cn");
-
+        this.siteroot = this.siteroot.replace('https://','');
+        this.siteroot = this.siteroot.replace('http://','');
+        this.siteroot = this.siteroot.replace('/','');
+        this.siteroot.replace(this.sitehttp,'');
         this.laodSuccess.subscribe(QRCode => {
             this.QRCode = QRCode;
         });
-        this.api.onInit.subscribe(sysinfo => { });
-
-        
-    }
-
-    next() {
-        this.showNext = true;
-        this.api.setSiteroot(this.sitehttp + this.siteroot + '/');
-        store.set('__meepo_siteroot', this.sitehttp + this.siteroot + '/');
-        document.getElementById('qrcode').innerHTML = '';
-
-        this.autoCheck();
-        // 
-        this.api.mpost('login.getOauthUniacid', {}).subscribe((res: any) => {
-            this.api.sysinfo.uniacid = res.info;
-            this.api.sysinfo.acid = res.info;
-            this.api.onInit.next(this.api.sysinfo);
-
+        this.api.onInit.subscribe(sysinfo => { 
+            console.log(sysinfo);
             var qrcode = new this.QRCode(document.getElementById("qrcode"), {
                 text: "" + this.api.murl('entry/site/open', { __do: 'login.qrcode', m: 'imeepos_runner', r: this.rcode }),
                 width: 328,
@@ -73,6 +60,19 @@ export class LoginPage implements OnInit {
                 colorLight: "#ffffff",
                 correctLevel: this.QRCode.CorrectLevel.H
             });
+            this.autoCheck();
+        });
+    }
+
+    next() {
+        this.showNext = true;
+        this.api.setSiteroot(this.sitehttp + this.siteroot + '/');
+        store.set('__meepo_siteroot', this.sitehttp + this.siteroot + '/');
+        document.getElementById('qrcode').innerHTML = '';
+        this.http.get(this.sitehttp + this.siteroot + '/addons/imeepos_runner/oauth.php').subscribe((res: any)=>{
+            this.api.sysinfo.uniacid = res.info;
+            this.api.sysinfo.acid = res.info;
+            this.api.onInit.next(this.api.sysinfo);
         });
     }
 
@@ -86,13 +86,10 @@ export class LoginPage implements OnInit {
                     store.set('__meepo_openid', openid);
                     store.set('__meepo_rcode', rcode);
                     store.set('__meepo_myuserinfo', info);
-
                     store.set('__meepo_uniacid', uniacid);
                     store.set('__meepo_acid', acid);
                     store.set('__meepo_siteroot', siteroot);
-
                     store.set('__meepo_account', account);
-
                     if (uniacid) {
                         store.set('isLogin', true);
                         this.login$.isLogin = true;

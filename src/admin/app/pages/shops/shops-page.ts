@@ -1,5 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
+import * as store from 'store';
 @Component({
     selector: 'shops-page',
     templateUrl: './shops-page.html',
@@ -8,8 +9,12 @@ import { Component, OnInit } from '@angular/core';
 export class ShopsPage implements OnInit {
     constructor() { }
 
-    ngOnInit() { 
-        
+    ngOnInit() { }
+
+    clearCache(){
+        console.log('clearCache');
+        store.set('isLogin',false);
+        store.set('__meepo_rcode',null);
     }
 }
 
