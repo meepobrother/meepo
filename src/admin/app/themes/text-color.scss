@@ -5,3 +5,25 @@ $value in $colorMap {
         color: $value;
     }
 }
+
+@each $key,
+$value in $colorMap {
+    .btn-#{$key} {
+        background-color: $value;
+        border-color: $value;
+        color: #FFFFFF;
+    }
+    .btn-#{$key}{
+        &.btn-outline{
+            color: $value;
+            background-color: #ffffff;
+            border-color: $value;
+            border-width: 1px;
+            border-style: solid;
+        }
+    } 
+    .btn-#{$key}:hover{
+        background-color: $value;
+        color: #ffffff;
+    }
+}

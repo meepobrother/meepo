@@ -1,15 +1,15 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { PayRecordDefault } from '../../../../classes';
+import { TaskListDefault } from '../../../../classes';
 import { ApiService } from '../../../../../core';
 import * as store from 'store';
 
 @Component({
-    selector: 'pay-record-view',
-    templateUrl: './pay-record-view.html',
-    styleUrls: ['./pay-record-view.scss']
+    selector: 'task-list-view',
+    templateUrl: './task-list-view.html',
+    styleUrls: ['./task-list-view.scss']
 })
-export class PayRecordView implements OnInit {
-    @Input() widget: PayRecordDefault = new PayRecordDefault();
+export class TaskListView implements OnInit {
+    @Input() widget: TaskListDefault = new TaskListDefault();
     activeItem: any;
     constructor(
         public api: ApiService
@@ -51,4 +51,9 @@ export class PayRecordView implements OnInit {
         this.activeItem = item;
         this.getList();
     }
+
+    pai(item: any){}
+    repai(item: any){}
+    finish(item: any){}
+    confirm(item: any){}
 }
