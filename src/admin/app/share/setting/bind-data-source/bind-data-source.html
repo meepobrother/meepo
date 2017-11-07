@@ -65,6 +65,16 @@
                         </div>
                     </ng-template>
                 </nav-tab-pane>
+
+                <nav-tab-pane title="支付记录">
+                    <ng-template navTabPaneRef>
+                        <div class="p10">
+                            <a class="btn btn-primary btn-xs btn-block" (click)="setStatus('paylog.getListPaylog',{type: 'wechat'})">微信支付</a>
+                            <a class="btn btn-primary btn-xs btn-block" (click)="setStatus('paylog.getListPaylog',{type: 'credit'})">余额支付</a>
+                            <a class="btn btn-primary btn-xs btn-block" (click)="setStatus('paylog.getListPaylog',{type: 'other'})">其他支付</a>
+                        </div>
+                    </ng-template>
+                </nav-tab-pane>
             </nav-tabs>
         </div>
     </div>
