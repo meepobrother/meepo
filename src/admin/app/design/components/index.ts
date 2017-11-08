@@ -15,7 +15,7 @@ import {
     MeepoDanmu, PayRecordDefault, PaySelectMoneyDefault, IqiyiHeadNavDefault,
     MeepoFormBtnDefault, MeepoFormRealnameDefault, WeuiCellsDefault, WeuiPreviewDefault,
     PayuiFlowDefault, MeepoGridsDefault, PayStateDefault, TaskListDefault, RunnerListDefault,
-    ZanSearchDefault, JdHomeHeaderDefault, JdHomeMoneySetting, JdHomeOrderDefault
+    ZanSearchDefault, JdHomeHeaderDefault, JdHomeMoneyDefault, JdHomeOrderDefault
 } from '../classes';
 
 import {
@@ -344,6 +344,7 @@ export const COMPONENTS_VIEW = {
     'task-list': TaskListView,
     'runner-list': RunnerListView,
     'zan-search': ZanSearchView,
+
     'jd-home-header': JdHomeHeaderView,
     'jd-home-money': JdHomeMoneyView,
     'jd-home-order': JdHomeOrderView
@@ -489,11 +490,10 @@ export const WIDGETS = {
     'runner-list': RunnerListDefault,
     'zan-search': ZanSearchDefault,
     
-
     'jd-home-header': JdHomeHeaderDefault,
     'jd-home-money': JdHomeMoneyDefault,
     'jd-home-order': JdHomeOrderDefault
-}
+};
 
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
