@@ -4,7 +4,10 @@ import { Widget } from '../widget';
 export class JdHomeMoneyDefault extends Widget{
     show: boolean = true;
     items: any[] = [];
-    constructor(){
+    leftTitle: string = '我的订单';
+    rightTitle: string = '全部订单';
+
+    constructor() {
         super();
         this.type = 'jd-home-money';
         this.name = '个人钱包';
