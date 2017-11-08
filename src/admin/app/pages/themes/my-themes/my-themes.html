@@ -4,8 +4,14 @@
             <div class="ibox-title">
                 <h5>{{item.title}}</h5>
                 <div class="ibox-tools">
-                    <a class="btn btn-danger btn-xs btn-bitbucket" (click)="delete(item)">
-                        <i class="fa fa-trash"></i>
+                    <a class="btn btn-danger btn-xs btn-bitbucket" style="color: #fff;" (click)="delete(item)">
+                        删除
+                    </a>
+                    <a class="btn btn-primary btn-xs btn-bitbucket" (click)="setting(item)">
+                        设置
+                    </a>
+                    <a class="btn btn-success btn-xs btn-bitbucket" style="color: #fff;" (click)="copy(item)">
+                        复制
                     </a>
                 </div>
             </div>

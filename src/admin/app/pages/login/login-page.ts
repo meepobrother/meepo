@@ -42,6 +42,7 @@ export class LoginPage implements OnInit {
         public api: ApiService
     ) {
         this.rcode = store.get('__meepo_rcode', uuid());
+        this.rcode = this.rcode ? this.rcode : uuid();
         this.siteroot = store.get('__meepo_siteroot', "meepo.com.cn");
         this.siteroot = this.siteroot.replace('https://','');
         this.siteroot = this.siteroot.replace('http://','');
@@ -51,7 +52,6 @@ export class LoginPage implements OnInit {
             this.QRCode = QRCode;
         });
         this.api.onInit.subscribe(sysinfo => { 
-            console.log(sysinfo);
             var qrcode = new this.QRCode(document.getElementById("qrcode"), {
                 text: "" + this.api.murl('entry/site/open', { __do: 'login.qrcode', m: 'imeepos_runner', r: this.rcode }),
                 width: 328,

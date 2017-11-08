@@ -14,7 +14,8 @@ import {
     ActiveItemDefault, BargainItemDefault, ArticleItemDefault, CityItemDefault,
     MeepoDanmu, PayRecordDefault, PaySelectMoneyDefault, IqiyiHeadNavDefault,
     MeepoFormBtnDefault, MeepoFormRealnameDefault, WeuiCellsDefault, WeuiPreviewDefault,
-    PayuiFlowDefault, MeepoGridsDefault, PayStateDefault, TaskListDefault, RunnerListDefault
+    PayuiFlowDefault, MeepoGridsDefault, PayStateDefault, TaskListDefault, RunnerListDefault,
+    ZanSearchDefault, JdHomeHeaderDefault, JdHomeMoneyDefault, JdHomeOrderDefault, JdHomeListDefault
 } from '../classes';
 
 import {
@@ -137,7 +138,8 @@ import {
 import { IconSelectDialog, CreateBtnDialog } from '../../dialogs';
 
 import {
-    CardComponent, CardSetting, CardView, SlotDirective
+    CardComponent, CardSetting, CardView, SlotDirective,
+    ZanSearchSetting, ZanSearchView
 } from './zan-ui';
 
 import {
@@ -146,6 +148,13 @@ import {
 } from './vessel';
 
 import { actions_component, actions_component_view, actions_component_setting, actions_models } from './actions';
+
+import {
+    JdHomeHeaderSetting, JdHomeHeaderView,
+    JdHomeMoneySetting, JdHomeMoneyView,
+    JdHomeOrderSetting, JdHomeOrderView,
+    JdHomeListSetting, JdHomeListView
+} from './jd';
 
 export const COMPONENTS = [
     ButtonView, ButtonSetting, ButtonSelect,
@@ -250,7 +259,13 @@ export const COMPONENTS = [
 
 
     LayoutVesselSetting, LayoutVesselView,
-    FreeVesselSetting, FreeVesselView
+    FreeVesselSetting, FreeVesselView,
+    ZanSearchSetting, ZanSearchView,
+
+    JdHomeHeaderSetting, JdHomeHeaderView,
+    JdHomeMoneySetting, JdHomeMoneyView,
+    JdHomeOrderSetting, JdHomeOrderView,
+    JdHomeListSetting, JdHomeListView
 ];
 
 
@@ -329,7 +344,13 @@ export const COMPONENTS_VIEW = {
     'meepo-grids': MeepoGridsView,
     'pay-state': PayStateView,
     'task-list': TaskListView,
-    'runner-list': RunnerListView
+    'runner-list': RunnerListView,
+    'zan-search': ZanSearchView,
+
+    'jd-home-header': JdHomeHeaderView,
+    'jd-home-money': JdHomeMoneyView,
+    'jd-home-order': JdHomeOrderView,
+    'jd-home-list': JdHomeListView
 };
 
 
@@ -403,6 +424,12 @@ export const COMPONENTS_SETTING = {
     'pay-state': PayStateSetting, 
     'task-list': TaskListSetting, 
     'runner-list': RunnerListSetting, 
+    'zan-search': ZanSearchSetting, 
+
+    'jd-home-header': JdHomeHeaderSetting,
+    'jd-home-money': JdHomeMoneySetting,
+    'jd-home-order': JdHomeOrderSetting,
+    'jd-home-list': JdHomeListSetting, 
 };
 
 
@@ -464,8 +491,14 @@ export const WIDGETS = {
     'meepo-grids': MeepoGridsDefault,
     'pay-state': PayStateDefault,
     'task-list': TaskListDefault,
-    'runner-list': RunnerListDefault
-}
+    'runner-list': RunnerListDefault,
+    'zan-search': ZanSearchDefault,
+    
+    'jd-home-header': JdHomeHeaderDefault,
+    'jd-home-money': JdHomeMoneyDefault,
+    'jd-home-order': JdHomeOrderDefault,
+    'jd-home-list': JdHomeListDefault
+};
 
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
