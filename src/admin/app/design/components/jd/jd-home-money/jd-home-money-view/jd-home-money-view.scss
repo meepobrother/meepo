@@ -74,21 +74,34 @@
 
 .myJD-arrow {
   width: 11px;
-  height: 15px;
+  height: 20px;
   background-position: 0 -20px;
-  padding-top: 22px;
+  padding-top: 0px;
   vertical-align: middle;
   margin-top: 2px;
 }
 
 .my-item {
   font-size: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
   &:after {
     content: '';
     display: block;
     clear: both;
     visibility: hidden;
     height: 0;
+  }
+  .fl{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    .couponIn-icon{
+      display: flex;
+      align-items: center;
+    }
   }
 }
 
