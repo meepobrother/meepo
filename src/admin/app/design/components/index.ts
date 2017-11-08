@@ -14,7 +14,8 @@ import {
     ActiveItemDefault, BargainItemDefault, ArticleItemDefault, CityItemDefault,
     MeepoDanmu, PayRecordDefault, PaySelectMoneyDefault, IqiyiHeadNavDefault,
     MeepoFormBtnDefault, MeepoFormRealnameDefault, WeuiCellsDefault, WeuiPreviewDefault,
-    PayuiFlowDefault, MeepoGridsDefault, PayStateDefault, TaskListDefault, RunnerListDefault
+    PayuiFlowDefault, MeepoGridsDefault, PayStateDefault, TaskListDefault, RunnerListDefault,
+    ZanSearchDefault
 } from '../classes';
 
 import {
@@ -137,7 +138,8 @@ import {
 import { IconSelectDialog, CreateBtnDialog } from '../../dialogs';
 
 import {
-    CardComponent, CardSetting, CardView, SlotDirective
+    CardComponent, CardSetting, CardView, SlotDirective,
+    ZanSearchSetting, ZanSearchView
 } from './zan-ui';
 
 import {
@@ -250,7 +252,8 @@ export const COMPONENTS = [
 
 
     LayoutVesselSetting, LayoutVesselView,
-    FreeVesselSetting, FreeVesselView
+    FreeVesselSetting, FreeVesselView,
+    ZanSearchSetting, ZanSearchView
 ];
 
 
@@ -329,7 +332,8 @@ export const COMPONENTS_VIEW = {
     'meepo-grids': MeepoGridsView,
     'pay-state': PayStateView,
     'task-list': TaskListView,
-    'runner-list': RunnerListView
+    'runner-list': RunnerListView,
+    'zan-search': ZanSearchView
 };
 
 
@@ -403,6 +407,7 @@ export const COMPONENTS_SETTING = {
     'pay-state': PayStateSetting, 
     'task-list': TaskListSetting, 
     'runner-list': RunnerListSetting, 
+    'zan-search': ZanSearchSetting, 
 };
 
 
