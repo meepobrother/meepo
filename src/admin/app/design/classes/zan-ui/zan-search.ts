@@ -1,5 +1,6 @@
 
 import { Widget } from '../widget';
+
 export class ZanSearchDefault extends Widget {
     constructor(){
         super();
@@ -7,3 +8,4 @@ export class ZanSearchDefault extends Widget {
         this.name = '搜索';
     }
 }
+

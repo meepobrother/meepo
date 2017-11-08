@@ -469,7 +469,8 @@ export const WIDGETS = {
     'meepo-grids': MeepoGridsDefault,
     'pay-state': PayStateDefault,
     'task-list': TaskListDefault,
-    'runner-list': RunnerListDefault
+    'runner-list': RunnerListDefault,
+    'zan-search': ZanSearchDefault
 }
 
 import { Injectable } from '@angular/core';

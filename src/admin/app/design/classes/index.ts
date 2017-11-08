@@ -34,7 +34,7 @@ export * from './weui-tabbar';
 export * from './meepo-danmu';
 
 
-export * from './zan-ui/card';
+export * from './zan-ui';
 
 export * from './forms';
 export * from './goods';
