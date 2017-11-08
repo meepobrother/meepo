@@ -75,6 +75,16 @@
                         </div>
                     </ng-template>
                 </nav-tab-pane>
+
+                <nav-tab-pane title="财务统计">
+                    <ng-template navTabPaneRef>
+                        <div class="p10">
+                            <a class="btn btn-primary btn-xs btn-block" (click)="setStatus('money.state',{type: 'day'})">日统计</a>
+                            <a class="btn btn-primary btn-xs btn-block" (click)="setStatus('money.state',{type: 'week'})">周统计</a>
+                            <a class="btn btn-primary btn-xs btn-block" (click)="setStatus('money.state',{type: 'month'})">月统计</a>
+                        </div>
+                    </ng-template>
+                </nav-tab-pane>
             </nav-tabs>
         </div>
     </div>
