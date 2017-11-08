@@ -1,16 +1,19 @@
 <div class="container">
     <div class="container-left">
         <nav-tabs>
+
             <nav-tab-pane title="页面">
                 <ng-template navTabPaneRef>
                     <catalog-section [appId]="app_id"></catalog-section>
                 </ng-template>
             </nav-tab-pane>
+
             <nav-tab-pane title="组件" *ngIf="showComponent">
                 <ng-template navTabPaneRef>
                     <widget-section (onSelect)="addWidget($event)"></widget-section>
                 </ng-template>
             </nav-tab-pane>
+            
         </nav-tabs>
     </div>
     <div class="container-center">

@@ -32,4 +32,8 @@ export class MyThemes implements OnInit {
     goDesign(item: any) {
         this.router.navigate(['/themes/design', item.id])
     }
+
+    setting(item: any){
+        
+    }
 }
