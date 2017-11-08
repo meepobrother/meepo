@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { JdHomeOrderDefault } from '../../../../classes';
 
 @Component({
     selector: 'jd-home-order-view',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./jd-home-order-view.scss']
 })
 export class JdHomeOrderView implements OnInit {
+    @Input() widget: JdHomeOrderDefault = new JdHomeOrderDefault();
     constructor() { }
 
     ngOnInit() { }
