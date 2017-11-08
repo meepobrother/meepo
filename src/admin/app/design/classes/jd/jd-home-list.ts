@@ -1,7 +1,7 @@
 
 import { Widget } from '../widget';
 
-export class JdHomeHeaderDefault extends Widget{
+export class JdHomeListDefault extends Widget{
     show: boolean = true;
     bgImg: string;
     info: any;
@@ -11,8 +11,8 @@ export class JdHomeHeaderDefault extends Widget{
     constructor(){
         super();
         
-        this.type = 'jd-home-header';
-        this.name = '个人头部';
+        this.type = 'jd-home-list';
+        this.name = '个人列表';
 
         this.bgImg = './assets/redbg.jpg';
 
@@ -30,19 +30,9 @@ export class JdHomeHeaderDefault extends Widget{
 
         this.items = [
             {
-                title: '我的帖子',
-                num: 0,
-                link: ''
-            },
-            {
-                title: '我的服务',
-                num: 0,
-                link: ''
-            },
-            {
-                title: '我的问答',
-                num: 0,
-                link: ''
+                title: '我的地址',
+                icon: 'assets/images/my-address.png',
+                link: '/home/my-address'
             }
         ]
     }

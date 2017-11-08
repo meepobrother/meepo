@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { JdHomeMoneyDefault } from '../../../../classes';
 
 @Component({
     selector: 'jd-home-money-setting',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./jd-home-money-setting.scss']
 })
 export class JdHomeMoneySetting implements OnInit {
-    
+    @Input() widget: JdHomeMoneyDefault = new JdHomeMoneyDefault();
     constructor() { }
 
     ngOnInit() { }

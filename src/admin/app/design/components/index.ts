@@ -15,7 +15,7 @@ import {
     MeepoDanmu, PayRecordDefault, PaySelectMoneyDefault, IqiyiHeadNavDefault,
     MeepoFormBtnDefault, MeepoFormRealnameDefault, WeuiCellsDefault, WeuiPreviewDefault,
     PayuiFlowDefault, MeepoGridsDefault, PayStateDefault, TaskListDefault, RunnerListDefault,
-    ZanSearchDefault, JdHomeHeaderDefault, JdHomeMoneyDefault, JdHomeOrderDefault
+    ZanSearchDefault, JdHomeHeaderDefault, JdHomeMoneyDefault, JdHomeOrderDefault, JdHomeListDefault
 } from '../classes';
 
 import {
@@ -152,7 +152,8 @@ import { actions_component, actions_component_view, actions_component_setting, a
 import {
     JdHomeHeaderSetting, JdHomeHeaderView,
     JdHomeMoneySetting, JdHomeMoneyView,
-    JdHomeOrderSetting, JdHomeOrderView
+    JdHomeOrderSetting, JdHomeOrderView,
+    JdHomeListSetting, JdHomeListView
 } from './jd';
 
 export const COMPONENTS = [
@@ -263,7 +264,8 @@ export const COMPONENTS = [
 
     JdHomeHeaderSetting, JdHomeHeaderView,
     JdHomeMoneySetting, JdHomeMoneyView,
-    JdHomeOrderSetting, JdHomeOrderView
+    JdHomeOrderSetting, JdHomeOrderView,
+    JdHomeListSetting, JdHomeListView
 ];
 
 
@@ -347,7 +349,8 @@ export const COMPONENTS_VIEW = {
 
     'jd-home-header': JdHomeHeaderView,
     'jd-home-money': JdHomeMoneyView,
-    'jd-home-order': JdHomeOrderView
+    'jd-home-order': JdHomeOrderView,
+    'jd-home-list': JdHomeListView
 };
 
 
@@ -425,7 +428,8 @@ export const COMPONENTS_SETTING = {
 
     'jd-home-header': JdHomeHeaderSetting,
     'jd-home-money': JdHomeMoneySetting,
-    'jd-home-order': JdHomeOrderSetting
+    'jd-home-order': JdHomeOrderSetting,
+    'jd-home-list': JdHomeListSetting, 
 };
 
 
@@ -492,7 +496,8 @@ export const WIDGETS = {
     
     'jd-home-header': JdHomeHeaderDefault,
     'jd-home-money': JdHomeMoneyDefault,
-    'jd-home-order': JdHomeOrderDefault
+    'jd-home-order': JdHomeOrderDefault,
+    'jd-home-list': JdHomeListDefault
 };
 
 import { Injectable } from '@angular/core';

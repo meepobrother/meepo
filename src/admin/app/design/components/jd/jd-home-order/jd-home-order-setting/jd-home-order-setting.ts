@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { JdHomeOrderDefault } from '../../../../classes';
 
 @Component({
     selector: 'jd-home-order-setting',
