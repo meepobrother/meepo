@@ -15,7 +15,7 @@ import {
     MeepoDanmu, PayRecordDefault, PaySelectMoneyDefault, IqiyiHeadNavDefault,
     MeepoFormBtnDefault, MeepoFormRealnameDefault, WeuiCellsDefault, WeuiPreviewDefault,
     PayuiFlowDefault, MeepoGridsDefault, PayStateDefault, TaskListDefault, RunnerListDefault,
-    ZanSearchDefault
+    ZanSearchDefault, JdHomeHeaderDefault, JdHomeMoneySetting, JdHomeOrderDefault
 } from '../classes';
 
 import {
@@ -149,6 +149,12 @@ import {
 
 import { actions_component, actions_component_view, actions_component_setting, actions_models } from './actions';
 
+import {
+    JdHomeHeaderSetting, JdHomeHeaderView,
+    JdHomeMoneySetting, JdHomeMoneyView,
+    JdHomeOrderSetting, JdHomeOrderView
+} from './jd';
+
 export const COMPONENTS = [
     ButtonView, ButtonSetting, ButtonSelect,
     WeuiCellsSetting, WeuiCellsView,
@@ -253,7 +259,11 @@ export const COMPONENTS = [
 
     LayoutVesselSetting, LayoutVesselView,
     FreeVesselSetting, FreeVesselView,
-    ZanSearchSetting, ZanSearchView
+    ZanSearchSetting, ZanSearchView,
+
+    JdHomeHeaderSetting, JdHomeHeaderView,
+    JdHomeMoneySetting, JdHomeMoneyView,
+    JdHomeOrderSetting, JdHomeOrderView
 ];
 
 
@@ -333,7 +343,10 @@ export const COMPONENTS_VIEW = {
     'pay-state': PayStateView,
     'task-list': TaskListView,
     'runner-list': RunnerListView,
-    'zan-search': ZanSearchView
+    'zan-search': ZanSearchView,
+    'jd-home-header': JdHomeHeaderView,
+    'jd-home-money': JdHomeMoneyView,
+    'jd-home-order': JdHomeOrderView
 };
 
 
@@ -408,6 +421,10 @@ export const COMPONENTS_SETTING = {
     'task-list': TaskListSetting, 
     'runner-list': RunnerListSetting, 
     'zan-search': ZanSearchSetting, 
+
+    'jd-home-header': JdHomeHeaderSetting,
+    'jd-home-money': JdHomeMoneySetting,
+    'jd-home-order': JdHomeOrderSetting
 };
 
 
@@ -470,7 +487,12 @@ export const WIDGETS = {
     'pay-state': PayStateDefault,
     'task-list': TaskListDefault,
     'runner-list': RunnerListDefault,
-    'zan-search': ZanSearchDefault
+    'zan-search': ZanSearchDefault,
+    
+
+    'jd-home-header': JdHomeHeaderDefault,
+    'jd-home-money': JdHomeMoneyDefault,
+    'jd-home-order': JdHomeOrderDefault
 }
 
 import { Injectable } from '@angular/core';

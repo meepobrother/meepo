@@ -35,6 +35,8 @@ export * from './meepo-danmu';
 
 
 export * from './zan-ui';
+export * from './jd';
+
 
 export * from './forms';
 export * from './goods';
