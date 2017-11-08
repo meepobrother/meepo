@@ -1,0 +1,17 @@
+<div class="ibox">
+    <div class="ibox-title">
+        <h5>背景图片</h5>
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon">
+                    <img style="height: 20px;" [src]="widget.bgImg"/>
+                </div>
+                <input class="form-control" [(ngModel)]="widget.bgImg" placeholder="选择图片" type="text" readonly/>
+                <div class="input-group-addon">
+                    选择
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ibox-content"></div>
+</div>

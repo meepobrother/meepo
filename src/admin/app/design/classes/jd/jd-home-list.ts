@@ -31,7 +31,7 @@ export class JdHomeListDefault extends Widget{
         this.items = [
             {
                 title: '我的地址',
-                icon: 'assets/images/my-address.png',
+                icon: 'assets/my-address.png',
                 link: '/home/my-address'
             }
         ]

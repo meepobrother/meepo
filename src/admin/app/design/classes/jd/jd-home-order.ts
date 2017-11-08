@@ -22,22 +22,22 @@ export class JdHomeOrderDefault extends Widget{
         this.items = [
             {
                 title: '待接单',
-                icon: 'assets/images/home/order1.png',
+                icon: 'assets/home/order1.png',
                 link: ''
             },
             {
                 title: '进行中',
-                icon: 'assets/images/home/order2.png',
+                icon: 'assets/home/order2.png',
                 link: ''
             },
             {
                 title: '待确认',
-                icon: 'assets/images/home/order4.png',
+                icon: 'assets/home/order4.png',
                 link: ''
             },
             {
                 title: '已撤销',
-                icon: 'assets/images/home/order3.png',
+                icon: 'assets/home/order3.png',
                 link: ''
             }
         ]
