@@ -6,13 +6,18 @@ $input = $this->__input['encrypted'];
 $page = intval($input['page']);
 $psize = intval($input['psize']);
 $page = $page > 0 ? $page : 1;
-$psize = $psize > 0 ? $page : 30;
+$psize = $psize > 0 ? $psize : 30;
 
-$status = intval($input['status']);
-
-$sql = "SELECT * FROM ".tablename('imeepos_runner3_tasks')." WHERE uniacid={$_W['uniacid']} AND status={$status} ORDER BY id DESC limit ".($page - 1)*$psize.",".$psize;
-$params = array();
-$list = pdo_fetchall($sql,$params);
+if(isset($input['status']) && $input['status'] != 'all'){
+    $status = intval($input['status']);
+    $sql = "SELECT * FROM ".tablename('imeepos_runner3_tasks')." WHERE uniacid={$_W['uniacid']} AND status={$status} ORDER BY id DESC limit ".($page - 1)*$psize.",".$psize;
+    $params = array();
+    $list = pdo_fetchall($sql,$params);
+} else {
+    $sql = "SELECT * FROM ".tablename('imeepos_runner3_tasks')." WHERE uniacid={$_W['uniacid']} ORDER BY id DESC limit ".($page - 1)*$psize.",".$psize;
+    $params = array();
+    $list = pdo_fetchall($sql,$params);
+}
 
 foreach($list as &$li){ 
     $member = mc_fetch($li['openid'],array('uid','avatar','nickname'));
