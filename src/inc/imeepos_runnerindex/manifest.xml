@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns="http://www.we7.cc" versionCode="">
+	<application setting="false">
+		<name><![CDATA[跑腿首页-定制]]></name>
+		<identifie><![CDATA[imeepos_runnerindex]]></identifie>
+		<version><![CDATA[1.0]]></version>
+		<type><![CDATA[business]]></type>
+		<ability><![CDATA[跑腿首页-定制]]></ability>
+		<description><![CDATA[跑腿首页-定制]]></description>
+		<author><![CDATA[imeepos]]></author>
+		<url><![CDATA[]]></url>
+	</application>
+	<platform>
+		<subscribes>
+		</subscribes>
+		<handles>
+		</handles>
+		<rule embed="false" />
+		<card embed="false" />
+		<supports>
+			<item type="app" />
+		</supports>
+	</platform>
+	<bindings>
+		<cover>
+			<entry title="首页" do="index" state="" direct="false" />
+		</cover>
+		<menu>
+			<entry title="设置" do="setting" state="" direct="false" />
+		</menu>
+	</bindings>
+	<permissions>
+	</permissions>
+	<install><![CDATA[]]></install>
+	<uninstall><![CDATA[]]></uninstall>
+	<upgrade><![CDATA[]]></upgrade>
+</manifest>

@@ -12,7 +12,6 @@ yarn.lock
 yarn-error.log
 tslint.json
 tsconfig.json
-src/inc/*
 help-docs/_book/*
 src/runner-old/app/active/
 src/runner-old/app/admin/

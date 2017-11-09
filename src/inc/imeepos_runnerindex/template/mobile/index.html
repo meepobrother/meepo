@@ -1,0 +1,38 @@
+<!--{template 'common/header'}-->
+
+<style>
+    .footer {
+        display: none !important;
+    }
+    
+    .layout,
+    .container {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+    }
+    
+    .layout .layout-footer {
+        height: 44px;
+    }
+    
+    .layout .layout-body {
+        height: 100%;
+        flex: 1;
+    }
+</style>
+
+<div class="layout">
+    <div class="layout-body"></div>
+    <div class="layout-footer">
+        <ul>
+            <!--{loop $setting['footers'] $footer}-->
+            <li>{$footer['title']}</li>
+            <!--{/loop}-->
+        </ul>
+    </div>
+</div>
+
+
+<!--{template 'common/footer'}-->

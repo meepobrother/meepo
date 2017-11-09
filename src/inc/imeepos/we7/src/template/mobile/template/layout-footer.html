@@ -1,0 +1,19 @@
+<!-- {if $data['footer']['show']} -->
+<layout-footer-view class="layout-footer" style="
+    {loop $data['footer']['containerStyle'] $key $style}
+        {php echo $key}:{php echo $style};
+    {/loop}
+">
+    <!-- {loop $data['footer']['children'] $footer} -->
+    <div class="footer-item" data-link="{$footer['link']}">
+        <i class="{$footer['icon']}"></i> {$footer['title']} </div>
+    <!-- {/loop} -->
+</layout-footer-view>
+
+<script>
+    $('.footer-item').click(function() {
+        var link = $(this).data('link');
+        window.location.href = "./index.php?i=41&c=entry&do=design&m=imeepos_runner&id=" + link;
+    })
+</script>
+<!-- {/if} -->

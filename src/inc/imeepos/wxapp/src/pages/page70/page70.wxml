@@ -1,0 +1,16 @@
+<view class="layout">
+    <view class="layout-container">
+        <view class="layout-header" wx:if="{{header.show}}">
+            <view class="title">{{header.content}}</view>
+        </view>
+        <view class="layout-body" wx:if="{{body.show}}">
+            
+        </view>
+        <view class="layout-footer" style="" wx:if="{{footer.show}}">
+            <view class="footer-item" wx:for="{{footer.children}}">
+                <view bindtap="goLink" data-link="{{item.link}}" class="{{item.icon}}"></view>
+                <view bindtap="goLink" data-link="{{item.link}}">{{item.title}}</view>
+            </view>
+        </view>
+    </view>
+</view>

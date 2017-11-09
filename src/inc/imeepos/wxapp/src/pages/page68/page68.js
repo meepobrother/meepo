@@ -1,0 +1,11 @@
+var app = getApp();
+var pageData = {
+    data: {"id":"68","cata_id":"19","app_id":"2","title":"\u4efb\u52a1\u8be6\u60c5","html_content":"","header":{"code":"3c80ccd0-6de4-4a94-982b-3ed5e15a9eaa","type":"layout-header","name":"\u5e03\u5c40-\u5934\u90e8","animations":[],"children":[],"styleObj":{"color":"#fff"},"classObj":[],"containerStyle":{"background":"#19b394"},"containerClass":{"layout-header":true},"isContainer":true,"show":true,"leftMenus":[],"rightMenus":[],"content":"\u4efb\u52a1\u8be6\u60c5"},"body":{"code":"78270e96-c11e-4e33-b0ea-b6c70870f231","type":"layout-body","name":"\u5e03\u5c40-\u4e3b\u4f53","animations":[],"children":[{"code":"be364703-8e1c-44dc-b233-7d7b57d9cfe7","type":"meepo-list","name":"\u5217\u8868\u7ec4\u4ef6","animations":[],"children":[{"title":"\u6d4b\u8bd5","code":"all","image":".\/assets\/img\/a1.jpg"},{"title":"\u6d4b\u8bd5","code":"all","image":".\/assets\/img\/a2.jpg"},{"title":"\u6d4b\u8bd5","code":"all","image":".\/assets\/img\/a3.jpg"}],"styleObj":{"color":"#fff"},"classObj":[],"containerStyle":{"color":"#fff"},"containerClass":[],"model":"list-model-1"}],"styleObj":[],"classObj":[],"containerStyle":{"background-color":"#e6e6e6"},"containerClass":{"layout-body":true},"isContainer":true,"show":true},"menu":{"code":"ab3c6933-4d75-487e-a4f6-e0e689473bb6","type":"layout-menu","name":"\u5e03\u5c40-\u83dc\u5355","animations":[],"children":[],"styleObj":[],"classObj":[],"containerStyle":[],"containerClass":{"layout-menu":true,"left":true,"right":false},"isContainer":true,"direction":"left","open":false,"show":true},"footer":{"code":"77aef573-710f-4c3e-827b-f88828d6f53d","type":"layout-footer","name":"\u5e03\u5c40-\u5e95\u90e8","animations":[],"children":[],"styleObj":[],"classObj":[],"containerStyle":{"color":"#fff","background-color":"#ccc"},"containerClass":{"layout-footer":true},"isContainer":true,"show":false},"kefu":{"type":"layout-kefu","name":"\u5ba2\u670d","children":[],"styleObj":{"color":"#fff"},"classObj":{"author":false},"containerClass":{"author":false},"containerStyle":{"color":"#fff"}},"desc":"","url":null,"cover":null},
+    goLink: function(event) {
+        var link = event.currentTarget.dataset.link;
+        wx.redirectTo({
+            url: '../page' + link + '/page' + link
+        });
+    }
+}
+Page(pageData);

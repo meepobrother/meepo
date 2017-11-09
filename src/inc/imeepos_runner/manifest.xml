@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns="http://www.we7.cc" versionCode="">
+	<application setting="false">
+		<name><![CDATA[小明跑腿]]></name>
+		<identifie><![CDATA[imeepos_runner]]></identifie>
+		<version><![CDATA[4.0.6]]></version>
+		<type><![CDATA[business]]></type>
+		<ability><![CDATA[小明跑腿]]></ability>
+		<description><![CDATA[小明跑腿]]></description>
+		<author><![CDATA[imeepos]]></author>
+		<url><![CDATA[http://bbs.we7.cc/]]></url>
+	</application>
+	<platform>
+		<handles>
+			<message type="text" />
+		</handles>
+		<rule embed="false" />
+		<card embed="true" />
+		<supports>
+			<item type="app" />
+			<item type="wxapp" />
+			<item type="plugin" />
+		</supports>
+		<plugins>
+			<item name="imeepos_runner_plugin_suyun"></item>
+			<item name="imeepos_runner_plugin_repair"></item>
+			<item name="imeepos_runner_plugin_bbs"></item>
+			<item name="imeepos_runner_plugin_tixian"></item>
+			<item name="imeepos_runner_plugin_shop"></item>
+		</plugins>
+	</platform>
+	
+	<bindings>
+		<cover>
+			<entry title="我要发单" do="index" state="" direct="1" />
+			<entry title="任务大厅" do="tasks" state="" direct="1" />
+		</cover>
+		<menu>
+			<entry title="管理跑腿" do="index" state="" direct="false" />
+			<entry title="任务管理" do="order" state="" direct="false" />
+			<entry title="跑腿分布" do="map" state="" direct="false" />
+			<entry title="客户分布" do="member" state="" direct="false" />
+			<entry title="系统设置" do="setting" state="" direct="false" />
+			<entry title="客户端下载" do="appdownload" state="" direct="false" />
+		</menu>
+	</bindings>
+	<permissions>
+	</permissions>
+	<install><![CDATA[install.php]]></install>
+	<uninstall><![CDATA[]]></uninstall>
+	<upgrade><![CDATA[update.php]]></upgrade>
+</manifest>

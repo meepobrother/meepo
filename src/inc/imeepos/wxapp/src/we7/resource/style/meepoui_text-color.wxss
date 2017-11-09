@@ -1,0 +1,27 @@
+.text-default {
+    color: #000000;
+}
+
+.text-success {
+    color: #54c952;
+}
+
+.text-primary {
+    color: #44abf7;
+}
+
+.text-info {
+    color: #3abbdb;
+}
+
+.text-warning {
+    color: #ffc000;
+}
+
+.text-danger {
+    color: #eb6060;
+}
+
+.text-green {
+    color: #15d2b9;
+}

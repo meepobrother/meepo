@@ -16,12 +16,13 @@ export class TasksGroup implements OnInit {
     ) { }
 
     getList() {
+        this.api.mpost('tasks.update', {}).subscribe((res: any) => { });
         this.api.mpost('tasks.getListTaskGroup', {}).subscribe((res: any) => {
             this.list = res.info;
         });
     }
 
-    ngOnInit() { 
+    ngOnInit() {
         this.getList();
     }
 

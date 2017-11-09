@@ -1,0 +1,10 @@
+{
+    "pages": [    "pages/page52/page52",    "pages/page53/page53",    "pages/page54/page54",    "pages/page68/page68",    "pages/page69/page69",    "pages/page70/page70",    "pages/page78/page78",    "pages/page88/page88",    "pages/page89/page89",    "pages/page100/page100",    "pages/page101/page101",    "pages/page102/page102"],
+    "window": {
+        "navigationBarTextStyle": "white",
+        "navigationBarTitleText": "",
+        "navigationBarBackgroundColor": "#000",
+        "backgroundColor": "#f5f5f5",
+        "enablePullDownRefresh" : true
+    }
+}

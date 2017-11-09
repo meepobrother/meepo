@@ -1,0 +1,111 @@
+<!--{template 'common/header'}-->
+<style>
+    .form-group {
+        overflow: hidden;
+        width: 100%;
+    }
+    
+    .form-group .form-control {
+        width: auto !important;
+    }
+</style>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        基础设置
+    </div>
+    <div class="panel-body">
+        <div class="form-group">
+            <label>标题</label>
+            <input class="form-control" style="width: 100%;" type="text" placeholder="应用标题">
+        </div>
+        <div class="panel panel-info" id="advs-panel">
+            <div class="panel-heading">
+                广告图片设置 <a class=" btn btn-default add btn-small">+添加</a>
+            </div>
+            <div class="panel-body">
+                <table class="table table-hover">
+                    <thead></thead>
+                    <tbody>
+                        <!-- {loop $setting['advs'] $adv} -->
+                        <tr>
+                            <td>
+                                <img src="{$adv['image']}">
+                            </td>
+                            <td>
+                                {$adv['title']}
+                            </td>
+                            <td>
+                                <a href="{$adv['link']}" class="btn btn-link">链接</a>
+                            </td>
+                        </tr>
+                        <!-- {/loop} -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="panel panel-danger" id="navs-panel">
+            <div class="panel-heading">
+                导航设置 <a class=" btn btn-default add-navs btn-small">+添加</a>
+            </div>
+            <div class="panel-body">
+                <table class="table table-hover">
+                    <thead></thead>
+                    <tbody>
+                        <!-- {loop $setting['navs'] $adv} -->
+                        <tr>
+                            <td>
+                                <img src="{$adv['image']}">
+                            </td>
+                            <td>
+                                {$adv['title']}
+                            </td>
+                            <td>
+                                <a href="{$adv['link']}" class="btn btn-link">链接</a>
+                            </td>
+                        </tr>
+                        <!-- {/loop} -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+        <div class="panel panel-success" id="footer-panel">
+            <div class="panel-heading">
+                底部菜单设置 <a class=" btn btn-default add-footer btn-small">+添加</a>
+            </div>
+            <div class="panel-body">
+                <table class="table table-hover">
+                    <thead></thead>
+                    <tbody>
+                        <!-- {loop $setting['footers'] $adv} -->
+                        <tr>
+                            <td>
+                                <img src="{$adv['image']}">
+                            </td>
+                            <td>
+                                {$adv['title']}
+                            </td>
+                            <td>
+                                <a href="{$adv['link']}" class="btn btn-link">链接</a>
+                            </td>
+                        </tr>
+                        <!-- {/loop} -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<script>
+    $(function() {
+        $('#advs-panel').find('.add').on('click', function() {
+
+        });
+    })
+</script>
+<!--{template 'common/footer'}-->

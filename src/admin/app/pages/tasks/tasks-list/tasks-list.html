@@ -6,6 +6,17 @@
         </div>
     </div>
     <div class="ibox-content">
+        <div style="position: relative;min-height: 30px;">
+            <div class="w_tag bor-b marbot10">
+                <a href="javascript:;" class="tab_btn marbot20" [class.on]="item.active" *ngFor="let item of status" (click)="selectStatus(item)">{{item.title}}</a>
+            </div>
+        </div>
+
+        <div style="position: relative;min-height: 30px;">
+            <div class="w_tag bor-b marbot10">
+                <a href="javascript:;" class="tab_btn marbot20" [class.on]="item.active" *ngFor="let item of groups" (click)="selectGroup(item)">{{item.title}}</a>
+            </div>
+        </div>
         <table class="table table-striped table-hover">
             <thead>
                 <tr>

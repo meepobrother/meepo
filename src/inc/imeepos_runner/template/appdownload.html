@@ -1,0 +1,117 @@
+<!--{template 'common/header'}-->
+<script src="https://meepo.com.cn/meepo/libs/qrcode.min.js"></script>
+<style>
+    ul li {
+        padding: 5px 10px;
+    }
+    
+    ul li:hover {
+        background: #ccc;
+    }
+    
+    .meepo-row {
+        display: flex;
+        align-items: center;
+    }
+    
+    .meepo-row .form-control {
+        flex: 1;
+    }
+</style>
+<div class="jumbotron">
+    <h1>你好, 小明跑腿v20!</h1>
+    <p>
+        小明跑腿v20上线了！！
+    </p>
+    <h5>自带微信小程序生成器！</h5>
+    <p>
+        小程序生成器，可以帮助你在没有任何技术实力的情况下，经过简单的拖拽即可生成相应的小程序页面，下载上传后即可上线运营
+    </p>
+    <h5>一键打包app!</h5>
+    <p>
+        应用场景更广！使用更方便，助力布局上市融资！
+    </p>
+    <h5>商户功能</h5>
+    <p>
+        集成商户入驻，商户一键发单，商户商品管理！
+    </p>
+    <h5>商户管理</h5>
+    <p>
+        认证商户，前端管理商品！
+    </p>
+    <h5>技能管理</h5>
+    <p>
+        技能预约，时间变现！
+    </p>
+    <h5>个性装修</h5>
+    <p>
+        个性装修，更多主题！
+    </p>
+    <h5>更多功能请联系升级</h5>
+    <p>
+        更多功能请联系升级！
+    </p>
+</div>
+<div class="panel panel-danger">
+    <div class="panel-heading">
+        扫码绑定微信
+    </div>
+    <div class="panel-body">
+        <div class="form-group meepo-row">
+            <label style="padding: 0 10px;">主账号</label>
+            <select class="form-control" id="uniacid">
+                {loop $accounts $acc}
+                <option {if $uniacid == $acc['uniacid']}selected{/if} value="{$acc['uniacid']}">{$acc['name']}</option>
+                {/loop}
+            </select>
+            <a href="javascript:;" class="btn btn-parmary" style="background-color: green;color: #fff;" id="save">保存</a>
+        </div>
+        <div class="qrcode" id="qrcode" style="background: #fff;margin: 0 auto;text-align:center;height: 300px;"></div>
+        <p style="color: red;">
+            扫码绑定微信
+        </p>
+        <ul>
+            {loop $list $item}
+            <li>
+                <img style="width: 2em;border-radius: 50%;" src="{$item['avatar']}">-{$item['nickname']}
+            </li>
+            {/loop}
+        </ul>
+    </div>
+    <div class="panel-footer">
+        <a href="http://meepo.com.cn/" class="btn btn-danger">win32客户端下载</a>
+        <a href="http://meepo.com.cn/" class="btn btn-danger">win64客户端下载</a>
+        <a href="http://meepo.com.cn/" class="btn btn-danger">mac客户端下载</a>
+    </div>
+</div>
+<script>
+    $(function() {
+        var qrcode = new QRCode(document.getElementById("qrcode"), {
+            text: "{php echo $_W['siteroot'].'app/index.php?c=entry&do=open&a=&i='.$uniacid.'&j='.$uniacid.'&__do=login.bindqrcode&m=imeepos_runner&r='.$rcode}",
+            width: 228,
+            height: 228,
+            colorDark: "#000000",
+            colorLight: "#ffffff",
+            correctLevel: QRCode.CorrectLevel.H
+        });
+
+        $('#save').click(function() {
+            var that = $(this);
+            that.html('保存中');
+            var uniacid = $('#uniacid').val();
+            $.post('', {
+                act: 'save',
+                uniacid: uniacid
+            }, function() {
+                setTimeout(function() {
+                    that.html('保存成功');
+                    setTimeout(function() {
+                        that.html('保存');
+                    }, 300);
+                }, 300);
+            }, 'json')
+
+        })
+    })
+</script>
+<!--{template 'common/footer'}-->

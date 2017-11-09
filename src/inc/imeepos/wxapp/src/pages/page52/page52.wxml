@@ -1,0 +1,74 @@
+<view class="layout">
+    <view class="layout-container">
+        <view class="layout-header" wx:if="{{header.show}}">
+            <view class="title">{{header.content}}</view>
+        </view>
+        <view class="layout-body" wx:if="{{body.show}}">
+            <swiper style="margin-top:-1;margin-bottom:0;margin-left:0;margin-right:0;">    <swiper-item>
+        <image style="width: 100%;" src="https://meepo.com.cn/addons/imeepos_runner/template/mobile/design/assets/img/p_big1.jpg"></image>
+    </swiper-item>    <swiper-item>
+        <image style="width: 100%;" src="https://meepo.com.cn/addons/imeepos_runner/template/mobile/design/assets/img/p_big1.jpg"></image>
+    </swiper-item>    <swiper-item>
+        <image style="width: 100%;" src="https://meepo.com.cn/addons/imeepos_runner/template/mobile/design/assets/img/p_big2.jpg"></image>
+    </swiper-item>    <swiper-item>
+        <image style="width: 100%;" src="https://meepo.com.cn/addons/imeepos_runner/template/mobile/design/assets/img/p_big0.jpg"></image>
+    </swiper-item></swiper><swiper style="color:#fff;margin-top:5px;background-color:#ffffff;padding-top:10px;margin-bottom:5px;">    <swiper-item>        <view class="meepo-swiper-tags-list">                <view class="meepo-swiper-tags-item">
+                    <image class="img" src="./assets/img/p1.jpg"></image>
+                    <label>测试</label>
+                </view>                <view class="meepo-swiper-tags-item">
+                    <image class="img" src="./assets/img/p2.jpg"></image>
+                    <label>测试</label>
+                </view>                <view class="meepo-swiper-tags-item">
+                    <image class="img" src="./assets/img/p3.jpg"></image>
+                    <label>测试</label>
+                </view>                <view class="meepo-swiper-tags-item">
+                    <image class="img" src="./assets/img/p1.jpg"></image>
+                    <label>测试</label>
+                </view>                <view class="meepo-swiper-tags-item">
+                    <image class="img" src="./assets/img/p2.jpg"></image>
+                    <label>测试</label>
+                </view>                <view class="meepo-swiper-tags-item">
+                    <image class="img" src="./assets/img/p3.jpg"></image>
+                    <label>测试</label>
+                </view>                <view class="meepo-swiper-tags-item">
+                    <image class="img" src="./assets/img/p1.jpg"></image>
+                    <label>测试</label>
+                </view>                <view class="meepo-swiper-tags-item">
+                    <image class="img" src="./assets/img/p2.jpg"></image>
+                    <label>测试</label>
+                </view>        </view>
+    </swiper-item>    <swiper-item>        <view class="meepo-swiper-tags-list">                <view class="meepo-swiper-tags-item">
+                    <image class="img" src="./assets/img/p1.jpg"></image>
+                    <label>测试</label>
+                </view>                <view class="meepo-swiper-tags-item">
+                    <image class="img" src="./assets/img/p2.jpg"></image>
+                    <label>测试</label>
+                </view>                <view class="meepo-swiper-tags-item">
+                    <image class="img" src="./assets/img/p3.jpg"></image>
+                    <label>测试</label>
+                </view>                <view class="meepo-swiper-tags-item">
+                    <image class="img" src="./assets/img/p1.jpg"></image>
+                    <label>测试</label>
+                </view>                <view class="meepo-swiper-tags-item">
+                    <image class="img" src="./assets/img/p2.jpg"></image>
+                    <label>测试</label>
+                </view>                <view class="meepo-swiper-tags-item">
+                    <image class="img" src="./assets/img/p3.jpg"></image>
+                    <label>测试</label>
+                </view>                <view class="meepo-swiper-tags-item">
+                    <image class="img" src="./assets/img/p1.jpg"></image>
+                    <label>测试</label>
+                </view>                <view class="meepo-swiper-tags-item">
+                    <image class="img" src="./assets/img/p2.jpg"></image>
+                    <label>测试</label>
+                </view>        </view>
+    </swiper-item></swiper>
+        </view>
+        <view class="layout-footer" style="" wx:if="{{footer.show}}">
+            <view class="footer-item" wx:for="{{footer.children}}">
+                <view bindtap="goLink" data-link="{{item.link}}" class="{{item.icon}}"></view>
+                <view bindtap="goLink" data-link="{{item.link}}">{{item.title}}</view>
+            </view>
+        </view>
+    </view>
+</view>

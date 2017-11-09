@@ -1,0 +1,34 @@
+@import 'we7/resource/style/weui.wxss';
+@import 'we7/resource/style/we7.wxss';
+@import 'we7/resource/style/meepoui.wxss';
+@import 'we7/resource/style/meepoui_text-color.wxss';
+@import 'we7/resource/style/font-awesome.wxss';
+
+.meepo-swiper-tags-list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.meepo-swiper-tags-item {
+    width: 25%;
+    min-height: 44px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: gray;
+}
+
+.meepo-swiper-tags-item:hover {
+    color: red;
+}
+
+.meepo-swiper-tags-item .img {
+    flex: 1;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+}
