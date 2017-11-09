@@ -2,7 +2,8 @@ import { Widget } from '../widget';
 
 export class MeepoMarqueeDefault extends Widget {
     items: any[] = [];
-
+    direction: string = 'bottom';
+    
     constructor() {
         super();
         this.type = 'meepo-marquee';

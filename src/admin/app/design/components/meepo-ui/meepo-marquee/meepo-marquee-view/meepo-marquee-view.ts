@@ -9,7 +9,7 @@ import { MeepoMarqueeDefault } from '../../../../classes';
     templateUrl: './meepo-marquee-view.html',
     styleUrls: ['./meepo-marquee-view.scss']
 })
-export class MeepoMarqueeView implements OnInit, OnChanges {
+export class MeepoMarqueeView implements OnInit {
     swiperJs: string = 'https://meepo.com.cn/meepo/libs/jquery.marquee/jquery.marquee.min.js';
     swiper: any;
     laodSuccess: Subject<any> = new Subject();
@@ -19,18 +19,12 @@ export class MeepoMarqueeView implements OnInit, OnChanges {
         @Inject(DOCUMENT) public document: any
     ) { 
         this.laodSuccess.subscribe((scroxt: any)=>{
-            jQuery("#marquee").marquee({
-                yScroll: "bottom"
-            });
+            jQuery("#marquee").marquee();
         });
     }
 
     ngOnInit() { 
         this.loadJScript();
-    }
-
-    ngOnChanges(changes: SimpleChanges){
-        console.log(changes);
     }
 
     loadJScript() {
