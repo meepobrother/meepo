@@ -19,14 +19,15 @@ export class UuItemBoxSetting implements OnInit {
     add() {
         let dialogRef = this.dialog.open(ImageLinkSelect);
         dialogRef.afterClosed().subscribe(res => {
-            this.widget.children.push(res);
+            this.widget.items.push(res);
         });
     }
 
     edit(index: number, item: any) {
         let dialogRef = this.dialog.open(ImageLinkSelect, { data: item });
         dialogRef.afterClosed().subscribe(res => {
-            this.widget.children[index] = res;
+            let { title, link, image } = res;
+            this.widget.items[index] = { title: title, link: link, image: image };
         });
     }
 

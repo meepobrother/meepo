@@ -5,7 +5,8 @@ export class UuItemBoxDefault extends Widget{
     show: boolean = true;
     required: boolean = true;
     dataSource: string = '';
-
+    items: any[] = [];
+    
     constructor(){
         super();
         this.type = 'uu-item-box';
@@ -19,7 +20,7 @@ export class UuItemBoxDefault extends Widget{
         }
         this.dataSource = '';
 
-        this.children = [
+        this.items = [
             {
                 image: 'http://wechat.uupaotui.com/StyleV4/images/use_tp1.png',
                 link: ['']

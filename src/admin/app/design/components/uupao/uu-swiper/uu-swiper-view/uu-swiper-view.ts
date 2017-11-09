@@ -8,8 +8,6 @@ import { UuSwiperDefault } from '../../../../classes';
 })
 export class UuSwiperView implements OnInit {
     @Input() widget: UuSwiperDefault = new UuSwiperDefault();
-    
     constructor() { }
-
     ngOnInit() { }
 }

@@ -34,8 +34,6 @@ export class FreeWidgetView implements OnInit, AfterViewInit, OnDestroy, OnChang
     @HostListener('drop', ['$event'])
     drop(evt: any) {
         let code = evt.dataTransfer.getData('Text');
-        console.log(evt);
-        console.log(code);
     }
 
     // 结束
@@ -54,8 +52,6 @@ export class FreeWidgetView implements OnInit, AfterViewInit, OnDestroy, OnChang
     @HostListener('mouseover', ['$event'])
     mouseover(evt: any) {
         // 鼠标移动到改元素时 改变设置
-        console.log(this._active);
-        this._active = true;
         this.service.setCurrentWidget(this._widget);
         evt.stopPropagation();
     }
@@ -63,7 +59,6 @@ export class FreeWidgetView implements OnInit, AfterViewInit, OnDestroy, OnChang
     @HostListener('mouseout', ['$event'])
     mouseout(evt: any) {
         // 鼠标移动到改元素时 改变设置
-        this._active = false;
         evt.stopPropagation();
     }
     // 组件列表
@@ -87,10 +82,12 @@ export class FreeWidgetView implements OnInit, AfterViewInit, OnDestroy, OnChang
         this.service = this.widgetService.getWidgetInstance();
     }
 
-    ngOnInit() { }
+    ngOnInit() { 
+        console.log(this._widget.code);
+    }
 
     ngAfterViewInit() {
-
+        this.renderWidgetContainer();
     }
 
     removeWidget(e: any) {
@@ -114,8 +111,6 @@ export class FreeWidgetView implements OnInit, AfterViewInit, OnDestroy, OnChang
         this.compRef && this.compRef.destroy()
     }
 
-    ngOnChanges() {
-        this.renderWidgetContainer();
-    }
+    ngOnChanges() {}
 }
 

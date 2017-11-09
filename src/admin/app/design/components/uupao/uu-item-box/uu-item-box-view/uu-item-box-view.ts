@@ -11,5 +11,7 @@ export class UuItemBoxView implements OnInit {
     
     constructor() { }
 
-    ngOnInit() { }
+    ngOnInit() { 
+        this.widget = this.widget || new UuItemBoxDefault();
+    }
 }

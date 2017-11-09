@@ -59,27 +59,25 @@ export class ThemesDesign implements OnDestroy {
         this.widget$ = this.widgetService.getWidgetInstance();
         this.catalogService = this.catalogService$.getCatalogInstance();
 
-        this.layout$.onChange.subscribe(container => {
+        this.layout$.onChange.debounceTime(100).subscribe(container => {
             this._container = container;
-            this.application$.open();
         });
         // 设置当前
-        this.widget$.setCurrentWidgetStream.subscribe(res => {
+        this.widget$.setCurrentWidgetStream.debounceTime(100).subscribe(res => {
             this.currentWidget = res;
-            this.application$.open();
+            this.application$._open ? '' : this.application$.open();
         });
 
-        this.widget$.removeWidgetStream.subscribe(widget => {
+        this.widget$.removeWidgetStream.debounceTime(100).subscribe(widget => {
             const index = this.currentPage.body.children.indexOf(widget);
             this.currentPage.body.children.splice(index, 1);
         });
         // 页面激活状态变化时
-        this.catalogService.setCurrentPageStream.subscribe((page) => {
-            this.application$.open();
+        this.catalogService.setCurrentPageStream.debounceTime(100).subscribe((page) => {
+            this.application$._open ? '' : this.application$.open();
             // 保存当前页面
             this.currentWidget = page;
             this.currentPage = page;
-
             this.showRight = true;
         });
 
