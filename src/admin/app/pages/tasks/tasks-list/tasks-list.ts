@@ -14,31 +14,54 @@ export class TasksList implements OnInit {
     groups: any[] = [];
     status: any[] = [];
 
+    _post: any = {
+        page: 1,
+        psize: 50
+    };
+
     constructor(
         public api: ApiService,
         public dialog: MatDialog
     ) { 
         this.status = [
             {
-                title: '待接单'
+                title: '所有',
+                status: 'all'
             },
             {
-                title: '配送中'
+                title: '待接单',
+                status: 1
             },
             {
-                title: '已送达'
+                title: '配送中',
+                status: 2
             },
             {
-                title: '已确认'
+                title: '已送达',
+                status: 3
             },
             {
-                title: '已结款'
+                title: '已确认',
+                status: 4
+            },
+            {
+                title: '已结款',
+                status: 5
             }
         ];
     }
 
     selectStatus(item: any){
-        item.active = !item.active;
+        if(item){
+            this.status.map((res: any)=>{
+                res.active = false;
+            });
+            item.active = !item.active;
+            if(item.status != 'all'){
+                this._post['status'] = item.status;
+            }
+        }
+        this.getList();
     }
 
     getGroups(){
@@ -48,7 +71,7 @@ export class TasksList implements OnInit {
     }
 
     getList() {
-        this.api.mpost('tasks.getListTask', {}).subscribe((res: any) => {
+        this.api.mpost('tasks.getListTask', this._post).subscribe((res: any) => {
             this.list = res.info;
         });
     }
