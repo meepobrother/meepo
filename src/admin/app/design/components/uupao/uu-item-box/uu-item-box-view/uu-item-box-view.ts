@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { UuItemBoxDefault } from '../../../../classes';
 
 @Component({
@@ -6,17 +6,12 @@ import { UuItemBoxDefault } from '../../../../classes';
     templateUrl: './uu-item-box-view.html',
     styleUrls: ['./uu-item-box-view.scss']
 })
-export class UuItemBoxView implements OnInit, OnChanges {
+export class UuItemBoxView implements OnInit {
     @Input() widget: UuItemBoxDefault = new UuItemBoxDefault();
     
     constructor() { }
 
-    ngOnInit() { }
-
-    ngOnChanges(){
-        setTimeout(()=>{
-            console.log('uu item box view change');
-        },0);
+    ngOnInit() { 
+        this.widget = this.widget || new UuItemBoxDefault();
     }
-
 }
