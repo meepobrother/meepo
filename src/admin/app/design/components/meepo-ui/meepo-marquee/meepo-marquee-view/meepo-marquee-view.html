@@ -1,5 +1,5 @@
 <div id="marquee" class="marquee">
-    <div><a href="http://www.bloomylife.com/?cat=153" target="_blank">  WEB前端开发</a> [2011-10-20]</div>
-    <div><a href="http://www.bloomylife.com/?cat=154" target="_blank">  架构设计</a> [2011-09-20]</div>
-    <div><a href="http://www.bloomylife.com/?cat=157" target="_blank">  系统运维</a> [2011-10-16]</div>
+    <div [ngStyle]="widget.styleObj" *ngFor="let item of widget.items">
+        <a href="javascript:;" target="_blank">{{item.title}}</a>
+    </div>
 </div>

@@ -1,17 +1,20 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { Subject } from 'rxjs/Subject';
 declare const jQuery;
+import { MeepoMarqueeDefault } from '../../../../classes';
 
 @Component({
     selector: 'meepo-marquee-view',
     templateUrl: './meepo-marquee-view.html',
     styleUrls: ['./meepo-marquee-view.scss']
 })
-export class MeepoMarqueeView implements OnInit {
+export class MeepoMarqueeView implements OnInit, OnChanges {
     swiperJs: string = 'https://meepo.com.cn/meepo/libs/jquery.marquee/jquery.marquee.min.js';
     swiper: any;
     laodSuccess: Subject<any> = new Subject();
+
+    @Input() widget: MeepoMarqueeDefault = new MeepoMarqueeDefault();
     constructor(
         @Inject(DOCUMENT) public document: any
     ) { 
@@ -24,6 +27,10 @@ export class MeepoMarqueeView implements OnInit {
 
     ngOnInit() { 
         this.loadJScript();
+    }
+
+    ngOnChanges(changes: SimpleChanges){
+        console.log(changes);
     }
 
     loadJScript() {
