@@ -1,4 +1,4 @@
-<div id="marquee" [ngStyle]="widget.styleObj" class="marquee">
+<div #marquee [ngStyle]="widget.styleObj" class="marquee">
     <div [ngStyle]="widget.styleObj" *ngFor="let item of widget.items">
         <img [src]="item.image" *ngIf="item.image" style="width: 2em;" />
         <a href="javascript:;" [ngStyle]="{color: widget.styleObj.color}" target="_blank">{{item.title}}</a>

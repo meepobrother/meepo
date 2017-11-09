@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit, Inject, Input, OnChanges, SimpleChanges, ViewChild, ElementRef } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { Subject } from 'rxjs/Subject';
 declare const jQuery;
@@ -14,12 +14,14 @@ export class MeepoMarqueeView implements OnInit {
     swiper: any;
     laodSuccess: Subject<any> = new Subject();
 
+    @ViewChild('marquee') marquee: ElementRef;
+
     @Input() widget: MeepoMarqueeDefault = new MeepoMarqueeDefault();
     constructor(
         @Inject(DOCUMENT) public document: any
     ) { 
         this.laodSuccess.subscribe((scroxt: any)=>{
-            jQuery("#marquee").marquee();
+            jQuery(this.marquee.nativeElement).marquee();
         });
     }
 
