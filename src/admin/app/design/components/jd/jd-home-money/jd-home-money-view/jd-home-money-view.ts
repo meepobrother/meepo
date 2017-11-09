@@ -12,4 +12,6 @@ export class JdHomeMoneyView implements OnInit {
     constructor() { }
 
     ngOnInit() { }
+
+    myorder(){}
 }

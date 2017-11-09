@@ -16,14 +16,16 @@ export class TasksGroupAdd implements OnInit {
         this.form = this.fb.group({
             title: [''],
             displayorder: [''],
-            id: ['']
+            id: [''],
+            desc: ['']
         });
 
         this.dialog.afterOpen().subscribe(() => {
-            let { title, displayorder, id } = this.data;
+            let { title, displayorder, id, desc } = this.data;
             this.form.get('title').setValue(title);
             this.form.get('displayorder').setValue(displayorder);
             this.form.get('id').setValue(id);
+            this.form.get('desc').setValue(desc);
         });
     }
     ngOnInit() { }

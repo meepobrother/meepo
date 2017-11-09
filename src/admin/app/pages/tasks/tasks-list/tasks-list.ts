@@ -19,6 +19,23 @@ export class TasksList implements OnInit {
         psize: 50
     };
 
+    payTypes: any[] = [
+        {
+            title: '所有',
+            type: 'all'
+        },
+        {
+            title: '余额支付',
+            type: 'credit'
+        },{
+            title: '微信支付',
+            type: 'wechat'
+        },{
+            title: '货到付款',
+            type: 'divider'
+        }
+    ]
+
     constructor(
         public api: ApiService,
         public dialog: MatDialog
@@ -58,6 +75,28 @@ export class TasksList implements OnInit {
             });
             item.active = !item.active;
             this._post['status'] = item.status;
+        }
+        this.getList();
+    }
+
+    selectGroup(item: any){
+        if(item){
+            this.groups.map((res: any)=>{
+                res.active = false;
+            });
+            item.active = !item.active;
+            this._post['type'] = item.id;
+        }
+        this.getList();
+    }
+
+    selectPayTypes(item: any){
+        if(item){
+            this.payTypes.map((res: any)=>{
+                res.active = false;
+            });
+            item.active = !item.active;
+            this._post['payType'] = item.type;
         }
         this.getList();
     }
