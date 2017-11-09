@@ -350,7 +350,8 @@ export const COMPONENTS_VIEW = {
     'jd-home-header': JdHomeHeaderView,
     'jd-home-money': JdHomeMoneyView,
     'jd-home-order': JdHomeOrderView,
-    'jd-home-list': JdHomeListView
+    'jd-home-list': JdHomeListView,
+    'meepo-danmu': MeepoDanmuView
 };
 
 
@@ -430,6 +431,7 @@ export const COMPONENTS_SETTING = {
     'jd-home-money': JdHomeMoneySetting,
     'jd-home-order': JdHomeOrderSetting,
     'jd-home-list': JdHomeListSetting, 
+    'meepo-danmu': MeepoDanmuSetting
 };
 
 

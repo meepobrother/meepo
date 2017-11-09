@@ -1,34 +1,102 @@
-.danmu-show {
-    left: 0;
-    top: 0;
-    position: absolute;
-    z-index: 111;
+.ui-newstips-wrap {
+    margin: 20px 15px;
+    text-align: center
+}
+
+.ui-newstips {
+    background: #383939;
+    position: relative;
+    height: 40px !important;
+    line-height: 40px;
+    display: -webkit-inline-box;
+    -webkit-box-align: center;
+    padding-right: 25px;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #fff;
+    padding-left: 15px;
+    width: 300px;
+}
+
+.ui-newstips .ui-avatar-tiled,
+.ui-newstips .ui-newstips-thumb,
+.ui-newstips i {
+    display: block;
+    margin-left: -5px;
+    margin-right: 10px
+}
+
+.ui-newstips .ui-newstips-thumb {
+    width: 30px;
+    height: 30px;
+    position: relative
+}
+
+.ui-newstips .ui-newstips-thumb>span {
+    display: block;
     width: 100%;
     height: 100%;
+    z-index: 1;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover
+}
+
+.ui-newstips div {
+    display: -webkit-box;
     overflow: hidden;
-    pointer-events: none;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    -webkit-box-flex: 1;
+    height: inherit
+}
+
+.ui-newstips:after {
+    font-family: iconfont!important;
+    font-size: 32px;
+    line-height: 44px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: .2px;
     display: block;
-}
-
-.danmu-show .cm-content {
-    background-color: rgba(0, 0, 0, .1);
-    border-radius: 5px;
-    padding: 0 10px;
-    height: 64px;
-    line-height: 64px;
-    display: table;
-    font-size: 22px;
-    color: rgb(255, 255, 255);
-}
-
-.danmu-show .vertical {
-    margin-bottom: 10px;
+    color: rgba(0, 0, 0, .5);
+    color: #c7c7c7;
+    content: "";
     position: absolute;
+    right: 15px;
+    top: 50%;
+    margin-top: -22px;
+    margin-right: -10px
 }
 
-.danmu-show .cm-content img {
-    width: 44px;
-    height: 44px;
-    border-radius: 22px;
-    margin-right: 15px;
+@media (max-width: 320px) {
+    .ui-newstips:after {
+        right: 10px
+    }
+}
+
+.ui-newstips .ui-reddot,
+.ui-newstips .ui-reddot-border,
+.ui-newstips .ui-reddot-s,
+.ui-newstips .ui-badge-num {
+    margin-left: 10px;
+    margin-right: 5px
+}
+
+.ui-avatar-tiled {
+    width: 30px;
+    height: 30px;
+    -webkit-border-radius: 200px;
+    overflow: hidden;
+    display: inline-block
+}
+
+.ui-avatar-tiled>span {
+    width: 100%;
+    height: 100%;
+    display: block;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -webkit-border-radius: 200px
 }
