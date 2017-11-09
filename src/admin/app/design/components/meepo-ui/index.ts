@@ -8,6 +8,8 @@ export * from './meepo-list';
 export * from './meepo-swiper-tags';
 
 export * from './meepo-danmu';
+export * from './meepo-text';
+
 export * from './meepo-marquee';
 
 export * from './meepo-add-address';

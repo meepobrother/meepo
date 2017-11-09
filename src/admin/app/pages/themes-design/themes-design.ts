@@ -61,11 +61,12 @@ export class ThemesDesign implements OnDestroy {
 
         this.layout$.onChange.subscribe(container => {
             this._container = container;
+            this.application$.open();
         });
         // 设置当前
         this.widget$.setCurrentWidgetStream.subscribe(res => {
             this.currentWidget = res;
-            this.application$._open ? '' : this.application$.open();
+            this.application$.open();
         });
 
         this.widget$.removeWidgetStream.subscribe(widget => {
@@ -74,7 +75,7 @@ export class ThemesDesign implements OnDestroy {
         });
         // 页面激活状态变化时
         this.catalogService.setCurrentPageStream.subscribe((page) => {
-            this.application$._open ? '' : this.application$.open();
+            this.application$.open();
             // 保存当前页面
             this.currentWidget = page;
             this.currentPage = page;

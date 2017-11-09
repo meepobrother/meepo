@@ -45,4 +45,14 @@ export class MemberGroup implements OnInit {
             item.status = 1;
         }
     }
+
+    editGroup(item: any, index: number){
+
+    }
+
+    deleteGroup(item: any){
+        this.api.delete(item).subscribe(res=>{
+
+        });
+    }
 }

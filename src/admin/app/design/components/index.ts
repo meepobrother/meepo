@@ -16,7 +16,7 @@ import {
     MeepoFormBtnDefault, MeepoFormRealnameDefault, WeuiCellsDefault, WeuiPreviewDefault,
     PayuiFlowDefault, MeepoGridsDefault, PayStateDefault, TaskListDefault, RunnerListDefault,
     ZanSearchDefault, JdHomeHeaderDefault, JdHomeMoneyDefault, JdHomeOrderDefault, JdHomeListDefault,
-    MeepoMarqueeDefault
+    MeepoMarqueeDefault, MeepoTextDefault
 } from '../classes';
 
 import {
@@ -90,7 +90,7 @@ import {
     MeepoListSetting, MeepoListView,
     MeepoGridsSetting, MeepoGridsView,
     MeepoDanmuView, MeepoDanmuSetting,
-    MeepoMarqueeSetting, MeepoMarqueeView
+    MeepoMarqueeSetting, MeepoMarqueeView,
 } from './meepo-ui';
 
 import {
@@ -356,7 +356,8 @@ export const COMPONENTS_VIEW = {
     'jd-home-order': JdHomeOrderView,
     'jd-home-list': JdHomeListView,
     'meepo-danmu': MeepoDanmuView,
-    'meepo-marquee': MeepoMarqueeView
+    'meepo-marquee': MeepoMarqueeView,
+    'meepo-text': MeepoTextView
 };
 
 
@@ -438,6 +439,7 @@ export const COMPONENTS_SETTING = {
     'jd-home-list': JdHomeListSetting, 
     'meepo-danmu': MeepoDanmuSetting,
     'meepo-marquee': MeepoMarqueeSetting, 
+    'meepo-text':MeepoTextSetting
 };
 
 
@@ -506,7 +508,8 @@ export const WIDGETS = {
     'jd-home-money': JdHomeMoneyDefault,
     'jd-home-order': JdHomeOrderDefault,
     'jd-home-list': JdHomeListDefault,
-    'meepo-marquee': MeepoMarqueeDefault
+    'meepo-marquee': MeepoMarqueeDefault,
+    'meepo-text': MeepoTextDefault
 };
 
 import { Injectable } from '@angular/core';
