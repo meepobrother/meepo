@@ -4,6 +4,8 @@
     width: 100%;
     position: relative;
     &.active {
+        border-top: 1px solid red;
+        border-bottom: 1px solid red;
         cursor: move;
         .opts {
             display: block;
