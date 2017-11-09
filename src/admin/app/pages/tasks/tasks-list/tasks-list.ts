@@ -4,7 +4,8 @@ import { MatDialog } from '@angular/material';
 import { TasksListAdd } from './tasks-list-add/tasks-list-add';
 @Component({
     selector: "tasks-list",
-    templateUrl: "./tasks-list.html"
+    templateUrl: "./tasks-list.html",
+    styleUrls: ["./tasks-list.scss"]
 })
 export class TasksList implements OnInit {
 
@@ -36,6 +37,16 @@ export class TasksList implements OnInit {
         ];
     }
 
+    selectStatus(item: any){
+        item.active = !item.active;
+    }
+
+    getGroups(){
+        this.api.mpost('tasks.getListTaskGroup',{page: 1, psize: 50}).subscribe((res: any)=>{
+            this.groups = res.info;
+        });
+    }
+
     getList() {
         this.api.mpost('tasks.getListTask', {}).subscribe((res: any) => {
             this.list = res.info;
@@ -44,6 +55,7 @@ export class TasksList implements OnInit {
 
     ngOnInit() { 
         this.getList();
+        this.getGroups();
     }
 
     edit(item: any) {
