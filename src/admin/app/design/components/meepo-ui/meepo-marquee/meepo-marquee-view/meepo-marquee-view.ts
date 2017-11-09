@@ -2,28 +2,23 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { Subject } from 'rxjs/Subject';
 declare const jQuery;
+
 @Component({
-    selector: 'meepo-danmu-view',
-    templateUrl: './meepo-danmu-view.html',
-    styleUrls: ['./meepo-danmu-view.scss']
+    selector: 'meepo-marquee-view',
+    templateUrl: './meepo-marquee-view.html',
+    styleUrls: ['./meepo-marquee-view.scss']
 })
-export class MeepoDanmuView implements OnInit {
-    swiperJs: string = 'https://meepo.com.cn/meepo/libs/marquee.js';
+export class MeepoMarqueeView implements OnInit {
+    swiperJs: string = 'https://meepo.com.cn/meepo/libs/jquery.marquee/jquery.marquee.min.js';
     swiper: any;
     laodSuccess: Subject<any> = new Subject();
     constructor(
         @Inject(DOCUMENT) public document: any
     ) { 
         this.laodSuccess.subscribe((scroxt: any)=>{
-            jQuery(function() {
-                jQuery('#marquee_slide').marquee({
-                    auto: true,
-                    interval: 3000,
-                    speed: 500,
-                    showNum: 5,
-                    stepLen: 5
-                });
-            })
+            jQuery("#marquee").marquee({
+                yScroll: "bottom"
+            });
         });
     }
 
