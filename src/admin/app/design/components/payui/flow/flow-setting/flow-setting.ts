@@ -13,19 +13,26 @@ export class PayuiFlowSetting implements OnInit {
 
     ngOnInit() { }
 
-    next(){
+    next() {
         const len = this.widget.flows.length;
-        console.log(this.widget.ActiveFlowIndex + 1);
-        if(this.widget.ActiveFlowIndex +1 < len){
+        if (this.widget.ActiveFlowIndex + 1 < len) {
             this.widget.flows[this.widget.ActiveFlowIndex].status = 2;
-            this.widget.flows[this.widget.ActiveFlowIndex+1].status = 1;
-            this.widget.ActiveFlowIndex ++;
-        }else{
+            this.widget.flows[this.widget.ActiveFlowIndex + 1].status = 1;
+            this.widget.ActiveFlowIndex++;
+        } else {
             console.log('到底了');
         }
     }
 
-    add(){
-        
+    add() {
+
+    }
+
+    selectPage() {
+
+    }
+
+    delete(index: number) {
+        this.widget.flows.splice(index, 1);
     }
 }

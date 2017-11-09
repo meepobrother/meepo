@@ -18,7 +18,7 @@
     <div class="ibox-content">
         <table class="table table-hover">
             <tbody>
-                <tr *ngFor="let item of widget.flows">
+                <tr *ngFor="let item of widget.flows;index as i;">
                     <td>
                         <input [(ngModel)]="item.title" type="text" placeholder="标题" />
                     </td>
@@ -26,8 +26,8 @@
                         <input [(ngModel)]="item.status" type="number" placeholder="进度" />
                     </td>
                     <td>
-                        <a hreff="javascript:;" class="btn btn-primary btn-xs">页面</a>
-                        <a hreff="javascript:;" class="btn btn-danger btn-xs">删除</a>
+                        <a hreff="javascript:;" class="btn btn-primary btn-xs" (click)="selectPage(item,i)">页面</a>
+                        <a hreff="javascript:;" class="btn btn-danger btn-xs" (click)="delete(i)">删除</a>
                     </td>
                 </tr>
             </tbody>
