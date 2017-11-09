@@ -8,16 +8,28 @@ $psize = intval($input['psize']);
 $page = $page > 0 ? $page : 1;
 $psize = $psize > 0 ? $psize : 30;
 
+$params = array();
+$where = "";
+
+if(isset($input['type']) && $input['type'] != 'all'){
+    $type = intval($input['type']);
+    $where .= " AND type={$type} ";
+    $params[':type'] = $input['type'];
+}
+
 if(isset($input['status']) && $input['status'] != 'all'){
     $status = intval($input['status']);
-    $sql = "SELECT * FROM ".tablename('imeepos_runner3_tasks')." WHERE uniacid={$_W['uniacid']} AND status={$status} ORDER BY id DESC limit ".($page - 1)*$psize.",".$psize;
-    $params = array();
-    $list = pdo_fetchall($sql,$params);
-} else {
-    $sql = "SELECT * FROM ".tablename('imeepos_runner3_tasks')." WHERE uniacid={$_W['uniacid']} ORDER BY id DESC limit ".($page - 1)*$psize.",".$psize;
-    $params = array();
-    $list = pdo_fetchall($sql,$params);
+    $where .=" AND status={$status} ";
 }
+
+if(isset($input['payType']) && $input['payType'] != 'all'){
+    $payType = trim($input['payType']);
+    $where .=" AND payType=:payType ";
+    $params[':payType'] = $payType;
+}
+
+$sql = "SELECT * FROM ".tablename('imeepos_runner3_tasks')." WHERE uniacid={$_W['uniacid']} {$where} ORDER BY id DESC limit ".($page - 1)*$psize.",".$psize;
+$list = pdo_fetchall($sql,$params);
 
 foreach($list as &$li){ 
     $member = mc_fetch($li['openid'],array('uid','avatar','nickname'));
@@ -40,6 +52,10 @@ unset($li);
 
 if(empty($list)){
     $list = array();
+    $this->msg = $where;
+    $this->info = $list;
+    return $this;
 }
 $this->info = $list;
+$this->msg = $input;
 return $this;

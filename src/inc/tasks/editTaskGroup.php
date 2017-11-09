@@ -7,6 +7,8 @@ $group['uniacid'] = $_W['uniacid'];
 $group['title'] = $input['title'];
 $group['displayorder'] = $input['displayorder'];
 $group['setting'] = serialize($group['setting']);
+$group['desc'] = trim($input['desc']);
+
 if(!empty($group['title'])){
     if(!empty($input['id'])){
         pdo_update('imeepos_runner4_tasks_group',$group,array('id'=>$input['id']));

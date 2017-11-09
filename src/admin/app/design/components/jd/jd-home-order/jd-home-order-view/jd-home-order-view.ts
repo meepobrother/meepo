@@ -11,4 +11,6 @@ export class JdHomeOrderView implements OnInit {
     constructor() { }
 
     ngOnInit() { }
+
+    myorder(){}
 }
