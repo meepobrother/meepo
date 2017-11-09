@@ -10,10 +10,31 @@ export class TasksList implements OnInit {
 
     list: any[] = [];
 
+    groups: any[] = [];
+    status: any[] = [];
+
     constructor(
         public api: ApiService,
         public dialog: MatDialog
-    ) { }
+    ) { 
+        this.status = [
+            {
+                title: '待接单'
+            },
+            {
+                title: '配送中'
+            },
+            {
+                title: '已送达'
+            },
+            {
+                title: '已确认'
+            },
+            {
+                title: '已结款'
+            }
+        ];
+    }
 
     getList() {
         this.api.mpost('tasks.getListTask', {}).subscribe((res: any) => {

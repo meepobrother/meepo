@@ -12,20 +12,29 @@ export class TasksGroupAdd implements OnInit {
         @Inject(MAT_DIALOG_DATA) public data: any,
         public dialog: MatDialogRef<any>,
         public fb: FormBuilder
-    ) { 
+    ) {
         this.form = this.fb.group({
-            title: ['']
+            title: [''],
+            displayorder: [''],
+            id: ['']
+        });
+
+        this.dialog.afterOpen().subscribe(() => {
+            let { title, displayorder, id } = this.data;
+            this.form.get('title').setValue(title);
+            this.form.get('displayorder').setValue(displayorder);
+            this.form.get('id').setValue(id);
         });
     }
     ngOnInit() { }
-    save(){
+    save() {
         this.dialog.close(this.form.value);
     }
-    cancel(){
+    cancel() {
         this.dialog.close();
     }
 
-    close(){
+    close() {
         this.cancel();
     }
 }
