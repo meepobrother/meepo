@@ -16,7 +16,9 @@ export class MeepoMarqueeView implements OnInit {
         @Inject(DOCUMENT) public document: any
     ) { 
         this.laodSuccess.subscribe((scroxt: any)=>{
-            jQuery("#marquee").marquee({yScroll: "bottom"});
+            jQuery("#marquee").marquee({
+                yScroll: "bottom"
+            });
         });
     }
 

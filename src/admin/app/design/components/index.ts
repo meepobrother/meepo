@@ -15,7 +15,8 @@ import {
     MeepoDanmu, PayRecordDefault, PaySelectMoneyDefault, IqiyiHeadNavDefault,
     MeepoFormBtnDefault, MeepoFormRealnameDefault, WeuiCellsDefault, WeuiPreviewDefault,
     PayuiFlowDefault, MeepoGridsDefault, PayStateDefault, TaskListDefault, RunnerListDefault,
-    ZanSearchDefault, JdHomeHeaderDefault, JdHomeMoneyDefault, JdHomeOrderDefault, JdHomeListDefault
+    ZanSearchDefault, JdHomeHeaderDefault, JdHomeMoneyDefault, JdHomeOrderDefault, JdHomeListDefault,
+    MeepoMarqueeDefault
 } from '../classes';
 
 import {
@@ -88,7 +89,8 @@ import {
     MeepoAddAddressView, MeepoAddAddressSetting,
     MeepoListSetting, MeepoListView,
     MeepoGridsSetting, MeepoGridsView,
-    MeepoDanmuView, MeepoDanmuSetting
+    MeepoDanmuView, MeepoDanmuSetting,
+    MeepoMarqueeSetting, MeepoMarqueeView
 } from './meepo-ui';
 
 import {
@@ -265,7 +267,9 @@ export const COMPONENTS = [
     JdHomeHeaderSetting, JdHomeHeaderView,
     JdHomeMoneySetting, JdHomeMoneyView,
     JdHomeOrderSetting, JdHomeOrderView,
-    JdHomeListSetting, JdHomeListView
+    JdHomeListSetting, JdHomeListView,
+
+    MeepoMarqueeSetting, MeepoMarqueeView
 ];
 
 
@@ -351,7 +355,8 @@ export const COMPONENTS_VIEW = {
     'jd-home-money': JdHomeMoneyView,
     'jd-home-order': JdHomeOrderView,
     'jd-home-list': JdHomeListView,
-    'meepo-danmu': MeepoDanmuView
+    'meepo-danmu': MeepoDanmuView,
+    'meepo-marquee': MeepoMarqueeView
 };
 
 
@@ -431,7 +436,8 @@ export const COMPONENTS_SETTING = {
     'jd-home-money': JdHomeMoneySetting,
     'jd-home-order': JdHomeOrderSetting,
     'jd-home-list': JdHomeListSetting, 
-    'meepo-danmu': MeepoDanmuSetting
+    'meepo-danmu': MeepoDanmuSetting,
+    'meepo-marquee': MeepoMarqueeSetting, 
 };
 
 
@@ -499,7 +505,8 @@ export const WIDGETS = {
     'jd-home-header': JdHomeHeaderDefault,
     'jd-home-money': JdHomeMoneyDefault,
     'jd-home-order': JdHomeOrderDefault,
-    'jd-home-list': JdHomeListDefault
+    'jd-home-list': JdHomeListDefault,
+    'meepo-marquee': MeepoMarqueeDefault
 };
 
 import { Injectable } from '@angular/core';
