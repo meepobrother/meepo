@@ -1,9 +1,19 @@
-<div class="ibox">
+<div class="ibox" [formGroup]="form">
     <div class="ibox-title">
         <h5>添加任务分类</h5>
         <div class="ibox-tools">
             <a class="btn btn-primary btn-xs" (click)="close()">关闭</a>
         </div>
     </div>
-    <div class="ibox-content"></div>
+    <div class="ibox-content">
+        <div class="form-group">
+            <label>名称</label>
+            <input class="form-control" text="分类名" formControlName="title">
+        </div>
+
+        <div class="form-group">
+            <a class="btn btn-primary" (click)="save()">添加</a>
+            <a class="btn btn-default" (click)="cancel()">取消</a>
+        </div>
+    </div>
 </div>

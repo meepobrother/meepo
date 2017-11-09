@@ -14,7 +14,7 @@ export class TasksGroupAdd implements OnInit {
         public fb: FormBuilder
     ) { 
         this.form = this.fb.group({
-
+            title: ['']
         });
     }
     ngOnInit() { }
