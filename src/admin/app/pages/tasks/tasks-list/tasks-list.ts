@@ -57,9 +57,7 @@ export class TasksList implements OnInit {
                 res.active = false;
             });
             item.active = !item.active;
-            if(item.status != 'all'){
-                this._post['status'] = item.status;
-            }
+            this._post['status'] = item.status;
         }
         this.getList();
     }
