@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
     selector: 'zan-panel-setting',
     templateUrl: './zan-panel-setting.html',
-    styleUrls: ['./zan-cell-setting.scss']
+    styleUrls: ['./zan-panel-setting.scss']
 })
 export class ZanPanelSetting implements OnInit {
     constructor() { }
