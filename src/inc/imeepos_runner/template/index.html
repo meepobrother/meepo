@@ -1,0 +1,160 @@
+{template 'common/header'}
+<link rel="stylesheet" href="{MODULE_URL}template/main.css?t={php echo time()}">
+
+<div class="card">
+    {if $role == 'founder'} {template 'admin'} {/if} {if $_W['uid'] > 0} {template 'manage'} {/if}
+    <div class="panel panel-info">
+        <div class="panel-heading">搜索</div>
+        <div class="panel-body">
+            <form class="form-inline" action="{php echo $this->createWebUrl('index')}" method="get">
+                <input type="hidden" name="c" value="{php echo $_GPC['c']}">
+                <input type="hidden" name="a" value="{php echo $_GPC['a']}">
+                <input type="hidden" name="eid" value="{php echo $_GPC['eid']}">
+                <div class="form-group">
+                    <label for="exampleInputName2">昵称</label>
+                    <input type="text" name="nickname" value="{php echo $_GPC['nickname']}" class="form-control" id="exampleInputName2" placeholder="请输入昵称">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail2">openid</label>
+                    <input type="text" name="openid" value="{php echo $_GPC['openid']}" class="form-control" id="exampleInputEmail2" placeholder="请输入openid">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail3">电话</label>
+                    <input type="text" name="mobile" value="{php echo $_GPC['mobile']}" class="form-control" id="exampleInputEmail3" placeholder="请输入电话">
+                </div>
+                <div class="checkbox">
+                    <label>
+			      <input name="isadmin" {if $_GPC['isadmin'] == 'on'}checked{/if} type="checkbox"> 站长
+			    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+			      <input name="ismanager" {if $_GPC['ismanager'] == 'on'}checked{/if} type="checkbox"> 管理
+			    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+			      <input name="isrunner" {if $_GPC['isrunner'] == 'on'}checked{/if} type="checkbox"> 跑腿
+			    </label>
+                </div>
+                <button type="submit" class="btn btn-default">搜索</button>
+            </form>
+            <!-- {if $role == 'founder'} -->
+            <a href="{$_W['siteroot']}addons/imeepos_runner/install/initFiles.php?module=imeepos_runner" class="btn btn-danger fr">跑腿主程序-版本校验</a>
+            <a href="{$_W['siteroot']}addons/imeepos_runner/install/initFiles.php?module=imeepos_runner_plugin_im" class="btn btn-success fr">跑腿IM-版本校验</a>
+            <!-- {/if} -->
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">粉丝会员</div>
+        <div class="panel-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th style="width: 4em;">头像</th>
+                        <th style="width: 8em;">昵称</th>
+                        <th style="width: 8em;">hash</th>
+                        <th style="width: 12em;">电话</th>
+                        <th style="width: 10em;">信誉</th>
+                        <!-- <th style="width: 20em;">openid</th> -->
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {loop $list['list'] $li}
+                    <tr>
+                        <td>
+                            <img class="avatar" src="{php echo $li['avatar']}" alt="">
+                        </td>
+                        <td>{$li['nickname']}</td>
+                        <td>{$li['hash']}</td>
+                        <td>{$li['mobile']}</td>
+                        <td>
+                            <span style="color:#000;">{php echo $li['xinyu'] > 0 ? $li['xinyu'] : '0'}</span>
+                            <a data-openid2="{$li['openid']}" data-chong href="javascript:;">充值</a>
+                        </td>
+                        <!-- <td>{$li['openid']}</td> -->
+                        <td>
+                            {if $role == 'founder'}
+                            <a data-action="isadmin" data-openid="{php echo $li['openid']}" href="javascript:;" class="btn {if $li['isadmin'] == 1}btn-info{else}btn-default{/if} btn-sm">
+		    				{if $li['isadmin'] == 1}取消站长{else}站长{/if}
+		    				</a> {/if} {if $_W['uid'] > 0}
+                            <a data-action="ismanager" data-openid="{php echo $li['openid']}" href="javascript:;" class="btn {if $li['ismanager'] == 1}btn-success{else}btn-default{/if} btn-sm">
+		    				{if $li['ismanager'] == 1}取消管理{else}管理员{/if}
+		    				</a>
+                            <a data-action="isrunner" data-openid="{php echo $li['openid']}" href="javascript:;" class="btn {if $li['isrunner'] == 1}btn-primary{else}btn-default{/if} btn-sm">
+		    				{if $li['isrunner'] == 1}取消跑腿{else}跑腿{/if}
+		    				</a> {/if}
+                            <a data-action="delete" data-openid="{php echo $li['openid']}" href="javascript:;" class="btn btn-danger btn-sm">删除</a>
+                        </td>
+                    </tr>
+                    {/loop}
+                </tbody>
+            </table>
+        </div>
+        <div class="panel-footer">
+            {php echo $list['pager']}
+        </div>
+    </div>
+</div>
+<div class="js_dialog" style="display:none;">
+    <div class="weui-mask"></div>
+    <div class="weui-dialog">
+        <div class="weui-dialog__hd"><strong class="weui-dialog__title">请输入充值金额</strong></div>
+        <input class="weui-input" id="xinyu" type="number" pattern="[0-9]*" placeholder="请输入充值金额">
+        <div class="weui-dialog__ft">
+            <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_default" id="cancel">取消</a>
+            <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary" id="sure">确定</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    $('[data-openid]').click(function() {
+        var openid = $(this).data('openid');
+        var action = $(this).data('action');
+        $.post('', {
+            action: action,
+            openid: openid
+        }, function(res) {
+            if (res.code == '1') {
+                location.reload();
+                location.go(0)
+            } else {
+                alert(res.msg)
+            }
+        }, 'json');
+    })
+    var chongOpenid = '';
+    $('[data-chong]').click(function() {
+        chongOpenid = $(this).data('openid2');
+        $('.js_dialog').show()
+
+        $('#cancel').click(function() {
+            $('.js_dialog').hide();
+            $('#xinyu').value = '';
+        })
+
+        $('#sure').click(function() {
+            var value = $('#xinyu').val()
+            $.post('', {
+                action: 'xinyu.chong',
+                openid: chongOpenid,
+                value: value
+            }, function(res) {
+                $('.js_dialog').hide();
+
+                if (res.code == 1) {
+                    util.message('充值成功', '', 'success');
+                    location.reload();
+                    location.go(0)
+
+                } else {
+                    util.message(res.msg)
+                    $('#xinyu').value = '';
+                }
+            }, 'json')
+        })
+    })
+</script>
+{template 'common/footer'}
