@@ -1,0 +1,12 @@
+<div class="footer">
+    <div style="display:inline-block;vertical-align:middle;">
+        <a class="bubble bubble-blue" href="javascript:;" (click)="playVoice()">
+            <span class="bubble-tail"></span>
+            <span class="wave1" *ngIf="playIcon<4"></span>
+            <span class="wave2" *ngIf="playIcon<3"></span>
+            <span class="wave3" *ngIf="playIcon<2"></span>
+            <span class="bubble-tip">{{widget.btnTitle}}</span>
+            <span *ngIf="widget.hasGift" class="gift gift-swing"></span>
+        </a>
+    </div>
+</div>

@@ -2,7 +2,8 @@ import { Widget } from '../widget';
 
 export class MeepoVideoDefault extends Widget {
     videoUrl: string = '';
-    
+    btnTitle: string = '立即播放';
+    hasGift: boolean = false;
     constructor() {
         super();
         this.type = 'meepo-video';

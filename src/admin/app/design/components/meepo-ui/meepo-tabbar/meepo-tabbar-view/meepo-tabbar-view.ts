@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MeepoTabbarDefault } from '../../../../classes';
+
 @Component({
     selector: 'meepo-tabbar-view',
     templateUrl: './meepo-tabbar-view.html',

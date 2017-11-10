@@ -2,7 +2,7 @@
     <nav-tab-pane [title]="group.title" *ngFor="let group of widgets">
         <ng-template navTabPaneRef>
             <div class="widgets-container">
-                <div class="widget ui-draggable ui-draggable-handle" (click)="selectWidget(item)" *ngFor="let item of group.widgets">
+                <div draggable class="widget ui-draggable ui-draggable-handle" (click)="selectWidget(item)" *ngFor="let item of group.widgets">
                     <i class="icon-container icomoon-text"></i>
                     <label>{{item.name}}</label>
                 </div>

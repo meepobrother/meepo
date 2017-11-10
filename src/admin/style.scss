@@ -792,3 +792,15 @@ html {
     flex-direction: row;
     flex-wrap: nowrap;
 }
+
+.meepo-dragged {
+    border: 1px dashed red;
+    background-color: gray;
+}
+
+.meepo-dragenter {
+    .control-wrap {
+        display: block !important;
+        background-color: rgba(0, 0, 0, 0.38) !important;
+    }
+}

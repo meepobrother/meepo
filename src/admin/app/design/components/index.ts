@@ -16,7 +16,7 @@ import {
     MeepoFormBtnDefault, MeepoFormRealnameDefault, WeuiCellsDefault, WeuiPreviewDefault,
     PayuiFlowDefault, MeepoGridsDefault, PayStateDefault, TaskListDefault, RunnerListDefault,
     ZanSearchDefault, JdHomeHeaderDefault, JdHomeMoneyDefault, JdHomeOrderDefault, JdHomeListDefault,
-    MeepoMarqueeDefault, MeepoTextDefault, MeepoVoiceDefault, MeepoVideoDefault
+    MeepoMarqueeDefault, MeepoTextDefault, MeepoVoiceDefault, MeepoVideoDefault, MeepoTabbarDefault
 } from '../classes';
 
 import {
@@ -92,7 +92,10 @@ import {
     MeepoDanmuView, MeepoDanmuSetting,
     MeepoMarqueeSetting, MeepoMarqueeView,
     MeepoVideoSetting, MeepoVideoView,
-    MeepoVoiceSetting, MeepoVoiceView
+    MeepoVoiceSetting, MeepoVoiceView,
+
+    // meepo
+    MeepoTabbarSetting, MeepoTabbarView
 } from './meepo-ui';
 
 import {
@@ -273,7 +276,9 @@ export const COMPONENTS = [
 
     MeepoMarqueeSetting, MeepoMarqueeView,
     MeepoVideoSetting, MeepoVideoView,
-    MeepoVoiceSetting, MeepoVoiceView
+    MeepoVoiceSetting, MeepoVoiceView,
+
+    MeepoTabbarSetting, MeepoTabbarView
 ];
 
 
@@ -363,7 +368,9 @@ export const COMPONENTS_VIEW = {
     'meepo-marquee': MeepoMarqueeView,
     'meepo-text': MeepoTextView,
     'meepo-video': MeepoVideoView,
-    'meepo-voice': MeepoVoiceView
+    'meepo-voice': MeepoVoiceView,
+
+    'meepo-tabbar': MeepoTabbarView,
 };
 
 
@@ -447,7 +454,9 @@ export const COMPONENTS_SETTING = {
     'meepo-marquee': MeepoMarqueeSetting, 
     'meepo-text':MeepoTextSetting,
     'meepo-video': MeepoVideoSetting,
-    'meepo-voice': MeepoVoiceSetting
+    'meepo-voice': MeepoVoiceSetting,
+
+    'meepo-tabbar': MeepoTabbarSetting,
 };
 
 
@@ -517,7 +526,10 @@ export const WIDGETS = {
     'jd-home-order': JdHomeOrderDefault,
     'jd-home-list': JdHomeListDefault,
     'meepo-marquee': MeepoMarqueeDefault,
-    'meepo-text': MeepoTextDefault
+    'meepo-text': MeepoTextDefault,
+    'meepo-tabbar': MeepoTabbarDefault,
+    'meepo-video': MeepoVideoDefault,
+    'meepo-voice': MeepoVoiceDefault
 };
 
 import { Injectable } from '@angular/core';

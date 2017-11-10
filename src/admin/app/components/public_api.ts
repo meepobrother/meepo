@@ -14,5 +14,7 @@ export * from './weui-picker';
 
 export * from './editor';
 export * from './dialog';
+export * from './sortable';
+
 
 

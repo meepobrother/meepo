@@ -20,6 +20,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CoreModule } from '../core';
 
 import { MeepoModule } from '../meepo/meepo.module';
+import { SortableModule } from '../components/sortable';
 
 const materials = [
     CommonModule,
@@ -42,7 +43,8 @@ const materials = [
     MeepoDialogModule,
     WeuiPickerModule,
     CoreModule,
-    MeepoModule
+    MeepoModule,
+    SortableModule
 ];
 
 @NgModule({
