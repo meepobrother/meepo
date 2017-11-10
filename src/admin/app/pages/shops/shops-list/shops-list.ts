@@ -36,13 +36,16 @@ export class ShopsList implements OnInit {
         });
     }
 
-    edit(item: any) {
+    edit(item: any, index: number) {
         const dialogRef = this.dialog.open(ShopsListAdd, { data: item });
+        dialogRef.afterClosed().subscribe(res => {
+
+        });
     }
 
-    delete(item: any) {
+    delete(item: any, index: number) {
         this.api.mpost('shops.deleteShop', item).subscribe((res => {
-            this.getList();
+            this.list.splice(index, 1);
         }));
     }
 }
