@@ -1,0 +1,24 @@
+<div class="ibox">
+    <div class="ibox-title">
+        <h5>图片设置</h5>
+    </div>
+    <div class="ibox-content">
+        <div class="form-group">
+            <label>尺寸</label> 高：
+            <number-px [(model)]="widget.height"></number-px>
+            宽：
+            <number-px [(model)]="widget.width"></number-px>
+        </div>
+        <div class="form-group">
+            <label>间距</label> 左：
+            <number-px [(model)]="widget['margin-left']"></number-px>
+            上：
+            <number-px [(model)]="widget['margin-top']"></number-px>
+        </div>
+        <div class="form-group">
+            <label>圆角</label>
+            <number-px [(model)]="widget['border-radius']"></number-px>
+            <a class="btn btn-primary btn-xs" (click)="setRound()">圆角</a>
+        </div>
+    </div>
+</div>

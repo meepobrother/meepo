@@ -1,0 +1,43 @@
+<div class="ibox">
+    <div class="ibox-title">边框设置</div>
+    <div class="ibox-content">
+        <div class="form-group">
+            <label>样式</label>
+            <select class="form-control" [(ngModel)]="widget['border-style']" style="width: 5em;">
+                <option value="none">无</option>
+                <option value="solid">实线</option>
+                <option value="dotted">点线</option>
+                <option value="dashed">虚线</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>粗细</label>
+            <number-px [(model)]="widget['border-width']"></number-px>
+        </div>
+        <div class="form-group">
+            <label>颜色</label>
+            <color-select (onSelect)="onBorderColorSelect($event)"></color-select>
+        </div>
+    </div>
+
+    <div class="ibox-title">边框阴影</div>
+    <div class="ibox-content">
+        <div class="form-group">
+            <label>模糊半径</label>
+            <number-px [(model)]="widget['border-width']"></number-px>
+        </div>
+        <div class="form-group">
+            <label>X轴偏移</label>
+            <number-px [(model)]="widget['border-width']"></number-px>
+        </div>
+        <div class="form-group">
+            <label>Y轴偏移</label>
+            <number-px [(model)]="widget['border-width']"></number-px>
+        </div>
+
+        <div class="form-group">
+            <label>阴影颜色</label>
+            <color-select (onSelect)="onBoxShadowColorSelect($event)"></color-select>
+        </div>
+    </div>
+</div>

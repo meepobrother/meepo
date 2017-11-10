@@ -6,6 +6,7 @@ import { LayoutHeaderView } from '../../layout-header';
 import { LayoutFooterView } from '../../layout-footer';
 import { LayoutMenuView } from '../../layout-menu';
 
+import { WIDGETS } from '../../../index';
 
 @Component({
     selector: 'layout-container-view',
@@ -26,11 +27,26 @@ export class LayoutContainerView implements OnInit {
         public ele: ElementRef
     ) { }
 
-    ngOnInit() { }
+    ngOnInit() {
+        setTimeout(() => {
+            console.log(this.widget);
+        }, 300);
+    }
 
     onDropBody(widget: any) {
-        console.log('放在body里', widget);
-        this.widget.body.children.push(widget.data);
-        console.log(this.widget.body.children);
+        if (widget.data) {
+            console.log('放在body里', widget);
+            if(widget.tag == 'widget-new'){
+                widget.data = new WIDGETS[widget.data.type]();
+            }
+            // 删除原来的
+            let old = this.widget.body.children.indexOf(widget.data);
+
+            this.widget.body.children.push(widget.data);
+            if (old >= 0) {
+                this.widget.body.children.splice(old, 1);
+            }
+            console.log('原来的ID' + old, this.widget.body.children);
+        }
     }
 }

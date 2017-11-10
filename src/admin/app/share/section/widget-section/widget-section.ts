@@ -21,16 +21,21 @@ export class WidgetSection implements OnInit {
     ngOnInit() {
         this.api.mpost('app.getListAppWidgetsGroup', { page: 1, psize: 30 }).subscribe((res: any) => {
             this.widgets = res.info;
-            this.widgets.map(res=>{
-                res['_instance'] = new WIDGETS[res.type]();
+            this.widgets.map(res => {
+                res.widgets.map(widget=>{
+                    if (WIDGETS[widget.type]) {
+                        widget['__that'] = new WIDGETS[widget.type]();
+                    }
+                });
             });
+            console.log('widgets', this.widgets);
         });
         this.api.mpost('app.getListAppForms', { page: 1, psize: 30 }).subscribe((res: any) => {
             this.forms = res.info;
         });
     }
 
-    selectWidget(item: any){
+    selectWidget(item: any) {
         this.onSelect.emit(item);
     }
 }

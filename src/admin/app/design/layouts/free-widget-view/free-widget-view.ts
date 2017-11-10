@@ -25,14 +25,12 @@ export class FreeWidgetView implements OnInit, AfterViewInit, OnDestroy, OnChang
         // 鼠标移动到改元素时 改变设置
         this._active = true;
         this.service.setCurrentWidget(this._widget);
-        evt.stopPropagation();
     }
 
     @HostListener('mouseout', ['$event'])
     mouseout(evt: any) {
         // 鼠标移动到改元素时 改变设置
         this._active = false;        
-        evt.stopPropagation();
     }
     // 组件列表
     _widget: any;

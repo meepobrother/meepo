@@ -17,7 +17,7 @@ export class DropableDirective implements OnInit {
         public ele: ElementRef,
         public rd: Renderer2,
         public service: DragDropService
-    ) { 
+    ) {
         this.data$ = this.service.getDragData().take(1);
     }
 
@@ -25,59 +25,52 @@ export class DropableDirective implements OnInit {
     dragstart(evt: Event) {
         evt.preventDefault();
         evt.stopPropagation();
-        if (this.ele.nativeElement === evt.target) {
-            this.data$.subscribe(dragData=>{
-                if(this.dropTags.indexOf(dragData.tag) > -1){
-                    this.rd.addClass(this.ele.nativeElement, this.dragenterClass);
-                }
-            });
-        }
+        this.data$.subscribe(dragData => {
+            if (this.dropTags.indexOf(dragData.tag) > -1) {
+                this.rd.addClass(this.ele.nativeElement, this.dragenterClass);
+            }
+        });
     }
 
     @HostListener('dragover', ['$event'])
     dragover(evt: Event) {
         evt.preventDefault();
         evt.stopPropagation();
-        if (this.ele.nativeElement === evt.target) {
-            this.data$.subscribe(dragData=>{
-                if(this.dropTags.indexOf(dragData.tag) > -1){
-                    this.rd.setProperty(evt,'dataTransfer.effectAllowed','all');
-                    this.rd.setProperty(evt,'dataTransfer.dropEffect','move');
-                }else{
-                    this.rd.setProperty(evt,'dataTransfer.effectAllowed','none');
-                    this.rd.setProperty(evt,'dataTransfer.dropEffect','none');
-                }
-            });
-        }
+        this.data$.subscribe(dragData => {
+            if (this.dropTags.indexOf(dragData.tag) > -1) {
+                this.rd.setProperty(evt, 'dataTransfer.effectAllowed', 'all');
+                this.rd.setProperty(evt, 'dataTransfer.dropEffect', 'move');
+            } else {
+                this.rd.setProperty(evt, 'dataTransfer.effectAllowed', 'none');
+                this.rd.setProperty(evt, 'dataTransfer.dropEffect', 'none');
+            }
+            this.rd.addClass(this.ele.nativeElement, this.dragenterClass);
+        });
     }
 
     @HostListener('dragleave', ['$event'])
     dragleave(evt: Event) {
         evt.preventDefault();
         evt.stopPropagation();
-        if (this.ele.nativeElement === evt.target) {
-            this.data$.subscribe(dragData=>{
-                if(this.dropTags.indexOf(dragData.tag) > -1){
-                    this.rd.removeClass(this.ele.nativeElement, this.dragenterClass);
-                }
-            });
-        }
+        this.data$.subscribe(dragData => {
+            if (this.dropTags.indexOf(dragData.tag) > -1) {
+                this.rd.removeClass(this.ele.nativeElement, this.dragenterClass);
+            }
+        });
     }
 
     @HostListener('drop', ['$event'])
     drop(evt: Event) {
         evt.preventDefault();
         evt.stopPropagation();
-        if (this.ele.nativeElement === evt.target) {
-            this.data$.subscribe(dragData=>{
-                if(this.dropTags.indexOf(dragData.tag) > -1){
-                    this.rd.removeClass(this.ele.nativeElement, this.dragenterClass);
-                    this.onDrop.next(dragData);
-                    this.service.clearDragData();
-                    console.log('放到这里',this.ele.nativeElement);
-                }
-            });
-        }
+        this.data$.subscribe(dragData => {
+            if (this.dropTags.indexOf(dragData.tag) > -1) {
+                this.rd.removeClass(this.ele.nativeElement, this.dragenterClass);
+                this.onDrop.next(dragData);
+                this.service.clearDragData();
+                console.log('放到这里', this.ele.nativeElement);
+            }
+        });
     }
 
     ngOnInit() {

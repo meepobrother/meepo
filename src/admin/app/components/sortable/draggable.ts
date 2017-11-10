@@ -1,4 +1,4 @@
-import { Directive, OnInit, HostListener, Renderer2, ElementRef, Input } from '@angular/core';
+import { Directive, OnInit, HostListener, Renderer2, ElementRef, Input, Output, EventEmitter } from '@angular/core';
 import { DragDropService } from './drag-drop.service';
 @Directive({
     selector: 'div.ui-draggable,[draggable]'
@@ -8,6 +8,8 @@ export class DraggableDirective implements OnInit {
     @Input() draggedclass: string = 'meepo-dragged';
     @Input() dragTag: string;
     @Input() dragData: any;
+
+    @Output() onDrag: EventEmitter<any> = new EventEmitter();
 
     constructor(
         public ele: ElementRef,
