@@ -1,5 +1,10 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ApiService } from '../../../core';
+
+import {
+    WIDGETS
+} from '../../../design/components';
+
 @Component({
     selector: 'widget-section',
     templateUrl: './widget-section.html',
@@ -16,6 +21,9 @@ export class WidgetSection implements OnInit {
     ngOnInit() {
         this.api.mpost('app.getListAppWidgetsGroup', { page: 1, psize: 30 }).subscribe((res: any) => {
             this.widgets = res.info;
+            this.widgets.map(res=>{
+                res['_instance'] = new WIDGETS[res.type]();
+            });
         });
         this.api.mpost('app.getListAppForms', { page: 1, psize: 30 }).subscribe((res: any) => {
             this.forms = res.info;
@@ -23,7 +31,6 @@ export class WidgetSection implements OnInit {
     }
 
     selectWidget(item: any){
-        console.log(item);
         this.onSelect.emit(item);
     }
 }

@@ -1,11 +1,14 @@
 import { Directive, OnInit, HostListener, Renderer2, ElementRef, Input } from '@angular/core';
 import { DragDropService } from './drag-drop.service';
 @Directive({
-    selector: 'div.ui-draggable'
+    selector: 'div.ui-draggable,[draggable]'
 })
 export class DraggableDirective implements OnInit {
 
     @Input() draggedclass: string = 'meepo-dragged';
+    @Input() dragTag: string;
+    @Input() dragData: any;
+
     constructor(
         public ele: ElementRef,
         public rd: Renderer2,
@@ -16,6 +19,7 @@ export class DraggableDirective implements OnInit {
     dragstart(evt: Event) {
         if (this.ele.nativeElement === evt.target) {
             this.rd.addClass(this.ele.nativeElement, this.draggedclass);
+            this.service.setDragData({ tag: this.dragTag, data: this.dragData });
         }
     }
 

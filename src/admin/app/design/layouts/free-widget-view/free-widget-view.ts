@@ -19,35 +19,6 @@ import "rxjs/add/operator/last";
 })
 export class FreeWidgetView implements OnInit, AfterViewInit, OnDestroy, OnChanges {
     @HostBinding('class.active') _active: boolean = false;
-    @HostBinding('attr.draggable') _draggable: boolean = true;
-    @HostBinding('style.background-color') _bgColor: string = '';
-
-    onDragEnter: Subject<any> = new Subject();
-    onDragLeave: Subject<any> = new Subject();
-
-    // 经过
-    @HostListener('dragover', ['$event'])
-    dragover(evt: any) {
-        evt.preventDefault();
-    }
-
-    @HostListener('drop', ['$event'])
-    drop(evt: any) {
-        let code = evt.dataTransfer.getData('Text');
-    }
-
-    // 结束
-    @HostListener('dragend', ['$event'])
-    dragend(evt: any) {
-        console.log(this.service.widget);
-    }
-    // 开始
-    @HostListener('dragstart', ['$event'])
-    dragstart(evt: any) {
-        evt.dataTransfer.effectAllowed = "move";
-        this.service.setData(this._widget);
-    }
-
 
     @HostListener('mouseover', ['$event'])
     mouseover(evt: any) {
@@ -84,9 +55,7 @@ export class FreeWidgetView implements OnInit, AfterViewInit, OnDestroy, OnChang
         this.service = this.widgetService.getWidgetInstance();
     }
 
-    ngOnInit() { 
-        console.log(this._widget.code);
-    }
+    ngOnInit() { }
 
     ngAfterViewInit() {
         this.renderWidgetContainer();

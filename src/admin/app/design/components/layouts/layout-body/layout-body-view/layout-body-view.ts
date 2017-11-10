@@ -36,4 +36,10 @@ export class LayoutBodyView implements OnInit {
     }
 
     ngOnInit() { }
+
+    onDropWidget(widget: any, index: number){
+        console.log('放在widget后面'+index,widget);
+        this.widget.children.splice(index,0,widget.data);
+        console.log(this.widget.children);
+    }
 }

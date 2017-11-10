@@ -27,4 +27,10 @@ export class LayoutContainerView implements OnInit {
     ) { }
 
     ngOnInit() { }
+
+    onDropBody(widget: any) {
+        console.log('放在body里', widget);
+        this.widget.body.children.push(widget.data);
+        console.log(this.widget.body.children);
+    }
 }
