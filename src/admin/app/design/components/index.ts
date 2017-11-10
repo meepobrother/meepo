@@ -1,23 +1,3 @@
-import {
-    MeepoAdvs, MeepoFilter,
-    MeepoTasks, MeepoTags,
-    MeepoFormMobile, MeepoFormTextareaDefault,
-    MeepoAddAddress, MeepoList, MeepoSwiperTags,
-    MeepoFormWeightDefault, MeepoFormTijiDefault,
-    MeepoFormPriceDefault, MeepoFormTimeDefault,
-    MeepoFormTimeStartDefault, MeepoFormTimeEndDefault,
-    MeepoFormMoneyDefault, MeepoFormFeeDefault, MeepoFormInputDefault,
-    MeepoFormOrderDefault, MeepoFormTagDefault, MeepoFormBaojiaDefault,
-    MeepoFormAddressDefault, MeepoFormAddressEndDefault, MeepoFormAddressStartDefault,
-    TopicsListDefault, UuItemBoxDefault, UuSwiperDefault, UuBenefitDefault, UuHeaderDefault,
-    UuHomeHeaderDefault, UuHomeItemDefault, UuConDefault, UuCouponDefault,
-    ActiveItemDefault, BargainItemDefault, ArticleItemDefault, CityItemDefault,
-    MeepoDanmu, PayRecordDefault, PaySelectMoneyDefault, IqiyiHeadNavDefault,
-    MeepoFormBtnDefault, MeepoFormRealnameDefault, WeuiCellsDefault, WeuiPreviewDefault,
-    PayuiFlowDefault, MeepoGridsDefault, PayStateDefault, TaskListDefault, RunnerListDefault,
-    ZanSearchDefault, JdHomeHeaderDefault, JdHomeMoneyDefault, JdHomeOrderDefault, JdHomeListDefault,
-    MeepoMarqueeDefault, MeepoTextDefault, MeepoVoiceDefault, MeepoVideoDefault, MeepoTabbarDefault
-} from '../classes';
 
 import {
     UuItemBoxSetting, UuItemBoxView,
@@ -459,78 +439,8 @@ export const COMPONENTS_SETTING = {
     'meepo-tabbar': MeepoTabbarSetting,
 };
 
-
-export const WIDGETS = {
-    'meepo-advs': MeepoAdvs,
-    'meepo-filter': MeepoFilter,
-    'meepo-tasks': MeepoTasks,
-    'meepo-tags': MeepoTags,
-
-    'meepo-add-address': MeepoAddAddress,
-    'meepo-list': MeepoList,
-    'meepo-swiper-tags': MeepoSwiperTags,
-
-    // forms
-    'meepo-form-mobile': MeepoFormMobile,
-    'meepo-form-textarea': MeepoFormTextareaDefault,
-
-    'meepo-form-weight': MeepoFormWeightDefault,
-    'meepo-form-tiji': MeepoFormTijiDefault,
-    'meepo-form-price': MeepoFormPriceDefault,
-    'meepo-form-time': MeepoFormTimeDefault,
-    'meepo-form-time-start': MeepoFormTimeStartDefault,
-    'meepo-form-time-end': MeepoFormTimeEndDefault,
-    'meepo-form-money': MeepoFormMoneyDefault,
-    'meepo-form-fee': MeepoFormFeeDefault,
-    'meepo-form-input': MeepoFormInputDefault,
-    'meepo-form-order': MeepoFormOrderDefault,
-    'meepo-form-tag': MeepoFormTagDefault,
-    'meepo-form-baojia': MeepoFormBaojiaDefault,
-    // 地址
-    'meepo-form-address': MeepoFormAddressDefault,
-    'meepo-form-address-end': MeepoFormAddressEndDefault,
-    'meepo-form-address-start': MeepoFormAddressStartDefault,
-
-    //
-    'meepo-topics-list': TopicsListDefault,
-    'uu-item-box': UuItemBoxDefault,
-    'uu-swiper': UuSwiperDefault,
-    'uu-benefit': UuBenefitDefault,
-    'uu-header': UuHeaderDefault,
-    'uu-home-header': UuHomeHeaderDefault,
-    'uu-home-item': UuHomeItemDefault,
-    'uu-con': UuConDefault,
-    'uu-coupon': UuCouponDefault,
-    'active-item': ActiveItemDefault,
-    'bargain-item': BargainItemDefault,
-    'article-item': ArticleItemDefault,
-    'city-item': CityItemDefault,
-    'meepo-danmu': MeepoDanmu,
-    'pay-record': PayRecordDefault,
-    'pay-select-money': PaySelectMoneyDefault,
-    'iqiyi-head-nav': IqiyiHeadNavDefault,
-    'meepo-form-btn': MeepoFormBtnDefault,
-    'meepo-form-realname': MeepoFormRealnameDefault,
-    'weui-cells': WeuiCellsDefault,
-    'weui-preview': WeuiPreviewDefault,
-    'payui-flow': PayuiFlowDefault,
-    ...actions_models,
-    'meepo-grids': MeepoGridsDefault,
-    'pay-state': PayStateDefault,
-    'task-list': TaskListDefault,
-    'runner-list': RunnerListDefault,
-    'zan-search': ZanSearchDefault,
-    
-    'jd-home-header': JdHomeHeaderDefault,
-    'jd-home-money': JdHomeMoneyDefault,
-    'jd-home-order': JdHomeOrderDefault,
-    'jd-home-list': JdHomeListDefault,
-    'meepo-marquee': MeepoMarqueeDefault,
-    'meepo-text': MeepoTextDefault,
-    'meepo-tabbar': MeepoTabbarDefault,
-    'meepo-video': MeepoVideoDefault,
-    'meepo-voice': MeepoVoiceDefault
-};
+export * from '../classes/widgets';
+import { WIDGETS } from '../classes/widgets';
 
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
