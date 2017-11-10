@@ -10,7 +10,7 @@ export * from './meepo-swiper-tags';
 export * from './meepo-danmu';
 export * from './meepo-text';
 export * from './meepo-voice';
-
+export * from './meepo-video';
 
 export * from './meepo-marquee';
 
