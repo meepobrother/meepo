@@ -22,7 +22,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let item of list">
+                <tr *ngFor="let item of list;index as i;">
                     <td>
                         <a (click)="edit(item)" class="client-link">{{item.title || '组名'}}</a>
                     </td>
@@ -38,6 +38,10 @@
                         <span style="margin: 1px;" [class.label-danger]="item.status != 0" *ngFor="let tag of item.tags" class="label">
                             {{tag.title}}
                         </span>
+                    </td>
+                    <td>
+                        <a href="javascript:;" class="btn btn-primary btn-xs" (click)="editGroup(item,i)">编辑</a>
+                        <a href="javascript:;" class="btn btn-danger btn-xs" (click)="deleteGroup(item,i)">删除</a>
                     </td>
                 </tr>
             </tbody>

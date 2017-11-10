@@ -34,4 +34,21 @@ export class GoodsList implements OnInit {
             }
         });
     }
+
+    editGoods(item: any, index: number){
+        const dialogRef = this.dialog.open(GoodsListAdd,{data: item});
+        dialogRef.afterClosed().subscribe((res: any) => {
+            if (res) {
+                this.api.mpost('goods.addGood', res).subscribe(res => {
+                    this.list[index] = res;
+                });
+            }
+        });
+    }
+
+    deleteGoods(item: any, index: number){
+        this.api.mpost('goods.deleteGood',item).subscribe(res=>{
+            this.list.splice(index,1);
+        })
+    }
 }
