@@ -46,4 +46,25 @@ export class GoodsGroup implements OnInit {
             }
         });
     }
+
+    updateStatus(item: any){
+
+    }
+
+    editGroup(item: any, index: number){
+        const dialogRef = this.dialog.open(GoodsGroupAdd, {data: item});
+        dialogRef.afterClosed().subscribe(res=>{
+            if(res){
+                this.api.mpost('goods.addGoodsGroup',res).subscribe((res: any)=>{
+                    this.list[index] = res;
+                });
+            }
+        });
+    }
+    deleteGroup(item: any, index: number){
+        this.api.mpost('goods.deleteGoodsGroup',item).subscribe(res=>{
+            this.list.splice(index,1);
+        })
+    }
+    
 }

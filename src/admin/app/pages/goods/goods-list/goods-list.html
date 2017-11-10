@@ -19,15 +19,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let item of list">
+                    <tr *ngFor="let item of list;index as i;">
                         <td>{{item.id}}</td>
                         <td>{{item.title}}</td>
                         <td>{{item.price}}</td>
                         <td>{{item.count}}</td>
                         <td>{{item.shop}}</td>
                         <td>
-                            <a class="btn btn-primary btn-xs">编辑</a>
-                            <a class="btn btn-danger btn-xs">删除</a>
+                            <a class="btn btn-primary btn-xs" (click)="editGoods(item,i)">编辑</a>
+                            <a class="btn btn-danger btn-xs" (click)="deleteGoods(item,i)">删除</a>
                         </td>
                     </tr>
                 </tbody>
