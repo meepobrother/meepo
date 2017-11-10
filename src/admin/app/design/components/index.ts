@@ -16,7 +16,7 @@ import {
     MeepoFormBtnDefault, MeepoFormRealnameDefault, WeuiCellsDefault, WeuiPreviewDefault,
     PayuiFlowDefault, MeepoGridsDefault, PayStateDefault, TaskListDefault, RunnerListDefault,
     ZanSearchDefault, JdHomeHeaderDefault, JdHomeMoneyDefault, JdHomeOrderDefault, JdHomeListDefault,
-    MeepoMarqueeDefault, MeepoTextDefault
+    MeepoMarqueeDefault, MeepoTextDefault, MeepoVoiceDefault, MeepoVideoDefault
 } from '../classes';
 
 import {
@@ -91,6 +91,8 @@ import {
     MeepoGridsSetting, MeepoGridsView,
     MeepoDanmuView, MeepoDanmuSetting,
     MeepoMarqueeSetting, MeepoMarqueeView,
+    MeepoVideoSetting, MeepoVideoView,
+    MeepoVoiceSetting, MeepoVoiceView
 } from './meepo-ui';
 
 import {
@@ -269,7 +271,9 @@ export const COMPONENTS = [
     JdHomeOrderSetting, JdHomeOrderView,
     JdHomeListSetting, JdHomeListView,
 
-    MeepoMarqueeSetting, MeepoMarqueeView
+    MeepoMarqueeSetting, MeepoMarqueeView,
+    MeepoVideoSetting, MeepoVideoView,
+    MeepoVoiceSetting, MeepoVoiceView
 ];
 
 
@@ -357,7 +361,9 @@ export const COMPONENTS_VIEW = {
     'jd-home-list': JdHomeListView,
     'meepo-danmu': MeepoDanmuView,
     'meepo-marquee': MeepoMarqueeView,
-    'meepo-text': MeepoTextView
+    'meepo-text': MeepoTextView,
+    'meepo-video': MeepoVideoView,
+    'meepo-voice': MeepoVoiceView
 };
 
 
@@ -439,7 +445,9 @@ export const COMPONENTS_SETTING = {
     'jd-home-list': JdHomeListSetting, 
     'meepo-danmu': MeepoDanmuSetting,
     'meepo-marquee': MeepoMarqueeSetting, 
-    'meepo-text':MeepoTextSetting
+    'meepo-text':MeepoTextSetting,
+    'meepo-video': MeepoVideoSetting,
+    'meepo-voice': MeepoVoiceSetting
 };
 
 
