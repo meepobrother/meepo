@@ -792,3 +792,36 @@ html {
     flex-direction: row;
     flex-wrap: nowrap;
 }
+
+.meepo-dragged {
+    border: 1px dashed red;
+    background-color: gray;
+}
+
+.meepo-dragenter {
+    background-color: gray !important;
+    margin-bottom: 10px;
+    .control-wrap {
+        display: block !important;
+        background-color: rgba(0, 0, 0, 0.38) !important;
+    }
+}
+
+.sortable-active::after {
+    content: "放这里";
+    position: relative;
+    width: 99%;
+    height: 25px;
+    line-height: 25px;
+    background-color: rgb(255, 229, 205);
+    color: rgb(236, 105, 65);
+    text-align: center;
+    font-size: 14px;
+    z-index: 99;
+    display: block;
+    margin: 0px;
+    border-width: 1px;
+    border-style: dashed;
+    border-color: rgb(236, 105, 65);
+    border-image: initial;
+}

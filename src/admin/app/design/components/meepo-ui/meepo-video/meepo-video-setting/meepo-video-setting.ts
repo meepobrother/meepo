@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { MeepoVideoDefault } from '../../../../classes';
 
 @Component({
     selector: 'meepo-video-setting',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./meepo-video-setting.scss']
 })
 export class MeepoVideoSetting implements OnInit {
+    @Input() widget: MeepoVideoDefault = new MeepoVideoDefault();
+    
     constructor() { }
 
     ngOnInit() { }

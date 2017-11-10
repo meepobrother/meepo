@@ -40,6 +40,10 @@ import { IconLinkIconSelect } from './icon-link-icon-select/icon-link-icon-selec
 import { ImageLinkTitleSelect } from './image-link-title-select/image-link-title-select';
 import { IconTitleDialog } from './icon-title-dialog/icon-title-dialog';
 
+import { ImageSetting } from './image-setting/image-setting';
+import { FontSetting } from './font-setting/font-setting';
+import { BorderSetting } from './border-setting/border-setting';
+
 
 export const SETTING_COMPONENTS = [
     SettingContainerMargin, SettingContainerPadding, SettingContainerColor, SettingContainerBorder,
@@ -48,6 +52,6 @@ export const SETTING_COMPONENTS = [
     ...SELECTS_COMPONENTS,
     SelectPageDialog, IconLinkSelect, ImageLinkSelect,
     IconLinkIconSelect, ImageLinkTitleSelect,
-    IconTitleDialog
+    IconTitleDialog, ImageSetting, FontSetting
 ]
 

@@ -1,4 +1,4 @@
-import { Widget } from './widget';
+import { Widget } from '../widget';
 
 export class MeepoList extends Widget {
     model: string = 'list-model-1';

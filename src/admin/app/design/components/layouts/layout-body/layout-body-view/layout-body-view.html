@@ -1,1 +1,1 @@
-<free-widget-view [attr.id]="item.code" [widget]="item" *ngFor="let item of widget.children"></free-widget-view>
+<free-widget-view dropable (onDrop)="onDropWidget($event, i)" [dropTags]="['widget-ele','widget-group','widget-new']" draggable [dragTag]="'widget-ele'" [dragData]="item" [attr.id]="item.code" [widget]="item" *ngFor="let item of widget.children;index as i;"></free-widget-view>

@@ -1,13 +1,12 @@
 import { Widget } from '../widget';
 
-export class MeepoVideoDefault extends Widget {
-    videoUrl: string = '';
-    btnTitle: string = '立即播放';
-    hasGift: boolean = false;
+export class MeepoTabbarDefault extends Widget {
+    title: string = '';
+    
     constructor() {
         super();
-        this.type = 'meepo-video';
-        this.name = '视频';
+        this.type = 'meepo-tabbar';
+        this.name = 'tabbar';
 
         this.containerStyle = {
             'margin-top': '0px'
@@ -16,5 +15,6 @@ export class MeepoVideoDefault extends Widget {
         this.styleObj = {
             'margin-top': '0px'
         }
+
     }
 }

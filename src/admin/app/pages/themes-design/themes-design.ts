@@ -146,7 +146,9 @@ export class ThemesDesign implements OnDestroy {
                 this.currentPage.body.children.push(widget);
                 break;
         }
-        this._catalog.saveData();
+        if (this._catalog.saveData) {
+            this._catalog.saveData();
+        }
     }
     // 添加组件
 

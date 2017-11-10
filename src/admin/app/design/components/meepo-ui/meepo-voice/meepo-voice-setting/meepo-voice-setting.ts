@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { MeepoVoiceDefault } from '../../../../classes';
 
 @Component({
     selector: 'meepo-voice-setting',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./meepo-voice-setting.scss']
 })
 export class MeepoVoiceSetting implements OnInit {
+    @Input() widget: MeepoVoiceDefault = new MeepoVoiceDefault();
     constructor() { }
 
     ngOnInit() { }

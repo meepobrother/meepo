@@ -22,8 +22,8 @@ import { ElModule } from 'element-angular';
         AdminComponent
     ],
     imports: [
-        CommonModule,        
-        BrowserModule.withServerTransition({appId: 'runner-admin'}),
+        CommonModule,
+        BrowserModule.withServerTransition({ appId: 'runner-admin' }),
         BrowserAnimationsModule,
         CoreModule,
         RouterModule.forRoot([], { useHash: true }),

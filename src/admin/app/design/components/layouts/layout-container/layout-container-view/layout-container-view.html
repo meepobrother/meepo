@@ -1,4 +1,4 @@
 <layout-header-view [ngStyle]="widget.header.containerStyle" *ngIf="widget.header.show" [widget]="widget.header"></layout-header-view>
-<layout-body-view [ngStyle]="widget.body.containerStyle" [widget]="widget.body"></layout-body-view>
+<layout-body-view dropable (onDrop)="onDropBody($event)" [dropTags]="['widget-ele','widget-group','widget-new']" [ngStyle]="widget.body.containerStyle" [widget]="widget.body"></layout-body-view>
 <layout-footer-view [ngStyle]="widget.footer.containerStyle" *ngIf="widget.footer.show" [widget]="widget.footer"></layout-footer-view>
 <layout-menu-view [ngStyle]="widget.menu.containerStyle" [widget]="widget.menu"></layout-menu-view>

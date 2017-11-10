@@ -16,7 +16,6 @@ const routes: Routes = [
 ];
 import { ThemesDesignService } from './themes-design.service';
 
-
 @NgModule({
     declarations: [
         ThemesDesign
