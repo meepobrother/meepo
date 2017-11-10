@@ -6,7 +6,7 @@ import { LayoutHeaderView } from '../../layout-header';
 import { LayoutFooterView } from '../../layout-footer';
 import { LayoutMenuView } from '../../layout-menu';
 
-import { WIDGETS } from '../../../index';
+import { WIDGETS } from '../../../../classes/widgets';
 
 @Component({
     selector: 'layout-container-view',

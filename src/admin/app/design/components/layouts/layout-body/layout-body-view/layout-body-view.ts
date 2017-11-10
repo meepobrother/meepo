@@ -3,6 +3,7 @@ import { LayoutService } from '../../layout.service';
 import { LayoutBody } from '../../../../classes';
 import 'rxjs/add/operator/debounceTime';
 import { WidgetService } from '../../../../../share/services/widget.service';
+import { WIDGETS } from '../../../../classes/widgets';
 
 @Component({
     selector: 'layout-body-view',
@@ -40,6 +41,9 @@ export class LayoutBodyView implements OnInit {
     onDropWidget(widget: any, index: number) {
         if (widget.data) {
             console.log('放在widget后面' + index, widget);
+            if(widget.tag == 'widget-new'){
+                widget.data = new WIDGETS[widget.data.type]();
+            }
             let old = this.widget.children.indexOf(widget.data);            
             this.widget.children.splice(index + 1, 0, widget.data);
             console.log('老的' + old, widget.data);
