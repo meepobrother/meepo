@@ -12,7 +12,7 @@ export class ShopsListAdd implements OnInit {
     constructor(
         public api: ApiService,
         public dialogRef: MatDialogRef<any>,
-        @Inject(MAT_DIALOG_DATA) data: any,
+        @Inject(MAT_DIALOG_DATA) public data: any,
         public fb: FormBuilder,
     ) { 
         this.form = this.fb.group({
@@ -32,6 +32,21 @@ export class ShopsListAdd implements OnInit {
             group: [''],
             tag: ['']
         });
+
+        this.dialogRef.afterOpen().subscribe((res: any)=>{
+            console.log(res);
+            let { title, mobile, location, desc, content, shopers, kefus, employers, group, tag } = this.data;
+            this.form.get('title').setValue(title);
+            this.form.get('mobile').setValue(mobile);
+            this.form.get('location').setValue(location);
+            this.form.get('desc').setValue(desc);
+            this.form.get('content').setValue(content);
+            this.form.get('shopers').setValue(shopers);
+            this.form.get('kefus').setValue(kefus);
+            this.form.get('employers').setValue(employers);
+            this.form.get('group').setValue(group);
+            this.form.get('tag').setValue(tag);
+        });
     }
 
     ngOnInit() { }
@@ -45,19 +60,14 @@ export class ShopsListAdd implements OnInit {
     }
 
     onChangeShopers(e: any){
-        console.log('onChangeShopers',e);
         this.form.get('shopers').setValue(e);
     }
 
     onChangeKefus(e: any){
-        console.log('onChangeKefus',e);
-        
         this.form.get('kefus').setValue(e);
     }
 
     onChangeEmployers(e: any){
-        console.log('onChangeEmployers',e);
-        
         this.form.get('employers').setValue(e);
     }
 

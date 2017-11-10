@@ -52,11 +52,13 @@
         更多功能请联系升级！
     </p>
 </div>
+
 <div class="panel panel-danger">
     <div class="panel-heading">
         扫码绑定微信
     </div>
     <div class="panel-body">
+        {if $_W['role'] == 'founder'}
         <div class="form-group meepo-row">
             <label style="padding: 0 10px;">主账号</label>
             <select class="form-control" id="uniacid">
@@ -66,9 +68,11 @@
             </select>
             <a href="javascript:;" class="btn btn-parmary" style="background-color: green;color: #fff;" id="save">保存</a>
         </div>
+        <p style="padding: 10px 5px; color: green;">此信息一经绑定，切勿轻易更改，更改后需要重新扫码绑定！</p>
+        {/if}
         <div class="qrcode" id="qrcode" style="background: #fff;margin: 0 auto;text-align:center;height: 300px;"></div>
         <p style="color: red;">
-            扫码绑定微信
+            扫码绑定微信，绑定成功后可登陆客户端程序！
         </p>
         <ul>
             {loop $list $item}
