@@ -20,7 +20,7 @@ import {
     ZanSearchDefault, JdHomeHeaderDefault, JdHomeMoneyDefault, JdHomeOrderDefault, JdHomeListDefault,
     MeepoMarqueeDefault, MeepoTextDefault, MeepoVoiceDefault, MeepoVideoDefault, MeepoTabbarDefault, 
     MeepoTitleDefault, LayoutFloorDefault, MeepoCardDefault, MeepoTabsDefault, MeepoPasswordDefault,
-    MeepoTreeSelectDefault, RunnerConcatDefault, RunnerCouponDefault
+    MeepoTreeSelectDefault, RunnerConcatDefault, RunnerCouponDefault, RunnerRegisterDefault
 } from './index';
 
 
@@ -101,5 +101,6 @@ export const WIDGETS = {
     'meepo-password': MeepoPasswordDefault,
     'meepo-tree-select': MeepoTreeSelectDefault,
     'runner-concat': RunnerConcatDefault,
-    'runner-coupon': RunnerCouponDefault
+    'runner-coupon': RunnerCouponDefault,
+    'runner-register': RunnerRegisterDefault
 };

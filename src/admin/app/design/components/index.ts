@@ -35,7 +35,8 @@ import {
     TaskDetailView, TaskDetailSetting,
     RunnerConcatSetting, RunnerConcatView,
     RunnerCouponSetting, RunnerCouponView,
-    TaskStatusSetting, TaskStatusView
+    TaskStatusSetting, TaskStatusView,
+    RunnerRegisterSetting, RunnerRegisterView
 } from './runner';
 
 import {
@@ -294,7 +295,8 @@ export const COMPONENTS = [
 
     //
     MeepoImageSetting, MeepoImageView,
-    FloorSetting, FloorView
+    FloorSetting, FloorView,
+    RunnerRegisterSetting, RunnerRegisterView
 ];
 
 
@@ -394,7 +396,8 @@ export const COMPONENTS_VIEW = {
     'meepo-tree-select': MeepoTreeSelectView,
     'runner-concat':  RunnerConcatView,
     'runner-coupon': RunnerCouponView,
-    'task-status': TaskStatusView
+    'task-status': TaskStatusView,
+    'runner-register': RunnerRegisterView
 };
 
 
@@ -488,7 +491,8 @@ export const COMPONENTS_SETTING = {
     'meepo-tree-select': MeepoTreeSelectSetting, 
     'runner-concat': RunnerConcatSetting,
     'runner-coupon': RunnerCouponSetting, 
-    'task-status': TaskStatusSetting
+    'task-status': TaskStatusSetting,
+    'runner-register': RunnerRegisterSetting, 
 };
 
 export * from '../classes/widgets';
