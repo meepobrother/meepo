@@ -12,6 +12,7 @@ export * from './meepo-text';
 export * from './meepo-voice';
 export * from './meepo-video';
 export * from './meepo-tabbar';
+export * from './meepo-title';
 
 
 export * from './meepo-marquee';
