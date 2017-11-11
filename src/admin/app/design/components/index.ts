@@ -32,7 +32,9 @@ import {
     TaskListSetting, TaskListView,
     RunnerListSetting, RunnerListView,
     AddMoneyViewComponent, AddMoneySettingComponent,
-    TaskDetailView, TaskDetailSetting
+    TaskDetailView, TaskDetailSetting,
+    RunnerConcatSetting, RunnerConcatView,
+    RunnerCouponSetting, RunnerCouponView    
 } from './runner';
 
 import {
@@ -78,7 +80,9 @@ import {
     MeepoTabbarSetting, MeepoTabbarView,
     MeepoTitleSetting, MeepoTitleView,
     MeepoCardSetting, MeepoCardView,
-    MeepoTabsSetting, MeepoTabsView
+    MeepoTabsSetting, MeepoTabsView,
+    MeepoPasswordSetting, MeepoPasswordView,
+    MeepoTreeSelectSetting, MeepoTreeSelectView,
 } from './meepo-ui';
 
 import {
@@ -265,7 +269,12 @@ export const COMPONENTS = [
     MeepoTitleSetting, MeepoTitleView,
     MeepoCardSetting, MeepoCardView,
 
-    MeepoTabsSetting, MeepoTabsView
+    MeepoTabsSetting, MeepoTabsView,
+    MeepoPasswordSetting, MeepoPasswordView,
+    MeepoTreeSelectSetting, MeepoTreeSelectView,
+
+    RunnerConcatSetting, RunnerConcatView,
+    RunnerCouponSetting, RunnerCouponView
 ];
 
 
@@ -360,7 +369,11 @@ export const COMPONENTS_VIEW = {
     'meepo-tabbar': MeepoTabbarView,
     'meepo-title': MeepoTitleView,
     'meepo-card': MeepoCardView,
-    'meepo-tabs': MeepoTabsView
+    'meepo-tabs': MeepoTabsView,
+    'meepo-password': MeepoPasswordView,
+    'meepo-tree-select': MeepoTreeSelectView,
+    'runner-concat':  RunnerConcatView,
+    'runner-coupon': RunnerCouponView
 };
 
 
@@ -449,7 +462,11 @@ export const COMPONENTS_SETTING = {
     'meepo-tabbar': MeepoTabbarSetting,
     'meepo-title': MeepoTitleSetting,
     'meepo-card': MeepoCardSetting,
-    'meepo-tabs': MeepoTabsSetting
+    'meepo-tabs': MeepoTabsSetting,
+    'meepo-password': MeepoPasswordSetting, 
+    'meepo-tree-select': MeepoTreeSelectSetting, 
+    'runner-concat': RunnerConcatSetting,
+    'runner-coupon': RunnerCouponSetting, 
 };
 
 export * from '../classes/widgets';

@@ -16,6 +16,8 @@ export * from './meepo-title';
 export * from './meepo-card';
 export * from './meepo-tabs';
 
+export * from './meepo-password';
+export * from './meepo-tree-select';
 
 
 
