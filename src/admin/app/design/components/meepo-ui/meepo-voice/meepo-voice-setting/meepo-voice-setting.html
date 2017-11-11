@@ -1,0 +1,33 @@
+<div class="ibox-title">
+    容器样式
+</div>
+<div class="ibox-content">
+    <setting-container-margin [(widget)]="widget.containerStyle"></setting-container-margin>
+    <setting-container-padding [(widget)]="widget.containerStyle"></setting-container-padding>
+    <setting-container-color [(widget)]="widget.containerStyle"></setting-container-color>
+</div>
+
+
+<div class="ibox">
+    <div class="ibox-title">
+        设置
+    </div>
+    <div class="ibox-content">
+        <div class="form-group">
+            <label>礼物开关</label>
+            <input type="checkbox" [(ngModel)]="widget.hasGift" />
+        </div>
+        <div class="form-group">
+            <label>礼物链接</label>
+            <input type="text" class="form-control" [(ngModel)]="widget.giftUrl" placeholder="请输入礼物链接">
+        </div>
+        <div class="form-group">
+            <label>标题</label>
+            <input type="text" class="form-control" [(ngModel)]="widget.btnTitle" placeholder="请输入标题">
+        </div>
+        <div class="form-group">
+            <label>语音链接</label>
+            <input type="text" class="form-control" [(ngModel)]="widget.voiceUrl" placeholder="请输入资源链接">
+        </div>
+    </div>
+</div>

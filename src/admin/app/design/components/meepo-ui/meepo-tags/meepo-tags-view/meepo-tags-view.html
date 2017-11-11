@@ -1,5 +1,5 @@
 <div style="position: relative;min-height: 80px;">
-    <div class="w_tag bor-b marbot10">
-        <a href="javascript:;" class="tab_btn marbot20" [class.on]="item.active" *ngFor="let item of widget.children" (click)="select(item)">{{item.title}}</a>
+    <div class="w_tag bor-b" [ngStyle]="widget.containerStyle">
+        <a href="javascript:;" [ngStyle]="widget.styleObj" class="tab_btn marbot20" [class.on]="item.active" *ngFor="let item of widget.children" (click)="select(item)">{{item.title}}</a>
     </div>
 </div>

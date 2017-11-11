@@ -17,3 +17,11 @@ export * from './meepo-swiper-tags';
 export * from './meepo-add-address';
 export * from './meepo-danmu';
 export * from './meepo-title';
+
+export * from './meepo-card';
+export * from './meepo-tabs';
+export * from './meepo-password';
+export * from './meepo-tree-select';
+
+
+

@@ -1,5 +1,10 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ElementRef, ViewChild } from '@angular/core';
 import { MeepoVideoDefault } from '../../../../classes';
+
+import * as Chimee from 'chimee';
+
+console.log(Chimee);
+
 @Component({
     selector: 'meepo-video-view',
     templateUrl: './meepo-video-view.html',
@@ -7,34 +12,14 @@ import { MeepoVideoDefault } from '../../../../classes';
 })
 export class MeepoVideoView implements OnInit {
     @Input() widget: MeepoVideoDefault = new MeepoVideoDefault();
-    
-    playIcon: number = 0;
-    optStr: string = 'add';
-    playTimer: any;
-    
+    @ViewChild('wrapper') wrapper: ElementRef;
     constructor() { }
-
-    ngOnInit() { }
-    playAnimate() {
-        this.playTimer = setInterval(() => {
-            if (this.playIcon >= 3) {
-                this.playIcon--;
-                this.optStr = 'del'
-            } else if (this.playIcon <= 0) {
-                this.playIcon = 3;
-                this.optStr = 'add'
-            } else {
-                if (this.optStr == 'add') {
-                    this.playIcon++;
-                } else {
-                    this.playIcon--;
-                }
-            }
-
-        }, 300)
+    ngOnInit() {
+        const chimee = new Chimee(this.wrapper.nativeElement);
+        chimee.on('play', () => console.log('play!!'));
+        chimee.load(this.widget.videoUrl);
+        chimee.play(); // play!!
     }
-
-    playVoice(){
-
-    }
+    playAnimate() { }
+    playVoice() { }
 }

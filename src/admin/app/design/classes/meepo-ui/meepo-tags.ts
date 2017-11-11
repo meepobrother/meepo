@@ -11,7 +11,7 @@ export class MeepoTags extends Widget {
                 code: 'all'
             }
         ];
-        this.styleObj = { color: '#fff' };
-        this.containerStyle = { color: '#fff' };
+        this.styleObj = { 'margin-bottom': '5px' };
+        this.containerStyle = { 'margin-top': '5px' };
     }
 }
