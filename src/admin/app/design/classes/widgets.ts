@@ -21,7 +21,7 @@ import {
     MeepoMarqueeDefault, MeepoTextDefault, MeepoVoiceDefault, MeepoVideoDefault, MeepoTabbarDefault, 
     MeepoTitleDefault, LayoutFloorDefault, MeepoCardDefault, MeepoTabsDefault, MeepoPasswordDefault,
     MeepoTreeSelectDefault, RunnerConcatDefault, RunnerCouponDefault, RunnerRegisterDefault,
-    PayScanCodeDefault
+    PayScanCodeDefault, PayInputMoneyDefault, PayMessageSuccessDefault
 } from './index';
 
 
@@ -104,5 +104,7 @@ export const WIDGETS = {
     'runner-concat': RunnerConcatDefault,
     'runner-coupon': RunnerCouponDefault,
     'runner-register': RunnerRegisterDefault,
-    'pay-scan-code': PayScanCodeDefault
+    'pay-scan-code': PayScanCodeDefault,
+    'pay-input-money': PayInputMoneyDefault,
+    'pay-message-success': PayMessageSuccessDefault
 };

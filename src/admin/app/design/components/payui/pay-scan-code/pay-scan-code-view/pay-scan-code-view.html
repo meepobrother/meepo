@@ -1,12 +1,12 @@
-<div ontouchstart class="weui-wepay-code-wrap">
+<div ontouchstart class="weui-wepay-code-wrap" [ngStyle]="widget.containerStyle">
     <div class="weui-wepay-code weui-wepay-code_logo">
         <div class="weui-wepay-code__bd">
             <p class="weui-wepay-code__logo">
-                <img src="img/wepay_logo_default_white_500x126.png" alt="" width="190" height="48;">
+                <img src="assets/payui/wepay_logo_default_white_500x126.png" alt="" width="190" height="48;">
             </p>
             <div class="weui-wepay-code__main">
                 <div class="weui-wepay-code__img">
-                    <img src="img/code.png" alt="" width="130" height="130">
+                    <img src="assets/payui//code.png" alt="" width="130" height="130">
                 </div>
                 <h2 class="weui-wepay-code__subtitle">扫码付款</h2>
             </div>
@@ -14,10 +14,32 @@
         <div class="weui-wepay-code__ft">
             <div class="weui-wepay-code__business">
                 <div class="weui-wepay-code__business-logo">
-                    <img src="img/logo_servives.jpg" alt="" width="200" height="28">
+                    <img src="assets/payui//logo_servives.jpg" alt="" width="200" height="28">
                 </div>
                 <p class="weui-wepay-code__business-info">提供支持服务</p>
             </div>
         </div>
     </div>
 </div>
+
+
+<body ontouchstart class="weui-wepay-pay-wrap">
+    <div class="msg_success">
+        <div class="weui-msg">
+            <div class="weui-msg__icon-area"><i class="weui-icon-success weui-icon_msg"></i></div>
+            <div class="weui-msg__text-area">
+                <h2 class="weui-msg__title">付款成功</h2>
+                <p class="weui-msg__desc">内容详情，可根据实际需要安排</p>
+            </div>
+            <div class="weui-msg__opr-area">
+                <p class="weui-btn-area">
+                    <a href="javascript:;" class="weui-btn weui-btn_primary">确认</a>
+                    <!-- <a href="javascript:history.back();" class="weui-btn weui-btn_default">辅助操作</a> -->
+                </p>
+            </div>
+        </div>
+        <div class="weui-wepay-logos weui-wepay-logos_ft">
+            <img src="https://act.weixin.qq.com/static/cdn/img/wepayui/0.1.1/wepay_logo_default_gray.svg" alt="" height="16">
+        </div>
+    </div>
+</body>
