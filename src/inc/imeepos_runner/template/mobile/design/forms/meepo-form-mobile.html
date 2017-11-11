@@ -1,0 +1,27 @@
+<!-- {if $widget['type'] == 'meepo-form-mobile'} -->
+<div class="weui-cells weui-cells_form" style="
+    {loop $widget['containerStyle'] $key $value}
+        {$key}:{$value};
+    {/loop}
+">
+    <div class="weui-cell weui-cell_vcode">
+        <div class="weui-cell__hd">
+            <label class="weui-label" style="color: {$widget['data']['mobile']['color']};">{$widget['data']['mobile']['label']}</label>
+        </div>
+        <div class="weui-cell__bd">
+            <input class="weui-input" id="mobile-{$widget['code']}" type="tel" placeholder="{$widget['data']['mobile']['placeholder']}">
+        </div>
+        <div class="weui-cell__ft">
+            <button class="weui-vcode-btn">{$widget['data']['mobile']['tip']}</button>
+        </div>
+    </div>
+    <div class="weui-cell">
+        <div class="weui-cell__hd">
+            <label class="weui-label" style="color: {$widget['data']['code']['color']};">{$widget['data']['code']['label']}</label>
+        </div>
+        <div class="weui-cell__bd">
+            <input class="weui-input" id="code-{$widget['code']}" type="number" placeholder="{$widget['data']['code']['placeholder']}">
+        </div>
+    </div>
+</div>
+<!-- {/if} -->

@@ -5,4 +5,4 @@ export * from './layout-footer';
 export * from './layout-menu';
 export * from './layout';
 export * from './layout.service';
-
+export * from './floor';

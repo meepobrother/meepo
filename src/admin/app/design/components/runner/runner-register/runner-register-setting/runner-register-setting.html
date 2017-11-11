@@ -1,0 +1,23 @@
+<div class="ibox">
+    <div class="ibox-title">
+        <h5>顶部图片</h5>
+        <div class="ibox-tools">
+            <a class="btn btn-primary btn-xs">添加</a>
+        </div>
+    </div>
+    <div class="ibox-content">
+        <table class="table table-hover">
+            <tr *ngFor="let item of widget.images;index as i;">
+                <td>
+                    <img [(uploader)]="item.src" (click)="upload(item,i)" [src]="item.src" style="width: 2em;" />
+                </td>
+                <td>
+                    <input class="form-control" [(ngModel)]="item.src" type="text">
+                </td>
+                <td>
+                    <a class="btn btn-danger btn-xs">删除</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

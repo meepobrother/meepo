@@ -8,7 +8,7 @@ import { ApiService } from '../../../../../core';
 })
 export class TaskStatusView implements OnInit {
     @Input() widget: TaskStatusDefault = new TaskStatusDefault();
-
+    isEmpty: boolean = false;
     task: any;
     constructor(
         public api: ApiService
@@ -20,5 +20,9 @@ export class TaskStatusView implements OnInit {
         this.api.mpost('tasks.getTaskDetail',{id: this.widget.task_id}).subscribe((res: any)=>{
             this.task = res.info;
         });
+    }
+
+    getPoint(){
+
     }
 }

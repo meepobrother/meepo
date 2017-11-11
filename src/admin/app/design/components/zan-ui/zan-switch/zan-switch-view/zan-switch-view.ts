@@ -6,7 +6,12 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./zan-switch-view.scss']
 })
 export class ZanSwitchView implements OnInit {
+    widget: any;
     constructor() { }
 
     ngOnInit() { }
+
+    switch(){
+
+    }
 }
