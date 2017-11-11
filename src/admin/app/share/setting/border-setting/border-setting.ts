@@ -8,19 +8,9 @@ import { Component, OnInit, Input } from '@angular/core';
 export class BorderSetting implements OnInit {
     @Input() widget: BorderDefault = new BorderDefault();
 
-    
-
-
     constructor() { }
 
     ngOnInit() { }
-
-    onBorderColorSelect(color: string) {
-        this.widget['border-color'] = color;
-    }
-    onBoxShadowColorSelect(color: string) {
-        this.widget['border-color'] = color;
-    }
 }
 
 export class BorderDefault {

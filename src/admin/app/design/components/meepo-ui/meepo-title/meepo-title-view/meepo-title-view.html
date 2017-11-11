@@ -1,5 +1,5 @@
 <div class="gray-text" [ngStyle]="widget.containerStyle">
     <div class="gray-layout" [ngStyle]="widget.styleObj">
-        <span class="gray-text-img"></span>{{widget.title}}
+        <span class="gray-text-img" [style.background-image]="'url('+widget.icon+')'"></span>{{widget.title}}
     </div>
 </div>

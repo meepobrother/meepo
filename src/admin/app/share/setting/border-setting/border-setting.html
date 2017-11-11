@@ -16,7 +16,7 @@
         </div>
         <div class="form-group">
             <label>颜色</label>
-            <color-select (onSelect)="onBorderColorSelect($event)"></color-select>
+            <input type="color" [(ngModel)]="widget['border-color']" />
         </div>
     </div>
 
@@ -37,7 +37,7 @@
 
         <div class="form-group">
             <label>阴影颜色</label>
-            <color-select (onSelect)="onBoxShadowColorSelect($event)"></color-select>
+            <input type="color" [(ngModel)]="widget['shadow-color']" />
         </div>
     </div>
 </div>

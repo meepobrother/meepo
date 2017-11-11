@@ -25,8 +25,8 @@ export class ImageSelectDirective implements OnInit{
                 , url: this.api.doMobileUrl('upload','imeepos_runner')//this.api.murl('utility/file/upload', { type: 'image' }) //上传接口
                 , done: (res, index, upload) => {
                     //上传完毕回调
-                    this.image = res.url;
-                    this.imageChange.emit(this.image);
+                    this.uploader = res.url;
+                    this.uploaderChange.emit(this.uploader);
                 }
                 , error: () => {
                     //请求异常回调

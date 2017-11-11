@@ -2,7 +2,7 @@ import { Widget } from '../widget';
 
 export class MeepoTitleDefault extends Widget {
     title: string = '';
-    
+    icon: string = './assets/icon-up.png';
     constructor() {
         super();
         this.type = 'meepo-title';
