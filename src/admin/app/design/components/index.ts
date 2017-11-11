@@ -75,8 +75,10 @@ import {
     MeepoVoiceSetting, MeepoVoiceView,
 
     // meepo
-    MeepoTabbarSetting, MeepoTabbarView, 
-    MeepoTitleSetting, MeepoTitleView
+    MeepoTabbarSetting, MeepoTabbarView,
+    MeepoTitleSetting, MeepoTitleView,
+    MeepoCardSetting, MeepoCardView,
+    MeepoTabsSetting, MeepoTabsView
 } from './meepo-ui';
 
 import {
@@ -260,7 +262,10 @@ export const COMPONENTS = [
     MeepoVoiceSetting, MeepoVoiceView,
 
     MeepoTabbarSetting, MeepoTabbarView,
-    MeepoTitleSetting, MeepoTitleView
+    MeepoTitleSetting, MeepoTitleView,
+    MeepoCardSetting, MeepoCardView,
+
+    MeepoTabsSetting, MeepoTabsView
 ];
 
 
@@ -353,7 +358,9 @@ export const COMPONENTS_VIEW = {
     'meepo-voice': MeepoVoiceView,
 
     'meepo-tabbar': MeepoTabbarView,
-    'meepo-title':  MeepoTitleView
+    'meepo-title': MeepoTitleView,
+    'meepo-card': MeepoCardView,
+    'meepo-tabs': MeepoTabsView
 };
 
 
@@ -423,24 +430,26 @@ export const COMPONENTS_SETTING = {
     'weui-cells': WeuiCellsSetting,
     'payui-flow': PayuiFlowSetting,
     ...actions_component_setting,
-    'meepo-grids': MeepoGridsSetting, 
-    'pay-state': PayStateSetting, 
-    'task-list': TaskListSetting, 
-    'runner-list': RunnerListSetting, 
-    'zan-search': ZanSearchSetting, 
+    'meepo-grids': MeepoGridsSetting,
+    'pay-state': PayStateSetting,
+    'task-list': TaskListSetting,
+    'runner-list': RunnerListSetting,
+    'zan-search': ZanSearchSetting,
 
     'jd-home-header': JdHomeHeaderSetting,
     'jd-home-money': JdHomeMoneySetting,
     'jd-home-order': JdHomeOrderSetting,
-    'jd-home-list': JdHomeListSetting, 
+    'jd-home-list': JdHomeListSetting,
     'meepo-danmu': MeepoDanmuSetting,
-    'meepo-marquee': MeepoMarqueeSetting, 
-    'meepo-text':MeepoTextSetting,
+    'meepo-marquee': MeepoMarqueeSetting,
+    'meepo-text': MeepoTextSetting,
     'meepo-video': MeepoVideoSetting,
     'meepo-voice': MeepoVoiceSetting,
 
     'meepo-tabbar': MeepoTabbarSetting,
-    'meepo-title': MeepoTitleSetting, 
+    'meepo-title': MeepoTitleSetting,
+    'meepo-card': MeepoCardSetting,
+    'meepo-tabs': MeepoTabsSetting
 };
 
 export * from '../classes/widgets';

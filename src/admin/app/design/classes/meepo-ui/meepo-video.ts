@@ -1,7 +1,7 @@
 import { Widget } from '../widget';
 
 export class MeepoVideoDefault extends Widget {
-    videoUrl: string = '';
+    videoUrl: string = 'http://cdn.toxicjohann.com/lostStar.mp4';
     btnTitle: string = '立即播放';
     hasGift: boolean = false;
     constructor() {

@@ -19,7 +19,7 @@ import {
     PayuiFlowDefault, MeepoGridsDefault, PayStateDefault, TaskListDefault, RunnerListDefault,
     ZanSearchDefault, JdHomeHeaderDefault, JdHomeMoneyDefault, JdHomeOrderDefault, JdHomeListDefault,
     MeepoMarqueeDefault, MeepoTextDefault, MeepoVoiceDefault, MeepoVideoDefault, MeepoTabbarDefault, 
-    MeepoTitleDefault, LayoutFloorDefault
+    MeepoTitleDefault, LayoutFloorDefault, MeepoCardDefault, MeepoTabsDefault
 } from './index';
 
 
@@ -94,5 +94,7 @@ export const WIDGETS = {
     'meepo-video': MeepoVideoDefault,
     'meepo-voice': MeepoVoiceDefault,
     'meepo-title': MeepoTitleDefault,
-    'layout-floor': LayoutFloorDefault
+    'layout-floor': LayoutFloorDefault,
+    'meepo-card': MeepoCardDefault,
+    'meepo-tabs': MeepoTabsDefault
 };

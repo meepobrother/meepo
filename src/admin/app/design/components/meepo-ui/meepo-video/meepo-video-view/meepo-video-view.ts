@@ -1,7 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ElementRef, ViewChild } from '@angular/core';
 import { MeepoVideoDefault } from '../../../../classes';
 
-import Chimee from 'chimee';
+import * as Chimee from 'chimee';
+
+console.log(Chimee);
 
 @Component({
     selector: 'meepo-video-view',
@@ -10,26 +12,14 @@ import Chimee from 'chimee';
 })
 export class MeepoVideoView implements OnInit {
     @Input() widget: MeepoVideoDefault = new MeepoVideoDefault();
-    
-    playIcon: number = 0;
-    optStr: string = 'add';
-    playTimer: any;
-    
-    constructor() { 
-
-    }
-
-    ngOnInit() { 
-        const chimee = new Chimee('#wrapper');
+    @ViewChild('wrapper') wrapper: ElementRef;
+    constructor() { }
+    ngOnInit() {
+        const chimee = new Chimee(this.wrapper.nativeElement);
         chimee.on('play', () => console.log('play!!'));
-        chimee.load('http://cdn.toxicjohann.com/lostStar.mp4');
+        chimee.load(this.widget.videoUrl);
         chimee.play(); // play!!
     }
-    playAnimate() {
-        
-    }
-
-    playVoice(){
-
-    }
+    playAnimate() { }
+    playVoice() { }
 }
