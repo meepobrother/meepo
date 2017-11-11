@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { TaskStatusDefault } from '../../../../classes';
+import { RunnerRegisterDefault } from '../../../../classes';
 import { ApiService } from '../../../../../core';
 @Component({
     selector: 'runner-register-setting',
@@ -7,7 +7,7 @@ import { ApiService } from '../../../../../core';
     styleUrls: ['./runner-register-setting.scss']
 })
 export class RunnerRegisterSetting implements OnInit {
-    @Input() widget: TaskStatusDefault = new TaskStatusDefault();
+    @Input() widget: RunnerRegisterDefault = new RunnerRegisterDefault();
     
     constructor(
         public api: ApiService
