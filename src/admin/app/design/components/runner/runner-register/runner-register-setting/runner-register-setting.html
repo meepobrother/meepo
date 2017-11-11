@@ -9,7 +9,7 @@
         <table class="table table-hover">
             <tr *ngFor="let item of widget.images;index as i;">
                 <td>
-                    <img class="uploader" (click)="upload(item,i)" [src]="item.src" style="width: 2em;" />
+                    <img [(uploader)]="item.src" (click)="upload(item,i)" [src]="item.src" style="width: 2em;" />
                 </td>
                 <td>
                     <input class="form-control" [(ngModel)]="item.src" type="text">

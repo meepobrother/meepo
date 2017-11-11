@@ -18,24 +18,7 @@ export class RunnerRegisterSetting implements OnInit {
     ) { }
 
     ngOnInit() { 
-        layui.use('upload', () => {
-            var upload = layui.upload;
-            //执行实例
-            var uploadInst = upload.render({
-                elem: jQuery('.uploader') //绑定元素
-                , url: this.api.doMobileUrl('upload','imeepos_runner')//this.api.murl('utility/file/upload', { type: 'image' }) //上传接口
-                , done: (res, index, upload) => {
-                    //上传完毕回调
-                    // this.widget.image = res.url;
-                    this.item['src'] = res.url;
-                    this.widget.images[this.index] = this.item;
-                }
-                , error: () => {
-                    //请求异常回调
-                    console.log('上传失败');
-                }
-            });
-        });
+        
     }
 
     upload(item: any, index: number){
