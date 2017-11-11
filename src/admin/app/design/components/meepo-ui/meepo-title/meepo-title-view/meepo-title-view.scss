@@ -1,0 +1,37 @@
+.gray-text {
+    position: relative;
+    display: -webkit-box;
+    margin: 14PX 5PX;
+    color: #848689;
+    font-size: 14PX;
+    -webkit-box-pack: center;
+    .gray-layout {
+        padding: 0PX 10PX;
+        background-color: #e6e6e6;
+        z-index: 10;
+        position: relative;
+        display: block;
+    }
+    .gray-text-img {
+        background: url(./icon-up.png);
+        background-repeat: no-repeat;
+        background-size: 13PX 13PX;
+        width: 13PX;
+        height: 13PX;
+        display: block;
+        margin-right: 10PX;
+        position: relative;
+        top: 1PX;
+        float: left;
+    }
+    &:after {
+        content: "";
+        height: 1PX;
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        background-color: #cbcbcb;
+        -webkit-transform: scaleY(0.5);
+    }
+}

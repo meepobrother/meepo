@@ -10,6 +10,8 @@ import {
     MeepoDialogModule, WeuiPickerModule
 } from '../components';
 
+import { ImageSelectDirective } from './setting';
+
 import { SECTIONS, SECTIONS_SERVICES } from './section';
 import { DIALOGS } from './dialog';
 
@@ -53,12 +55,14 @@ const materials = [
     ],
     declarations: [
         ...SECTIONS,
-        ...DIALOGS
+        ...DIALOGS,
+        ImageSelectDirective
     ],
     exports: [
         ...materials,
         ...SECTIONS,
-        ...DIALOGS
+        ...DIALOGS,
+        ImageSelectDirective
     ],
     providers: [
         ...SECTIONS_SERVICES

@@ -75,7 +75,8 @@ import {
     MeepoVoiceSetting, MeepoVoiceView,
 
     // meepo
-    MeepoTabbarSetting, MeepoTabbarView
+    MeepoTabbarSetting, MeepoTabbarView, 
+    MeepoTitleSetting, MeepoTitleView
 } from './meepo-ui';
 
 import {
@@ -258,7 +259,8 @@ export const COMPONENTS = [
     MeepoVideoSetting, MeepoVideoView,
     MeepoVoiceSetting, MeepoVoiceView,
 
-    MeepoTabbarSetting, MeepoTabbarView
+    MeepoTabbarSetting, MeepoTabbarView,
+    MeepoTitleSetting, MeepoTitleView
 ];
 
 
@@ -351,6 +353,7 @@ export const COMPONENTS_VIEW = {
     'meepo-voice': MeepoVoiceView,
 
     'meepo-tabbar': MeepoTabbarView,
+    'meepo-title':  MeepoTitleView
 };
 
 
@@ -437,6 +440,7 @@ export const COMPONENTS_SETTING = {
     'meepo-voice': MeepoVoiceSetting,
 
     'meepo-tabbar': MeepoTabbarSetting,
+    'meepo-title': MeepoTitleSetting, 
 };
 
 export * from '../classes/widgets';

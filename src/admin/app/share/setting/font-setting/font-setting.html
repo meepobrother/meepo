@@ -8,7 +8,7 @@
             <a class="btn btn-primary btn-outline btn-xs">加粗</a>
             <a class="btn btn-primary btn-outline btn-xs">斜体</a>
             <a class="btn btn-primary btn-outline btn-xs">下划线</a>
-            <color-select (onSelect)="onColorChange($event)"></color-select>
+            <input type="color" [(ngModel)]="widget.color" />
         </div>
         <div class="form-group">
             <a class="btn btn-primary btn-outline btn-xs">居中</a>

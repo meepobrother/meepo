@@ -44,6 +44,8 @@ import { ImageSetting } from './image-setting/image-setting';
 import { FontSetting } from './font-setting/font-setting';
 import { BorderSetting } from './border-setting/border-setting';
 
+import { ImageSelectDirective } from './image-select/image-select';
+export { ImageSelectDirective } from './image-select/image-select';
 
 export const SETTING_COMPONENTS = [
     SettingContainerMargin, SettingContainerPadding, SettingContainerColor, SettingContainerBorder,
@@ -52,6 +54,6 @@ export const SETTING_COMPONENTS = [
     ...SELECTS_COMPONENTS,
     SelectPageDialog, IconLinkSelect, ImageLinkSelect,
     IconLinkIconSelect, ImageLinkTitleSelect,
-    IconTitleDialog, ImageSetting, FontSetting
-]
-
+    IconTitleDialog, ImageSetting, FontSetting,
+    BorderSetting
+];
