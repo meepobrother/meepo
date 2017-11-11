@@ -34,7 +34,8 @@ import {
     AddMoneyViewComponent, AddMoneySettingComponent,
     TaskDetailView, TaskDetailSetting,
     RunnerConcatSetting, RunnerConcatView,
-    RunnerCouponSetting, RunnerCouponView    
+    RunnerCouponSetting, RunnerCouponView,
+    TaskStatusSetting, TaskStatusView
 } from './runner';
 
 import {
@@ -57,7 +58,8 @@ import {
     LayoutContainerSelect, LayoutContainerSetting, LayoutContainerView,
     LayoutFooterSelect, LayoutFooterSetting, LayoutFooterView,
     LayoutMenuSelect, LayoutMenuSetting, LayoutMenuView,
-    LayoutView, LayoutSetting
+    LayoutView, LayoutSetting,
+    FloorSetting, FloorView
 } from './layouts';
 
 import {
@@ -83,6 +85,7 @@ import {
     MeepoTabsSetting, MeepoTabsView,
     MeepoPasswordSetting, MeepoPasswordView,
     MeepoTreeSelectSetting, MeepoTreeSelectView,
+    MeepoImageSetting, MeepoImageView
 } from './meepo-ui';
 
 import {
@@ -133,7 +136,12 @@ import { IconSelectDialog, CreateBtnDialog } from '../../dialogs';
 
 import {
     CardComponent, CardSetting, CardView, SlotDirective,
-    ZanSearchSetting, ZanSearchView
+    ZanSearchSetting, ZanSearchView,
+    ZanTagSetting, ZanTagView,
+    ZanCellSetting, ZanCellView,
+    ZanPanelSetting, ZanPanelView,
+    ZanQuantitySetting, ZanQuantityView, 
+    ZanSwitchSetting, ZanSwitchView
 } from './zan-ui';
 
 import {
@@ -274,7 +282,19 @@ export const COMPONENTS = [
     MeepoTreeSelectSetting, MeepoTreeSelectView,
 
     RunnerConcatSetting, RunnerConcatView,
-    RunnerCouponSetting, RunnerCouponView
+    RunnerCouponSetting, RunnerCouponView,
+
+    TaskStatusSetting, TaskStatusView,
+    
+    ZanTagSetting, ZanTagView,
+    ZanCellSetting, ZanCellView,
+    ZanPanelSetting, ZanPanelView,
+    ZanQuantitySetting, ZanQuantityView, 
+    ZanSwitchSetting, ZanSwitchView,
+
+    //
+    MeepoImageSetting, MeepoImageView,
+    FloorSetting, FloorView
 ];
 
 
@@ -373,7 +393,8 @@ export const COMPONENTS_VIEW = {
     'meepo-password': MeepoPasswordView,
     'meepo-tree-select': MeepoTreeSelectView,
     'runner-concat':  RunnerConcatView,
-    'runner-coupon': RunnerCouponView
+    'runner-coupon': RunnerCouponView,
+    'task-status': TaskStatusView
 };
 
 
@@ -467,6 +488,7 @@ export const COMPONENTS_SETTING = {
     'meepo-tree-select': MeepoTreeSelectSetting, 
     'runner-concat': RunnerConcatSetting,
     'runner-coupon': RunnerCouponSetting, 
+    'task-status': TaskStatusSetting
 };
 
 export * from '../classes/widgets';
