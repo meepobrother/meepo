@@ -63,31 +63,9 @@ import {
     FloorSetting, FloorView
 } from './layouts';
 
-import {
-    MeepoAdvsSetting, MeepoAdvsView,
-    MeepoFilterSetting, MeepoFilterView,
-    MeepoTasksSetting, MeepoTasksView,
-    MeepoTextSetting, MeepoTextView,
-    MeepoTagsSetting, MeepoTagsView,
-    MeepoSwiperTagsSetting, MeepoSwiperTagsView,
-    // 地址
-    MeepoAddAddressView, MeepoAddAddressSetting,
-    MeepoListSetting, MeepoListView,
-    MeepoGridsSetting, MeepoGridsView,
-    MeepoDanmuView, MeepoDanmuSetting,
-    MeepoMarqueeSetting, MeepoMarqueeView,
-    MeepoVideoSetting, MeepoVideoView,
-    MeepoVoiceSetting, MeepoVoiceView,
+import { meepoui_settings, meepoui_setting_map } from './meepo-ui/setting';
+import { meepoui_views, meepoui_view_map } from './meepo-ui/view';
 
-    // meepo
-    MeepoTabbarSetting, MeepoTabbarView,
-    MeepoTitleSetting, MeepoTitleView,
-    MeepoCardSetting, MeepoCardView,
-    MeepoTabsSetting, MeepoTabsView,
-    MeepoPasswordSetting, MeepoPasswordView,
-    MeepoTreeSelectSetting, MeepoTreeSelectView,
-    MeepoImageSetting, MeepoImageView
-} from './meepo-ui';
 
 import {
     MeepoFormMobileView, MeepoFormMobileSetting,
@@ -159,6 +137,8 @@ import {
     JdHomeListSetting, JdHomeListView
 } from './jd';
 
+
+
 export const COMPONENTS = [
     ButtonView, ButtonSetting, ButtonSelect,
     WeuiCellsSetting, WeuiCellsView,
@@ -181,12 +161,7 @@ export const COMPONENTS = [
     LayoutMenuSelect, LayoutMenuSetting, LayoutMenuView,
 
     // components
-    MeepoAdvsSetting, MeepoAdvsView,
-    MeepoFilterSetting, MeepoFilterView,
-    MeepoTasksSetting, MeepoTasksView,
-    MeepoTextSetting, MeepoTextView,
-    MeepoTagsSetting, MeepoTagsView,
-    MeepoSwiperTagsSetting, MeepoSwiperTagsView,
+    
 
     // wxapp
     View, ViewSetting,
@@ -194,8 +169,7 @@ export const COMPONENTS = [
     SwiperItem, Swiper, SwiperSetting,
 
     // address
-    MeepoAddAddressView, MeepoAddAddressSetting,
-    MeepoListSetting, MeepoListView,
+    
 
     // zan ui
     CardComponent, CardSetting, CardView,
@@ -250,7 +224,6 @@ export const COMPONENTS = [
     MeepoFormRealnameView, MeepoFormRealnameSetting,
     PayuiFlowSetting, PayuiFlowView,
     ...actions_component,
-    MeepoGridsSetting, MeepoGridsView,
     PayStateSetting, PayStateView,
 
     TaskListSetting, TaskListView,
@@ -258,7 +231,6 @@ export const COMPONENTS = [
     AddMoneyViewComponent, AddMoneySettingComponent,
     TaskDetailView, TaskDetailSetting,
     WeuiPreviewView, WeuiPreviewSetting,
-    MeepoDanmuView, MeepoDanmuSetting,
 
 
     LayoutVesselSetting, LayoutVesselView,
@@ -270,17 +242,6 @@ export const COMPONENTS = [
     JdHomeOrderSetting, JdHomeOrderView,
     JdHomeListSetting, JdHomeListView,
 
-    MeepoMarqueeSetting, MeepoMarqueeView,
-    MeepoVideoSetting, MeepoVideoView,
-    MeepoVoiceSetting, MeepoVoiceView,
-
-    MeepoTabbarSetting, MeepoTabbarView,
-    MeepoTitleSetting, MeepoTitleView,
-    MeepoCardSetting, MeepoCardView,
-
-    MeepoTabsSetting, MeepoTabsView,
-    MeepoPasswordSetting, MeepoPasswordView,
-    MeepoTreeSelectSetting, MeepoTreeSelectView,
 
     RunnerConcatSetting, RunnerConcatView,
     RunnerCouponSetting, RunnerCouponView,
@@ -294,9 +255,10 @@ export const COMPONENTS = [
     ZanSwitchSetting, ZanSwitchView,
 
     //
-    MeepoImageSetting, MeepoImageView,
     FloorSetting, FloorView,
-    RunnerRegisterSetting, RunnerRegisterView
+    RunnerRegisterSetting, RunnerRegisterView,
+    ...meepoui_settings,
+    ...meepoui_views
 ];
 
 
@@ -323,13 +285,6 @@ export const COMPONENTS_VIEW = {
     'layout-footer': LayoutFooterView,
     'layout-header': LayoutHeaderView,
     'layout-menu': LayoutMenuView,
-    'meepo-advs': MeepoAdvsView,
-    'meepo-filter': MeepoFilterView,
-    'meepo-tasks': MeepoTasksView,
-    'meepo-tags': MeepoTagsView,
-    'meepo-add-address': MeepoAddAddressView,
-    'meepo-list': MeepoListView,
-    'meepo-swiper-tags': MeepoSwiperTagsView,
     // forms
     'meepo-form-weight': MeepoFormWeightView,
     'meepo-form-tiji': MeepoFormTijiView,
@@ -372,7 +327,6 @@ export const COMPONENTS_VIEW = {
     'weui-cells': WeuiCellsView,
     'payui-flow': PayuiFlowView,
     ...actions_component_view,
-    'meepo-grids': MeepoGridsView,
     'pay-state': PayStateView,
     'task-list': TaskListView,
     'runner-list': RunnerListView,
@@ -382,22 +336,12 @@ export const COMPONENTS_VIEW = {
     'jd-home-money': JdHomeMoneyView,
     'jd-home-order': JdHomeOrderView,
     'jd-home-list': JdHomeListView,
-    'meepo-danmu': MeepoDanmuView,
-    'meepo-marquee': MeepoMarqueeView,
-    'meepo-text': MeepoTextView,
-    'meepo-video': MeepoVideoView,
-    'meepo-voice': MeepoVoiceView,
-
-    'meepo-tabbar': MeepoTabbarView,
-    'meepo-title': MeepoTitleView,
-    'meepo-card': MeepoCardView,
-    'meepo-tabs': MeepoTabsView,
-    'meepo-password': MeepoPasswordView,
-    'meepo-tree-select': MeepoTreeSelectView,
+    
     'runner-concat':  RunnerConcatView,
     'runner-coupon': RunnerCouponView,
     'task-status': TaskStatusView,
-    'runner-register': RunnerRegisterView
+    'runner-register': RunnerRegisterView,
+    ...meepoui_view_map
 };
 
 
@@ -413,17 +357,6 @@ export const COMPONENTS_SETTING = {
     'layout-header': LayoutHeaderSetting,
     'layout-menu': LayoutMenuSetting,
     'layout': LayoutSetting,
-
-    'meepo-advs': MeepoAdvsSetting,
-    'meepo-filter': MeepoFilterSetting,
-    'meepo-tasks': MeepoTasksSetting,
-    'meepo-tags': MeepoTagsSetting,
-
-
-    'meepo-add-address': MeepoAddAddressSetting,
-    'meepo-list': MeepoListSetting,
-    'meepo-swiper-tags': MeepoSwiperTagsSetting,
-
     // forms
     'meepo-form-weight': MeepoFormWeightSetting,
     'meepo-form-tiji': MeepoFormTijiSetting,
@@ -443,7 +376,6 @@ export const COMPONENTS_SETTING = {
     'meepo-form-address': MeepoFormAddressSetting,
     'meepo-form-address-end': MeepoFormAddressEndSetting,
     'meepo-form-address-start': MeepoFormAddressStartSetting,
-
     //
     'meepo-topics-list': TopicsListSetting,
     'uu-item-box': UuItemBoxSetting,
@@ -453,7 +385,6 @@ export const COMPONENTS_SETTING = {
     'uu-home-header': UuHomeHeaderSetting,
     'uu-home-item': UuHomeItemSetting,
     'uu-con': UuConSetting,
-
     'uu-coupon': UuCouponSetting,
     'active-item': ActiveItemSetting,
     'bargain-item': BargainItemSetting,
@@ -467,32 +398,19 @@ export const COMPONENTS_SETTING = {
     'weui-cells': WeuiCellsSetting,
     'payui-flow': PayuiFlowSetting,
     ...actions_component_setting,
-    'meepo-grids': MeepoGridsSetting,
     'pay-state': PayStateSetting,
     'task-list': TaskListSetting,
     'runner-list': RunnerListSetting,
     'zan-search': ZanSearchSetting,
-
     'jd-home-header': JdHomeHeaderSetting,
     'jd-home-money': JdHomeMoneySetting,
     'jd-home-order': JdHomeOrderSetting,
     'jd-home-list': JdHomeListSetting,
-    'meepo-danmu': MeepoDanmuSetting,
-    'meepo-marquee': MeepoMarqueeSetting,
-    'meepo-text': MeepoTextSetting,
-    'meepo-video': MeepoVideoSetting,
-    'meepo-voice': MeepoVoiceSetting,
-
-    'meepo-tabbar': MeepoTabbarSetting,
-    'meepo-title': MeepoTitleSetting,
-    'meepo-card': MeepoCardSetting,
-    'meepo-tabs': MeepoTabsSetting,
-    'meepo-password': MeepoPasswordSetting, 
-    'meepo-tree-select': MeepoTreeSelectSetting, 
     'runner-concat': RunnerConcatSetting,
     'runner-coupon': RunnerCouponSetting, 
     'task-status': TaskStatusSetting,
     'runner-register': RunnerRegisterSetting, 
+    ...meepoui_setting_map
 };
 
 export * from '../classes/widgets';

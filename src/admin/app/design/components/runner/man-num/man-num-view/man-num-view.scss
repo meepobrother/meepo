@@ -1,0 +1,264 @@
+.meepo-page {
+    .page-bd {
+        padding: 0 13px;
+        margin-bottom: 10px;
+        background: #fff;
+    }
+    .page-title {
+        padding: 15px 0;
+        position: relative;
+        border: 0;
+        &:after {
+            content: " ";
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            color: #d9d9d9;
+            bottom: 0;
+            border-top: 1px solid #eee;
+            -webkit-transform-origin: 0 100%;
+            transform-origin: 0 100%;
+            -webkit-transform: scaleY(0.5);
+            transform: scaleY(0.5);
+        }
+        h2 {
+            font-size: 14px;
+            color: #333;
+            font-weight: bold;
+            line-height: 18px;
+            i {
+                display: inline-block;
+                width: 17px;
+                height: 17px;
+                margin-right: 7px;
+                vertical-align: bottom;
+            }
+        }
+    }
+    .page-number {
+        padding: 15px 0;
+        img {
+            display: block;
+            width: 40px;
+            height: 40px;
+            margin-right: 13px;
+        }
+        .num-mes {
+            flex-grow: 2;
+            -webkit-flex-grow: 2;
+        }
+        .num-txt {
+            h2 {
+                font-size: 14px;
+                color: #333;
+                font-weight: bold;
+                margin-bottom: 5px;
+            }
+            span {
+                font-size: 13px;
+                color: #666;
+                font-weight: bold;
+            }
+        }
+        .num-colums {
+            height: 5.5px;
+            background: #e5e5e5;
+            border-radius: 2.2px;
+            position: relative;
+            .number {
+                height: 100%;
+                border-radius: 2.2px;
+                position: relative;
+                &.number-red {
+                    background: -webkit-linear-gradient(top, #ff7d74, #ff4b44);
+                    i {
+                        background-image: url("./red.png");
+                    }
+                }
+                &.number-yellow {
+                    background: -webkit-linear-gradient(top, #ffdd6d, #ffb83d);
+                    i {
+                        background-image: url("./yellow.png");
+                    }
+                }
+                &.number-green {
+                    background: -webkit-linear-gradient(top, #82d62e, #45b80f);
+                    i {
+                        background-image: url("./green.png");
+                    }
+                }
+                i {
+                    display: inline-block;
+                    width: 15px;
+                    height: 11px;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: 100%;
+                    position: absolute;
+                    top: -3.8px;
+                    right: -1.1px;
+                }
+            }
+        }
+    }
+}
+
+.page .page-bd .hint {
+    margin: 0.4rem 0 0.32rem;
+    background: #fffbf7;
+    font-size: 0.32rem;
+    color: #ff6c01;
+    padding: 0.26666667rem;
+    line-height: 0.45333333rem;
+    border: 1px dashed #ff8b03;
+    -webkit-border-radius: 0.10666667rem;
+    -moz-border-radius: 0.10666667rem;
+    border-radius: 0.10666667rem;
+}
+
+.page .page-bd ul.rule-list li {
+    list-style: decimal;
+    list-style-position: inside;
+    padding: 0.34666667rem 0 0.32rem 0.2rem;
+    border-bottom: 1px dashed #eee;
+    position: relative;
+}
+
+.page .page-bd ul.rule-list li:last-child {
+    border: none;
+}
+
+.page .page-bd ul.rule-list li:before {
+    display: block;
+    content: '';
+    position: absolute;
+    top: 0.53333333rem;
+    left: 0rem;
+    width: 2px;
+    height: 2px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    background: #666;
+}
+
+.page .page-bd ul.rule-list li.listpad {
+    padding: 0.17333333rem 0 0.16rem 0.2rem;
+}
+
+.page .page-bd ul.rule-list li.listpad:before {
+    top: 0.37333333rem;
+}
+
+.page .page-bd ul.rule-list li div {
+    font-size: 0.32rem;
+    color: #333;
+}
+
+.page .page-bd ul.rule-list li div p {
+    color: #ff8b03;
+    font-size: 0.29333333rem;
+    line-height: 0.37333333rem;
+}
+
+.page .page-bd .hint+ul.rule-list li:first-child {
+    border-top: 1px dashed #eee;
+}
+
+.page .page-bd ul.detail-list li {
+    padding: 0.34666667rem 0 0.32rem;
+    position: relative;
+    border: 0;
+}
+
+.page .page-bd ul.detail-list li:after {
+    content: " ";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    color: #d9d9d9;
+    bottom: 0;
+    border-top: 1px solid #eee;
+    -webkit-transform-origin: 0 100%;
+    transform-origin: 0 100%;
+    -webkit-transform: scaleY(0.5);
+    transform: scaleY(0.5);
+}
+
+.page .page-bd ul.detail-list li:last-child:after {
+    display: none;
+}
+
+.page .page-bd ul.detail-list li .list-l h2,
+.page .page-bd ul.detail-list li .list-r h2 {
+    font-size: 0.37333333rem;
+    color: #333;
+    font-weight: bold;
+    line-height: 0.45333333rem;
+}
+
+.page .page-bd ul.detail-list li .list-l p,
+.page .page-bd ul.detail-list li .list-r p {
+    font-size: 0.29333333rem;
+    color: #666;
+    line-height: 0.45333333rem;
+}
+
+.page .page-bd ul.detail-list li .list-l {
+    padding-right: 2.13333333rem;
+}
+
+.page .page-bd ul.detail-list li .list-r h2 {
+    text-align: right;
+    font-size: 0.42666667rem;
+}
+
+.page .page-bd ul.detail-list li .list-r h2.color1 {
+    color: #00893a;
+}
+
+.page .page-bd ul.detail-list li .list-r h2.color2 {
+    color: #ff0000;
+}
+
+.page .page-bd ul.detail-list li .list-r h2.color0 {
+    color: #000;
+}
+
+.page .page-bd ul.detail-list li .list-r p {
+    text-align: right;
+    color: #333;
+    white-space: nowrap;
+}
+
+.icon-time {
+    background: url("./icon-time.png") no-repeat center;
+    -webkit-background-size: 100%;
+    background-size: 100%;
+}
+
+.icon-detail {
+    background: url("./icon-detail.png") no-repeat center;
+    -webkit-background-size: 100%;
+    background-size: 100%;
+}
+
+.icon-rule {
+    background: url("./icon-rule.png") no-repeat center;
+    -webkit-background-size: 100%;
+    background-size: 100%;
+}
+
+.icon-standard {
+    background: url("./icon-standard.png") no-repeat center;
+    -webkit-background-size: 100%;
+    background-size: 100%;
+}
+
+.icon-rules {
+    background: url("./icon-rules.png") no-repeat center;
+    -webkit-background-size: 100%;
+    background-size: 100%;
+}

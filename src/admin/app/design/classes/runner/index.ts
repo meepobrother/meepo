@@ -6,3 +6,4 @@ export * from './runner-concat';
 export * from './runner-register';
 
 export * from './runner-coupon';
+export * from './man-num';
