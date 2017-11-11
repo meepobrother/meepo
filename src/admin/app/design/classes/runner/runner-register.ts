@@ -1,7 +1,7 @@
 
 import { Widget } from '../widget';
 export class RunnerRegisterDefault extends Widget {
-    images: string[] = [];
+    images: any[] = [];
 
     constructor() {
         super();
@@ -9,11 +9,11 @@ export class RunnerRegisterDefault extends Widget {
         this.name = '跑腿注册';
 
         this.images = [
-            './assets/runner/1.jpg',
-            './assets/runner/2.jpg',
-            './assets/runner/3.jpg',
-            './assets/runner/4.jpg',
-            './assets/runner/5.jpg',
+            {src: './assets/runner/1.jpg'},
+            {src: './assets/runner/2.jpg'},
+            {src: './assets/runner/3.jpg'},
+            {src: './assets/runner/4.jpg'},
+            {src: './assets/runner/5.jpg'},            
         ];
     }
 }
