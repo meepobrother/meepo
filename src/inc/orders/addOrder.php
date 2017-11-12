@@ -16,12 +16,13 @@ $data['tag'] = serialize($input['tag']);
 $data['class_id'] = $input['class_id'];
 
 $id = intval($input['id']);
-
-if(!empty($id)){
-    pdo_update('imeepos_runner4_order',$data,array('id'=>$input['id']));
-}else{
-    pdo_insert('imeepos_runner4_order',$data);
-    $data['id'] = pdo_insertid();
+if(!empty($data['title'])){
+    if(!empty($id)){
+        pdo_update('imeepos_runner4_order',$data,array('id'=>$input['id']));
+    }else{
+        pdo_insert('imeepos_runner4_order',$data);
+        $data['id'] = pdo_insertid();
+    }
 }
 
 $this->info = $data;

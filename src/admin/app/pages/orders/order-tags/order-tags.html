@@ -9,10 +9,10 @@
         标签是为了方便搜索查找归类
     </el-alert>
     <div class="ibox-content">
-        <div *ngIf="tags.list.size>0">
-            <span (click)="edit(item)" class="label label-primary" style="margin: 5px;" *ngFor="let item of tags.dates">{{item.title || '标题'}}</span>
+        <div *ngIf="list.length>0">
+            <span (click)="edit(item)" class="label label-primary" style="margin: 5px;" *ngFor="let item of list">{{item.title || '标题'}}</span>
         </div>
-        <blank *ngIf="tags.list.size<=0" title="还没有标签">
+        <blank *ngIf="list.length<=0" title="还没有标签">
             立即添加标签
             <a href="javascript:;" class="btn btn-primary" (click)="add()">添加</a>
         </blank>

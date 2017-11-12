@@ -9,7 +9,6 @@ if($input['status'] == 0){
     $input['status'] = 0;
     $this->msg = '0';
 }
-
 pdo_update('imeepos_runner4_order_class',$input,array('id'=>$input['id']));
 $this->info = $input;
 return $this;

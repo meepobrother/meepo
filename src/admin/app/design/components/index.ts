@@ -10,12 +10,8 @@ import {
     UuCouponSetting, UuCouponView
 } from './uupao';
 
-import {
-    PayRecordSetting, PayRecordView,
-    PaySelectMoneySetting, PaySelectMoneyView,
-    PayuiFlowSetting, PayuiFlowView,
-    PayStateSetting, PayStateView
-} from './payui';
+import { payui_setting_map, payui_settings } from './payui/setting';
+import { payui_view_map, payui_views } from './payui/view';
 
 import {
     IqiyiHeadNavView, IqiyiHeadNavSetting
@@ -217,14 +213,10 @@ export const COMPONENTS = [
     ArticleItemSetting, ArticleItemView,
     CityItemSetting, CityItemView,
 
-    PayRecordSetting, PayRecordView,
-    PaySelectMoneySetting, PaySelectMoneyView,
     IqiyiHeadNavView, IqiyiHeadNavSetting,
     MeepoFormBtnSetting, MeepoFormBtnView,
     MeepoFormRealnameView, MeepoFormRealnameSetting,
-    PayuiFlowSetting, PayuiFlowView,
     ...actions_component,
-    PayStateSetting, PayStateView,
 
     TaskListSetting, TaskListView,
     RunnerListSetting, RunnerListView,
@@ -258,7 +250,9 @@ export const COMPONENTS = [
     FloorSetting, FloorView,
     RunnerRegisterSetting, RunnerRegisterView,
     ...meepoui_settings,
-    ...meepoui_views
+    ...meepoui_views,
+    ...payui_settings,
+    ...payui_views
 ];
 
 
@@ -319,15 +313,14 @@ export const COMPONENTS_VIEW = {
     'bargain-item': BargainItemView,
     'article-item': ArticleItemView,
     'city-item': CityItemView,
-    'pay-record': PayRecordView,
-    'pay-select-money': PaySelectMoneyView,
+    
     'iqiyi-head-nav': IqiyiHeadNavView,
     'meepo-form-btn': MeepoFormBtnView,
     'meepo-form-realname': MeepoFormRealnameView,
     'weui-cells': WeuiCellsView,
-    'payui-flow': PayuiFlowView,
+    
+    
     ...actions_component_view,
-    'pay-state': PayStateView,
     'task-list': TaskListView,
     'runner-list': RunnerListView,
     'zan-search': ZanSearchView,
@@ -341,7 +334,8 @@ export const COMPONENTS_VIEW = {
     'runner-coupon': RunnerCouponView,
     'task-status': TaskStatusView,
     'runner-register': RunnerRegisterView,
-    ...meepoui_view_map
+    ...meepoui_view_map,
+    ...payui_view_map
 };
 
 
@@ -390,15 +384,11 @@ export const COMPONENTS_SETTING = {
     'bargain-item': BargainItemSetting,
     'article-item': ArticleItemSetting,
     'city-item': CityItemSetting,
-    'pay-record': PayRecordSetting,
-    'pay-select-money': PaySelectMoneySetting,
     'iqiyi-head-nav': IqiyiHeadNavSetting,
     'meepo-form-btn': MeepoFormBtnSetting,
     'meepo-form-realname': MeepoFormRealnameSetting,
     'weui-cells': WeuiCellsSetting,
-    'payui-flow': PayuiFlowSetting,
     ...actions_component_setting,
-    'pay-state': PayStateSetting,
     'task-list': TaskListSetting,
     'runner-list': RunnerListSetting,
     'zan-search': ZanSearchSetting,
@@ -410,7 +400,8 @@ export const COMPONENTS_SETTING = {
     'runner-coupon': RunnerCouponSetting, 
     'task-status': TaskStatusSetting,
     'runner-register': RunnerRegisterSetting, 
-    ...meepoui_setting_map
+    ...meepoui_setting_map,
+    ...payui_setting_map
 };
 
 export * from '../classes/widgets';
