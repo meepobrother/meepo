@@ -376,8 +376,6 @@ EOT;
 	
     public function doWebClear(){
 		global $_W,$_GPC;
-		ini_set("display_errors", "On");
-		error_reporting(E_ALL | E_STRICT);
 
 		include IA_ROOT.'/addons/imeepos_runner/webclear.php';
 		$file = IA_ROOT.'/addons/iemepos_runner/template/common';
@@ -703,9 +701,15 @@ EOT;
 		$code = 'update.setting';
 		$setting = M('setting')->getSystem($code);
 		
-		if($setting['version'] != '10.1.9'){
+		if($setting['version'] != '10.2.0'){
 			$this->doWebClear();
 		}
+	}
+
+	public function doWebAppv20(){
+		global $_W,$_GPC;
+
+		include $this->template('appv20');
 	}
 
 	public function doWebAppdownload(){
