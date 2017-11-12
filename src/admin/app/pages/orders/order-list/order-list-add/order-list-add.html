@@ -1,26 +1,68 @@
-<div class="ibox-content" [formGroup]="form">
-    <form-field>
-        <input type="text" formControlName="title" placeholder="请输入工单标题" meepoInput class="form-control">
-    </form-field>
-    <form-field>
-        <textarea rows="3" formControlName="desc" placeholder="请输入工单简介" meepoInput class="form-control">请输入工单简介</textarea>
-    </form-field>
-    <div class="form-group">
-        <label>分类</label>
-        <select formControlName="class_id" class="form-control">
-            <option [attr.value]="item.id" *ngFor="let item of classes">{{item.title}}</option>
-        </select>
+<ul>
+    <li [class.on]="step.status == 1" *ngFor="let step of steps">
+        <span>{{step.step}}</span> {{step.title}}
+    </li>
+</ul>
+
+<div class="ibox-content">
+    <div class="" *ngIf="activeSetp.step == 1">
+        <div class="form-group">
+            <label>车牌号</label>
+            <input type="text" [(ngModel)]="carfile.car_num" placeholder="请输入车牌号" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>车架号</label>
+            <input type="text" [(ngModel)]="carfile.jar_num" placeholder="请输入车架号" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>里程</label>
+            <input type="text" [(ngModel)]="carfile.licheng" placeholder="请输入车架号" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>车主姓名</label>
+            <input type="text" [(ngModel)]="carfile.realname" placeholder="请输入车主姓名" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>车主电话</label>
+            <input type="text" [(ngModel)]="carfile.mobile" placeholder="请输入车主电话" class="form-control">
+        </div>
     </div>
-    <div class="form-group">
-        <button type="button" [class.btn-default]="!selects.isSelected(item)" [class.btn-primary]="selects.isSelected(item)" (click)="select(item)" *ngFor="let item of tags" class="btn btn-xs">{{item.title || '标题'}}</button>
+    <div class="" *ngIf="activeSetp.step == 2">
+        <table class="table table-hover">
+            <tr *ngFor="let item of checks">
+                <td>{{item.title}}</td>
+                <td>
+                    <a class="btn btn-primary btn-xs">编辑</a>
+                    <a class="btn btn-danger btn-xs">删除</a>
+                </td>
+            </tr>
+        </table>
     </div>
-    <div class="form-group">
-        <label>小费/金额</label>
-        <input type="text" class="form-control" placeholder="请输入金额/小费" formControlName="money">
+    <div *ngIf="activeSetp.step == 3" [formGroup]="form">
+        <form-field>
+            <input type="text" formControlName="title" placeholder="请输入工单标题" meepoInput class="form-control">
+        </form-field>
+        <form-field>
+            <textarea rows="3" formControlName="desc" placeholder="请输入工单简介" meepoInput class="form-control">请输入工单简介</textarea>
+        </form-field>
+        <div class="form-group">
+            <label>分类</label>
+            <select formControlName="class_id" class="form-control">
+                <option [attr.value]="item.id" *ngFor="let item of classes">{{item.title}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <button type="button" [class.btn-default]="!selects.isSelected(item)" [class.btn-primary]="selects.isSelected(item)" (click)="select(item)" *ngFor="let item of tags" class="btn btn-xs">{{item.title || '标题'}}</button>
+        </div>
+        <div class="form-group">
+            <label>小费/金额</label>
+            <input type="text" class="form-control" placeholder="请输入金额/小费" formControlName="money">
+        </div>
     </div>
+
     <div>
-        <a href="javascript:;" (click)="postDate()" class="btn btn-primary">提交</a>
-        <a href="javascript:;" *ngIf="form.get('id').value" (click)="delete()" class="btn btn-danger">删除</a>
+        <a href="javascript:;" *ngIf="hasPrev" (click)="prevStep()" class="btn btn-info">上一步</a>
+        <a href="javascript:;" *ngIf="hasNext" (click)="nextStep()" class="btn btn-primary">下一步</a>
         <a href="javascript:;" (click)="cancel()" class="btn btn-default">取消</a>
     </div>
 </div>

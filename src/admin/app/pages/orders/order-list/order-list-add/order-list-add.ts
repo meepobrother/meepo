@@ -3,6 +3,8 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { SelectionModel } from '@angular/cdk/collections';
 import { ApiService } from '../../../../core';
+import * as store from 'store';
+
 @Component({
     selector: 'order-list-add',
     templateUrl: './order-list-add.html',
@@ -13,6 +15,43 @@ export class OrderListAdd implements OnInit {
     tags: any[] = [];
     form: FormGroup;
     selects: SelectionModel<any> = new SelectionModel(true, [], true);
+
+    steps: any[] = [
+        {
+            title: '车辆信息',
+            step: 1,
+            status: 1
+        },
+        {
+            title: '车辆检查',
+            step: 2,
+            status: 0
+        },
+        {
+            title: '消费清单',
+            step: 3,
+            status: 0
+        },
+        {
+            title: '结款交付',
+            step: 4,
+            status: 0
+        },
+    ];
+    activeIndex: number = 0;
+    checks: any[] = [];
+
+    activeSetp: any;
+    hasNext: boolean = true;
+    hasPrev: boolean = false;
+
+    carfile: any = {
+        car_num: '',
+        jar_num: '',
+        licheng: '',
+        realname: '',
+        mobile: ''
+    };
     constructor(
         public dialogRef: MatDialogRef<any>,
         public fb: FormBuilder,
@@ -26,7 +65,7 @@ export class OrderListAdd implements OnInit {
             class_id: [''],
             tag: [''],
             uniacid: [''],
-            id: ['']
+            id: [''],
         });
 
         this.selects.onChange.subscribe(res => {
@@ -60,6 +99,8 @@ export class OrderListAdd implements OnInit {
 
     ngOnInit() {
         this.getClasses();
+        this.activeIndex = 0;
+        this.activeSetp = this.steps[0];
     }
 
     getClasses() {
@@ -89,5 +130,32 @@ export class OrderListAdd implements OnInit {
 
     cancel() {
         this.dialogRef.close();
+    }
+
+    prevStep(){
+        if(this.activeIndex - 1 >= 0){
+            this.activeIndex = this.activeIndex -1;
+            this.steps[this.activeIndex].status = 1;
+            this.activeSetp = this.steps[this.activeIndex];
+            this.steps.map((item,key)=>{
+                if(key > this.activeIndex){
+                    item.status = 0;
+                }
+            });
+            console.log(this.activeIndex);
+            this.hasPrev = this.activeIndex != 0;
+            this.hasNext = true;
+        }
+    }
+    nextStep(){
+        if(this.activeIndex + 1 <= this.steps.length){
+            this.activeIndex = this.activeIndex + 1;
+            this.steps[this.activeIndex].status = 1;
+            this.activeSetp = this.steps[this.activeIndex];
+            console.log(this.activeIndex);
+            console.log(this.steps.length);
+            this.hasNext = this.activeIndex != (this.steps.length - 1);
+            this.hasPrev = true;
+        }
     }
 }

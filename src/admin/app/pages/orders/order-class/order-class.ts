@@ -28,7 +28,7 @@ export class OrderClass implements OnInit {
     add() {
         const dialogRef = this.dialog.open(OrderClassAdd);
         dialogRef.afterClosed().subscribe(res => {
-            if (res) {
+            if (res.title) {
                 this.api.mpost('orders.addOrderClass', res).subscribe(item => {
                     this.list.unshift(item);
                 });
@@ -39,8 +39,10 @@ export class OrderClass implements OnInit {
     edit(item: any, index: number) {
         const dialogRef = this.dialog.open(OrderClassAdd, { data: item });
         dialogRef.afterClosed().subscribe(res => {
-            this.list[index] = res;
-            this.api.mpost('orders.addOrderClass', res).subscribe(item => { });
+            if (res.title) {
+                this.list[index] = res;
+                this.api.mpost('orders.addOrderClass', res).subscribe(item => { });
+            }
         });
     }
     // 更新状态
@@ -50,7 +52,9 @@ export class OrderClass implements OnInit {
     }
 
     delete(item: any, index: number) {
-
+        this.api.mpost('orders.deleteOrderClass', item).subscribe(res => {
+            this.list.splice(index, 1);
+        });
     }
 }
 

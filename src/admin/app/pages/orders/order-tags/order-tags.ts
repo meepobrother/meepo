@@ -32,9 +32,8 @@ export class OrderTags implements OnInit {
         const dialogRef = this.dialog.open(OrderTagsAdd);
         dialogRef.afterClosed().subscribe(res => {
             if (res) {
-                this.api.mpost('orders.addOrderTags', res).subscribe(res => {
-                    this.list.unshift(res);
-                });
+                this.list.unshift(res);
+                this.api.mpost('orders.addOrderTags', res).subscribe(res => { });
             }
         });
     }
@@ -43,9 +42,8 @@ export class OrderTags implements OnInit {
         const dialogRef = this.dialog.open(OrderTagsAdd, { data: item });
         dialogRef.afterClosed().subscribe(res => {
             if (res) {
-                this.api.mpost('orders.addOrderTags', res).subscribe(res => {
-                    this.list[index] = res;
-                });
+                this.list[index] = res;
+                this.api.mpost('orders.addOrderTags', res).subscribe(res => { });
             }
         });
     }
