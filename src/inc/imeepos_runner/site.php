@@ -708,7 +708,14 @@ EOT;
 
 	public function doWebAppv20(){
 		global $_W,$_GPC;
+		$code = '__meepo.app.uniacid';		
+		$setting = pdo_get('imeepos_runner3_setting',array('code'=>$code));
+		$__uniacidItem = unserialize($setting['value']);
+		$uniacid = $__uniacidItem['uniacid'];
 
+		if(empty($uniacid)){
+			messageg('请先绑定主账号及微信',$this->createWebUrl('appdownload'),'error');
+		}
 		include $this->template('appv20');
 	}
 
