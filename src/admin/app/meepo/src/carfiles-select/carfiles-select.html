@@ -1,0 +1,23 @@
+<div class="ibox">
+    <div class="ibox-title">
+        <h5>选择车辆</h5>
+        <div class="ibox-tools">
+            <a class="btn btn-primary btn-xs" (click)="close()">关闭</a>
+        </div>
+    </div>
+    <div class="ibox-content">
+        <ul>
+            <li *ngFor="let item of list;index as i;" (click)="select(item)">
+                <img [src]="item.image">
+                <div class="content">
+                    <p>{{item.car_num}}</p>
+                    <p>{{item.jar_num}}</p>
+                </div>
+                <div class="right">
+                    <p>{{item.realname}}</p>
+                    <p>{{item.create_time}}</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

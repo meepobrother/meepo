@@ -7,6 +7,7 @@
     height: 700px;
     display: block;
     overflow: auto;
+    position: relative;
 }
 
 ul {
@@ -44,6 +45,18 @@ ul {
 }
 
 .order-list-add-opts {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+}
+
+.content-header {
+    padding: 10px 50px;
     display: flex;
     flex-direction: row;
     align-items: center;

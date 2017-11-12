@@ -15,10 +15,14 @@ export class GoodsGroupAdd implements OnInit {
     ) {
         this.form = this.fb.group({
             title: [''],
-            desc: ['']
+            desc: [''],
+            id: ['']
         });
         this.dialog.afterOpen().subscribe(res => {
-            const { title, desc } = this.data || new GoodsGroupAddDefault();
+            const { title, desc, id } = this.data || new GoodsGroupAddDefault();
+            this.form.get('title').setValue('title');
+            this.form.get('desc').setValue('desc');
+            this.form.get('id').setValue('id');
         });
     }
 

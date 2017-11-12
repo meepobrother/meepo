@@ -14,7 +14,6 @@ $data['count'] = intval($input['count']);
 $data['price'] = floatval($input['price']);
 $data['shop_id'] = intval($input['shop_id']);
 
-
 $data['uniacid'] = $_W['uniacid'];
 if(!empty($input['title'])){
     if(empty($input['id'])){

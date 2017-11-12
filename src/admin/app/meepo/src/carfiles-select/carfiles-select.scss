@@ -1,0 +1,25 @@
+:host {
+    overflow: auto;
+    min-width: 300px;
+    max-height: 400px;
+    display: block;
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+    li {
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        padding: 5px;
+        .content {
+            flex: 1;
+            width: 100%;
+        }
+        &:hover {
+            background-color: gray;
+            color: #fff;
+        }
+    }
+}

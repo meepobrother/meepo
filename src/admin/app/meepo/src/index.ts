@@ -1,15 +1,29 @@
 import { MeLoading } from './me-loading/me-loading';
+export { MeLoading } from './me-loading/me-loading';
+
 import { MeAlert } from './me-alert/me-alert';
+export { MeAlert } from './me-alert/me-alert';
+
 import { MeConfirm } from './me-confirm/me-confirm';
+export { MeConfirm } from './me-confirm/me-confirm';
 
 import { McPageSelect } from './mc-page-select/mc-page-select';
+export { McPageSelect } from './mc-page-select/mc-page-select';
+
 import { McIconSelect } from './mc-icon-select/mc-icon-select';
+export { McIconSelect } from './mc-icon-select/mc-icon-select';
 
 import { SwiperDefault } from './swiper-default/swiper-default';
+export { SwiperDefault } from './swiper-default/swiper-default';
 
 import { We7EmojiComponent } from './we7-emoji/we7-emoji.component';
-import { QqFaceComponent } from './qq-face/qq-face.component';
+export { We7EmojiComponent } from './we7-emoji/we7-emoji.component';
 
+import { QqFaceComponent } from './qq-face/qq-face.component';
+export { QqFaceComponent } from './qq-face/qq-face.component';
+
+import { CarfilesSelect } from './carfiles-select/carfiles-select';
+export { CarfilesSelect } from './carfiles-select/carfiles-select';
 
 export const MeepoComponents = [
     MeLoading,
@@ -19,5 +33,6 @@ export const MeepoComponents = [
     McIconSelect,
     SwiperDefault,
     We7EmojiComponent,
-    QqFaceComponent
+    QqFaceComponent,
+    CarfilesSelect
 ];

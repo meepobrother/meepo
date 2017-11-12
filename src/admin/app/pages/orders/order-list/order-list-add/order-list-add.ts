@@ -1,9 +1,11 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material';
 import { SelectionModel } from '@angular/cdk/collections';
 import { ApiService } from '../../../../core';
 import * as store from 'store';
+
+import { CarfilesSelect } from '../../../../meepo/src/index';
 
 @Component({
     selector: 'order-list-add',
@@ -65,7 +67,8 @@ export class OrderListAdd implements OnInit {
         public dialogRef: MatDialogRef<any>,
         public fb: FormBuilder,
         @Inject(MAT_DIALOG_DATA) public data: any,
-        public api: ApiService
+        public api: ApiService,
+        public dialog: MatDialog
     ) {
         this.form = this.fb.group({
             title: [''],
@@ -106,6 +109,24 @@ export class OrderListAdd implements OnInit {
         });
     }
 
+    selectCarfile() {
+        let dialogRef = this.dialog.open(CarfilesSelect);
+        dialogRef.afterClosed().subscribe((res: any) => {
+            if(res){
+                let { car_num, jar_num, licheng, realname, mobile } = res;
+                this.carfile.car_num = car_num;
+                this.carfile.jar_num = jar_num;
+                this.carfile.licheng = licheng;
+                this.carfile.realname = realname;
+                this.carfile.mobile = mobile;
+            }
+        });
+    }
+
+    addCarfile() {
+
+    }
+
     ngOnInit() {
         this.getClasses();
         this.activeIndex = 0;
@@ -113,9 +134,9 @@ export class OrderListAdd implements OnInit {
     }
 
     addCheckItem() {
-        if(this.isEditCheckItem){
+        if (this.isEditCheckItem) {
             this.checks[this.editCheckItemIndex] = this.checkItem;
-        }else{
+        } else {
             this.checks.push(this.checkItem);
         }
         this.checkItem = {
@@ -126,7 +147,7 @@ export class OrderListAdd implements OnInit {
         this.isEditCheckItem = false;
     }
 
-    editCheckItem(item: any, index: number){
+    editCheckItem(item: any, index: number) {
         this.checkItem = item;
         this.editCheckItemIndex = index;
         this.isEditCheckItem = true;
