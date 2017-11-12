@@ -9,7 +9,7 @@ $data['title'] = $input['title'];
 $data['desc'] = $input['desc'];
 $data['status'] = intval($input['status']);
 
-if(empty($data['title'])){
+if(!empty($data['title'])){
     if(!empty($input['id'])){
         pdo_update('imeepos_runner4_order_class',$data,array('id'=>$input['id']));
         $data['id'] = $input['id'];
