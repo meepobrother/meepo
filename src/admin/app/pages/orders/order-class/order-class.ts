@@ -24,7 +24,7 @@ export class OrderClass implements OnInit {
             this.list = res.info;
         });
     }
-
+    // 添加
     add() {
         const dialogRef = this.dialog.open(OrderClassAdd);
         dialogRef.afterClosed().subscribe(res => {
@@ -35,20 +35,18 @@ export class OrderClass implements OnInit {
             }
         });
     }
-
+    // 编辑
     edit(item: any, index: number) {
         const dialogRef = this.dialog.open(OrderClassAdd, { data: item });
         dialogRef.afterClosed().subscribe(res => {
-            this.api.mpost('orders.updateOrderClass', res).subscribe(item => {
-                this.list[index] = res;
-            });
+            this.list[index] = res;
+            this.api.mpost('orders.addOrderClass', res).subscribe(item => { });
         });
     }
-
+    // 更新状态
     updateStatus(res: any, index: number) {
-        this.api.mpost('orders.updateOrderClass', res).subscribe(item => {
-            res.status = res.status == 1 ? 0 : 1;
-        });
+        res.status = res.status == 1 ? 0 : 1;
+        this.api.mpost('orders.addOrderClass', res).subscribe(item => { });
     }
 
     delete(item: any, index: number) {

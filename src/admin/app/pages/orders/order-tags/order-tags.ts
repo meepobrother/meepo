@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { OrderTagsAdd } from './order-tags-add';
 import { OrderTagsService } from './order-tags.service';
+import { ApiService } from '../../../core';
 
 @Component({
     selector: 'order-tags',
@@ -10,30 +11,41 @@ import { OrderTagsService } from './order-tags.service';
     styleUrls: ['./order-tags.scss']
 })
 export class OrderTags implements OnInit {
+    list: any[] = [];
     constructor(
         public dialog: MatDialog,
-        public tags: OrderTagsService
+        public tags: OrderTagsService,
+        public api: ApiService
     ) { }
 
     ngOnInit() {
-        this.tags.getList(1, 30);
-        this.tags.list.values
+        this.getList(1, 30);
+    }
+
+    getList(page, psize) {
+        this.api.mpost('orders.getListOrderTags', { page: page, psize: psize }).subscribe((res: any) => {
+            this.list = res.info;
+        });
     }
 
     add() {
         const dialogRef = this.dialog.open(OrderTagsAdd);
         dialogRef.afterClosed().subscribe(res => {
             if (res) {
-                this.tags.add(res);
+                this.api.mpost('orders.addOrderTags', res).subscribe(res => {
+                    this.list.unshift(res);
+                });
             }
         });
     }
 
-    edit(item: any) {
+    edit(item: any, index: number) {
         const dialogRef = this.dialog.open(OrderTagsAdd, { data: item });
         dialogRef.afterClosed().subscribe(res => {
             if (res) {
-                this.tags.edit(res);
+                this.api.mpost('orders.addOrderTags', res).subscribe(res => {
+                    this.list[index] = res;
+                });
             }
         });
     }
