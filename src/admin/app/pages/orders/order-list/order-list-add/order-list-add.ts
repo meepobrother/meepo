@@ -52,6 +52,15 @@ export class OrderListAdd implements OnInit {
         realname: '',
         mobile: ''
     };
+
+    checkItem: any = {
+        title: '',
+        desc: ''
+    };
+
+    editCheckItemIndex: any;
+    isEditCheckItem: boolean = false;
+
     constructor(
         public dialogRef: MatDialogRef<any>,
         public fb: FormBuilder,
@@ -92,8 +101,8 @@ export class OrderListAdd implements OnInit {
             this.form.get('id').setValue(id);
         });
 
-        this.form.get('tag').valueChanges.subscribe(tags=>{
-            
+        this.form.get('tag').valueChanges.subscribe(tags => {
+
         });
     }
 
@@ -101,6 +110,30 @@ export class OrderListAdd implements OnInit {
         this.getClasses();
         this.activeIndex = 0;
         this.activeSetp = this.steps[0];
+    }
+
+    addCheckItem() {
+        if(this.isEditCheckItem){
+            this.checks[this.editCheckItemIndex] = this.checkItem;
+        }else{
+            this.checks.push(this.checkItem);
+        }
+        this.checkItem = {
+            title: '',
+            desc: ''
+        };
+        this.editCheckItemIndex = false;
+        this.isEditCheckItem = false;
+    }
+
+    editCheckItem(item: any, index: number){
+        this.checkItem = item;
+        this.editCheckItemIndex = index;
+        this.isEditCheckItem = true;
+    }
+
+    deleteCheckItem(index: number) {
+        this.checks.splice(index, 1);
     }
 
     getClasses() {
@@ -123,8 +156,8 @@ export class OrderListAdd implements OnInit {
     }
 
     delete() {
-        this.api.mpost('orders.deleteOrder',this.form.value).subscribe(res=>{
-            this.dialogRef.close();            
+        this.api.mpost('orders.deleteOrder', this.form.value).subscribe(res => {
+            this.dialogRef.close();
         });
     }
 
@@ -132,13 +165,13 @@ export class OrderListAdd implements OnInit {
         this.dialogRef.close();
     }
 
-    prevStep(){
-        if(this.activeIndex - 1 >= 0){
-            this.activeIndex = this.activeIndex -1;
+    prevStep() {
+        if (this.activeIndex - 1 >= 0) {
+            this.activeIndex = this.activeIndex - 1;
             this.steps[this.activeIndex].status = 1;
             this.activeSetp = this.steps[this.activeIndex];
-            this.steps.map((item,key)=>{
-                if(key > this.activeIndex){
+            this.steps.map((item, key) => {
+                if (key > this.activeIndex) {
                     item.status = 0;
                 }
             });
@@ -147,8 +180,8 @@ export class OrderListAdd implements OnInit {
             this.hasNext = true;
         }
     }
-    nextStep(){
-        if(this.activeIndex + 1 <= this.steps.length){
+    nextStep() {
+        if (this.activeIndex + 1 <= this.steps.length) {
             this.activeIndex = this.activeIndex + 1;
             this.steps[this.activeIndex].status = 1;
             this.activeSetp = this.steps[this.activeIndex];
