@@ -14,7 +14,7 @@ export class GoodsList implements OnInit {
         public api: ApiService
     ) { }
 
-    ngOnInit() { 
+    ngOnInit() {
         this.getList();
     }
 
@@ -27,28 +27,28 @@ export class GoodsList implements OnInit {
     add() {
         const dialogRef = this.dialog.open(GoodsListAdd);
         dialogRef.afterClosed().subscribe((res: any) => {
-            if (res) {
-                this.api.mpost('goods.addGood', res).subscribe(res => {
-                    this.getList();
+            if (res.title) {
+                this.api.mpost('goods.addGood', res).subscribe((data: any) => {
+                    this.list.unshift(data.info);
                 });
             }
         });
     }
 
-    editGoods(item: any, index: number){
-        const dialogRef = this.dialog.open(GoodsListAdd,{data: item});
+    editGoods(item: any, index: number) {
+        const dialogRef = this.dialog.open(GoodsListAdd, { data: item });
         dialogRef.afterClosed().subscribe((res: any) => {
-            if (res) {
-                this.api.mpost('goods.addGood', res).subscribe(res => {
-                    this.list[index] = res;
+            if (res.title) {
+                this.api.mpost('goods.addGood', res).subscribe((data: any) => {
+                    this.list[index] = data.info;
                 });
             }
         });
     }
 
-    deleteGoods(item: any, index: number){
-        this.api.mpost('goods.deleteGood',item).subscribe(res=>{
-            this.list.splice(index,1);
+    deleteGoods(item: any, index: number) {
+        this.api.mpost('goods.deleteGood', item).subscribe(res => {
+            this.list.splice(index, 1);
         })
     }
 }
