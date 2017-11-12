@@ -12,7 +12,7 @@ $data['content'] = $input['content'];
 $data['create_time'] = time();
 $data['count'] = intval($input['count']);
 $data['price'] = floatval($input['price']);
-$data['shop_id'] = floatval($input['shop_id']);
+$data['shop_id'] = intval($input['shop_id']);
 
 
 $data['uniacid'] = $_W['uniacid'];

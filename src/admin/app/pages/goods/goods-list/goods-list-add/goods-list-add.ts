@@ -9,9 +9,11 @@ import { ApiService } from '../../../../core';
     styleUrls: ['./goods-list-add.scss']
 })
 export class GoodsListAdd implements OnInit {
+
     shops: any[] = [];
     goodGroups: any[] = [];
     form: FormGroup;
+
     constructor(
         public dialog: MatDialogRef<any>,
         @Inject(MAT_DIALOG_DATA) public data: any,
@@ -23,11 +25,17 @@ export class GoodsListAdd implements OnInit {
             desc: [''],
             shop_id: [''],
             count: [''],
-            price: ['']
+            price: [''],
+            id: ['']
         });
-
-        this.dialog.afterClosed().subscribe((res: any) => {
-
+        this.dialog.afterOpen().subscribe((res: any) => {
+            let { title, desc, shop_id, count, price, id } = this.data;
+            this.form.get('title').setValue(title);
+            this.form.get('desc').setValue(desc);
+            this.form.get('shop_id').setValue(shop_id);
+            this.form.get('count').setValue(count);
+            this.form.get('price').setValue(price);
+            this.form.get('id').setValue(id);
         });
     }
 
@@ -39,8 +47,7 @@ export class GoodsListAdd implements OnInit {
         this.api.mpost('shops.getListShops', {}).subscribe((res: any) => {
             this.shops = res.info;
         });
-
-        this.api.mpost('goods.getListGoodsGroup', {}).subscribe((res: any) => { 
+        this.api.mpost('goods.getListGoodsGroup', {}).subscribe((res: any) => {
             this.goodGroups = res.info;
         });
     }
