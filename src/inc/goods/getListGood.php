@@ -17,5 +17,10 @@ $list = pdo_getall(
     array('id'),
     array($page,30)
 );
+
+foreach($list as &$li){
+    $li['shop'] = pdo_get('imeepos_runner4_shops',array('id'=>$li['shop_id']));
+}
 $this->info = !empty($list) ? $list : array();
+
 return $this;
