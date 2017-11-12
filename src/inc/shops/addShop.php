@@ -22,9 +22,15 @@ $data['shopers'] = serialize($input['shopers']);
 $data['employers'] = serialize($input['employers']);
 $data['kefus'] = serialize($input['kefus']);
 
-pdo_insert('imeepos_runner4_shops',$data);
-
-$data['id'] = pdo_insertid();
+if(!empty($data['title'])){
+    if(!empty($input['id'])){
+        pdo_update('imeepos_runner4_shops',$data,array('id'=>$input['id']));
+        $data['id'] = $input['id'];
+    }else{
+        pdo_insert('imeepos_runner4_shops',$data);
+        $data['id'] = pdo_insertid();
+    }
+}
 
 $data['shopers'] = unserialize($data['shopers']);
 $data['employers'] = unserialize($data['employers']);
