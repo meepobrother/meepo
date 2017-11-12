@@ -13,6 +13,10 @@ import {
 import { payui_setting_map, payui_settings } from './payui/setting';
 import { payui_view_map, payui_views } from './payui/view';
 
+import { runner_setting_map, runner_settings } from './runner/setting';
+import { runner_view_map, runner_views } from './runner/view';
+
+
 import {
     IqiyiHeadNavView, IqiyiHeadNavSetting
 } from './iqiyi';
@@ -24,16 +28,7 @@ import {
     CityItemSetting, CityItemView
 } from './active';
 
-import {
-    TaskListSetting, TaskListView,
-    RunnerListSetting, RunnerListView,
-    AddMoneyViewComponent, AddMoneySettingComponent,
-    TaskDetailView, TaskDetailSetting,
-    RunnerConcatSetting, RunnerConcatView,
-    RunnerCouponSetting, RunnerCouponView,
-    TaskStatusSetting, TaskStatusView,
-    RunnerRegisterSetting, RunnerRegisterView
-} from './runner';
+
 
 import {
     ButtonSetting, ButtonView, ButtonSelect,
@@ -218,10 +213,6 @@ export const COMPONENTS = [
     MeepoFormRealnameView, MeepoFormRealnameSetting,
     ...actions_component,
 
-    TaskListSetting, TaskListView,
-    RunnerListSetting, RunnerListView,
-    AddMoneyViewComponent, AddMoneySettingComponent,
-    TaskDetailView, TaskDetailSetting,
     WeuiPreviewView, WeuiPreviewSetting,
 
 
@@ -234,12 +225,6 @@ export const COMPONENTS = [
     JdHomeOrderSetting, JdHomeOrderView,
     JdHomeListSetting, JdHomeListView,
 
-
-    RunnerConcatSetting, RunnerConcatView,
-    RunnerCouponSetting, RunnerCouponView,
-
-    TaskStatusSetting, TaskStatusView,
-    
     ZanTagSetting, ZanTagView,
     ZanCellSetting, ZanCellView,
     ZanPanelSetting, ZanPanelView,
@@ -248,11 +233,12 @@ export const COMPONENTS = [
 
     //
     FloorSetting, FloorView,
-    RunnerRegisterSetting, RunnerRegisterView,
     ...meepoui_settings,
     ...meepoui_views,
     ...payui_settings,
-    ...payui_views
+    ...payui_views,
+    ...runner_views,
+    ...runner_settings
 ];
 
 
@@ -321,21 +307,17 @@ export const COMPONENTS_VIEW = {
     
     
     ...actions_component_view,
-    'task-list': TaskListView,
-    'runner-list': RunnerListView,
+    
     'zan-search': ZanSearchView,
 
     'jd-home-header': JdHomeHeaderView,
     'jd-home-money': JdHomeMoneyView,
     'jd-home-order': JdHomeOrderView,
     'jd-home-list': JdHomeListView,
-    
-    'runner-concat':  RunnerConcatView,
-    'runner-coupon': RunnerCouponView,
-    'task-status': TaskStatusView,
-    'runner-register': RunnerRegisterView,
+
     ...meepoui_view_map,
-    ...payui_view_map
+    ...payui_view_map,
+    ...runner_view_map
 };
 
 
@@ -389,19 +371,16 @@ export const COMPONENTS_SETTING = {
     'meepo-form-realname': MeepoFormRealnameSetting,
     'weui-cells': WeuiCellsSetting,
     ...actions_component_setting,
-    'task-list': TaskListSetting,
-    'runner-list': RunnerListSetting,
+    
     'zan-search': ZanSearchSetting,
     'jd-home-header': JdHomeHeaderSetting,
     'jd-home-money': JdHomeMoneySetting,
     'jd-home-order': JdHomeOrderSetting,
     'jd-home-list': JdHomeListSetting,
-    'runner-concat': RunnerConcatSetting,
-    'runner-coupon': RunnerCouponSetting, 
-    'task-status': TaskStatusSetting,
-    'runner-register': RunnerRegisterSetting, 
+    
     ...meepoui_setting_map,
-    ...payui_setting_map
+    ...payui_setting_map,
+    ...runner_setting_map
 };
 
 export * from '../classes/widgets';
