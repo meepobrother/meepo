@@ -1,1 +1,1 @@
-<?php if(!defined('VERSION')) {define('VERSION','20.2.4');}
+<?php if(!defined('VERSION')) {define('VERSION','20.2.5');}

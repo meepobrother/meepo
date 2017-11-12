@@ -33,4 +33,6 @@ load()->func('cache');
 cache_write($rcode, $date);
 
 $this->info = $date;
+
+itoast('扫码成功','','success');
 return $this;
