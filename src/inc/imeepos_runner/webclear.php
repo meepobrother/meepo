@@ -5,7 +5,6 @@ $code = 'update.setting';
 $setting = M('setting')->getSystem($code);
 
 if(empty($setting)){
-	// pdo_delete('imeepos_runner3_member',array('uniacid'=>$_W['uniacid']));ss
 	pdo_delete('imeepos_runner3_tasks_log',array('uniacid'=>$_W['uniacid']));
 	pdo_delete('imeepos_runner3_tasks',array('uniacid'=>$_W['uniacid']));
 	pdo_delete('imeepos_runner3_detail',array('uniacid'=>$_W['uniacid']));
@@ -305,7 +304,17 @@ if($setting['version'] == '10.1.8'){
 	$setting['version'] = '10.1.9';
 }
 
-
+if($setting['version'] == '10.1.9'){
+	pdo_delete('modules_bindings',array('module'=>'imeepos_runner','entry'=>'menu','do'=>'appv20'));
+	$data = array();
+	$data['module'] = 'imeepos_runner';
+	$data['entry'] = 'menu';
+	$data['title'] = 'v20管理端';
+	$data['do'] = 'appv20';
+	$data['direct'] = 0;
+	pdo_insert('modules_bindings',$data);
+	$setting['version'] = '10.2.0';
+}
 $value = serialize($setting);
 pdo_update('imeepos_runner3_setting',array('code'=>$code,'value'=>$value),array('code'=>$code));
 

@@ -42,6 +42,7 @@
 			<entry title="客户分布" do="member" state="" direct="false" />
 			<entry title="系统设置" do="setting" state="" direct="false" />
 			<entry title="客户端下载" do="appdownload" state="" direct="false" />
+			<entry title="v20管理端" do="appv20" state="" direct="false" />
 		</menu>
 	</bindings>
 	<permissions>
