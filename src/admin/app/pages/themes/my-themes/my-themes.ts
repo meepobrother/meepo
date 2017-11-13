@@ -36,7 +36,21 @@ export class MyThemes implements OnInit {
         this.router.navigate(['/themes/design', item.id])
     }
 
-    setting(item: any){
-        let dialogRef = this.dialog.open(BindRightSource);
+    setting(item: any) {
+        item['rights'] = item['rights'] || {};
+        let dialogRef = this.dialog.open(BindRightSource, { data: item['rights'] });
+
+        dialogRef.afterClosed().subscribe((res: any) => {
+            if (res) {
+                item['rights'] = res;
+                console.log(item);
+                // 自动保存
+                this.api.mpost('app.editApp',item).subscribe(res=>{});
+            };
+        })
+    }
+
+    copy(item: any){
+
     }
 }

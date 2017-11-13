@@ -8,3 +8,13 @@
         clear: both;
     }
 }
+
+.tag-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    label {
+        margin: 5px 10px;
+        cursor: pointer;
+    }
+}

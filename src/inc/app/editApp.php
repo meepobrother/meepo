@@ -9,6 +9,7 @@ $data['title'] = $input['title'];
 $data['author'] = $input['author'];
 $data['uniacid'] = $_W['uniacid'];
 $data['price'] = $input['price'];
+$data['rights'] = serialize($input['rights']);
 
 $id = intval($input['id']);
 if(!empty($data['title'])){
@@ -20,7 +21,7 @@ if(!empty($data['title'])){
         $data['id'] = pdo_insertid();
     }
 }
-
+$data['rights'] = unserialize($data['rights']);
 $this->info = $data;
 return $this;
 

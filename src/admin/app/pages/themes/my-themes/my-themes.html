@@ -19,6 +19,22 @@
                 <!-- <p>价格： {{item.price}}元</p> -->
                 <p>编号： {{item.token}}</p>
                 <p>作者： {{item.author}}</p>
+                <div class="tag-list" *ngIf="item['rights']">
+                    会员组限制:
+                    <label class="label label-default" [class.label-success]="right.active" *ngFor="let right of item['rights']['groups']">{{right.title}}</label>
+                </div>
+                <div class="tag-list" *ngIf="item['rights']">
+                    角色限制:
+                    <label class="label label-default" [class.label-success]="right.active" *ngFor="let right of item['rights']['roles']">{{right.title}}</label>
+                </div>
+                <div class="tag-list" *ngIf="item['rights']">
+                    场景限制:
+                    <label class="label label-default" [class.label-success]="right.active" *ngFor="let right of item['rights']['scens']">{{right.title}}</label>
+                </div>
+                <div class="tag-list" *ngIf="item['rights']">
+                    会员资料限制:
+                    <label class="label label-default" [class.label-success]="right.active" *ngFor="let right of item['rights']['rules']">{{right.title}}</label>
+                </div>
                 <div class="user-button" style="margin-top: 10px;">
                     <div class="row">
                         <div class="col-sm-12">

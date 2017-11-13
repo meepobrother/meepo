@@ -29,6 +29,7 @@ foreach($list as &$li){
     }
     unset($catalog);
     $li['catalogs'] = $catalogs;
+    $li['rights'] = unserialize($li['rights']);
 }
 unset($li);
 

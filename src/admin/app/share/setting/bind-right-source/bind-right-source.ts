@@ -39,7 +39,7 @@ export class BindRightSource implements OnInit {
             code: 'roles.none'
         }
     ];
-    groups: any[] =[];
+    groups: any[] = [];
     scens: any[] = [
         {
             title: '微信端',
@@ -63,15 +63,15 @@ export class BindRightSource implements OnInit {
             title: '手机号',
             active: false,
             code: 'rules.mobile'
-        },{
+        }, {
             title: '姓名',
             active: false,
             code: 'rules.realname'
-        },{
+        }, {
             title: '身份证',
             active: false,
             code: 'rules.image.card'
-        },{
+        }, {
             title: '驾驶证',
             active: false,
             code: 'rules.dirver.card'
@@ -83,31 +83,39 @@ export class BindRightSource implements OnInit {
         @Inject(MAT_DIALOG_DATA) public data: any,
         public dialog: MatDialogRef<any>,
         public api: ApiService
-    ) { }
+    ) {
+        this.dialog.afterOpen().subscribe((res: any) => {
+            if (this.data) {
+                // let { roles, groups, scens, rules } = this.data;
+                // group 会员组 检查变动
+                // this.selects = this.data;
+            }
+        });
+    }
 
-    ngOnInit() { 
+    ngOnInit() {
         this.getGroups();
     }
 
-    getGroups(){
-        this.api.mpost('member.getMemberGroup',{page: 1, psize: 30}).subscribe((res: any)=>{
+    getGroups() {
+        this.api.mpost('member.getMemberGroup', { page: 1, psize: 30 }).subscribe((res: any) => {
             let groups = res.info;
-            groups.map((res: any)=>{
+            groups.map((res: any) => {
                 res.code = `groups.${res.id}`;
-            })
+            });
             this.groups = res.info;
         });
     }
 
-    close(){
+    close() {
         this.dialog.close();
     }
 
-    finish(){
+    finish() {
         this.dialog.close(this.selects);
     }
 
-    onSelect(type: string, role: any){
+    onSelect(type: string, role: any) {
         this.selects[type] = role;
     }
 }
