@@ -69,11 +69,14 @@ export class LoginPage implements OnInit {
         this.api.setSiteroot(this.sitehttp + this.siteroot + '/');
         store.set('__meepo_siteroot', this.sitehttp + this.siteroot + '/');
         document.getElementById('qrcode').innerHTML = '';
-        this.http.get(this.sitehttp + this.siteroot + '/addons/imeepos_runner/oauth.php').subscribe((res: any)=>{
+        console.log(this.sitehttp);
+        let url = this.sitehttp + this.siteroot + '/addons/imeepos_runner/oauth.php';
+        this.http.get(url).subscribe((res: any)=>{
             this.api.sysinfo.uniacid = res.info;
             this.api.sysinfo.acid = res.info;
             this.api.onInit.next(this.api.sysinfo);
         });
+        console.log(url);
     }
 
     autoCheck() {
