@@ -9,6 +9,12 @@ import { AddWidget } from './add-widget';
 })
 export class ManagerPage implements OnInit {
     widgets: any[] = [];
+    videos: any[] = [
+        {
+            title: '跑腿lesson1-v20登陆步骤',
+            src: 'https://meepo.com.cn/meepo/video/001.mp4'
+        }
+    ];
     constructor(
         public api: ApiService,
         public dialog: MatDialog

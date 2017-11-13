@@ -9,4 +9,11 @@
             <widget-group-list></widget-group-list>
         </ng-template>
     </nav-tab-pane>
+    <nav-tab-pane title="我的教程">
+        <ng-template navTabPaneRef>
+            <div class="video-list">
+                <video-list [video]="video" *ngFor="let video of videos"></video-list>
+            </div>
+        </ng-template>
+    </nav-tab-pane>
 </nav-tabs>

@@ -23,3 +23,15 @@
     flex-direction: row;
     flex-wrap: wrap;
 }
+
+.video-list {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    background: #fff;
+    video-item {
+        width: 320px;
+        display: block;
+        margin: 5px;
+    }
+}

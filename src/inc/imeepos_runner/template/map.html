@@ -1,0 +1,258 @@
+{template 'common/header'}
+<script charset="utf-8" src="https://map.qq.com/api/js?v=2.exp&DXEBZ-G3IRF-2YFJO-NVYN5-4LSIQ-T4BIY"></script>
+<script src="https://3gimg.qq.com/lightmap/components/geolocation/geolocation.min.js"></script>
+<iframe width="0" height="0" style="display: none;" frameborder="0"  scrolling="no" src="https://apis.map.qq.com/tools/geolocation?key=LHRBZ-4XCWF-FGRJ5-NKTKW-GAQIS-LEBZG&referer=myapp"></iframe>
+
+<style>
+	.map-container{
+		width: 100%;
+	    height: 100%;
+	    min-height: 640px;
+	    background: #ccc;
+	    position: relative;
+	}
+	#map{
+		position: absolute;
+		top:0px;
+		left:0px;
+		right:0px;
+		bottom:0px;
+	}
+	div[title='meepo-runner']>.csssprite[dn='2']{
+		width: 2em !important;
+		height: 2em !important;
+		min-width: 2em !important;
+		max-width: 2em !important;
+		min-height: 2em !important;
+		max-height: 2em !important;
+		border-radius: 1em !important;
+	}
+	.modal{
+		top: 160px;
+	}
+</style>
+
+<div class="modal" id="info_model">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close">
+        	<span aria-hidden="true">×</span>
+        </button>
+        <h4 class="modal-title">会员详情</h4>
+      </div>
+      <div class="modal-body">
+        <div class="avatar">
+			<img src="" id="avatar" alt="">
+		</div>
+		<p id="nickname"></p>
+		<p id="desc"></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" id="close">关闭</button>
+        <!-- <button type="button" class="btn btn-primary" id="sure">确定</button> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="map-container">
+	<div id="map"></div>
+</div>
+
+<script>
+	var map = null;
+	var has = false;
+	var loc = {
+		lat: 30.382845,
+		lng: 120.246147
+	}
+	var center = new qq.maps.LatLng(loc.lat,loc.lng)
+  	if(map){
+  		map.panTo(center)
+  	}else{
+  		map = new qq.maps.Map(document.getElementById("map"), {center: center,zoom: 6});
+  	}
+
+  	var data = {php echo json_encode($runners)};
+  	console.log(data);
+
+	var Marker = qq.maps.Marker;
+    var LatLng = qq.maps.LatLng;
+    var Event = qq.maps.event;
+ 
+    var MarkerImage = qq.maps.MarkerImage;
+    var MarkerShape = qq.maps.MarkerShape;
+    var MarkerAnimation = qq.maps.MarkerAnimation;
+    var Point = qq.maps.Point;
+    var Size = qq.maps.Size;
+    var ALIGN = qq.maps.ALIGN;
+ 
+    var MVCArray = qq.maps.MVCArray;
+    var MarkerCluster = qq.maps.MarkerCluster;
+    var Cluster = qq.maps.Cluster;
+    var MarkerDecoration = qq.maps.MarkerDecoration;
+
+    var forEach = function(array, fun) {
+        for (var i = 0, l = array.length; i < l; ++i) {
+            if (fun(array[i], i) === false) {
+                return false;
+            }
+        }
+    };
+
+    var markers = new MVCArray();
+	var markerCluster;
+
+	var info = new qq.maps.InfoWindow({
+        map: map
+    });
+
+    function displayInfo(item){
+    	console.log(item)
+    	$('#info_model').show();
+    	$('#info_model #avatar').attr('src',item.avatar);
+    }
+
+    $('#info_model #close').click(function(){
+    	$('#info_model').hide();
+    })
+
+	function createCluster() {
+        for (var i = 0; i < data.length; i++) {
+        	if(data[i]['lat']){
+				var latLng = new LatLng(data[i]['lat'], data[i]['lng']);
+	            var decoration = new MarkerDecoration(i, new Point(0, -5));
+	            var marker = new Marker({
+	                'position': latLng,
+	                map: map,
+	                title: 'meepo-runner'
+	            });
+	            var anchor = new qq.maps.Point(0, 39),
+			        size = new qq.maps.Size(42, 68),
+			        origin = new qq.maps.Point(0, 0),
+			        icon = new qq.maps.MarkerImage(
+			            data[i]['avatar'],
+			            size,
+			            origin,
+			            anchor
+			        );
+
+			    marker.setIcon(icon);
+
+			    // qq.maps.event.addListener(marker, 'click', function() {
+			    //     displayInfo(data[i])
+			    // });
+
+	            markers.push(marker);
+        	}
+        }
+ 
+        markerClusterer = new MarkerCluster({
+            map: map,
+            minimumClusterSize: 2, //默认2
+            markers: markers,
+            zoomOnClick: true, //默认为true
+            gridSize: 30, //默认60
+            averageCenter: true, //默认false
+            maxZoom: 18, //默认18
+        });
+ 
+        Event.addListener(markerClusterer, 'clusterclick', function(evt) {
+            // writeLog("mouse event", eventType);
+            var ss = evt;
+            // alert('点击了聚合点');
+        });
+    };
+ 
+    createCluster();
+
+    var imgPath = "./images/";
+    var Styles = {
+        "People": [{
+            icon: new MarkerImage(imgPath + "people35.png", new Size(35, 35), new Point(0, 0), new Point(16, 0)),
+            text: new MarkerDecoration('<font style="color:#ff00ff;font-size:10px;font-weight:bold;">{num}</font>', new Point(0, 5))
+        }],
+        "Conversation": [{
+            icon: new MarkerImage(imgPath + "conv30.png", new Size(30, 27), new Point(0, 0), new Point(3, 0)),
+            text: new MarkerDecoration('<font style="color:#ff00ff;font-size:10px;font-weight:bold;">{num}</font>', new Point(0, -2))
+        }]
+    };
+
+    var maker_add;
+
+    function addMarker() {
+        var latLng = new LatLng(39.849558, 116.406893);
+        var decoration = new MarkerDecoration(i, new Point(0, -5));
+        maker_add = new Marker({
+            'position': latLng,
+            decoration: decoration,
+            map: map
+        });
+        markers.push(maker_add);
+ 
+        markerClusterer.addMarker(maker_add);
+    }
+ 
+    var markers_add = [];
+ 
+    function addMarkers() {
+        var bounds = map.getBounds();
+        var sw = bounds.getSouthWest();
+        var ne = bounds.getNorthEast();
+        var lngSpan = Math.abs(sw.getLng() - ne.getLng());
+        var latSpan = Math.abs(ne.getLat() - sw.getLat());
+        for (var i = 0; i < 100; i++) {
+            var position = new qq.maps.LatLng(ne.getLat() - latSpan * (Math.random() * 0.95), sw.getLng() + lngSpan * (Math.random() * 0.95));
+ 
+            var decoration = new MarkerDecoration(i, new Point(0, -5));
+            var makeradd = new Marker({
+                'position': position,
+                decoration: decoration,
+                map: map,
+                title: 'meepo-runner'
+            });
+            markers_add.push(makeradd);
+        }
+ 
+        markerClusterer.addMarkers(markers_add);
+    }
+ 
+    function removeMarker() {
+        markerClusterer.removeMarker(maker_add);
+    }
+ 
+    function removeMarkers() {
+        markerClusterer.removeMarkers(markers_add);
+    }
+ 
+    function clearMarkers() {
+        markerClusterer.clearMarkers();
+    }
+ 
+    function setMarkerClusterOption(key, value) {
+        markerClusterer.set(key, value);
+    }
+ 
+    var setKeyHandle = {
+        'gridSize': 'setGridSize',
+        'maxZoom': 'setMaxZoom',
+        'averageCenter': 'setAverageCenter'
+    };
+ 
+    var getKeyHandle = {
+        'gridSize': 'getGridSize',
+        'maxZoom': 'getMaxZoom',
+        'averageCenter': 'getAverageCenter'
+    };
+	window.addEventListener('message',(event)=>{
+      // 接收位置信息
+      if(event.data){
+      	loc = event.data;
+      	var center = new qq.maps.LatLng(loc.lat,loc.lng)
+      	map.panTo(center)
+      }
+    }, false);
+	
+</script>
+{template 'common/footer'}

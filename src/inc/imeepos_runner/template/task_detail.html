@@ -1,0 +1,19 @@
+<ul>
+	{if $li['type'] == 0 || $li['type'] == 1 || $li['type'] == 2 || $li['type'] == 3}
+	<li>
+		起点: {php echo !empty($li['sendaddress']) ? $li['sendaddress'] : '就近'}
+	</li>
+	<li>
+		{$li['sendrealname']}{$li['sendmobile']}
+	</li>
+	{/if}
+	<li>
+		终点: {$li['receiveaddress']}
+	</li>
+	<li>
+		{$li['receiverealname']}{$li['receivemobile']}
+	</li>
+	<li>
+		赏金: <span style="color:red;">{$li['total']}元</span>
+	</li>
+</ul>

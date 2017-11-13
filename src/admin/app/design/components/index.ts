@@ -98,9 +98,6 @@ import {
     SwiperItem, Swiper, SwiperSetting
 } from './wxapp';
 
-import {
-    SETTING_COMPONENTS
-} from '../../share/setting';
 
 import { IconSelectDialog, CreateBtnDialog } from '../../dialogs';
 
@@ -140,7 +137,6 @@ export const COMPONENTS = [
     TabbarSelect, TabbarSetting, TabbarView,
     NavbarSelect, NavbarView, NavbarSetting,
     PickerSelect, PickerView, PickerSetting,
-    ...SETTING_COMPONENTS,
     IconSelectDialog, CreateBtnDialog,
 
     // layouts

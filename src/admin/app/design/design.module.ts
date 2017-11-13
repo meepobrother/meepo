@@ -12,7 +12,7 @@ import { ShopsTagsService } from '../pages/shops/shops-tags/shops-tags.service';
 
 import { SlotDirective } from './components';
 import { ShareModule } from '../share';
-
+import { ShareSettingModule } from '../share/setting/share.setting.module';
 @NgModule({
     declarations: [
         ...COMPONENTS,
@@ -28,7 +28,8 @@ import { ShareModule } from '../share';
         ReactiveFormsModule,
         WeuiPickerModule,
         PriceListModule,
-        ShareModule
+        ShareModule,
+        ShareSettingModule
     ],
     exports: [
         ...COMPONENTS,

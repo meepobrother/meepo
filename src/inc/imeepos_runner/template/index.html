@@ -39,10 +39,9 @@
                 </div>
                 <button type="submit" class="btn btn-default">搜索</button>
             </form>
-            <!-- {if $role == 'founder'} -->
+            {if $role == 'founder'}
             <a href="{$_W['siteroot']}addons/imeepos_runner/install/initFiles.php?module=imeepos_runner" class="btn btn-danger fr">跑腿主程序-版本校验</a>
-            <a href="{$_W['siteroot']}addons/imeepos_runner/install/initFiles.php?module=imeepos_runner_plugin_im" class="btn btn-success fr">跑腿IM-版本校验</a>
-            <!-- {/if} -->
+            <a href="{$_W['siteroot']}addons/imeepos_runner/install/initFiles.php?module=imeepos_runner_plugin_im" class="btn btn-success fr">跑腿IM-版本校验</a> {/if}
         </div>
     </div>
     <div class="panel panel-default">

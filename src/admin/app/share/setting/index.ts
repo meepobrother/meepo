@@ -47,13 +47,18 @@ import { BorderSetting } from './border-setting/border-setting';
 import { ImageSelectDirective } from './image-select/image-select';
 export { ImageSelectDirective } from './image-select/image-select';
 
+import { TagsSelect } from './tags-select/tags-select';
+export { TagsSelect } from './tags-select/tags-select';
+
+
 export const SETTING_COMPONENTS = [
-    SettingContainerMargin, SettingContainerPadding, SettingContainerColor, SettingContainerBorder,
+    SettingContainerMargin, SettingContainerPadding, 
+    SettingContainerColor, SettingContainerBorder,
     NumberComponent, NumberPx, FontSize, TextAlign,
     BindDataSource, BindRightSource,
     ...SELECTS_COMPONENTS,
     SelectPageDialog, IconLinkSelect, ImageLinkSelect,
     IconLinkIconSelect, ImageLinkTitleSelect,
     IconTitleDialog, ImageSetting, FontSetting,
-    BorderSetting
+    BorderSetting, TagsSelect
 ];

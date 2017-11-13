@@ -36,4 +36,5 @@ if(!empty($user['openid'])){
     $this->info = 'openid 为空!';
 }
 
+itoast($this->info,'','success');
 return $this;

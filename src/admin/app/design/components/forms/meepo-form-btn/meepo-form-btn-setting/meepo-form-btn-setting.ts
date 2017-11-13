@@ -16,7 +16,10 @@ export class MeepoFormBtnSetting implements OnInit {
         public dialog: MatDialog,
         public app: AppService
     ) { }
-    ngOnInit() { }
+    ngOnInit() { 
+        this.widget.__post = this.widget.__post || {};
+        this.widget.__post['success'] = this.widget.__post['success'] || '提交成功，请点击确认跳转到下一步，重新提交请点击取消！';
+    }
 
     setting() {
         let dialogRef = this.dialog.open(IconTitleDialog, { data: { title: this.widget.content, icon: this.widget.icon } });

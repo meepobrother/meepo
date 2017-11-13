@@ -6,7 +6,7 @@ import { ThemesListFreeModule } from './themes-list-free';
 import { ThemesShops } from './themes-shops';
 import { MyThemes } from './my-themes';
 
-
+import { ShareSettingModule } from '../../share/setting/share.setting.module';
 
 import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
@@ -28,7 +28,7 @@ import { ThemesMineService } from './themes-mine.service';
         ThemesShops,
         MyThemes
     ],
-    imports: [CommonModule, RouterModule.forChild(routes), ...modules],
+    imports: [CommonModule, RouterModule.forChild(routes), ...modules, ShareSettingModule],
     exports: [
         ThemesPage,
         ThemesShops,

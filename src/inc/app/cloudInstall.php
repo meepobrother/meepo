@@ -2,8 +2,6 @@
 global $_W;
 $input = $this->__input['encrypted'];
 
-ini_set("display_errors", "On");
-error_reporting(E_ALL | E_STRICT);
 
 $table = "imeepos_runner4_app";
 $app = array();

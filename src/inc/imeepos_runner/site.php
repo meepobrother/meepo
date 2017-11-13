@@ -170,16 +170,73 @@ class Imeepos_runnerModuleSite extends WeModuleSite {
 		die(json_encode($data));
 	}
 
+	public function checkAppRight($rights = array()){
+		global $_W,$_GPC;
+		$openid = $_W['openid'];
+		$roles = $rights['roles'];
+		if($this->checkRole('roles.none',$roles)){
+			return true;
+		}
+		if(!empty($openid)){
+			if($this->checkRole('roles.fans',$roles)){
+				return true;
+			}
+		}
+		$member = pdo_get('imeepos_runner3_member',array('openid'=>$_W['openid']));
+		if(!empty($member)){
+			if($this->checkRole('roles.member',$roles)){
+				return true;
+			}
+		}
+		if($member['isrunner'] == 1){
+			if($this->checkRole('roles.runner',$roles)){
+				return true;
+			}
+		}
+		if($member['ismanager'] == 1){
+			if($this->checkRole('roles.manager',$roles)){
+				return true;
+			}
+		}
+		if($member['isadmin'] == 1){
+			if($this->checkRole('roles.admin',$roles)){
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	function checkRole($r,$roles){
+		$hasRight = false;
+		foreach($roles as $role){
+			console.log(role);
+			if($role['code'] == $r){
+				$hasRight = $role['active'];
+			}
+		}
+		return $hasRight;
+	}
+
 	public function doMobileDesign(){
 		global $_W,$_GPC;
 		$id = intval($_GPC['pid']);
 		$table = "imeepos_runner4_app_catalog_pages";
 		$data = pdo_get($table,array('id'=>$id));
+
 		$data['body'] = unserialize($data['body']);
 		$data['header'] = unserialize($data['header']);
 		$data['footer'] = unserialize($data['footer']);
 		$data['menu'] = unserialize($data['menu']);
 		$data['kefu'] = unserialize($data['kefu']);
+		$app = pdo_get('imeepos_runner4_app',array('id'=>$data['app_id']));
+		$app['rights'] = unserialize($app['rights']);
+
+		if(!$this->checkAppRight($app['rights'])){
+			itoast('您没有访问本应用权限','','error');
+			return false;
+		}
+
 		$html_content = $data['html_content'];
 		unset($data['html_content']);
 
@@ -191,6 +248,8 @@ class Imeepos_runnerModuleSite extends WeModuleSite {
 			$result['widgets'] = $widgets;
 			die(json_encode($result));
 		}
+
+		$member = pdo_get('imeepos_runner3_member',array('openid'=>$_W['openid']));
 		include $this->template('design/index');
 	}
 	public function doMobileIndex() {
@@ -708,7 +767,14 @@ EOT;
 
 	public function doWebAppv20(){
 		global $_W,$_GPC;
+		$code = '__meepo.app.uniacid';		
+		$setting = pdo_get('imeepos_runner3_setting',array('code'=>$code));
+		$__uniacidItem = unserialize($setting['value']);
+		$uniacid = $__uniacidItem['uniacid'];
 
+		if(empty($uniacid)){
+			itoast('请先绑定主账号及微信',$this->createWebUrl('appdownload'),'error');
+		}
 		include $this->template('appv20');
 	}
 

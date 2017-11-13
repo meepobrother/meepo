@@ -12,3 +12,56 @@
 // weuipay
 @import "./app/themes/weuipay.scss";
 @import "./meepo-zan.scss";
+container {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+video {
+    width: 100%;
+    height: 100%;
+    display: block;
+    background-color: #000;
+}
+
+video:focus,
+video:active {
+    outline: none;
+}
+
+.chimee-container {
+    position: relative;
+}
+
+.time-ad {
+    background-color: transparent;
+    border: 0;
+}
+
+.time-ad img {
+    display: block;
+    width: 30px;
+}
+
+.time-ad em {
+    position: absolute;
+    right: -7px;
+    top: 35px;
+    width: 60px;
+    text-align: center;
+    font-size: 12px;
+    background-color: rgba(156, 85, 85, 0.66);
+    padding: 0 3px;
+    z-index: -1;
+    border-radius: 5px;
+}
+
+.time-ad cm-pp-close {
+    display: none;
+}
+
+.time-ad cm-pp-body {
+    padding: 0;
+}

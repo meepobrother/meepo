@@ -3,7 +3,6 @@
 global $_W,$_GPC;
 $input = $this->__input['encrypted'];
 $id = intval($input['id']);
-
 if(pdo_update('imeepos_runner3_member',array('status'=>0),array('id'=>$input['id']))){
     $content = "您的资料未通过审核,请重新上传";
     $title = '资料审核通知';

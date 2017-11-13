@@ -17,6 +17,8 @@ import { FormsList } from './forms-list';
 
 import { ThemesMine} from './themes-mine';
 import { ThemesAdd } from './themes-add';
+import { VideoListComponent } from './video-list/video-list';
+
 
 
 import { ShareModule } from '../../share';
@@ -38,14 +40,16 @@ const routes: Routes = [
         AddForm,
         AddTable,
         AddWidgetGroup,
-        WidgetGroupList
+        WidgetGroupList,
+        VideoListComponent
     ],
     imports: [ CommonModule, RouterModule.forChild(routes), ShareModule, MeepoModule ],
     exports: [
         ManagerPage,
         AddWidget,
         WidgetList,
-        AddWidgetGroup
+        AddWidgetGroup,
+        VideoListComponent
     ],
     providers: [],
     entryComponents: [
