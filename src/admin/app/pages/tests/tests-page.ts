@@ -17,6 +17,10 @@ export class TestsPage implements OnInit {
         {
             title: '跑腿lesson1-v20登陆步骤',
             src: 'https://meepo.com.cn/meepo/video/001.mp4'
+        },
+        {
+            title: '跑腿2-演示及应用管理',
+            src: 'https://meepo.com.cn/meepo/video/002.mp4'
         }
     ];
     constructor(

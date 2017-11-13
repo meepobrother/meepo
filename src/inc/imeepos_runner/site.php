@@ -233,7 +233,7 @@ class Imeepos_runnerModuleSite extends WeModuleSite {
 		$app['rights'] = unserialize($app['rights']);
 
 		if(!$this->checkAppRight($app['rights'])){
-			// itoast('您没有访问本应用权限','','error');
+			itoast('您没有访问本应用权限','','error');
 			return false;
 		}
 		
