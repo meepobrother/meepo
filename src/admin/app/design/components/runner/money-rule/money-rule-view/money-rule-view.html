@@ -1,0 +1,53 @@
+<section class="money-rule-page">
+    <!--动态涨价-->
+    #if($IsAddPrice)
+    <div class="costActual">
+        <div>
+            <span class="cMain">*<em>$AddFeeMoney</em></span> #if($AddFeeType==1) 元 #end #if($AddFeeType==2) 倍 #end
+        </div>
+        <p>$AddFeeReason</p>
+    </div>
+    #end
+    <div class="costTitle">里程费</div>
+    <div class="costList">
+        <dl>
+            <dt>起步价<span>(含$firstDistance公里)</span></dt>
+            <dd><span>$firstMoney</span>元</dd>
+        </dl>
+        <dl>
+            <dt>$firstDistance - $betweenDistance公里</dt>
+            <dd>
+                <span>$oneprice</span>元/公里
+            </dd>
+        </dl>
+        <dl>
+            <dt>超出$betweenDistance公里</dt>
+            <dd>
+                <span>$smallUnitPrice</span>元/公里
+            </dd>
+        </dl>
+    </div>
+    <div class="costTitle">夜间服务费</div>
+    <div class="costList">
+        #foreach($m in $nightPriceList)
+        <dl>
+            <dt>$m.NightTime</dt>
+            <dd>每单加$m.NightPrice元</dd>
+        </dl>
+        #end
+    </div>
+    <div class="costList">
+        <dl>
+            <dt>公里数计算为四舍五入</dt>
+            <dd></dd>
+        </dl>
+        <dl>
+            <dt>此计价规则为$city计价规则</dt>
+            <dd></dd>
+        </dl>
+        <dl>
+            <dt>每个城市具体计价规则不一样</dt>
+            <dd></dd>
+        </dl>
+    </div>
+</section>

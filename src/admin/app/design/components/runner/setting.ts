@@ -7,7 +7,12 @@ import {
     RunnerCouponSetting,
     TaskStatusSetting,
     RunnerRegisterSetting,
-    ManNumSetting
+    ManNumSetting,
+    MoneyRuleSetting,
+    HelpRunnerSetting,
+    NotFondSetting,
+    RunnerAgreementSetting,
+    RunnerTabSetting
 } from './index';
 
 export const runner_settings = [
@@ -19,7 +24,12 @@ export const runner_settings = [
     RunnerCouponSetting,
     TaskStatusSetting,
     RunnerRegisterSetting,
-    ManNumSetting
+    ManNumSetting,
+    MoneyRuleSetting,
+    HelpRunnerSetting,
+    NotFondSetting,
+    RunnerAgreementSetting,
+    RunnerTabSetting
 ];
 
 export const runner_setting_map = {
@@ -29,5 +39,10 @@ export const runner_setting_map = {
     'runner-register': RunnerRegisterSetting,
     'task-list': TaskListSetting,
     'runner-list': RunnerListSetting,
-    'man-num': ManNumSetting
+    'man-num': ManNumSetting,
+    'money-rule': MoneyRuleSetting,
+    'help-runner': HelpRunnerSetting,
+    'not-fond': NotFondSetting,
+    'runner-agreement': RunnerAgreementSetting,
+    'runner-tab': RunnerTabSetting
 };

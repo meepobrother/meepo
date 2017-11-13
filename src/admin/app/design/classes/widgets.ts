@@ -21,7 +21,8 @@ import {
     MeepoMarqueeDefault, MeepoTextDefault, MeepoVoiceDefault, MeepoVideoDefault, MeepoTabbarDefault, 
     MeepoTitleDefault, LayoutFloorDefault, MeepoCardDefault, MeepoTabsDefault, MeepoPasswordDefault,
     MeepoTreeSelectDefault, RunnerConcatDefault, RunnerCouponDefault, RunnerRegisterDefault,
-    PayScanCodeDefault, PayInputMoneyDefault, PayMessageSuccessDefault
+    PayScanCodeDefault, PayInputMoneyDefault, PayMessageSuccessDefault, MoneyRuleDefault,
+    HelpRunnerDefault, NotFondDefault, RunnerAgreementDefault, RunnerTabDefault
 } from './index';
 
 
@@ -106,5 +107,10 @@ export const WIDGETS = {
     'runner-register': RunnerRegisterDefault,
     'pay-scan-code': PayScanCodeDefault,
     'pay-input-money': PayInputMoneyDefault,
-    'pay-message-success': PayMessageSuccessDefault
+    'pay-message-success': PayMessageSuccessDefault,
+    'money-rule': MoneyRuleDefault,
+    'help-runner': HelpRunnerDefault,
+    'not-fond': NotFondDefault,
+    'runner-agreement': RunnerAgreementDefault,
+    'runner-tab': RunnerTabDefault
 };

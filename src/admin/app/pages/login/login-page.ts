@@ -26,7 +26,7 @@ export class LoginPage implements OnInit {
     timer: any;
     QRCode: any;
     siteroot: string;
-    sitehttp: string = 'https://';
+    sitehttp: string = window.location.protocol+"//";
 
     showNext: boolean = false;
 
@@ -104,6 +104,8 @@ export class LoginPage implements OnInit {
 
     ngOnInit() {
         this.api.mpost('login.update', {}).subscribe(res => { });
+
+        console.log(this.sitehttp);
     }
 
     ngAfterViewInit() {
