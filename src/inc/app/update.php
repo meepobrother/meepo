@@ -16,6 +16,11 @@ if(!pdo_tableexists('imeepos_runner4_app')){
   ) ENGINE=InnoDB DEFAULT CHARSET=utf8";
   pdo_query($sql);
 }
+
+if(!pdo_fieldexists('imeepos_runner4_app','rights')){
+  $sql = "ALTER TABLE ".tablename('imeepos_runner4_app')." ADD COLUMN `rights` text NOT NULL ";
+  pdo_query($sql);
+}
   
 
 if(!pdo_tableexists('imeepos_runner4_app_catalog')){

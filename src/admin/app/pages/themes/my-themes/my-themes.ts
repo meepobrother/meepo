@@ -21,6 +21,7 @@ export class MyThemes implements OnInit {
     }
 
     getList() {
+        this.api.mpost('app.update',{}).subscribe(res=>{});
         this.api.mpost('app.getListApp', { page: 1, psize: 30 }).subscribe((res: any) => {
             this.list = res.info;
         });
