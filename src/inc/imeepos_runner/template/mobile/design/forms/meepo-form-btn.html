@@ -6,7 +6,7 @@
     }
 </style>
 <!-- {if $widget['type'] == 'meepo-form-btn'} -->
-<a href="javascript:;" id="weui-btn-{$widget['code']}" class="weui-btn weui-btn_primary" style="
+<a href="javascript:;" id="weui-btn-{$widget['code']}" data-post={php echo json_encode($widget[ '__post'])} class="weui-btn weui-btn_primary" style="
     {loop $widget['containerStyle'] $key $style}
         {php echo $key}:{php echo $style};
     {/loop}
@@ -18,6 +18,8 @@
         $("#weui-btn-{$widget['code']}").on('click', function() {
             // 获取数据
             // console.log(formsData);
+            var __post = $(this).data('post');
+            formsData = $.extend(__post, formsData);
             var d = JSON.stringify(formsData);
             var encrypted = Base64.encode(d);
             var __post = {
@@ -35,6 +37,8 @@
                 } else {
                     weui.confirm(res.msg, function() {
                         console.log('确认');
+                        // 进入链接
+                        window.location.href = "{php echo $widget['success']}";
                     }, function() {
                         console.log('取消');
                     }, {

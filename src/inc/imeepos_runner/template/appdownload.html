@@ -60,29 +60,42 @@
     <div class="panel-body">
         {if $_W['role'] == 'founder'}
         <div class="form-group meepo-row">
-            <label style="padding: 0 10px;">主账号</label>
+            <label style="padding: 0 10px;">主账号 
+                <!-- {if !empty($uniacid)} -->
+                <span style="font-size: .8em;color: green;">(已绑定)</span>
+                <!-- {/if} -->
+            </label>
             <select class="form-control" id="uniacid">
                 {loop $accounts $acc}
                 <option {if $uniacid == $acc['uniacid']}selected{/if} value="{$acc['uniacid']}">{$acc['name']}</option>
                 {/loop}
             </select>
-            <a href="javascript:;" class="btn btn-parmary" style="background-color: green;color: #fff;" id="save">保存</a>
+            <a href="javascript:;" class="btn btn-parmary" style="background-color: green;color: #fff;" id="save">
+                <!-- {if !empty($uniacid)} -->
+                更换
+                <!-- {else} -->
+                保存
+                <!-- {/if} -->
+            </a>
         </div>
         <p style="padding: 10px 5px; color: green;">此信息一经绑定，切勿轻易更改，更改后需要重新扫码绑定！</p>
         {/if}
-        <div class="qrcode" id="qrcode" style="background: #fff;margin: 0 auto;text-align:center;height: 300px;"></div>
-        <p style="color: red;">
-            扫码绑定微信，绑定成功后可登陆客户端程序！
-        </p>
-        <ul>
-            {loop $list $item}
-            <li>
-                <img style="width: 2em;border-radius: 50%;" src="{$item['avatar']}">-{$item['nickname']}
-            </li>
-            {/loop}
-        </ul>
+        <div id="bindqrcode" style="{if empty($uniacid)}display:none;{/if}">
+            <div class="qrcode" id="qrcode" style="background: #fff;margin: 0 auto;text-align:center;height: 300px;"></div>
+            <p style="color: red;">
+                扫码绑定微信，绑定成功后可登陆客户端程序！
+            </p>
+            <ul>
+                {loop $list $item}
+                <li>
+                    <img style="width: 2em;border-radius: 50%;" src="{$item['avatar']}">-{$item['nickname']}
+                </li>
+                {/loop}
+            </ul>
+        </div>
     </div>
 </div>
+
 <script>
     $(function() {
         var qrcode = new QRCode(document.getElementById("qrcode"), {
@@ -104,6 +117,7 @@
             }, function() {
                 setTimeout(function() {
                     that.html('保存成功');
+                    $('#bindqrcode').show();
                     setTimeout(function() {
                         that.html('保存');
                     }, 300);

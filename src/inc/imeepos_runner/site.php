@@ -236,7 +236,7 @@ class Imeepos_runnerModuleSite extends WeModuleSite {
 			itoast('您没有访问本应用权限','','error');
 			return false;
 		}
-		
+
 		$html_content = $data['html_content'];
 		unset($data['html_content']);
 
@@ -248,6 +248,8 @@ class Imeepos_runnerModuleSite extends WeModuleSite {
 			$result['widgets'] = $widgets;
 			die(json_encode($result));
 		}
+
+		$member = pdo_get('imeepos_runner3_member',array('openid'=>$_W['openid']));
 		include $this->template('design/index');
 	}
 	public function doMobileIndex() {
