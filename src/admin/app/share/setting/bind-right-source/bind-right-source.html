@@ -1,8 +1,51 @@
-<div class="ibox-content">
-    <nav-tabs>
-        <nav-tab-pane title="会员">
-            <ng-template navTabPaneRef>
-            </ng-template>
-        </nav-tab-pane>
-    </nav-tabs>
+<div class="ibox">
+    <div class="ibox-title">
+        <h5>权限设置</h5>
+        <div class="ibox-tools">
+            <a class="btn btn-primary btn-xs" (click)="close()">关闭</a>
+        </div>
+    </div>
+    <div class="ibox-content">
+        <p style="text-align:center;background-color: rgb(104, 104, 104);color:rgb(255, 255, 255);padding: 10px;">
+            请选择可以浏览本应用的条件
+        </p>
+        <nav-tabs>
+            <nav-tab-pane title="会员组限制">
+                <ng-template navTabPaneRef>
+                    <div class="form-group">
+                        <tags-select (onSelect)="onSelect('groups',$event)" [items]="groups"></tags-select>
+                    </div>
+                </ng-template>
+            </nav-tab-pane>
+            <nav-tab-pane title="角色限制">
+                <ng-template navTabPaneRef>
+                    <div class="form-group">
+                        <tags-select (onSelect)="onSelect('roles',$event)" [items]="roles"></tags-select>
+                    </div>
+                </ng-template>
+            </nav-tab-pane>
+            <nav-tab-pane title="场景限制">
+                <ng-template navTabPaneRef>
+                    <div class="form-group">
+                        <tags-select (onSelect)="onSelect('scens',$event)" [items]="scens"></tags-select>
+                    </div>
+                </ng-template>
+            </nav-tab-pane>
+
+            <nav-tab-pane title="会员资料限制">
+                <ng-template navTabPaneRef>
+                    <div class="form-group">
+                        <tags-select (onSelect)="onSelect('rules',$event)" [items]="rules"></tags-select>
+                    </div>
+                </ng-template>
+            </nav-tab-pane>
+        </nav-tabs>
+
+        <div class="form-group bind-right-source-bottom">
+            <p style="text-align:center;background-color: rgb(143, 143, 65);color:rgb(255, 255, 255);padding: 10px;">
+                条件可以多选，注意不要自相冲突，如果自相冲突，按照一定的顺序生效，具体生效规则，请已实际测试为主！
+            </p>
+            <a class="btn btn-primary btn-block" style="margin-top: 10px;" (click)="finish()">保存</a>
+        </div>
+    </div>
 </div>

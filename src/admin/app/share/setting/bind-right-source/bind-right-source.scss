@@ -1,0 +1,20 @@
+:host {
+    min-width: 500px;
+    min-height: 600px;
+    max-height: 700px;
+    display: block;
+    overflow: auto;
+    position: relative;
+}
+
+tags-select {
+    display: block;
+}
+
+.bind-right-source-bottom {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: 10;
+}
