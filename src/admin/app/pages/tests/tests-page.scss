@@ -27,6 +27,8 @@
 .video-list {
     display: flex;
     flex-direction: row;
+    padding: 10px;
+    background: #fff;
     video-list {
         width: 320px;
         display: block;
