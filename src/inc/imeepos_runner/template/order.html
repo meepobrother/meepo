@@ -1,0 +1,93 @@
+{template 'common/header'}
+<link rel="stylesheet" href="{MODULE_URL}template/main.css?t={php echo time()}">
+<div class="card">
+	<div class="panel panel-info">
+		<div class="panel-heading">搜索</div>
+		<div class="panel-body">
+			<form class="form-inline" action="{php echo $this->createWebUrl('index')}" method="get">
+				<input type="hidden" name="c" value="{php echo $_GPC['c']}">
+				<input type="hidden" name="a" value="{php echo $_GPC['a']}">
+				<input type="hidden" name="eid" value="{php echo $_GPC['eid']}">
+
+			</form>
+		</div>
+	</div>
+
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<a href="javascript:;" class="btn btn-success">导出本日</a>
+			<a href="javascript:;" class="btn btn-success">导出本周</a>
+			<a href="javascript:;" class="btn btn-success">导出本月</a>
+		</div>
+		<div class="panel-body">
+			<table class="table">
+				<thead>
+					<tr>
+						<th style="width:6em;">类型</th>
+						<th>详情</th>
+						<th style="width:10em;">支付记录</th>
+						<th style="width:18em;">接单发单</th>
+						<td style="width:6em;">状态</th>
+					</tr>
+				</thead>
+				<tbody>
+				{loop $list $li}
+				<tr>
+					<td>{$li['goodsname']}</td>
+					<td>
+						{template 'task_detail'}
+					</td>
+					<td>
+						{loop $li['paylogs'] $pay}
+							{if $pay['type'] == 'credit'}
+								余额支付:
+							{else if $li['type']=='wechat'}
+								微信支付:
+							{else}
+								{$li['type']}
+							{/if}
+							<span style="color:red;">{$pay['fee']}元</span><span>{$li['create_time']}</span>
+						{/loop}
+					</td>
+					<td>
+						<div>
+							<img class="avatar" src="{$li['reciver']['avatar']}" alt=""> <span>接单人</span>
+							<p>{$li['reciver']['realname']}{$li['reciver']['mobile']}</p>
+							<p style="color:green;">接单: {$li['recive_time']}</p>
+						</div>
+						<div>
+							<img class="avatar" src="{$li['sender']['avatar']}" alt=""> <span>发单人</span>
+							<p>{$li['sender']['realname']}{$li['sender']['mobile']}</p>
+							<p style="color:red;">发单:{$li['create_time']}</p>
+						</div>
+					</td>
+					<td>
+						{if $li['status'] == 0}
+							货到付款
+						{else if $li['status'] == 1}
+							待接单
+						 {else if $li['status'] == 2}
+							待送达
+						 {else if $li['status'] == 3}
+							待确认
+						 {else if $li['status'] == 4}
+						 	已确认
+						 {else if $li['status'] == 5}
+							已发放
+						{else}
+							已退款
+						{/if}
+					</td>
+				</tr>
+				{/loop}
+				</tbody>
+			</table>
+		</div>
+		
+		<div class="panel-footer">
+			{php echo $pager}
+		</div>
+	</div>
+</div>
+
+{template 'common/footer'}
