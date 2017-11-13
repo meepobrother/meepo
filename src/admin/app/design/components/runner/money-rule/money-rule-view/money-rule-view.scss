@@ -1,0 +1,84 @@
+.costActual,
+.costList,
+.costTitle,
+.costTips,
+.orderMap {
+    margin: 0 4%;
+}
+
+.costActual {
+    text-align: center;
+    padding: 1em 0;
+}
+
+.costActual em {
+    font-size: 200%;
+    font-style: normal;
+}
+
+.costList {
+    margin-bottom: 1em;
+}
+
+.costList dl {
+    float: none;
+    overflow: hidden;
+    zoom: 1;
+    background: white;
+    padding: 0 1em;
+}
+
+.costList dt,
+.costList dd {
+    display: inline;
+    height: 2em;
+    line-height: 2em;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.costList dt {
+    float: left;
+    width: 70%;
+    text-align: left;
+}
+
+.costList dd {
+    float: right;
+    width: 30%;
+    text-align: right;
+}
+
+.costList dt span {
+    font-size: 80%;
+    color: #999;
+}
+
+.costList dd span {
+    color: #ff8b03;
+}
+
+.costList .total {
+    border-top: 1px solid #ddd;
+}
+
+.costList .coupon {
+    margin-top: .5em;
+    background: #fcfae5;
+}
+
+.costTitle {
+    padding: .5em 1em;
+    background: white;
+    border-bottom: 1px dashed #ddd;
+}
+
+.costTips {
+    padding: .5em 0;
+}
+
+.orderMap {
+    display: none;
+    padding: .5em;
+    background: white;
+}
