@@ -10,9 +10,9 @@
                     <a class="btn btn-primary btn-xs btn-bitbucket" (click)="setting(item)">
                         设置
                     </a>
-                    <a class="btn btn-success btn-xs btn-bitbucket" style="color: #fff;" (click)="copy(item)">
+                    <!-- <a class="btn btn-success btn-xs btn-bitbucket" style="color: #fff;" (click)="copy(item)">
                         复制
-                    </a>
+                    </a> -->
                 </div>
             </div>
             <div class="ibox-content profile-content">
@@ -21,24 +21,24 @@
                 <p>作者： {{item.author}}</p>
                 <div class="tag-list" *ngIf="item['rights']">
                     <h5 style="color:brown;">会员组限制</h5>
-                    <label class="label label-default" [class.label-success]="right.active" *ngFor="let right of item['rights']['groups']">{{right.title}}</label>
+                    <label class="label label-default" (click)="select(item,right)" [class.label-success]="right.active" *ngFor="let right of item['rights']['groups']">{{right.title}}</label>
                 </div>
                 <div class="tag-list" *ngIf="item['rights']">
                     <h5 style="color:brown;">角色限制</h5>
-                    <label class="label label-default" [class.label-success]="right.active" *ngFor="let right of item['rights']['roles']">{{right.title}}</label>
+                    <label class="label label-default" (click)="select(item,right)" [class.label-success]="right.active" *ngFor="let right of item['rights']['roles']">{{right.title}}</label>
                 </div>
                 <div class="tag-list" *ngIf="item['rights']">
                     <h5 style="color:brown;">场景限制</h5>
-                    <label class="label label-default" [class.label-success]="right.active" *ngFor="let right of item['rights']['scens']">{{right.title}}</label>
+                    <label class="label label-default" (click)="select(item,right)" [class.label-success]="right.active" *ngFor="let right of item['rights']['scens']">{{right.title}}</label>
                 </div>
                 <div class="tag-list" *ngIf="item['rights']">
                     <h5 style="color:brown;">会员资料限制</h5>
-                    <label class="label label-default" [class.label-success]="right.active" *ngFor="let right of item['rights']['rules']">{{right.title}}</label>
+                    <label class="label label-default" (click)="select(item,right)" [class.label-success]="right.active" *ngFor="let right of item['rights']['rules']">{{right.title}}</label>
                 </div>
                 <div class="user-button" style="margin-top: 10px;">
                     <div class="row">
                         <div class="col-sm-12">
-                            <button type="button" (click)="goDesign(item)" class="btn btn-primary btn-sm btn-block"><i class="fa fa-coffee"></i> 设计</button>
+                            <button type="button" (click)="goDesign(item,item)" class="btn btn-primary btn-sm btn-block"><i class="fa fa-coffee"></i> 设计</button>
                         </div>
                     </div>
                 </div>

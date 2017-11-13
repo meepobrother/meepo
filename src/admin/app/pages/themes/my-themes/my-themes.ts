@@ -51,6 +51,11 @@ export class MyThemes implements OnInit {
         })
     }
 
+    select(app: any,item: any){
+        item.active = !item.active;
+        this.api.mpost('app.editApp',app).subscribe(res=>{});
+    }
+
     copy(item: any){
 
     }
