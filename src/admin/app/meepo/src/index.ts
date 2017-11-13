@@ -25,6 +25,10 @@ export { QqFaceComponent } from './qq-face/qq-face.component';
 import { CarfilesSelect } from './carfiles-select/carfiles-select';
 export { CarfilesSelect } from './carfiles-select/carfiles-select';
 
+import { VideoItemComponent } from './video-item/video-item';
+export { VideoItemComponent } from './video-item/video-item';
+
+
 export const MeepoComponents = [
     MeLoading,
     MeAlert,
@@ -34,5 +38,6 @@ export const MeepoComponents = [
     SwiperDefault,
     We7EmojiComponent,
     QqFaceComponent,
-    CarfilesSelect
+    CarfilesSelect,
+    VideoItemComponent
 ];

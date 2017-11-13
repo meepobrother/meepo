@@ -23,3 +23,12 @@
     flex-direction: row;
     flex-wrap: wrap;
 }
+
+.video-list {
+    display: flex;
+    flex-direction: row;
+    video-list {
+        width: 320px;
+        display: block;
+    }
+}

@@ -1,21 +1,34 @@
-<div class="row">
-    <div class="col-md-3" *ngFor="let item of pages">
-        <div class="ibox">
-            <div class="ibox-title">
-                {{item.page_title}}
-                <div class="ibox-tools">
-                    <a class="btn btn-primary btn-xs" target="_blank" [attr.href]="item.script_url">
-                        查看<span>{{item.scan_num || 0}}次</span>
-                    </a>
-                    <a class="btn btn-default btn-xs" (click)="good(item)">
-                        点赞<span>{{item.good_num || 0}}次</span>
-                    </a>
+<nav-tabs>
+    <nav-tab-pane title="视频教程">
+        <ng-template navTabPaneRef>
+            <div class="video-list">
+                <video-item [video]="video" *ngFor="let video of videos"></video-item>
+            </div>
+        </ng-template>
+    </nav-tab-pane>
+    <nav-tab-pane title="案例展示">
+        <ng-template navTabPaneRef>
+            <div class="row">
+                <div class="col-md-3" *ngFor="let item of pages">
+                    <div class="ibox">
+                        <div class="ibox-title">
+                            {{item.page_title}}
+                            <div class="ibox-tools">
+                                <a class="btn btn-primary btn-xs" target="_blank" [attr.href]="item.script_url">
+                            查看<span>{{item.scan_num || 0}}次</span>
+                        </a>
+                                <a class="btn btn-default btn-xs" (click)="good(item)">
+                            点赞<span>{{item.good_num || 0}}次</span>
+                        </a>
+                            </div>
+                        </div>
+                        <div class="ibox-content">
+                            <img [src]="item.qrcode" />
+                            <p style="text-align: center;">{{item.title}}</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="ibox-content">
-                <img [src]="item.qrcode" />
-                <p style="text-align: center;">{{item.title}}</p>
-            </div>
-        </div>
-    </div>
-</div>
+        </ng-template>
+    </nav-tab-pane>
+</nav-tabs>

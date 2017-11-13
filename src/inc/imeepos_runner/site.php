@@ -714,7 +714,7 @@ EOT;
 		$uniacid = $__uniacidItem['uniacid'];
 
 		if(empty($uniacid)){
-			messageg('请先绑定主账号及微信',$this->createWebUrl('appdownload'),'error');
+			itoast('请先绑定主账号及微信',$this->createWebUrl('appdownload'),'error');
 		}
 		include $this->template('appv20');
 	}
