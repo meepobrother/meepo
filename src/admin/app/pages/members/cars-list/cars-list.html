@@ -1,23 +1,22 @@
-<table class="table table-hover">
-    <tr *ngFor="let item of list">
-        <td>{{item.id}}</td>
-        <td>
-            <img [src]="item.image" style="width: 2em;" />
-        </td>
-        <td>
-            {{item.realname}}
-        </td>
-        <td>{{item.car_num}}</td>
-        <td>{{item.jar_num}}</td>
-        <td>
-            <label class="label label-success">{{item.licheng || '0.00'}}公里</label>
-        </td>
-        <td>
-            {{item.create_time}}
-        </td>
-        <td>
+<el-table [model]="list" [stripe]="true" [border]="true">
+    <el-table-column label="id" width="80" model-key="id"></el-table-column>
+    <el-table-column label="图片" width="140">
+        <ng-template #slot let-scope="scope">
+            <img [src]="list[scope.index].image" style="width: 2em;" />
+        </ng-template>
+    </el-table-column>
+    <el-table-column label="资料">
+        <el-table-column model-key="realname" label="姓名" width="150"></el-table-column>
+        <el-table-column model-key="car_num" label="车牌号" width="150"></el-table-column>
+        <el-table-column model-key="jar_num" label="车架号" width="150"></el-table-column>
+        <el-table-column model-key="licheng" label="里程/公里" width="150"></el-table-column>
+    </el-table-column>
+    <el-table-column label="时间" width="140" model-key="create_time"></el-table-column>
+    <el-table-column label="操作">
+        <ng-template #slot>
             <a class="btn btn-primary btn-xs">编辑</a>
             <a class="btn btn-danger btn-xs">编辑</a>
-        </td>
-    </tr>
-</table>
+        </ng-template>
+    </el-table-column>
+</el-table>
+<el-pagination [total]="40 " [layout]="[ 'prev', 'pager', 'next', 'jumper', 'size', 'total'] "></el-pagination>

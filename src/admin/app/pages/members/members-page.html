@@ -2,13 +2,7 @@
     <div class="col-sm-12">
         <div class="ibox">
             <div class="ibox-content">
-                <h2>会员管理</h2>
-                <form-field group="true">
-                    <input type="text" meepoInput placeholder="请输入要查找客户的电话" class="input form-control">
-                    <button type="button" end class="btn btn btn-primary"> 
-                        <i class="fa fa-search"></i> 搜索
-                    </button>
-                </form-field>
+
                 <div class="clients-list">
                     <nav-tabs>
                         <nav-tab-pane active="true" title="会员" icon="fa fa-user">
@@ -16,14 +10,10 @@
                                 <member-list></member-list>
                             </ng-template>
                         </nav-tab-pane>
-                        <nav-tab-pane title="角色" icon="fa fa-group">
+
+                        <nav-tab-pane title="会员组" icon="fa fa-group">
                             <ng-template navTabPaneRef>
                                 <member-group></member-group>
-                            </ng-template>
-                        </nav-tab-pane>
-                        <nav-tab-pane title="权限" icon="fa fa-cogs">
-                            <ng-template navTabPaneRef>
-                                <member-rights></member-rights>
                             </ng-template>
                         </nav-tab-pane>
 
@@ -38,8 +28,6 @@
                                 <cars-list></cars-list>
                             </ng-template>
                         </nav-tab-pane>
-
-
                     </nav-tabs>
                 </div>
             </div>

@@ -14,21 +14,40 @@ export class MemberList implements OnInit {
         public api: ApiService
     ) { }
 
-    ngOnInit() { 
-        this.api.mget('member.getSystem').subscribe(res=>{
+    ngOnInit() {
+        this.api.mget('member.getSystem').subscribe(res => {
             this.list = res['info'];
             console.log(this.list);
         });
+    }
+
+    handle(ref: any) {
+        console.log(ref);
+        ref.destroy();
+    }
+
+    click(ref: any) {
+        console.log(ref.index)
+        console.log(ref.rowData)
+        console.log(ref.innerHTML)
+    }
+
+    locationTo(loc: any) {
+        console.log(loc);
+    }
+
+    rowClassNameFilter(): string {
+        return 'text-center'
     }
 }
 
 
 export class MemberDataSource extends DataSource<any>{
-    connect(): Observable<any[]>{
-        return Observable.create(observer=>{
+    connect(): Observable<any[]> {
+        return Observable.create(observer => {
             observer.next();
             observer.complete();
         });
     }
-    disconnect(){}
+    disconnect() { }
 }
