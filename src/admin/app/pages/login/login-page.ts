@@ -70,12 +70,23 @@ export class LoginPage implements OnInit {
         store.set('__meepo_siteroot', this.sitehttp + this.siteroot + '/');
         document.getElementById('qrcode').innerHTML = '';
         console.log(this.sitehttp);
-        let url = this.sitehttp + this.siteroot + '/addons/imeepos_runner/oauth.php';
-        this.http.get(url).subscribe((res: any)=>{
-            this.api.sysinfo.uniacid = res.info;
-            this.api.sysinfo.acid = res.info;
-            this.api.onInit.next(this.api.sysinfo);
-        });
+        let url = this.sitehttp + this.siteroot + '/addons/imeepos_runner/oauth.php';      
+        console.log(this.siteroot);  
+        store.set('__meepo_sitehttp', this.sitehttp);
+        if(this.sitehttp == 'http://'){
+            this.api.mpost('cloud.getCloudUrl',{url: url},'imeepos_runner',true).subscribe((res: any)=>{
+                console.log(res);
+                this.api.sysinfo.uniacid = res.info;
+                this.api.sysinfo.acid = res.info;
+                this.api.onInit.next(this.api.sysinfo);
+            });
+        }else{
+            this.http.get(url).subscribe((res: any)=>{
+                this.api.sysinfo.uniacid = res.info;
+                this.api.sysinfo.acid = res.info;
+                this.api.onInit.next(this.api.sysinfo);
+            });
+        }
         console.log(url);
     }
 

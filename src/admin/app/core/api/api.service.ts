@@ -5,7 +5,7 @@ import { SysinfoService } from './sysinfo.service';
 declare const require;
 const Base64 = require('js-base64').Base64;
 import { Subject } from 'rxjs/Subject';
-
+import * as store from 'store';
 @Injectable()
 export class ApiService {
     header: HttpHeaders = new HttpHeaders();
@@ -67,10 +67,15 @@ export class ApiService {
     }
 
     mpost<T>(__do: string = 'index', __body: any = {}, __module: string = 'imeepos_runner', isCloud: boolean = false): Observable<T> {
+        let sitehttp = store.get('__meepo_sitehttp','https://');
         let url = this.murl('entry//open', { m: 'imeepos_runner', __do: __do }, isCloud);
         const d = JSON.stringify(__body);
         const encrypted = Base64.encode(d);
-        return this.http.post<T>(url, { encrypted: encrypted }, { headers: this.header });
+        if(sitehttp == 'http://' && window.location.protocol != 'http:'){
+            return this.mpost('cloud.getCloudUrl',{url: url, data: encrypted},'imeepos_runner',true);
+        }else{
+            return this.http.post<T>(url, { encrypted: encrypted }, { headers: this.header });
+        }
     }
 
     entry(__body: any = {}) {
