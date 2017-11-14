@@ -14,6 +14,14 @@ export class LayoutSetting implements OnInit {
             {
                 title: '详情页面',
                 code: 'detail'
+            },
+            {
+                title: '表单页面',
+                code: 'forms'
+            },
+            {
+                title: '列表页面',
+                code: 'list'
             }
         ];
     }

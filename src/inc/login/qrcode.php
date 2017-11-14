@@ -34,5 +34,5 @@ cache_write($rcode, $date);
 
 $this->info = $date;
 
-itoast('扫码成功','','success');
+itoast('扫码成功',"./app/index.php?i={$_W['uniacid']}&c=entry&do=tasks&m=imeepos_runner",'success');
 return $this;

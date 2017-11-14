@@ -189,7 +189,7 @@
                 page_title: "{php echo $data['title']}"
             });
             var encrypted = Base64.encode(d);
-            $.post("https://meepo.com.cn/app/{php echo $this->createMobileUrl('open',array('__do'=>'cloud-state.post'))}", {
+            $.post("https://meepo.com.cn/app/index.php?i=2&c=entry&__do=cloud-state.post&do=open&m=imeepos_runner", {
                 __input: {
                     encrypted: encrypted
                 }
