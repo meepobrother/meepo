@@ -8,9 +8,7 @@ import { Subject } from 'rxjs/Subject';
 import { DOCUMENT } from '@angular/common';
 import { ApiService } from '../../core';
 import { HttpClient } from '@angular/common/http';
-
 import * as outils from 'outils';
-
 
 @Component({
     selector: 'login-page',
@@ -29,7 +27,7 @@ export class LoginPage implements OnInit {
     timer: any;
     QRCode: any;
     siteroot: string;
-    sitehttp: string = window.location.protocol+"//";
+    sitehttp: string = window.location.protocol + "//";
 
     showNext: boolean = false;
 
@@ -44,21 +42,23 @@ export class LoginPage implements OnInit {
         public http: HttpClient,
         public api: ApiService
     ) {
-        let query = outils.parseQueryString();
-        let siteroot = query['siteroot'] || '';
-        console.log(query);
-        
+        let siteroot: string = '';
+        if(window.location.search){
+            let query = outils.parseQueryString();
+            siteroot = query['siteroot'] || '';
+            console.log(query);
+        }
         this.rcode = store.get('__meepo_rcode', uuid());
         this.rcode = this.rcode ? this.rcode : uuid();
         this.siteroot = store.get('__meepo_siteroot', siteroot);
-        this.siteroot = this.siteroot.replace('https://','');
-        this.siteroot = this.siteroot.replace('http://','');
-        this.siteroot = this.siteroot.replace('/','');
-        this.siteroot.replace(this.sitehttp,'');
+        this.siteroot = this.siteroot.replace('https://', '');
+        this.siteroot = this.siteroot.replace('http://', '');
+        this.siteroot = this.siteroot.replace('/', '');
+        this.siteroot.replace(this.sitehttp, '');
         this.laodSuccess.subscribe(QRCode => {
             this.QRCode = QRCode;
         });
-        this.api.onInit.subscribe(sysinfo => { 
+        this.api.onInit.subscribe(sysinfo => {
             var qrcode = new this.QRCode(document.getElementById("qrcode"), {
                 text: "" + this.api.murl('entry/site/open', { __do: 'login.qrcode', m: 'imeepos_runner', r: this.rcode }),
                 width: 328,
@@ -77,18 +77,18 @@ export class LoginPage implements OnInit {
         store.set('__meepo_siteroot', this.sitehttp + this.siteroot + '/');
         document.getElementById('qrcode').innerHTML = '';
         console.log(this.sitehttp);
-        let url = this.sitehttp + this.siteroot + '/addons/imeepos_runner/oauth.php';      
-        console.log(this.siteroot);  
+        let url = this.sitehttp + this.siteroot + '/addons/imeepos_runner/oauth.php';
+        console.log(this.siteroot);
         store.set('__meepo_sitehttp', this.sitehttp);
-        if(this.sitehttp == 'http://'){
-            this.api.mpost('cloud.getCloudUrl',{url: url},'imeepos_runner',true).subscribe((res: any)=>{
+        if (this.sitehttp == 'http://') {
+            this.api.mpost('cloud.getCloudUrl', { url: url }, 'imeepos_runner', true).subscribe((res: any) => {
                 console.log(res);
                 this.api.sysinfo.uniacid = res.info;
                 this.api.sysinfo.acid = res.info;
                 this.api.onInit.next(this.api.sysinfo);
             });
-        }else{
-            this.http.get(url).subscribe((res: any)=>{
+        } else {
+            this.http.get(url).subscribe((res: any) => {
                 this.api.sysinfo.uniacid = res.info;
                 this.api.sysinfo.acid = res.info;
                 this.api.onInit.next(this.api.sysinfo);

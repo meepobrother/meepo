@@ -1,19 +1,24 @@
 <div class="container">
     <div class="container-left">
         <nav-tabs>
-
             <nav-tab-pane title="页面">
                 <ng-template navTabPaneRef>
                     <catalog-section [appId]="app_id"></catalog-section>
                 </ng-template>
             </nav-tab-pane>
 
-            <nav-tab-pane title="组件" *ngIf="showComponent">
+            <nav-tab-pane title="组件库">
                 <ng-template navTabPaneRef>
                     <widget-section (onSelect)="addWidget($event)"></widget-section>
                 </ng-template>
             </nav-tab-pane>
-            
+
+            <nav-tab-pane title="组件设置">
+                <ng-template navTabPaneRef>
+
+                </ng-template>
+            </nav-tab-pane>
+
         </nav-tabs>
     </div>
     <div class="container-center">
@@ -36,7 +41,7 @@
         <div class="container-right" [style.display]="showRight ? 'block' : 'none'">
             <div class="ibox">
                 <div class="ibox-title">
-                    <h5>{{currentWidget?.name}}参数设置</h5>
+                    <h5>{{currentWidget?.name}}参数设置-({{currentWidget?.type}})</h5>
                     <div class="ibox-tools">
                         <a class="btn btn-primary btn-xs" (click)="close()">关闭</a>
                     </div>
