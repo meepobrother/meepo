@@ -67,13 +67,16 @@ export class ApiService {
     }
 
     mpost<T>(__do: string = 'index', __body: any = {}, __module: string = 'imeepos_runner', isCloud: boolean = false): Observable<T> {
-        let sitehttp = store.get('__meepo_sitehttp','https://');
+        let sitehttp = store.get('__meepo_sitehttp', 'https://');
         let url = this.murl('entry//open', { m: 'imeepos_runner', __do: __do }, isCloud);
         const d = JSON.stringify(__body);
         const encrypted = Base64.encode(d);
-        if(sitehttp == 'http://' && window.location.protocol != 'http:'){
-            return this.mpost('cloud.getCloudUrl',{url: url, data: encrypted},'imeepos_runner',true);
-        }else{
+        console.log(sitehttp);
+        console.log(window.location.protocol);
+        
+        if (sitehttp === 'http://' && window.location.protocol != 'http:') {
+            // return this.mpost('cloud.getCloudUrl', { url: url, data: encrypted }, 'imeepos_runner', true);
+        } else {
             return this.http.post<T>(url, { encrypted: encrypted }, { headers: this.header });
         }
     }
