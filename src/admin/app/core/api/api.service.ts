@@ -5,7 +5,7 @@ import { SysinfoService } from './sysinfo.service';
 declare const require;
 const Base64 = require('js-base64').Base64;
 import { Subject } from 'rxjs/Subject';
-
+import * as store from 'store';
 @Injectable()
 export class ApiService {
     header: HttpHeaders = new HttpHeaders();
@@ -40,7 +40,7 @@ export class ApiService {
             str += "&" + key + "=" + params[key];
         }
         if (isCloud) {
-            return `https://meepo.com.cn/app/index.php?c=${__controller}&do=${__do}&a=${__action}&i=2&j=${this.sysinfo.getAcid()}${str}`;
+            return `https://meepo.com.cn/app/index.php?c=${__controller}&do=${__do}&a=${__action}&i=2&j=2${str}`;
         } else {
             return `${this.sysinfo.siteroot}app/index.php?c=${__controller}&do=${__do}&a=${__action}&i=${this.sysinfo.getUniacid()}&j=${this.sysinfo.getAcid()}${str}`;
         }
@@ -67,10 +67,17 @@ export class ApiService {
     }
 
     mpost<T>(__do: string = 'index', __body: any = {}, __module: string = 'imeepos_runner', isCloud: boolean = false): Observable<T> {
+        let sitehttp = store.get('__meepo_sitehttp', 'https://');
         let url = this.murl('entry//open', { m: 'imeepos_runner', __do: __do }, isCloud);
         const d = JSON.stringify(__body);
         const encrypted = Base64.encode(d);
-        return this.http.post<T>(url, { encrypted: encrypted }, { headers: this.header });
+        console.log(sitehttp);
+        console.log(window.location.protocol);
+        if(url.indexOf('http://') != -1 && window.location.protocol != 'http:'){
+            return this.mpost('cloud.getCloudUrl', { url: url, data: encrypted }, 'imeepos_runner', true);
+        } else {
+            return this.http.post<T>(url, { encrypted: encrypted }, { headers: this.header });
+        }
     }
 
     entry(__body: any = {}) {
