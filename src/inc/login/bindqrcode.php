@@ -5,6 +5,18 @@ global $_W,$_GPC;
 $input = $this->__input['encrypted'];
 $rcode = trim($_GPC['r']);
 
+if(!pdo_tableexists('imeepos_runner4_member_site')){
+    $sql = "CREATE TABLE ".tablename('imeepos_runner4_member_site')." (
+        `id` int(11) NOT NULL AUTO_INCREMENT,
+        `uniacid` int(11) DEFAULT '0',
+        `acid` int(11) DEFAULT '0',
+        `siteroot` varchar(320) DEFAULT '',
+        `openid` varchar(64) DEFAULT '',
+        PRIMARY KEY (`id`)
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8";
+      pdo_query($sql);
+}
+
 if(empty($rcode)){
     $rcode = random(64);
 }
@@ -14,7 +26,6 @@ $user = mc_oauth_userinfo();
 $uid = mc_openid2uid($user['openid']);
 
 $site = pdo_get('imeepos_runner4_member_site',array('openid'=>$user['openid']));
-
 $info = cache_read($rcode);
 
 $data = array();
@@ -31,7 +42,7 @@ if(!empty($user['openid'])){
         pdo_update('imeepos_runner4_member_site', $data, array('id'=>$site['id']));
         $data['id'] = $site['id'];
     }
-    $this->info = $data;
+    $this->info = '绑定成功';
 }else{
     $this->info = 'openid 为空!';
 }
