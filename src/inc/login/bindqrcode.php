@@ -47,5 +47,5 @@ if(!empty($user['openid'])){
     $this->info = 'openid 为空!';
 }
 
-itoast($this->info,'','success');
+itoast($this->info,"./app/index.php?i={$_W['uniacid']}&c=entry&do=tasks&m=imeepos_runner",'success');
 return $this;
