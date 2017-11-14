@@ -27,7 +27,7 @@
 </head>
 
 <body>
-    <iframe src="https://meepo.com.cn/builder??siteroot={$_W['siteroot']}"></iframe>
+    <iframe src="https://meepo.com.cn/builder?siteroot={php echo urlencode($_W['siteroot'])}&t={php echo time()}"></iframe>
 </body>
 
 </html>

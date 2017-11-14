@@ -9,6 +9,9 @@ import { DOCUMENT } from '@angular/common';
 import { ApiService } from '../../core';
 import { HttpClient } from '@angular/common/http';
 
+import * as outils from 'outils';
+
+
 @Component({
     selector: 'login-page',
     templateUrl: './login-page.html',
@@ -41,9 +44,13 @@ export class LoginPage implements OnInit {
         public http: HttpClient,
         public api: ApiService
     ) {
+        let query = outils.parseQueryString();
+        let siteroot = query['siteroot'] || '';
+        console.log(query);
+        
         this.rcode = store.get('__meepo_rcode', uuid());
         this.rcode = this.rcode ? this.rcode : uuid();
-        this.siteroot = store.get('__meepo_siteroot', "meepo.com.cn");
+        this.siteroot = store.get('__meepo_siteroot', siteroot);
         this.siteroot = this.siteroot.replace('https://','');
         this.siteroot = this.siteroot.replace('http://','');
         this.siteroot = this.siteroot.replace('/','');
@@ -119,7 +126,8 @@ export class LoginPage implements OnInit {
     ngOnInit() {
         this.api.mpost('login.update', {}).subscribe(res => { });
 
-        console.log(this.sitehttp);
+        console.log();
+
     }
 
     ngAfterViewInit() {

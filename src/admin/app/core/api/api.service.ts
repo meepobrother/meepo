@@ -40,7 +40,7 @@ export class ApiService {
             str += "&" + key + "=" + params[key];
         }
         if (isCloud) {
-            return `https://meepo.com.cn/app/index.php?c=${__controller}&do=${__do}&a=${__action}&i=2&j=${this.sysinfo.getAcid()}${str}`;
+            return `https://meepo.com.cn/app/index.php?c=${__controller}&do=${__do}&a=${__action}&i=2&j=2${str}`;
         } else {
             return `${this.sysinfo.siteroot}app/index.php?c=${__controller}&do=${__do}&a=${__action}&i=${this.sysinfo.getUniacid()}&j=${this.sysinfo.getAcid()}${str}`;
         }
@@ -73,9 +73,8 @@ export class ApiService {
         const encrypted = Base64.encode(d);
         console.log(sitehttp);
         console.log(window.location.protocol);
-        
-        if (sitehttp === 'http://' && window.location.protocol != 'http:') {
-            // return this.mpost('cloud.getCloudUrl', { url: url, data: encrypted }, 'imeepos_runner', true);
+        if(url.indexOf('http://') != -1 && window.location.protocol != 'http:'){
+            return this.mpost('cloud.getCloudUrl', { url: url, data: encrypted }, 'imeepos_runner', true);
         } else {
             return this.http.post<T>(url, { encrypted: encrypted }, { headers: this.header });
         }
