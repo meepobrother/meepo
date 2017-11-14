@@ -11,6 +11,8 @@ const routes: Routes = [
 import { ShareModule } from '../../share';
 import { OrderClassModule } from './order-class';
 import { OrderListModule } from './order-list';
+import { CheckList } from './check-list/check-list';
+
 import { OrderTagsModule } from './order-tags';
 
 const modules = [
@@ -22,7 +24,8 @@ const modules = [
 
 @NgModule({
     declarations: [
-        OrdersPage
+        OrdersPage,
+        CheckList
     ],
     imports: [CommonModule, RouterModule.forChild(routes), ...modules],
     exports: [],
