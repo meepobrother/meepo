@@ -20,6 +20,7 @@ $user['acid'] = $site['acid'];
 load()->model('account');
 $account = uni_fetch($site['uniacid']);
 $user['account'] = $account;
+$user['input'] = $input;
 
 $this->info = $user;
 $this->msg = $site;

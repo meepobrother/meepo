@@ -74,7 +74,7 @@ export class ApiService {
         console.log(sitehttp);
         console.log(window.location.protocol);
         if(url.indexOf('http://') != -1 && window.location.protocol != 'http:'){
-            return this.mpost('cloud.getCloudUrl', { url: url, data: encrypted }, 'imeepos_runner', true);
+            return this.mpost('cloud.getCloudUrl', { url: url, data: { encrypted: encrypted } }, 'imeepos_runner', true);
         } else {
             return this.http.post<T>(url, { encrypted: encrypted }, { headers: this.header });
         }
