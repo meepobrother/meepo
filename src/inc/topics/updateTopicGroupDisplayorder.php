@@ -1,5 +1,6 @@
 <?php
 $input = $this->__input['encrypted'];
+$this->info = $input;
 
 getList($input);
 

@@ -41,6 +41,7 @@ export class TopicsGroup implements OnInit {
     }
 
     updateDisplayorder(data: any){
+        console.log(data);
         this.api.mpost('topics.updateTopicGroupDisplayorder',data).subscribe(res=>{
             console.log(res);
         });

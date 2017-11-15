@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-    selector: 'topics-group-item',
+    selector: '[topics-group-item]',
     templateUrl: './topics-group-item.html',
     styleUrls: ['./topics-group-item.scss']
 })
