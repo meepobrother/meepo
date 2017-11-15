@@ -14,57 +14,51 @@ export class GoodsGroup implements OnInit {
         public api: ApiService
     ) { }
 
-    ngOnInit() { 
+    ngOnInit() {
         this.getList();
     }
 
-    getList(){
-        this.api.mpost('goods.update').subscribe(res=>{});
-        this.api.mpost('goods.getListGoodsGroup',{page: 1, psize: 30}).subscribe((res: any)=>{
+    getList() {
+        this.api.mpost('goods.update', {}).subscribe(res => { });
+        this.api.mpost('goods.getListGoodsGroup', {}).subscribe((res: any) => {
             this.list = res.info;
         });
     }
 
-    add(){
-        const dialogRef = this.dialog.open(GoodsGroupAdd);
-        dialogRef.afterClosed().subscribe(res=>{
-            if(res){
-                this.api.mpost('goods.addGoodsGroup',res).subscribe((res: any)=>{
-                    this.list.unshift(res.info)
+    onUpdateDisplayorder(data: any) {
+        this.api.mpost('goods.updateGoodsGroupDisplayorder', data).subscribe(res => {
+            console.log(res);
+        });
+    }
+
+    edit(data: any) {
+        let { item, index } = data;
+        let dialogRef = this.dialog.open(GoodsGroupAdd, { data: item });
+        dialogRef.afterClosed().subscribe(res => {
+            if (res.title) {
+                this.api.mpost('goods.editGoodsGroup', res).subscribe((data: any) => {
+                    this.list[index] = data.info;
                 });
             }
         });
     }
 
-    edit(item: any){
-        const dialogRef = this.dialog.open(GoodsGroupAdd, {data: item});
-        dialogRef.afterClosed().subscribe(res=>{
-            if(res){
-                this.api.mpost('goods.addGoodsGroup',res).subscribe((res: any)=>{
-                    this.getList();
-                });
-            }
+    delete(data: any) {
+        let { item, index } = data;
+        this.api.mpost('goods.deleteGoodsGroup', item).subscribe(res => {
+            this.list.splice(index, 1);
         });
     }
 
-    updateStatus(item: any){
-
-    }
-
-    editGroup(item: any, index: number){
-        const dialogRef = this.dialog.open(GoodsGroupAdd, {data: item});
-        dialogRef.afterClosed().subscribe(res=>{
-            if(res){
-                this.api.mpost('goods.addGoodsGroup',res).subscribe((res: any)=>{
-                    this.list[index] = res;
+    add() {
+        let dialogRef = this.dialog.open(GoodsGroupAdd);
+        dialogRef.afterClosed().subscribe(res => {
+            if (res.title) {
+                this.api.mpost('goods.editGoodsGroup', res).subscribe((data: any) => {
+                    this.list.push(data.info);
                 });
             }
         });
-    }
-    deleteGroup(item: any, index: number){
-        this.api.mpost('goods.deleteGoodsGroup',item).subscribe(res=>{
-            this.list.splice(index,1);
-        })
     }
     
 }

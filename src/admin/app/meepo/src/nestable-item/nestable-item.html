@@ -1,5 +1,6 @@
 <li class="dd-item" [attr.data-id]="child.id" *ngFor="let child of items;index as i;">
-    <a style="margin-top: 10px;margin-left: 10px;" class="label label-primary" (click)="edit({item: child,index: i})"><i class="fa fa-edit"></i></a>
+    <a style="margin-top: 10px;margin-left: 10px;" class="label label-success" (click)="addChild({item: child, index: i})"><i class="fa fa-plus-square-o"></i></a>
+    <a style="margin-top: 10px;margin-left: 3px;" class="label label-primary" (click)="edit({item: child,index: i})"><i class="fa fa-edit"></i></a>
     <el-tooltip style="margin-top: 0px;" placement="right" effect="light">
         <a class="label label-danger"><i class="fa fa-trash-o"></i></a>
         <ng-template #tip>
