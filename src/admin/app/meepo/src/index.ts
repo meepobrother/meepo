@@ -28,6 +28,13 @@ export { CarfilesSelect } from './carfiles-select/carfiles-select';
 import { VideoItemComponent } from './video-item/video-item';
 export { VideoItemComponent } from './video-item/video-item';
 
+import { NestableList } from './nestable-list/nestable-list';
+export { NestableList } from './nestable-list/nestable-list';
+
+import { NestableItem } from './nestable-item/nestable-item';
+export { NestableItem } from './nestable-item/nestable-item';
+
+
 
 export const MeepoComponents = [
     MeLoading,
@@ -39,5 +46,7 @@ export const MeepoComponents = [
     We7EmojiComponent,
     QqFaceComponent,
     CarfilesSelect,
-    VideoItemComponent
+    VideoItemComponent,
+    NestableList,
+    NestableItem
 ];

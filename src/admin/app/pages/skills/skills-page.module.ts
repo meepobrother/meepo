@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 import { SkillsPage } from './skills-page';
 import { SkillsList, SkillsListEdit } from './skills-list';
 
+import { SkillsGroup } from './skills-group/skills-group';
+import { SkillsGroupAdd } from './skills-group/skills-group-add/skills-group-add';
+
 import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
     {
@@ -20,7 +23,9 @@ const modules = [
     declarations: [
         SkillsPage,
         SkillsList,
-        SkillsListEdit
+        SkillsListEdit,
+        SkillsGroup,
+        SkillsGroupAdd
     ],
     imports: [CommonModule, RouterModule.forChild(routes), ...modules],
     exports: [
@@ -28,7 +33,8 @@ const modules = [
     ],
     providers: [],
     entryComponents: [
-        SkillsListEdit
+        SkillsListEdit,
+        SkillsGroupAdd
     ]
 })
 export class SkillsPageModule { }

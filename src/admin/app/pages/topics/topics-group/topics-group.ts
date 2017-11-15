@@ -30,14 +30,13 @@ export class TopicsGroup implements OnInit {
 
     loadScript() {
         this.api.loadJScript('https://meepo.com.cn/meepo/libs/plugins/nestable/jquery.nestable.js', '$').subscribe(res => {
-            console.log(res);
             $('#nestable2').nestable({
                 group: 1
             }).on('change', (e: any) => {
                 let list = e.length ? e : $(e.target);
                 this.updateDisplayorder(list.nestable('serialize'));
             });
-        })
+        });
     }
 
     updateDisplayorder(data: any) {

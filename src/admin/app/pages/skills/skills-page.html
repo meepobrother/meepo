@@ -9,8 +9,12 @@
                     <skills-list></skills-list>
                 </ng-template>
             </nav-tab-pane>
-            <nav-tab-pane title="技能分类"></nav-tab-pane>
-            <nav-tab-pane title="技能标签"></nav-tab-pane>
+            <nav-tab-pane title="技能分类">
+                <ng-template navTabPaneRef>
+                    <skills-group></skills-group>
+                </ng-template>
+            </nav-tab-pane>
+            <!-- <nav-tab-pane title="技能标签"></nav-tab-pane> -->
         </nav-tabs>
     </div>
 </div>
