@@ -831,29 +831,11 @@ html {
 }
 
 .dd-item {
-    display: flex !important;
-    flex-direction: row !important;
-    .label {
+    .label,
+    el-tooltip {
         cursor: pointer;
-    }
-    .pull-right {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        .btn {
-            line-height: 43px;
-            height: 43px;
-        }
-    }
-    .pull-left {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        span.label {
-            margin-right: 2px !important;
-        }
+        float: left;
+        margin-right: 3px;
     }
     .dd-handle {
         display: flex !important;

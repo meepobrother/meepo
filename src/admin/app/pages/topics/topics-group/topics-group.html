@@ -7,21 +7,7 @@
     </div>
     <div class="ibox-content">
         <div class="dd" id="nestable2">
-            <ol class="dd-list">
-                <li class="dd-item" [attr.data-id]="item.id" *ngFor="let item of list;index as i;">
-                    <div class="pull-left">
-                        <span class="label label-info" (click)="edit(item,i)">
-                            <i class="fa fa-edit"></i>
-                        </span>
-                        <span class="label label-danger" (click)="delete(item,i)">
-                            <i class="fa fa-trash-o"></i>
-                        </span>
-                    </div>
-                    <div class="dd-handle">
-                        <h5 class="title">{{item.title}}</h5>
-                    </div>
-                </li>
-            </ol>
+            <topics-group-item [items]="list"></topics-group-item>
         </div>
     </div>
 </div>

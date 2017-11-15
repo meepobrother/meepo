@@ -32,5 +32,14 @@ if(!pdo_fieldexists('imeepos_runner4_topics_group','tags')){
     pdo_query($sql);
 }
 
+if(!pdo_fieldexists('imeepos_runner4_topics_group','displayorder')){
+    $sql = "ALTER TABLE ".tablename('imeepos_runner4_topics_group')." ADD COLUMN `displayorder` int(11) NOT NULL DEFAULT '0'";
+    pdo_query($sql);
+}
+
+if(!pdo_fieldexists('imeepos_runner4_topics_group','fid')){
+    $sql = "ALTER TABLE ".tablename('imeepos_runner4_topics_group')." ADD COLUMN `fid` int(11) NOT NULL DEFAULT '0'";
+    pdo_query($sql);
+}
 
 return $this;

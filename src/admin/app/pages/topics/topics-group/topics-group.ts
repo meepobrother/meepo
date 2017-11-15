@@ -24,32 +24,34 @@ export class TopicsGroup implements OnInit {
 
     ngOnInit() {
         this.getList();
-
-
         this.loadScript();
-
     }
 
 
     loadScript() {
         this.api.loadJScript('https://meepo.com.cn/meepo/libs/plugins/nestable/jquery.nestable.js', '$').subscribe(res => {
             console.log(res);
-            $(document).ready(function () {
-                $('#nestable2').nestable({
-                    group: 1
-                }).on('change', (e: any) => {
-                    console.log(e);
-                });
+            $('#nestable2').nestable({
+                group: 1
+            }).on('change', (e: any) => {
+                let list = e.length ? e: $(e.target);
+                this.updateDisplayorder(list.nestable('serialize'));
             });
         })
     }
 
+    updateDisplayorder(data: any){
+        this.api.mpost('topics.updateTopicGroupDisplayorder',data).subscribe(res=>{
+            console.log(res);
+        });
+    }   
+
     edit(item: any, index: number) {
         let dialogRef = this.dialog.open(TopicsGroupAdd, { data: item });
         dialogRef.afterClosed().subscribe(res => {
-            if (res) {
-                this.api.mpost('topics.editTopicGroup', res).subscribe((res: any) => {
-                    this.list[index] = res.info;
+            if (res.title) {
+                this.api.mpost('topics.editTopicGroup', res).subscribe((data: any) => {
+                    this.list[index] = data.info;
                 });
             }
         });
@@ -64,9 +66,9 @@ export class TopicsGroup implements OnInit {
     add() {
         let dialogRef = this.dialog.open(TopicsGroupAdd);
         dialogRef.afterClosed().subscribe(res => {
-            if (res) {
-                this.api.mpost('topics.editTopicGroup', res).subscribe(res => {
-                    this.getList();
+            if (res.title) {
+                this.api.mpost('topics.editTopicGroup', res).subscribe((data: any) => {
+                    this.list.push(data.info);
                 });
             }
         });
