@@ -830,6 +830,11 @@ html {
     height: 10px;
 }
 
+.dd-list {
+    display: flex !important;
+    flex-direction: column !important;
+}
+
 .dd-item {
     .label,
     el-tooltip {
@@ -837,12 +842,17 @@ html {
         float: left;
         margin-right: 3px;
     }
-    line-height: 0px !important;
+    .label {
+        margin-top: 5px;
+    }
+    el-tooltip {
+        padding-top: 5px;
+    }
 }
 
 .dd-handle {
     color: inherit;
     border: 1px dashed #e7eaec;
     background: #f3f3f4;
-    padding: 10px !important;
+    padding: 5px 10px !important;
 }
