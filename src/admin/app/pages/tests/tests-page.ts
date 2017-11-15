@@ -15,19 +15,19 @@ export class TestsPage implements OnInit {
 
     videos: any[] = [
         {
-            title: '跑腿lesson1-v20登陆步骤',
+            title: '1-v20登陆步骤',
             src: 'https://meepo.com.cn/meepo/video/001.mp4'
         },
         {
-            title: '跑腿2-演示及应用管理',
+            title: '2-演示及应用管理',
             src: 'https://meepo.com.cn/meepo/video/002.mp4'
         },
         {
-            title: '跑腿3-底部菜单组件设置',
+            title: '3-底部菜单组件设置',
             src: 'https://meepo.com.cn/meepo/video/003.mp4'
         },
         {
-            title: '跑腿4-余额提现制作展示',
+            title: '4-余额提现制作展示',
             src: 'https://meepo.com.cn/meepo/video/004.mp4'
         },
     ];
