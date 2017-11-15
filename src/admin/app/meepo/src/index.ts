@@ -34,6 +34,8 @@ export { NestableList } from './nestable-list/nestable-list';
 import { NestableItem } from './nestable-item/nestable-item';
 export { NestableItem } from './nestable-item/nestable-item';
 
+import { GroupList, GroupAdd } from './group';
+export { GroupList, GroupAdd } from './group';
 
 
 export const MeepoComponents = [
@@ -48,5 +50,7 @@ export const MeepoComponents = [
     CarfilesSelect,
     VideoItemComponent,
     NestableList,
-    NestableItem
+    NestableItem,
+    GroupList, 
+    GroupAdd
 ];
