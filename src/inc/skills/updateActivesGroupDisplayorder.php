@@ -9,7 +9,7 @@ return $this;
 
 function getList($input = array(),$fid = 0){
     foreach($input as $key=>$item){
-        pdo_update('imeepos_runner4_actives_group',array('displayorder'=>$key,'fid'=>$fid),array('id'=>$item['id']));         
+        pdo_update('imeepos_runner4_skills_group',array('displayorder'=>$key,'fid'=>$fid),array('id'=>$item['id']));         
         if(!empty($item['children'])){
             getList($item['children'],$item['id']);
         }

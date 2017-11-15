@@ -19,23 +19,21 @@ export class SkillsGroupAdd implements OnInit {
             id: [''],
             uniacid: ['']
         });
-
-        this.dialog.afterOpen().subscribe(res=>{
-            let { title , id, uniacid} = this.data;
+        this.dialog.afterOpen().subscribe(res => {
+            let { title, id, uniacid } = this.data;
             this.form.get('title').setValue(title);
             this.form.get('id').setValue(id);
             this.form.get('uniacid').setValue(uniacid);
         });
     }
     ngOnInit() { }
-    save(){
+    save() {
         this.dialog.close(this.form.value);
     }
-    cancel(){
+    cancel() {
         this.dialog.close();
     }
-
-    close(){
+    close() {
         this.cancel();
     }
 }
