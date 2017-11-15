@@ -4,7 +4,7 @@
         <a class="label label-danger"><i class="fa fa-trash-o"></i></a>
         <ng-template #tip>
             <el-alert [closable]="false" type="warning">
-                您确定要删除此分类么？
+                您确定要删除此分类么？如存在子分类，则全部清除！此操作不可逆，请谨慎操作！
                 <a class="btn btn-danger btn-xs" (click)="delete({item: child,index: i})">确定</a>
             </el-alert>
         </ng-template>
