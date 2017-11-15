@@ -37,7 +37,7 @@ export class TopicsGroup implements OnInit {
                 let list = e.length ? e : $(e.target);
                 this.updateDisplayorder(list.nestable('serialize'));
             });
-        })
+        });
     }
 
     updateDisplayorder(data: any) {
