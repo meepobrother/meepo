@@ -18,8 +18,8 @@ export class NestableList implements OnInit {
     constructor(
         @Inject(DOCUMENT) public document: any
     ) { }
+
     ngOnInit() { 
-        console.log(this.id);
         this.loadJScript('https://meepo.com.cn/meepo/libs/plugins/nestable/jquery.nestable.js', '$').subscribe(res => {
             $('#'+this.id).nestable({
                 group: 1

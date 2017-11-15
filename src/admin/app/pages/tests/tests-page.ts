@@ -25,7 +25,11 @@ export class TestsPage implements OnInit {
         {
             title: '跑腿3-底部菜单组件设置',
             src: 'https://meepo.com.cn/meepo/video/003.mp4'
-        }
+        },
+        {
+            title: '跑腿4-余额提现制作展示',
+            src: 'https://meepo.com.cn/meepo/video/004.mp4'
+        },
     ];
     constructor(
         public http: HttpClient,
