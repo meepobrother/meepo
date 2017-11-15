@@ -34,20 +34,20 @@ export class TopicsGroup implements OnInit {
             $('#nestable2').nestable({
                 group: 1
             }).on('change', (e: any) => {
-                let list = e.length ? e: $(e.target);
+                let list = e.length ? e : $(e.target);
                 this.updateDisplayorder(list.nestable('serialize'));
             });
         })
     }
 
-    updateDisplayorder(data: any){
-        console.log(data);
-        this.api.mpost('topics.updateTopicGroupDisplayorder',data).subscribe(res=>{
+    updateDisplayorder(data: any) {
+        this.api.mpost('topics.updateTopicGroupDisplayorder', data).subscribe(res => {
             console.log(res);
         });
-    }   
+    }
 
-    edit(item: any, index: number) {
+    edit(data: any) {
+        let { item, index } = data;
         let dialogRef = this.dialog.open(TopicsGroupAdd, { data: item });
         dialogRef.afterClosed().subscribe(res => {
             if (res.title) {
@@ -58,9 +58,10 @@ export class TopicsGroup implements OnInit {
         });
     }
 
-    delete(item: any,index: any) {
+    delete(data: any) {
+        let { item, index } = data;
         this.api.mpost('topics.deleteTopicGroup', item).subscribe(res => {
-            this.list.splice(index,1);
+            this.list.splice(index, 1);
         });
     }
 

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
     selector: '[topics-group-item]',
@@ -7,11 +7,15 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class TopicsGroupItem implements OnInit {
     @Input() items: any[] = [];
-    constructor() { }
-
-    ngOnInit() { }
-
-    delete(item: any, index: number){}
-    edit(item: any, index: number){}
+    @Output() onEdit: EventEmitter<any> = new EventEmitter();
+    @Output() onDelete: EventEmitter<any> = new EventEmitter();
     
+    constructor() { }
+    ngOnInit() { }
+    delete(data: any){
+        this.onDelete.emit(data);
+    }
+    edit(data: any){
+        this.onEdit.emit(data);        
+    }
 }
