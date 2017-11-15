@@ -13,5 +13,5 @@
     <div class="dd-handle">
         {{child.title}}
     </div>
-    <ol class="dd-list" (onEdit)="edit($event)" (onDelete)="delete($event)" nestable-item [items]="child['children']" *ngIf="child['children']"></ol>
+    <ol class="dd-list" (onAddChild)="addChild($event)" (onEdit)="edit($event)" (onDelete)="delete($event)" nestable-item [items]="child['children']" *ngIf="child['children']"></ol>
 </li>
