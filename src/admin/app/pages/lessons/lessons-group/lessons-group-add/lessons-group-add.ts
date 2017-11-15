@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
     selector: 'lessons-group-add',
@@ -6,7 +8,34 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./lessons-group-add.scss']
 })
 export class LessonsGroupAdd implements OnInit {
-    constructor() { }
+    form: FormGroup;
+    constructor(
+        @Inject(MAT_DIALOG_DATA) public data: any,
+        public dialog: MatDialogRef<any>,
+        public fb: FormBuilder
+    ) { 
+        this.form = this.fb.group({
+            title: [''],
+            id: [''],
+            uniacid: ['']
+        });
 
-    ngOnInit() {}
+        this.dialog.afterOpen().subscribe(res=>{
+            let { title , id, uniacid} = this.data;
+            this.form.get('title').setValue(title);
+            this.form.get('id').setValue(id);
+            this.form.get('uniacid').setValue(uniacid);
+        });
+    }
+    ngOnInit() { }
+    save(){
+        this.dialog.close(this.form.value);
+    }
+    cancel(){
+        this.dialog.close();
+    }
+
+    close(){
+        this.cancel();
+    }
 }

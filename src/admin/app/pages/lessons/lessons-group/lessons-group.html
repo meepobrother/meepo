@@ -1,0 +1,11 @@
+<div class="ibox">
+    <div class="ibox-title">
+        <h5>课程分类</h5>
+        <div class="ibox-tools">
+            <a class="btn btn-primary btn-xs" (click)="add()">添加</a>
+        </div>
+    </div>
+    <div class="ibox-content">
+        <nestable-list (onEdit)="edit($event)" (onUpdateDisplayorder)="onUpdateDisplayorder($event)" (onDelete)="delete($event)" [list]="list"></nestable-list>
+    </div>
+</div>

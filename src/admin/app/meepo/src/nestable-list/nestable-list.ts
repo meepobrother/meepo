@@ -9,7 +9,7 @@ import { DOCUMENT } from '@angular/common';
     styleUrls: ['./nestable-list.scss']
 })
 export class NestableList implements OnInit {
-    id: string = new uuid();
+    id: string = uuid();
     @Input() list: any[] = [];
     @Output() onUpdateDisplayorder: EventEmitter<any> = new EventEmitter();
     @Output() onDelete: EventEmitter<any> = new EventEmitter();
