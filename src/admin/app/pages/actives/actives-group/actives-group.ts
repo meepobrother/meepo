@@ -25,6 +25,12 @@ export class ActivesGroup implements OnInit {
         });
     }
 
+    onUpdateDisplayorder(data: any){
+        this.api.mpost('actives.updateActivesGroupDisplayorder', data).subscribe(res => {
+            console.log(res);
+        });
+    }
+
     edit(data: any) {
         let { item, index } = data;
         let dialogRef = this.dialog.open(ActivesGroupAdd, { data: item });
