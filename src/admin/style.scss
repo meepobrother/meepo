@@ -829,3 +829,22 @@ html {
 .h10 {
     height: 10px;
 }
+
+.dd-item {
+    .label,
+    el-tooltip {
+        cursor: pointer;
+        float: left;
+        margin-right: 3px;
+    }
+    .dd-handle {
+        display: flex !important;
+        flex-direction: row !important;
+        flex: 1;
+        .title {
+            flex: 1 !important;
+            padding: 0px;
+            margin: 0px;
+        }
+    }
+}

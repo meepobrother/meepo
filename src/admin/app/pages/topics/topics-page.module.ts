@@ -12,6 +12,8 @@ import { TopicsGroupAdd } from './topics-group/topics-group-add/topics-group-add
 
 import { TopicsTags } from './topics-tags/topics-tags';
 import { TopicsTagsAdd } from './topics-tags/topics-tags-add/topics-tags-add';
+import { TopicsGroupItem } from './topics-group/topics-group-item/topics-group-item';
+
 
 
 const routes: Routes = [
@@ -33,6 +35,7 @@ const modules = [
         TopicsListAdd,
         TopicsGroup,
         TopicsGroupAdd,
+        TopicsGroupItem,
         TopicsTags,
         TopicsTagsAdd
     ],

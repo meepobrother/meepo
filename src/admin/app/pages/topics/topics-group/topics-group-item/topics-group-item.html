@@ -1,0 +1,16 @@
+<li class="dd-item" [attr.data-id]="child.id" *ngFor="let child of items;index as i;">
+    <a class="label label-primary" (click)="edit({item: child,index: i})"><i class="fa fa-edit"></i></a>
+    <el-tooltip placement="right" effect="light">
+        <a class="label label-danger"><i class="fa fa-trash-o"></i></a>
+        <ng-template #tip>
+            <el-alert [closable]="false" type="warning">
+                您确定要删除此分类么？
+                <a class="btn btn-danger btn-xs" (click)="delete({item: child,index: i})">确定</a>
+            </el-alert>
+        </ng-template>
+    </el-tooltip>
+    <div class="dd-handle">
+        <h5 class="title">{{child.title}}</h5>
+    </div>
+    <ol class="dd-list" (onEdit)="edit($event)" (onDelete)="delete($event)" topics-group-item [items]="child['children']" *ngIf="child['children']"></ol>
+</li>

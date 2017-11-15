@@ -6,18 +6,8 @@
         </div>
     </div>
     <div class="ibox-content">
-        <table class="table table-striped table-hover">
-            <tbody>
-                <tr *ngFor="let item of list">
-                    <td>
-                        <a class="client-link">{{item.title || '昵称'}}</a>
-                    </td>
-                    <td>
-                        <a href="javascript:;" (click)="edit(item)" class="btn btn-primary btn-xs">编辑</a>
-                        <a href="javascript:;" (click)="delete(item)" class="btn btn-danger btn-xs">删除</a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="dd" id="nestable2">
+            <ol class="dd-list" (onEdit)="edit($event)" (onDelete)="delete($event)" topics-group-item [items]="list"></ol>
+        </div>
     </div>
 </div>
