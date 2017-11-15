@@ -6,18 +6,22 @@
         </div>
     </div>
     <div class="ibox-content">
-        <table class="table table-striped table-hover">
-            <tbody>
-                <tr *ngFor="let item of list">
-                    <td>
-                        <a class="client-link">{{item.title || '昵称'}}</a>
-                    </td>
-                    <td>
-                        <a href="javascript:;" (click)="edit(item)" class="btn btn-primary btn-xs">编辑</a>
-                        <a href="javascript:;" (click)="delete(item)" class="btn btn-danger btn-xs">删除</a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="dd" id="nestable2">
+            <ol class="dd-list">
+                <li class="dd-item" [attr.data-id]="item.id" *ngFor="let item of list;index as i;">
+                    <div class="pull-left">
+                        <span class="label label-info" (click)="edit(item,i)">
+                            <i class="fa fa-edit"></i>
+                        </span>
+                        <span class="label label-danger" (click)="delete(item,i)">
+                            <i class="fa fa-trash-o"></i>
+                        </span>
+                    </div>
+                    <div class="dd-handle">
+                        <h5 class="title">{{item.title}}</h5>
+                    </div>
+                </li>
+            </ol>
+        </div>
     </div>
 </div>

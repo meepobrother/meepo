@@ -4,7 +4,8 @@ import { TestsPage } from './tests-page';
 import { Routes, RouterModule } from '@angular/router';
 import { ShareModule } from '../../share';
 import { MeepoModule } from '../../meepo/meepo.module';
-
+import { BbsTopic } from './bbs-topic/bbs-topic';
+import { SmallComponent } from './small/small';
 const routes = [
     {
         path: '',
@@ -14,7 +15,9 @@ const routes = [
 
 @NgModule({
     declarations: [
-        TestsPage
+        TestsPage,
+        BbsTopic,
+        SmallComponent
     ],
     imports: [
         CommonModule,

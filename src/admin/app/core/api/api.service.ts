@@ -6,6 +6,7 @@ declare const require;
 const Base64 = require('js-base64').Base64;
 import { Subject } from 'rxjs/Subject';
 import * as store from 'store';
+import { DOCUMENT } from '@angular/common';
 @Injectable()
 export class ApiService {
     header: HttpHeaders = new HttpHeaders();
@@ -15,6 +16,7 @@ export class ApiService {
     sysinfo: SysinfoService;
     constructor(
         public http: HttpClient,
+        @Inject(DOCUMENT) public document: any
     ) {
         this.sysinfo = SysinfoService.getSysinfo();
         this.header.append('Content-Type', 'application/x-www-form-urlencoded');
@@ -116,6 +118,24 @@ export class ApiService {
         } else {
             return false;
         }
+    }
+
+    loadJScript(src: string, key: string) {
+        return Observable.create(obser=>{
+            const script = this.document.createElement('script');
+            script.type = 'text/javascript';
+            script.src = src;
+            script.onload = () => {
+                obser.next(window[key]);
+                obser.complete();
+            };
+            script.onerror = () => {
+                obser.error();
+                obser.complete();
+            };
+            this.document.body.appendChild(script);
+        })
+        
     }
 }
 
