@@ -21,7 +21,6 @@ export class NestableList implements OnInit {
     ngOnInit() { 
         console.log(this.id);
         this.loadJScript('https://meepo.com.cn/meepo/libs/plugins/nestable/jquery.nestable.js', '$').subscribe(res => {
-            console.log(res);
             $('#'+this.id).nestable({
                 group: 1
             }).on('change', (e: any) => {
