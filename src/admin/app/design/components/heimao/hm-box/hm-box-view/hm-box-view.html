@@ -4,9 +4,9 @@
             <a href="javascript:;">
                 <div class="fl jxtext">
                     <h2>{{item.title}}</h2>
-                    <span [ngStyle]="item.style">{{item.desc}}</span>
+                    <span [style.color]="item.color">{{item.desc}}</span>
                 </div>
-                <div class="fl jximg" style="background:#FF8B17;">
+                <div class="fl jximg" [style.background-color]="item.bgcolor">
                     <img [src]="item.image" width="100%" height="100%">
                 </div>
             </a>
