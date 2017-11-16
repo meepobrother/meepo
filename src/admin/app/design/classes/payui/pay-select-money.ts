@@ -6,6 +6,12 @@ export class PaySelectMoneyDefault extends Widget {
     tip: string = '';
     payDesc: string = '支付金额给商户';
     payTitle: string = '选择金额付款';
+
+    __do: string;
+    __post: any;
+    __success: string;
+    
+
     constructor() {
         super();
         this.type = 'pay-select-money';

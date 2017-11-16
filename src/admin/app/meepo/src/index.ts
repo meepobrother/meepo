@@ -37,6 +37,15 @@ export { NestableItem } from './nestable-item/nestable-item';
 import { GroupList, GroupAdd } from './group';
 export { GroupList, GroupAdd } from './group';
 
+import { ActionSelect } from './action-select/action-select';
+export { ActionSelect } from './action-select/action-select';
+
+
+import { LinkSelect } from './link-select/link-select';
+export { LinkSelect } from './link-select/link-select';
+
+import { PageSelect } from './page-select/page-select';
+export { PageSelect } from './page-select/page-select';
 
 export const MeepoComponents = [
     MeLoading,
@@ -52,5 +61,8 @@ export const MeepoComponents = [
     NestableList,
     NestableItem,
     GroupList, 
-    GroupAdd
+    GroupAdd,
+    ActionSelect,
+    LinkSelect,
+    PageSelect
 ];

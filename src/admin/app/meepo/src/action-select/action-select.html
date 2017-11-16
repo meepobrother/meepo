@@ -1,0 +1,11 @@
+<div class="form-group">
+    <label>地址</label>
+    <input class="form-control" [(ngModel)]="widget.__do" placeholder="提交地址">
+</div>
+
+<div class="form-group">
+    <label>数据</label>
+    <input class="form-control" [(ngModel)]="widget.__post" placeholder="附加数据">
+</div>
+
+<link-select [widget]="widget" title="成功跳转"></link-select>
