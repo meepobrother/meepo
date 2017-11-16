@@ -7,18 +7,21 @@ import { PageSelect } from '../page-select/page-select';
     styleUrls: ['./link-select.scss']
 })
 export class LinkSelect implements OnInit {
-    @Input() widget: any;
+    @Input() widget: string;
     @Input() title: string;
+
     constructor(
         public dialog: MatDialog
-    ) { }
+    ) { 
+        
+    }
 
     ngOnInit() { }
 
     selectLink() {
         let dialogRef = this.dialog.open(PageSelect);
         dialogRef.afterClosed().subscribe(link => {
-            this.widget.link = link;
+            this.widget = link;
         });
     }
 }
