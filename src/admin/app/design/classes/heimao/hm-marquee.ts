@@ -15,6 +15,11 @@ export class HmMarqueeDefault extends Widget {
         color: '#000'
     };
 
+    items: any[] = [
+        {
+            title: '滚动公告滚动公告滚动公告滚动公告'
+        }
+    ];
 
     constructor() {
         super();

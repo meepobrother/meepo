@@ -1,8 +1,7 @@
 <section class="marquee-box" [ngStyle]="widget.containerStyle">
-    <marquee [attr.behavior]="widget.behavior" [attr.bgcolor]="widget.bgcolor" [attr.direction]="widget.direction" [attr.bgcolor]="widget.bgcolor" class="marquee" scrollamount="4">
-        <img class="laba" [src]="widget.icon"> &nbsp;&nbsp;
-        <a href="javascript:;">
-            {{widget.title}}
+    <marquee [attr.behavior]="widget.behavior" [attr.bgcolor]="widget.color['bgcolor']" [attr.direction]="widget.direction" class="marquee" scrollamount="4">
+        <a href="javascript:;" *ngFor="let item of widget.items" [style.color]="widget.color['color']">
+            <img class="laba" [src]="item.icon"> &nbsp;&nbsp;{{item.title}}
         </a>
     </marquee>
 </section>
