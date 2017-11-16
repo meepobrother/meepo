@@ -26,7 +26,15 @@ if(!pdo_fieldexists('imeepos_runner4_order_class','tags')){
     $sql = "ALTER TABLE ".tablename('imeepos_runner4_order_class')." ADD COLUMN `tags` text NOT NULL AFTER `status`;";
     pdo_query($sql);
 }
+if(!pdo_fieldexists('imeepos_runner4_order_class','displayorder')){
+    $sql = "ALTER TABLE ".tablename('imeepos_runner4_order_class')." ADD COLUMN `displayorder` int(11) NOT NULL DEFAULT '0'";
+    pdo_query($sql);
+}
 
+if(!pdo_fieldexists('imeepos_runner4_order_class','fid')){
+    $sql = "ALTER TABLE ".tablename('imeepos_runner4_order_class')." ADD COLUMN `fid` int(11) NOT NULL DEFAULT '0'";
+    pdo_query($sql);
+}
 
 if(!pdo_tableexists('imeepos_runner4_order')){
     $sql = "CREATE TABLE ".tablename('imeepos_runner4_order')." (
