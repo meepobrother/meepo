@@ -17,7 +17,6 @@ export class HmMarqueeSetting implements OnInit {
     ngOnInit() { }
 
     onHeightChange(e: any) {
-        console.log(e);
         this.widget.containerStyle['height'] = e;
         this.widget.containerStyle['line-height'] = e;
     }
