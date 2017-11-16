@@ -20,6 +20,10 @@ export class ApiService {
     ) {
         this.sysinfo = SysinfoService.getSysinfo();
         this.header.append('Content-Type', 'application/x-www-form-urlencoded');
+        this.header.append('Access-Control-Allow-Origin', '*');
+        this.header.append('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, PUT');
+        this.header.append('Content-Type', 'application/json');
+        this.header.append('Accept', 'application/json');
     }
 
     setSiteroot(siteroot: string) {
