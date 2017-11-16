@@ -1,13 +1,16 @@
 import {
     HdbChannelView,
-    ActiveListView
+    ActiveListView,
+    PosterImageView
 } from './index';
 
 export const hdb_views = [
     HdbChannelView,
-    ActiveListView
+    ActiveListView,
+    PosterImageView
 ];
 export const hdb_view_map = {
     'hdb-channel': HdbChannelView,
-    'active-list': ActiveListView
+    'active-list': ActiveListView,
+    'poster-image': PosterImageView
 };

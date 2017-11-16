@@ -1,0 +1,17 @@
+<ul class="activity_ul activity_ul_liu" style="margin-top: 34px;">
+    <li *ngFor="let item of widget.items">
+        <a href="javascript:;" ontouchstart="">
+            <div class="box_d">
+                <div class="left">
+                    <img [src]="item.image" style="display: inline;">
+                </div>
+                <div class="right">
+                    <h3>【{{item.title}}</h3>
+                    <p class="text_one" style="width: 203px;"> {{item.time}}</p>
+                    <p class="text_two" style="width: 203px;"> {{item.address}}</p>
+                    <p class="text_three">{{item.price}}</p>
+                </div>
+            </div>
+        </a>
+    </li>
+</ul>
