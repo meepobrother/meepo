@@ -14,6 +14,8 @@ export class NestableList implements OnInit {
     @Output() onUpdateDisplayorder: EventEmitter<any> = new EventEmitter();
     @Output() onDelete: EventEmitter<any> = new EventEmitter();
     @Output() onEdit: EventEmitter<any> = new EventEmitter();
+    // onAddChild
+    @Output() onAddChild: EventEmitter<any> = new EventEmitter();
     
     constructor(
         @Inject(DOCUMENT) public document: any
@@ -57,6 +59,10 @@ export class NestableList implements OnInit {
 
     delete(data: any){
         this.onDelete.emit(data);        
+    }
+
+    addChild(data: any){
+        this.onAddChild.emit(data);
     }
     
 }

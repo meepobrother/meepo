@@ -9,6 +9,7 @@ export class NestableItem implements OnInit {
     @Input() items: any[] = [];
     @Output() onEdit: EventEmitter<any> = new EventEmitter();
     @Output() onDelete: EventEmitter<any> = new EventEmitter();
+    @Output() onAddChild: EventEmitter<any> = new EventEmitter();
     
     constructor() { }
     ngOnInit() { }
@@ -17,5 +18,8 @@ export class NestableItem implements OnInit {
     }
     edit(data: any){
         this.onEdit.emit(data);        
+    }
+    addChild(data: any){
+        this.onAddChild.emit(data);
     }
 }

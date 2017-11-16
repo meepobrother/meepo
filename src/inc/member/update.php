@@ -12,4 +12,19 @@ if(!pdo_tableexists('imeepos_runner4_member_group')){
     pdo_query($sql);
 }
 
+if(!pdo_fieldexists('imeepos_runner4_member_group','tags')){
+    $sql = "ALTER TABLE ".tablename('imeepos_runner4_member_group')." ADD COLUMN `tags` text NOT NULL AFTER `status`;";
+    pdo_query($sql);
+}
+
+if(!pdo_fieldexists('imeepos_runner4_member_group','displayorder')){
+    $sql = "ALTER TABLE ".tablename('imeepos_runner4_member_group')." ADD COLUMN `displayorder` int(11) NOT NULL DEFAULT '0'";
+    pdo_query($sql);
+}
+
+if(!pdo_fieldexists('imeepos_runner4_member_group','fid')){
+    $sql = "ALTER TABLE ".tablename('imeepos_runner4_member_group')." ADD COLUMN `fid` int(11) NOT NULL DEFAULT '0'";
+    pdo_query($sql);
+}
+
 return $this;
