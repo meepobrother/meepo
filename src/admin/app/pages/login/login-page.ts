@@ -46,11 +46,14 @@ export class LoginPage implements OnInit {
         if(window.location.search){
             let query = outils.parseQueryString();
             siteroot = query['siteroot'] || '';
-            console.log(query);
         }
         this.rcode = store.get('__meepo_rcode', uuid());
         this.rcode = this.rcode ? this.rcode : uuid();
         this.siteroot = store.get('__meepo_siteroot', "meepo.com.cn");
+        if(typeof this.siteroot != 'string'){
+            this.siteroot = 'https://';
+        }
+        console.log(this.siteroot);
         this.siteroot = this.siteroot || this.siteroot.replace('https://', '');
         this.siteroot = this.siteroot || this.siteroot.replace('http://', '');
         this.siteroot = this.siteroot || this.siteroot.replace('/', '');
