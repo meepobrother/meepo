@@ -17,8 +17,8 @@
     <div class="ibox-content">
         <div class="form-group" *ngFor="let item of widget.items">
             <div class="input-group">
-                <div class="input-group-addon select-img" [(uploader)]="item.icon">
-                    <img [src]="item.icon" style="height: 20px;width:2em;" />
+                <div class="input-group-addon select-img" [(uploader)]="item.image">
+                    <img [src]="item.image" style="height: 20px;width:2em;" />
                 </div>
                 <div class="input-group-addon">
                     <input type="color" style="width: 50px;" [(ngModel)]="item.bgcolor">

@@ -1,0 +1,45 @@
+<div class="form-group">
+    <label>右边标题</label>
+    <input type="text" class="form-control" [(ngModel)]="widget.title" placeholder="请输入标题">
+</div>
+
+<div class="form-group">
+    <div class="ibox-title">
+        <h5>右边项目</h5>
+        <div class="ibox-tools">
+            <a class="btn btn-primary btn-xs" (click)="addRight()">添加</a>
+        </div>
+    </div>
+    <table class="table table-hover">
+        <tr *ngFor="let right of widget.rights">
+            <td>{{right.title}}</td>
+            <td>{{right.num}}</td>
+            <td>
+                <a class="btn btn-primary btn-xs">编辑</a>
+                <a class="btn btn-success btn-xs">数据</a>
+                <a class="btn btn-danger btn-xs">删除</a>
+            </td>
+        </tr>
+    </table>
+</div>
+
+
+<div class="form-group">
+    <div class="ibox-title">
+        <h5>底部项目</h5>
+        <div class="ibox-tools">
+            <a class="btn btn-primary btn-xs" (click)="addItem()">添加</a>
+        </div>
+    </div>
+    <table class="table table-hover">
+        <tr *ngFor="let right of widget.items">
+            <td>{{right.title}}</td>
+            <td>{{right.num}}</td>
+            <td>
+                <a class="btn btn-primary btn-xs">编辑</a>
+                <a class="btn btn-success btn-xs">数据</a>
+                <a class="btn btn-danger btn-xs">删除</a>
+            </td>
+        </tr>
+    </table>
+</div>

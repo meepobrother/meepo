@@ -23,7 +23,7 @@ import {
     MeepoTreeSelectDefault, RunnerConcatDefault, RunnerCouponDefault, RunnerRegisterDefault,
     PayScanCodeDefault, PayInputMoneyDefault, PayMessageSuccessDefault, MoneyRuleDefault,
     HelpRunnerDefault, NotFondDefault, RunnerAgreementDefault, RunnerTabDefault,
-    PeopleNumberDefault, HmMarqueeDefault, HmBoxDefault
+    PeopleNumberDefault, HmMarqueeDefault, HmBoxDefault, HmHomeTopDefault
 } from './index';
 
 
@@ -116,5 +116,6 @@ export const WIDGETS = {
     'runner-tab': RunnerTabDefault,
     'people-number': PeopleNumberDefault,
     'hm-marquee': HmMarqueeDefault,
-    'hm-box': HmBoxDefault
+    'hm-box': HmBoxDefault,
+    'hm-home-top': HmHomeTopDefault
 };
