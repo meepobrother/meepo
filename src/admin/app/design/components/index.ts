@@ -19,6 +19,9 @@ import { runner_view_map, runner_views } from './runner/view';
 import { hm_setting_map, hm_settings } from './heimao/setting';
 import { hm_view_map, hm_views } from './heimao/view';
 
+import { hdb_setting_map, hdb_settings } from './hdb/setting';
+import { hdb_view_map, hdb_views } from './hdb/view';
+
 import {
     IqiyiHeadNavView, IqiyiHeadNavSetting
 } from './iqiyi';
@@ -196,6 +199,8 @@ export const COMPONENTS = [
     ...runner_settings,
     ...hm_settings,
     ...hm_views,
+    ...hdb_settings,
+    ...hdb_views,
     ...forms_views,
     ...forms_settings
 ];
@@ -257,6 +262,7 @@ export const COMPONENTS_VIEW = {
     ...payui_view_map,
     ...runner_view_map,
     ...hm_view_map,
+    ...hdb_view_map,    
     ...forms_view_map
 };
 
@@ -302,6 +308,7 @@ export const COMPONENTS_SETTING = {
     ...payui_setting_map,
     ...runner_setting_map,
     ...hm_setting_map,
+    ...hdb_setting_map,
     ...forms_setting_map
 };
 

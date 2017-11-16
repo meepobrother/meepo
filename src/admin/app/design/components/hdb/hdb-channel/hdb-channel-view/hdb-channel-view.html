@@ -1,0 +1,12 @@
+<div class="channelList">
+    <ul class="channelList_Ul">
+        <li *ngFor="let item of widget.items">
+            <a href="javascript:;">
+                <div class="channelList_img">
+                    <img class="" [src]="item.icon" alt="{{item.title}}">
+                </div>
+                <div class="channelList_txt">{{item.title}}</div>
+            </a>
+        </li>
+    </ul>
+</div>

@@ -24,7 +24,7 @@ import {
     PayScanCodeDefault, PayInputMoneyDefault, PayMessageSuccessDefault, MoneyRuleDefault,
     HelpRunnerDefault, NotFondDefault, RunnerAgreementDefault, RunnerTabDefault,
     PeopleNumberDefault, HmMarqueeDefault, HmBoxDefault, HmHomeTopDefault,
-    HmBannerDefault
+    HmBannerDefault, HdbChannelDefault
 } from './index';
 
 
@@ -119,5 +119,6 @@ export const WIDGETS = {
     'hm-marquee': HmMarqueeDefault,
     'hm-box': HmBoxDefault,
     'hm-home-top': HmHomeTopDefault,
-    'hm-banner': HmBannerDefault
+    'hm-banner': HmBannerDefault,
+    'hdb-channel': HdbChannelDefault
 };
