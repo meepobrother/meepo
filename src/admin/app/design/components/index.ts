@@ -330,7 +330,10 @@ export class ComponentsService {
     }
     // 创建
     createWidget(name: string) {
+        console.log('createWidget',name);
+        console.log(WIDGETS);
         const widget = new WIDGETS[name]();
+        console.log('createWidget',widget);
         this.onCreateStream.next(widget);
     }
 }

@@ -1,9 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-    selector: 'people-num-view',
-    templateUrl: './people-num-view.html',
-    styleUrls: ['./people-num-view.scss']
+    selector: 'people-number-view',
+    templateUrl: './people-number-view.html',
+    styleUrls: ['./people-number-view.scss']
 })
 export class PeopleNumView implements OnInit {
     @Input() widget: any;

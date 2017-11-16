@@ -26,4 +26,5 @@ export * from './meepo-form-realname';
 export * from './meepo-form-tel';
 export * from './meepo-form-btn';
 
+export * from './people-number';
 

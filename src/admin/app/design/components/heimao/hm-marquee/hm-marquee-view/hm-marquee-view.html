@@ -1,6 +1,8 @@
-<section class="container marquee-box">
-    <marquee class="marquee" scrollamount="4">
-        <img class="laba" [src]="image">
-        <a href=""> &nbsp;&nbsp;<font color="">{{content}}</font> </a>
+<section class="marquee-box" [ngStyle]="widget.containerStyle">
+    <marquee [attr.behavior]="widget.behavior" [attr.bgcolor]="widget.bgcolor" [attr.direction]="widget.direction" [attr.bgcolor]="widget.bgcolor" class="marquee" scrollamount="4">
+        <img class="laba" [src]="widget.icon"> &nbsp;&nbsp;
+        <a href="javascript:;">
+            {{widget.title}}
+        </a>
     </marquee>
 </section>

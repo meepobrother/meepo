@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { HmMarqueeDefault } from '../../../../classes';
 
 @Component({
     selector: 'hm-marquee-setting',
@@ -6,7 +7,14 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./hm-marquee-setting.scss']
 })
 export class HmMarqueeSetting implements OnInit {
+    @Input() widget: HmMarqueeDefault = new HmMarqueeDefault();
     constructor() { }
 
     ngOnInit() { }
+
+    onHeightChange(e: any){
+        console.log(e);
+        this.widget.containerStyle['height'] = e;
+        this.widget.containerStyle['line-height'] = e;
+    }
 }
