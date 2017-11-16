@@ -13,11 +13,11 @@ $id = intval($input['id']);
 
 if(!empty($data['title'])){
     if(!empty($id)){
-        pdo_update('imeepos_runner4_shops_group',$data,array('id'=>$id));
+        pdo_update('imeepos_runner4_tasks_group',$data,array('id'=>$id));
         $data['tags'] = unserialize($data['tags']);
         $data['id'] = $id;
     }else{
-        pdo_insert('imeepos_runner4_shops_group',$data);
+        pdo_insert('imeepos_runner4_tasks_group',$data);
         $data['id'] = pdo_insertid();
         $data['tags'] = unserialize($data['tags']);
     }
