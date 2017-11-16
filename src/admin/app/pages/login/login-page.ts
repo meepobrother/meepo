@@ -51,7 +51,7 @@ export class LoginPage implements OnInit {
         this.rcode = this.rcode ? this.rcode : uuid();
         this.siteroot = store.get('__meepo_siteroot', "meepo.com.cn");
         if(typeof this.siteroot != 'string'){
-            this.siteroot = 'meepo.com.cn';
+            this.siteroot = 'https://';
         }
         console.log(this.siteroot);
         this.siteroot = this.siteroot || this.siteroot.replace('https://', '');
