@@ -16,6 +16,8 @@ import { payui_view_map, payui_views } from './payui/view';
 import { runner_setting_map, runner_settings } from './runner/setting';
 import { runner_view_map, runner_views } from './runner/view';
 
+import { hm_setting_map, hm_settings } from './heimao/setting';
+import { hm_view_map, hm_views } from './heimao/view';
 
 import {
     IqiyiHeadNavView, IqiyiHeadNavSetting
@@ -234,7 +236,9 @@ export const COMPONENTS = [
     ...payui_settings,
     ...payui_views,
     ...runner_views,
-    ...runner_settings
+    ...runner_settings,
+    ...hm_settings,
+    ...hm_views
 ];
 
 
@@ -313,7 +317,8 @@ export const COMPONENTS_VIEW = {
 
     ...meepoui_view_map,
     ...payui_view_map,
-    ...runner_view_map
+    ...runner_view_map,
+    ...hm_view_map
 };
 
 
@@ -376,7 +381,8 @@ export const COMPONENTS_SETTING = {
     
     ...meepoui_setting_map,
     ...payui_setting_map,
-    ...runner_setting_map
+    ...runner_setting_map,
+    ...hm_setting_map
 };
 
 export * from '../classes/widgets';
