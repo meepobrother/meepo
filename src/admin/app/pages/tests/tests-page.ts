@@ -30,6 +30,10 @@ export class TestsPage implements OnInit {
             title: '4-余额提现制作展示',
             src: 'https://meepo.com.cn/meepo/video/004.mp4'
         },
+        {
+            title: '5-余额提现优化及配置到公众号上',
+            src: 'https://meepo.com.cn/meepo/video/005.mp4'
+        },
     ];
     constructor(
         public http: HttpClient,

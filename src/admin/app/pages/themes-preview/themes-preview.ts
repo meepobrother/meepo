@@ -5,7 +5,9 @@ import {
 import { ActivatedRoute } from '@angular/router';
 import { DOCUMENT } from '@angular/common';
 import { Subject } from 'rxjs/Subject';
-import { SysinfoService } from '../../core';
+import { SysinfoService } from '../../core/api';
+
+import * as store from 'store';
 @Component({
     selector: 'themes-preview',
     templateUrl: './themes-preview.html',
@@ -35,15 +37,17 @@ export class ThemesPreview {
     }
 
     buildQrcode() {
+        let siteroot = store.get('__meepo_siteroot','https://meepo.com.cn/');
+        let uniacid = store.get('__meepo_uniacid','2');
         const _qrcode = new this.qrcode(this._qrcode.nativeElement, {
-            text: this.sysinfo.siteroot+'app/index.php?i='+this.sysinfo.getUniacid()+'&c=entry&do=design&m=imeepos_runner&pid=' + this.id,
+            text: siteroot+'app/index.php?i='+uniacid+'&c=entry&do=design&m=imeepos_runner&pid=' + this.id,
             width: 128,
             height: 128,
             colorDark: "#000000",
             colorLight: "#ffffff",
             correctLevel: this.qrcode.CorrectLevel.H
         });
-        this.url = this.sysinfo.siteroot+'app/index.php?i='+this.sysinfo.getUniacid()+'&c=entry&do=design&m=imeepos_runner&pid=' + this.id;
+        this.url = siteroot+'app/index.php?i='+uniacid+'&c=entry&do=design&m=imeepos_runner&pid=' + this.id;
     }
 
     loadJScript() {
