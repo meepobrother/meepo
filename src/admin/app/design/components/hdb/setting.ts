@@ -1,10 +1,13 @@
 import {
-    HdbChannelSetting
+    HdbChannelSetting,
+    ActiveListSetting
 } from './index';
 
 export const hdb_settings = [
-    HdbChannelSetting
+    HdbChannelSetting,
+    ActiveListSetting
 ];
 export const hdb_setting_map = {
-    'hdb-channel': HdbChannelSetting
+    'hdb-channel': HdbChannelSetting,
+    'active-list': ActiveListSetting
 };
