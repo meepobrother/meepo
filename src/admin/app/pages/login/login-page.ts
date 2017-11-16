@@ -50,11 +50,11 @@ export class LoginPage implements OnInit {
         }
         this.rcode = store.get('__meepo_rcode', uuid());
         this.rcode = this.rcode ? this.rcode : uuid();
-        this.siteroot = store.get('__meepo_siteroot', siteroot);
-        this.siteroot = this.siteroot.replace('https://', '');
-        this.siteroot = this.siteroot.replace('http://', '');
-        this.siteroot = this.siteroot.replace('/', '');
-        this.siteroot.replace(this.sitehttp, '');
+        this.siteroot = store.get('__meepo_siteroot', "meepo.com.cn");
+        this.siteroot = this.siteroot || this.siteroot.replace('https://', '');
+        this.siteroot = this.siteroot || this.siteroot.replace('http://', '');
+        this.siteroot = this.siteroot || this.siteroot.replace('/', '');
+        this.siteroot = this.siteroot || this.siteroot.replace(this.sitehttp, '');
         this.laodSuccess.subscribe(QRCode => {
             this.QRCode = QRCode;
         });
