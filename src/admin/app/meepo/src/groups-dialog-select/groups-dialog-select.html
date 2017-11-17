@@ -1,0 +1,22 @@
+<div class="ibox">
+    <div class="ibox-title">
+        <h5>选择分类</h5>
+        <div class="ibox-tools">
+            <a class="btn btn-primary btn-xs" (click)="save()">确定</a>
+            <a class="btn btn-default btn-xs" style="color: #fff;" (click)="close()">取消</a>
+        </div>
+    </div>
+    <div class="ibox-content">
+        <nav-tabs>
+            <nav-tab-pane [title]="group.title" *ngFor="let group of groups">
+                <ng-template navTabPaneRef>
+                    <div style="position: relative;min-height: 30px;">
+                        <div class="w_tag bor-b marbot10">
+                            <a href="javascript:;" class="tab_btn marbot20" [class.on]="item.active" *ngFor="let item of group.items" (click)="selectStatus(item)">{{item.title}}</a>
+                        </div>
+                    </div>
+                </ng-template>
+            </nav-tab-pane>
+        </nav-tabs>
+    </div>
+</div>

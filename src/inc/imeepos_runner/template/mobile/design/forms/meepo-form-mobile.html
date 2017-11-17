@@ -4,17 +4,20 @@
         {$key}:{$value};
     {/loop}
 ">
-    <div class="weui-cell weui-cell_vcode">
+    <div class="weui-cell {if $widget['hasCode']}weui-cell_vcode{/if}">
         <div class="weui-cell__hd">
             <label class="weui-label" style="color: {$widget['data']['mobile']['color']};">{$widget['data']['mobile']['label']}</label>
         </div>
         <div class="weui-cell__bd">
             <input class="weui-input" id="mobile-{$widget['code']}" value="{php echo $member['mobile']}" type="tel" placeholder="{$widget['data']['mobile']['placeholder']}">
         </div>
+        <!-- {if $widget['hasCode']} -->
         <div class="weui-cell__ft">
             <button class="weui-vcode-btn" id="vcode-{$widget['code']}">{$widget['data']['mobile']['tip']}</button>
         </div>
+        <!-- {/if} -->
     </div>
+    <!-- {if $widget['hasCode']} -->
     <div class="weui-cell">
         <div class="weui-cell__hd">
             <label class="weui-label" style="color: {$widget['data']['code']['color']};">{$widget['data']['code']['label']}</label>
@@ -24,6 +27,7 @@
             <input class="weui-input" id="code-{$widget['code']}" type="text" placeholder="{$widget['data']['code']['placeholder']}">
         </div>
     </div>
+    {/if}
 </div>
 
 <script>

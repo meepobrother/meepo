@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-
+import { pageTypes } from '../../../../../meepo/db/pageTypes';
 @Component({
     selector: 'layout-setting',
     templateUrl: './layout-setting.html',
@@ -7,24 +7,9 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class LayoutSetting implements OnInit {
     @Input() widget: any;
-
-    types: any[] = [];
-    constructor() { 
-        this.types = [
-            {
-                title: '详情页面',
-                code: 'detail'
-            },
-            {
-                title: '表单页面',
-                code: 'forms'
-            },
-            {
-                title: '列表页面',
-                code: 'list'
-            }
-        ];
+    types: any[] = pageTypes;
+    constructor() { }
+    ngOnInit() { 
+        console.log(this.widget);
     }
-
-    ngOnInit() { }
 }

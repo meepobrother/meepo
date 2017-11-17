@@ -5,7 +5,7 @@ import { CatalogService } from '../../services';
 import { LayoutContainerModel } from '../../../design/classes/layout-container';
 import { ApiService } from '../../../core';
 import * as uuid from 'uuid';
-
+import { pageTypes } from '../../../meepo/db/pageTypes';
 @Component({
     selector: 'add-page-dialog',
     templateUrl: './add-page-dialog.html',
@@ -15,24 +15,8 @@ export class AddPageDialog implements OnInit {
     // @Input() data: any;
     form: FormGroup;
     catalogs: any[] = [];
-    pageTypes: any[] = [
-        {
-            title: '列表',
-            type: 'list'
-        },
-        {
-            title: '详情',
-            type: 'detail'
-        },
-        {
-            title: '发布',
-            type: 'post'
-        },
-        {
-            title: '搜索',
-            type: 'search'
-        }
-    ];
+    pageTypes: any[] = pageTypes;
+
     constructor(
         public dialog: MatDialogRef<any>,
         @Inject(MAT_DIALOG_DATA) public data: any,
@@ -51,17 +35,18 @@ export class AddPageDialog implements OnInit {
             menu: [[]],
             code: [uuid()],
             id: [''],
-            app_id: ['']
+            app_id: [''],
+            pageType: 'list'
         });
 
         this.dialog.afterOpen().subscribe(() => {
-            let { title, cata_id, keyword, desc, header, body, footer, menu, code, id, app_id } = this.data || new LayoutContainerModel();
+            let { title, cata_id, keyword, desc, header, body, footer, menu, code, id, app_id, pageType } = this.data || new LayoutContainerModel();
             const mode = new LayoutContainerModel();
             body = body || mode.body;
             header = header || mode.header;
             footer = footer || mode.footer;
             menu = menu || mode.menu;
-            
+
             this.form.get('title').setValue(title);
             this.form.get('keyword').setValue(keyword);
             this.form.get('desc').setValue(desc);
@@ -73,19 +58,19 @@ export class AddPageDialog implements OnInit {
             this.form.get('code').setValue(code);
             this.form.get('id').setValue(id);
             this.form.get('app_id').setValue(app_id);
+            this.form.get('pageType').setValue(pageType);
 
             this.getCatalogs();
         });
     }
 
     ngOnInit() {
-        
+
     }
 
     getCatalogs() {
         this.apiService.mpost('app.getListAppCatalog', { app_id: this.form.get('app_id').value }).subscribe((res: any) => {
             this.catalogs = res.info;
-            console.log(res);
         });
     }
 
@@ -107,5 +92,13 @@ export class AddPageDialog implements OnInit {
         this.apiService.mpost('app.editAppCatalogPage', this.form.value).subscribe((res: any) => {
             this.dialog.close(this.form.value);
         });
+    }
+
+    selectPage(page: any) {
+        this.pageTypes.map((res: any) => {
+            res.active = false;
+        });
+        page.active = !page.active;
+        this.form.get('pageType').setValue(page.type);
     }
 }

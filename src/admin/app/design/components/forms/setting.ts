@@ -50,7 +50,7 @@ export const forms_setting_map = {
     'people-num': PeopleNumSetting,
     'meepo-form-address-end': MeepoFormAddressEndSetting,
     'meepo-form-address':MeepoFormAddressSetting,
-    'meepo-form-address-startend':MeepoFormAddressStartSetting,
+    'meepo-form-address-start':MeepoFormAddressStartSetting,
     'meepo-form-baojia':MeepoFormBaojiaSetting,
     'meepo-form-btn':MeepoFormBtnSetting,
     'meepo-form-fee':MeepoFormFeeSetting,

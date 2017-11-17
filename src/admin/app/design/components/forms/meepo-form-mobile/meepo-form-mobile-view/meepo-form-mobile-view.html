@@ -1,17 +1,19 @@
 <div class="weui-cells weui-cells_form" [ngStyle]="widget.containerStyle">
-    <div class="weui-cell weui-cell_vcode">
+    <div class="weui-cell " [class.weui-cell_vcode]="widget.hasCode">
         <div class="weui-cell__hd">
-            <label class="weui-label" [style.color]="widget.data.mobile.color">{{widget.data.mobile.label}}</label>
+            <p class="weui-label" [style.color]="widget.data.mobile.color">{{widget.data.mobile.label}}</p>
         </div>
         <div class="weui-cell__bd">
             <input class="weui-input" [(ngModel)]="widget.data.mobile.value" type="tel" placeholder="{{widget.data.mobile.placeholder}}">
         </div>
-        <div class="weui-cell__ft">
+        <div class="weui-cell__ft" *ngIf="widget.hasCode">
             <button class="weui-vcode-btn" (click)="getCode()">{{widget.data.mobile.tip}}</button>
         </div>
     </div>
-    <div class="weui-cell">
-        <div class="weui-cell__hd"><label class="weui-label" [style.color]="widget.data.code.color">{{widget.data.code.label}}</label></div>
+    <div class="weui-cell" *ngIf="widget.hasCode">
+        <div class="weui-cell__hd">
+            <p class="weui-label" [style.color]="widget.data.code.color">{{widget.data.code.label}}</p>
+        </div>
         <div class="weui-cell__bd">
             <input class="weui-input" [(ngModel)]="widget.data.code.value" type="number" placeholder="{{widget.data.code.placeholder}}">
         </div>

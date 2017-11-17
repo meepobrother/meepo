@@ -2,6 +2,7 @@ import { Widget } from '../widget';
 
 export class MeepoFormMobile extends Widget {
     data: any;
+    hasCode: boolean = false;
     constructor() {
         super();
         this.type = 'meepo-form-mobile';
