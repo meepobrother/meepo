@@ -50,7 +50,7 @@ export const forms_view_map = {
     'people-num': PeopleNumView,
     'meepo-form-address-end': MeepoFormAddressEndView,
     'meepo-form-address':MeepoFormAddressView,
-    'meepo-form-address-startend':MeepoFormAddressStartView,
+    'meepo-form-address-start':MeepoFormAddressStartView,
     'meepo-form-baojia':MeepoFormBaojiaView,
     'meepo-form-btn':MeepoFormBtnView,
     'meepo-form-fee':MeepoFormFeeView,

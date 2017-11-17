@@ -10,4 +10,6 @@ export class MeepoFormAddressEndView implements OnInit {
     @Input() widget: MeepoFormAddressEndDefault = new MeepoFormAddressEndDefault();
     constructor() { }
     ngOnInit() { }
+
+    selectAddress(){}
 }

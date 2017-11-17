@@ -11,4 +11,5 @@ export class MeepoFormAddressStartView implements OnInit {
     
     constructor() { }
     ngOnInit() { }
+    selectAddress(){}
 }
