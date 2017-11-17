@@ -58,6 +58,7 @@ export class CatalogPageNavs implements OnInit {
     copyPage(item: any){
         item.id = 0;
         item.code = uuid();
+        item.title = item.title + '-复制';
         this.api.mpost('app.editAppCatalogPage',item).subscribe(res=>{
             this.onChange.emit();
         });
