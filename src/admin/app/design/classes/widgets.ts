@@ -24,7 +24,8 @@ import {
     PayScanCodeDefault, PayInputMoneyDefault, PayMessageSuccessDefault, MoneyRuleDefault,
     HelpRunnerDefault, NotFondDefault, RunnerAgreementDefault, RunnerTabDefault,
     PeopleNumberDefault, HmMarqueeDefault, HmBoxDefault, HmHomeTopDefault,
-    HmBannerDefault, HdbChannelDefault, ActiveListDefault, PosterImageDefault
+    HmBannerDefault, HdbChannelDefault, ActiveListDefault, PosterImageDefault,
+    AddressCityDefault
 } from './index';
 
 
@@ -122,5 +123,6 @@ export const WIDGETS = {
     'hm-banner': HmBannerDefault,
     'hdb-channel': HdbChannelDefault,
     'active-list': ActiveListDefault,
-    'poster-image': PosterImageDefault
+    'poster-image': PosterImageDefault,
+    'address-city': AddressCityDefault
 };
