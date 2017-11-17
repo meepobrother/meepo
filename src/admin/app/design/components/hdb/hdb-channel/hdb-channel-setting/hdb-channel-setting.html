@@ -22,11 +22,8 @@
             <td style="width: 7em;">
                 <input type="text" class="form-control" [(ngModel)]="item.title" placeholder="请输入标题" />
             </td>
-            <td style="width: 5em;">链接
-                <input type="checkbox" [(ngModel)]="item.isUrl">
-            </td>
             <td>
-                <a class="btn btn-primary btn-xs" *ngIf="item.isUrl" (click)="selectLink(item)">链接</a>
+                <a class="btn btn-primary btn-xs" (click)="selectLink(item)">链接</a>
                 <a class="btn btn-danger btn-xs" (click)="delete(item,i)">删除</a>
             </td>
         </tr>

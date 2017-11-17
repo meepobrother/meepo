@@ -35,7 +35,12 @@ export class HdbChannelSetting implements OnInit {
     selectLink(item: any){
         let dialogRef = this.dialog.open(SelectPageDialog);
         dialogRef.afterClosed().subscribe(link => {
-            item.link = link;
+            item.link = link + '&gid='+item.id;
+            console.log(item.link);
         });
+    }
+
+    nextPage(item: any){
+
     }
 }
