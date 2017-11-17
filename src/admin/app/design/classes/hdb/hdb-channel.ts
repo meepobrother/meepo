@@ -9,22 +9,9 @@ export class HdbChannelDefault extends Widget {
         params: {},
         title: ''
     };
-    items: any[] = [
-        {
-            title: '亲子',
-            icon: 'http://img1.hudongba.com/upload/_oss/usercmsimg/201702/15/31487127042625_cms3.png'
-          },
-          {
-            title: '出游',
-            icon: 'http://img1.hudongba.com/upload/_oss/usercmsimg/201702/13/41486984349636_cms4.png'
-          },{
-            title: '互联网',
-            icon: 'http://img1.hudongba.com/upload/_oss/usercmsimg/201702/13/51486984430606_cms5.png'
-          },{
-            title: '跑步',
-            icon: 'http://img1.hudongba.com/upload/_oss/usercmsimg/201702/13/91486984477473_cms9.png'
-          }
-    ];
+
+    isUrl: boolean = false;
+    items: any[] = [];
 
     constructor() {
         super();
