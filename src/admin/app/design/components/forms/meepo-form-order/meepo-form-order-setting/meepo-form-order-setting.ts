@@ -10,17 +10,6 @@ import { ApiService } from '../../../../../core';
 export class MeepoFormOrderSetting implements OnInit {
     classes: any[] = [];
     @Input() widget: MeepoFormOrderDefault = new MeepoFormOrderDefault();
-    constructor(
-        public api: ApiService
-    ) { }
-
-    ngOnInit() {
-        this.getList();
-    }
-
-    getList(){
-        this.api.mpost('orders.getListOrderClass',{page: 1, psize: 30}).subscribe((res: any)=>{
-            this.classes = res.info;
-        });
-    }
+    constructor( ) { }
+    ngOnInit() { }
 }

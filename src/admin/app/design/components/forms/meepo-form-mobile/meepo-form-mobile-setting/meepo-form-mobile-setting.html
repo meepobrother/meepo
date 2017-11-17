@@ -8,7 +8,11 @@
 </div>
 
 <div class="ibox-title">
-    基础设置
+    <h5>基础设置</h5>
+    <div class="ibox-tools">
+        <label>是否显示验证码</label>
+        <input type="checkbox" [(ngModel)]="widget.hasCode" />
+    </div>
 </div>
 <div class="ibox-content">
     <div class="form-group">
@@ -22,7 +26,7 @@
         <input class="form-control" type="text" [(ngModel)]="widget.data.mobile.tip" placeholder="电话-tip">
     </div>
 
-    <div class="form-group">
+    <div class="form-group" *ngIf="widget.hasCode">
         <div class="input-group m0 p0">
             <input class="form-control" type="text" [(ngModel)]="widget.data.code.label" placeholder="验证码-label">
             <div class="input-group-addon">
@@ -30,6 +34,5 @@
             </div>
         </div>
         <input class="form-control" type="text" [(ngModel)]="widget.data.code.placeholder" placeholder="验证码-placeholder">
-        <input class="form-control" type="text" [(ngModel)]="widget.data.code.tip" placeholder="验证码-tip">
     </div>
 </div>
