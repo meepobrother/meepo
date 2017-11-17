@@ -60,7 +60,6 @@ export class AddPageDialog implements OnInit {
             this.form.get('app_id').setValue(app_id);
             this.form.get('pageType').setValue(pageType);
 
-
             this.getCatalogs();
         });
     }
@@ -72,7 +71,6 @@ export class AddPageDialog implements OnInit {
     getCatalogs() {
         this.apiService.mpost('app.getListAppCatalog', { app_id: this.form.get('app_id').value }).subscribe((res: any) => {
             this.catalogs = res.info;
-            console.log(res);
         });
     }
 

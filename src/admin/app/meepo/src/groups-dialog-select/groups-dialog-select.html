@@ -1,0 +1,19 @@
+<div class="ibox">
+    <div class="ibox-title">
+        <h5>选择分类</h5>
+        <div class="ibox-tools">
+            <a class="btn btn-primary btn-xs" (click)="close()">关闭</a>
+        </div>
+    </div>
+</div>
+<nav-tabs>
+    <nav-tab-pane title="余额提现">
+        <ng-template navTabPaneRef>
+            <div style="position: relative;min-height: 30px;">
+                <div class="w_tag bor-b marbot10">
+                    <a href="javascript:;" class="tab_btn marbot20" [class.on]="item.active" *ngFor="let item of status" (click)="selectStatus(item)">{{item.title}}</a>
+                </div>
+            </div>
+        </ng-template>
+    </nav-tab-pane>
+</nav-tabs>

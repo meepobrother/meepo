@@ -1,18 +1,22 @@
 export const pageTypes = [
     {
         title: '列表',
-        type: 'list'
+        type: 'list',
+        code: 'list'
     },
     {
         title: '详情',
-        type: 'detail'
+        type: 'detail',
+        code: 'detail'
     },
     {
         title: '发布',
-        type: 'post'
+        type: 'post',
+        code: 'post'
     },
     {
         title: '搜索',
-        type: 'search'
+        type: 'search',
+        code: 'search'
     }
 ];

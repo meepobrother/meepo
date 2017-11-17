@@ -3,6 +3,12 @@ import { Widget } from '../widget';
 
 export class HdbChannelDefault extends Widget {
     show: boolean = true;
+
+    source: any = {
+        action: '',
+        params: {},
+        title: ''
+    };
     items: any[] = [
         {
             title: '亲子',

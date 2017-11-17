@@ -9,5 +9,7 @@ export class LayoutSetting implements OnInit {
     @Input() widget: any;
     types: any[] = pageTypes;
     constructor() { }
-    ngOnInit() { }
+    ngOnInit() { 
+        console.log(this.widget);
+    }
 }

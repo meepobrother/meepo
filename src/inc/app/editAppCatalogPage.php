@@ -15,7 +15,7 @@ $data['body'] = serialize($input['body']);
 $data['footer'] = serialize($input['footer']);
 $data['menu'] = serialize($input['menu']);
 $data['kefu'] = serialize($input['kefu']);
-$data['pageType'] = serialize($input['pageType']);
+$data['pageType'] = $input['pageType'];
 
 
 $data['html_content'] = $input['html_content'];
