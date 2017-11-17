@@ -8,6 +8,8 @@ export class MeepoFormAddressDefault extends Widget{
 
     title: string = '地址';
     placeholder: string = '请选择';
+    field_name: string = 'address';
+    
     constructor(){
         super();
         this.type = 'meepo-form-address';

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { MeepoFormAddressStartDefault } from '../../../../classes';
 
 @Component({
     selector: 'meepo-form-address-start-view',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./meepo-form-address-start-view.scss']
 })
 export class MeepoFormAddressStartView implements OnInit {
+    @Input() widget: MeepoFormAddressStartDefault = new MeepoFormAddressStartDefault();
+    
     constructor() { }
     ngOnInit() { }
 }
