@@ -64,7 +64,11 @@ if(!pdo_fieldexists('imeepos_runner4_app_catalog_pages','header')){
 if(!pdo_fieldexists('imeepos_runner4_app_catalog_pages','html_content')){
   $sql = "ALTER TABLE ".tablename('imeepos_runner4_app_catalog_pages')." ADD COLUMN `html_content` text NULL AFTER `title` ";
   pdo_query($sql);
-}  
+}
+if(!pdo_fieldexists('imeepos_runner4_app_catalog_pages','pageType')){
+  $sql = "ALTER TABLE ".tablename('imeepos_runner4_app_catalog_pages')." ADD COLUMN `pageType` varchar(32) NOT NULL DEFAULT ''";
+  pdo_query($sql);
+}
 
 
 if(!pdo_tableexists('imeepos_runner4_app_catalog_pages_widget')){

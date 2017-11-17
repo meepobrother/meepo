@@ -5,7 +5,7 @@ import { CatalogService } from '../../services';
 import { LayoutContainerModel } from '../../../design/classes/layout-container';
 import { ApiService } from '../../../core';
 import * as uuid from 'uuid';
-
+import { pageTypes } from '../../../meepo/db/pageTypes';
 @Component({
     selector: 'add-page-dialog',
     templateUrl: './add-page-dialog.html',
@@ -15,24 +15,8 @@ export class AddPageDialog implements OnInit {
     // @Input() data: any;
     form: FormGroup;
     catalogs: any[] = [];
-    pageTypes: any[] = [
-        {
-            title: '列表',
-            type: 'list'
-        },
-        {
-            title: '详情',
-            type: 'detail'
-        },
-        {
-            title: '发布',
-            type: 'post'
-        },
-        {
-            title: '搜索',
-            type: 'search'
-        }
-    ];
+    pageTypes: any[] = pageTypes;
+
     constructor(
         public dialog: MatDialogRef<any>,
         @Inject(MAT_DIALOG_DATA) public data: any,
