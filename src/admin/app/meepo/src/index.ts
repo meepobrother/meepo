@@ -40,8 +40,6 @@ export { GroupList, GroupAdd } from './group';
 export { GroupsDialogSelect } from './groups-dialog-select/groups-dialog-select';
 import { GroupsDialogSelect } from './groups-dialog-select/groups-dialog-select';
 
-
-
 export const MeepoComponents = [
     MeLoading,
     MeAlert,
