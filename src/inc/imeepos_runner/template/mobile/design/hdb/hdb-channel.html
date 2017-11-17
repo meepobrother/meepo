@@ -1,5 +1,9 @@
 <!-- {if $widget['type']=='hdb-channel'} -->
-<div class="channelList">
+<div class="channelList" style="
+{loop $widget['containerStyle'] $key $style}
+    {php echo $key}:{php echo $style};
+{/loop}
+">
     <ul class="channelList_Ul">
         <!-- {loop $widget['items'] $item} -->
         <li>

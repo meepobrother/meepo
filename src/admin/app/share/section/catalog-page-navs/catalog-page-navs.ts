@@ -4,6 +4,7 @@ import { AddPageDialog } from '../../dialog';
 import { CatalogGroup } from '../model';
 import { WidgetService, CatalogService } from '../../services';
 import { ApiService } from '../../../core';
+import * as uuid from 'uuid';
 @Component({
     selector: 'catalog-page-navs',
     templateUrl: './catalog-page-navs.html',
@@ -52,5 +53,13 @@ export class CatalogPageNavs implements OnInit {
             });
         });
         evt.preventDefault();
+    }
+
+    copyPage(item: any){
+        item.id = 0;
+        item.code = uuid();
+        this.api.mpost('app.editAppCatalogPage',item).subscribe(res=>{
+            this.onChange.emit();
+        });
     }
 }

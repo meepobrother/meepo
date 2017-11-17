@@ -2,7 +2,8 @@
     <li class="page-nav ui-sortable-handle" [class.active]="currentIndex === i" (click)="onClick(item,i)" *ngFor="let item of group.pages;index as i;">
         <span>{{item.title}}</span>
         <div class="right_opts">
-            <span class="fa fa-remove icon-container" (click)="removePage(item)"></span>
+            <span class="fa fa-remove icon-container" style="color: red;" (click)="removePage(item)"></span>
+            <span class="fa fa-copy icon-container" style="color:green;" (click)="copyPage(item)"></span>
             <span class="fa fa-edit icon-container" (click)="edigePage(item,$event)"></span>
         </div>
     </li>

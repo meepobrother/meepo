@@ -8029,3 +8029,13 @@ img {
           font-size: 14px;
           color: #666;
           margin-top: 13px; }
+
+.marquee-box {
+  height: 20px;
+  background-color: #fff;
+  overflow: hidden; }
+  .marquee-box .marquee a {
+    color: #00ACEE; }
+  .marquee-box .laba {
+    height: 14px;
+    margin-top: -2px; }
