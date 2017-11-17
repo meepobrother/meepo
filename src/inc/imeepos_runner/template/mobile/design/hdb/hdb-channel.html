@@ -1,0 +1,16 @@
+<!-- {if $widget['type']=='hdb-channel'} -->
+<div class="channelList">
+    <ul class="channelList_Ul">
+        <!-- {loop $widget['items'] $item} -->
+        <li>
+            <a href="{$item['link']}">
+                <div class="channelList_img">
+                    <img src="{$item['icon']}">
+                </div>
+                <div class="channelList_txt">{$item['title']}</div>
+            </a>
+        </li>
+        <!-- {/loop} -->
+    </ul>
+</div>
+<!-- {/if} -->
