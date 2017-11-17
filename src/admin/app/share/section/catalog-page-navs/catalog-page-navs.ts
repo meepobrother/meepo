@@ -16,7 +16,7 @@ export class CatalogPageNavs implements OnInit {
 
     @Output() onClickPage: EventEmitter<any> = new EventEmitter();
     @Output() onChange: EventEmitter<any> = new EventEmitter();
-    
+
     currentIndex: number;
     service: CatalogService;
     widget: WidgetService;
@@ -25,7 +25,7 @@ export class CatalogPageNavs implements OnInit {
         public serviceService: CatalogService,
         public widgetService: WidgetService,
         public api: ApiService
-    ) { 
+    ) {
         this.service = this.serviceService.getCatalogInstance();
         this.widget = this.widgetService.getWidgetInstance();
     }
@@ -40,7 +40,7 @@ export class CatalogPageNavs implements OnInit {
     }
 
     removePage(page: any) {
-        this.api.mpost('app.deleteAppCatalogPage',page).subscribe(()=>{
+        this.api.mpost('app.deleteAppCatalogPage', page).subscribe(() => {
             this.onChange.emit();
         });
     }
@@ -48,18 +48,15 @@ export class CatalogPageNavs implements OnInit {
     edigePage(page: any, evt: Event) {
         const dialogRef = this.dialog.open(AddPageDialog, { data: page });
         dialogRef.afterClosed().subscribe((res) => {
-            this.api.mpost('app.editAppCatalogPage',res).subscribe(res=>{
+            this.api.mpost('app.editAppCatalogPage', res).subscribe(res => {
                 this.onChange.emit();
             });
         });
         evt.preventDefault();
     }
 
-    copyPage(item: any){
-        item.id = 0;
-        item.code = uuid();
-        item.title = item.title + '-复制';
-        this.api.mpost('app.editAppCatalogPage',item).subscribe(res=>{
+    copyPage(item: any) {
+        this.api.mpost('app.editAppCatalogPage', { ...item, id: 0, code: uuid(), title: item.title + '-复制' }).subscribe(res => {
             this.onChange.emit();
         });
     }
