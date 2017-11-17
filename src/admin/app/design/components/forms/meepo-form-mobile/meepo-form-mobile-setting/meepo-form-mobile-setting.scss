@@ -1,0 +1,16 @@
+.input-group-addon {
+    &.m0 {
+        margin: 0;
+    }
+    &.p0 {
+        padding: 0;
+    }
+    input {
+        line-height: 20px;
+        height: 20px;
+        width: 30px;
+        font-size: 20px;
+        padding: 0px;
+        margin: 0px;
+    }
+}

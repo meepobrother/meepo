@@ -11,18 +11,25 @@
     基础设置
 </div>
 <div class="ibox-content">
-    <ul>
-        <li>
+    <div class="form-group">
+        <div class="input-group m0 p0">
             <input class="form-control" type="text" [(ngModel)]="widget.data.mobile.label" placeholder="电话-label">
-            <input class="form-control" type="color" [(ngModel)]="widget.data.mobile.color">
-            <input class="form-control" type="text" [(ngModel)]="widget.data.mobile.placeholder" placeholder="电话-placeholder">
-            <input class="form-control" type="text" [(ngModel)]="widget.data.mobile.tip" placeholder="电话-tip">
-        </li>
-        <li>
-            <input class="form-control" type="text" [(ngModel)]="widget.data.code.label" placeholder="验证码-label">
-            <input class="form-control" type="color" [(ngModel)]="widget.data.code.color">
-            <input class="form-control" type="text" [(ngModel)]="widget.data.code.placeholder" placeholder="验证码-placeholder">
-        </li>
-    </ul>
+            <div class="input-group-addon">
+                <input class="form-control" type="color" [(ngModel)]="widget.data.mobile.color">
+            </div>
+        </div>
+        <input class="form-control" type="text" [(ngModel)]="widget.data.mobile.placeholder" placeholder="电话-placeholder">
+        <input class="form-control" type="text" [(ngModel)]="widget.data.mobile.tip" placeholder="电话-tip">
+    </div>
 
+    <div class="form-group">
+        <div class="input-group m0 p0">
+            <input class="form-control" type="text" [(ngModel)]="widget.data.code.label" placeholder="验证码-label">
+            <div class="input-group-addon">
+                <input class="form-control" type="color" [(ngModel)]="widget.data.code.color">
+            </div>
+        </div>
+        <input class="form-control" type="text" [(ngModel)]="widget.data.code.placeholder" placeholder="验证码-placeholder">
+        <input class="form-control" type="text" [(ngModel)]="widget.data.code.tip" placeholder="验证码-tip">
+    </div>
 </div>
