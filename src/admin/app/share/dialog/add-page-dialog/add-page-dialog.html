@@ -28,7 +28,7 @@
         <div class="ibox">
             <div class="ibox-title">页面</div>
             <div class="ibox-content" [formGroup]="form">
-                <a href="javascript:;" *ngFor="let page of pageTypes" class="btn btn-primary m10">{{page.title}}</a>
+                <a href="javascript:;" [class.btn-primary]="page.active" (click)="selectPage(page)" *ngFor="let page of pageTypes" class="btn btn-default m10">{{page.title}}</a>
             </div>
         </div>
     </div>

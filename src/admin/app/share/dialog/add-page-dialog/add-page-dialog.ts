@@ -51,17 +51,18 @@ export class AddPageDialog implements OnInit {
             menu: [[]],
             code: [uuid()],
             id: [''],
-            app_id: ['']
+            app_id: [''],
+            pageType: 'list'
         });
 
         this.dialog.afterOpen().subscribe(() => {
-            let { title, cata_id, keyword, desc, header, body, footer, menu, code, id, app_id } = this.data || new LayoutContainerModel();
+            let { title, cata_id, keyword, desc, header, body, footer, menu, code, id, app_id, pageType } = this.data || new LayoutContainerModel();
             const mode = new LayoutContainerModel();
             body = body || mode.body;
             header = header || mode.header;
             footer = footer || mode.footer;
             menu = menu || mode.menu;
-            
+
             this.form.get('title').setValue(title);
             this.form.get('keyword').setValue(keyword);
             this.form.get('desc').setValue(desc);
@@ -73,13 +74,15 @@ export class AddPageDialog implements OnInit {
             this.form.get('code').setValue(code);
             this.form.get('id').setValue(id);
             this.form.get('app_id').setValue(app_id);
+            this.form.get('pageType').setValue(pageType);
+
 
             this.getCatalogs();
         });
     }
 
     ngOnInit() {
-        
+
     }
 
     getCatalogs() {
@@ -107,5 +110,13 @@ export class AddPageDialog implements OnInit {
         this.apiService.mpost('app.editAppCatalogPage', this.form.value).subscribe((res: any) => {
             this.dialog.close(this.form.value);
         });
+    }
+
+    selectPage(page: any) {
+        this.pageTypes.map((res: any) => {
+            res.active = false;
+        });
+        page.active = !page.active;
+        this.form.get('pageType').setValue(page.type);
     }
 }

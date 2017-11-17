@@ -46,10 +46,11 @@
             flex-direction: row;
             align-items: center;
             justify-content: center;
-            max-width: 30%;
             padding-right: 10px;
+            width: 120px;
             img {
                 min-width: 100%;
+                width: 100%;
                 vertical-align: middle;
                 height: 80px;
             }
@@ -58,6 +59,7 @@
             height: 80px;
             position: relative;
             flex: 1;
+            width: calc( 100% - 110px);
             p {
                 font-size: 11px;
                 line-height: 16px;
