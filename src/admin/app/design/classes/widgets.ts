@@ -22,7 +22,10 @@ import {
     MeepoTitleDefault, LayoutFloorDefault, MeepoCardDefault, MeepoTabsDefault, MeepoPasswordDefault,
     MeepoTreeSelectDefault, RunnerConcatDefault, RunnerCouponDefault, RunnerRegisterDefault,
     PayScanCodeDefault, PayInputMoneyDefault, PayMessageSuccessDefault, MoneyRuleDefault,
-    HelpRunnerDefault, NotFondDefault, RunnerAgreementDefault, RunnerTabDefault
+    HelpRunnerDefault, NotFondDefault, RunnerAgreementDefault, RunnerTabDefault,
+    PeopleNumberDefault, HmMarqueeDefault, HmBoxDefault, HmHomeTopDefault,
+    HmBannerDefault, HdbChannelDefault, ActiveListDefault, PosterImageDefault,
+    AddressCityDefault
 } from './index';
 
 
@@ -112,5 +115,14 @@ export const WIDGETS = {
     'help-runner': HelpRunnerDefault,
     'not-fond': NotFondDefault,
     'runner-agreement': RunnerAgreementDefault,
-    'runner-tab': RunnerTabDefault
+    'runner-tab': RunnerTabDefault,
+    'people-number': PeopleNumberDefault,
+    'hm-marquee': HmMarqueeDefault,
+    'hm-box': HmBoxDefault,
+    'hm-home-top': HmHomeTopDefault,
+    'hm-banner': HmBannerDefault,
+    'hdb-channel': HdbChannelDefault,
+    'active-list': ActiveListDefault,
+    'poster-image': PosterImageDefault,
+    'address-city': AddressCityDefault
 };

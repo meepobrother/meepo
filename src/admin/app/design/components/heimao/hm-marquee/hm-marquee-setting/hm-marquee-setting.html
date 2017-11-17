@@ -1,0 +1,55 @@
+<div class="ibox-title">
+    容器样式
+</div>
+<div class="ibox-content">
+    <setting-container-margin [(widget)]="widget.containerStyle"></setting-container-margin>
+    <setting-container-padding [(widget)]="widget.containerStyle"></setting-container-padding>
+
+    <div class="form-group">
+        <label>高度</label>
+        <number-px [model]="widget.containerStyle['height']" (modelChange)="onHeightChange($event)"></number-px>
+    </div>
+</div>
+
+<div class="ibox">
+    <div class="ibox-title">
+        <h5>滚动内容</h5>
+        <div class="ibox-tools">
+            <a class="btn btn-primary btn-xs" (click)="add()">添加</a>
+        </div>
+    </div>
+    <div class="ibox-content">
+        <div class="input-group" *ngFor="let item of widget.items">
+            <div class="input-group-addon select-img" [(uploader)]="item.icon">
+                <img [src]="item.icon" style="height: 20px;width:2em;" />
+            </div>
+            <input class="form-control" [(ngModel)]="item.title" placeholder="请输入广告内容">
+            <div class="input-group-addon" (click)="selectLink()">
+                链接
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="form-group">
+    <label>滚动方式</label>
+    <select class="form-control" [(ngModel)]="widget.behavior">
+        <option value="alertnate">alertnate</option>
+        <option value="scroll">scroll</option>
+        <option value="slide">slide</option>
+    </select>
+</div>
+
+<div class="form-group">
+    <setting-container-color [(widget)]="widget.color"></setting-container-color>
+</div>
+
+<div class="form-group">
+    <label>滚动方向</label>
+    <select class="form-control" [(ngModel)]="widget.direction">
+        <option value="left">left</option>
+        <option value="right">right</option>
+        <option value="up">up</option>
+        <option value="down">down</option>
+    </select>
+</div>

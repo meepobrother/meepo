@@ -121,6 +121,7 @@ export class ThemesDesign implements OnDestroy {
 
     // 添加组件
     addWidget(widget: any) {
+        console.log('addWidget',widget);
         this.components$.createWidget(widget.type);
         const create = this.components$.onCreateStream.subscribe(res => {
             this.addToContainer(res);

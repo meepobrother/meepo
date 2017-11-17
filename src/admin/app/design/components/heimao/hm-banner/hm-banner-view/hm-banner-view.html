@@ -1,0 +1,20 @@
+<div class="heimaobanner" style="overflow: hidden;">
+    <div class="wx-index__find" [ngStyle]="widget.containerStyle" *ngIf="!widget.single">
+        <ul class="find__list" [ngStyle]="widget.styleObj">
+            <li class="find__item" [ngStyle]="item.style" *ngFor="let item of widget.items">
+                <a href="javascript:;">
+                    <img class="item__thumb" [src]="item.image">
+                    <div class="item__entry">
+                        <p class="entry__title">{{item.title}}</p>
+                        <p class="entry__subtitle">{{item.desc}}</p>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div *ngIf="widget.single" [ngStyle]="widget.containerStyle">
+        <a href="javascript:;" *ngFor="let item of widget.items">
+            <img class="single" [src]="item.image">
+        </a>
+    </div>
+</div>

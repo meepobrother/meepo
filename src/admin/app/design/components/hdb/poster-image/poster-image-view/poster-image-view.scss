@@ -1,0 +1,26 @@
+/*海报*/
+
+.poster_img_outside {
+    width: 100%;
+    text-align: center;
+    position: relative;
+    img {
+        width: 100%;
+        min-width: 80%;
+    }
+    a {
+        display: block;
+        width: 35px;
+        height: 35px;
+        position: absolute;
+        top: 21px;
+        background: url(https://meepo.com.cn/meepo/images/hdb/icon_detail.png) no-repeat 0 -250px / 100px 800px;
+        &.return {
+            left: 15px;
+        }
+        &.share {
+            right: 15px;
+            background: url(https://meepo.com.cn/meepo/images/hdb/icon_detail.png) no-repeat 0 -300px / 100px 800px;
+        }
+    }
+}

@@ -1,0 +1,27 @@
+<div class="member-top">
+    <div class="member-info" style="top: 50%;">
+        <a href="javascript:;" class="default-avatar" style="display:block;margin-bottom:6px;">
+            <img [src]="userinfo['avatar']">
+        </a>
+        <span style="font-size:18px;color:#fff;display:inline-block;margin-top:2px;">
+            <a href="javascript:;" style="color:#fff;" >{{userinfo['nickname']}}</a>
+        </span>
+    </div>
+    <div class="member-collect">
+        <span [style.width.%]="100/widget.items.length" *ngFor="let item of widget.items">
+            <a href="javascript:;">
+              <i [class]="item.icon"></i>
+              <p>{{item.title}}</p>
+            </a>
+        </span>
+    </div>
+    <div class="wdqiaodao">
+        <div class="qiandaobox">
+            <a href="javascript:;" class="qiandaobtn">{{widget.title}}</a>
+        </div>
+        <p class="qiandaop1" *ngFor="let right of widget.rights">
+            {{right.title}}
+            <span>{{right.num}}</span>
+        </p>
+    </div>
+</div>

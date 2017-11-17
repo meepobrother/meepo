@@ -1,13 +1,1 @@
-<div class="ibox">
-    <div class="ibox-title">
-        <h5>帖子分类</h5>
-        <div class="ibox-tools">
-            <a class="btn btn-primary btn-xs" (click)="add()">添加</a>
-        </div>
-    </div>
-    <div class="ibox-content">
-        <div class="dd" id="nestable2">
-            <ol class="dd-list" (onEdit)="edit($event)" (onDelete)="delete($event)" topics-group-item [items]="list"></ol>
-        </div>
-    </div>
-</div>
+<group-list action="topics" title="帖子分类"></group-list>

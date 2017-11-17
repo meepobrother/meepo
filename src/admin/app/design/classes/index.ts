@@ -25,6 +25,8 @@ export * from './weui-input';
 export * from './weui-button';
 export * from './weui-icon';
 export * from './weui-tabbar';
+export * from './heimao';
+export * from './hdb';
 
 
 export * from './zan-ui';

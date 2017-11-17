@@ -1,0 +1,252 @@
+.member-top {
+    -webkit-animation: changeBg 20s infinite;
+    -moz-animation: changeBg 20s infinite;
+    animation: changeBg 20s infinite;
+    background-color: #ED5564;
+    background-image: url(member_top_bg.png);
+    background-size: cover;
+    text-align: center;
+    width: 100%;
+    height: 200px;
+    position: relative;
+    z-index: 1;
+}
+
+@-webkit-keyframes changeBg {
+    0% {
+        background-color: #ED5564;
+    }
+    10% {
+        background-color: #FB6E52;
+    }
+    20% {
+        background-color: #FFCE55;
+    }
+    30% {
+        background-color: #A0D468;
+    }
+    40% {
+        background-color: #48CFAE;
+    }
+    50% {
+        background-color: #4FC0E8;
+    }
+    60% {
+        background-color: #5D9CEC;
+    }
+    70% {
+        background-color: #AC92ED;
+    }
+    80% {
+        background-color: #EC87BF;
+    }
+    90% {
+        background-color: #ED5564;
+    }
+}
+
+@-moz-keyframes changeBg {
+    0% {
+        background-color: #ED5564;
+    }
+    10% {
+        background-color: #FB6E52;
+    }
+    20% {
+        background-color: #FFCE55;
+    }
+    30% {
+        background-color: #A0D468;
+    }
+    40% {
+        background-color: #48CFAE;
+    }
+    50% {
+        background-color: #4FC0E8;
+    }
+    60% {
+        background-color: #5D9CEC;
+    }
+    70% {
+        background-color: #AC92ED;
+    }
+    80% {
+        background-color: #EC87BF;
+    }
+    90% {
+        background-color: #ED5564;
+    }
+}
+
+@keyframes changeBg {
+    0% {
+        background-color: #ED5564;
+    }
+    10% {
+        background-color: #FB6E52;
+    }
+    20% {
+        background-color: #FFCE55;
+    }
+    30% {
+        background-color: #A0D468;
+    }
+    40% {
+        background-color: #48CFAE;
+    }
+    50% {
+        background-color: #4FC0E8;
+    }
+    60% {
+        background-color: #5D9CEC;
+    }
+    70% {
+        background-color: #AC92ED;
+    }
+    80% {
+        background-color: #EC87BF;
+    }
+    90% {
+        background-color: #ED5564;
+    }
+}
+
+.member-info {
+    width: 300px;
+    height: 163px;
+    margin: -88px 0 0 -150px;
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    .default-avatar {
+        background-color: rgba(0, 0, 0, 0.5);
+        background-image: url(member_w.png);
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        background-size: 60%;
+        width: 100px;
+        height: 100px;
+        margin: 0 auto;
+        border-radius: 100%;
+        img {
+            width: 100%;
+            height: 100%;
+            border-radius: 100%;
+        }
+    }
+    .user-avatar img {
+        width: 100%;
+        height: 100%;
+        border-radius: 100%;
+    }
+    .user-name {
+        color: #FFF;
+    }
+}
+
+@keyframes memberInfoDown {
+    0% {
+        top: -50%;
+    }
+    30% {
+        top: -10%;
+    }
+    75% {
+        top: 55%;
+    }
+    85% {
+        top: 47%;
+    }
+    95% {
+        top: 52%;
+    }
+    100% {
+        top: 50%;
+    }
+}
+
+@-webkit-keyframes memberInfoDown {
+    0% {
+        top: -50%;
+    }
+    30% {
+        top: -10%;
+    }
+    75% {
+        top: 55%;
+    }
+    85% {
+        top: 47%;
+    }
+    95% {
+        top: 52%;
+    }
+    100% {
+        top: 50%;
+    }
+}
+
+.member-collect {
+    font-size: 0;
+    height: 50px;
+    background: rgba(0, 0, 0, 0.1);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    span {
+        display: inline-block;
+        width: 50%;
+        height: 50px;
+        line-height: 50px;
+        a {
+            display: block;
+        }
+    }
+}
+
+.member-collect span p {
+    font-size: 15px;
+    line-height: 50px;
+    color: #FFF;
+    height: 50px;
+    display: inline-block;
+    margin-left: 8px;
+}
+
+.wdqiaodao {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    z-index: 100;
+    font-size: 13px;
+    color: #fff;
+    text-align: right;
+}
+
+.qiandaobox {
+    padding: 6px 0;
+    float: right;
+}
+
+.qiandaobtn {
+    display: block;
+    width: 55px;
+    height: 28px;
+    line-height: 28px;
+    border: 1px solid #fff;
+    text-align: center;
+    font-size: 15px;
+    color: #fff;
+}
+
+.qiandaop1,
+.qiandaop2 {
+    padding: 1px 0;
+    clear: both;
+    span {
+        width: 13px;
+        display: inline-block;
+    }
+}

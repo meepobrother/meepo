@@ -1,8 +1,7 @@
 .marquee-box {
     height: 20px;
-    padding-left: 10px;
-    padding-right: 10px;
     background-color: #fff;
+    overflow: hidden;
     .marquee a {
         color: #00ACEE;
     }

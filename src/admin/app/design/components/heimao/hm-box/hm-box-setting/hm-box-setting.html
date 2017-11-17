@@ -1,0 +1,39 @@
+<div class="ibox-title">
+    容器样式
+</div>
+<div class="ibox-content">
+    <setting-container-margin [(widget)]="widget.containerStyle"></setting-container-margin>
+    <setting-container-padding [(widget)]="widget.containerStyle"></setting-container-padding>
+</div>
+
+
+<div class="ibox">
+    <div class="ibox-title">
+        <h5>广告项目</h5>
+        <div class="ibox-tools">
+            <a class="btn btn-primary btn-xs" (click)="add()">添加</a>
+        </div>
+    </div>
+    <div class="ibox-content">
+        <div class="form-group" *ngFor="let item of widget.items">
+            <div class="input-group">
+                <div class="input-group-addon select-img" [(uploader)]="item.image">
+                    <img [src]="item.image" style="height: 20px;width:2em;" />
+                </div>
+                <div class="input-group-addon">
+                    <input type="color" style="width: 50px;" [(ngModel)]="item.bgcolor">
+                </div>
+                <input class="form-control" [(ngModel)]="item.title" placeholder="请输入标题">
+                <div class="input-group-addon" (click)="selectLink()">
+                    链接
+                </div>
+            </div>
+            <div class="input-group">
+                <input class="form-control" style="width: 100%;" [(ngModel)]="item.desc" placeholder="请输入简介">
+                <div class="input-group-addon">
+                    <input type="color" style="width: 50px;" [(ngModel)]="item.color">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

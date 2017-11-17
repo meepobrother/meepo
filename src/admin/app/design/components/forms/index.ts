@@ -25,3 +25,5 @@ export * from './meepo-form-idcard';
 export * from './meepo-form-btn';
 export * from './meepo-form-realname';
 
+export * from './people-number';
+

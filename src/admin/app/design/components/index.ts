@@ -19,6 +19,9 @@ import { runner_view_map, runner_views } from './runner/view';
 import { hm_setting_map, hm_settings } from './heimao/setting';
 import { hm_view_map, hm_views } from './heimao/view';
 
+import { hdb_setting_map, hdb_settings } from './hdb/setting';
+import { hdb_view_map, hdb_views } from './hdb/view';
+
 import {
     IqiyiHeadNavView, IqiyiHeadNavSetting
 } from './iqiyi';
@@ -61,30 +64,11 @@ import { meepoui_views, meepoui_view_map } from './meepo-ui/view';
 
 
 import {
-    MeepoFormMobileView, MeepoFormMobileSetting,
-    MeepoFormTextareaView, MeepoFormTextareaSetting,
-    MeepoFormWeightSetting, MeepoFormWeightView,
-    MeepoFormTijiSetting, MeepoFormTijiView,
-    MeepoFormPriceSetting, MeepoFormPriceView,
-    MeepoFormMoneySetting, MeepoFormMoneyView,
-    MeepoFormFeeSetting, MeepoFormFeeView,
-
-    MeepoFormTimeSetting, MeepoFormTimeView,
-    MeepoFormTimeStartSetting, MeepoFormTimeStartView,
-    MeepoFormTimeEndSetting, MeepoFormTimeEndView,
-    MeepoFormInputSetting, MeepoFormInputView,
-    MeepoFormOrderSetting, MeepoFormOrderView,
-    MeepoFormTagSetting, MeepoFormTagView,
-    MeepoFormBaojiaSetting, MeepoFormBaojiaView,
-    //
-    MeepoFormAddressEndSetting, MeepoFormAddressEndView,
-    MeepoFormAddressSetting, MeepoFormAddressStartSetting,
-    MeepoFormAddressStartView, MeepoFormAddressView,
-
-    MeepoFormIdcardSetting, MeepoFormIdcardView,
-    MeepoFormBtnSetting, MeepoFormBtnView,
-    MeepoFormRealnameView, MeepoFormRealnameSetting
-} from './forms';
+    forms_settings, forms_setting_map
+} from './forms/setting';
+import {
+    forms_views, forms_view_map
+} from './forms/view';
 
 import {
     MeepoGoodsListSetting, MeepoGoodsListView
@@ -165,28 +149,6 @@ export const COMPONENTS = [
 
 
     // forms
-    MeepoFormMobileView, MeepoFormMobileSetting,
-    MeepoFormTextareaView, MeepoFormTextareaSetting,
-    MeepoFormWeightSetting, MeepoFormWeightView,
-    MeepoFormTijiSetting, MeepoFormTijiView,
-    MeepoFormPriceSetting, MeepoFormPriceView,
-    MeepoFormTimeSetting, MeepoFormTimeView,
-    MeepoFormTimeStartSetting, MeepoFormTimeStartView,
-    MeepoFormTimeEndSetting, MeepoFormTimeEndView,
-
-    MeepoFormMoneySetting, MeepoFormMoneyView,
-    MeepoFormFeeSetting, MeepoFormFeeView,
-    MeepoFormInputSetting, MeepoFormInputView,
-    MeepoFormOrderSetting, MeepoFormOrderView,
-    MeepoFormTagSetting, MeepoFormTagView,
-    MeepoFormBaojiaSetting, MeepoFormBaojiaView,
-
-    MeepoFormAddressEndSetting, MeepoFormAddressEndView,
-    MeepoFormAddressSetting, MeepoFormAddressStartSetting,
-    MeepoFormAddressStartView, MeepoFormAddressView,
-
-    // 
-    MeepoFormIdcardSetting, MeepoFormIdcardView,
 
     // 
     MeepoGoodsListSetting, MeepoGoodsListView,
@@ -207,8 +169,6 @@ export const COMPONENTS = [
     CityItemSetting, CityItemView,
 
     IqiyiHeadNavView, IqiyiHeadNavSetting,
-    MeepoFormBtnSetting, MeepoFormBtnView,
-    MeepoFormRealnameView, MeepoFormRealnameSetting,
     ...actions_component,
 
     WeuiPreviewView, WeuiPreviewSetting,
@@ -238,7 +198,11 @@ export const COMPONENTS = [
     ...runner_views,
     ...runner_settings,
     ...hm_settings,
-    ...hm_views
+    ...hm_views,
+    ...hdb_settings,
+    ...hdb_views,
+    ...forms_views,
+    ...forms_settings
 ];
 
 
@@ -266,25 +230,6 @@ export const COMPONENTS_VIEW = {
     'layout-header': LayoutHeaderView,
     'layout-menu': LayoutMenuView,
     // forms
-    'meepo-form-weight': MeepoFormWeightView,
-    'meepo-form-tiji': MeepoFormTijiView,
-    'meepo-form-price': MeepoFormPriceView,
-    'meepo-form-time': MeepoFormTimeView,
-    'meepo-form-time-start': MeepoFormTimeStartView,
-    'meepo-form-time-end': MeepoFormTimeEndView,
-    'meepo-form-money': MeepoFormMoneyView,
-    'meepo-form-fee': MeepoFormFeeView,
-    'meepo-form-input': MeepoFormInputView,
-    'meepo-form-textarea': MeepoFormTextareaView,
-    'meepo-form-mobile': MeepoFormMobileView,
-    'meepo-form-order': MeepoFormOrderView,
-    'meepo-form-tag': MeepoFormTagView,
-    'meepo-form-baojia': MeepoFormBaojiaView,
-
-    // 地址
-    'meepo-form-address': MeepoFormAddressView,
-    'meepo-form-address-end': MeepoFormAddressEndView,
-    'meepo-form-address-start': MeepoFormAddressStartView,
 
     'meepo-topics-list': TopicsListView,
     'uu-item-box': UuItemBoxView,
@@ -301,8 +246,6 @@ export const COMPONENTS_VIEW = {
     'city-item': CityItemView,
     
     'iqiyi-head-nav': IqiyiHeadNavView,
-    'meepo-form-btn': MeepoFormBtnView,
-    'meepo-form-realname': MeepoFormRealnameView,
     'weui-cells': WeuiCellsView,
     
     
@@ -318,7 +261,9 @@ export const COMPONENTS_VIEW = {
     ...meepoui_view_map,
     ...payui_view_map,
     ...runner_view_map,
-    ...hm_view_map
+    ...hm_view_map,
+    ...hdb_view_map,    
+    ...forms_view_map
 };
 
 
@@ -335,24 +280,6 @@ export const COMPONENTS_SETTING = {
     'layout-menu': LayoutMenuSetting,
     'layout': LayoutSetting,
     // forms
-    'meepo-form-weight': MeepoFormWeightSetting,
-    'meepo-form-tiji': MeepoFormTijiSetting,
-    'meepo-form-price': MeepoFormPriceSetting,
-    'meepo-form-time': MeepoFormTimeSetting,
-    'meepo-form-time-start': MeepoFormTimeStartSetting,
-    'meepo-form-time-end': MeepoFormTimeEndSetting,
-    'meepo-form-money': MeepoFormMoneySetting,
-    'meepo-form-fee': MeepoFormFeeSetting,
-    'meepo-form-input': MeepoFormInputSetting,
-    'meepo-form-mobile': MeepoFormMobileSetting,
-    'meepo-form-textarea': MeepoFormTextareaSetting,
-    'meepo-form-order': MeepoFormOrderSetting,
-    'meepo-form-tag': MeepoFormTagSetting,
-    'meepo-form-baojia': MeepoFormBaojiaSetting,
-    // 地址
-    'meepo-form-address': MeepoFormAddressSetting,
-    'meepo-form-address-end': MeepoFormAddressEndSetting,
-    'meepo-form-address-start': MeepoFormAddressStartSetting,
     //
     'meepo-topics-list': TopicsListSetting,
     'uu-item-box': UuItemBoxSetting,
@@ -368,8 +295,6 @@ export const COMPONENTS_SETTING = {
     'article-item': ArticleItemSetting,
     'city-item': CityItemSetting,
     'iqiyi-head-nav': IqiyiHeadNavSetting,
-    'meepo-form-btn': MeepoFormBtnSetting,
-    'meepo-form-realname': MeepoFormRealnameSetting,
     'weui-cells': WeuiCellsSetting,
     ...actions_component_setting,
     
@@ -382,7 +307,9 @@ export const COMPONENTS_SETTING = {
     ...meepoui_setting_map,
     ...payui_setting_map,
     ...runner_setting_map,
-    ...hm_setting_map
+    ...hm_setting_map,
+    ...hdb_setting_map,
+    ...forms_setting_map
 };
 
 export * from '../classes/widgets';
@@ -410,7 +337,10 @@ export class ComponentsService {
     }
     // 创建
     createWidget(name: string) {
+        console.log('createWidget',name);
+        console.log(WIDGETS);
         const widget = new WIDGETS[name]();
+        console.log('createWidget',widget);
         this.onCreateStream.next(widget);
     }
 }
