@@ -37,4 +37,8 @@ export class SkillsListEdit implements OnInit {
     cancel() {
         this.dialog.close();
     }
+
+    onSelect(e: any){
+        this.form['group_id'] = e.id;
+    }
 }

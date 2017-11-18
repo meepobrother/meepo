@@ -7,15 +7,15 @@
             <div class="ibox-content">
                 <div class="form-group">
                     <label>技能名称</label>
-                    <input class="form-control" placeholder="技能名称">
+                    <input class="form-control" [(ngModel)]="form.title" placeholder="技能名称">
                 </div>
                 <div class="form-group">
                     <label>技能要求</label>
-                    <textarea class="form-control" rows="3">技能要求</textarea>
+                    <textarea class="form-control" [(ngModel)]="form.desc" rows="3">技能要求</textarea>
                 </div>
                 <div class="form-group">
                     <label>技能分类</label>
-                    <multi-select [list]="groups"></multi-select>
+                    <multi-select [list]="groups" (onSelect)="onSelect($event)"></multi-select>
                 </div>
                 <div class="form-group">
                     <a class="btn btn-primary" (click)="save()">提交</a>

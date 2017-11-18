@@ -26,3 +26,4 @@ foreach($list as &$li){
 $this->info = !empty($list) ? $list : array();
 
 return $this;
+

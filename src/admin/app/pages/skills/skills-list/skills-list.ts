@@ -48,7 +48,7 @@ export class SkillsList implements OnInit {
         dialogRef.afterClosed().subscribe(res => {
             if (res) {
                 this.api.mpost('skills.editSkill', res).subscribe(res => {
-                    this.getList();
+                    console.log(res);
                 });
             }
         });
