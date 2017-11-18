@@ -24,4 +24,16 @@ export class LessonsList implements OnInit {
             // events: data
         };
     }
+
+    eventClick(e: any) {
+        console.log(e);
+    }
+
+    updateEvent(e: any) {
+        console.log(e);
+    }
+
+    clickButton(e: any) {
+        console.log(e);
+    }
 }
