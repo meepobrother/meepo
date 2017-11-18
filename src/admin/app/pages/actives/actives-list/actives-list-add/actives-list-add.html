@@ -1,0 +1,32 @@
+<div class="ibox">
+    <div class="ibox-title">
+        <h5>添加活动</h5>
+        <div class="ibox-tools">
+            <a class="btn btn-primary btn-xs" (click)="close()">关闭</a>
+        </div>
+    </div>
+    <div class="ibox-content">
+        <div class="form-group">
+            <label>分类</label>
+            <multi-select (onSelect)="onSelect($event)" [list]="groups"></multi-select>
+        </div>
+        <div class="form-group">
+            <label>活动名</label>
+            <input type="text" [(ngModel)]="form.title" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label>活动简介</label>
+            <textarea class="form-control" [(ngModel)]="form.desc"></textarea>
+        </div>
+        <div class="form-group">
+            <label>活动详情</label>
+            <editor (onInit)="onInitEditor($event)">
+                <div [innerHtml]="form.content"></div>
+            </editor>
+        </div>
+        <div class="form-group">
+            <a class="btn btn-primary" (click)="save()">提交</a>
+            <a class="btn btn-default" (click)="close()">取消</a>
+        </div>
+    </div>
+</div>
