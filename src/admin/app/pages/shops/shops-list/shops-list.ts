@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../../core';
 import { MatDialog } from '@angular/material';
-import { ShopsListAdd } from './shops-list-add';
+import { ShopsListAdd } from './shops-list-add/shops-list-add';
 @Component({
     selector: 'shops-list',
     templateUrl: './shops-list.html',
@@ -26,11 +26,12 @@ export class ShopsList implements OnInit {
     }
 
     add() {
-        const dialogRef = this.dialog.open(ShopsListAdd);
+        const dialogRef = this.dialog.open(ShopsListAdd, { data: {} });
         dialogRef.afterClosed().subscribe(res => {
-            if (res) {
-                this.api.mpost('shops.addShop', res).subscribe(res => {
+            if (res && res.title) {
+                this.api.mpost('shops.addShop', res).subscribe((data: any) => {
                     this.getList();
+                    this.list.push(data.info);
                 });
             }
         });
@@ -39,7 +40,11 @@ export class ShopsList implements OnInit {
     edit(item: any, index: number) {
         const dialogRef = this.dialog.open(ShopsListAdd, { data: item });
         dialogRef.afterClosed().subscribe(res => {
-
+            if (res && res.title) {
+                this.api.mpost('shops.addShop', res).subscribe((data: any) => {
+                    this.list[index] = data.info;
+                });
+            }
         });
     }
 

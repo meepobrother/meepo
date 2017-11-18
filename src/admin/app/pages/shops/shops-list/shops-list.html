@@ -14,18 +14,21 @@
             <el-table-column label="店长" width="180">
                 <ng-template #slot let-scope="scope">
                     <img style="width: 2em;" *ngFor="let user of list[scope.index].shopers" [src]="user.avatar" alt="">
+                    <a class="btn btn-primary btn-xs btn-outline">添加</a>
                 </ng-template>
             </el-table-column>
 
             <el-table-column label="员工" width="180">
                 <ng-template #slot let-scope="scope">
                     <img style="width: 2em;" *ngFor="let user of list[scope.index].employers" [src]="user.avatar" alt="">
+                    <a class="btn btn-primary btn-xs btn-outline">添加</a>
                 </ng-template>
             </el-table-column>
 
             <el-table-column label="前台" width="180">
                 <ng-template #slot let-scope="scope">
                     <img style="width: 2em;" *ngFor="let user of list[scope.index].kefus" [src]="user.avatar" alt="">
+                    <a class="btn btn-primary btn-xs btn-outline">添加</a>
                 </ng-template>
             </el-table-column>
             <el-table-column model-key="title" label="店名" width="180"></el-table-column>
@@ -36,16 +39,7 @@
             </el-table-column>
             <el-table-column label="操作">
                 <ng-template #slot let-scope="scope">
-                    <a href="javascript:;" class="btn btn-info btn-xs">商品</a>
-                    <a href="javascript:;" class="btn btn-info btn-xs">技能</a>
-                    <a href="javascript:;" class="btn btn-info btn-xs">订单</a>
-                    <a href="javascript:;" class="btn btn-info btn-xs">预约</a>
-                    <a href="javascript:;" class="btn btn-info btn-xs">任务</a>
-                    <a href="javascript:;" class="btn btn-info btn-xs">业绩</a>
-                    <br>
-                    <br>
-                    <a href="javascript:;" class="btn btn-success btn-xs">工单</a>
-                    <a href="javascript:;" class="btn btn-default btn-xs" (click)="edit(item,i)">编辑</a>
+                    <a href="javascript:;" class="btn btn-primary btn-xs" (click)="edit(item,i)">编辑</a>
                     <a href="javascript:;" class="btn btn-danger btn-xs" (click)="delete(item,i)">删除</a>
                 </ng-template>
             </el-table-column>

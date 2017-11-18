@@ -50,6 +50,8 @@ import { TagSelect } from './tag-select/tag-select';
 import { PageSelect } from './page-select/page-select';
 import { LinkSelect } from './link-select/link-select';
 
+import { MemberSelectDialog } from './member-select-dialog/member-select-dialog';
+export { MemberSelectDialog } from './member-select-dialog/member-select-dialog';
 
 export const MeepoComponents = [
     MeLoading,
@@ -72,5 +74,6 @@ export const MeepoComponents = [
     TagSelect,
     ActionSelect,
     PageSelect,
-    LinkSelect
+    LinkSelect,
+    MemberSelectDialog
 ];

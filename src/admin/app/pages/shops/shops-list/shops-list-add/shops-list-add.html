@@ -1,19 +1,26 @@
-<div class="row" [formGroup]="form">
-    <div class="col-md-4">
+<div class="row">
+    <div class="col-md-12">
         <div class="ibox">
             <div class="ibox-title">
                 基本信息
             </div>
             <div class="ibox-content">
-                <form-field>
-                    <input type="text" formControlName="title" meepoInput placeholder="门店名称" class="form-control">
-                </form-field>
-                <form-field>
-                    <input type="text" formControlName="mobile" meepoInput placeholder="联系电话" class="form-control">
-                </form-field>
-                <form-field>
-                    <textarea rows="5" formControlName="desc" meepoInput placeholder="门店简介" class="form-control"></textarea>
-                </form-field>
+                <div class="form-group">
+                    <label>门店名称</label>
+                    <input type="text" [(ngModel)]="form.title" placeholder="门店名称" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>联系电话</label>
+                    <input type="text" [(ngModel)]="form.mobile" placeholder="联系电话" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>门店简介</label>
+                    <textarea rows="5" [(ngModel)]="form.desc" placeholder="门店简介" class="form-control"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>门店分类</label>
+                    <multi-select (onSelect)="onSelectShopGroup($event)" [list]="groups"></multi-select>
+                </div>
                 <div>
                     <a href="javascript:;" (click)="add()" class="btn btn-primary">添加</a>
                     <a href="javascript:;" (click)="delete()" class="btn btn-danger">删除</a>
@@ -21,32 +28,5 @@
                 </div>
             </div>
         </div>
-    </div>
-
-    <div class="col-md-4">
-        <member-select (onChange)="onChangeShopers($event)" title="店铺店长"></member-select>
-        <member-select (onChange)="onChangeEmployers($event)" title="店铺员工"></member-select>
-        <member-select (onChange)="onChangeKefus($event)" title="店铺前台"></member-select>
-    </div>
-
-    <div class="col-md-4">
-        <div class="ibox">
-            <div class="ibox-title">
-                其他设置
-            </div>
-            <div class="ibox-content">
-            </div>
-        </div>
-        <shop-group-select formControlName="group"></shop-group-select>
-        <shop-tag-select fromControlName="tag"></shop-tag-select>
-    </div>
-</div>
-
-
-<div class="row">
-    <div class="col-md-12">
-        <editor>
-            <p>请输入门店详情。。。</p>
-        </editor>
     </div>
 </div>
