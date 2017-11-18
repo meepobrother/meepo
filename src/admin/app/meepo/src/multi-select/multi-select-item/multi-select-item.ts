@@ -42,4 +42,8 @@ export class MultiSelectItem implements OnInit {
         }
         this.onSelect.emit(this.select);
     }
+
+    _onSelectItem(e: any){
+        this.onSelect.emit(e);
+    }
 }

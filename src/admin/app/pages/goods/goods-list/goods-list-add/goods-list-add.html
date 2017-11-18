@@ -11,12 +11,16 @@
                 <div class="form-group">
                     <label>所属店铺</label>
                     <select class="form-control" [(ngModel)]="form.shop_id">
-                            <option *ngFor="let shop of shops" [attr.value]="shop.id">{{shop.title}}</option>
-                        </select>
+                        <option *ngFor="let shop of shops" [attr.value]="shop.id">{{shop.title}}</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label>商品分类</label>
-                    <multi-select [list]="goodGroups"></multi-select>
+                    <multi-select (onSelect)="onSelectGroup($event)" [list]="goodGroups"></multi-select>
+                </div>
+                <div class="form-group">
+                    <label>商品标签</label>
+                    <tag-select (onSelect)="onSelectTag($event)" [list]="goodTags"></tag-select>
                 </div>
                 <div class="form-group">
                     <label>商品名</label>

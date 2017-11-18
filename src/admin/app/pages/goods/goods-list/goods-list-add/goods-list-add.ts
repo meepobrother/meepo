@@ -12,6 +12,8 @@ export class GoodsListAdd implements OnInit {
 
     shops: any[] = [];
     goodGroups: any[] = [];
+    goodTags: any[] = [];
+
     form: any = {};
 
     thumbs: any[] = [];
@@ -23,7 +25,7 @@ export class GoodsListAdd implements OnInit {
         public api: ApiService
     ) {
         this.dialog.afterOpen().subscribe((res: any) => {
-            let { title, desc, shop_id, count, price, id, thumbs } = this.data || {title: '',desc: '',shop_id: '',count: '',price: '',id: '', thumbs: []};
+            let { title, desc, shop_id, count, price, id, thumbs, group_id } = this.data || {title: '',desc: '',shop_id: '',count: '',price: '',id: '', thumbs: [], group_id: ''};
             this.form['title'] = title || '';
             this.form['desc'] = desc || '';
             this.form['shop_id'] = shop_id || '';
@@ -31,6 +33,7 @@ export class GoodsListAdd implements OnInit {
             this.form['price'] = price || '';
             this.form['id'] = id || '';
             this.form['thumbs'] = isArray(thumbs) ? thumbs : [];
+            this.form['group_id'] = group_id || '';
         });
     }
 
@@ -45,6 +48,9 @@ export class GoodsListAdd implements OnInit {
         this.api.mpost('goods.getListGoodsGroup', {}).subscribe((res: any) => {
             this.goodGroups = res.info;
         });
+        this.api.mpost('goods.getListGoodsTags', {}).subscribe((res: any) => {
+            this.goodTags = res.info;
+        });
     }
 
     cancel() {
@@ -57,5 +63,9 @@ export class GoodsListAdd implements OnInit {
 
     addImage(e: any){
         this.form.thumbs.push(e);
+    }
+
+    onSelectGroup(e: any){
+        this.form.group_id = e.id;
     }
 }

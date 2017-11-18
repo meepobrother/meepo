@@ -43,6 +43,9 @@ import { GroupsDialogSelect } from './groups-dialog-select/groups-dialog-select'
 import { MultiSelect } from './multi-select/multi-select';
 import { MultiSelectItem } from './multi-select/multi-select-item/multi-select-item';
 
+import { TagSelect } from './tag-select/tag-select';
+
+
 export const MeepoComponents = [
     MeLoading,
     MeAlert,
@@ -60,5 +63,6 @@ export const MeepoComponents = [
     GroupList,
     GroupAdd,
     MultiSelect,
-    MultiSelectItem
+    MultiSelectItem,
+    TagSelect
 ];

@@ -19,7 +19,10 @@ $list = pdo_getall(
 );
 
 foreach($list as &$li){
-    $li['shop'] = pdo_get('imeepos_runner4_shops',array('id'=>$li['shop_id']));
+    $shop = pdo_get('imeepos_runner4_shops',array('id'=>$li['shop_id']));
+    $li['shop_title'] = $shop['title'];
+    $group = pdo_get('imeepos_runner4_goods_group',array('id'=>$li['group_id']));
+    $li['group_title'] = $group['title'];
     $li['thumbs'] = unserialize($li['thumbs']);
     $li['setting'] = unserialize($li['setting']);
 }
