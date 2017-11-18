@@ -40,4 +40,5 @@ $group = pdo_get('imeepos_runner4_goods_group',array('id'=>$data['group_id']));
 $data['group_title'] = $group['title'];
 
 $this->info = $data;
+$this->msg = $input;
 return $this;

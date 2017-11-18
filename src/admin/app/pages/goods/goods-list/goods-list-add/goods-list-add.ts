@@ -71,6 +71,7 @@ export class GoodsListAdd implements OnInit {
     }
 
     onSelectTag(e: any){
+        console.log(e);
         this.form.tag = e.title;
     }
 }

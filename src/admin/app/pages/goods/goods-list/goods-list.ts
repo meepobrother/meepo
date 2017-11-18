@@ -42,6 +42,7 @@ export class GoodsList implements OnInit {
             if (res && res['title']) {
                 this.api.mpost('goods.addGood', res).subscribe((data: any) => {
                     this.list[index] = data.info;
+                    console.log(data.info);
                 });
             }
         });
