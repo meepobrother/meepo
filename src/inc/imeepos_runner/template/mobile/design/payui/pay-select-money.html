@@ -52,7 +52,12 @@
                     encrypted: encrypted
                 }
             }, function(res) {
-                weui.toast(res.msg, 1500);
+                if (res.code == 1) {
+                    weui.topTips(res.msg, 1500);
+                    window.location.href = "{php echo $widget['__success']}";
+                } else {
+                    weui.toast(res.msg, 1500);
+                }
             }, 'json');
         });
     })
