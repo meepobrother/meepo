@@ -1,0 +1,21 @@
+<div class="ibox">
+    <div class="ibox-title">
+        <h5>活动列表</h5>
+        <a class="btn btn-primary btn-xs" (click)="add()">添加</a>
+    </div>
+    <div class="ibox-content">
+        <table class="table table-hover">
+            <tr *ngFor="let item of list;index as i;">
+                <td>{{item.id}}</td>
+                <td>{{item.title}}</td>
+                <td>{{item.image}}</td>
+                <td>{{item.desc}}</td>
+                <td>{{item.group_title}}</td>
+                <td>
+                    <a class="btn btn-primary btn-xs" (click)="edit(item,i)">编辑</a>
+                    <a class="btn btn-danger btn-xs" (click)="delete(item,i)">删除</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
