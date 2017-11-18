@@ -37,8 +37,8 @@ export class ShopsList implements OnInit {
         });
     }
 
-    edit(item: any, index: number) {
-        const dialogRef = this.dialog.open(ShopsListAdd, { data: item });
+    edit(index: number) {
+        const dialogRef = this.dialog.open(ShopsListAdd, { data: this.list[index] });
         dialogRef.afterClosed().subscribe(res => {
             if (res && res.title) {
                 this.api.mpost('shops.addShop', res).subscribe((data: any) => {
@@ -48,8 +48,8 @@ export class ShopsList implements OnInit {
         });
     }
 
-    delete(item: any, index: number) {
-        this.api.mpost('shops.deleteShop', item).subscribe((res => {
+    delete(index: number) {
+        this.api.mpost('shops.deleteShop', this.list[index]).subscribe((res => {
             this.list.splice(index, 1);
         }));
     }
