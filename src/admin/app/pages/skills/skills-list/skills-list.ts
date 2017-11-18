@@ -26,20 +26,20 @@ export class SkillsList implements OnInit {
         this.getList();
     }
 
-    edit(item: any) {
+    edit(item: any,index: number) {
         let dialogRef = this.dialog.open(SkillsListEdit, { data: item });
         dialogRef.afterClosed().subscribe(res => {
             if (res) {
                 this.api.mpost('skills.editSkill', res).subscribe(res => {
-                    this.getList();
+                    this.list[index] = res;
                 });
             }
         });
     }
 
-    delete(item: any) {
+    delete(item: any,index: number) {
         this.api.mpost('skills.deleteSkill', item).subscribe(res => {
-            this.getList();
+            this.list.splice(index,1);
         });
     }
 
@@ -48,7 +48,7 @@ export class SkillsList implements OnInit {
         dialogRef.afterClosed().subscribe(res => {
             if (res) {
                 this.api.mpost('skills.editSkill', res).subscribe(res => {
-                    console.log(res);
+                    this.list.push(res);
                 });
             }
         });
