@@ -5,6 +5,8 @@ $table = "imeepos_runner4_goods";
 
 $data = array();
 $data['title'] = $input['title'];
+$data['tag'] = $input['tag'];
+
 $data['desc'] = $input['desc'];
 $data['thumbs'] = serialize($input['thumbs']);
 $data['setting'] = serialize($input['setting']);

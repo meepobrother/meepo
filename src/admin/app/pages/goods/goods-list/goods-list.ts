@@ -19,6 +19,7 @@ export class GoodsList implements OnInit {
     }
 
     getList() {
+        this.api.mpost('goods.update',{}).subscribe(res=>{});
         this.api.mpost('goods.getListGood', { page: 1, psize: 30 }).subscribe((res: any) => {
             this.list = res.info;
         });

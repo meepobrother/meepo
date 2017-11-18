@@ -25,7 +25,7 @@ export class GoodsListAdd implements OnInit {
         public api: ApiService
     ) {
         this.dialog.afterOpen().subscribe((res: any) => {
-            let { title, desc, shop_id, count, price, id, thumbs, group_id } = this.data || {title: '',desc: '',shop_id: '',count: '',price: '',id: '', thumbs: [], group_id: ''};
+            let { title, desc, shop_id, count, price, id, thumbs, group_id, tag } = this.data || {title: '',desc: '',shop_id: '',count: '',price: '',id: '', thumbs: [], group_id: '', tag: ''};
             this.form['title'] = title || '';
             this.form['desc'] = desc || '';
             this.form['shop_id'] = shop_id || '';
@@ -34,6 +34,7 @@ export class GoodsListAdd implements OnInit {
             this.form['id'] = id || '';
             this.form['thumbs'] = isArray(thumbs) ? thumbs : [];
             this.form['group_id'] = group_id || '';
+            this.form['tag'] = tag || '';
         });
     }
 
@@ -67,5 +68,9 @@ export class GoodsListAdd implements OnInit {
 
     onSelectGroup(e: any){
         this.form.group_id = e.id;
+    }
+
+    onSelectTag(e: any){
+        this.form.tag = e.title;
     }
 }
