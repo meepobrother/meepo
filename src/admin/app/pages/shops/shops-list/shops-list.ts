@@ -61,7 +61,7 @@ export class ShopsList implements OnInit {
     addMember(type: string, index: number) {
         let dialogRef = this.dialog.open(MemberSelectDialog);
         dialogRef.afterClosed().subscribe((member: any) => {
-            if(member && member.openid){
+            if (member && member.openid) {
                 if (isArray(this.list[index][type])) {
                     this.list[index][type].push({ openid: member.openid, avatar: member.avatar, nickname: member.nickname });
                 } else {
@@ -69,7 +69,11 @@ export class ShopsList implements OnInit {
                         { openid: member.openid, avatar: member.avatar, nickname: member.nickname }
                     ]
                 }
+                // 更新
                 console.log(this.list[index]);
+                this.api.mpost('shops.updateShopMembers', { type: type, data: this.list[index][type], shop_id: this.list[index].id }).subscribe(res => {
+                    console.log(res);
+                });
             }
         });
     }
