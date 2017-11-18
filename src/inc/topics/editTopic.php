@@ -14,14 +14,18 @@ $data['tags'] = !empty($input['tags']) ? $input['tags'] : array();
 $data['tags'] = serialize($data['tags']);
 
 $id = intval($input['id']);
-if(!empty($id)){
-    pdo_update('imeepos_runner4_topics',$data,array('id'=>$id));
-    $data['tags'] = unserialize($data['tags']);
-}else{
-    pdo_insert('imeepos_runner4_topics',$data);
-    $data['id'] = pdo_insertid();
-    $data['tags'] = unserialize($data['tags']);
+
+if($input['title']){
+    if(!empty($id)){
+        pdo_update('imeepos_runner4_topics',$data,array('id'=>$id));
+        $data['tags'] = unserialize($data['tags']);
+    }else{
+        pdo_insert('imeepos_runner4_topics',$data);
+        $data['id'] = pdo_insertid();
+        $data['tags'] = unserialize($data['tags']);
+    }
 }
+
 
 $this->info = $data;
 $this->msg = $input;

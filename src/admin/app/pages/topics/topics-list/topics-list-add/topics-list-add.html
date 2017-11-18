@@ -1,4 +1,4 @@
-<div class="ibox" [formGroup]="form">
+<div class="ibox">
     <div class="ibox-title">
         <h5>添加帖子</h5>
         <div class="ibox-tools">
@@ -8,33 +8,34 @@
     <div class="ibox-content">
         <div class="form-group">
             <label>帖子标题</label>
-            <input class="form-control" formControlName="title" type="text">
+            <input class="form-control" [(ngModel)]="form.title" type="text">
+        </div>
+
+        <div class="form-group">
+            <label>图片附件</label>
+            <img *ngFor="let thumb of form.thumbs" [src]="thumb" style="height: 4em;margin: 5px;" />
+            <a class="btn btn-primary btn-outline" uploader (uploaderChange)="addImage($event)">+</a>
         </div>
 
         <div class="form-group">
             <label>分类</label>
-            <select formControlName="class_id" class="form-control">
-                <option [attr.value]="item.id" *ngFor="let item of classes">{{item.title}}</option>
-            </select>
+            <multi-select (onSelect)="onSelectGroup($event)" [list]="classes"></multi-select>
         </div>
 
         <div class="form-group">
             <label>简介</label>
-            <textarea class="form-control" rows="3" formControlName="desc"></textarea>
+            <textarea class="form-control" rows="3" [(ngModel)]="form.desc"></textarea>
         </div>
-
+        <div class="form-group">
+            <label>详情</label>
+            <editor (onInit)="onInitEditor($event)">
+                <div [innerHtml]="form.content"></div>
+            </editor>
+        </div>
 
         <div class="form-group">
             <a class="btn btn-primary" (click)="save()">保存</a>
             <a class="btn btn-default" (click)="close()">取消</a>
         </div>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-md-12">
-        <editor>
-            <p>请输入帖子详情。。。</p>
-        </editor>
     </div>
 </div>

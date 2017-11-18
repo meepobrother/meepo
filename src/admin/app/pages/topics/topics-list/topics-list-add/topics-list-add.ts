@@ -2,6 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ApiService } from '../../../../core';
+import { isArray } from '../../../../meepo/util';
 
 @Component({
     selector: 'topics-list-add',
@@ -10,49 +11,54 @@ import { ApiService } from '../../../../core';
 })
 export class TopicsListAdd implements OnInit {
     classes: any[] = [];
-    form: FormGroup;
+    form: any = {};
+    editor: any;
     constructor(
         @Inject(MAT_DIALOG_DATA) public data: any,
         public dialog: MatDialogRef<any>,
         public fb: FormBuilder,
         public api: ApiService
-    ) { 
-        this.form = this.fb.group({
-            title: [''],
-            class_id: [''],
-            desc: [''],
-            content: [''],
-            id: [''],
-            uniacid: ['']
+    ) {
+        this.dialog.afterOpen().subscribe(res => {
+            let { title, class_id, uniacid, id, desc, content, thumbs } = this.data ||
+                { title: '', class_id: '', id: '', desc: '', content: '', thumbs: [], uniacid: '' };
+            this.form['title'] = title;
+            this.form['class_id'] = class_id;
+            this.form['uniacid'] = uniacid;
+            this.form['id'] = id;
+            this.form['desc'] = desc;
+            this.form['content'] = content;
+            this.form['thumbs'] = isArray(thumbs) ? thumbs : [];
         });
+    }
 
-        this.dialog.afterOpen().subscribe(res=>{
-            let { title, class_id, uniacid, id, desc, content} = this.data;
-            this.form.get('title').setValue(title);
-            this.form.get('class_id').setValue(class_id);
-            this.form.get('uniacid').setValue(uniacid);
-            this.form.get('id').setValue(id);
-            this.form.get('desc').setValue(desc);
-            this.form.get('content').setValue(content);
-        });
+    onInitEditor(e: any) {
+        this.editor = e;
     }
     ngOnInit() {
-        this.api.mpost('topics.getListTopicGroup',{page: 1, psize: 30}).subscribe((res: any)=>{
+        this.api.mpost('topics.getListTopicsGroup', { page: 1, psize: 30 }).subscribe((res: any) => {
             this.classes = res.info;
-            if(this.classes.length>0){
-                const item = this.classes[0];
-                this.form.get('class_id').setValue(item.id);
-            }
         });
     }
-    save(){
-        this.dialog.close(this.form.value);
+    save() {
+        if (this.editor) {
+            this.form.content = this.editor.txt.html();
+        }
+        this.dialog.close(this.form);
     }
-    cancel(){
+    cancel() {
         this.dialog.close();
     }
 
-    close(){
+    close() {
         this.cancel();
+    }
+
+    addImage(e: any) {
+        this.form.thumbs.push(e);
+    }
+
+    onSelectGroup(e: any){
+        this.form.class_id = e.id;
     }
 }
