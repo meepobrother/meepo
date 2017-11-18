@@ -15,21 +15,29 @@
                         <td style="width: 10em;">价格</td>
                         <td style="width: 10em;">库存</td>
                         <td style="width: 10em;">店铺</td>
+                        <td style="width: 10em;">分类</td>
+                        <td style="width: 10em;">标签</td>
                         <td></td>
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let item of list;index as i;">
-                        <td>{{item.id}}</td>
-                        <td>{{item.title}}</td>
+                        <td>{{item?.id}}</td>
+                        <td>{{item?.title}}</td>
                         <td>
-                            <label class="label label-danger">{{item.price}}</label>
+                            <label class="label label-danger">{{item?.price}}</label>
                         </td>
                         <td>
-                            <label class="label label-success">{{item.count}}</label>
+                            <label class="label label-success">{{item?.count}}</label>
                         </td>
                         <td>
-                            <label class="label label-info">{{item.shop.title}}</label>
+                            <label class="label label-info">{{item?.shop_title}}</label>
+                        </td>
+                        <td>
+                            {{item?.class_title}}
+                        </td>
+                        <td>
+                            {{item?.tag}}
                         </td>
                         <td>
                             <a class="btn btn-primary btn-xs" (click)="editGoods(item,i)">编辑</a>
