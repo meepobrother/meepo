@@ -8,7 +8,7 @@ $data['uniacid'] = $_W['uniacid'];
 $data['title'] = $input['title'];
 $data['desc'] = $input['desc'];
 $data['class_id'] = intval($input['class_id']);
-$data['content'] = $input['content'];
+$data['content'] = htmlspecialchars($input['content']);
 
 $data['tags'] = !empty($input['tags']) ? $input['tags'] : array();
 $data['tags'] = serialize($data['tags']);

@@ -11,14 +11,21 @@
                 <tr>
                     <td style="width: 4em;">编号</td>
                     <td style="width: 10em;">标题</td>
-                    <td>简介</td>
+                    <td style="width: 10em;">分类</td>
+                    <td style="width: 20em;">简介</td>
+                    <td>
+                        操作
+                    </td>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let item of list">
                     <td>{{item.id}}</td>
                     <td>
-                        <a (click)="edit(item)" class="client-link">{{item.title || '昵称'}}</a>
+                        <a (click)="edit(item)" class="client-link">{{item.title || '标题'}}</a>
+                    </td>
+                    <td>
+                        <label class="label label-info">{{item?.class_title}}</label>
                     </td>
                     <td>
                         {{item.desc}}
