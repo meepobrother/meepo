@@ -25,7 +25,7 @@ export class SkillsListEdit implements OnInit {
         });
     }
     ngOnInit() {
-        this.api.mpost('skills.getListActivesGroup',{}).subscribe((res: any)=>{
+        this.api.mpost('skills.getListSkillsGroup',{}).subscribe((res: any)=>{
             this.groups = res.info;
         });
     }

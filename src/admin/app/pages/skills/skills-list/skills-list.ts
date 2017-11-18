@@ -16,7 +16,8 @@ export class SkillsList implements OnInit {
     ) { }
 
     getList() {
-        this.api.mpost('skills.getListSkills', {}).subscribe((res: any) => {
+        this.api.mpost('skills.update',{}).subscribe(res=>{});
+        this.api.mpost('skills.getListSkill', {}).subscribe((res: any) => {
             this.list = res.info;
         });
     }
