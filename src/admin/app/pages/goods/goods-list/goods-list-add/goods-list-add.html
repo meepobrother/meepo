@@ -45,7 +45,9 @@
                 </div>
                 <div class="form-group">
                     <label>商品详情</label>
-                    <editor>请输入商品详情</editor>
+                    <editor (onInit)="onInitEditor($event)">
+                        <div [innerHtml]="form.content"></div>
+                    </editor>
                 </div>
                 <div class="form-group">
                     <a class="btn btn-primary" (click)="save()">保存</a>

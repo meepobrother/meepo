@@ -25,6 +25,7 @@ foreach($list as &$li){
     $li['group_title'] = $group['title'];
     $li['thumbs'] = unserialize($li['thumbs']);
     $li['setting'] = unserialize($li['setting']);
+    $li['content'] = htmlspecialchars_decode($li['content']);
 }
 $this->info = !empty($list) ? $list : array();
 

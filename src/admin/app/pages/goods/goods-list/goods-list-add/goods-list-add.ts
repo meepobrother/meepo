@@ -17,6 +17,7 @@ export class GoodsListAdd implements OnInit {
     form: any = {};
 
     thumbs: any[] = [];
+    editor: any;    
 
     constructor(
         public dialog: MatDialogRef<any>,
@@ -25,7 +26,7 @@ export class GoodsListAdd implements OnInit {
         public api: ApiService
     ) {
         this.dialog.afterOpen().subscribe((res: any) => {
-            let { title, desc, shop_id, count, price, id, thumbs, group_id, tag } = this.data || {title: '',desc: '',shop_id: '',count: '',price: '',id: '', thumbs: [], group_id: '', tag: ''};
+            let { title, desc, shop_id, count, price, id, thumbs, group_id, tag, content } = this.data || {title: '',desc: '',shop_id: '',count: '',price: '',id: '', thumbs: [], group_id: '', tag: '', content: ''};
             this.form['title'] = title || '';
             this.form['desc'] = desc || '';
             this.form['shop_id'] = shop_id || '';
@@ -35,6 +36,8 @@ export class GoodsListAdd implements OnInit {
             this.form['thumbs'] = isArray(thumbs) ? thumbs : [];
             this.form['group_id'] = group_id || '';
             this.form['tag'] = tag || '';
+            this.form['content'] = content || '';
+            
         });
     }
 
@@ -59,6 +62,10 @@ export class GoodsListAdd implements OnInit {
     }
 
     save() {
+        console.log(this.editor);
+        if(this.editor){
+            this.form.content = this.editor.txt.html();
+        }
         this.dialog.close(this.form);
     }
 
@@ -68,6 +75,11 @@ export class GoodsListAdd implements OnInit {
 
     onSelectGroup(e: any){
         this.form.group_id = e.id;
+    }
+
+    onInitEditor(e: any){
+        console.log(e);
+        this.editor = e;
     }
 
     onSelectTag(e: any){
