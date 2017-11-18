@@ -19,8 +19,7 @@ export class MultiSelectItem implements OnInit {
         return this.selectIndex;
     }
     
-    @Input() select: any;
-
+    @Input() select: any = {};
 
     @Output() onSelect: EventEmitter<any> = new EventEmitter();
     hasChildren: boolean = false;
@@ -36,7 +35,7 @@ export class MultiSelectItem implements OnInit {
                 this.select = res;
             }
         });
-        if (this.select['children']) {
+        if (this.select && this.select['children']) {
             this.hasChildren = true;
         } else {
             this.hasChildren = false;

@@ -29,7 +29,7 @@ export class GoodsListAdd implements OnInit {
             id: ['']
         });
         this.dialog.afterOpen().subscribe((res: any) => {
-            let { title, desc, shop_id, count, price, id } = this.data;
+            let { title, desc, shop_id, count, price, id } = this.data || {title: '',desc: '',shop_id: '',count: '',price: '',id: ''};
             this.form.get('title').setValue(title);
             this.form.get('desc').setValue(desc);
             this.form.get('shop_id').setValue(shop_id);

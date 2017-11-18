@@ -27,7 +27,7 @@ export class GoodsList implements OnInit {
     add() {
         const dialogRef = this.dialog.open(GoodsListAdd);
         dialogRef.afterClosed().subscribe((res: any) => {
-            if (res.title) {
+            if (res && res['title']) {
                 this.api.mpost('goods.addGood', res).subscribe((data: any) => {
                     this.list.unshift(data.info);
                 });
@@ -38,7 +38,7 @@ export class GoodsList implements OnInit {
     editGoods(item: any, index: number) {
         const dialogRef = this.dialog.open(GoodsListAdd, { data: item });
         dialogRef.afterClosed().subscribe((res: any) => {
-            if (res.title) {
+            if (res && res['title']) {
                 this.api.mpost('goods.addGood', res).subscribe((data: any) => {
                     this.list[index] = data.info;
                 });
