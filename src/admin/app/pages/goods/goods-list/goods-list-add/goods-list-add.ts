@@ -2,7 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { ApiService } from '../../../../core';
-
+import { isArray } from '../../../../meepo/util';
 @Component({
     selector: 'goods-list-add',
     templateUrl: './goods-list-add.html',
@@ -12,7 +12,12 @@ export class GoodsListAdd implements OnInit {
 
     shops: any[] = [];
     goodGroups: any[] = [];
-    form: FormGroup;
+    goodTags: any[] = [];
+
+    form: any = {};
+
+    thumbs: any[] = [];
+    editor: any;    
 
     constructor(
         public dialog: MatDialogRef<any>,
@@ -20,22 +25,19 @@ export class GoodsListAdd implements OnInit {
         public fb: FormBuilder,
         public api: ApiService
     ) {
-        this.form = this.fb.group({
-            title: [''],
-            desc: [''],
-            shop_id: [''],
-            count: [''],
-            price: [''],
-            id: ['']
-        });
         this.dialog.afterOpen().subscribe((res: any) => {
-            let { title, desc, shop_id, count, price, id } = this.data;
-            this.form.get('title').setValue(title);
-            this.form.get('desc').setValue(desc);
-            this.form.get('shop_id').setValue(shop_id);
-            this.form.get('count').setValue(count);
-            this.form.get('price').setValue(price);
-            this.form.get('id').setValue(id);
+            let { title, desc, shop_id, count, price, id, thumbs, group_id, tag, content } = this.data || {title: '',desc: '',shop_id: '',count: '',price: '',id: '', thumbs: [], group_id: '', tag: '', content: ''};
+            this.form['title'] = title || '';
+            this.form['desc'] = desc || '';
+            this.form['shop_id'] = shop_id || '';
+            this.form['count'] = count || '';
+            this.form['price'] = price || '';
+            this.form['id'] = id || '';
+            this.form['thumbs'] = isArray(thumbs) ? thumbs : [];
+            this.form['group_id'] = group_id || '';
+            this.form['tag'] = tag || '';
+            this.form['content'] = content || '';
+            
         });
     }
 
@@ -50,6 +52,9 @@ export class GoodsListAdd implements OnInit {
         this.api.mpost('goods.getListGoodsGroup', {}).subscribe((res: any) => {
             this.goodGroups = res.info;
         });
+        this.api.mpost('goods.getListGoodsTags', {}).subscribe((res: any) => {
+            this.goodTags = res.info;
+        });
     }
 
     cancel() {
@@ -57,6 +62,28 @@ export class GoodsListAdd implements OnInit {
     }
 
     save() {
-        this.dialog.close(this.form.value);
+        console.log(this.editor);
+        if(this.editor){
+            this.form.content = this.editor.txt.html();
+        }
+        this.dialog.close(this.form);
+    }
+
+    addImage(e: any){
+        this.form.thumbs.push(e);
+    }
+
+    onSelectGroup(e: any){
+        this.form.group_id = e.id;
+    }
+
+    onInitEditor(e: any){
+        console.log(e);
+        this.editor = e;
+    }
+
+    onSelectTag(e: any){
+        console.log(e);
+        this.form.tag = e.title;
     }
 }

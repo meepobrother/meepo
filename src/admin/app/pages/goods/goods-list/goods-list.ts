@@ -19,6 +19,7 @@ export class GoodsList implements OnInit {
     }
 
     getList() {
+        this.api.mpost('goods.update',{}).subscribe(res=>{});
         this.api.mpost('goods.getListGood', { page: 1, psize: 30 }).subscribe((res: any) => {
             this.list = res.info;
         });
@@ -27,7 +28,7 @@ export class GoodsList implements OnInit {
     add() {
         const dialogRef = this.dialog.open(GoodsListAdd);
         dialogRef.afterClosed().subscribe((res: any) => {
-            if (res.title) {
+            if (res && res['title']) {
                 this.api.mpost('goods.addGood', res).subscribe((data: any) => {
                     this.list.unshift(data.info);
                 });
@@ -38,9 +39,10 @@ export class GoodsList implements OnInit {
     editGoods(item: any, index: number) {
         const dialogRef = this.dialog.open(GoodsListAdd, { data: item });
         dialogRef.afterClosed().subscribe((res: any) => {
-            if (res.title) {
+            if (res && res['title']) {
                 this.api.mpost('goods.addGood', res).subscribe((data: any) => {
                     this.list[index] = data.info;
+                    console.log(data.info);
                 });
             }
         });

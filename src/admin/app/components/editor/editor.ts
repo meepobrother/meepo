@@ -1,4 +1,4 @@
-import { Component, OnInit, forwardRef, Inject, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit, forwardRef, Inject, ElementRef, ViewChild, AfterViewInit, Output, EventEmitter } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { DOCUMENT } from '@angular/common';
 import { Subject } from 'rxjs/Subject';
@@ -22,14 +22,17 @@ export class EditorComponent implements OnInit, ControlValueAccessor, AfterViewI
     loadSuccess: Subject<any> = new Subject();
     swiperJs: string = 'https://meepo.com.cn/meepo/libs/wangEditor/release/wangEditor.min.js';
     @ViewChild('divDemo') divDemo: ElementRef;
-    
+
+    @Output() onInit: EventEmitter<any> = new EventEmitter();
+    editor2: any;
     constructor(
         @Inject(DOCUMENT) public document: any,
         public ele: ElementRef
     ) { 
         this.loadSuccess.subscribe(E=>{
-            var editor2 = new E(this.divDemo.nativeElement);
-            editor2.create()
+            this.editor2 = new E(this.divDemo.nativeElement);
+            this.editor2.create();
+            this.onInit.emit(this.editor2);
         });
     }
 

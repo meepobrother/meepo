@@ -60,4 +60,14 @@ if(!pdo_fieldexists('imeepos_runner4_goods','shop_id')){
     pdo_query($sql);
 }
 
+if(!pdo_fieldexists('imeepos_runner4_goods','tag')){
+    $sql = "ALTER TABLE ".tablename('imeepos_runner4_goods')." ADD COLUMN `tag` varchar(64) NOT NULL DEFAULT ''";
+    pdo_query($sql);
+}
+
+if(!pdo_fieldexists('imeepos_runner4_goods','group_id')){
+    $sql = "ALTER TABLE ".tablename('imeepos_runner4_goods')." ADD COLUMN `group_id` int(11) unsigned DEFAULT '0'";
+    pdo_query($sql);
+}
+
 return $this;

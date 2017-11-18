@@ -1,4 +1,4 @@
 <select class="form-control" placeholder="请选择" [(ngModel)]="selectIndex" (change)="_onSelect()">
     <option [attr.value]="item.id" *ngFor="let item of items">{{item.title}}</option>
 </select>
-<multi-select-item *ngIf="hasChildren" [items]="select?.children"></multi-select-item>
+<multi-select-item (onSelect)="_onSelectItem($event)" *ngIf="hasChildren" [items]="select?.children"></multi-select-item>

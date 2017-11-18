@@ -1,0 +1,6 @@
+<h5>支付类型</h5>
+<div style="position: relative;min-height: 30px;">
+    <div class="w_tag bor-b marbot10">
+        <a href="javascript:;" class="tab_btn marbot20" [class.on]="item.active" *ngFor="let item of list" (click)="_select(item)">{{item.title}}</a>
+    </div>
+</div>
