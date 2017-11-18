@@ -40,12 +40,12 @@ export class MainLayoutComponent implements OnInit {
             icon: 'fa fa-book',
             link: ['/orders']
         },
-        {
-            title: '预约',
-            total: 0,
-            icon: 'ui-icon ui-icon-history',
-            link: ['/coachs']
-        },
+        // {
+        //     title: '预约',
+        //     total: 0,
+        //     icon: 'ui-icon ui-icon-history',
+        //     link: ['/coachs']
+        // },
         {
             title: '任务',
             total: 0,

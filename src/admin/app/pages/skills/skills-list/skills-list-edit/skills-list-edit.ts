@@ -22,6 +22,7 @@ export class SkillsListEdit implements OnInit {
                 this.form['uniacid'] = uniacid;
                 this.form['id'] = id;
                 this.form['desc'] = desc;
+                console.log(this.form);
         });
     }
     ngOnInit() {
