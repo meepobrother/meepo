@@ -14,7 +14,7 @@ if(!pdo_tableexists('imeepos_runner4_goods_group')){
 }
 
 if(!pdo_fieldexists('imeepos_runner4_goods_group','tags')){
-    $sql = "ALTER TABLE ".tablename('imeepos_runner4_goods_group')." ADD COLUMN `tags` text NOT NULL AFTER `status`;";
+    $sql = "ALTER TABLE ".tablename('imeepos_runner4_goods_group')." ADD COLUMN `tags` text NOT NULL;";
     pdo_query($sql);
 }
 

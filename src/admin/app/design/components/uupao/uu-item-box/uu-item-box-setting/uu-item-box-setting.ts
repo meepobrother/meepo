@@ -31,5 +31,7 @@ export class UuItemBoxSetting implements OnInit {
         });
     }
 
-    delete() { }
+    delete(index: number) {
+        this.widget.items.splice(index, 1);
+    }
 }
