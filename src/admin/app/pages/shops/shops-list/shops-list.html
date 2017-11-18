@@ -14,21 +14,21 @@
             <el-table-column label="店长" width="180">
                 <ng-template #slot let-scope="scope">
                     <img style="width: 2em;" *ngFor="let user of list[scope.index].shopers" [src]="user.avatar" alt="">
-                    <a class="btn btn-primary btn-xs btn-outline" (click)="addMember('kefu',scope.index)">添加</a>
+                    <a class="btn btn-primary btn-xs btn-outline" (click)="addMember('shopers',scope.index)">添加</a>
                 </ng-template>
             </el-table-column>
 
             <el-table-column label="员工" width="180">
                 <ng-template #slot let-scope="scope">
                     <img style="width: 2em;" *ngFor="let user of list[scope.index].employers" [src]="user.avatar" alt="">
-                    <a class="btn btn-primary btn-xs btn-outline" (click)="addMember('kefu',scope.index)">添加</a>
+                    <a class="btn btn-primary btn-xs btn-outline" (click)="addMember('employers',scope.index)">添加</a>
                 </ng-template>
             </el-table-column>
 
             <el-table-column label="前台" width="180">
                 <ng-template #slot let-scope="scope">
                     <img style="width: 2em;" *ngFor="let user of list[scope.index].kefus" [src]="user.avatar" alt="">
-                    <a class="btn btn-primary btn-xs btn-outline" (click)="addMember('kefu',scope.index)">添加</a>
+                    <a class="btn btn-primary btn-xs btn-outline" (click)="addMember('kefus',scope.index)">添加</a>
                 </ng-template>
             </el-table-column>
             <el-table-column model-key="title" label="店名" width="180"></el-table-column>

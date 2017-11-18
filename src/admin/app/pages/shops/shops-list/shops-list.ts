@@ -60,11 +60,16 @@ export class ShopsList implements OnInit {
 
     addMember(type: string, index: number) {
         let dialogRef = this.dialog.open(MemberSelectDialog);
-        dialogRef.afterClosed().subscribe((member: any)=>{
-            if(isArray(this.list[index][type])){
-                this.list[index][type].push(member);
-            }else{
-                this.list[index][type] = [member]
+        dialogRef.afterClosed().subscribe((member: any) => {
+            if(member && member.openid){
+                if (isArray(this.list[index][type])) {
+                    this.list[index][type].push({ openid: member.openid, avatar: member.avatar, nickname: member.nickname });
+                } else {
+                    this.list[index][type] = [
+                        { openid: member.openid, avatar: member.avatar, nickname: member.nickname }
+                    ]
+                }
+                console.log(this.list[index]);
             }
         });
     }
