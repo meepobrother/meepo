@@ -82,24 +82,24 @@ export class MainLayoutComponent implements OnInit {
             icon: 'fa fa-credit-card',
             link: ['/moneys']
         },
-        {
-            title: '数据',
-            total: 0,
-            icon: 'fa fa-signal',
-            link: ['/dates']
-        },
+        // {
+        //     title: '数据',
+        //     total: 0,
+        //     icon: 'fa fa-signal',
+        //     link: ['/dates']
+        // },
         {
             title: '应用',
             total: 0,
             icon: 'ui-icon ui-icon-dressup',
             link: ['/themes']
         },
-        {
-            title: '插件',
-            total: 0,
-            icon: 'ui-icon ui-icon-collected',
-            link: ['/plugins']
-        },
+        // {
+        //     title: '插件',
+        //     total: 0,
+        //     icon: 'ui-icon ui-icon-collected',
+        //     link: ['/plugins']
+        // },
         {
             title: '设置',
             total: 0,
