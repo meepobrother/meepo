@@ -19,9 +19,14 @@ if(!empty($input['title'])){
     if(empty($input['id'])){
         pdo_insert($table,$data);
         $data['id'] = pdo_insertid();
+        $data['thumbs'] = unserialize($data['thumbs']);
+        $data['setting'] = unserialize($data['setting']);
+        
     }else{
         pdo_update($table,$data,array('id'=>$input['id']));
         $data['id'] = $input['id'];
+        $data['thumbs'] = unserialize($data['thumbs']);
+        $data['setting'] = unserialize($data['setting']);
     }
 }
 

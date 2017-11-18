@@ -20,6 +20,8 @@ $list = pdo_getall(
 
 foreach($list as &$li){
     $li['shop'] = pdo_get('imeepos_runner4_shops',array('id'=>$li['shop_id']));
+    $li['thumbs'] = unserialize($li['thumbs']);
+    $li['setting'] = unserialize($li['setting']);
 }
 $this->info = !empty($list) ? $list : array();
 
