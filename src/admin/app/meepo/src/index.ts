@@ -4,6 +4,9 @@ export { MeLoading } from './me-loading/me-loading';
 import { MeAlert } from './me-alert/me-alert';
 export { MeAlert } from './me-alert/me-alert';
 
+import { ActionSelect } from './action-select/action-select';
+export { ActionSelect } from './action-select/action-select';
+
 import { MeConfirm } from './me-confirm/me-confirm';
 export { MeConfirm } from './me-confirm/me-confirm';
 
@@ -44,6 +47,7 @@ import { MultiSelect } from './multi-select/multi-select';
 import { MultiSelectItem } from './multi-select/multi-select-item/multi-select-item';
 
 import { TagSelect } from './tag-select/tag-select';
+import { PageSelect } from './page-select/page-select';
 
 
 export const MeepoComponents = [
@@ -64,5 +68,7 @@ export const MeepoComponents = [
     GroupAdd,
     MultiSelect,
     MultiSelectItem,
-    TagSelect
+    TagSelect,
+    ActionSelect,
+    PageSelect
 ];
