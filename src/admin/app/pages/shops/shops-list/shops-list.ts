@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../../core';
 import { MatDialog } from '@angular/material';
 import { ShopsListAdd } from './shops-list-add/shops-list-add';
+
+import { MemberSelectDialog } from '../../../meepo/src/index';
+
+import { isArray } from '../../../meepo/util';
 @Component({
     selector: 'shops-list',
     templateUrl: './shops-list.html',
@@ -52,5 +56,16 @@ export class ShopsList implements OnInit {
         this.api.mpost('shops.deleteShop', this.list[index]).subscribe((res => {
             this.list.splice(index, 1);
         }));
+    }
+
+    addMember(type: string, index: number) {
+        let dialogRef = this.dialog.open(MemberSelectDialog);
+        dialogRef.afterClosed().subscribe((member: any)=>{
+            if(isArray(this.list[index][type])){
+                this.list[index][type].push(member);
+            }else{
+                this.list[index][type] = [member]
+            }
+        });
     }
 }
