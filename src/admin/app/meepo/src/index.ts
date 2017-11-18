@@ -48,6 +48,7 @@ import { MultiSelectItem } from './multi-select/multi-select-item/multi-select-i
 
 import { TagSelect } from './tag-select/tag-select';
 import { PageSelect } from './page-select/page-select';
+import { LinkSelect } from './link-select/link-select';
 
 
 export const MeepoComponents = [
@@ -70,5 +71,6 @@ export const MeepoComponents = [
     MultiSelectItem,
     TagSelect,
     ActionSelect,
-    PageSelect
+    PageSelect,
+    LinkSelect
 ];
