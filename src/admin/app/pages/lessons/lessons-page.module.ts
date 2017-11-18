@@ -12,6 +12,7 @@ import { LessonsGroupAdd } from './lessons-group/lessons-group-add/lessons-group
 import { LessonsListAdd } from './lessons-list/lessons-list-add/lessons-list-add';
 import { LessonsTagsAdd } from './lessons-tags/lessons-tags-add/lessons-tags-add';
 
+import { FullCalendarModule } from 'ng-fullcalendar';
 const routes: Routes = [
     {
         path: '',
@@ -28,7 +29,7 @@ const routes: Routes = [
         LessonsListAdd,
         LessonsTagsAdd
     ],
-    imports: [CommonModule, RouterModule.forChild(routes), ShareModule],
+    imports: [CommonModule, RouterModule.forChild(routes), ShareModule, FullCalendarModule],
     exports: [
         LessonsPage
     ],

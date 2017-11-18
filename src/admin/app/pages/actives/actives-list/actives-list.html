@@ -12,7 +12,9 @@
                 <td>{{item.title}}</td>
                 <td>{{item.image}}</td>
                 <td>{{item.desc}}</td>
-                <td>{{item.group_title}}</td>
+                <td>
+                    <label class="label label-info">{{item.group_title}}</label>
+                </td>
                 <td>
                     <a class="btn btn-primary btn-xs" (click)="edit(item,i)">编辑</a>
                     <a class="btn btn-danger btn-xs" (click)="delete(item,i)">删除</a>
