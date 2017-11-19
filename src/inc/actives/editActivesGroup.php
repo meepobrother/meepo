@@ -8,6 +8,7 @@ $data['uniacid'] = $_W['uniacid'];
 $data['title'] = $input['title'];
 $data['tags'] = !empty($input['tags']) ? $input['tags'] : array();
 $data['tags'] = serialize($data['tags']);
+$data['fid'] = intval($input['fid']);
 
 $id = intval($input['id']);
 
