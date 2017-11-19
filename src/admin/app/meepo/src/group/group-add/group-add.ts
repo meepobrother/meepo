@@ -29,6 +29,8 @@ export class GroupAdd implements OnInit {
             this.form.get('id').setValue(id);
             this.form.get('uniacid').setValue(uniacid);
             this.form.get('fid').setValue(fid);
+
+            console.log(this.form.value);
         });
     }
 
@@ -39,6 +41,7 @@ export class GroupAdd implements OnInit {
     }
 
     save() {
+        console.log(this.form.value);
         this.dialog.close(this.form.value);
     }
 
@@ -51,6 +54,8 @@ export class GroupAdd implements OnInit {
     }
 
     onSelectGroup(e: any) {
-        this.form.get('fid').setValue(e.id);
+        if(e && e.id){
+            this.form.get('fid').setValue(e.id);
+        }
     }
 }

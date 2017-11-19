@@ -1,5 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ApiService } from '../../../core/api';
+import { MultiSelectService } from './multi-select.service';
+
 @Component({
     selector: 'multi-select',
     templateUrl: './multi-select.html',
@@ -8,15 +10,19 @@ import { ApiService } from '../../../core/api';
 export class MultiSelect implements OnInit {
     @Input() list: any[] = [];
     // 选中id
-    @Input() selectId: any;
     @Output() onSelect: EventEmitter<any> = new EventEmitter();
     constructor(
-        public api: ApiService
+        public api: ApiService,
+        public multiSelect: MultiSelectService
     ) { }
 
-    ngOnInit() { }
+    ngOnInit() {}
 
-    _onSelect(e: any){
+    _onSelect(e: any) {
         this.onSelect.emit(e);
+    }
+
+    setSelected(item: any){
+
     }
 }
