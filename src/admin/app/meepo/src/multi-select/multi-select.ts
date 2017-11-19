@@ -16,13 +16,13 @@ export class MultiSelect implements OnInit {
         public multiSelect: MultiSelectService
     ) { }
 
-    ngOnInit() {}
+    ngOnInit() { }
 
     _onSelect(e: any) {
         this.onSelect.emit(e);
     }
 
-    setSelected(item: any){
+    setSelected(item: any) {
 
     }
 }
