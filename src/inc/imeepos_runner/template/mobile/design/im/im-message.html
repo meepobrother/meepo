@@ -1,0 +1,31 @@
+<!-- {if $widget['type'] == 'im-message'} -->
+<!-- {if !empty($items)} -->
+<!-- {loop $items $item} -->
+<div class="layim-chat-system" *ngIf="item['openid'] == 'system'">
+    <span><im-message-content [item]="item"></im-message-content></span>
+</div>
+<div class="layim-chat-mine" *ngIf="item.openid == _openid">
+    <div class="layim-chat-user">
+        <img [src]="item?.avatar" alt="">
+        <cite>{{item.nickname || '昵称'}}</cite>
+    </div>
+    <div class="layim-chat-text">
+        <im-message-content [item]="item"></im-message-content>
+    </div>
+</div>
+<div class="layim-chat-li" *ngIf="item.openid == _openid">
+    <div class="layim-chat-user">
+        <img [src]="item?.avatar" alt="">
+        <cite>{{item.nickname || '昵称'}}</cite>
+    </div>
+    <div class="layim-chat-text">
+        <im-message-content [item]="item"></im-message-content>
+    </div>
+</div>
+<!-- {/loop} -->
+<!-- {else} -->
+<div class="im-message-view">
+    <p>没有收到信息</p>
+</div>
+{/if}
+<!-- {/if} -->

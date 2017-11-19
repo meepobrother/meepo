@@ -5,6 +5,11 @@
     <setting-container-margin [(widget)]="widget.containerStyle"></setting-container-margin>
     <setting-container-padding [(widget)]="widget.containerStyle"></setting-container-padding>
     <setting-container-color [(widget)]="widget.containerStyle"></setting-container-color>
+
+    <div class="form-group">
+        <label>高度</label>
+        <number-px [(model)]="widget.containerStyle['height']"></number-px>
+    </div>
 </div>
 
 <div class="ibox">

@@ -1,0 +1,21 @@
+<!-- {if $widget['type'] == 'meepo-video'} -->
+<div id="video-{$widget['code']}" style="
+    {loop $widget['containerStyle'] $key $value}
+        {$key}:{$value};
+    {/loop}
+"></div>
+
+<script src="https://meepo.com.cn/meepo/libs/chimee-player.browser.js"></script>
+<script>
+    $(function() {
+        player && player.destroy();
+        player = new ChimeePlayer({
+            src: "{php echo $widget['videoUrl']}",
+            wrapper: "#video-{$widget['code']}",
+            autoplay: true,
+            controls: true,
+            playsInline: true
+        });
+    });
+</script>
+<!-- {/if} -->

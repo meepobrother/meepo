@@ -10,7 +10,8 @@ export class MeepoVideoDefault extends Widget {
         this.name = '视频';
 
         this.containerStyle = {
-            'margin-top': '0px'
+            'margin-top': '0px',
+            'height': '166px'
         }
 
         this.styleObj = {
