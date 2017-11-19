@@ -8,7 +8,7 @@ import { ImFooterDefault } from '../../../../classes';
 export class ImFooterView implements OnInit {
     @Input() widget: ImFooterDefault = new ImFooterDefault();
     focus: boolean = false;
-    key: string;
+    key: string = '';
 
     constructor() { }
     ngOnInit() { }

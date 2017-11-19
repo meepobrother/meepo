@@ -20,11 +20,9 @@ export class ImFooterDefault extends Widget{
         this.tools = [];
 
         this.freeViewStyle = {
-            'position': 'absolute',
-            'top': '0px',
-            'left': '0px',
-            'right': '0px',
-            'bottom': '0px'
+            'position': 'relative',
+            'width': '100%',
+            'height': '100%'
         }
     }
 }
