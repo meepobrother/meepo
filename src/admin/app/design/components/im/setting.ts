@@ -1,12 +1,14 @@
-import { ImMessageSetting, ImFriendSetting } from './index';
+import { ImMessageSetting, ImFriendSetting, ImFooterSetting } from './index';
 
 export const im_settings = [
     ImMessageSetting,
-    ImFriendSetting
+    ImFriendSetting,
+    ImFooterSetting
 ];
 
 export const im_setting_map = {
     'im-message': ImMessageSetting,
-    'im-friend': ImFriendSetting
+    'im-friend': ImFriendSetting,
+    'im-setting': ImFooterSetting
 };
 
