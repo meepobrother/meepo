@@ -111,7 +111,13 @@ export class MainLayoutComponent implements OnInit {
             total: 0,
             icon: 'fa fa-cogs',
             link: ['/tests']
-        }
+        },
+        // {
+        //     title: '联盟',
+        //     total: 0,
+        //     icon: 'fa fa-cloud',
+        //     link: ['/cloud']
+        // },
     ];
     showMenu: boolean = false;
     timer: any;
