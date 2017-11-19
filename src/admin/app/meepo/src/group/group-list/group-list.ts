@@ -43,7 +43,7 @@ export class GroupList implements OnInit {
         let { item, index } = data;
         let dialogRef = this.dialog.open(GroupAdd, { data: item });
         dialogRef.afterClosed().subscribe(res => {
-            if (res.title) {
+            if (res && res.title) {
                 this.api.mpost(`${this.action}.edit${this.firstUpperCaseAction()}Group`, res).subscribe((data: any) => {
                     this.list[index] = data.info;
                 });
@@ -61,7 +61,7 @@ export class GroupList implements OnInit {
     add() {
         let dialogRef = this.dialog.open(GroupAdd);
         dialogRef.afterClosed().subscribe(res => {
-            if (res.title) {
+            if (res && res.title) {
                 this.api.mpost(`${this.action}.edit${this.firstUpperCaseAction()}Group`, res).subscribe((data: any) => {
                     this.list.push(data.info);
                 });
