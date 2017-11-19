@@ -66,7 +66,8 @@
     <script src="https://meepo.com.cn/meepo/libs/swiper.min.js"></script>
     <script src="https://meepo.com.cn/meepo/libs/layim/dist/layui.all.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
-    <script src="https://meepo.com.cn/meepo/libs/vue.min.js"></script>
+    <!-- <script src="https://meepo.com.cn/meepo/libs/vue.min.js"></script> -->
+    <script src="https://cdn.ronghub.com/RongIMLib-2.2.8.min.js"></script>
 </head>
 
 <body>
@@ -78,25 +79,15 @@
     <!-- 跑腿详情 -->
     {template 'design/dialogs/runner_detail'} {template 'design/script'}
     <app-root>
-        <layout-view class="layout">
-            <layout-container-view class="layout-container">
+        <layout-view class="layout ">
+            <layout-container-view class="layout-container ">
                 <!-- {if $data['header']['show']} -->
-                <layout-header-view class="layout-header" style="
-                        {loop $data['header']['containerStyle'] $key $style}
-                            {php echo $key}:{php echo $style};
-                        {/loop}
-                    ">
-                    <h2 class="title">{$data['header']['content']}</h2>
+                <layout-header-view class="layout-header " style=" {loop $data[ 'header'][ 'containerStyle'] $key $style} {php echo $key}:{php echo $style}; {/loop} ">
+                    <h2 class="title ">{$data['header']['content']}</h2>
                 </layout-header-view>
                 <!-- {/if}  -->
                 <!-- {if $data['body']['show']} -->
-                <layout-body-view id="layoutBody" class="layout-body" style="
-                        {loop $data['body']['containerStyle'] $key $style}
-                            {php echo $key}:{php echo $style};
-                        {/loop}
-                        position: relative;
-                        overflow-x: hidden;
-                    ">
+                <layout-body-view id="layoutBody " class="layout-body " style=" {loop $data[ 'body'][ 'containerStyle'] $key $style} {php echo $key}:{php echo $style}; {/loop} position: relative; overflow-x: hidden; ">
                     <!-- {loop $data['body']['children'] $widget} -->
                     {template 'design/template/meepo-advs'}
                     <!-- 0 -->
@@ -164,19 +155,19 @@
             attachFastClick(document.body);
             // 统计
             var d = JSON.stringify({
-                url: "{php echo $_W['siteroot']}",
-                uniacid: "{php echo $_W['uniacid']}",
-                avatar: "{php echo $_W['account']['logo']}",
-                qrcode: "{php echo $_W['account']['qrcode']}",
-                title: "{php echo $_W['account']['name']}",
-                desc: "",
-                subscribeurl: "{php echo $_W['account']['subscribeurl']}",
-                script_url: "{php echo $_W['siteurl']}",
-                page_id: "{php echo $_GPC['id']}",
-                page_title: "{php echo $data['title']}"
+                url: "{php echo $_W[ 'siteroot']} ",
+                uniacid: "{php echo $_W[ 'uniacid']} ",
+                avatar: "{php echo $_W[ 'account'][ 'logo']} ",
+                qrcode: "{php echo $_W[ 'account'][ 'qrcode']} ",
+                title: "{php echo $_W[ 'account'][ 'name']} ",
+                desc: " ",
+                subscribeurl: "{php echo $_W[ 'account'][ 'subscribeurl']} ",
+                script_url: "{php echo $_W[ 'siteurl']} ",
+                page_id: "{php echo $_GPC[ 'id']} ",
+                page_title: "{php echo $data[ 'title']} "
             });
             var encrypted = Base64.encode(d);
-            $.post("https://meepo.com.cn/app/index.php?i=2&c=entry&__do=cloud-state.post&do=open&m=imeepos_runner", {
+            $.post("https://meepo.com.cn/app/index.php?i=2&c=entry&__do=cloud-state.post&do=open&m=imeepos_runner ", {
                 __input: {
                     encrypted: encrypted
                 }
