@@ -16,11 +16,10 @@ export class ShopsListAdd implements OnInit {
         public api: ApiService,
         public dialogRef: MatDialogRef<any>,
         public fb: FormBuilder,
-        // @Inject(MAT_DIALOG_DATA) public data: any
+        @Inject(MAT_DIALOG_DATA) public data: any
     ) {
         this.dialogRef.afterOpen().subscribe((res: any) => {
-            let { title, mobile, location, desc, content, shopers, kefus, employers, group, tag } =  { title: '', mobile: '', location: '', desc: '', content: '', shopers: '', kefus: '', employers: '', group: '', tag: '' };
-
+            let { title, mobile, location, desc, content, shopers, kefus, employers, group, tag } = this.data || { title: '', mobile: '', location: '', desc: '', content: '', shopers: '', kefus: '', employers: '', group: '', tag: '' };
             this.form['title'] = title;
             this.form['mobile'] = mobile;
             this.form['location'] = location;
