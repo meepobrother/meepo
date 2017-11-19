@@ -79,6 +79,14 @@ import {
 } from './topics';
 
 import {
+    im_settings, im_setting_map
+} from './im/setting';
+
+import {
+    im_views, im_view_map
+} from './im/view';
+
+import {
     View, ViewSetting,
     ScrollView, ScrollViewSetting,
     SwiperItem, Swiper, SwiperSetting
@@ -202,7 +210,9 @@ export const COMPONENTS = [
     ...hdb_settings,
     ...hdb_views,
     ...forms_views,
-    ...forms_settings
+    ...forms_settings,
+    ...im_settings,
+    ...im_views
 ];
 
 
@@ -263,7 +273,8 @@ export const COMPONENTS_VIEW = {
     ...runner_view_map,
     ...hm_view_map,
     ...hdb_view_map,    
-    ...forms_view_map
+    ...forms_view_map,
+    ...im_view_map
 };
 
 
@@ -309,7 +320,8 @@ export const COMPONENTS_SETTING = {
     ...runner_setting_map,
     ...hm_setting_map,
     ...hdb_setting_map,
-    ...forms_setting_map
+    ...forms_setting_map,
+    ...im_setting_map
 };
 
 export * from '../classes/widgets';

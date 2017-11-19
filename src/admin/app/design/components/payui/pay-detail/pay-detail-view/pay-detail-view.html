@@ -63,7 +63,6 @@
         <div class="weui-wepay-detail weui-wepay-detail_column" *ngFor="let item of widget.items">
             <div *ngFor="let sub of widget.subHeaders" [style.width.%]="sub.width" style="text-align: center;">{{item[sub.code]}}</div>
         </div>
-        <white-space></white-space>
         <div class="weui-wepay-detail" *ngFor="let foot of widget.footer">
             <div class="weui-wepay-detail__bd">{{foot.title}}：</div>
             <div class="weui-wepay-detail__ft">{{foot.money}}</div>

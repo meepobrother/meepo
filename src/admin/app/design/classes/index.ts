@@ -27,11 +27,12 @@ export * from './weui-icon';
 export * from './weui-tabbar';
 export * from './heimao';
 export * from './hdb';
+export * from './im';
+
 
 
 export * from './zan-ui';
 export * from './jd';
-
 
 export * from './forms';
 export * from './goods';

@@ -7,7 +7,7 @@ import {
     TextAdvModule, PriceListModule, OverlayModule,
     CoverModule, ColorSelectModule, Iphone6Module,
     WeuiGridModule, MenuModule, EditorModule,
-    MeepoDialogModule, WeuiPickerModule
+    MeepoDialogModule, WeuiPickerModule, Components
 } from '../components';
 
 import { ImageSelectDirective } from './setting';
@@ -56,13 +56,15 @@ const materials = [
     declarations: [
         ...SECTIONS,
         ...DIALOGS,
-        ImageSelectDirective
+        ImageSelectDirective,
+        ...Components
     ],
     exports: [
         ...materials,
         ...SECTIONS,
         ...DIALOGS,
-        ImageSelectDirective
+        ImageSelectDirective,
+        ...Components
     ],
     providers: [
         ...SECTIONS_SERVICES

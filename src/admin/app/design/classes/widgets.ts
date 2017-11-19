@@ -25,7 +25,7 @@ import {
     HelpRunnerDefault, NotFondDefault, RunnerAgreementDefault, RunnerTabDefault,
     PeopleNumberDefault, HmMarqueeDefault, HmBoxDefault, HmHomeTopDefault,
     HmBannerDefault, HdbChannelDefault, ActiveListDefault, PosterImageDefault,
-    AddressCityDefault
+    AddressCityDefault, ImMessageDefault, ImFriendDefault
 } from './index';
 
 
@@ -124,5 +124,7 @@ export const WIDGETS = {
     'hdb-channel': HdbChannelDefault,
     'active-list': ActiveListDefault,
     'poster-image': PosterImageDefault,
-    'address-city': AddressCityDefault
+    'address-city': AddressCityDefault,
+    'im-message': ImMessageDefault,
+    'im-friend': ImFriendDefault
 };
