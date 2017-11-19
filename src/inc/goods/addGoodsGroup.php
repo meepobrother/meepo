@@ -20,4 +20,5 @@ if(!empty($input['title'])){
 }
 
 $this->info = $data;
+$this->msg = $input;
 return $this;
