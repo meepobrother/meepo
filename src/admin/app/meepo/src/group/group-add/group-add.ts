@@ -17,13 +17,15 @@ export class GroupAdd implements OnInit {
         this.form = this.fb.group({
             title: [''],
             id: [''],
-            uniacid: ['']
+            uniacid: [''],
+            fid: ['']
         });
         this.dialog.afterOpen().subscribe(res => {
-            let { title, id, uniacid } = this.data;
+            let { title, id, uniacid,fid } = this.data;
             this.form.get('title').setValue(title);
             this.form.get('id').setValue(id);
             this.form.get('uniacid').setValue(uniacid);
+            this.form.get('fid').setValue(fid);
         });
     }
     ngOnInit() { }
@@ -35,5 +37,9 @@ export class GroupAdd implements OnInit {
     }
     close() {
         this.cancel();
+    }
+
+    onSelectGroup(e: any){
+        this.form.get('fid').setValue(e.id);
     }
 }
