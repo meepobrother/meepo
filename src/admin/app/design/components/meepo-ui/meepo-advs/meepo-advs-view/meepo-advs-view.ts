@@ -8,6 +8,7 @@ import { DOCUMENT } from '@angular/common';
 import { Subject } from 'rxjs/Subject';
 import { MeepoAdvs } from '../../../../classes';
 
+import { loadSrc } from '../../../../../meepo/db/load-resource';
 @Component({
     selector: 'meepo-advs-view',
     templateUrl: './meepo-advs-view.html',
@@ -24,17 +25,15 @@ export class MeepoAdvsView implements OnInit, AfterViewInit {
     constructor(
         public ele: ElementRef,
         @Inject(DOCUMENT) public document: any
-    ) { 
-
-        this.laodSuccess.subscribe(swiper=>{
-            this.swiper = new swiper(this.container.nativeElement, {});
-        });
-    }
+    ) { }
 
     ngOnInit() { }
 
     ngAfterViewInit() {
-        this.loadJScript();
+        loadSrc(this.swiperJs,'Swiper').subscribe((swiper)=>{
+            this.swiper = new swiper(this.container.nativeElement, {});
+        })
+        // this.loadJScript();
     }
 
     loadJScript() {

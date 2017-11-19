@@ -2,13 +2,14 @@ import {
     PayuiFlowSetting, PayRecordSetting,
     PayScanCodeSetting, PaySelectMoneySetting,
     PayStateSetting, PayInputMoneySetting,
-    PayMessageSuccessSetting
+    PayMessageSuccessSetting, PayDetailSetting
 } from './index';
 
 export const payui_settings = [
     PayuiFlowSetting, PayRecordSetting,
     PayScanCodeSetting, PaySelectMoneySetting,
-    PayStateSetting, PayInputMoneySetting, PayMessageSuccessSetting
+    PayStateSetting, PayInputMoneySetting, PayMessageSuccessSetting,
+    PayDetailSetting
 ];
 export const payui_setting_map = {
     'pay-record': PayRecordSetting,
@@ -17,5 +18,6 @@ export const payui_setting_map = {
     'pay-state': PayStateSetting,
     'pay-scan-code': PayScanCodeSetting,
     'pay-input-money': PayInputMoneySetting,
-    'pay-message-success': PayMessageSuccessSetting
+    'pay-message-success': PayMessageSuccessSetting,
+    'pay-detail': PayDetailSetting
 };

@@ -15,6 +15,5 @@ export * from './weui-picker';
 export * from './editor';
 export * from './dialog';
 export * from './sortable';
-
-
+export * from './im-message-content/im-message-content';
 
