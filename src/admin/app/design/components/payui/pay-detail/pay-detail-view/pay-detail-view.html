@@ -1,0 +1,74 @@
+<div class="weui-wepay-details" *ngIf="widget.style == 'justify'">
+    <div class="weui-wepay-details__hd">
+        <div class="weui-wepay-details__state">
+            <h2 class="weui-wepay-details__title">
+                <i class="weui-wepay-details__icon weui-icon-success"></i> {{widget.title}}
+            </h2>
+            <p class="weui-wepay-details__desc">￥{{widget.total}}</p>
+        </div>
+    </div>
+    <div class="weui-wepay-details__bd">
+        <div class="weui-wepay-detail" *ngFor="let item of widget.items">
+            <div class="weui-wepay-detail__bd">{{item.title}}：</div>
+            <div class="weui-wepay-detail__ft">{{item.money}}</div>
+        </div>
+    </div>
+</div>
+<div class="weui-wepay-details" *ngIf="widget.style == 'left'">
+    <div class="weui-wepay-details__hd">
+        <div class="weui-wepay-detail">
+            <div class="weui-wepay-detail__bd">{{widget.title}}</div>
+            <div class="weui-wepay-detail__ft weui-wepay-color-green">￥{{widget.total}}</div>
+        </div>
+    </div>
+    <div class="weui-wepay-details__bd">
+        <div class="weui-wepay-detail weui-wepay-detail_primary" *ngFor="let item of widget.items">
+            <div class="weui-wepay-detail__bd">{{item.title}}：</div>
+            <div class="weui-wepay-detail__ft">{{item.money}}</div>
+        </div>
+    </div>
+</div>
+<div class="weui-wepay-details" *ngIf="widget.style == 'column'">
+    <div class="weui-wepay-details__hd">
+        <div class="weui-wepay-detail">
+            <div class="weui-wepay-detail__hd">{{widget.title}}</div>
+        </div>
+    </div>
+    <div class="weui-wepay-details__bd">
+        <div class="weui-wepay-detail">
+            <div class="weui-wepay-detail__hd" *ngFor="let sub of widget.subHeaders" [style.width.%]="sub.width">
+                <strong>{{sub.title}}</strong>
+            </div>
+        </div>
+        <div class="weui-wepay-detail" *ngFor="let item of widget.items">
+            <div class="weui-wepay-detail__hd" [style.width.%]="_props.subHeaders[0].width">{{item.title}}</div>
+            <div class="weui-wepay-detail__bd" [style.width.%]="_props.subHeaders[1].width">{{item.desc}}</div>
+            <div class="weui-wepay-detail__ft" [style.width.%]="_props.subHeaders[2].width">{{item.money}}</div>
+        </div>
+        <div class="weui-wepay-details__line">
+            <div class="weui-wepay-detail" *ngFor="let foot of widget.footer">
+                <div class="weui-wepay-detail__hd">{{foot.title}}</div>
+                <div class="weui-wepay-detail__ft">
+                    <del>{{foot.money}}</del>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="weui-wepay-details" *ngIf="widget.style == 'table'">
+    <div class="weui-wepay-details__bd" style="padding-top: 0;">
+        <div class="weui-wepay-detail weui-wepay-detail_column">
+            <div *ngFor="let sub of widget.subHeaders" [style.width.%]="sub.width" style="text-align: center;"><strong>{{sub.title}}</strong></div>
+        </div>
+        <div class="weui-wepay-detail weui-wepay-detail_column" *ngFor="let item of widget.items">
+            <div *ngFor="let sub of widget.subHeaders" [style.width.%]="sub.width" style="text-align: center;">{{item[sub.code]}}</div>
+        </div>
+        <div class="weui-wepay-detail" *ngFor="let foot of widget.footer">
+            <div class="weui-wepay-detail__bd">{{foot.title}}：</div>
+            <div class="weui-wepay-detail__ft">{{foot.money}}</div>
+        </div>
+    </div>
+</div>
+<div class="weui-wepay-details__ft" *ngIf="widget.haspay">
+    <a href="javascript:;" class="weui-btn weui-btn_primary" (click)="pay()">确定</a>
+</div>

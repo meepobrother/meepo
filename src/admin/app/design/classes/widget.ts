@@ -4,6 +4,8 @@ export class Widget {
     code: string = uuid();
     type: string = 'widget';
     name: string = '基础面板';
+
+    freeViewStyle: any = {};
     // 面板内容
     content: any;
     // 面板动画

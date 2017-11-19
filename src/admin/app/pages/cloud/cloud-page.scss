@@ -1,0 +1,20 @@
+.demo {
+    padding: 0 10px;
+}
+
+.form-group {
+    display: flex;
+    .btn {
+        flex: 1;
+        margin: 0 10px;
+    }
+}
+
+label {
+    display: block;
+    min-width: 6em;
+}
+
+.h10 {
+    height: 10px;
+}

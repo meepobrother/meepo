@@ -108,6 +108,11 @@ const routes:Routes = [
         path: 'lessons',
         loadChildren: 'app/pages/lessons/lessons-page.module#LessonsPageModule',
         canActivate: [IsLoginGuard]
+    },
+    {
+        path: 'cloud',
+        loadChildren: 'app/pages/cloud/cloud-page.module#CloudPageModule',
+        canActivate: [IsLoginGuard]
     }
 ];
 @NgModule({

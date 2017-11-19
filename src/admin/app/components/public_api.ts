@@ -15,6 +15,9 @@ export * from './weui-picker';
 export * from './editor';
 export * from './dialog';
 export * from './sortable';
+export * from './im-message-content/im-message-content';
 
-
-
+import { ImMessageContentComponent } from './im-message-content/im-message-content';
+export const Components = [
+    ImMessageContentComponent
+];
