@@ -4,7 +4,5 @@ import * as uuid from 'uuid';
 export class SidebarService {
     sidebars: Map<string, any> = new Map();
     childSidebars: Map<string, any> = new Map();
-    constructor() {
-        console.log(uuid());
-    }
+    constructor() { }
 }

@@ -3,8 +3,6 @@ import { MeepoVideoDefault } from '../../../../classes';
 
 import * as Chimee from 'chimee';
 
-console.log(Chimee);
-
 @Component({
     selector: 'meepo-video-view',
     templateUrl: './meepo-video-view.html',

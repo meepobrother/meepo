@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../../core';
 import { MatDialog } from '@angular/material';
-import { ShopsListAdd } from './shops-list-add';
+import { ShopsListAdd } from './shops-list-add/shops-list-add';
+
+import { MemberSelectDialog } from '../../../meepo/src/index';
+
+import { isArray } from '../../../meepo/util';
 @Component({
     selector: 'shops-list',
     templateUrl: './shops-list.html',
@@ -26,26 +30,51 @@ export class ShopsList implements OnInit {
     }
 
     add() {
-        const dialogRef = this.dialog.open(ShopsListAdd);
+        const dialogRef = this.dialog.open(ShopsListAdd, { data: {} });
         dialogRef.afterClosed().subscribe(res => {
-            if (res) {
-                this.api.mpost('shops.addShop', res).subscribe(res => {
+            if (res && res.title) {
+                this.api.mpost('shops.addShop', res).subscribe((data: any) => {
                     this.getList();
+                    this.list.push(data.info);
                 });
             }
         });
     }
 
-    edit(item: any, index: number) {
-        const dialogRef = this.dialog.open(ShopsListAdd, { data: item });
+    edit(index: number) {
+        const dialogRef = this.dialog.open(ShopsListAdd, { data: this.list[index] });
         dialogRef.afterClosed().subscribe(res => {
-
+            if (res && res.title) {
+                this.api.mpost('shops.addShop', res).subscribe((data: any) => {
+                    this.list[index] = data.info;
+                });
+            }
         });
     }
 
-    delete(item: any, index: number) {
-        this.api.mpost('shops.deleteShop', item).subscribe((res => {
+    delete(index: number) {
+        this.api.mpost('shops.deleteShop', this.list[index]).subscribe((res => {
             this.list.splice(index, 1);
         }));
+    }
+
+    addMember(type: string, index: number) {
+        let dialogRef = this.dialog.open(MemberSelectDialog);
+        dialogRef.afterClosed().subscribe((member: any) => {
+            if (member && member.openid) {
+                if (isArray(this.list[index][type])) {
+                    this.list[index][type].push({ openid: member.openid, avatar: member.avatar, nickname: member.nickname });
+                } else {
+                    this.list[index][type] = [
+                        { openid: member.openid, avatar: member.avatar, nickname: member.nickname }
+                    ]
+                }
+                // 更新
+                console.log(this.list[index]);
+                this.api.mpost('shops.updateShopMembers', { type: type, data: this.list[index][type], shop_id: this.list[index].id }).subscribe(res => {
+                    console.log(res);
+                });
+            }
+        });
     }
 }

@@ -77,8 +77,6 @@ export class ApiService {
         let url = this.murl('entry//open', { m: 'imeepos_runner', __do: __do }, isCloud);
         const d = JSON.stringify(__body);
         const encrypted = Base64.encode(d);
-        console.log(sitehttp);
-        console.log(window.location.protocol);
         if(url.indexOf('http://') != -1 && window.location.protocol != 'http:'){
             return this.mpost('cloud.getCloudUrl', { url: url, data: { encrypted: encrypted } }, 'imeepos_runner', true);
         } else {

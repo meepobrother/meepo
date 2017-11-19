@@ -2,56 +2,44 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { ApiService } from '../../../../core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { MemberSelectDialog } from '../../../../meepo/src/index';
 @Component({
     selector: 'shops-list-add',
     templateUrl: './shops-list-add.html',
     styleUrls: ['./shops-list-add.scss']
 })
 export class ShopsListAdd implements OnInit {
-    form: FormGroup;
+    form: any = {};
+    groups: any[] = [];
+
     constructor(
         public api: ApiService,
         public dialogRef: MatDialogRef<any>,
-        @Inject(MAT_DIALOG_DATA) public data: any,
         public fb: FormBuilder,
-    ) { 
-        this.form = this.fb.group({
-            title: [''],
-            mobile: [''],
-            location: this.fb.group({
-                lat: [''],
-                lng: [''],
-                address: [''],
-                detail: ['']
-            }),
-            desc: [''],
-            content: [''],
-            shopers: [[]],
-            kefus: [[]],
-            employers: [[]],
-            group: [''],
-            tag: ['']
-        });
-
-        this.dialogRef.afterOpen().subscribe((res: any)=>{
-            console.log(res);
-            let { title, mobile, location, desc, content, shopers, kefus, employers, group, tag } = this.data;
-            this.form.get('title').setValue(title);
-            this.form.get('mobile').setValue(mobile);
-            this.form.get('location').setValue(location);
-            this.form.get('desc').setValue(desc);
-            this.form.get('content').setValue(content);
-            this.form.get('shopers').setValue(shopers);
-            this.form.get('kefus').setValue(kefus);
-            this.form.get('employers').setValue(employers);
-            this.form.get('group').setValue(group);
-            this.form.get('tag').setValue(tag);
+        @Inject(MAT_DIALOG_DATA) public data: any
+    ) {
+        this.dialogRef.afterOpen().subscribe((res: any) => {
+            let { title, mobile, location, desc, content, shopers, kefus, employers, group, tag } = this.data || { title: '', mobile: '', location: '', desc: '', content: '', shopers: '', kefus: '', employers: '', group: '', tag: '' };
+            this.form['title'] = title;
+            this.form['mobile'] = mobile;
+            this.form['location'] = location;
+            this.form['desc'] = desc;
+            this.form['content'] = content;
+            this.form['shopers'] = shopers;
+            this.form['kefus'] = kefus;
+            this.form['employers'] = employers;
+            this.form['group'] = group;
+            this.form['tag'] = tag;
         });
     }
 
-    ngOnInit() { }
+    ngOnInit() {
+        this.api.mpost('shops.getListShopsGroup', {}).subscribe((res: any) => {
+            this.groups = res.info;
+        });
+    }
 
-    cancel() { 
+    cancel() {
         this.dialogRef.close();
     }
 
@@ -59,17 +47,21 @@ export class ShopsListAdd implements OnInit {
         this.dialogRef.close(this.form.value);
     }
 
-    onChangeShopers(e: any){
-        this.form.get('shopers').setValue(e);
+    onChangeShopers(e: any) {
+        this.form['shopers'] = e;
     }
 
-    onChangeKefus(e: any){
-        this.form.get('kefus').setValue(e);
+    onChangeKefus(e: any) {
+        this.form['kefus'] = e;
     }
 
-    onChangeEmployers(e: any){
-        this.form.get('employers').setValue(e);
+    onChangeEmployers(e: any) {
+        this.form['employers'] = e;
     }
 
     delete() { }
+
+    onSelectShopGroup(e: any) {
+        this.form['group_id'] = e.id;
+    }
 }

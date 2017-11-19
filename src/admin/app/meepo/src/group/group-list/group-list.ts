@@ -19,15 +19,15 @@ export class GroupList implements OnInit {
     ) { }
 
     ngOnInit() {
+        this.api.mpost(`${this.action}.update`, {}).subscribe(res => { });
         this.getList();
     }
 
-    firstUpperCaseAction(){
-        return `${this.action[0].toUpperCase()}${this.action.substring(1,this.action.length)}`;
+    firstUpperCaseAction() {
+        return `${this.action[0].toUpperCase()}${this.action.substring(1, this.action.length)}`;
     }
 
     getList() {
-        this.api.mpost(`${this.action}.update`, {}).subscribe(res => { });
         this.api.mpost(`${this.action}.getList${this.firstUpperCaseAction()}Group`, {}).subscribe((res: any) => {
             this.list = res.info;
         });
@@ -43,9 +43,9 @@ export class GroupList implements OnInit {
         let { item, index } = data;
         let dialogRef = this.dialog.open(GroupAdd, { data: item });
         dialogRef.afterClosed().subscribe(res => {
-            if (res.title) {
+            if (res && res.title) {
                 this.api.mpost(`${this.action}.edit${this.firstUpperCaseAction()}Group`, res).subscribe((data: any) => {
-                    this.list[index] = data.info;
+                    this.getList();
                 });
             }
         });
@@ -54,16 +54,28 @@ export class GroupList implements OnInit {
     delete(data: any) {
         let { item, index } = data;
         this.api.mpost(`${this.action}.delete${this.firstUpperCaseAction()}Group`, item).subscribe(res => {
-            this.list.splice(index, 1);
+            this.getList();
         });
     }
 
     add() {
         let dialogRef = this.dialog.open(GroupAdd);
         dialogRef.afterClosed().subscribe(res => {
-            if (res.title) {
+            if (res && res.title) {
                 this.api.mpost(`${this.action}.edit${this.firstUpperCaseAction()}Group`, res).subscribe((data: any) => {
-                    this.list.push(data.info);
+                    this.getList();
+                });
+            }
+        });
+    }
+
+    addItem(e: any) {
+        console.log(e);
+        let dialogRef = this.dialog.open(GroupAdd, { data: { fid: e.item.id } });
+        dialogRef.afterClosed().subscribe(res => {
+            if (res && res.title) {
+                this.api.mpost(`${this.action}.edit${this.firstUpperCaseAction()}Group`, res).subscribe((data: any) => {
+                    this.getList();
                 });
             }
         });

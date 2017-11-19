@@ -18,6 +18,8 @@ export const ShareNewModules = [
 
 import { MeepoComponents } from './src';
 
+import { MultiSelectService } from './src/multi-select/multi-select.service';
+
 @NgModule({
     imports: [
         ...ShareNewModules
@@ -30,7 +32,8 @@ import { MeepoComponents } from './src';
         ...MeepoComponents
     ],
     providers: [
-        MeepoAppService
+        MeepoAppService,
+        MultiSelectService
     ],
     entryComponents: [
         ...MeepoComponents
