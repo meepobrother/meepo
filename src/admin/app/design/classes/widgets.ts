@@ -25,7 +25,7 @@ import {
     HelpRunnerDefault, NotFondDefault, RunnerAgreementDefault, RunnerTabDefault,
     PeopleNumberDefault, HmMarqueeDefault, HmBoxDefault, HmHomeTopDefault,
     HmBannerDefault, HdbChannelDefault, ActiveListDefault, PosterImageDefault,
-    AddressCityDefault, ImMessageDefault, ImFriendDefault
+    AddressCityDefault, ImMessageDefault, ImFriendDefault, ImFooterDefault
 } from './index';
 
 
@@ -126,5 +126,6 @@ export const WIDGETS = {
     'poster-image': PosterImageDefault,
     'address-city': AddressCityDefault,
     'im-message': ImMessageDefault,
-    'im-friend': ImFriendDefault
+    'im-friend': ImFriendDefault,
+    'im-footer': ImFooterDefault
 };

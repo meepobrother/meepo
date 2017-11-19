@@ -16,5 +16,7 @@ export class ImMessageDefault extends Widget{
         this.styleObj = {
             'margin-top': '0px'
         }
+
+        
     }
 }

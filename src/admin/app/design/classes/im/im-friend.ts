@@ -7,7 +7,7 @@ export class ImFriendDefault extends Widget{
     constructor(){
         super();
         this.type = 'im-friend';
-        this.name = '朋友列表';
+        this.name = '会员列表';
 
         this.containerStyle = {
             'margin-top': '0px'

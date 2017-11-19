@@ -9,6 +9,6 @@ export const im_settings = [
 export const im_setting_map = {
     'im-message': ImMessageSetting,
     'im-friend': ImFriendSetting,
-    'im-setting': ImFooterSetting
+    'im-footer': ImFooterSetting
 };
 
