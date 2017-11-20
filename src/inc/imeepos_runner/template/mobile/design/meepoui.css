@@ -8448,6 +8448,44 @@ video:active {
 .marbot20 {
   margin-bottom: 20px; }
 
+/* 常见问题 */
+#faq {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  height: 100%; }
+
+#faq dt,
+#faq dd {
+  position: relative;
+  padding: .5em 1em .5em 2em;
+  border-bottom: 1px solid #ddd;
+  background: white; }
+
+#faq i {
+  position: absolute;
+  left: .5em;
+  top: .8em;
+  display: block;
+  width: 1.5em;
+  height: 1.5em;
+  line-height: 1.5em;
+  text-align: center;
+  font-style: normal;
+  border-radius: .3em;
+  color: white;
+  font-size: .8em; }
+
+#faq dt i {
+  background: #58b5ff; }
+
+#faq dd i {
+  background: #f36141; }
+
+#faq dd {
+  display: none;
+  background: #fffff0;
+  padding-left: .5em; }
+
 body {
   background-color: #fbf9fe; }
 
