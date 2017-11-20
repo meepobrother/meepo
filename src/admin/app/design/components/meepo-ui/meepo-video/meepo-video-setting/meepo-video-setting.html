@@ -10,6 +10,10 @@
         <label>高度</label>
         <number-px [(model)]="widget.containerStyle['height']"></number-px>
     </div>
+
+    <div class="form-group">
+        <a class="btn btn-default" [class.btn-primary]="widget.fixed" (click)="setFlexd()">固定在顶部</a>
+    </div>
 </div>
 
 <div class="ibox">
