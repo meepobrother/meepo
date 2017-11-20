@@ -1,0 +1,25 @@
+<script id="im-message-list" type="text/x-handlebars-template">
+    {{#each data}}
+    <div class="layim-chat-system" *ngIf="item['openid'] == 'system'">
+        <span><im-message-content [item]="item"></im-message-content></span>
+    </div>
+    <div class="layim-chat-mine" *ngIf="item.openid == _openid">
+        <div class="layim-chat-user">
+            <img [src]="item?.avatar" alt="">
+            <cite>{{item.nickname || '昵称'}}</cite>
+        </div>
+        <div class="layim-chat-text">
+            <im-message-content [item]="item"></im-message-content>
+        </div>
+    </div>
+    <div class="layim-chat-li" *ngIf="item.openid == _openid">
+        <div class="layim-chat-user">
+            <img [src]="item?.avatar" alt="">
+            <cite>{{item.nickname || '昵称'}}</cite>
+        </div>
+        <div class="layim-chat-text">
+            <im-message-content [item]="item"></im-message-content>
+        </div>
+    </div>
+    {{/each}}
+</script>

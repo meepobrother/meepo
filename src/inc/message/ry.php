@@ -23,6 +23,9 @@ $user = pdo_get('imeepos_runner3_member',array('openid'=>$openid));
 $user['nickname'] = $user['nickname'] ? $user['nickname'] : '昵称';
 $user['avatar'] = $user['avatar'] ? $user['avatar'] : 'https://mepeo.com.cn/meepo/images/avatar.png';
 
+$input['act'] = $input['act'] ? $input['act'] : 'group.create';
+$result = $RongCloud->user()->getToken($openid, $user['nickname'], $user['avatar']);
+
 if($input['act'] == 'getToken'){
     $result = $RongCloud->user()->getToken($openid, $user['nickname'], $user['avatar']);
     $this->info = json_decode($result,true);
@@ -69,6 +72,14 @@ if($input['act'] == 'broadcast'){
     return $this;
 }
 
+if($input['act'] == 'group.create'){
+    $pid = $_GPC['pid'];
+    $groupName = $input['groupName']? $input['groupName']: 'groupId'.$pid;
+    $result = $RongCloud->group()->create(["fromUser"], 'groupId'.$pid, $groupName);
+    $this->info = json_decode($result,true);
+    $this->msg = $groupName;
+    return $this;
+}
 
 function getRyConfig(){
     global $_W;

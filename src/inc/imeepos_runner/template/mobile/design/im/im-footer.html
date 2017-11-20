@@ -7,8 +7,8 @@
 <div class="layim-chat-footer">
     <div class="floor-container">
         <div class="layim-chat-send">
-            <input type="text" autocomplete="off" placeholder="请输入信息">
-            <button class="layim-send">发送</button>
+            <input type="text" id="key-{$widget['code']}" autocomplete="off" placeholder="请输入信息">
+            <button type="button" class="layim-send" id="send-{$widget['code']}">发送</button>
         </div>
         <div class="layim-chat-tool">
             <div class="weui-grids">
@@ -24,4 +24,28 @@
         </div>
     </div>
 </div>
+<script>
+$(function(){
+    formsData['openid'] = "{$_W['openid']}";
+    formsData['avatar'] = "{$member['avatar']}";
+    formsData['nickname'] = "{$member['nickname']}";
+
+    formsData['toOpenid'] = formsData['toOpenid'] || "{php echo $_W['openid']}";
+    formsData['toAvatar'] = formsData['toAvatar'] || "{php echo  $member['avatar']}";
+    formsData['toNickname'] = formsData['toNickname'] || "{php echo $member['nickname']}";
+
+    formsData['data'] = {
+        pid: "{php echo $_GPC['pid']}",
+        tid: "{php echo $_GPC['tid']}",
+        id: "{php echo $_GPC['id']}"
+    };
+    $("#key-{$widget['code']}").on("change", function() {
+        formsData['content'] = $(this).val();
+    });
+    $("#send-{$widget['code']}").on('click',function() {
+        console.log('click');
+        meepo.util.post("{php echo $widget['__do']?$widget['__do']:'message.postMessage'}", formsData, function(){}, function(){});
+    });
+});
+</script>
 <!-- {/if} -->

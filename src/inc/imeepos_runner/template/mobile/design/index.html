@@ -81,13 +81,18 @@
     <app-root>
         <layout-view class="layout ">
             <layout-container-view class="layout-container ">
-                <!-- {if $data['header']['show']} -->
-                <layout-header-view class="layout-header " style=" {loop $data[ 'header'][ 'containerStyle'] $key $style} {php echo $key}:{php echo $style}; {/loop} ">
+                <!--{if $data['header']['show']}-->
+                <layout-header-view class="layout-header" style="
+                    {loop $data['header']['containerStyle'] $key $style} 
+                        {$key}:{$style};
+                    {/loop}
+                ">
                     <h2 class="title ">{$data['header']['content']}</h2>
                 </layout-header-view>
-                <!-- {/if}  -->
+                <!--{/if}-->
+
                 <!-- {if $data['body']['show']} -->
-                <layout-body-view id="layoutBody " class="layout-body " style=" {loop $data[ 'body'][ 'containerStyle'] $key $style} {php echo $key}:{php echo $style}; {/loop} position: relative; overflow-x: hidden; ">
+                <layout-body-view id="layoutBody " class="layout-body " style="{loop $data['body']['containerStyle'] $key $style} {php echo $key}:{php echo $style}; {/loop} position: relative; overflow-x: hidden; ">
                     <!-- {loop $data['body']['children'] $widget} -->
                     {template 'design/template/meepo-advs'}
                     <!-- 0 -->
@@ -175,6 +180,5 @@
         });
     </script>
 </body>
-
 
 </html>
