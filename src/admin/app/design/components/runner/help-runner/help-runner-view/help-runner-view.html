@@ -1,6 +1,6 @@
 <dl id="faq">
     <div *ngFor="let item of widget.items;index as i;">
-        <dt><i>i</i>{{item.title}}</dt>
+        <dt><i>{{i}}</i>{{item.title}}</dt>
         <dd style="display: block;">{{item.desc}}</dd>
     </div>
 </dl>
