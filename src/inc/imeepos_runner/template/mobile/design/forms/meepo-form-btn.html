@@ -5,8 +5,9 @@
         visibility: inherit;
     }
 </style>
-<!-- {if $widget['type'] == 'meepo-form-btn'} -->
-<a href="javascript:;" id="weui-btn-{$widget['code']}" data-post={php echo json_encode($widget[ '__post'])} class="weui-btn weui-btn_primary" style="
+<!--{if $widget['type'] == 'meepo-form-btn'}-->
+<a href="javascript:;" id="weui-btn-{$widget['code']}" data-post={php echo json_encode($widget[ '__post'])} class="weui-btn weui-btn_primary weui-btn" style="
+    margin: 0px;
     {loop $widget['containerStyle'] $key $style}
         {php echo $key}:{php echo $style};
     {/loop}
@@ -49,4 +50,4 @@
         });
     });
 </script>
-<!-- {/if} -->
+<!--{/if}-->

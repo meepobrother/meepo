@@ -1,4 +1,4 @@
-<!-- {if $widget['type'] == 'meepo-form-mobile'} -->
+<!--{if $widget['type'] == 'meepo-form-mobile'}-->
 <div class="weui-cells weui-cells_form" style="
     {loop $widget['containerStyle'] $key $value}
         {$key}:{$value};
@@ -11,13 +11,13 @@
         <div class="weui-cell__bd">
             <input class="weui-input" id="mobile-{$widget['code']}" value="{php echo $member['mobile']}" type="tel" placeholder="{$widget['data']['mobile']['placeholder']}">
         </div>
-        <!-- {if $widget['hasCode']} -->
+        <!--{if $widget['hasCode']}-->
         <div class="weui-cell__ft">
             <button class="weui-vcode-btn" id="vcode-{$widget['code']}">{$widget['data']['mobile']['tip']}</button>
         </div>
-        <!-- {/if} -->
+        <!--{/if}-->
     </div>
-    <!-- {if $widget['hasCode']} -->
+    <!--{if $widget['hasCode']}-->
     <div class="weui-cell">
         <div class="weui-cell__hd">
             <label class="weui-label" style="color: {$widget['data']['code']['color']};">{$widget['data']['code']['label']}</label>
@@ -27,9 +27,9 @@
             <input class="weui-input" id="code-{$widget['code']}" type="text" placeholder="{$widget['data']['code']['placeholder']}">
         </div>
     </div>
-    <!-- {/if} -->
+    <!--{/if}-->
 </div>
-
+</div>
 <script>
     $(function() {
 
@@ -62,4 +62,4 @@
         });
     });
 </script>
-<!-- {/if} -->
+<!--{/if}-->
