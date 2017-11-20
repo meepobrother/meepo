@@ -6,69 +6,63 @@
 </style>
 
 <script>
-    var meepo = {
-        util: {},
-        rule: {},
-        version: '2.0.0'
-    };
-
 /**
  * Created by yexiangmin on 2016/12/28.
  * 验证信息表达式
  */
 (function(meepo) {
-    meepo.util.post = function(__do, __post, call, fail) {
-        if ($.type(__post) === 'string') {
-            __post = eval('(' + __post + ')');
+    let util = {
+        post: function(__do, __post, call, fail) {
+            if ($.type(__post) === 'string') {
+                __post = eval('(' + __post + ')');
+            }
+            var d = JSON.stringify(__post);
+            var encrypted = Base64.encode(d);
+            $.post("{php echo $this->createMobileUrl('open')}&__do=" + __do, {
+                __input: {
+                    encrypted: encrypted
+                }
+            }, function(res) {
+                if (res.code == 1) {
+                    //刷新
+                    if (call) {
+                        call(res);
+                    } else {
+                        weui.topTips(res.msg, 3000);
+                        window.location.reload();
+                    }
+                } else {
+                    if (fail) {
+                        fail(res);
+                    } else {
+                        weui.toast(res.msg, 3000);
+                    }
+                }
+            }, 'json');
+        },
+        html: function(id, info) {
+            var source = document.getElementById(id).innerHTML;
+            var template = Handlebars.compile(source);
+            var html = template({
+                data: info
+            });
+            return html;
+        },
+        dialog: function(id, action, post) {
+            util.post(action, post, function(res) {
+                var html = meepo.util.html(id, res.info);
+                layer.open({
+                    type: 1,
+                    content: html,
+                    anim: 'up'
+                });
+                setTimeout(() => {
+                    new Swiper('.swiper-container', {});
+                });
+            });
         }
-        var d = JSON.stringify(__post);
-        var encrypted = Base64.encode(d);
-        $.post("{php echo $this->createMobileUrl('open')}&__do=" + __do, {
-            __input: {
-                encrypted: encrypted
-            }
-        }, function(res) {
-            if (res.code == 1) {
-                //刷新
-                if (call) {
-                    call(res);
-                } else {
-                    weui.topTips(res.msg, 3000);
-                    window.location.reload();
-                }
-            } else {
-                if (fail) {
-                    fail(res);
-                } else {
-                    weui.toast(res.msg, 3000);
-                }
-            }
-        }, 'json');
     }
-
-    meepo.util.html = function(id, info) {
-        var source = document.getElementById(id).innerHTML;
-        var template = Handlebars.compile(source);
-        console.log(id, info);
-        var html = template({
-            data: info
-        });
-        return html;
-    }
-
-    meepo.util.dialog = function(id, action, post) {
-        meepo.util.post(action, post, function(res) {
-            var html = meepo.util.html(id, res.info);
-            layer.open({
-                type: 1,
-                content: html,
-                anim: 'up'
-            });
-            setTimeout(() => {
-                new Swiper('.swiper-container', {});
-            });
-        });
-    }
+    meepo['util'] = util;
 })(meepo || {});
 
 /**

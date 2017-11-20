@@ -1,22 +1,14 @@
 <!-- {if $widget['type'] == 'im-message'} -->
-<!-- {if !empty($items)} -->
-<!-- {loop $items $item} -->
-<div id="im-message-list-{$widget['content']}"></div>
-<!-- {/loop} -->
-<!-- {else} -->
-<div class="im-message-view">
+<div id="im-message-list-container"></div>
+<div class="im-message-view" id="im-message-list-empty-container">
     <p>没有收到信息</p>
 </div>
-<!-- {/if} -->
-
 <script>
 $(function(){
-    meepo.util.post('message.getMessage',{},function(res){
-        var list = res.info;
-        // list 消息列表
-        var html = meepo.util.html('im-message-list',list);
-        $("#im-message-list-{$widget['content']}").html(html);
-    },function(res){});
+    meepo.im.getMessage();
+    setInterval(function(){
+        meepo.im.getMessage();
+    },3000)
 });
 </script>
 <!-- {/if} -->

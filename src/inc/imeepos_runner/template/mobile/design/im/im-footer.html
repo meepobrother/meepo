@@ -39,12 +39,18 @@ $(function(){
         tid: "{php echo $_GPC['tid']}",
         id: "{php echo $_GPC['id']}"
     };
+
+    function postMessage(){
+        meepo.util.post("{php echo $widget['__do']?$widget['__do']:'message.postMessage'}", formsData, function(){
+            $("#key-{$widget['code']}").val("");
+            meepo.im.getMessage();
+        }, function(){});
+    }
     $("#key-{$widget['code']}").on("change", function() {
         formsData['content'] = $(this).val();
     });
     $("#send-{$widget['code']}").on('click',function() {
-        console.log('click');
-        meepo.util.post("{php echo $widget['__do']?$widget['__do']:'message.postMessage'}", formsData, function(){}, function(){});
+        postMessage();
     });
 });
 </script>
