@@ -15,9 +15,11 @@ export class TitleDescDialog implements OnInit {
         public dialog: MatDialogRef<any>
     ) { 
         this.dialog.afterOpen().subscribe(()=>{
-            let { title, desc } = this.data || {title: '', desc: ''};
-            this.form['title'] = title;
-            this.form['desc'] = desc;
+            if(this.data){
+                let { title, desc } = this.data || {title: '', desc: ''};
+                this.form['title'] = title;
+                this.form['desc'] = desc;
+            }
         });
     }
 
