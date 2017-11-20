@@ -53,6 +53,11 @@ import { LinkSelect } from './link-select/link-select';
 import { MemberSelectDialog } from './member-select-dialog/member-select-dialog';
 export { MemberSelectDialog } from './member-select-dialog/member-select-dialog';
 
+import { TitleDescDialog } from './title-desc-dialog/title-desc-dialog';
+export { TitleDescDialog } from './title-desc-dialog/title-desc-dialog';
+
+
+
 export const MeepoComponents = [
     MeLoading,
     MeAlert,
@@ -75,5 +80,6 @@ export const MeepoComponents = [
     ActionSelect,
     PageSelect,
     LinkSelect,
-    MemberSelectDialog
+    MemberSelectDialog,
+    TitleDescDialog
 ];

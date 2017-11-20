@@ -1,6 +1,7 @@
 <!-- {if $widget['type'] == 'im-footer'} -->
 <style>
     .layim-chat-footer {
+        display: block;
         position: fixed;
     }
 </style>
@@ -34,23 +35,14 @@ $(function(){
     formsData['toAvatar'] = formsData['toAvatar'] || "{php echo  $member['avatar']}";
     formsData['toNickname'] = formsData['toNickname'] || "{php echo $member['nickname']}";
 
-    formsData['data'] = {
-        pid: "{php echo $_GPC['pid']}",
-        tid: "{php echo $_GPC['tid']}",
-        id: "{php echo $_GPC['id']}"
-    };
-
-    function postMessage(){
-        meepo.util.post("{php echo $widget['__do']?$widget['__do']:'message.postMessage'}", formsData, function(){
-            $("#key-{$widget['code']}").val("");
-            meepo.im.getMessage();
-        }, function(){});
-    }
     $("#key-{$widget['code']}").on("change", function() {
         formsData['content'] = $(this).val();
     });
     $("#send-{$widget['code']}").on('click',function() {
-        postMessage();
+        meepo.util.post("{php echo $widget['__do']?$widget['__do']:'message.postMessage'}", formsData, function(){
+            $("#key-{$widget['code']}").val("");
+            meepo.im.getMessage(__do);
+        }, function(){});
     });
 });
 </script>

@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import * as store from 'store';
+import { ImMessageDefault } from '../../../../classes';
 
 @Component({
     selector: 'im-message-setting',
@@ -7,7 +8,7 @@ import * as store from 'store';
     styleUrls: ['./im-message-setting.scss']
 })
 export class ImMessageSetting implements OnInit {
-    @Input() widget: any;
+    @Input() widget: ImMessageDefault = new ImMessageDefault();
     constructor() { }
     ngOnInit() { }
 }

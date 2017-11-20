@@ -2,19 +2,19 @@
     <div class="ibox-title">
         <h5>基础设置</h5>
         <div class="ibox-tools">
-            <a href="javascript:;" class="btn btn-primary btn-xs">添加</a>
+            <a href="javascript:;" class="btn btn-primary btn-xs" (click)="add()">添加</a>
         </div>
     </div>
     <div class="ibox-content">
         <table class="table table-hover">
-            <tr *ngFor="let item of widget.items">
+            <tr *ngFor="let item of widget.items;index as i;">
                 <td>{{item.title}}</td>
                 <td>
-                    <img [src]="item.icon" style="width: 2em;"/>
+                    <img [src]="item.image" style="width: 2em;"/>
                 </td>
                 <td>
-                    <a href="javascript:;" class="btn btn-primary btn-xs">编辑</a>
-                    <a href="javascript:;" class="btn btn-danger btn-xs">编辑</a>
+                    <a href="javascript:;" class="btn btn-primary btn-xs" (click)="edit(item,i)">编辑</a>
+                    <a href="javascript:;" class="btn btn-danger btn-xs" (click)="delete(item,i)">删除</a>
                 </td>
             </tr>
         </table>

@@ -4,10 +4,10 @@
  */
 (function(meepo) {
     var im = {};
-    im.getMessage = function(){
+    im.getMessage = function(__do, __post){
         console.log('getMessage');
         //初始化
-        meepo.util.post('message.getMessage',{},function(res){
+        meepo.util.post(__do ? __do : 'message.getMessage',formsData,function(res){
             var list = res.info;
             list.map(res=>{
                 res['mopenid'] = openid;

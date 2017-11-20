@@ -15,19 +15,27 @@
     <script>
         document.documentElement.style.fontSize = document.documentElement.clientWidth / 7.5 + 'px';
         var formsData = {};
+        formsData['data'] = {
+            pid: "{php echo $_GPC['pid']}",
+            tid: "{php echo $_GPC['tid']}",
+            id: "{php echo $_GPC['id']}",
+            page: 1,
+            psize: 30
+        };
         var searchFilter = {};
         var keyword = "";
         var ___tmp = {};
         var player;
         var meepo = {version: '1.0.0'};
-        var openid = "{php echo $_W['openid']}";
+        var openid = "{php echo $_W['openid']}"
+        var __do,__params;
     </script>
     <style>
         app-root {
             display: block;
             height: 100%;
             width: 100%;
-            overflow: hidden;
+            overflow: auto;
         }
         
         .mt10 {
@@ -53,10 +61,12 @@
         .mbox {
             margin: 5px 0px;
         }
-        
-        html,
-        body {
-            overflow: hidden;
+
+        html,body{
+            width: 100%;
+            height: 100%;
+            margin: 0px;
+            padding: 0px;
         }
     </style>
 
@@ -72,6 +82,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
     <!-- <script src="https://meepo.com.cn/meepo/libs/vue.min.js"></script> -->
     <script src="https://cdn.ronghub.com/RongIMLib-2.2.8.min.js"></script>
+    <script src="https://meepo.com.cn/meepo/libs/xscroll.min.js"></script>
+    
     <script>
     Handlebars.registerHelper('ex', function(str, options) {
         var reg = /\{\{.*?\}\}/g;
@@ -125,8 +137,8 @@
     <!-- script -->
     {template 'design/script'}
     <app-root>
-        <layout-view class="layout ">
-            <layout-container-view class="layout-container ">
+        <layout-view class="layout " style="overflow: auto;">
+            <layout-container-view class="layout-container " style="overflow: auto;">
                 <!--{if $data['header']['show']}-->
                 <layout-header-view class="layout-header" style="
                     {loop $data['header']['containerStyle'] $key $style} 
@@ -223,6 +235,9 @@
                     encrypted: encrypted
                 }
             }, function(res) {}, 'json');
+            $('img').map(img=>{
+                console.log(img);
+            });
         });
     </script>
 </body>
