@@ -8,8 +8,12 @@ import { MeepoVideoDefault } from '../../../../classes';
 })
 export class MeepoVideoSetting implements OnInit {
     @Input() widget: MeepoVideoDefault = new MeepoVideoDefault();
-    
+    fixed: boolean = false;
     constructor() { }
 
     ngOnInit() { }
+
+    setFlexd(){
+        this.widget.fixed = !this.widget.fixed;
+    }
 }

@@ -5,6 +5,15 @@
     <setting-container-margin [(widget)]="widget.containerStyle"></setting-container-margin>
     <setting-container-padding [(widget)]="widget.containerStyle"></setting-container-padding>
     <setting-container-color [(widget)]="widget.containerStyle"></setting-container-color>
+
+    <div class="form-group">
+        <label>高度</label>
+        <number-px [(model)]="widget.containerStyle['height']"></number-px>
+    </div>
+
+    <div class="form-group">
+        <a class="btn " [class.btn-default]="!widget.fixed" [class.btn-primary]="widget.fixed" (click)="setFlexd()">固定在顶部</a>
+    </div>
 </div>
 
 <div class="ibox">

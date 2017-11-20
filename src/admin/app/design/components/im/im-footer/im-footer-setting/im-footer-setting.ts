@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ImFooterDefault } from '../../../../classes';
 
 @Component({
     selector: 'im-footer-setting',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./im-footer-setting.scss']
 })
 export class ImFooterSetting implements OnInit {
+    @Input() widget: ImFooterDefault = new ImFooterDefault();
     constructor() { }
 
     ngOnInit() { }

@@ -50,6 +50,8 @@
             height: 100% !important;
             width: 100%;
             background-color: #efefef;
+            display: flex;
+            flex-direction: column;
         }
     }
 }
@@ -66,4 +68,9 @@
         right: -100% !important;
         transition: .5s ease;
     }
+}
+
+#im-message-list-container {
+    flex: 1;
+    overflow: auto;
 }

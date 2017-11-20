@@ -1,0 +1,17 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        请填写一下项目
+    </div>
+    <div class="panel-body">
+        <div class="form-group">
+            <input type="text" class="form-control" [(ngModel)]="form.title" placeholder="标题">
+        </div>
+        <div class="form-group">
+            <textarea rows="3" class="form-control" [(ngModel)]="form.desc" placeholder="简介"></textarea>
+        </div>
+    </div>
+    <div class="panel-footer">
+        <a class="btn btn-primary" (click)="save()">保存</a>
+        <a class="btn btn-default" (click)="cancel()">取消</a>
+    </div>
+</div>

@@ -7,7 +7,6 @@ import { ElModule } from 'element-angular';
 
 import { NavTabsModule } from '../components/nav-tabs';
 
-
 export const ShareNewModules = [
     CommonModule,
     ElModule,

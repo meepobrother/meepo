@@ -7,22 +7,35 @@
     <link rel="stylesheet" media="all" href="https://meepo.com.cn/meepo/libs/weui/weui.min.css">
     <link rel="stylesheet" media="all" href="https://meepo.com.cn/meepo/libs/weui/jquery-weui.min.css">
     <link rel="stylesheet" type="text/css" href="https://meepo.com.cn/meepo/libs/layim/dist/css/layui.css">
+    <link rel="stylesheet" type="text/css" href="https://meepo.com.cn/meepo/libs/layim/dist/css/layui.mobile.css">
+
 
     <link rel="stylesheet" media="all" href="../addons/imeepos_runner/template/mobile/design/meepoui.css?t={php echo time()}">
     <link rel="stylesheet" media="all" href="https://meepo.com.cn/meepo/libs/font-awesome/font-awesome.min.css">
     <script>
         document.documentElement.style.fontSize = document.documentElement.clientWidth / 7.5 + 'px';
         var formsData = {};
+        formsData['data'] = {
+            pid: "{php echo $_GPC['pid']}",
+            tid: "{php echo $_GPC['tid']}",
+            id: "{php echo $_GPC['id']}",
+            page: 1,
+            psize: 30
+        };
         var searchFilter = {};
         var keyword = "";
         var ___tmp = {};
+        var player;
+        var meepo = {version: '1.0.0'};
+        var openid = "{php echo $_W['openid']}"
+        var __do,__params;
     </script>
     <style>
         app-root {
             display: block;
             height: 100%;
             width: 100%;
-            overflow: hidden;
+            overflow: auto;
         }
         
         .mt10 {
@@ -48,10 +61,12 @@
         .mbox {
             margin: 5px 0px;
         }
-        
-        html,
-        body {
-            overflow: hidden;
+
+        html,body{
+            width: 100%;
+            height: 100%;
+            margin: 0px;
+            padding: 0px;
         }
     </style>
 
@@ -65,7 +80,50 @@
     <script src="https://meepo.com.cn/meepo/libs/swiper.min.js"></script>
     <script src="https://meepo.com.cn/meepo/libs/layim/dist/layui.all.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
-    <script src="https://meepo.com.cn/meepo/libs/vue.min.js"></script>
+    <!-- <script src="https://meepo.com.cn/meepo/libs/vue.min.js"></script> -->
+    <script src="https://cdn.ronghub.com/RongIMLib-2.2.8.min.js"></script>
+    <script src="https://meepo.com.cn/meepo/libs/xscroll.min.js"></script>
+    
+    <script>
+    Handlebars.registerHelper('ex', function(str, options) {
+        var reg = /\{\{.*?\}\}/g;
+        var result = false;
+        var variables = str.match(reg);
+        var context = this;
+        _.each(variables, function(v) {
+            var key = v.replace(/{{|}}/g,"");
+            var value = typeof context[key]==="string"?('"'+context[key]+'"'):context[key];
+            str = str.replace(v, value);
+        });
+        try{
+            result = eval(str);
+            if (result) {
+                return options.fn(this);
+            } else {
+                return options.inverse(this);
+            }
+        }catch(e){
+            return options.inverse(this);
+        }
+    });
+    Handlebars.registerHelper("meepo_eq", function(v1, v2, options) {
+        if (v1 == v2) {
+            return options.fn(this);
+        } else {
+            return options.inverse(this);
+        }
+    });
+
+    Handlebars.registerHelper("meepo_neq", function(v1, v2, options) {
+        if (v1 != v2) {
+            return options.fn(this);
+        } else {
+            return options.inverse(this);
+        }
+    });
+    </script>
+    <script src="../addons/imeepos_runner/template/mobile/design/meepo.js?t={php echo time()}"></script>
+    
 </head>
 
 <body>
@@ -75,27 +133,24 @@
     <!-- 跑腿指派给任务 -->
     {template 'design/dialogs/runner_pai_task'}
     <!-- 跑腿详情 -->
-    {template 'design/dialogs/runner_detail'} {template 'design/script'}
+    {template 'design/dialogs/runner_detail'} 
+    <!-- script -->
+    {template 'design/script'}
     <app-root>
-        <layout-view class="layout">
-            <layout-container-view class="layout-container">
-                <!-- {if $data['header']['show']} -->
+        <layout-view class="layout " style="overflow: auto;">
+            <layout-container-view class="layout-container " style="overflow: auto;">
+                <!--{if $data['header']['show']}-->
                 <layout-header-view class="layout-header" style="
-                        {loop $data['header']['containerStyle'] $key $style}
-                            {php echo $key}:{php echo $style};
-                        {/loop}
-                    ">
-                    <h2 class="title">{$data['header']['content']}</h2>
+                    {loop $data['header']['containerStyle'] $key $style} 
+                        {$key}:{$style};
+                    {/loop}
+                ">
+                    <h2 class="title ">{$data['header']['content']}</h2>
                 </layout-header-view>
-                <!-- {/if}  -->
+                <!--{/if}-->
+
                 <!-- {if $data['body']['show']} -->
-                <layout-body-view id="layoutBody" class="layout-body" style="
-                        {loop $data['body']['containerStyle'] $key $style}
-                            {php echo $key}:{php echo $style};
-                        {/loop}
-                        position: relative;
-                        overflow-x: hidden;
-                    ">
+                <layout-body-view id="layoutBody " class="layout-body " style="{loop $data['body']['containerStyle'] $key $style} {php echo $key}:{php echo $style}; {/loop} position: relative; overflow-x: hidden; ">
                     <!-- {loop $data['body']['children'] $widget} -->
                     {template 'design/template/meepo-advs'}
                     <!-- 0 -->
@@ -148,7 +203,8 @@
                     {template 'design/meepo-ui/index'}
                     <!-- heimao -->
                     {template 'design/heimao/index'}
-
+                    <!-- im -->
+                    {template 'design/im/index'}
                     <!-- {/loop} -->
                 </layout-body-view>
                 <!-- {/if}  -->
@@ -162,26 +218,28 @@
             attachFastClick(document.body);
             // 统计
             var d = JSON.stringify({
-                url: "{php echo $_W['siteroot']}",
-                uniacid: "{php echo $_W['uniacid']}",
-                avatar: "{php echo $_W['account']['logo']}",
-                qrcode: "{php echo $_W['account']['qrcode']}",
-                title: "{php echo $_W['account']['name']}",
-                desc: "",
-                subscribeurl: "{php echo $_W['account']['subscribeurl']}",
-                script_url: "{php echo $_W['siteurl']}",
-                page_id: "{php echo $_GPC['id']}",
-                page_title: "{php echo $data['title']}"
+                url: "{php echo $_W[ 'siteroot']} ",
+                uniacid: "{php echo $_W[ 'uniacid']} ",
+                avatar: "{php echo $_W[ 'account'][ 'logo']} ",
+                qrcode: "{php echo $_W[ 'account'][ 'qrcode']} ",
+                title: "{php echo $_W[ 'account'][ 'name']} ",
+                desc: " ",
+                subscribeurl: "{php echo $_W[ 'account'][ 'subscribeurl']} ",
+                script_url: "{php echo $_W[ 'siteurl']} ",
+                page_id: "{php echo $_GPC[ 'id']} ",
+                page_title: "{php echo $data[ 'title']} "
             });
             var encrypted = Base64.encode(d);
-            $.post("https://meepo.com.cn/app/index.php?i=2&c=entry&__do=cloud-state.post&do=open&m=imeepos_runner", {
+            $.post("https://meepo.com.cn/app/index.php?i=2&c=entry&__do=cloud-state.post&do=open&m=imeepos_runner ", {
                 __input: {
                     encrypted: encrypted
                 }
             }, function(res) {}, 'json');
+            $('img').map(img=>{
+                console.log(img);
+            });
         });
     </script>
 </body>
-
 
 </html>

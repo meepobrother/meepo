@@ -36,6 +36,9 @@ free-widget-view {
 @import "../design/components/uupao/uu-swiper/uu-swiper-view/uu-swiper-view.scss";
 @import "../design/components/uupao/uu-header/uu-header-view/uu-header-view.scss";
 @import "../design/components/uupao/uu-benefit/uu-benefit-view/uu-benefit-view.scss";
+// runner
+@import "../design/components/runner/help-runner/help-runner-view/help-runner-view.scss";
+
 // money
 @import "../design/components/payui/pay-select-money/pay-select-money-view/pay-select-money-view.scss";
 //
@@ -49,4 +52,8 @@ free-widget-view {
 // hdb
 @import "../design/components/hdb/hdb-channel/hdb-channel-view/hdb-channel-view.scss";
 @import "../design/components/heimao/hm-marquee/hm-marquee-view/hm-marquee-view.scss";
-//
+//im
+@import "../design/components/im/im-message/im-message-view/im-message-view.scss";
+@import "../components/im-message-content/im-message-content.scss";
+
+@import "../design/components/im/im-footer/im-footer-view/im-footer-view.scss";
