@@ -3,7 +3,7 @@ import { Widget } from '../widget';
 
 export class ImMessageDefault extends Widget{
     show: boolean = true;
-
+    __do: string = 'message.getMessage';
     constructor(){
         super();
         this.type = 'im-message';
@@ -16,7 +16,5 @@ export class ImMessageDefault extends Widget{
         this.styleObj = {
             'margin-top': '0px'
         }
-
-        
     }
 }
