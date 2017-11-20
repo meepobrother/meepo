@@ -1,11 +1,11 @@
-<!-- {if $widget['type'] == 'runner-register'} -->
-<!-- {loop $widget['images'] $item} -->
-<img class="runner-register-img" src="{$item['src']}">
-<!-- {/loop} -->
+<!--{if $widget['type'] == 'runner-register'}-->
+<!--{loop $widget['images'] $item}-->
+<img class="runner-register-img" src="{php echo $item['src']}">
+<!--{/loop}-->
 <style>
     .runner-register-img {
         width: 100%;
         display: block;
     }
 </style>
-<!-- {/if} -->
+<!--{/if}-->
