@@ -31,7 +31,7 @@
             $.post("{php echo $this->createMobileUrl('open')}&__do={$widget['__do']}", __post, function(res) {
                 console.log(res);
                 if (res.code == 0) {
-                    weui.toast(res.msg, 15000);
+                    weui.toast(res.msg, 1500);
                 } else if (res.code == 999) {
                     // 扫码
 
