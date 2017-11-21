@@ -33,8 +33,6 @@ import {
     CityItemSetting, CityItemView
 } from './active';
 
-
-
 import {
     ButtonSetting, ButtonView, ButtonSelect,
     WeuiCellsSetting, WeuiCellsView,
@@ -119,8 +117,6 @@ import {
     JdHomeListSetting, JdHomeListView
 } from './jd';
 
-
-
 export const COMPONENTS = [
     ButtonView, ButtonSetting, ButtonSelect,
     WeuiCellsSetting, WeuiCellsView,
@@ -141,27 +137,16 @@ export const COMPONENTS = [
     LayoutFooterSelect, LayoutFooterSetting, LayoutFooterView,
     LayoutMenuSelect, LayoutMenuSetting, LayoutMenuView,
 
-    // components
-    
-
     // wxapp
     View, ViewSetting,
     ScrollView, ScrollViewSetting,
     SwiperItem, Swiper, SwiperSetting,
 
     // address
-    
-
     // zan ui
     CardComponent, CardSetting, CardView,
-
-
     // forms
-
-    // 
     MeepoGoodsListSetting, MeepoGoodsListView,
-
-    //
     TopicsListSetting, TopicsListView,
     UuItemBoxSetting, UuItemBoxView,
     UuSwiperSetting, UuSwiperView,
@@ -180,8 +165,6 @@ export const COMPONENTS = [
     ...actions_component,
 
     WeuiPreviewView, WeuiPreviewSetting,
-
-
     LayoutVesselSetting, LayoutVesselView,
     FreeVesselSetting, FreeVesselView,
     ZanSearchSetting, ZanSearchView,
