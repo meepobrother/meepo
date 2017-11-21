@@ -20,7 +20,7 @@ import {
     MeepoFormTimeEndView,
     MeepoFormTimeView,
     MeepoFormTimeStartView,
-    MeepoFormWeightView
+    MeepoFormWeightView,
 } from './index';
 
 export const forms_views = [
@@ -31,7 +31,6 @@ export const forms_views = [
     MeepoFormBaojiaView,
     MeepoFormBtnView,
     MeepoFormFeeView,
-    MeepoFormIdcardView,
     MeepoFormInputView,
     MeepoFormMobileView,
     MeepoFormMoneyView,
@@ -44,7 +43,8 @@ export const forms_views = [
     MeepoFormTimeEndView,
     MeepoFormTimeView,
     MeepoFormTimeStartView,
-    MeepoFormWeightView
+    MeepoFormWeightView,
+    MeepoFormIdcardView
 ];
 export const forms_view_map = {
     'people-num': PeopleNumView,
@@ -67,5 +67,5 @@ export const forms_view_map = {
     'meepo-form-time-end':MeepoFormTimeEndView,
     'meepo-form-time':MeepoFormTimeView,
     'meepo-form-time-start':MeepoFormTimeStartView,
-    'meepo-form-weight':MeepoFormWeightView
+    'meepo-form-weight':MeepoFormWeightView,
 };

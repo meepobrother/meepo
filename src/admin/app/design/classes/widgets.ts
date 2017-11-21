@@ -25,7 +25,8 @@ import {
     HelpRunnerDefault, NotFondDefault, RunnerAgreementDefault, RunnerTabDefault,
     PeopleNumberDefault, HmMarqueeDefault, HmBoxDefault, HmHomeTopDefault,
     HmBannerDefault, HdbChannelDefault, ActiveListDefault, PosterImageDefault,
-    AddressCityDefault, ImMessageDefault, ImFriendDefault, ImFooterDefault
+    AddressCityDefault, ImMessageDefault, ImFriendDefault, ImFooterDefault,
+    MeepoFormIdcardDefault
 } from './index';
 
 
@@ -127,5 +128,6 @@ export const WIDGETS = {
     'address-city': AddressCityDefault,
     'im-message': ImMessageDefault,
     'im-friend': ImFriendDefault,
-    'im-footer': ImFooterDefault
+    'im-footer': ImFooterDefault,
+    'meepo-form-idcard': MeepoFormIdcardDefault
 };
