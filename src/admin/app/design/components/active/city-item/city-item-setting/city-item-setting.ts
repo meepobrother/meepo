@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { CityItemDefault } from '../../../../classes';
 
 @Component({
@@ -6,9 +6,13 @@ import { CityItemDefault } from '../../../../classes';
     templateUrl: './city-item-setting.html',
     styleUrls: ['./city-item-setting.scss']
 })
-export class CityItemSetting implements OnInit {
+export class CityItemSetting implements OnInit, OnDestroy {
     @Input() widget: CityItemDefault = new CityItemDefault();
     constructor() { }
 
     ngOnInit() { }
+
+    ngOnDestroy(){
+        this.widget = null;
+    }
 }

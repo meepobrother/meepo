@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { CityItemDefault } from '../../../../classes';
 @Component({
     selector: 'city-item-view',
@@ -10,4 +10,8 @@ export class CityItemView implements OnInit {
     constructor() { }
 
     ngOnInit() { }
+
+    ngOnDestroy(){
+        this.widget = null;
+    }
 }

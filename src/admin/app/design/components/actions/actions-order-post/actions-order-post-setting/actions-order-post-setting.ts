@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { ActionsOrderPostDefafult } from '../model';
 @Component({
     selector: 'actions-order-post-setting',
@@ -10,4 +10,8 @@ export class ActionsOrderPostSetting implements OnInit {
     constructor() { }
 
     ngOnInit() { }
+
+    ngOnDestroy(){
+        this.widget = null;
+    }
 }
