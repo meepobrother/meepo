@@ -1,10 +1,5 @@
 <div class="meepo-tabs" #panel>
-    <div class="meepo-tabs_wrap" [style.width.em]="36">
-        <div class="meepo-tabs_item"><span>选项一</span></div>
-        <div class="meepo-tabs_item"><span>选项二</span></div>
-        <div class="meepo-tabs_item"><span>选项三</span></div>
-        <div class="meepo-tabs_item meepo-tabs_item_active"><span>选项四</span></div>
-        <div class="meepo-tabs_item"><span>选项五</span></div>
-        <div class="meepo-tabs_item"><span>选项六</span></div>
+    <div class="meepo-tabs_wrap" [style.width.em]="widget.items.length * 5">
+        <div class="meepo-tabs_item" *ngFor="let item of widget.items"><span>{{item.title}}</span></div>
     </div>
 </div>

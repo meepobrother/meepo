@@ -56,7 +56,8 @@ export { MemberSelectDialog } from './member-select-dialog/member-select-dialog'
 import { TitleDescDialog } from './title-desc-dialog/title-desc-dialog';
 export { TitleDescDialog } from './title-desc-dialog/title-desc-dialog';
 
-
+import { TitleLinkSelect } from './title-link-select/title-link-select';
+export { TitleLinkSelect } from './title-link-select/title-link-select';
 
 export const MeepoComponents = [
     MeLoading,
