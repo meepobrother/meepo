@@ -31,7 +31,7 @@ import { ColorSelectModule } from '../components/color-select';
 
 import { ShareNewModule } from '../share-new/share-new.module';
 import { MeepoModule } from '../meepo/meepo.module';
-import { NavTabsModule } from '../components/nav-tabs';
+import { NavTabsModule } from 'meepo-angular-ui';
 
 import { WidgetService } from '../share/services/widget.service';
 import { CatalogService } from '../share/services/catalog.service';

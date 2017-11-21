@@ -13,7 +13,7 @@ import {
 
 import {
     MeepoFormFieldModule,
-    TextAdvModule, , OverlayModule,
+    TextAdvModule, OverlayModule,
     ColorSelectModule, Iphone6Module,
     WeuiGridModule, MenuModule,
     WeuiPickerModule, Components

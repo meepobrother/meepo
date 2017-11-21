@@ -3,7 +3,9 @@ import { CommonModule } from '@angular/common';
 import { COMPONENTS, ComponentsService, LayoutService} from './components';
 import { SERVICES } from '../share/services';
 
-import { NavTabsModule, MeepoFormFieldModule, WeuiPickerModule, PriceListModule } from '../components';
+import { PriceListModule, NavTabsModule } from 'meepo-angular-ui';
+
+import { MeepoFormFieldModule, WeuiPickerModule } from '../components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material';
 import { DesignLayoutsModule } from './layouts';
