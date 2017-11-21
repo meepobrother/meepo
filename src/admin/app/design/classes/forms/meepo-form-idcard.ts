@@ -14,7 +14,8 @@ export class MeepoFormIdcardDefault extends Widget{
         this.name = '证件上传';
 
         this.containerStyle = {
-            'margin-top': '0px'
+            'margin-top': '5px',
+            'background-color': '#fff'
         }
         this.styleObj = {
             'margin-top': '0px'
