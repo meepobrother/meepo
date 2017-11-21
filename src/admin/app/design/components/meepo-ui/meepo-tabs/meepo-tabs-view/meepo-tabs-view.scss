@@ -1,3 +1,30 @@
+.meepo-tabs{
+    position: relative;
+    .meepo-tabs_wrap{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        line-height: 44px;
+        background: #fff;
+        .meepo-tabs_item{
+            min-width: 5em;
+            max-width: 5em;
+            overflow: hidden;
+            padding: 0 .5em;
+            text-align: center;
+            &.meepo-tabs_item_active{
+                color: #f44;
+                transform: translate3d(0px, 0px, 0px);
+                transition-duration: 0.3s;
+                width: 72.75px;
+                border-bottom: 2px solid red;
+            }
+        }
+    }
+}
+
+
 .van-tabs {
     position: relative;
 }
