@@ -35,9 +35,6 @@
                         <div class="ibox-title">
                             {{item.page_title}}
                             <div class="ibox-tools">
-                                <a class="btn btn-primary btn-xs" target="_blank" [attr.href]="item.script_url">
-                                    查看<span>{{item.scan_num || 0}}次</span>
-                                </a>
                                 <a class="btn btn-default btn-xs" (click)="good(item)">
                                     点赞<span>{{item.good_num || 0}}次</span>
                                 </a>

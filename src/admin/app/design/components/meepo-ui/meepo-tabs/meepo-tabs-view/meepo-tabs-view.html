@@ -1,26 +1,5 @@
-<div class="van-tabs van-tabs--line" #panel>
-    <div class="van-tabs__nav-wrap">
-        <div class="van-tabs__swipe" style="transform: translate(0px, 0px) translateZ(0px);">
-            <div class="van-tabs__nav van-tabs__nav--line">
-                <div class="van-tab van-hairline"><span>选项一</span></div>
-                <div class="van-tab van-hairline"><span>选项二</span></div>
-                <div class="van-tab van-hairline van-tab--active"><span>选项三</span></div>
-                <div class="van-tab van-hairline"><span>选项四</span></div>
-                <div class="van-tab van-hairline"><span>选项五</span></div>
-                <div class="van-tab van-hairline"><span>选项六</span></div>
-                <div class="van-tab van-hairline"><span>选项七</span></div>
-                <div class="van-tab van-hairline"><span>选项八</span></div>
-            </div>
-        </div>
+<div class="meepo-tabs" #panel>
+    <div class="meepo-tabs_wrap" [style.width.em]="widget.items.length * 5">
+        <div class="meepo-tabs_item" *ngFor="let item of widget.items"><span>{{item.title}}</span></div>
     </div>
-    <!-- <div class="van-tabs__content">
-        <div class="van-tab__pane">内容一</div>
-        <div class="van-tab__pane">内容二</div>
-        <div class="van-tab__pane van-tab__pane--select">内容三</div>
-        <div class="van-tab__pane">内容四</div>
-        <div class="van-tab__pane">内容五</div>
-        <div class="van-tab__pane">内容六</div>
-        <div class="van-tab__pane">内容七</div>
-        <div class="van-tab__pane">内容八</div>
-    </div> -->
 </div>

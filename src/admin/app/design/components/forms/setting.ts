@@ -66,6 +66,6 @@ export const forms_setting_map = {
     'meepo-form-tiji':MeepoFormTijiSetting,
     'meepo-form-time-end':MeepoFormTimeEndSetting,
     'meepo-form-time':MeepoFormTimeSetting,
-    'meepo-form-time-start':MeepoFormTimeStartSetting,
-    'meepo-form-weight':MeepoFormWeightSetting
+    'meepo-form-time-start': MeepoFormTimeStartSetting,
+    'meepo-form-weight': MeepoFormWeightSetting
 };
