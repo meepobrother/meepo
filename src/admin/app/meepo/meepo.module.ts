@@ -4,8 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MeepoAppService } from './app.service';
 import { ElModule } from 'element-angular';
-
-import { NavTabsModule } from '../components/nav-tabs';
+import { NavTabsModule } from 'meepo-angular-ui';
 
 export const ShareNewModules = [
     CommonModule,

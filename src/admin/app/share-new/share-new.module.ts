@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { ElModule } from 'element-angular';
 import { CommonModule } from '@angular/common';
-import { SortableModule } from '../components/sortable';
+import { SortableModule } from 'meepo-angular-ui';
 import './rxjs-operators';
 
 export const ShareNewModules = [
