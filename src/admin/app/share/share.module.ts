@@ -1,13 +1,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {
+    NavTabsModule,
+    PanelModule,
+    BlankModule,
+    CoverModule,
+    MeepoDialogModule,
+    EditorModule,
+    SortableModule,
+    PriceListModule
+} from 'meepo-angular-ui';
 
 import {
-    NavTabsModule, MeepoFormFieldModule,
-    PanelModule, BlankModule,
-    TextAdvModule, PriceListModule, OverlayModule,
-    CoverModule, ColorSelectModule, Iphone6Module,
-    WeuiGridModule, MenuModule, EditorModule,
-    MeepoDialogModule, WeuiPickerModule, Components
+    MeepoFormFieldModule,
+    TextAdvModule, , OverlayModule,
+    ColorSelectModule, Iphone6Module,
+    WeuiGridModule, MenuModule,
+    WeuiPickerModule, Components
 } from '../components';
 
 import { ImageSelectDirective } from './setting';
@@ -22,7 +31,6 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CoreModule } from '../core';
 
 import { MeepoModule } from '../meepo/meepo.module';
-import { SortableModule } from '../components/sortable';
 
 const materials = [
     CommonModule,

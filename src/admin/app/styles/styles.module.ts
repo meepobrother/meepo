@@ -8,7 +8,7 @@ import { WebIconSelect } from './web-icon-select';
 
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { NavTabsModule } from '../components/nav-tabs/nav-tabs.module';
+import { NavTabsModule } from 'meepo-angular-ui';
 
 @NgModule({
     declarations: [
