@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material';
+import { SelectPageDialog } from '../page-select/page-select';
 @Component({
     selector: 'title-link-select',
     templateUrl: './title-link-select.html',
@@ -12,7 +13,8 @@ export class TitleLinkSelect implements OnInit {
     };
     constructor(
         @Inject(MAT_DIALOG_DATA) public data: any,
-        public dialog: MatDialogRef<any>
+        public dialog: MatDialogRef<any>,
+        public _dialog: MatDialog
     ) { 
         this.dialog.afterOpen().subscribe(()=>{
             if(this.data){
@@ -34,7 +36,7 @@ export class TitleLinkSelect implements OnInit {
     }
 
     selectLink(){
-        let dialogRef = this.dialog.open(SelectPageDialog);
+        let dialogRef = this._dialog.open(SelectPageDialog);
         dialogRef.afterClosed().subscribe(link => {
             this.form.link = link;
         });
