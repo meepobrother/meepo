@@ -82,5 +82,6 @@ export const MeepoComponents = [
     PageSelect,
     LinkSelect,
     MemberSelectDialog,
-    TitleDescDialog
+    TitleDescDialog,
+    TitleLinkSelect
 ];
