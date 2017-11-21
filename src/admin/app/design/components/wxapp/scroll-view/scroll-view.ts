@@ -18,15 +18,12 @@ export class ScrollView implements OnInit {
     ngOnInit() {
         this.setWidget();
         this.render.listen(this.ele.nativeElement, 'scroll', (evt: any) => {
-
             const scrollHeight = this.ele.nativeElement.scrollHeight;
             const clientHeight = this.ele.nativeElement.clientHeight;
             const scrollTop = this.ele.nativeElement.scrollTop;
-
             const scrollWidth = this.ele.nativeElement.scrollWidth;
             const clientWidth = this.ele.nativeElement.clientWidth;
             const scrollLeft = this.ele.nativeElement.scrollLeft;
-
             if (this.widget['scroll-y']) {
                 // y 方向
                 const len = scrollHeight - scrollTop - clientHeight;
