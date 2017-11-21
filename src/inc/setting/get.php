@@ -13,7 +13,6 @@ $setting = $content = cache_read($key);
 if(empty($setting)){
 	$sql = "ALTER TABLE ".tablename('imeepos_runner3_setting')." MODIFY COLUMN `code` varchar(640) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT ''";
 	pdo_query($sql);
-
 	if($code == 'bmap.api.token'){
 		$setting = M('setting')->getValue('bmap.api.token');
 		if(empty($setting)){
@@ -57,29 +56,40 @@ if(empty($setting)){
 				$this->info = $setting;
 				return $this;
 			}
-		    cache_write('cloud.modules',$setting);
+			cache_write('cloud.modules',$setting);
+			if($code == 'setting.tixian.items'){
+				$this->info = $setting['items'];
+				$this->msg = $code;
+				return $this;
+			}
 			$this->info = $setting;
-			$this->key = $key;
+			$this->msg = $key;
 			return $this;
 		}
-		
 	}
-
-	//$code = trim($input['code']);
 	if(!empty($code)){
 	    $setting = M('setting')->getValue($code);
 	    if(empty($setting)){
 	    	$this->code = 0;
 	    	return $this;
-	    }
+		}
+		
 		cache_write('cloud.modules',$setting);
+		if($code == 'setting.tixian.items'){
+			$this->info = $setting['items'];
+			$this->msg = $code;
+			return $this;
+		}
 	    $this->info = $setting;
-	    $this->msg = $input;
+		$this->msg = $input;
+		return $this;
 	}
-
 }
-
-
+if($code == 'setting.tixian.items'){
+	$this->info = $setting['items'];
+	$this->msg = $code;
+	return $this;
+}
 $this->info = $setting;
 $this->msg = $key;
 return $this;
