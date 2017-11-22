@@ -147,17 +147,20 @@ if($task['payType'] == 'credit'){
 			//添加支付记录
 			$paylog = pdo_get('imeepos_runner3_tasks_paylog',array('tid'=>$task['tid']));
 			if(empty($paylog)){
-				$p = array();
-				$p['uniacid'] = $_W['uniacid'];
-				$p['openid'] = $_W['openid'];
-				$p['create_time'] = time();
-				$p['type'] = 'wechat';
-				$p['status'] = 1;
-				$p['tid'] = $task['tid'];
-				$p['fee'] = floatval($task['total']);
-				$p['tasks_id'] = $id;
-				pdo_insert('imeepos_runner3_tasks_paylog',$p);
-				$id = createTask($task);
+				// $p = array();
+				// $p['uniacid'] = $_W['uniacid'];
+				// $p['openid'] = $_W['openid'];
+				// $p['create_time'] = time();
+				// $p['type'] = 'wechat';
+				// $p['status'] = 1;
+				// $p['tid'] = $task['tid'];
+				// $p['fee'] = floatval($task['total']);
+				// $p['tasks_id'] = $id;
+				// pdo_insert('imeepos_runner3_tasks_paylog',$p);
+				// $id = createTask($task);
+				$this->code = 3;
+				$this->msg = '用户支付中';
+				return $this;
 			}else{
 				if($paylog['status'] ==0){
 					pdo_update('imeepos_runner3_tasks_paylog',array('status'=>1),array('id'=>$paylog['id']));

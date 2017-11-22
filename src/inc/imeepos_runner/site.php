@@ -467,11 +467,9 @@ EOT;
         $type = $params['type'];
         $from = $params['from'];
         $fee = floatval($params['fee']);
-
         if($fee <= 0){
         	return '';
         }
-
         $tid = $params['tid'];
         $paylog = pdo_get('imeepos_runner3_tasks_paylog',array('tid'=>$tid));
         //
@@ -485,10 +483,12 @@ EOT;
 				$action = $task['action']; //支付目的
 				$action = $action ? $action : 'task';
 				if($action == 'task'){
-					$taskid = $this->createTask($task,$openid);
-	        		if(!empty($taskid)){
-						pdo_update('imeepos_runner3_tasks_paylog',array('status'=>1,'tasks_id'=>$taskid),array('id'=>$paylog['id']));
-	        		}
+					if(pdo_update('imeepos_runner3_tasks_paylog',array('status'=>1),array('id'=>$paylog['id']))){
+						$taskid = $this->createTask($task,$openid);
+						if(!empty($taskid)){
+							pdo_update('imeepos_runner3_tasks_paylog',array('tasks_id'=>$taskid),array('id'=>$paylog['id']));
+						}
+					}
 				}
         	}
         }
