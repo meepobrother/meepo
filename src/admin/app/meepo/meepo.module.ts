@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MeepoAppService } from './app.service';
-import { ElModule } from 'element-angular';
+import { ElModule } from '../element-angular';
 
 import { NavTabsModule } from '../components/nav-tabs';
 

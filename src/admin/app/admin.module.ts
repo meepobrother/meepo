@@ -15,7 +15,7 @@ import { AdminComponent } from './admin.component';
 // 动画
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // ele么组件库
-import { ElModule } from 'element-angular';
+import { ElModule } from './element-angular';
 
 @NgModule({
     declarations: [
