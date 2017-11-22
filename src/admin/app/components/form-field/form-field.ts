@@ -1,5 +1,4 @@
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
-import { first, startWith } from '@angular/cdk/rxjs';
 import {
     AfterContentChecked,
     AfterContentInit,
@@ -23,6 +22,7 @@ import {
     MAT_PLACEHOLDER_GLOBAL_OPTIONS,
     PlaceholderOptions,
 } from '@angular/material/core';
+
 import { fromEvent } from 'rxjs/observable/fromEvent';
 import { MeepoError } from './error';
 import { MeepoFormFieldControl } from './form-field-control';

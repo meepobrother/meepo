@@ -4,6 +4,8 @@ import { Widget } from '../widget';
 export class ImFooterDefault extends Widget{
     show: boolean = true;
     tools: any[] = [];
+
+    __do: any = {};
     constructor(){
         super();
         this.type = 'im-footer';

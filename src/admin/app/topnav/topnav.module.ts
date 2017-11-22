@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { Topnav } from './topnav';
 import { TopnavLeft } from './topnav-left/topnav-left';
 import { TopnavRight } from './topnav-right/topnav-right';
-import { FlexLayoutModule } from '@angular/flex-layout';
 const components = [
     Topnav,
     TopnavLeft,
@@ -14,7 +13,7 @@ const components = [
     declarations: [
         ...components
     ],
-    imports: [ CommonModule, FlexLayoutModule ],
+    imports: [ CommonModule ],
     exports: [
         ...components
     ],
