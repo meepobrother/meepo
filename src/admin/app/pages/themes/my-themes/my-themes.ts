@@ -48,7 +48,7 @@ export class MyThemes implements OnInit {
                 // 自动保存
                 this.api.mpost('app.editApp',item).subscribe(res=>{});
             };
-        })
+        });
     }
 
     select(app: any,item: any){

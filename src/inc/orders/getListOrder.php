@@ -3,20 +3,30 @@
 global $_W;
 $input = $this->__input['encrypted'];
 
-if(!empty($input['dev'])){
-    ini_set("display_errors", "On");
-	error_reporting(E_ALL | E_STRICT);
-}
-
-$page = intval($input['page']);
-$psize = intval($input['psize']);
-$page = $page > 0 ? $page : 1;
-$psize = $psize > 0 ? $page : 30;
-
-
-$list = pdo_getall('imeepos_runner4_order',array('uniacid'=>$_W['uniacid']),array(),'id desc',array('id'),array(1,30));
+$sql = "SELECT * FROM ".tablename('imeepos_runner4_order')." WHERE uniacid=:uniacid ORDER BY create_time DESC, id DESC";
+$params = array(':uniacid'=>$_W['uniacid']);
+$list = pdo_fetchall($sql,$params);
 foreach($list as &$li){
     $li['tag'] = unserialize($li['tag']);
+    $li['checks'] = unserialize($li['checks']);
+    $li['services'] = unserialize($li['services']);
+    $li['emplyers'] = unserialize($li['emplyers']);
+    $li['goods'] = unserialize($li['goods']);
+
+    if(empty($li['checks'])){
+    	$li['checks'] = array();
+    }
+    if(empty($li['services'])){
+    	$li['services'] = array();
+    }
+    if(empty($li['emplyers'])){
+    	$li['emplyers'] = array();
+    }
+    if(empty($li['goods'])){
+    	$li['goods'] = array();
+    }
+
+    $li['carfiles'] = pdo_get("imeepos_repair_server_carfiles",array('id'=>$li['car_id']));
 }
 unset($li);
 

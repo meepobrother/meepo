@@ -1,17 +1,19 @@
 <?php
 global $_W;
 $input = $this->__input['encrypted'];
-if(!empty($input['dev'])){
-    ini_set("display_errors", "On");
-	error_reporting(E_ALL | E_STRICT);
+// 检查权限
+$__meepo_openid = $input['__meepo_openid'];
+$__meepo_rcode = $input['__meepo_rcode'];
+
+if(empty($__meepo_rcode) || empty($__meepo_openid)){
+	$this->info = array();
+	$this->msg = $input;
+	$this->code = -1;
+	return $this;
 }
 
-$page = intval($input['page']);
-$psize = intval($input['psize']);
-$page = $page > 0 ? $page : 1;
-$psize = $psize > 0 ? $page : 30;
+$list = pdo_getall('imeepos_runner3_member',array('uniacid'=>$_W['uniacid']));
 
-
-$list = pdo_getall('imeepos_runner3_member',array('uniacid'=>$_W['uniacid']),array(),'id desc',array('id'),array(1,30));
 $this->info = $list;
+$this->msg = $input;
 return $this;

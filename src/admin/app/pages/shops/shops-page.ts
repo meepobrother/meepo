@@ -12,7 +12,6 @@ export class ShopsPage implements OnInit {
     ngOnInit() { }
 
     clearCache(){
-        console.log('clearCache');
         store.set('isLogin',false);
         store.set('__meepo_rcode',null);
     }

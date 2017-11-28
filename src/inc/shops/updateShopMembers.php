@@ -15,5 +15,5 @@ if(pdo_update('imeepos_runner4_shops',$shop,array('id'=>$shop_id))){
 }else{
     $this->info = '失败';
 }
-$this->msg = $input;
+$this->msg = $shop;
 return $this;

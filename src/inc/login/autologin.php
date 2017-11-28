@@ -12,16 +12,25 @@ if(empty($rcode)){
 }
 
 $user = cache_read($rcode);
-$site = pdo_get('imeepos_runner4_member_site',array('openid'=>$user['openid']));
-$user['siteroot'] = $site['siteroot'];
-$user['uniacid'] = $site['uniacid'];
-$user['acid'] = $site['acid'];
+if(!empty($user)){
+	$site = pdo_get('imeepos_runner4_member_site',array('openid'=>$user['openid']));
+	$member = pdo_get('imeepos_runner3_member',array('openid'=>$user['openid']));
 
-load()->model('account');
-$account = uni_fetch($site['uniacid']);
-$user['account'] = $account;
-$user['input'] = $input;
+	$user['realname'] = $member['realname'];
+	$user['mobile'] = $member['mobile'];
+	$user['siteroot'] = $site['siteroot'];
+	$user['uniacid'] = $site['uniacid'];
+	$user['acid'] = $site['acid'];
+	// uni_modules
+	$modules = uni_modules_by_uniacid($user['uniacid'],true);
+	$roles = array();
+	foreach($modules as $key=>$module){
+		$roles[] = $key;
+	}
+	$user['roles'] = $roles;
+}else{
+	$user = array();
+}
 
 $this->info = $user;
-$this->msg = $site;
 return $this;

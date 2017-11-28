@@ -3,11 +3,6 @@
 global $_W;
 $input = $this->__input['encrypted'];
 
-$page = intval($input['page']);
-$psize = intval($input['psize']);
-$page = $page > 0 ? $page : 1;
-$psize = $psize > 0 ? $psize : 30;
-
 $params = array();
 $where = "";
 
@@ -28,7 +23,7 @@ if(isset($input['payType']) && $input['payType'] != 'all'){
     $params[':payType'] = $payType;
 }
 
-$sql = "SELECT * FROM ".tablename('imeepos_runner3_tasks')." WHERE uniacid={$_W['uniacid']} {$where} ORDER BY id DESC limit ".($page - 1)*$psize.",".$psize;
+$sql = "SELECT * FROM ".tablename('imeepos_runner3_tasks')." WHERE uniacid={$_W['uniacid']} {$where} ORDER BY id DESC ";
 $list = pdo_fetchall($sql,$params);
 
 foreach($list as &$li){ 
@@ -42,7 +37,6 @@ foreach($list as &$li){
     $li['tag'] = $detail['goodsname'];
     $li['avatar'] = $member['avatar'];
     $li['nickname'] = $member['nickname'];
-
     //recive
     $pai = pdo_get('imeepos_runner3_recive',array('taskid'=>$li['id']));
     $reciver = pdo_get('imeepos_runner3_member',array('uniacid'=>$_W['uniacid'],'openid'=>$pai['openid']));

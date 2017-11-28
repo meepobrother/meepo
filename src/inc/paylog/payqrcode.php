@@ -17,7 +17,7 @@ $fee = $task['total'] - $hasPay;
 
 
 if($fee > 0 ){
-	$pay = Pay::create('weixin');
+	$pay = Pay::create('wechat');
 	$item = array();
 	$item['tid'] = $input['tid'];
 	$item['fee'] = $fee;

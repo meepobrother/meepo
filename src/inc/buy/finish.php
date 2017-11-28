@@ -48,7 +48,7 @@ load()->classs('pay');
 load()->classs('weixin.pay');
 //检查未支付订单是否支付
 $noPaylog = pdo_get('imeepos_runner3_tasks_paylog',array('tasks_id'=>$id,'status'=>0));
-$pay = Pay::create('weixin');
+$pay = Pay::create();
 
 if(empty($pay)){
 	$pay = Pay::create('wechat');

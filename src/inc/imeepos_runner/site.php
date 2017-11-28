@@ -392,16 +392,28 @@ EOT;
 	}
 	public function doMobileOpen(){
 	    global $_W,$_GPC;
-		header('Access-Control-Allow-Origin: *');
-		header('Access-Control-Allow-Headers: Content-Type');
+		if (isset($_SERVER['HTTP_ORIGIN'])) {
+			header("Access-Control-Allow-Origin: *");
+			header("Access-Control-Allow-Credentials: true");
+			header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
+			header("Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With");
+			header('P3P: CP="CAO PSA OUR"'); // Makes IE to support cookies
+			header("Content-Type: application/json; charset=utf-8");
+		}
         $__do = trim($_GPC['__do']);
         $input = isset($_GPC['__input']) ? $_GPC['__input'] : array();
         die($this->router->reset()->exec($__do,$input)->getJson());
     }
     public function doWebOpen(){
 	    global $_W,$_GPC;
-        header('Access-Control-Allow-Origin: *');
-		header('Access-Control-Allow-Headers: Content-Type');
+        if (isset($_SERVER['HTTP_ORIGIN'])) {
+			header("Access-Control-Allow-Origin: *");
+			header("Access-Control-Allow-Credentials: true");
+			header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
+			header("Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With");
+			header('P3P: CP="CAO PSA OUR"'); // Makes IE to support cookies
+			header("Content-Type: application/json; charset=utf-8");
+		}
         $__do = trim($_GPC['__do']);
         $input = isset($_GPC['__input']) ? $_GPC['__input'] : array();
         die($this->router->reset()->exec($__do,$input)->getJson());

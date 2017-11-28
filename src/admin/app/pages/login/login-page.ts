@@ -1,14 +1,14 @@
 import { Component, OnInit, ViewChild, Input, ElementRef, Inject } from '@angular/core';
-import { LoginService } from '../../core';
+import { LoginService, ApiService } from '../../core';
 import { Router } from '@angular/router';
-import * as store from 'store';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import * as uuid from 'uuid';
 import { Subject } from 'rxjs/Subject';
 import { DOCUMENT } from '@angular/common';
-import { ApiService } from '../../core';
 import { HttpClient } from '@angular/common/http';
+
 import * as outils from 'outils';
+import * as store from 'store';
+import * as uuid from 'uuid';
 
 @Component({
     selector: 'login-page',
@@ -19,18 +19,14 @@ export class LoginPage implements OnInit {
     form: FormGroup;
     swiperJs: string = 'https://meepo.com.cn/meepo/libs/qrcode.min.js';
     swiper: any;
-
     laodSuccess: Subject<any> = new Subject();
     @ViewChild('container') container: ElementRef;
     rcode: string = uuid();
-
     timer: any;
     QRCode: any;
     siteroot: string;
     sitehttp: string = window.location.protocol + "//";
-
     showNext: boolean = false;
-
     pages: any[] = [];
 
     constructor(
@@ -128,9 +124,6 @@ export class LoginPage implements OnInit {
 
     ngOnInit() {
         this.api.mpost('login.update', {}).subscribe(res => { });
-
-        console.log();
-
     }
 
     ngAfterViewInit() {
