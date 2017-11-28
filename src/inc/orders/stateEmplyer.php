@@ -5,6 +5,9 @@ $shops = pdo_getall('imeepos_runner4_shops',array('uniacid'=>$_W['uniacid']));
 
 foreach($shops as &$shop){
 	$shop['employers'] = unserialize($shop['employers']);
+	if(empty($shop['employers'])){
+		$shop['employers'] = array();
+	}
 	// 统计每个店铺的营业额
 	$sql = "SELECT SUM(fee) as y, create_time as x FROM ".tablename("imeepos_runner4_state_shop")." WHERE shop_id=:shop_id AND uniacid=:uniacid GROUP BY create_time ";
 	$params = array();

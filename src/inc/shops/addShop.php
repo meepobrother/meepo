@@ -36,6 +36,18 @@ $data['shopers'] = unserialize($data['shopers']);
 $data['employers'] = unserialize($data['employers']);
 $data['kefus'] = unserialize($data['kefus']);
 
+// 更新员工所在店铺
+udpateMemberShopId($data['id'],$data['shopers']);
+udpateMemberShopId($data['id'],$data['employers']);
+udpateMemberShopId($data['id'],$data['kefus']);
+
 $this->info = $data;
 $this->msg = $input;
 return $this;
+
+
+function udpateMemberShopId($shop_id = 0, $members = array()){
+	foreach($members as $member){
+		pdo_update('imeepos_runner3_member',array('shop_id'=>$shop_id),array('openid'=>$member['openid']));
+	}
+}

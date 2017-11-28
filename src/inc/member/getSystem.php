@@ -12,7 +12,16 @@ if(empty($__meepo_rcode) || empty($__meepo_openid)){
 	return $this;
 }
 
-$list = pdo_getall('imeepos_runner3_member',array('uniacid'=>$_W['uniacid']));
+
+$where = " uniacid=:uniacid ";
+$params = array(':uniacid'=>$_W['uniacid']);
+if(isset($input['shop_id'])){
+	$shop_id = intval($input['shop_id']);
+	$where .= " AND shop_id=:shop_id ";
+	$params[':shop_id'] = $shop_id;
+}
+$sql = "SELECT * FROM ".tablename('imeepos_runner3_member')." WHERE {$where} ORDER BY time desc ";
+$list = pdo_fetchall($sql,$params);
 
 $this->info = $list;
 $this->msg = $input;

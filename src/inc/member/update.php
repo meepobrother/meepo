@@ -27,4 +27,9 @@ if(!pdo_fieldexists('imeepos_runner4_member_group','fid')){
     pdo_query($sql);
 }
 
+if(!pdo_fieldexists('imeepos_runner3_member','shop_id')){
+    $sql = "ALTER TABLE ".tablename('imeepos_runner3_member')." ADD COLUMN `shop_id` int(11) NOT NULL DEFAULT '0'";
+    pdo_query($sql);
+}
+
 return $this;
