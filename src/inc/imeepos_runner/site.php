@@ -41,7 +41,6 @@ function J($status = -1,$message="获取数据失败",$info=array()){
 
 define('Meepo_Debug',false);
 
-// M('member');
 
 if(Meepo_Debug){
 	ini_set("display_errors", "On");
@@ -207,15 +206,49 @@ class Imeepos_runnerModuleSite extends WeModuleSite {
 		return false;
 	}
 
-	function checkRole($r,$roles){
+	public function checkRole($r = '',$roles = array()){
 		$hasRight = false;
 		foreach($roles as $role){
-			console.log(role);
 			if($role['code'] == $r){
 				$hasRight = $role['active'];
 			}
 		}
 		return $hasRight;
+	}
+	// 应用预览
+	public function doMobileApp(){
+		global $_W,$_GPC;
+		$id = intval($_GPC['aid']);
+		$app = pdo_get('imeepos_runner4_app',array('id'=>$id));
+		$app['rights'] = unserialize($app['rights']);
+		if(!$this->checkAppRight($app['rights'])){
+			itoast('您没有访问本应用权限','','error');
+			return false;
+		}
+		// 获取默认页面
+		$table = "imeepos_runner4_app_catalog_pages";
+		$data = pdo_get($table,array('app_id'=>$id,'isdefault'=>1));
+		if(empty($data)){
+			$data = pdo_get($table,array('app_id'=>$id));
+		}
+		$data['body'] = unserialize($data['body']);
+		$data['header'] = unserialize($data['header']);
+		$data['footer'] = unserialize($data['footer']);
+		$data['menu'] = unserialize($data['menu']);
+		$data['kefu'] = unserialize($data['kefu']);
+		$html_content = $data['html_content'];
+		unset($data['html_content']);
+
+		$table = 'imeepos_runner4_app_widgets';
+		$widgets = pdo_getall($table);
+		$result = array();
+		if($_W['isajax']){
+			$result['data'] = $data;
+			$result['widgets'] = $widgets;
+			die(json_encode($result));
+		}
+		$member = pdo_get('imeepos_runner3_member',array('openid'=>$_W['openid']));
+		include $this->template('design/index');
 	}
 
 	public function doMobileDesign(){
@@ -229,14 +262,13 @@ class Imeepos_runnerModuleSite extends WeModuleSite {
 		$data['footer'] = unserialize($data['footer']);
 		$data['menu'] = unserialize($data['menu']);
 		$data['kefu'] = unserialize($data['kefu']);
+
 		$app = pdo_get('imeepos_runner4_app',array('id'=>$data['app_id']));
 		$app['rights'] = unserialize($app['rights']);
-
 		if(!$this->checkAppRight($app['rights'])){
 			itoast('您没有访问本应用权限','','error');
 			return false;
 		}
-
 		$html_content = $data['html_content'];
 		unset($data['html_content']);
 
@@ -283,7 +315,6 @@ class Imeepos_runnerModuleSite extends WeModuleSite {
 			$sql = "ALTER TABLE ".tablename('imeepos_runner3_setting')." ADD INDEX IDX_CODE (`code`) ";
 			pdo_query($sql);
 		}
-		
     	include $this->template('index');
 	}
 
@@ -507,7 +538,7 @@ EOT;
 
     }
 
-    function createTask($task = array(),$openid = ''){
+    public function createTask($task = array(),$openid = ''){
 		global $_W;
 		$data = array();
 		$data['uniacid'] = $_W['uniacid'];
@@ -516,122 +547,75 @@ EOT;
 		$data['update_time'] = time();
 		$data['message'] = $task['desc'];
 		$data['openid'] = $openid;
-
 		//录音 serverId
 		$data['media_id'] = $task['serverId'];
-		if(!pdo_fieldexists('imeepos_runner3_tasks','voice_time')){
-	        pdo_query("ALTER TABLE ".tablename('imeepos_runner3_tasks')." ADD COLUMN `voice_time` int(11) DEFAULT '0'");
-	    }
 		$data['voice_time'] = $task['voice_time'];
-		if(!pdo_fieldexists('imeepos_runner3_tasks','media_src')){
-	        pdo_query("ALTER TABLE ".tablename('imeepos_runner3_tasks')." ADD COLUMN `media_src` varchar(320) DEFAULT ''");
-	    }
-	    
 		$data['media_src'] = $task['src'];
-
-
+		$data['small_fee'] = floatval($task['money']);
 		$data['type'] = $task['type']; //任务类型
 		$data['payType'] = $task['payType']; // 支付类型
-
 		if($data['payType'] == 'credit'){
 			$data['status'] = 1;
 		}
 		if($data['payType'] == 'wechat'){
 			$data['status'] = 1;
 		}
-		//添加字段
-		if(!pdo_fieldexists('imeepos_runner3_tasks','payType')){
-	        pdo_query("ALTER TABLE ".tablename('imeepos_runner3_tasks')." ADD COLUMN `payType` varchar(32) DEFAULT ''");
-	    }
-
-	    //小费
-	    if(!pdo_fieldexists('imeepos_runner3_tasks','small_fee')){
-	        pdo_query("ALTER TABLE ".tablename('imeepos_runner3_tasks')." ADD COLUMN `small_fee` decimal(10,2) DEFAULT '0.00'");
-	    }
-	    $data['small_fee'] = floatval($task['money']);
 		$data['limit_time'] = $task['duration'];
 		$data['total'] = $task['total'];
-		
-
 		$code = random(6,true);
 		$data['code'] = $code;
 		$qrcode = 'imeepos_runner'.md5($code.$data['create_time']);
 		$data['qrcode'] = $qrcode;
+		if(pdo_insert('imeepos_runner3_tasks',$data)){
+			$taskid = pdo_insertid();
+			pdo_update('imeepos_runner3_tasks_paylog',array('tasks_id'=>$taskid),array('tid'=>$task['tid'],'uniacid'=>$_W['uniacid']));
+			pdo_update('imeepos_runner3_tasks',array('status'=>1),array('id'=>$taskid));
+			$detail = array();
+			$detail['taskid'] = $taskid;
+			$detail['goodscost'] = $task['price'];
+			$detail['goodsname'] = $task['goods'];
+			$detail['goodsweight'] = $task['weight'];
+			$detail['uniacid'] = $_W['uniacid'];
 
-		pdo_insert('imeepos_runner3_tasks',$data);
-		$taskid = pdo_insertid();
-		pdo_update('imeepos_runner3_tasks_paylog',array('tasks_id'=>$taskid),array('tid'=>$task['tid'],'uniacid'=>$_W['uniacid']));
-		pdo_update('imeepos_runner3_tasks',array('status'=>1),array('id'=>$taskid));
+			$detail['receivelon'] = $task['end']['lng'];
+			$detail['receivelat'] = $task['end']['lat'];
+			$detail['receivedetail'] = $task['end']['detail'];
+			$detail['receivemobile'] = $task['end']['mobile'];
+			$detail['receiverealname'] = $task['end']['realname'];
+			$detail['receiveaddress'] = $task['end']['poiname'];
 
-		$detail = array();
-		$detail['taskid'] = $taskid;
-		$detail['goodscost'] = $task['price'];
-		$detail['goodsname'] = $task['goods'];
-		$detail['goodsweight'] = $task['weight'];
-		$detail['uniacid'] = $_W['uniacid'];
+			$detail['senddetail'] = $task['start']['detail'];
+			$detail['sendlat'] = $task['start']['lat'];
+			$detail['sendlon'] = $task['start']['lng'];
+			$detail['sendaddress'] = $task['start']['poiname'];
+			$detail['sendrealname'] = $task['start']['realname'];
+			$detail['sendmobile'] = $task['start']['mobile'];
+			$detail['images'] = serialize($task['images']);
+			// $detail['base_fee'] = floatval($task['baojia']['value']);	
+			$detail['small_fee'] = floatval($task['money']);
+			// 保价
+			$detail['base_fee'] = floatval($task['baojia']['value']);	
+		    $detail['tiji'] = $task['tiji'];
 
-		$detail['receivelon'] = $task['end']['lng'];
-		$detail['receivelat'] = $task['end']['lat'];
-		$detail['receivedetail'] = $task['end']['detail'];
-		$detail['receivemobile'] = $task['end']['mobile'];
-		$detail['receiverealname'] = $task['end']['realname'];
-		$detail['receiveaddress'] = $task['end']['poiname'];
-
-		$detail['senddetail'] = $task['start']['detail'];
-		$detail['sendlat'] = $task['start']['lat'];
-		$detail['sendlon'] = $task['start']['lng'];
-		$detail['sendaddress'] = $task['start']['poiname'];
-		$detail['sendrealname'] = $task['start']['realname'];
-		$detail['sendmobile'] = $task['start']['mobile'];
-		$detail['images'] = serialize($task['images']);
-		//小费
-		if(!pdo_fieldexists('imeepos_runner3_detail','small_fee')){
-	        pdo_query("ALTER TABLE ".tablename('imeepos_runner3_detail')." ADD COLUMN `small_fee` decimal(10,2) DEFAULT '0.00'");
-	    }
-		$detail['small_fee'] = floatval($task['money']);
-		// 保价
-		$detail['base_fee'] = floatval($task['baojia']['value']);	
-
-		//体积
-		if(!pdo_fieldexists('imeepos_runner3_detail','tiji')){
-	        pdo_query("ALTER TABLE ".tablename('imeepos_runner3_detail')." ADD COLUMN `tiji` int(11) DEFAULT '0'");
-	    }
-	    $detail['tiji'] = $task['tiji'];
-		
-		if(!pdo_fieldexists('imeepos_runner3_detail','total_num')){
-	        pdo_query("ALTER TABLE ".tablename('imeepos_runner3_detail')." ADD COLUMN `total_num` int(11) DEFAULT '1'");
-	    }
-		// ALTER TABLE `ims_imeepos_runner3_detail` ADD `total_num` INT(11) NOT NULL DEFAULT '1' AFTER `sendmobile`;
-		$detail['total_num'] = !empty($task['number']) ? $task['number'] : 1;
-
-		if(!pdo_fieldexists('imeepos_runner3_detail','steps')){
-	        pdo_query("ALTER TABLE ".tablename('imeepos_runner3_detail')." ADD COLUMN `steps` text DEFAULT ''");
-	    }
-	    $detail['steps'] = serialize($task['steps']);
-
-		if($task['time']){
-			$str = str_replace('年', '-', $task['time']['value']);
-			$str = str_replace('月', '-', $str);
-			$str = str_replace('日', '', $str);
-			$detail['pickupdate'] = strtotime($str);
+			// ALTER TABLE `ims_imeepos_runner3_detail` ADD `total_num` INT(11) NOT NULL DEFAULT '1' AFTER `sendmobile`;
+			$detail['total_num'] = !empty($task['number']) ? $task['number'] : 1;
+		    $detail['steps'] = serialize($task['steps']);
+			if($task['time']){
+				$str = str_replace('年', '-', $task['time']['value']);
+				$str = str_replace('月', '-', $str);
+				$str = str_replace('日', '', $str);
+				$detail['pickupdate'] = strtotime($str);
+			}
+			$detail['total'] = $task['total'];
+			$detail['message'] = $task['desc'];
+			$detail['duration'] = !empty($task['duration']) ? $task['duration'] : '待定	';
+			$detail['duration_value'] = $task['duration_value'];
+			$detail['float_distance'] = $task['routeLen'];
+			// $detail['goodscost'] = $task['price'];s
+			pdo_insert('imeepos_runner3_detail',$detail);
+			return $taskid;
 		}
-
-		$detail['total'] = $task['total'];
-
-		$detail['message'] = $task['desc'];
-		if(!pdo_fieldexists('imeepos_runner3_detail','duration_value')){
-	        pdo_query("ALTER TABLE ".tablename('imeepos_runner3_detail')." ADD COLUMN `duration_value` int(11) DEFAULT '1'");
-	    	pdo_query('alter table '.tablename('imeepos_runner3_detail').' modify column duration varchar(120);');
-	    }
-
-		$detail['duration'] = !empty($task['duration']) ? $task['duration'] : '待定	';
-		$detail['duration_value'] = $task['duration_value'];
-		$detail['float_distance'] = $task['routeLen'];
-		// $detail['goodscost'] = $task['price'];s
-
-		pdo_insert('imeepos_runner3_detail',$detail);
-
-		return $detail['taskid'];
+		return 0;
 	}
 
     public function doWebAdmin(){
@@ -802,9 +786,25 @@ EOT;
 		$data['uniacid'] = $_W['uniacid'];
 		$data['acid'] = $_W['uniacid'];
 		cache_write($rcode, $data);
+
+		// 添加
+		if(!pdo_fieldexists('imeepos_runner4_member_site','type')){
+		    $sql = "ALTER TABLE ".tablename('imeepos_runner4_member_site')." ADD COLUMN `type` varchar(64) NOT NULL DEFAULT 'siter'";
+		    pdo_query($sql);
+		}
 		
-		$list = pdo_getall('imeepos_runner4_member_site',array('uniacid'=>$_W['uniacid']));
+		$list = pdo_getall('imeepos_runner4_member_site',array('uniacid'=>$_W['uniacid'],'type'=>"siter"));
 		foreach($list as &$li){
+			$member = mc_fansinfo($li['openid'],$uniacid,$uniacid);
+			$li['avatar'] = $member['avatar'];
+			$li['nickname'] = $member['nickname'];
+			$li['mobile'] = $member['mobile'];
+			$li['realname'] = $member['realname'];
+		}
+		unset($li);
+
+		$adminers = pdo_getall('imeepos_runner4_member_site',array('uniacid'=>$_W['uniacid'],'type'=>"admin"));
+		foreach($adminers as &$li){
 			$member = mc_fansinfo($li['openid'],$uniacid,$uniacid);
 			$li['avatar'] = $member['avatar'];
 			$li['nickname'] = $member['nickname'];

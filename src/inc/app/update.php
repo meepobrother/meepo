@@ -70,6 +70,11 @@ if(!pdo_fieldexists('imeepos_runner4_app_catalog_pages','pageType')){
   pdo_query($sql);
 }
 
+if(!pdo_fieldexists('imeepos_runner4_app_catalog_pages','isdefault')){
+  $sql = "ALTER TABLE ".tablename('imeepos_runner4_app_catalog_pages')." ADD COLUMN `isdefault` tinyint(2) NOT NULL DEFAULT '0'";
+  pdo_query($sql);
+}
+
 
 if(!pdo_tableexists('imeepos_runner4_app_catalog_pages_widget')){
   // 安装 插件 imeepos_runner4_app_catalog_pages_widget

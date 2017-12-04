@@ -27,10 +27,17 @@ if(!empty($user)){
 	foreach($modules as $key=>$module){
 		$roles[] = $key;
 	}
+	if($site['type'] == 'admin'){
+		$roles[] = 'imeepos_runner_admin';
+	}
 	$user['roles'] = $roles;
+	$user['account'] = $_W['account'];
+	$this->code = 1;
 }else{
 	$user = array();
+	$this->code = 0;
 }
 
 $this->info = $user;
 return $this;
+

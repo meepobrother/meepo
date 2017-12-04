@@ -42,8 +42,8 @@ if(!pdo_tableexists('imeepos_runner4_state_good')){
     $sql = "CREATE TABLE ".tablename('imeepos_runner4_state_good')." (
         `id` int(11) NOT NULL AUTO_INCREMENT,
         `uniacid` int(11) NOT NULL DEFAULT '0',
-        `good_id` int(11) NOT NULL DEFAULT '',
-        `num` int(11,2) NOT NULL DEFAULT '0',
+        `good_id` int(11) NOT NULL DEFAULT '0',
+        `num` int(11) NOT NULL DEFAULT '0',
         `create_time` int(11) NOT NULL DEFAULT '0',
         PRIMARY KEY (`id`)
       ) ENGINE=InnoDB DEFAULT CHARSET=utf8";
@@ -54,8 +54,8 @@ if(!pdo_tableexists('imeepos_runner4_state_service')){
     $sql = "CREATE TABLE ".tablename('imeepos_runner4_state_service')." (
         `id` int(11) NOT NULL AUTO_INCREMENT,
         `uniacid` int(11) NOT NULL DEFAULT '0',
-        `service_id` int(11) NOT NULL DEFAULT '',
-        `num` int(11,2) NOT NULL DEFAULT '0',
+        `service_id` int(11) NOT NULL DEFAULT '0',
+        `num` int(11) NOT NULL DEFAULT '0',
         `create_time` int(11) NOT NULL DEFAULT '0',
         PRIMARY KEY (`id`)
       ) ENGINE=InnoDB DEFAULT CHARSET=utf8";

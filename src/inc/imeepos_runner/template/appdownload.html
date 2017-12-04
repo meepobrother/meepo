@@ -18,6 +18,113 @@
         flex: 1;
     }
 </style>
+
+
+<div class="panel panel-danger">
+    <div class="panel-heading">
+        扫码绑定微信后，请根据系统选择客户端！
+        <a class="btn btn-primary" href="https://meepo.com.cn/download/meepo-mac.zip">mac</a>
+        <a class="btn btn-primary" href="https://meepo.com.cn/download/meepo-win32.zip">win32</a>
+        <a class="btn btn-primary" href="https://meepo.com.cn/download/meepo-win64.zip">win64</a>
+        <p style="padding: 10px 5px; color: green;">
+            客户端功能更加强劲，支持订单信息实时统计，实时提醒，试试查看跑腿员位置，远程监控跑腿员位置，推送消息给粉丝或者跑腿员，更多功能，等你发掘！
+        </p>
+    </div>
+
+    <div class="panel-body">
+        {if $_W['role'] == 'founder'}
+        <p style="padding: 10px 5px; color: green;">此信息一经绑定，切勿轻易更改，更改后需要重新扫码绑定！</p>
+        <div class="form-group meepo-row">
+            <label style="padding: 0 10px;">主账号 
+                <!-- {if !empty($uniacid)} -->
+                <span style="font-size: .8em;color: green;">(已绑定)</span>
+                <!-- {/if} -->
+            </label>
+            <select class="form-control" id="uniacid">
+                {loop $accounts $acc}
+                <option {if $uniacid == $acc['uniacid']}selected{/if} value="{$acc['uniacid']}">{$acc['name']}</option>
+                {/loop}
+            </select>
+            <a href="javascript:;" class="btn btn-parmary" style="background-color: green;color: #fff;" id="save">
+                <!-- {if !empty($uniacid)} -->
+                更换
+                <!-- {else} -->
+                保存
+                <!-- {/if} -->
+            </a>
+        </div>
+        <div id="bindSystemCode" style="{if empty($uniacid)}display:none;{/if}">
+            <div class="qrcode" id="sys_qrcode" style="background: #fff;margin: 0 auto;text-align:center;height: 300px;"></div>
+            <p style="color: red;padding-left: 10px;">
+                站长！！
+            </p>
+            <ul>
+                {loop $adminers $item}
+                <li>
+                    <img style="width: 2em;border-radius: 50%;" src="{$item['avatar']}">-{$item['nickname']}&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-danger btn-xs">删除</a>
+                </li>
+                {/loop}
+            </ul>
+        </div>
+        {/if}
+        <div id="bindqrcode" style="{if empty($uniacid)}display:none;{/if}">
+            <div class="qrcode" id="qrcode" style="background: #fff;margin: 0 auto;text-align:center;height: 300px;"></div>
+            <p style="color: red;padding-left: 10px;">
+                管理员运营者！！
+            </p>
+            <ul>
+                {loop $list $item}
+                <li>
+                    <img style="width: 2em;border-radius: 50%;" src="{$item['avatar']}">-{$item['nickname']} &nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-danger btn-xs">删除</a>
+                </li>
+                {/loop}
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function() {
+        var qrcode = new QRCode(document.getElementById("qrcode"), {
+            text: "{php echo $_W['siteroot'].'app/index.php?c=entry&do=open&a=&i='.$uniacid.'&j='.$uniacid.'&__do=login.bindqrcode&m=imeepos_runner&r='.$rcode}",
+            width: 228,
+            height: 228,
+            colorDark: "#000000",
+            colorLight: "#ffffff",
+            correctLevel: QRCode.CorrectLevel.H
+        });
+
+        var qrcode = new QRCode(document.getElementById("sys_qrcode"), {
+            text: "{php echo $_W['siteroot'].'app/index.php?c=entry&do=open&a=&i='.$uniacid.'&j='.$uniacid.'&__do=login.bindsysqrcode&m=imeepos_runner&r='.$rcode}",
+            width: 228,
+            height: 228,
+            colorDark: "#000000",
+            colorLight: "#ffffff",
+            correctLevel: QRCode.CorrectLevel.H
+        });
+
+        $('#save').click(function() {
+            var that = $(this);
+            that.html('保存中');
+            var uniacid = $('#uniacid').val();
+            $.post('', {
+                act: 'save',
+                uniacid: uniacid
+            }, function() {
+                setTimeout(function() {
+                    that.html('保存成功');
+                    $('#bindqrcode').show();
+                    $('#bindSystemCode').show();
+                    setTimeout(function() {
+                        that.html('保存');
+                    }, 300);
+                }, 300);
+            }, 'json')
+
+        })
+    })
+</script>
+
 <div class="jumbotron">
     <h1>你好, 小明跑腿v20!</h1>
     <p>
@@ -52,79 +159,4 @@
         更多功能请联系升级！
     </p>
 </div>
-
-<div class="panel panel-danger">
-    <div class="panel-heading">
-        扫码绑定微信
-    </div>
-    <div class="panel-body">
-        {if $_W['role'] == 'founder'}
-        <div class="form-group meepo-row">
-            <label style="padding: 0 10px;">主账号 
-                <!-- {if !empty($uniacid)} -->
-                <span style="font-size: .8em;color: green;">(已绑定)</span>
-                <!-- {/if} -->
-            </label>
-            <select class="form-control" id="uniacid">
-                {loop $accounts $acc}
-                <option {if $uniacid == $acc['uniacid']}selected{/if} value="{$acc['uniacid']}">{$acc['name']}</option>
-                {/loop}
-            </select>
-            <a href="javascript:;" class="btn btn-parmary" style="background-color: green;color: #fff;" id="save">
-                <!-- {if !empty($uniacid)} -->
-                更换
-                <!-- {else} -->
-                保存
-                <!-- {/if} -->
-            </a>
-        </div>
-        <p style="padding: 10px 5px; color: green;">此信息一经绑定，切勿轻易更改，更改后需要重新扫码绑定！</p>
-        {/if}
-        <div id="bindqrcode" style="{if empty($uniacid)}display:none;{/if}">
-            <div class="qrcode" id="qrcode" style="background: #fff;margin: 0 auto;text-align:center;height: 300px;"></div>
-            <p style="color: red;">
-                扫码绑定微信，绑定成功后可登陆客户端程序！
-            </p>
-            <ul>
-                {loop $list $item}
-                <li>
-                    <img style="width: 2em;border-radius: 50%;" src="{$item['avatar']}">-{$item['nickname']}
-                </li>
-                {/loop}
-            </ul>
-        </div>
-    </div>
-</div>
-
-<script>
-    $(function() {
-        var qrcode = new QRCode(document.getElementById("qrcode"), {
-            text: "{php echo $_W['siteroot'].'app/index.php?c=entry&do=open&a=&i='.$uniacid.'&j='.$uniacid.'&__do=login.bindqrcode&m=imeepos_runner&r='.$rcode}",
-            width: 228,
-            height: 228,
-            colorDark: "#000000",
-            colorLight: "#ffffff",
-            correctLevel: QRCode.CorrectLevel.H
-        });
-
-        $('#save').click(function() {
-            var that = $(this);
-            that.html('保存中');
-            var uniacid = $('#uniacid').val();
-            $.post('', {
-                act: 'save',
-                uniacid: uniacid
-            }, function() {
-                setTimeout(function() {
-                    that.html('保存成功');
-                    $('#bindqrcode').show();
-                    setTimeout(function() {
-                        that.html('保存');
-                    }, 300);
-                }, 300);
-            }, 'json')
-
-        })
-    })
-</script>
-<!--{template 'common/footer'}-->
+<!--{template 'common/footer'}

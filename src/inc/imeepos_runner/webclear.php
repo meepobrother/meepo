@@ -4,6 +4,8 @@ $setting = array();
 $code = 'update.setting';
 $setting = M('setting')->getSystem($code);
 
+// pdo_delete('imeepos_runner3_setting',array('code'=>$code));
+
 if(empty($setting)){
 	pdo_delete('imeepos_runner3_tasks_log',array('uniacid'=>$_W['uniacid']));
 	pdo_delete('imeepos_runner3_tasks',array('uniacid'=>$_W['uniacid']));
@@ -16,7 +18,17 @@ if(empty($setting)){
 	pdo_delete('imeepos_runner3_address',array('uniacid'=>$_W['uniacid']));
 	pdo_delete('imeepos_runner3_setting',array('uniacid'=>$_W['uniacid']));
 	$setting['version'] = '10.0.0';
+	$value = serialize($setting);
+	$data = array();
+	$data['code'] = $code;
+	$data['value'] = $value;
+	$data['uniacid'] = 0;
+	pdo_insert(
+		'imeepos_runner3_setting',
+		$data
+	);
 }
+
 //修复菜单问题
 if($setting['version']=='10.0.0'){
 	pdo_delete('modules_bindings',array('module'=>'imeepos_runner','entry'=>'cover'));
@@ -46,6 +58,8 @@ if($setting['version']=='10.0.0'){
 	$data['direct'] = 0;
 	pdo_insert('modules_bindings',$data);
 	$setting['version'] = '10.0.1';
+	$value = serialize($setting);
+	pdo_update('imeepos_runner3_setting',array('code'=>$code,'value'=>$value),array('code'=>$code));
 }
 
 //插件
@@ -58,9 +72,10 @@ if($setting['version'] == '10.0.1'){
 			$data['name'] = 'imeepos_runner_plugin_suyun';
 			pdo_insert('modules_plugin',$data);
 		}
-		M('setting')->update($code,$value);
 	}
 	$setting['version'] = '10.0.2';
+	$value = serialize($setting);
+	pdo_update('imeepos_runner3_setting',array('code'=>$code,'value'=>$value),array('code'=>$code));
 }
 
 //服务
@@ -315,6 +330,17 @@ if($setting['version'] == '10.1.9'){
 	pdo_insert('modules_bindings',$data);
 	$setting['version'] = '10.2.0';
 }
-$value = serialize($setting);
-pdo_update('imeepos_runner3_setting',array('code'=>$code,'value'=>$value),array('code'=>$code));
 
+
+
+
+
+
+
+
+$value = serialize($setting);
+pdo_update(
+	'imeepos_runner3_setting',
+	array('value'=>$value),
+	array('code'=>$code)
+);

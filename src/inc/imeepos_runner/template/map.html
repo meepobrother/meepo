@@ -121,7 +121,7 @@
 	function createCluster() {
         for (var i = 0; i < data.length; i++) {
         	if(data[i]['lat']){
-				var latLng = new LatLng(data[i]['lat'], data[i]['lng']);
+				var latLng = new LatLng(Number(data[i]['lat']), Number(data[i]['lng']));
 	            var decoration = new MarkerDecoration(i, new Point(0, -5));
 	            var marker = new Marker({
 	                'position': latLng,
@@ -249,8 +249,11 @@
       // 接收位置信息
       if(event.data){
       	loc = event.data;
-      	var center = new qq.maps.LatLng(loc.lat,loc.lng)
-      	map.panTo(center)
+        if(loc.lat){
+            var center = new qq.maps.LatLng(Number(loc.lat),Number(loc.lng));
+            console.log(center);
+            map.panTo(center);
+        }
       }
     }, false);
 	
